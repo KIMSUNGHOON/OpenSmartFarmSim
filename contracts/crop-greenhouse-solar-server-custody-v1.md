@@ -48,6 +48,8 @@ HEAD, 직전 HEAD/proof SHA, sequence와 initialize/advance/finalize를 묶는�
 게시한다. 현재 입력/농장/권리/review는 준비·계산·proof/HEAD 게시·조회 반환의
 전후에 다시 검사한다. 여러 저장소에 대한 하나의 원자 snapshot을 뜻하지 않는다.
 
+[현재 농장 뷰/검증 소유권](solar-current-physical-farm-view-v1.md)은 full v1 현재 경제/권리를 유지한다. private prepare 반환 후의 full guard는 즉시 advance caller가 수치 continuation 전에 수행한다. `_open`은 기본 즉시 검증이며, 명시된 custody 읽기 소비자만 첫 progress guard까지 entry 검증을 미룬다. 공개 데이터/원천·경제/권리 판본과 모든 게시/조회 fence는 유지한다.
+
 서명된 선택 HEAD의 원 checkpoint만 공식 복원한다. 확정된 걸음·사건을 다시
 적분/적용하지 않는다. HEAD 전 실패는 직전 확정 prefix, HEAD 후 실패는 새 확정
 prefix에서 재개한다. 선택되지 않은 내용 주소 파일은 결과로 제시하지 않는다.

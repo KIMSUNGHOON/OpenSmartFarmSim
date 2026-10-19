@@ -1,0 +1,570 @@
+{
+  "G0_G4": "not_assessed",
+  "RED_or_prototype_or_old88_not_added": true,
+  "actual_TLS": {
+    "DB_unchanged": true,
+    "actual_SCRAM": true,
+    "insufficient_scope_status": 403,
+    "only_error_no_partial_fields": true,
+    "recovered_response_is_unavailable_with_null_checkpoint_and_result": true,
+    "recovered_status": 200,
+    "rights_hold_status": 422,
+    "status": 503,
+    "verified_TLS": true
+  },
+  "actual_TLS_raw_sha256": "b088244a4641ccf1e957411be04118edfb36997393a5bc26b983ecf2f805e1fa",
+  "actual_farm_Runs": 0,
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "0555dfe8929031e7b43b34300c184e35ce07a44faabb093ffa478659e0efd0bc",
+  "baseline_revision": "c0309dc609702a261e6b6fb16520f62ed55f83bc",
+  "changed_product_sha256": {
+    "backend/app/crop_greenhouse_solar_execution_checkpoint.py": "6201b934429afe64a8bddcbe975c9c4b972de6d019958c0f18679cc4d482641a",
+    "backend/app/crop_greenhouse_solar_server_custody.py": "513c9aa8eca874ddaac24085a71d172bbbe1a72b582ed79f1b583fffbc256ddb"
+  },
+  "comparison": {
+    "baseline_counts": {
+      "SQL": 12919,
+      "role_audits": 343,
+      "source_reads": 3040
+    },
+    "mean_wall_reduction_pct": 8.817051668337495,
+    "modes": [
+      "baseline",
+      "candidate",
+      "candidate",
+      "baseline"
+    ],
+    "no_python_call_profiler": true,
+    "old_functions_used_current_receipt_code_identities": true,
+    "ordered_source_trace_measured": false,
+    "original_counts_and_UTC_preserved": true,
+    "paired_wall_reductions_pct": [
+      10.316394020751341,
+      7.317240023384619
+    ],
+    "private_prototype_mean_reduction_pct": 9.244779673624082,
+    "product_counts": {
+      "SQL": 11723,
+      "role_audits": 315,
+      "source_reads": 2736
+    },
+    "steps": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "wall_seconds": [
+      8.870493043999886,
+      7.955378029997519,
+      8.218845287003205,
+      8.867717458000698
+    ]
+  },
+  "expected_RED_case": "focused-solar-guard-ownership-red-v1",
+  "expected_RED_missing_entry_keyword": true,
+  "focused_distinct_tests_passed": 64,
+  "fresh_producer": {
+    "actual_exit": 0,
+    "fresh_exec": true,
+    "original_values_and_UTC_checked": true,
+    "raw_sha256": "5be039567efebc028bf9ffdf9d7f691a73c852a68cc4c83d56a24df83f046796",
+    "steps": 16
+  },
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "independent_normal64_run": false,
+  "local_implementation_adopted": true,
+  "mandatory_methods_unchanged_AST": [
+    "_Session._guard",
+    "_Session._publish",
+    "_Session.progress",
+    "_Session.advance",
+    "SolarExecutionCheckpointStore.confirm"
+  ],
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T15:01:22.377Z",
+    "turn_context_sha256": "29ab9b1bc1c8a2692f943ee3440295f9fe11f13874a57a7306a8670a4607c992"
+  },
+  "new_solar_deployed": false,
+  "new_test_sha256": "cbe32da3da2df9c06a9ccc8be1771be6ae6b6d378dce9f1e1bd171ec0db4dbd4",
+  "normal64_accepted": false,
+  "only_deferred_entry_callers": [
+    "SolarServerCustody.inspect",
+    "SolarServerCustody.page",
+    "SolarExecutionCheckpointStore._session"
+  ],
+  "original_actor_preflight": {
+    "actor_sha256": {
+      "api": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+      "worker": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6"
+    },
+    "actual_child_exit": 0,
+    "case": "focused-solar-guard-original-actors-v1",
+    "guard_seconds": 1.1222445739986142,
+    "log_sha256": "13eb8c2ad8b9f2d2114abd1b92738e43a3a8021fc80b818307b294d844dd680d",
+    "original_assertions_and_API_body_unchanged": true
+  },
+  "permission_or_authority_result_cache_added": false,
+  "physical_only_capability_added": false,
+  "previous_product_source_commit": "94e11a4e1609e8b8a57c75c8d4659c01b37f90db",
+  "prototype_actual_AST_equivalence": {
+    "actual_product_methods_AST_sha256": "6582c8f566350fb2e3813a66818893035932772a3639139bea8ae4fbb8b17fd7",
+    "methods": [
+      [
+        "crop_greenhouse_solar_server_custody",
+        "SolarServerCustody",
+        "_open"
+      ],
+      [
+        "crop_greenhouse_solar_server_custody",
+        "SolarServerCustody",
+        "inspect"
+      ],
+      [
+        "crop_greenhouse_solar_server_custody",
+        "SolarServerCustody",
+        "page"
+      ],
+      [
+        "crop_greenhouse_solar_execution_checkpoint",
+        "SolarExecutionCheckpointStore",
+        "_session"
+      ]
+    ],
+    "prototype_case": "focused-solar-current-guard-ownership-cost-v1",
+    "same_AST": true
+  },
+  "public_API_or_input_or_numeric_model_changed": false,
+  "queue_observation_helper_erratum": {
+    "actual_test_failure": false,
+    "actual_worker5_passed": true,
+    "cause": "summary regex over-escaping only",
+    "resumed_remaining_without_worker5_rerun": true
+  },
+  "raw_evidence_files": {
+    "focused-solar-current-guard-ownership-cost-v1": "current-guard-ownership-paired-cost.json",
+    "focused-solar-guard-ownership-product-cost-v1": "product-current-guard-ownership-paired-cost.json"
+  },
+  "raw_evidence_sha256": {
+    "focused-solar-current-guard-ownership-cost-v1": "429adc5c53ae15b5f3318ecaf421614b5a713c4390a4d234292880b96e05e68a",
+    "focused-solar-guard-ownership-product-cost-v1": "837e64ab562608be6394b820d2de8da5be0313387a96b975661fe8dda3e5a997"
+  },
+  "recorded_at": "2026-10-19T15:41:30.591972Z",
+  "remaining_focused_hours": null,
+  "review": {
+    "architecture": "Keep existing full v1 farm/economic reference authority; private prepare return is a proposal, immediate caller owns mandatory guard before continuation; generic raw binding readers retain eager default.",
+    "correctness": "Actual four boundaries plus worker/read-race/query/HTTP/TLS/fresh preserve values/UTC, current/late rights and atomic fences.",
+    "performance": "Actual product ABBA about8.82percent lower, both pairs lower; private9.24percent separate. Fewer duplicate full verifier invocations, no permission result reuse; independent original64 throughput remains unaccepted.",
+    "security": "Strict option/mode and current-before-load tests; physical and economic revocation after prepare prevent continuation; original default consumers, publisher/current/calc/lease/cancel and lock fences retained.",
+    "simplicity": "Two existing modules, seven changed lines in each direction; one strict private read-only option; no new service/dependency/reader family/cache."
+  },
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-current-guard-ownership-acceptance-v1",
+  "stages": [
+    {
+      "case": "focused-solar-guard-ownership-green4-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/solar-custody/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1004310528,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 67.33198337200156
+      },
+      "log_sha256": "406708cd8caa064b1b3efd02c4db811a0dad07f2c5253dbdb90002cf7669a906",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 4
+    },
+    {
+      "case": "focused-solar-guard-ownership-product-cost-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/query/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1011150848,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 64.81576040800428
+      },
+      "log_sha256": "110f91a5a84aeb68747ec26d1e6ca1ebc494d13c0d8bee81c35d3d630e3543d6",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 1
+    },
+    {
+      "case": "focused-solar-guard-worker5-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/worker/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1066504192,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 225.64048077599728
+      },
+      "log_sha256": "c54ece4f75b8ae9894fb73a1f217d34f7448260868f8c651d006ec9397e8c16b",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 5
+    },
+    {
+      "case": "focused-solar-guard-worker8-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/worker/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1051271168,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 212.8857148870011
+      },
+      "log_sha256": "423b06090b8a74fdf4d2b569db1368e75cb2735099afedb0fccf965586abd867",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 8
+    },
+    {
+      "case": "focused-solar-guard-readlocks7-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/query/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1021480960,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 152309760,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 187.72177737900347
+      },
+      "log_sha256": "c91e3a8192fd8d1c7bc32cd5b68e3d063be7ba65f3209b4b28a581ab3c89f104",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 7
+    },
+    {
+      "case": "focused-solar-guard-query6-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/query/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1025417216,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 155.63706789199932
+      },
+      "log_sha256": "92f859b9985c661cd646dd5ae883bfc1dd7321d80a18f4b49829e0e9d1b74d45",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 6
+    },
+    {
+      "case": "focused-solar-guard-query7-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/query/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1053388800,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 152248320,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 231.07275165399915
+      },
+      "log_sha256": "68a66b3077b1c147abb9c80295bb0e19cc127ec75a2b68993c17801ed624af88",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 7
+    },
+    {
+      "case": "focused-solar-guard-HTTP24-v1",
+      "database_cleanup_proof_files": [],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 946085888,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 2.3923913940016064
+      },
+      "log_sha256": "9047d9b7950444d227a549196770d643900b4efd7174d93968810a98e8b7158a",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 24
+    },
+    {
+      "case": "focused-solar-guard-TLS1-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/query/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1052479488,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 170754048,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 38.870138377998956
+      },
+      "log_sha256": "02313646a80b45822c08198e15090b58d03cdcf948419cea2c506cbc60b09e38",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 1
+    },
+    {
+      "case": "focused-solar-guard-fresh1-v1",
+      "database_cleanup_proof_files": [
+        "evidence/new/solar-custody/database-cleanup.json"
+      ],
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1049993216,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 41.46472712299874
+      },
+      "log_sha256": "03438eb34c60246fffb11c629c295439ee870304ababd65699822df3b2d9e533",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "aed44f0c8ef2354eddf0defc8437807ed7f0cef367c5ae75818f91ff73f83142",
+      "tests_passed": 1
+    }
+  ],
+  "status_publication": {
+    "FD": [
+      4,
+      4
+    ],
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "browser_rerun": false,
+    "case": "focused-solar-guard-final64-status-v1",
+    "frozen_HTML_and_2173_ventilation_files_preserved": true,
+    "guard_seconds": 1.3613254470037646,
+    "local_links": 2505,
+    "log_sha256": "dfa87ed47e69764d9bc318c2fb81928fbda5e9a104535fc7a780194a32751d3f",
+    "owned_cleanup_remaining": 0,
+    "protected_live": true,
+    "reported_at": "2026-10-19T15:44:42.529411Z",
+    "status_sha256": "4737ba615742cbe85a750c62ff732faa206368578f8fccae25a62cdcc8b2df08"
+  },
+  "v1_physical_economic_rights_still_jointly_required": true,
+  "worker_original": {
+    "completed": {
+      "all_original_values_UTC": true,
+      "counts": {
+        "outcome": 1,
+        "publication": 1,
+        "registry": 1,
+        "result_links": 1
+      },
+      "read_calculations": 0,
+      "restore": 2,
+      "start": 1,
+      "steps": 16
+    },
+    "hold": {
+      "all_original_values_UTC": true,
+      "counts": {
+        "outcome": 1,
+        "publication": 0,
+        "registry": 1,
+        "result_links": 1
+      },
+      "read_calculations": 0,
+      "restore": 2,
+      "start": 1,
+      "steps": 16
+    }
+  }
+}

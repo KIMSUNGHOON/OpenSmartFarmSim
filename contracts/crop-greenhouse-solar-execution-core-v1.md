@@ -16,6 +16,7 @@
 구간 전 `_before`는 잠금 없는 임대/입력 조회 연결을 닫은 뒤 전체 현재 입력 검증을 수행한다.
 새로 감사한 연결의 확정 행 잠금에서 임대·취소와 원 입력 일치를 다시 확인한 후 갱신한다.
 검증 중 발생한 취소·만료·조회 입력 불일치는 갱신을 막는다. 이 연결 수명 변경은 검증/역할 감사를 생략하지 않는다.
+checkpoint의 private session은 [명시된 읽기 entry](solar-current-physical-farm-view-v1.md)를 사용한다. confirm의 현재성 검사와 private binding 비교 뒤 첫 progress full guard가 history/쓰기 전에 실행되며, 기록 뒤 current/progress/lease/input/history fence도 유지한다.
 서명한 파일 HEAD를 기존 작업 사건에 확인하고, 중복 확인은 최초 사건/시각을 유지한다.
 새 checkpoint/publication/result-link 판본·사건 이름을 사용해 구 모델과 구분한다. checkpoint와 결과 연결은 provenance_sha256와 rights_or_gate_approval=False를 포함하며 원 progress와 대사한다. checkpoint 필드 집합도 계약 판본과 함께 고정한다.
 

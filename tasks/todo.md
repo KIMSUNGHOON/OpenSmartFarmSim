@@ -96,7 +96,9 @@
 - [x] **`crop-solar-current-source-materialization-cost`** — 같은 기록의 별도 진단1. 원천3,040회의 종류·typed 검증/정규화·SQL의 선택한 중첩/배타 비용과 원 값/UTC·profiler 복원·정리를 대사했다. 계측 오버헤드 포함으로 처리량/후보 이득을 추정하지 않고88에 더하지 않는다.
 - [x] **`crop-solar-current-source-low-overhead-cost`** — [진단/시험5건·원 코드 보존](../research/solar-current-validation-boundary-review-20261019.md). CPU1,537표본/timer복원·배타 SQL비용/원12,919·감사343/원천3,040/UTC·정리를 대사했다. canonical envelope와 감사 허용 목록 후보는 평균/짝별 개선이 부족해 미채택했으며 제품94e11a4/88검사는 그대로다.
 - [x] **`crop-solar-physical-economic-dependency-review`** — 같은 기록의 실제343감사 호출자/쓰기3문장과 소비필드/등록→경제 전체 재검증 연결을 source SHA/AST로 대조했다. compiled/경제 수치는 이 물리 결속 소비에 없지만 full source_binding hash와 v1 권리 계약이 있으므로 기존 검증 생략/과거 receipt 대체는 승인하지 않았다. 정적 설계 검토를 실행 검사 수에 더하지 않는다.
-- [ ] **`crop-solar-current-physical-farm-contract`** — 생장 계산용 농장 facts와 현재 권리/검토·등록/지역/작기·source/model/metadata 책임을 명세와 대조해 별도 판본 필요성을 결정하고 최소 reader 계약/의존성/거부 행렬을 작성한다. v1 등록/경제·현재 철회/범위/metadata 권리를 보존하며 과거 승인/권한 cache로 바꾸지 않는다. 명시 선택/기본 거부·원64/chunk1/360/RSS/숫자/UTC/actor 적용 관계를 전환 전에 확정하고, 실제 fresh/늦은 철회·lease/cancel/원자 게시·paired/독립 정상/hold/HTTP취소/WebGL·WSL 정리를 단계별 수용 조건으로 둔다.
+- [x] **`crop-solar-current-physical-farm-contract`** — [현재 v1 뷰/검증 소유권 계약](../contracts/solar-current-physical-farm-view-v1.md). 별도 physical-only capability를 도입하지 않고 full 등록/경제·현재 권리와 기존 actor/input을 유지한다. 소비 facts/현재성·철회·명시 읽기/기본 즉시 검증·원64/360/RSS/actor 적용 관계와 단계별 수용을 확정했다.
+- [x] **`crop-solar-current-guard-ownership`** — [최종 같은 app source64검사/검토](../research/solar-current-guard-ownership-20261020.md). 새4/제품paired1/worker13/읽기경합7/query13/HTTP24/TLS1/fresh1에서 full v1 권리·원 값/UTC·게시/lease/cancel·lock/정리를 확인했다. SQL12,919→11,723/감사343→315/원천3,040→2,736·제품 평균8.8171% 감소. 사설9.2448%와 이전88을 구분하며 독립 원64/새 배포는 미수용이다.
+- [ ] **`crop-solar-current-guard-independent-normal64`** — 위 수용 source의 계측 OFF 원 actor/input64/chunk1/poll/retry360/RSS와 API/worker0·원 값/UTC·두 전진prefix·정상/완전 정리를 별도로 확인한다. 이전33/64 실패를 보존하며 새로운 더 쉬운 입력/시간/청크·검사 생략으로 통과시키지 않는다. 후속은 독립 hold→HTTP취소→계산 중WebGL→WSL 용량/사용자 적용이다.
 
 
 

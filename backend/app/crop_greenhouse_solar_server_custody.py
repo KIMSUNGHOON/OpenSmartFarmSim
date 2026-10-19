@@ -275,8 +275,8 @@ class SolarServerCustody:
         finally:os.close(fd)
 
     @contextmanager
-    def _open(self,tenant,request_raw,write):
-        _need(type(write) is bool)
+    def _open(self,tenant,request_raw,write,*,entry_guard=True):
+        _need(type(write) is bool and type(entry_guard) is bool and (entry_guard or not write))
         opened=[];lifetime=ExitStack()
         try:
             self._binding();self.binding._guard(tenant,write);request=self.binding._request(request_raw)
@@ -320,7 +320,7 @@ class SolarServerCustody:
             artifact=files._directory(intent,'artifact',create=write);opened.append(artifact)
             session=_Session(self,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,write=write,
                 read_locks=None if write else (root_lock,intent_lock))
-            if not write:session._guard()
+            if not write and entry_guard:session._guard()
             def prepare():
                 _need(write is True)
                 session._guard();d,r=resolve();source=request['input']
@@ -330,7 +330,7 @@ class SolarServerCustody:
                 profiles={k+'_profile':cls(raw[k+'.json']) for k,cls in zip(continuation.PROFILE_NAMES,evidence._CLASSES,strict=True)}
                 ctx=continuation.prepare_context(**{k:v[k] for k in ('scenario','solar','ventilation','events','output_steps','step_seconds','step_count')},**profiles)
                 binding=clock.prepare_binding(ctx,origin=v['time_origin'])
-                _need(_canonical(evidence._record(binding,verified.record['provenance']))==_canonical(verified.record));session._guard();return binding
+                _need(_canonical(evidence._record(binding,verified.record['provenance']))==_canonical(verified.record));return binding
             yield session,prepare
         except (SolarCustodyConflict,SolarCustodyPending,PermissionError):raise
         except files.CycleCustodyPending:raise SolarCustodyPending('solar calculation custody busy') from None
@@ -345,10 +345,10 @@ class SolarServerCustody:
         with self._open(tenant,request_raw,True) as (session,prepare):return session.advance(budget,prepare)
 
     def inspect(self,tenant,request_raw):
-        with self._open(tenant,request_raw,False) as (session,_):return session.progress()
+        with self._open(tenant,request_raw,False,entry_guard=False) as (session,_):return session.progress()
 
     def page(self,tenant,request_raw,expected_progress_raw,kind,*,start=0,limit=None):
-        with self._open(tenant,request_raw,False) as (session,_):
+        with self._open(tenant,request_raw,False,entry_guard=False) as (session,_):
             _need(type(expected_progress_raw) is bytes and 0<len(expected_progress_raw)<=LIMITS['progress_bytes']
                 and session.progress()==expected_progress_raw)
             head,_,_=session._load();_need(_digest(head['artifact_sha256']))

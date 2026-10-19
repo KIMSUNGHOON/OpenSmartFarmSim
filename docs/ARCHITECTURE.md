@@ -125,6 +125,8 @@ API/3D에서 재계산하거나 G0–G4를 해제하지 않는다.
 
 ## 검증 작물 계산의 서버 이력
 
+[현재 Solar 농장 뷰](../contracts/solar-current-physical-farm-view-v1.md)는 full v1 등록/경제 참조·현재 권리를 유지한다. private prepare의 원 guard는 caller의 수치 소비 전에, 명시된 read entry의 원 guard는 첫 progress 읽기 전에 수행한다. 기본 raw binding 읽기는 즉시 검증하며 새 권한 cache/물리-only family는 없다. [같은 source64 집중검사](../research/solar-current-guard-ownership-20261020.md)는 독립64/배포 수용과 구분한다.
+
 [새 계산 서버 계약](../contracts/crop-cycle-calculation-server-custody-v1.md)은 exact 공식 계산 문맥/현재 농장 권한과
 새 artifact를 `CalculationServerCustody`에 결속한다. 고정 resolver가 소유 문맥을 열고 실제 계산과
 proof fsync·현재 권리 재확인·HEAD 게시를 수행한다. inspect/page/완료 재시도는 현재 권리 아래 RHS0이다.

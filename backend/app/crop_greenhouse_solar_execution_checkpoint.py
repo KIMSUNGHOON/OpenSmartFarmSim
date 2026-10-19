@@ -161,7 +161,7 @@ class SolarExecutionCheckpointStore:
     @contextmanager
     def _session(self, tenant, request_raw):
         error = None
-        with self.server._open(tenant, request_raw, False) as opened:
+        with self.server._open(tenant, request_raw, False, entry_guard=False) as opened:
             try: yield opened[0]
             except (SolarCheckpointHold, custody.SolarCustodyPending) as exc: error = exc
         if error is not None: raise error
