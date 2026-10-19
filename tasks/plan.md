@@ -8,8 +8,12 @@ public TLS1 + Solar7 + worker13 + query13 + HTTP24=58건이며 private GREEN/이
 실제 guard 합계는1,343.631초(약22.4분), 합산 최대 RSS1,041,448,960bytes다.
 후속 원 계측 OFF64 CI39210494752/source583bd63는 원360초 기준·guard382.137초·종료 뒤24/64로 미완료다.
 두 actor는 정리 때 -15였고 정상/DB 정리 proof는 없다. 종료 뒤 metadata는 현재 source/권리 검증이 아니다.
-다음 한 단계는 기존 bounded `phases` 관찰1회다. 실제 current/등록/guard/advance/confirm의 시간과 원 반환 checkpoint를
-source/actor/header/run/digest·종료/정리에 대사해 다음 최소 수정 범위를 정한다. 진단은 정상 수용이 아니다.
+[후속 단계 진단/현재 한 청크](../research/crop-solar-capture-pending-phase-cost-20261019.md)를 제한된 관측으로 수용했다.
+CI39211556239는 실제 확정15/64·phase 예외 기록0·current/등록의 비용을 확인했다.
+현재 청크는10.029925초·current12/등록24/재구성1/원천1,824·연결144/SQL7,113/감사183이다.
+다음 한 단계는 기존 역할 감사 SQL 왕복 감소 후보다. 모든 fresh 역할/schema/관계/열/권한 사실·거부/늦은 변경과
+원 조회 순서/수치/UTC·일반 경로/worker/HTTP·5root/자원/정리를 보존해야 한다. 같은 fixture paired 비용·SQL 감소 후 검토한다.
+아직 미구현·미채택이며 진단은 정상 수용이 아니다.
 같은 정상 반복이나 상한/actor/입력 변경은 하지 않는다. 그 뒤 수정 source의 독립 정상은 다음을 유지한다. 원64/chunk1/조회·retry360/RSS,
 64/start1/CLI0/attempt1/success1·두 전진 prefix·원 UTC/수치·두 actor 종료0·FD/역할/schema/소유 PG/임시 정리 proof가 수용 기준이다.
 원360초에 준비/정리·CI 대기가 추가되며, 통과 전 다음 단계의 완료 시간을 확정하지 않는다.

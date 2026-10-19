@@ -215,9 +215,22 @@
   },
   "new_Solar_deployed": false,
   "normal_native_accepted": false,
+  "phase_diagnostic": {
+    "artifact": {
+      "digest": "sha256:0970763ade1fccd03b855ff757117a069c50b2da9261b480fe02a04babd5bc91",
+      "id": 12168022971,
+      "name": "solar-unpaused-normal-ae93637c2e945a1ce73839918f1daf7bbd9f68d2",
+      "size_in_bytes": 17362
+    },
+    "bounded_observation_accepted": true,
+    "head_sha": "ae93637c2e945a1ce73839918f1daf7bbd9f68d2",
+    "normal_accepted": false,
+    "report": "research/crop-solar-capture-pending-phase-cost-20261019.md",
+    "run_id": 39211556239
+  },
   "recorded_at": "2026-10-19T06:43:02.685847+00:00",
   "remaining_checks": [
-    "one bounded current-source phase diagnostic, then evidence-backed fix and changed-source trace-OFF native64",
+    "evidence-backed role-audit SQL I/O candidate, targeted denial/late-change and original-value regressions, then changed-source trace-OFF native64",
     "independent hold and actual HTTP cancel",
     "calculating WebGL",
     "WSL capacity and user activation",

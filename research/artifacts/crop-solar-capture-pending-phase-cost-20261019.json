@@ -1,0 +1,1303 @@
+{
+  "G0_G4": "not_assessed",
+  "actors": [
+    {
+      "api_proof_present": false,
+      "client_proof_present": false,
+      "exit_code": -15,
+      "log": {
+        "exception_types": [],
+        "locations": []
+      },
+      "role": "api",
+      "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+      "worker_proof_present": false
+    },
+    {
+      "api_proof_present": false,
+      "client_proof_present": false,
+      "exit_code": -15,
+      "log": {
+        "exception_types": [],
+        "locations": []
+      },
+      "role": "worker",
+      "script_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8",
+      "worker_proof_present": false
+    }
+  ],
+  "actual_farm_Runs": 0,
+  "current_chunk": {
+    "actual_tool": "20775:0",
+    "added_to_targeted58": false,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 1007759360,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 43.48038236100183
+    },
+    "metrics": {
+      "G0_G4": "not_assessed",
+      "SQL_execute_calls": 7113,
+      "SQL_execute_seconds": 4.1485779541762895,
+      "after": {
+        "computed_through_utc": "2026-10-01T00:00:04.123456Z",
+        "head_sha256": "c9f7ae480fb1ddbc5b041e2b59d97a3b8b96aa86a5833a1379d370acbc8c5329",
+        "planned_steps": 16,
+        "proof_sha256": "1150769fcb634fda69864557b4532e9f5e7eacddecb5a9c5cda7869785d52528",
+        "status": "yielded",
+        "steps": 2
+      },
+      "before": {
+        "computed_through_utc": "2026-10-01T00:00:02.123456Z",
+        "head_sha256": "cb463bd8012bb3073a12cbb2fc3437f50ff3b8bf44de586af9425d672aeadd53",
+        "planned_steps": 16,
+        "proof_sha256": "bc9d7248211637fcaaa06086c7883df606dedeaa5bfe7770c5d5aa4af8461506",
+        "status": "yielded",
+        "steps": 1
+      },
+      "current_boundaries": 12,
+      "entries": [
+        {
+          "calls": 1,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "SolarServerCustody.advance",
+          "inclusive_seconds": 10.028607253,
+          "self_seconds": 0.000732862
+        },
+        {
+          "calls": 12,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "SolarServerCustody._open.<locals>.current",
+          "inclusive_seconds": 9.645192191000001,
+          "self_seconds": 8.232500000000001e-05
+        },
+        {
+          "calls": 12,
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "SolarFarmBinding.current",
+          "inclusive_seconds": 9.595158469000001,
+          "self_seconds": 0.00033772800000000003
+        },
+        {
+          "calls": 12,
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "SolarFarmBinding._bind",
+          "inclusive_seconds": 9.594816315000001,
+          "self_seconds": 0.012896779
+        },
+        {
+          "calls": 1,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "_Session.advance",
+          "inclusive_seconds": 9.005347529,
+          "self_seconds": 0.00198648
+        },
+        {
+          "calls": 11,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "_Session._guard",
+          "inclusive_seconds": 8.688644302,
+          "self_seconds": 0.00028948900000000003
+        },
+        {
+          "calls": 24,
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "SolarFarmBinding._registration",
+          "inclusive_seconds": 8.561534269000001,
+          "self_seconds": 0.001787801
+        },
+        {
+          "calls": 24,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService.read_registration",
+          "inclusive_seconds": 7.863829503000001,
+          "self_seconds": 0.00015427300000000002
+        },
+        {
+          "calls": 24,
+          "file": "farm_registration_read_scope.py",
+          "function": "RegistrationRead.read",
+          "inclusive_seconds": 7.86365797,
+          "self_seconds": 0.000818314
+        },
+        {
+          "calls": 23,
+          "file": "farm_registration_read_scope.py",
+          "function": "RegistrationRead._current",
+          "inclusive_seconds": 7.197659911000001,
+          "self_seconds": 0.001349699
+        },
+        {
+          "calls": 23,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore.verify_current_reads",
+          "inclusive_seconds": 4.688202374,
+          "self_seconds": 0.000136956
+        },
+        {
+          "calls": 23,
+          "file": "market_reference_bundle.py",
+          "function": "verify",
+          "inclusive_seconds": 4.688065418,
+          "self_seconds": 0.004310706
+        },
+        {
+          "calls": 23,
+          "file": "market_reference_bundle.py",
+          "function": "_verify_shared",
+          "inclusive_seconds": 4.675255741,
+          "self_seconds": 0.0010207810000000001
+        },
+        {
+          "calls": 23,
+          "file": "market_reference_bundle.py",
+          "function": "_verify_trace",
+          "inclusive_seconds": 3.695319322,
+          "self_seconds": 0.011121117000000002
+        },
+        {
+          "calls": 183,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "inclusive_seconds": 3.0850139440000004,
+          "self_seconds": 0.045908201
+        },
+        {
+          "calls": 2,
+          "file": "crop_greenhouse_solar_storage.py",
+          "function": "_operation.<locals>.run",
+          "inclusive_seconds": 2.5348570450000003,
+          "self_seconds": 0.000101161
+        },
+        {
+          "calls": 1,
+          "file": "crop_greenhouse_solar_storage.py",
+          "function": "ArtifactWriter.append",
+          "inclusive_seconds": 2.495484438,
+          "self_seconds": 0.001436723
+        },
+        {
+          "calls": 1,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "_Session.advance.<locals>.<lambda>",
+          "inclusive_seconds": 2.4331417930000003,
+          "self_seconds": 6.497000000000001e-06
+        },
+        {
+          "calls": 1,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "_Session._publish",
+          "inclusive_seconds": 2.433135296,
+          "self_seconds": 4.5869000000000004e-05
+        },
+        {
+          "calls": 1104,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore.__getattr__.<locals>.scoped_lookup",
+          "inclusive_seconds": 2.025914732,
+          "self_seconds": 0.005646134000000001
+        },
+        {
+          "calls": 72,
+          "file": "job_store.py",
+          "function": "JobStore.connect",
+          "inclusive_seconds": 1.806995179,
+          "self_seconds": 0.003923778
+        },
+        {
+          "calls": 1,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "_Session.progress",
+          "inclusive_seconds": 1.622062879,
+          "self_seconds": 6.518500000000001e-05
+        },
+        {
+          "calls": 1,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "SolarServerCustody._open.<locals>.prepare",
+          "inclusive_seconds": 1.612783415,
+          "self_seconds": 0.0014618880000000002
+        },
+        {
+          "calls": 1824,
+          "file": "api_market_source.py",
+          "function": "_MarketSources.__getattr__.<locals>.scoped_read",
+          "inclusive_seconds": 1.604641819,
+          "self_seconds": 0.003851417
+        },
+        {
+          "calls": 1824,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._read",
+          "inclusive_seconds": 1.563407562,
+          "self_seconds": 0.009521486000000001
+        },
+        {
+          "calls": 1824,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._read_in_transaction",
+          "inclusive_seconds": 1.473128682,
+          "self_seconds": 0.009552689000000001
+        },
+        {
+          "calls": 48,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService._find",
+          "inclusive_seconds": 1.271967,
+          "self_seconds": 0.0014262600000000002
+        },
+        {
+          "calls": 48,
+          "file": "thermal_run_store.py",
+          "function": "ThermalRunStore.connect",
+          "inclusive_seconds": 1.174346876,
+          "self_seconds": 0.0023544570000000003
+        },
+        {
+          "calls": 144,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._reference_value",
+          "inclusive_seconds": 1.056316966,
+          "self_seconds": 0.0012377990000000001
+        },
+        {
+          "calls": 816,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore.get_economic_input",
+          "inclusive_seconds": 1.052317103,
+          "self_seconds": 0.007849693000000001
+        },
+        {
+          "calls": 2,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "SolarServerCustody._open",
+          "inclusive_seconds": 1.0223575500000002,
+          "self_seconds": 0.000104925
+        },
+        {
+          "calls": 144,
+          "file": "runtime_login.py",
+          "function": "connect_runtime",
+          "inclusive_seconds": 0.9805910430000001,
+          "self_seconds": 0.0036078250000000003
+        },
+        {
+          "calls": 48,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore.read_scope",
+          "inclusive_seconds": 0.9431296020000001,
+          "self_seconds": 0.0014220600000000002
+        },
+        {
+          "calls": 24,
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "SolarFarmBinding._input",
+          "inclusive_seconds": 0.919103701,
+          "self_seconds": 0.006472367000000001
+        },
+        {
+          "calls": 360,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._shared_reader",
+          "inclusive_seconds": 0.9010874910000001,
+          "self_seconds": 0.011804605000000001
+        },
+        {
+          "calls": 1824,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._select_with_job",
+          "inclusive_seconds": 0.83706079,
+          "self_seconds": 0.022448801
+        },
+        {
+          "calls": 183,
+          "file": "runtime_roles.py",
+          "function": "_scope",
+          "inclusive_seconds": 0.769312804,
+          "self_seconds": 0.011526786
+        },
+        {
+          "calls": 25,
+          "file": "crop_greenhouse_solar_input_evidence.py",
+          "function": "_operation.<locals>.run",
+          "inclusive_seconds": 0.710432378,
+          "self_seconds": 0.016384205000000002
+        },
+        {
+          "calls": 1824,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._verified",
+          "inclusive_seconds": 0.5804595100000001,
+          "self_seconds": 0.010020705000000001
+        },
+        {
+          "calls": 1824,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._model",
+          "inclusive_seconds": 0.5532944120000001,
+          "self_seconds": 0.015470203000000002
+        },
+        {
+          "calls": 504,
+          "file": "runtime_login.py",
+          "function": "verify_runtime_identity",
+          "inclusive_seconds": 0.397794686,
+          "self_seconds": 0.008992859
+        },
+        {
+          "calls": 816,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._input_in_transaction",
+          "inclusive_seconds": 0.31910455800000004,
+          "self_seconds": 0.009364791
+        },
+        {
+          "calls": 69127,
+          "file": "jobs.py",
+          "function": "_validate_input_fields",
+          "inclusive_seconds": 0.310952479,
+          "self_seconds": 0.12913544200000002
+        },
+        {
+          "calls": 42979,
+          "file": "provenance.py",
+          "function": "_exact_name",
+          "inclusive_seconds": 0.22259726900000001,
+          "self_seconds": 0.028075310000000003
+        },
+        {
+          "calls": 254727,
+          "file": "crop_cycle_input_stream.py",
+          "function": "_json.<locals>.pairs",
+          "inclusive_seconds": 0.192819123,
+          "self_seconds": 0.15373958100000001
+        },
+        {
+          "calls": 2112,
+          "file": "market_reference_bundle.py",
+          "function": "fingerprint",
+          "inclusive_seconds": 0.15580992100000002,
+          "self_seconds": 0.0075057760000000005
+        },
+        {
+          "calls": 128121,
+          "file": "economic_contracts.py",
+          "function": "untrusted_data",
+          "inclusive_seconds": 0.15425409,
+          "self_seconds": 0.09463104200000001
+        },
+        {
+          "calls": 11736,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._tenant",
+          "inclusive_seconds": 0.139416112,
+          "self_seconds": 0.022903958000000002
+        },
+        {
+          "calls": 721250,
+          "file": "provenance.py",
+          "function": "_exact_name.<locals>.<genexpr>",
+          "inclusive_seconds": 0.131735609,
+          "self_seconds": 0.09293116000000001
+        },
+        {
+          "calls": 4392,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._tenant",
+          "inclusive_seconds": 0.127814334,
+          "self_seconds": 0.013451018
+        },
+        {
+          "calls": 28920,
+          "file": "market_source_store.py",
+          "function": "_name",
+          "inclusive_seconds": 0.114767884,
+          "self_seconds": 0.027244583000000003
+        },
+        {
+          "calls": 3648,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._table",
+          "inclusive_seconds": 0.054268774000000006,
+          "self_seconds": 0.008073691000000001
+        },
+        {
+          "calls": 255600,
+          "file": "market_source_store.py",
+          "function": "_name.<locals>.<genexpr>",
+          "inclusive_seconds": 0.052956623,
+          "self_seconds": 0.037661502
+        },
+        {
+          "calls": 133224,
+          "file": "runtime_roles.py",
+          "function": "_allowed",
+          "inclusive_seconds": 0.052690541,
+          "self_seconds": 0.020364403
+        },
+        {
+          "calls": 406,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._shared_profile",
+          "inclusive_seconds": 0.048650125,
+          "self_seconds": 0.009704782
+        },
+        {
+          "calls": 293400,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._tenant.<locals>.<genexpr>",
+          "inclusive_seconds": 0.040092803,
+          "self_seconds": 0.040092803
+        },
+        {
+          "calls": 628940,
+          "file": "crop_cycle_input_stream.py",
+          "function": "_need",
+          "inclusive_seconds": 0.039087654,
+          "self_seconds": 0.038933724
+        },
+        {
+          "calls": 33489,
+          "file": "runtime_roles.py",
+          "function": "_tables",
+          "inclusive_seconds": 0.033892778000000005,
+          "self_seconds": 0.031781384
+        },
+        {
+          "calls": 8873,
+          "file": "market_scenario.py",
+          "function": "_json.<locals>.encode",
+          "inclusive_seconds": 0.027468471,
+          "self_seconds": 0.007715514000000001
+        },
+        {
+          "calls": 2323,
+          "file": "market_reference_bundle.py",
+          "function": "_Bundle.check",
+          "inclusive_seconds": 0.021882632000000003,
+          "self_seconds": 0.008473659
+        },
+        {
+          "calls": 9566,
+          "file": "economic_contracts.py",
+          "function": "utc",
+          "inclusive_seconds": 0.020199314000000003,
+          "self_seconds": 0.010908742
+        },
+        {
+          "calls": 5586,
+          "file": "economic_contracts.py",
+          "function": "EconomicNumber.decimal_string",
+          "inclusive_seconds": 0.018959006,
+          "self_seconds": 0.010419438000000001
+        },
+        {
+          "calls": 109800,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._tenant.<locals>.<genexpr>",
+          "inclusive_seconds": 0.018184814,
+          "self_seconds": 0.018184814
+        }
+      ],
+      "old_proofs": 3,
+      "old_proofs_preserved": true,
+      "proof_directory_identity_preserved": true,
+      "queries": [
+        {
+          "calls": 1824,
+          "execute_seconds": 0.5862091320268519,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore._select_with_job",
+          "line": 220
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.4917288559881854,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 255
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.4100392180189374,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 238
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.3808471199881751,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 196
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.28747015698900213,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 214
+        },
+        {
+          "calls": 816,
+          "execute_seconds": 0.21192388903000392,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._input_in_transaction",
+          "line": 527
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.2118728430068586,
+          "file": "runtime_roles.py",
+          "function": "_scope",
+          "line": 137
+        },
+        {
+          "calls": 504,
+          "execute_seconds": 0.19086087298273924,
+          "file": "runtime_login.py",
+          "function": "verify_runtime_identity",
+          "line": 18
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.18732718201499665,
+          "file": "runtime_roles.py",
+          "function": "_scope",
+          "line": 128
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.11281882602634141,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 280
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.10805442003766075,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 274
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.1029212750181614,
+          "file": "runtime_roles.py",
+          "function": "_scope",
+          "line": 157
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.09345573002792662,
+          "file": "runtime_roles.py",
+          "function": "_scope",
+          "line": 152
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.07908003497868776,
+          "file": "runtime_roles.py",
+          "function": "_scope",
+          "line": 146
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.07812212503631599,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 186
+        },
+        {
+          "calls": 168,
+          "execute_seconds": 0.07520729802854476,
+          "file": "thermal_run_store.py",
+          "function": "ThermalRunStore._decision_context_in_transaction",
+          "line": 326
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.07273664000967983,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 177
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.06820511701516807,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "line": 190
+        },
+        {
+          "calls": 360,
+          "execute_seconds": 0.06750211801045225,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._shared_reader",
+          "line": 266
+        },
+        {
+          "calls": 360,
+          "execute_seconds": 0.06552973298312281,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._shared_reader",
+          "line": 267
+        },
+        {
+          "calls": 183,
+          "execute_seconds": 0.05567717197845923,
+          "file": "runtime_roles.py",
+          "function": "_database",
+          "line": 123
+        },
+        {
+          "calls": 48,
+          "execute_seconds": 0.04951033900943003,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService._find",
+          "line": 146
+        },
+        {
+          "calls": 96,
+          "execute_seconds": 0.043815665998408804,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._candidate_in_transaction",
+          "line": 474
+        },
+        {
+          "calls": 48,
+          "execute_seconds": 0.03488123098941287,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._checked_candidate",
+          "line": 446
+        },
+        {
+          "calls": 72,
+          "execute_seconds": 0.032626039981551,
+          "file": "market_hold_store.py",
+          "function": "MarketHoldStore._report_row",
+          "line": 225
+        },
+        {
+          "calls": 24,
+          "execute_seconds": 0.021773118005512515,
+          "file": "job_store.py",
+          "function": "JobStore._locked_job",
+          "line": 690
+        },
+        {
+          "calls": 24,
+          "execute_seconds": 0.021519858004467096,
+          "file": "thermal_run_store.py",
+          "function": "ThermalRunStore.get_snapshot",
+          "line": 282
+        },
+        {
+          "calls": 24,
+          "execute_seconds": 0.006861942991235992,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore.read_scope",
+          "line": 100
+        }
+      ],
+      "reconstructions": 1,
+      "registration_reads": 24,
+      "rights_or_gate_approval": false,
+      "role_audits": 183,
+      "role_callers": [
+        {
+          "calls": 72,
+          "file": "job_store.py",
+          "function": "JobStore.connect",
+          "inclusive_seconds": 1.2943865860000001
+        },
+        {
+          "calls": 48,
+          "file": "thermal_run_store.py",
+          "function": "ThermalRunStore.connect",
+          "inclusive_seconds": 0.8418306710000001
+        },
+        {
+          "calls": 24,
+          "file": "market_runtime.py",
+          "function": "connect_market",
+          "inclusive_seconds": 0.42821787600000005
+        },
+        {
+          "calls": 24,
+          "file": "market_source_store.py",
+          "function": "MarketSourceStore.read_scope",
+          "inclusive_seconds": 0.332046656
+        },
+        {
+          "calls": 13,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore._reference_guard",
+          "inclusive_seconds": 0.164568499
+        },
+        {
+          "calls": 2,
+          "file": "market_candidate_store.py",
+          "function": "MarketCandidateStore.read_scope",
+          "inclusive_seconds": 0.023963656
+        }
+      ],
+      "runtime_connections": 144,
+      "scope": "one instrumented actual advance; overlapping profiler/SQL times, no native throughput acceptance",
+      "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+      "source_reads": 1824,
+      "wall_seconds": 10.029925393999292
+    },
+    "observation_case_count": 1,
+    "terminal_sha256": "0483074cfd0fffd4de940236aee33cfa768868b42743fde7bb668490ac047992"
+  },
+  "full_backend_or_browser_suite_run": false,
+  "hosted": {
+    "artifact": {
+      "digest": "sha256:0970763ade1fccd03b855ff757117a069c50b2da9261b480fe02a04babd5bc91",
+      "id": 12168022971,
+      "name": "solar-unpaused-normal-ae93637c2e945a1ce73839918f1daf7bbd9f68d2",
+      "size_in_bytes": 17362
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "head_sha": "ae93637c2e945a1ce73839918f1daf7bbd9f68d2",
+    "run_id": 39211556239
+  },
+  "hosted_failure": {
+    "exception_type": "AssertionError",
+    "known_stage": "owned calculation timed out or failed",
+    "locations": [
+      {
+        "file": "crop_greenhouse_solar_unpaused_smoke.py",
+        "function": "exercise",
+        "line": 133
+      },
+      {
+        "file": "crop-greenhouse-solar-unpaused-probe.py",
+        "function": "exercise",
+        "line": 210
+      }
+    ],
+    "original_normal_accepted": false
+  },
+  "hosted_resource": {
+    "FD_before_after": [
+      7,
+      7
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 1410,
+    "WSL_capacity_accepted": false,
+    "actual_child_exit": 1,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 363909120,
+    "hosted_only": true,
+    "local_protected_roots_present": false,
+    "owned_non_zombie_remaining": [],
+    "reason": null,
+    "rights_or_gate_approval": false,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 126742528,
+    "temporary_entries_remaining": 0,
+    "wall_seconds": 381.921164819
+  },
+  "interpretation": "registration current reference checking dominates this observed execution; nested observer times cannot be added or compared as normal throughput",
+  "native_CLI_review": {
+    "architecture": "existing custody and query boundaries; ResultStore wrapper preserved",
+    "correctness": "Session exposes typed transient domain failure; Query maps only that type; real TLS and targeted58 passed",
+    "effort": "xhigh",
+    "findings": [],
+    "model": "gpt-6.1-sol",
+    "performance": "no new loop, DB query, arithmetic or retry; native throughput not accepted",
+    "recursive_cli": false,
+    "security": "permission/rights/integrity failures retain existing rejection; current checks unchanged; no secret or private fixture published",
+    "simplicity": "five changed product lines, no new abstractions",
+    "turn_context_raw_sha256": "371104f66a02bfb2174c9db4cab6a60bdd62b54cc17a0b8c2a8caf1a1d7b8ad8",
+    "turn_context_timestamp": "2026-10-19T06:07:06.831Z"
+  },
+  "new_Solar_deployed": false,
+  "next_increment": "reduce repeated role-audit SQL I/O while preserving every fresh role/schema/privilege fact and denial, exact current/source lookups and original actors; candidate not implemented or adopted",
+  "normal_accepted": false,
+  "phase_observation": {
+    "collected_monotonic": 560.633334899,
+    "diagnostic_only": true,
+    "normal_execution_accepted": false,
+    "phases": {
+      "G0_G4": "not_assessed",
+      "active_phases": [
+        {
+          "phase": "worker.run_once",
+          "started_elapsed_seconds": 3.417790248999978
+        },
+        {
+          "phase": "worker._custody_call",
+          "started_elapsed_seconds": 352.458023561
+        },
+        {
+          "phase": "custody.SolarServerCustody.advance",
+          "started_elapsed_seconds": 352.45839502700005
+        },
+        {
+          "phase": "custody._Session.advance",
+          "started_elapsed_seconds": 353.72064613200007
+        },
+        {
+          "phase": "custody._Session._guard",
+          "started_elapsed_seconds": 358.15004416700003
+        },
+        {
+          "phase": "binding.SolarFarmBinding.current",
+          "started_elapsed_seconds": 358.16005835400006
+        },
+        {
+          "phase": "binding.SolarFarmBinding._registration",
+          "started_elapsed_seconds": 358.693706273
+        },
+        {
+          "phase": "farm.FarmAuthoringService.read_registration",
+          "started_elapsed_seconds": 358.69405804200005
+        },
+        {
+          "phase": "farm.FarmAuthoringService._find",
+          "started_elapsed_seconds": 358.69596246900005
+        }
+      ],
+      "detail": "phases",
+      "dropped_recent_events": 22895,
+      "last_adopted": null,
+      "last_advanced": {
+        "computed_through_utc": "2026-10-01T00:00:30.123456Z",
+        "planned_steps": 64,
+        "status": "yielded",
+        "steps": 15
+      },
+      "last_confirmed": {
+        "computed_through_utc": "2026-10-01T00:00:30.123456Z",
+        "planned_steps": 64,
+        "status": "yielded",
+        "steps": 15
+      },
+      "last_observed_monotonic": 560.590610886,
+      "normal_execution_accepted": false,
+      "observation_only": true,
+      "outcome": null,
+      "phase_totals": {
+        "binding.SolarFarmBinding._guard": {
+          "calls": 1482,
+          "exception_events": 0,
+          "inclusive_seconds": 5.130112230998293,
+          "max_inclusive_seconds": 0.008038216000016973,
+          "returns": 1482
+        },
+        "binding.SolarFarmBinding._input": {
+          "calls": 666,
+          "exception_events": 0,
+          "inclusive_seconds": 38.04339953100012,
+          "max_inclusive_seconds": 0.10636388199998237,
+          "returns": 666
+        },
+        "binding.SolarFarmBinding._registration": {
+          "calls": 666,
+          "exception_events": 0,
+          "inclusive_seconds": 286.1735699129995,
+          "max_inclusive_seconds": 0.7523220580000043,
+          "returns": 665
+        },
+        "binding.SolarFarmBinding.current": {
+          "calls": 332,
+          "exception_events": 0,
+          "inclusive_seconds": 329.09058137800037,
+          "max_inclusive_seconds": 1.6158818239999846,
+          "returns": 331
+        },
+        "compiler.compile_farm_inputs": {
+          "calls": 102,
+          "exception_events": 0,
+          "inclusive_seconds": 0.7531766689999984,
+          "max_inclusive_seconds": 0.011855724000042756,
+          "returns": 102
+        },
+        "custody.SolarServerCustody._open.<locals>.prepare": {
+          "calls": 17,
+          "exception_events": 0,
+          "inclusive_seconds": 33.00701036400005,
+          "max_inclusive_seconds": 2.069629443999986,
+          "returns": 17
+        },
+        "custody.SolarServerCustody.advance": {
+          "calls": 17,
+          "exception_events": 0,
+          "inclusive_seconds": 193.862311497,
+          "max_inclusive_seconds": 15.118377492000008,
+          "returns": 16
+        },
+        "custody._Session._guard": {
+          "calls": 264,
+          "exception_events": 0,
+          "inclusive_seconds": 250.48555376599998,
+          "max_inclusive_seconds": 1.3196883049999997,
+          "returns": 263
+        },
+        "custody._Session._load": {
+          "calls": 80,
+          "exception_events": 0,
+          "inclusive_seconds": 7.925324874999745,
+          "max_inclusive_seconds": 0.19081816199991408,
+          "returns": 80
+        },
+        "custody._Session.advance": {
+          "calls": 17,
+          "exception_events": 0,
+          "inclusive_seconds": 174.915235101,
+          "max_inclusive_seconds": 13.950999386000007,
+          "returns": 16
+        },
+        "custody._Session.progress": {
+          "calls": 48,
+          "exception_events": 0,
+          "inclusive_seconds": 95.70586976699968,
+          "max_inclusive_seconds": 2.290377117999924,
+          "returns": 48
+        },
+        "evidence.SolarInputEvidenceAuthority.verify": {
+          "calls": 683,
+          "exception_events": 0,
+          "inclusive_seconds": 23.601621245999382,
+          "max_inclusive_seconds": 0.06432499300001382,
+          "returns": 683
+        },
+        "farm.FarmAuthoringService._find": {
+          "calls": 1331,
+          "exception_events": 0,
+          "inclusive_seconds": 44.25670448100058,
+          "max_inclusive_seconds": 0.04531445000003487,
+          "returns": 1330
+        },
+        "farm.FarmAuthoringService._guard": {
+          "calls": 2881,
+          "exception_events": 0,
+          "inclusive_seconds": 1.9686376519997282,
+          "max_inclusive_seconds": 0.02359217999998009,
+          "returns": 2881
+        },
+        "farm.FarmAuthoringService._prepare": {
+          "calls": 102,
+          "exception_events": 0,
+          "inclusive_seconds": 56.86401385099961,
+          "max_inclusive_seconds": 0.651054820000013,
+          "returns": 102
+        },
+        "farm.FarmAuthoringService.read_registration": {
+          "calls": 666,
+          "exception_events": 0,
+          "inclusive_seconds": 261.26047377700047,
+          "max_inclusive_seconds": 0.7104507180000041,
+          "returns": 665
+        },
+        "model.advance_chunk": {
+          "calls": 16,
+          "exception_events": 0,
+          "inclusive_seconds": 1.1024949920001177,
+          "max_inclusive_seconds": 0.10373576200004209,
+          "returns": 16
+        },
+        "model.prepare_context": {
+          "calls": 17,
+          "exception_events": 0,
+          "inclusive_seconds": 0.21249574000012217,
+          "max_inclusive_seconds": 0.01771330299999363,
+          "returns": 17
+        },
+        "model.restore_checkpoint": {
+          "calls": 16,
+          "exception_events": 0,
+          "inclusive_seconds": 0.26136889600013546,
+          "max_inclusive_seconds": 0.02168654899998046,
+          "returns": 16
+        },
+        "research.OwnedResearchService.authority_snapshot": {
+          "calls": 665,
+          "exception_events": 0,
+          "inclusive_seconds": 24.43037346300008,
+          "max_inclusive_seconds": 0.04895872299999837,
+          "returns": 665
+        },
+        "thermal.ThermalRunStore.get_decision_context": {
+          "calls": 665,
+          "exception_events": 0,
+          "inclusive_seconds": 21.80743927600048,
+          "max_inclusive_seconds": 0.04468791700000452,
+          "returns": 665
+        },
+        "thermal.ThermalRunStore.get_snapshot": {
+          "calls": 665,
+          "exception_events": 0,
+          "inclusive_seconds": 22.03725370399954,
+          "max_inclusive_seconds": 0.0520723959999998,
+          "returns": 665
+        },
+        "worker._adopt": {
+          "calls": 1,
+          "exception_events": 0,
+          "inclusive_seconds": 1.8979839080000147,
+          "max_inclusive_seconds": 1.8979839080000147,
+          "returns": 1
+        },
+        "worker._before": {
+          "calls": 18,
+          "exception_events": 0,
+          "inclusive_seconds": 27.54629502500012,
+          "max_inclusive_seconds": 1.7254486989999975,
+          "returns": 18
+        },
+        "worker._confirm": {
+          "calls": 16,
+          "exception_events": 0,
+          "inclusive_seconds": 125.57874553200006,
+          "max_inclusive_seconds": 8.645224873000075,
+          "returns": 16
+        },
+        "worker._custody_call": {
+          "calls": 34,
+          "exception_events": 0,
+          "inclusive_seconds": 321.37549507699987,
+          "max_inclusive_seconds": 15.119630579000017,
+          "returns": 33
+        },
+        "worker.run_once": {
+          "calls": 1,
+          "exception_events": 0,
+          "inclusive_seconds": 0.0,
+          "max_inclusive_seconds": 0.0,
+          "returns": 0
+        }
+      },
+      "recent_events": [
+        {
+          "elapsed_seconds": 358.231657275,
+          "event": "return",
+          "inclusive_seconds": 0.0005578639999157531,
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.23210195800004,
+          "event": "call",
+          "phase": "farm.FarmAuthoringService._find"
+        },
+        {
+          "elapsed_seconds": 358.264751092,
+          "event": "return",
+          "inclusive_seconds": 0.032649133999939295,
+          "phase": "farm.FarmAuthoringService._find"
+        },
+        {
+          "elapsed_seconds": 358.299590114,
+          "event": "call",
+          "phase": "research.OwnedResearchService.authority_snapshot"
+        },
+        {
+          "elapsed_seconds": 358.30068902200003,
+          "event": "call",
+          "phase": "thermal.ThermalRunStore.get_decision_context"
+        },
+        {
+          "elapsed_seconds": 358.337900377,
+          "event": "return",
+          "inclusive_seconds": 0.03721135499995398,
+          "phase": "thermal.ThermalRunStore.get_decision_context"
+        },
+        {
+          "elapsed_seconds": 358.341169981,
+          "event": "return",
+          "inclusive_seconds": 0.04157986699999583,
+          "phase": "research.OwnedResearchService.authority_snapshot"
+        },
+        {
+          "elapsed_seconds": 358.34169015500004,
+          "event": "call",
+          "phase": "thermal.ThermalRunStore.get_snapshot"
+        },
+        {
+          "elapsed_seconds": 358.371803787,
+          "event": "return",
+          "inclusive_seconds": 0.03011363199993866,
+          "phase": "thermal.ThermalRunStore.get_snapshot"
+        },
+        {
+          "elapsed_seconds": 358.584740495,
+          "event": "call",
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.585408646,
+          "event": "return",
+          "inclusive_seconds": 0.0006681510000134949,
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.58882093700004,
+          "event": "return",
+          "inclusive_seconds": 0.35875777700005074,
+          "phase": "farm.FarmAuthoringService.read_registration"
+        },
+        {
+          "elapsed_seconds": 358.58924011299996,
+          "event": "call",
+          "phase": "farm.FarmAuthoringService._find"
+        },
+        {
+          "elapsed_seconds": 358.62545718900003,
+          "event": "return",
+          "inclusive_seconds": 0.03621707600007085,
+          "phase": "farm.FarmAuthoringService._find"
+        },
+        {
+          "elapsed_seconds": 358.62998249500004,
+          "event": "return",
+          "inclusive_seconds": 0.4004024199999776,
+          "phase": "binding.SolarFarmBinding._registration"
+        },
+        {
+          "elapsed_seconds": 358.630675783,
+          "event": "call",
+          "phase": "binding.SolarFarmBinding._guard"
+        },
+        {
+          "elapsed_seconds": 358.63373011400006,
+          "event": "call",
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.63458793000007,
+          "event": "return",
+          "inclusive_seconds": 0.0008578160000070056,
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.635038193,
+          "event": "return",
+          "inclusive_seconds": 0.0043624099999988175,
+          "phase": "binding.SolarFarmBinding._guard"
+        },
+        {
+          "elapsed_seconds": 358.635651803,
+          "event": "call",
+          "phase": "binding.SolarFarmBinding._guard"
+        },
+        {
+          "elapsed_seconds": 358.63862005199996,
+          "event": "call",
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.639331932,
+          "event": "return",
+          "inclusive_seconds": 0.0007118800000398551,
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.63975198900005,
+          "event": "return",
+          "inclusive_seconds": 0.004100186000073336,
+          "phase": "binding.SolarFarmBinding._guard"
+        },
+        {
+          "elapsed_seconds": 358.64011592099996,
+          "event": "call",
+          "phase": "binding.SolarFarmBinding._input"
+        },
+        {
+          "elapsed_seconds": 358.64181839,
+          "event": "call",
+          "phase": "evidence.SolarInputEvidenceAuthority.verify"
+        },
+        {
+          "elapsed_seconds": 358.674038687,
+          "event": "return",
+          "inclusive_seconds": 0.032220296999980746,
+          "phase": "evidence.SolarInputEvidenceAuthority.verify"
+        },
+        {
+          "elapsed_seconds": 358.692832577,
+          "event": "return",
+          "inclusive_seconds": 0.052716656000029616,
+          "phase": "binding.SolarFarmBinding._input"
+        },
+        {
+          "elapsed_seconds": 358.693706273,
+          "event": "call",
+          "phase": "binding.SolarFarmBinding._registration"
+        },
+        {
+          "elapsed_seconds": 358.69405804200005,
+          "event": "call",
+          "phase": "farm.FarmAuthoringService.read_registration"
+        },
+        {
+          "elapsed_seconds": 358.69505191400003,
+          "event": "call",
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.695634034,
+          "event": "return",
+          "inclusive_seconds": 0.0005821199999900273,
+          "phase": "farm.FarmAuthoringService._guard"
+        },
+        {
+          "elapsed_seconds": 358.69596246900005,
+          "event": "call",
+          "phase": "farm.FarmAuthoringService._find"
+        }
+      ],
+      "time_scope": "inclusive monotonic seconds; observer overhead included; nested durations overlap",
+      "trace_installed_monotonic": 201.894648417,
+      "version": "solar-worker-progress-observation-v2"
+    },
+    "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+    "run_id": "39211556239",
+    "source_commit": "ae93637c2e945a1ce73839918f1daf7bbd9f68d2",
+    "trace_header_sha256": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373",
+    "worker_script_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8"
+  },
+  "provenance_audit": {
+    "actual_returned15_and_UTC_verified": true,
+    "actual_tool": "31594:0",
+    "normal_accepted": false,
+    "original_API_worker_body_header_verified": true
+  },
+  "recorded_at": "2026-10-19T06:57:35.047314+00:00",
+  "rights_or_gate_approval": false,
+  "scope": "bounded current-source worker phase and one actual chunk cost observation only",
+  "source_sha256": {
+    "backend/app/crop_greenhouse_solar_execution_query.py": "95d52950af17fa8ad90a2999c8c1410f3e5228c823cfd3f9ccac11bd794ae747",
+    "backend/app/crop_greenhouse_solar_server_custody.py": "ec175e16dd03d2f9546284e2ccafab9201b70e7a9a7ec2969253dcf9e4b4f34a"
+  },
+  "status_publication": {
+    "UI_code_DOM_WebGL_changed_or_rerun": false,
+    "actual_tool": "93969:0",
+    "both_UI_same_no_store": true,
+    "combined_peak_RSS_bytes": 895012864,
+    "source_pins_links_syntax_original_actor_frozen_five_roots_caps_FD_cleanup": true
+  }
+}
