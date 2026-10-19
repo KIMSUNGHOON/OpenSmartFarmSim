@@ -1,0 +1,294 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "application_source_changed": false,
+  "application_source_commit": "8b5afe5ffc056c60474a72fca57c19d6328aba65",
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "0555dfe8929031e7b43b34300c184e35ce07a44faabb093ffa478659e0efd0bc",
+  "external_software_references": [
+    "https://www.postgresql.org/docs/16/functions-info.html#FUNCTIONS-INFO-ACCESS-TABLE",
+    "https://www.postgresql.org/docs/16/functions-comparisons.html#FUNCTIONS-COMPARISONS-ANY-SOME"
+  ],
+  "full_product_completion": null,
+  "goal_status": "active",
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "1a36d94999b529616249aaa890286e3fc54acd033799539d2e6436d5011eed37",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T16:33:48.945Z"
+  },
+  "new_dispatch_or_restart": false,
+  "new_solar_deployed": false,
+  "normal64_accepted": false,
+  "observations_or_trial_tests_passed": 2,
+  "ordered_trace": {
+    "SQL": 11723,
+    "SQL_writes": 3,
+    "all_original_audits_queries_results_forwarded": true,
+    "audit_deletion_adopted": false,
+    "audits": 315,
+    "bytes": 2154328,
+    "callback_code_labels": [
+      {
+        "id": 0,
+        "labels": [
+          "app.crop_greenhouse_solar_server_custody.SolarServerCustody.input_resolver",
+          "app.crop_greenhouse_solar_execution.SolarExecutionService.input_resolver"
+        ]
+      },
+      {
+        "id": 1,
+        "labels": [
+          "app.crop_greenhouse_solar_farm_binding.SolarFarmBinding.input_rights"
+        ]
+      },
+      {
+        "id": 2,
+        "labels": [
+          "app.crop_greenhouse_solar_input_evidence.SolarInputEvidenceAuthority.review_resolver"
+        ]
+      },
+      {
+        "id": 3,
+        "labels": [
+          "app.job_store.JobStore.principal_provider",
+          "app.market_candidate_store.MarketCandidateStore._principal_provider"
+        ]
+      }
+    ],
+    "caller_counts": [
+      {
+        "caller": [
+          "app.job_store",
+          "connect",
+          88
+        ],
+        "count": 111
+      },
+      {
+        "caller": [
+          "app.thermal_run_store",
+          "connect",
+          227
+        ],
+        "count": 72
+      },
+      {
+        "caller": [
+          "app.market_runtime",
+          "connect_market",
+          19
+        ],
+        "count": 36
+      },
+      {
+        "caller": [
+          "app.market_candidate_store",
+          "read_scope",
+          352
+        ],
+        "count": 4
+      },
+      {
+        "caller": [
+          "app.market_candidate_store",
+          "_reference_guard",
+          320
+        ],
+        "count": 52
+      },
+      {
+        "caller": [
+          "app.market_candidate_store",
+          "read_scope",
+          367
+        ],
+        "count": 4
+      },
+      {
+        "caller": [
+          "app.market_source_store",
+          "read_scope",
+          108
+        ],
+        "count": 36
+      }
+    ],
+    "event_counts": {
+      "0": 6998,
+      "1": 315,
+      "2": 315,
+      "3": 46828
+    },
+    "event_tags": {
+      "0": "non_audit_SQL_barrier",
+      "1": "audit_start",
+      "2": "audit_end",
+      "3": "selected_discovered_authority_callback"
+    },
+    "profile_restored": true,
+    "raw_sha256": "fb862255fc2079b53fd64a3045ca016909b7bbd44af93e2ada557737fbf4c08b",
+    "scopes": 11,
+    "source_reads": 2736,
+    "strict_adjacent_pairs": 4,
+    "strict_pair_groups": [
+      {
+        "count": 4,
+        "first": [
+          "app.market_candidate_store",
+          "_reference_guard",
+          320
+        ],
+        "second": [
+          "app.market_candidate_store",
+          "read_scope",
+          367
+        ]
+      }
+    ],
+    "trace_not_throughput_or_security_acceptance": true,
+    "unobserved_Python_effects_require_source_review": true
+  },
+  "previous64_and_previous4_not_rerun_or_added": true,
+  "private_trial": {
+    "Python_allowed_expected_tuples_retained": true,
+    "SQL_audits_source_counts_each_row": [
+      11723,
+      315,
+      2736
+    ],
+    "all_effective_privilege_functions_and_separate_table_column_queries_retained": true,
+    "candidate_sha256": "794e8ca3252402c0acf6af2f9020d576a05a0f6e76497263a4b4da0a9d283820",
+    "counts_and_original_UTC_preserved": true,
+    "criteria_sha256": "3efb4b1af9236cd4408b7bf3cd77bdf507a4e662a9a2bcc7b093f54d4aad27bb",
+    "mean_wall_reduction_pct": 1.4516984638867048,
+    "minimum_mean_reduction_pct": 2,
+    "name": "expected_role_privilege_to_OID_array_projection",
+    "negative_security_suite_for_candidate_run": false,
+    "paired_reductions_pct": [
+      1.0769128836748696,
+      1.826790497282674
+    ],
+    "product_implementation_adopted": false,
+    "raw_sha256": "75f30d70afa1dd562a1acf32361e41d0932d355b2a654bcb4d3edb59438b5413",
+    "rows": [
+      {
+        "mode": "baseline",
+        "step": 2,
+        "wall_seconds": 8.024151750003512
+      },
+      {
+        "mode": "candidate",
+        "step": 3,
+        "wall_seconds": 7.937738626002101
+      },
+      {
+        "mode": "candidate",
+        "step": 4,
+        "wall_seconds": 7.871131273001083
+      },
+      {
+        "mode": "baseline",
+        "step": 5,
+        "wall_seconds": 8.017595953999262
+      }
+    ],
+    "verdict": "not_adopted_cost_below_predeclared_threshold"
+  },
+  "recorded_at": "2026-10-19T16:54:24.729454Z",
+  "remaining_focused_hours": null,
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-role-audit-sequence-and-expected-matrix-review-v1",
+  "stages": [
+    {
+      "case": "focused-solar-role-audit-sequence-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 999522304,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 45.1216243059971
+      },
+      "log_sha256": "31ec9837b2bc1482fd2b7100a820699c1a87b4e51adfa6cf17749cea8a80f6d7",
+      "observations_or_trial_tests": 1,
+      "source_pins_sha256": "5a741dd3d68b6ad3dfda4d2ec09e5ac27423b62254527661e588cba80abe1323",
+      "terminal_sha256": "dc0afcf103c15943674f229b1c82053930ed6d8ef361b4a938fae79e064ff5a0"
+    },
+    {
+      "case": "focused-solar-expected-matrix-cost-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1005670400,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 62.07363799599989
+      },
+      "log_sha256": "13f960fc4f4a5b52602c905c755cf97867620803a9108874a2dc2f0e185914e7",
+      "observations_or_trial_tests": 1,
+      "source_pins_sha256": "5a741dd3d68b6ad3dfda4d2ec09e5ac27423b62254527661e588cba80abe1323",
+      "terminal_sha256": "b08bdf4ee60dd47dc4244ff544e611e783a9a92ba41b9622672fcd859d77e86c"
+    }
+  ],
+  "status_publication": {
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "both_frozen_HTML_and_ventilation2173_files_preserved": true,
+    "browser_or_DOM_rerun": false,
+    "case": "focused-solar-role-audit-sequence-status-v1",
+    "combined_peak_RSS_bytes": 905797632,
+    "guard_seconds": 1.3609257069983869,
+    "local_links_checked": 2609,
+    "log_sha256": "e0612e3d4255eae8a7c217d21d31f065736f68724643913303fe7648ea08fc99",
+    "original_entries_preserved": 2148,
+    "owned_non_zombie_PG_temporary_passfiles_remaining": 0,
+    "prior_report_link_checks_overlap_not_added": true,
+    "protected_roots": 5,
+    "reason": null,
+    "reported_at": "2026-10-19T16:56:25.903494Z",
+    "single_PID_peak_RSS_bytes": 141316096,
+    "source_pins_sha256": "1bcbcf4c5450e67c3c36403fd282b0cc8fa6fa7cb5b24038e1c3a2c1ca8c6125",
+    "source_sha256": "e5bf50cdb82f7e54aea446a717b1711e6d721a6e4858318b1e2ca8c8b319193a",
+    "terminal_sha256": "b90975127bf33b800ac1c9755fa0a5b0fa366e2d8d67d961fbc1f62a17d0ff89"
+  },
+  "whole_backend_or_browser_suite_run": false
+}

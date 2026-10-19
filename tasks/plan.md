@@ -51,6 +51,7 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 17 — 계약/로컬 구현 수용 | [현재 v1 물리 뷰·검증 소유권64검사](../research/solar-current-guard-ownership-20261020.md) | 새 물리-only 판본 없이 full 등록/현재 경제·권리와 actor/input을 유지했다. 명시 읽기만 첫 progress에서, prepare 반환 직후는 즉시 caller에서 원 검증을 수행한다. SQL11,723/감사315/원천2,736·제품 평균8.8171% 감소·값/UTC·늦은 변경/lock/정리. |
 | 18 — 원 정상 미완료 | [CI39280701330/source8b5afe5·41/64](../research/solar-current-guard-native-normal-20261020.md) | 원360초/64 미완료·actor−15/−15·정상/DB count proof 없음. 수용은 원64/start1/CLI0/attempt1/success1·두 전진prefix/원 값/UTC·actor0/0·DB/소유 정리이며 원 input/actor/chunk1/poll/retry360/RSS를 유지한다. 저장 metadata는 현재 권리/정상 수용이 아니다. |
 | 19 — 관측/후보 평가 완료 | 같은 기록의 현재 source 관측3+trial1 | SQL11,723/role315/원천2,736·원 counts/UTC·정리, CPU/SQL/canonical 비용을 분리했다. JSON 후보는 평균1.4155%<2%로 미채택·제품 그대로다. 다음은 현재 감사/보호 조회의 순서 대조로 호출 소유권 후보 유무를 판단한다. 원 정상 이후 hold/HTTP취소/계산 중WebGL/WSL 적용 순서는 유지한다. |
+| 20 — 순서 관측/후보 평가 완료 | [감사 순서·행렬 표현2검사](../research/solar-role-audit-sequence-20261020.md) | 기록한 SQL/callback barrier 사이의 동일 scope 연속4쌍을 식별했다. 별도 행렬 표현은 원 감사315/SQL11,723/원천2,736·counts/UTC를 유지했으나 평균1.4517%로 미채택이다. 다음은 `_model` 형식 해석의 순수성/의존성 대조이며 getter/현재 검사 생략은 승인하지 않는다. |
 
 위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md): source8b5afe5·원 계측 OFF를 한 번 접수했다. 2026-10-19T16:00:12.624737Z에 queued/runner 미배정/steps0이며 같은 시각 GitHub Actions 처리 지연 공지가 있다. 같은 run의 실제 종료와 원 artifact를 확인한다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
 

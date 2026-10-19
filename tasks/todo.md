@@ -102,6 +102,7 @@
   - [대기 관측](../research/solar-current-guard-independent-queue-20261020.md): CI39280701330/source8b5afe5 한 번 접수·계측 OFF. 2026-10-19T16:00:12.624737Z에 queued/실행기 미배정/steps0이며 GitHub Actions 처리 지연 공지가 있다. 동일 실행의 실제 종료/큐레이션 artifact 검증 전 체크하지 않는다.
   - [후속 실제 실패](../research/solar-current-guard-native-normal-20261020.md): 같은 실행은 원360초/64 미완료·종료 뒤 저장41/64·actor−15/−15, 정상/DB count proof 없음이다. 앞선 큐 관측을 실제 미기동 확정으로 사용하지 않는다. 단계 차이를 성능 개선율로 환산하지 않는다.
 - [x] **`crop-solar-current-guard-post-normal-cost-review`** — 같은 source의 CPU/SQL/canonical 관측3+순수 JSON 후보 trial1=고유4건·원 SQL11,723/role315/원천2,736·counts/UTC·원본/5root/자원/정리. 후보는20개 경계 동등·평균1.4155%로 사전2% 미달/미채택이며 제품8b5afe5 유지다. 다음은 감사/보호 조회 순서 대조이고 원64 관문/배포 수용은 아니다.
+- [x] **`crop-solar-current-role-audit-sequence`** — [순서/행렬 후보 평가](../research/solar-role-audit-sequence-20261020.md)의 고유2건·실제 감사315/SQL11,723/원천2,736·counts/UTC·원본/5root/자원/정리. 관측된 연속 감사4쌍만으로 삭제/권한 cache를 승인하지 않는다. 별도 행렬 표현은 평균1.4517%로 미채택·제품 유지다. 다음은 원천 형식 해석/검증 의존성 대조이며 독립 원64/배포는 미수용이다.
 
 
 
