@@ -36,3 +36,9 @@ core는 `backend/app/market_source_store.py`, `backend/app/market_candidate_stor
 
 이 후보는 S2a 화면 수용을 바꾸지 않는다. S1b/S2b/S3/S4, G0–G4/실제 생산·자원·경제·추천과
 최종 UI는 해당 증거 전까지 미완료다. 전체 완료 날짜는 이 연결 수정/검증과 외부 자료 상태 뒤 판단한다.
+
+## 현재 연결 매개변수의 호출 내 읽기 — 2026-10-19
+
+[최종46검사](../research/market-current-connection-parameters-20261019.md)로 `_shared_reader` 호출 안에서 한 현재 매개변수 dict를 읽어 모든 기존 구성 필드를 비교하는 부분을 로컬 수용했다. 다음 호출은 다시 읽으며 별도 SCRAM/SQL identity·읽기 전용/isolation·원 역할/원천 검증은 유지한다. 공개 인터페이스와 scope/소유권은 바뀌지 않는다.
+
+원 SQL12,919/감사343/원천3,040/순서/수치/UTC와 늦은 변경 거부·정리를 확인했다. 조회3,963→2,163 및 최종 제품의 로컬 평균 약2.53% 감소는 독립64/계산 중3D/새 배포 수용이 아니다. 후속 fresh SQL 투영은 아직 시험 후보이며 이 수용에 포함하지 않는다.

@@ -1,0 +1,628 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "backend_app_source_files": 261,
+  "backend_app_tree_sha256": "8ab6e2dbfc808c212a18e21cdcdcfc524f51df5a364cfaab3b4228c7c3c7fff9",
+  "baseline_source_commit": "2a80a1dd38d0698f7154ecaf88b92b7c13e048f1",
+  "caller_observation": {
+    "case": "focused-current-connection-parameter-callers-v1",
+    "per_phase": {
+      "advance": {
+        "observed_wall_seconds": 5.4150400619982975,
+        "parameter_callers": {
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_candidate_store._reference_reader": {
+            "calls": 1340,
+            "inclusive_seconds": 0.2773506629746407
+          },
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_candidate_store.read_scope": {
+            "calls": 8,
+            "inclusive_seconds": 0.001680129011219833
+          },
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_reference_bundle._verify_shared": {
+            "calls": 92,
+            "inclusive_seconds": 0.02038843101763632
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.factory_connection > app.runtime_login.connect_runtime": {
+            "calls": 144,
+            "inclusive_seconds": 0.03270236201205989
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.read_connection > contextlib.__exit__": {
+            "calls": 144,
+            "inclusive_seconds": 0.03461918900575256
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.verify_owned_session > app.runtime_login.connect_runtime": {
+            "calls": 144,
+            "inclusive_seconds": 0.030427707046328578
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_candidate_store._reference_reader": {
+            "calls": 335,
+            "inclusive_seconds": 0.06565038396365708
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_candidate_store.read_scope": {
+            "calls": 2,
+            "inclusive_seconds": 0.0004364700071164407
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_reference_bundle._verify_shared": {
+            "calls": 23,
+            "inclusive_seconds": 0.004504798009293154
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.job_store.connect": {
+            "calls": 72,
+            "inclusive_seconds": 0.015020954997453373
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.market_runtime.connect_market": {
+            "calls": 24,
+            "inclusive_seconds": 0.004705489976913668
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.thermal_run_store.connect": {
+            "calls": 48,
+            "inclusive_seconds": 0.009856665950792376
+          }
+        }
+      },
+      "before": {
+        "observed_wall_seconds": 0.6940332469966961,
+        "parameter_callers": {
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_candidate_store._reference_reader": {
+            "calls": 108,
+            "inclusive_seconds": 0.023797353031113744
+          },
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_candidate_store.read_scope": {
+            "calls": 8,
+            "inclusive_seconds": 0.0017341780112474225
+          },
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_reference_bundle._verify_shared": {
+            "calls": 4,
+            "inclusive_seconds": 0.000979389005806297
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.factory_connection > app.runtime_login.connect_runtime": {
+            "calls": 12,
+            "inclusive_seconds": 0.003229050984373316
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.read_connection > contextlib.__exit__": {
+            "calls": 12,
+            "inclusive_seconds": 0.003254713985370472
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.verify_owned_session > app.runtime_login.connect_runtime": {
+            "calls": 12,
+            "inclusive_seconds": 0.0026262310057063587
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_candidate_store._reference_reader": {
+            "calls": 27,
+            "inclusive_seconds": 0.005386260003433563
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_candidate_store.read_scope": {
+            "calls": 2,
+            "inclusive_seconds": 0.00037492799310712144
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_reference_bundle._verify_shared": {
+            "calls": 1,
+            "inclusive_seconds": 0.00020482100080698729
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.job_store.connect": {
+            "calls": 8,
+            "inclusive_seconds": 0.0019101930010947399
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.market_runtime.connect_market": {
+            "calls": 2,
+            "inclusive_seconds": 0.00039649599784752354
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.thermal_run_store.connect": {
+            "calls": 4,
+            "inclusive_seconds": 0.0008169569991878234
+          }
+        }
+      },
+      "confirm": {
+        "observed_wall_seconds": 3.6247361339992494,
+        "parameter_callers": {
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_candidate_store._reference_reader": {
+            "calls": 776,
+            "inclusive_seconds": 0.16522547913336894
+          },
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_candidate_store.read_scope": {
+            "calls": 16,
+            "inclusive_seconds": 0.003799379999691155
+          },
+          "app.market_candidate_store.<genexpr> > app.market_candidate_store._shared_reader > app.market_reference_bundle._verify_shared": {
+            "calls": 48,
+            "inclusive_seconds": 0.0107946479547536
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.factory_connection > app.runtime_login.connect_runtime": {
+            "calls": 84,
+            "inclusive_seconds": 0.019722928969713394
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.read_connection > contextlib.__exit__": {
+            "calls": 84,
+            "inclusive_seconds": 0.021186166974075604
+          },
+          "app.runtime_connection_scope._client > app.runtime_connection_scope.verify_owned_session > app.runtime_login.connect_runtime": {
+            "calls": 84,
+            "inclusive_seconds": 0.01822596099373186
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_candidate_store._reference_reader": {
+            "calls": 194,
+            "inclusive_seconds": 0.038834633014630526
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_candidate_store.read_scope": {
+            "calls": 4,
+            "inclusive_seconds": 0.0008368219932890497
+          },
+          "app.runtime_login.verify_runtime_identity > app.market_candidate_store._shared_reader > app.market_reference_bundle._verify_shared": {
+            "calls": 12,
+            "inclusive_seconds": 0.002356049997615628
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.job_store.connect": {
+            "calls": 43,
+            "inclusive_seconds": 0.009434191990294494
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.market_runtime.connect_market": {
+            "calls": 14,
+            "inclusive_seconds": 0.0028444249983294867
+          },
+          "app.runtime_login.verify_runtime_identity > app.runtime_login.connect_runtime > app.thermal_run_store.connect": {
+            "calls": 28,
+            "inclusive_seconds": 0.00574903601227561
+          }
+        }
+      }
+    },
+    "raw_evidence_sha256": "a44df97e19012744004cd8839759bc450eca958456a9771c330c9f817f198099",
+    "source_changed": false,
+    "total_parameter_calls": 3963
+  },
+  "excluded_attempts": [
+    "cost-v1: AST guard-term count assumption failed",
+    "cost-v2: unparse parenthesis assumption failed",
+    "parameters-red-v1: actual five metadata reads versus expected two; expected RED"
+  ],
+  "final_publication": {
+    "HTML_frozen_both_preserved": true,
+    "HTTP": [
+      {
+        "cache_control": "no-store",
+        "port": 5173,
+        "same_bytes": true,
+        "status": 200
+      },
+      {
+        "cache_control": "no-store",
+        "port": 5174,
+        "same_bytes": true,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_DOM_rerun": false,
+    "case": "focused-current-parameters-final46-status-v1",
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 918056960,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.3625493810031912
+    },
+    "local_links_checked": 2381,
+    "log_sha256": "2f2d61c34b1f7c70afca9bca4811ea62f4291005990fa8f3814aba4fa675d372",
+    "reported_at": "2026-10-19T13:26:20.068596Z",
+    "status_source_sha256": "525b0100e709ec9f38a204b954b293522c271ad2004a4c5d83872a2015f4f7b2"
+  },
+  "focused_distinct_tests_passed": 46,
+  "functional_tests_passed": 45,
+  "local_parameter_scope_adopted": true,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T13:04:42.171Z",
+    "turn_context_sha256": "d4f500c9fef9f7ede5a7ecc62a57e9fe81cdc4a0c79f875760803ba0037bd74e"
+  },
+  "new_solar_deployed": false,
+  "next_task": "Compare one fresh SQL identity/read-only/isolation projection with the existing three current queries inside each shared-reader check; preserve all authorization/parameter/role/source/lifetime gates; role-audit SQL/pipeline/ACL/v4 rejections stay in force.",
+  "normal64_accepted": false,
+  "paired_cost_tests_passed": 1,
+  "previous20_or58_added": false,
+  "private_trial": {
+    "candidate_AST_sha256": "9a2010e92951c989002ec83460fdf87ab1b2023186807b4cd12ef13360f98cd3",
+    "case": "focused-current-connection-parameter-cost-v3",
+    "not_counted_in_current46": true,
+    "rows": [
+      {
+        "mode": "baseline",
+        "parameter_reads": 3963,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "step": 2,
+        "wall_seconds": 9.781198928001686
+      },
+      {
+        "mode": "candidate",
+        "parameter_reads": 2163,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "step": 3,
+        "wall_seconds": 9.373152129999653
+      },
+      {
+        "mode": "candidate",
+        "parameter_reads": 2163,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "step": 4,
+        "wall_seconds": 9.36923764400126
+      },
+      {
+        "mode": "baseline",
+        "parameter_reads": 3963,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "step": 5,
+        "wall_seconds": 9.898674915995798
+      }
+    ]
+  },
+  "product_paired": {
+    "candidate_AST_sha256": "9a2010e92951c989002ec83460fdf87ab1b2023186807b4cd12ef13360f98cd3",
+    "case": "focused-current-connection-parameter-product-cost-v1",
+    "mean_local_wall_reduction_pct": 2.5274467509762033,
+    "no_cross_call_parameter_cache": true,
+    "ordered_source_reads": 3040,
+    "role_audits": 343,
+    "rows": [
+      {
+        "mode": "baseline",
+        "parameter_reads": 3963,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "step": 2,
+        "wall_seconds": 9.634944557998097
+      },
+      {
+        "mode": "candidate",
+        "parameter_reads": 2163,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "step": 3,
+        "wall_seconds": 9.45042906999879
+      },
+      {
+        "mode": "candidate",
+        "parameter_reads": 2163,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "step": 4,
+        "wall_seconds": 9.486224698004662
+      },
+      {
+        "mode": "baseline",
+        "parameter_reads": 3963,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "step": 5,
+        "wall_seconds": 9.792733426002087
+      }
+    ],
+    "total_SQL": 12919
+  },
+  "references": [
+    {
+      "direct_raw_retrieval_status": 403,
+      "display": "paraphrase/link",
+      "online_version": "3.3.7.dev1",
+      "product_id": "psycopg.ConnectionInfo.get_parameters",
+      "publication_at": null,
+      "raw_doc_hash": null,
+      "redistribution": "no raw documentation copied",
+      "review": "official documentation read via web tool; locked installed source independently inspected; no raw HTML adopted",
+      "reviewer": "native gpt-6.1-sol/xhigh",
+      "url": "https://www.psycopg.org/psycopg3/docs/api/objects.html#psycopg.ConnectionInfo.get_parameters",
+      "use": "technical reference"
+    },
+    {
+      "lock_sha256": "e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3",
+      "observed_at": "2026-10-19T13:25:22.148871Z",
+      "product_id": "installed psycopg3.3.6",
+      "redistribution": "implementation not copied",
+      "reviewer": "native gpt-6.1-sol/xhigh",
+      "source_sha256": "40bfda115d97ffaff560c8a0ce5426447f8b525f9bd241459c93cc2797546b83",
+      "use": "installed implementation inspection only"
+    },
+    {
+      "display": "paraphrase/link",
+      "no_farm_data_or_gate_adoption": true,
+      "observation_recorded_at": "2026-10-19T13:26:20.068596Z",
+      "product_id": "PostgreSQL16 current_setting/SHOW",
+      "publication_at": null,
+      "raw_doc_hash": null,
+      "redistribution": "no raw documentation copied",
+      "reviewer": "native Codex CLI gpt-6.1-sol/xhigh",
+      "url": "https://www.postgresql.org/docs/16/functions-admin.html#FUNCTIONS-ADMIN-SET",
+      "use": "API semantics reference for next test-only projection candidate",
+      "version": "16"
+    }
+  ],
+  "review": {
+    "architecture": "one existing shared-reader method; public API, scope/connection ownership, original SQL/transactions and immutable numeric/model inputs unchanged",
+    "correctness": "fresh per-call parameter mapping; all configured fields, SCRAM and current SQL transaction guards retained; original numeric outputs/UTC unchanged",
+    "performance": "actual final-source ABBA reduction about2.53percent; private trial about4.76percent kept separate; original SQL12919/role343/source3040 unchanged",
+    "security": "new9, original shared29, late-change5 and normal/hold2; no permission/state-result reuse between calls",
+    "simplicity": "one existing method, no new interface/dependency/cache"
+  },
+  "rights_or_gate_approval": false,
+  "source_sha256": {
+    "backend/app/market_candidate_store.py": "6523e117147062392f7f3cac4bdde610a1398ca804f24a13d7b7fde735a6b458",
+    "backend/tests/test_market_connection_parameters.py": "51a8d9f232477d0d752f7de31ba78331234d07addb7ae305cfdbd0bd9ee369db"
+  },
+  "stages": [
+    {
+      "case": "focused-current-connection-parameters-green-v1",
+      "database_cleanup": {
+        "passfiles_after": 0,
+        "roles_after": 0,
+        "schemas_after": 0,
+        "server_host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ]
+      },
+      "distinct_tests_passed": 9,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1037172736,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 67.71807976700075
+      },
+      "log_sha256": "17b71a69824ef66087f7b0e2d3c6f7c68b448d0a798dc0aa8760a80a321ca5b3",
+      "same_final_backend_app_tree": true,
+      "saved_evidence_sha256": {
+        "evidence/new/query/database-cleanup.json": "ea7c673c5a290819e78fd912df61523a8f27ef5df2813e1ac945a535024dded7"
+      }
+    },
+    {
+      "case": "focused-current-connection-parameter-product-cost-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests_passed": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1007550464,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 72.14785182500054
+      },
+      "log_sha256": "47065dd14bf0c4cea8683b674ab922c5e442c042b893d6c30a8880c5800eb1c3",
+      "same_final_backend_app_tree": true,
+      "saved_evidence_sha256": {
+        "evidence/new/query/current-connection-parameter-paired-cost.json": "38e2beaed5a21dcdc9185e62c9c435b407ec3a82a5596c71784d634086d0aca0",
+        "evidence/new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      }
+    },
+    {
+      "case": "focused-current-parameters-shared29-v1",
+      "database_cleanup": {
+        "passfiles_after": 0,
+        "roles_after": 0,
+        "schemas_after": 0,
+        "server_host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ]
+      },
+      "distinct_tests_passed": 29,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1042698240,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 154390528,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 221.7785798469995
+      },
+      "log_sha256": "f2b694a3a9ff9cb2a9363fa7efe7c342fcef995960e5ae4a855f4a17198ee037",
+      "same_final_backend_app_tree": true,
+      "saved_evidence_sha256": {
+        "evidence/new/query/database-cleanup.json": "ea7c673c5a290819e78fd912df61523a8f27ef5df2813e1ac945a535024dded7",
+        "evidence/shared-reader-observation.private.json": "f3c4d22d8cfbddaf741cd8cc825974774cc4e163374dff0afb88b4269676597d"
+      }
+    },
+    {
+      "case": "focused-current-parameters-bundle5-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests_passed": 5,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1014108160,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 64.29724246000114
+      },
+      "log_sha256": "6896044dbf637fe49e33c6889ca28c118aa3f90c02ddf7eaef1b896d75a4c933",
+      "same_final_backend_app_tree": true,
+      "saved_evidence_sha256": {
+        "evidence/new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      }
+    },
+    {
+      "case": "focused-current-parameters-worker2-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests_passed": 2,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1033244672,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 136.16148469199834
+      },
+      "log_sha256": "4ca6c9b4b071ff6351099e5235b6590919ffeba5cfb9dc835aaa9210a8e31e3f",
+      "same_final_backend_app_tree": true,
+      "saved_evidence_sha256": {
+        "evidence/new/worker/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "evidence/new/worker/normal-completed.json": "05a942977c81b66ec1b2e66ff54730120a1bf2ff59f26122ed5e287024080428",
+        "evidence/new/worker/normal-hold.json": "2d3185404e0d1ec8256caef7db27cd7e449d1749391c416367e9c30dad003685"
+      }
+    }
+  ],
+  "worker": [
+    {
+      "counts": {
+        "outcome": 1,
+        "publication": 1,
+        "registry": 1,
+        "result_links": 1
+      },
+      "read_calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "restore": 2,
+      "same_original_checkpoint_rows_all_states_utc": true,
+      "start": 1,
+      "status": "completed",
+      "step": 16
+    },
+    {
+      "counts": {
+        "outcome": 1,
+        "publication": 0,
+        "registry": 1,
+        "result_links": 1
+      },
+      "read_calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "restore": 2,
+      "same_original_checkpoint_rows_all_states_utc": true,
+      "start": 1,
+      "status": "hold",
+      "step": 16
+    }
+  ]
+}

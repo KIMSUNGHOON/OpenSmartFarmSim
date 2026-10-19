@@ -258,9 +258,11 @@ class MarketCandidateStore:
         if (type(conn) is not psycopg.Connection or conn.closed or conn.autocommit
                 or conn.info.transaction_status != TransactionStatus.INTRANS
                 or source._scoped_reader.get() != (conn, tenant)
-                or self._tenant('market_candidate_read') != tenant
-                or any(conn.info.get_parameters().get(key) != configured[key]
-                       for key in ('host', 'hostaddr', 'port', 'dbname', 'user') if key in configured)):
+                or self._tenant('market_candidate_read') != tenant):
+            raise MarketCandidateDenied('market candidate shared read authority denied')
+        parameters = conn.info.get_parameters()
+        if any(parameters.get(key) != configured[key]
+               for key in ('host', 'hostaddr', 'port', 'dbname', 'user') if key in configured):
             raise MarketCandidateDenied('market candidate shared read authority denied')
         verify_runtime_identity(conn, *self.runtime_identity)
         if (conn.execute('SHOW transaction_read_only').fetchone()['transaction_read_only'] != 'on'

@@ -89,7 +89,8 @@
 - [x] **`crop-solar-registration-connection-lifetime-phase-diagnostic`** — [실제 종료/734등록·113재구성/원 한 묶음 관측](../research/registration-connection-lifetime-phase-cost-20261019.md)을 대사했다. CI39250605987/sourcef403b54·유한 journal·17/64/UTC·원360초/종료/정리를 확인했다. 로컬 before/advance/confirm의 재구성2/1/3·감사46/183/144·원천152/1,824/1,064를 관측했다. 중첩 시간은 합산하지 않고 정상/처리량 수용으로 세지 않는다.
 - [x] **`crop-solar-checkpoint-registration-scope`** — [최종 같은 source20검사/검토](../research/solar-checkpoint-registration-scope-20261019.md)로 로컬 수용했다. 새6/원 worker13/paired1에서 두 읽기·원천3,040/순서·수치/UTC·늦은 권리/취소/임대/원자 게시/정리를 보존하고 재구성6→4·물리29→7·평균 약5% 감소를 관측했다. 기존58/원64·새 배포는 수용 수에 합산하지 않는다.
 - [x] **`crop-solar-worker-quantum-exclusive-cost`** — 위 기록의 현재 source 진단1. profiler 포함 원 묶음·step2/UTC·get_parameters3,963회·driver wait/JSON 비용과5root/정리를 확인했다. 중첩 시간/처리량을 합산하지 않고 수용20에 추가하지 않는다.
-- [ ] **`crop-solar-current-connection-parameter-cost`** — 위 실제3,963회 조회의 호출자별 비용 관측→현재 매개변수 접근 동등 후보의 시험 전용 paired 비교. 원 감사343/원천3,040·모든 인증/factory/세션·트랜잭션/늦은 변경·원 수치/UTC/정리 보존과 일관된 감소가 수용 기준이다. 권한/설정 cache·기각된15→4/pipeline/ACL/v4·변경 없는 native64 반복은 하지 않는다.
+- [x] **`crop-solar-current-connection-parameter-cost`** — [최종 source46검사/검토](../research/market-current-connection-parameters-20261019.md). 실제 호출자 관측→시험 후보→제품 AST 대사/최종 paired와 새9/공유29/늦은 변경5/normal·hold2를 수용했다. 조회3,963→2,163·원 SQL12,919/감사343/원천3,040/순서/UTC·현재성/정리를 보존했다. 최종 제품 약2.53% 감소와 사설 후보 약4.76%를 구분한다. 이전20/58/관측·사설 후보를46에 더하지 않는다.
+- [ ] **`crop-solar-current-read-session-projection-cost`** — 위 기록의 다음 시험 후보. shared-reader의 현재 identity/Read Only/Read Committed3질의→fresh SQL 한 투영의 타당성·동등성/실제 paired 비용을 평가한다. 원 current 값5개·SCRAM/연결 필드·감사343/원천3,040/수치/UTC·늦은 변경 거부/정리를 보존하며 기존 로그인 경로는 원 방식이다. 기각된 역할 감사15→4/pipeline/ACL/v4와 변경 없는 native64를 반복하지 않는다.
 
 
 
