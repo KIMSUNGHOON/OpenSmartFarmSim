@@ -1,0 +1,554 @@
+{
+  "recorded_at": "2026-10-19T23:18:38.486232Z",
+  "native_CLI": {
+    "timestamp": "2026-10-19T22:53:41.277Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "6708f1d947354105c868e77cac9a2878f87a5e07508eccc191fbb841a669db52",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "decision": "reject guarded typed-array candidate on actual whole quantum cost",
+  "proofs": {
+    "boundary": {
+      "case": "focused-solar-array-binding-boundary-v5",
+      "tests_passed": 3,
+      "wall_seconds": 30.481249495001975,
+      "single_PID_peak_RSS_bytes": 144003072,
+      "combined_peak_RSS_bytes": 1037565952,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_sha256": "4a5c3ed893948e6cd0b6b3dd750d7e295cf9f859954e97070ea06a2468c44213",
+      "log_sha256": "ad6b728db27706d1f281e83b816fa1c0f5682842e16d48fc2cb724f58099bdd5",
+      "source_pins_sha256": "644b03fa4b5026a7494f17cb2fc6b95d2fc30fe01d78ded4c8aa1c5a06f256b3"
+    },
+    "cost": {
+      "case": "focused-solar-array-binding-cost-v1",
+      "tests_passed": 1,
+      "wall_seconds": 148.7257375140034,
+      "single_PID_peak_RSS_bytes": 144003072,
+      "combined_peak_RSS_bytes": 1048739840,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_sha256": "47b1102e10c17ac3c0156ecdc73cf9c8b370623f3d74d3bf6eb6ee96949d307d",
+      "log_sha256": "8cf1094b500be9ce64dc1eda5d52faf4f664e7082d18cb4a0c996712d11008b6",
+      "source_pins_sha256": "644b03fa4b5026a7494f17cb2fc6b95d2fc30fe01d78ded4c8aa1c5a06f256b3",
+      "raw_name": "typed-role-array-original-quantum-cost.json",
+      "raw_sha256": "ae6b6688f7033893b1c96818d278be8532f46fb91a887d87f0cb72fdc7512892",
+      "evidence": {
+        "G0_G4": "not_assessed",
+        "actual_farm_Runs": 0,
+        "all_negative_security_regressions_run": false,
+        "application_source_changed": false,
+        "cost_criterion_met": false,
+        "mean_reduction_pct": -0.5727064752023335,
+        "normal64_accepted": false,
+        "original_bytes_counts_UTC_equal": true,
+        "paired_reduction_pct": [
+          -0.692837171922096,
+          -0.45562405438059234
+        ],
+        "product_adopted": false,
+        "rights_or_gate_approval": false,
+        "rows": [
+          {
+            "SQL": {
+              "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+              "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+              "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+              "app.farm_authoring_storage._find": 60,
+              "app.job_store._event": 1,
+              "app.job_store._locked_job": 31,
+              "app.job_store._renew_in_transaction": 1,
+              "app.market_candidate_store._candidate_in_transaction": 120,
+              "app.market_candidate_store._checked_candidate": 60,
+              "app.market_candidate_store._input_in_transaction": 1020,
+              "app.market_candidate_store._shared_reader": 900,
+              "app.market_hold_store._report_row": 90,
+              "app.market_source_store._select_with_job": 2280,
+              "app.market_source_store.read_scope": 30,
+              "app.runtime_connection_scope._session": 360,
+              "app.runtime_login.verify_runtime_identity": 633,
+              "app.runtime_roles._database": 273,
+              "app.runtime_roles._scope": 1365,
+              "app.runtime_roles.audit_runtime_roles": 2457,
+              "app.thermal_run_store._decision_context_in_transaction": 210,
+              "app.thermal_run_store.get_snapshot": 30
+            },
+            "array_binding": {
+              "fallback": 0,
+              "fast": 0
+            },
+            "checkpoint_sha256": "34a864b8af27a899bee9d0894ad87480369336e5b3c291424d42bb62871f3d53",
+            "current_checks": [
+              [
+                "_current",
+                "_before"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "_current",
+                "confirm"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "_current",
+                "confirm"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ]
+            ],
+            "mode": "baseline",
+            "original_UTC": "2026-10-01T00:01:24.123456Z",
+            "steps": 42,
+            "wall_ns": 8174827549
+          },
+          {
+            "SQL": {
+              "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+              "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+              "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+              "app.farm_authoring_storage._find": 60,
+              "app.job_store._event": 1,
+              "app.job_store._locked_job": 31,
+              "app.job_store._renew_in_transaction": 1,
+              "app.market_candidate_store._candidate_in_transaction": 120,
+              "app.market_candidate_store._checked_candidate": 60,
+              "app.market_candidate_store._input_in_transaction": 1020,
+              "app.market_candidate_store._shared_reader": 900,
+              "app.market_hold_store._report_row": 90,
+              "app.market_source_store._select_with_job": 2280,
+              "app.market_source_store.read_scope": 30,
+              "app.runtime_connection_scope._session": 360,
+              "app.runtime_login.verify_runtime_identity": 633,
+              "app.runtime_roles._database": 273,
+              "app.runtime_roles._scope": 1365,
+              "app.runtime_roles.audit_runtime_roles": 2457,
+              "app.thermal_run_store._decision_context_in_transaction": 210,
+              "app.thermal_run_store.get_snapshot": 30
+            },
+            "array_binding": {
+              "fallback": 0,
+              "fast": 546
+            },
+            "checkpoint_sha256": "80c1071c343e5e4e706e7c3fb8f056ad7b473f61717aff7c60c03f87f96fd761",
+            "current_checks": [
+              [
+                "_current",
+                "_before"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "_current",
+                "confirm"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "_current",
+                "confirm"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ]
+            ],
+            "mode": "candidate",
+            "original_UTC": "2026-10-01T00:01:26.123456Z",
+            "steps": 43,
+            "wall_ns": 8231465793
+          },
+          {
+            "SQL": {
+              "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+              "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+              "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+              "app.farm_authoring_storage._find": 60,
+              "app.job_store._event": 1,
+              "app.job_store._locked_job": 31,
+              "app.job_store._renew_in_transaction": 1,
+              "app.market_candidate_store._candidate_in_transaction": 120,
+              "app.market_candidate_store._checked_candidate": 60,
+              "app.market_candidate_store._input_in_transaction": 1020,
+              "app.market_candidate_store._shared_reader": 900,
+              "app.market_hold_store._report_row": 90,
+              "app.market_source_store._select_with_job": 2280,
+              "app.market_source_store.read_scope": 30,
+              "app.runtime_connection_scope._session": 360,
+              "app.runtime_login.verify_runtime_identity": 633,
+              "app.runtime_roles._database": 273,
+              "app.runtime_roles._scope": 1365,
+              "app.runtime_roles.audit_runtime_roles": 2457,
+              "app.thermal_run_store._decision_context_in_transaction": 210,
+              "app.thermal_run_store.get_snapshot": 30
+            },
+            "array_binding": {
+              "fallback": 0,
+              "fast": 546
+            },
+            "checkpoint_sha256": "b0bedd9c913e67ec7fdbc0759e3ef0a34da28d48a26a094b2b60c501a1ce9873",
+            "current_checks": [
+              [
+                "_current",
+                "_before"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "_current",
+                "confirm"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "_current",
+                "confirm"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ]
+            ],
+            "mode": "candidate",
+            "original_UTC": "2026-10-01T00:01:28.123456Z",
+            "steps": 44,
+            "wall_ns": 8425877837
+          },
+          {
+            "SQL": {
+              "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+              "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+              "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+              "app.farm_authoring_storage._find": 60,
+              "app.job_store._event": 1,
+              "app.job_store._locked_job": 31,
+              "app.job_store._renew_in_transaction": 1,
+              "app.market_candidate_store._candidate_in_transaction": 120,
+              "app.market_candidate_store._checked_candidate": 60,
+              "app.market_candidate_store._input_in_transaction": 1020,
+              "app.market_candidate_store._shared_reader": 900,
+              "app.market_hold_store._report_row": 90,
+              "app.market_source_store._select_with_job": 2280,
+              "app.market_source_store.read_scope": 30,
+              "app.runtime_connection_scope._session": 360,
+              "app.runtime_login.verify_runtime_identity": 633,
+              "app.runtime_roles._database": 273,
+              "app.runtime_roles._scope": 1365,
+              "app.runtime_roles.audit_runtime_roles": 2457,
+              "app.thermal_run_store._decision_context_in_transaction": 210,
+              "app.thermal_run_store.get_snapshot": 30
+            },
+            "array_binding": {
+              "fallback": 0,
+              "fast": 0
+            },
+            "checkpoint_sha256": "e96dc537050a959b9ad2b30e2f1c10850643292b49b58940d07ac04dbff97cd3",
+            "current_checks": [
+              [
+                "_current",
+                "_before"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "_current",
+                "confirm"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "_current",
+                "confirm"
+              ],
+              [
+                "current",
+                "_guard"
+              ],
+              [
+                "current",
+                "_guard"
+              ]
+            ],
+            "mode": "baseline",
+            "original_UTC": "2026-10-01T00:01:30.123456Z",
+            "steps": 45,
+            "wall_ns": 8387661633
+          }
+        ],
+        "scope": "private typed-array feasibility only; original42..45 before/private advance/confirm; original SQL text/placeholder/order; same live roles globals and original functions; typed params with current source/adapter/encoding guards; PEP669 SQL counts equal both modes and observer freed; full codec/global/error closure not accepted"
+      }
+    }
+  },
+  "private_final_source_SHA256": {
+    "array_binding_v1.py": "2cde38f6034f143d8cb6a0addb89f35c5e8d8d822392c0c133105451aed51879",
+    "test_array_binding_v1.py": "3ec0b1b85b6159a3b6ded72554c6b91ad9f45edc33446dedf903912a4f8d9238",
+    "test_array_binding_cost_v1.py": "3ddc38c78abad92601851dd894880e678d6a9e85e73ed6630556c53eec8f1791"
+  },
+  "source_SHA256": {
+    "backend/app/runtime_roles.py": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0"
+  },
+  "primary_sources": [
+    {
+      "url": "https://www.psycopg.org/psycopg3/docs/advanced/adapt.html",
+      "observed_document_version": "3.3.7.dev1",
+      "installed_version": "3.3.6",
+      "basis": "installed source hashes and actual SCRAM tests control; documentation explains context inheritance and list dumper selection"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/sys.monitoring.html",
+      "observed_document_version": "3.12.15",
+      "installed_version": "3.12.3",
+      "basis": "actual PEP669 API/frame probe and original Connection.execute PY_START event; disable/unregister/free explicitly"
+    }
+  ],
+  "boundary_scope": [
+    "actual SCRAM original vs typed PostgreSQL name[]/oid[]/text[] types, values, order, duplicates, empty, OID max uint32",
+    "unsupported values and changed dumpers/code/globals/private class/encoding return exact original params object",
+    "changed list/string/int and original list code actually execute and preserve RuntimeError text",
+    "pre-import altered dump code/subclass hook/global not learned as approved; no native scalar/byOID mapping replacement"
+  ],
+  "not_accepted": [
+    "full null/invalid-value PostgreSQL error and custom-cursor lifetime closure",
+    "all negative security regressions",
+    "original normal64 throughput",
+    "current and late source/rights integration and HTTP cancel/WebGL",
+    "production deployment",
+    "real farm validation or G0-G4 approval"
+  ],
+  "candidate_adopted": false,
+  "application_code_changed": false,
+  "source82_rerun": false,
+  "normal64_accepted": false,
+  "actual_farm_runs": 0,
+  "rights_or_gate_approval": false,
+  "recursive_CLI": false,
+  "subagents": false,
+  "superseded_private_trials": [
+    {
+      "case": "focused-solar-array-binding-red-v1",
+      "reason": "expected RED stub",
+      "actual_child_exit": 1,
+      "terminal_sha256": "eceed1028761cc52ba56f85d6f3b8afe090689ad1b7b651a8ff049d7aa973998",
+      "owned_cleanup_empty": true
+    },
+    {
+      "case": "focused-solar-array-binding-green-v1",
+      "reason": "collection source module alias was not pinned; fixture preparation error",
+      "actual_child_exit": 2,
+      "terminal_sha256": "97ee731c449e1c2dc6b10d55708cc8d945767e2e9bdcd13dca5fe08a7fbdc9ae",
+      "owned_cleanup_empty": true
+    },
+    {
+      "case": "focused-solar-array-binding-green-v2",
+      "reason": "one earlier native case superseded by final boundary3",
+      "actual_child_exit": 0,
+      "terminal_sha256": "6367e876e3f7abfe13a21dff0e4f376bf836a546416c672cf0b317a48486847d",
+      "owned_cleanup_empty": true
+    },
+    {
+      "case": "focused-solar-array-binding-boundary-v3",
+      "reason": "test fixture assumed byOID mapping shape; changed to public AdaptersMap clone",
+      "actual_child_exit": 1,
+      "terminal_sha256": "4e535345d7c21a9110654fc23a06914937e4906c99bb771585dd7d66ac95fad7",
+      "owned_cleanup_empty": true
+    },
+    {
+      "case": "focused-solar-array-binding-boundary-v4",
+      "reason": "test hook had closure and could not replace zero-freevar code; fixed test only",
+      "actual_child_exit": 1,
+      "terminal_sha256": "976c38fc3dd09b5937cce80de8ba6ef34525a1b0783cfd01e27dfc975eabab88",
+      "owned_cleanup_empty": true
+    }
+  ]
+}

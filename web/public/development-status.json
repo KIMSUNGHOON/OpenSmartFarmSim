@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "기존 두 UI는 같은 토큰·원 결과로 인증/TLS 갱신과 실제 조회를 통과했습니다. 새 일사 모델은 원360초 정상64가 미완료이며 입력 표현 검토 중입니다. 관련 회귀·계산 중3D·사용자 적용·실제 농장 자료/독립 검증 전에는 전체 완료일을 확정할 근거가 없습니다.",
-  "estimate_reviewed_at": "2026-10-19T22:51:19.658890Z",
+  "estimate_reason": "기존 두 UI는 유지합니다. 새 일사 모델은 원360초 정상64가 미완료이며 배열 후보는 비용 악화로 제외했습니다. 실행 계획 관측 뒤 호출자별 비용을 확인할 예정입니다. 관련 회귀·계산 중3D·사용자 적용·실제 농장/독립 검증 전에는 전체 완료일을 확정할 근거가 없습니다.",
+  "estimate_reviewed_at": "2026-10-19T23:22:49.041406Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-19T22:51:19.658890Z",
+  "reported_at": "2026-10-19T23:22:49.041406Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,7 +24,7 @@
       "state": "completed"
     },
     {
-      "evidence": "원 정상44/64 미완료·진단confirm27/64를 유지합니다. 기존 두 UI 인증/TLS 갱신 뒤 legacy8·joint 입력3/저장9·환기8을 검증했고 원 값/UTC·권리·조회 계산/쓰기0·서비스/원본/정리를 보존했습니다. 새 일사 모델은 미배포이며 다음은 원 SQL/검사 순서를 유지하는 bound-array 표현 검토입니다.",
+      "evidence": "원 정상44/64 미완료·진단confirm27/64를 유지합니다. 실제 배열 경계3·비용1은 원 값/UTC/current15/SQL9,929를 보존했으나 평균0.573% 느려 미채택했습니다. 원 SQL 계획1도 확인했습니다. 다음은 호출자/phase별 driver 경과 관측이며 새 일사 모델은 미배포입니다.",
       "id": "execution_3d",
       "state": "next"
     },
