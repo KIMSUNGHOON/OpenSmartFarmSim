@@ -1,0 +1,677 @@
+{
+  "profile": {
+    "G0_G4": "not_assessed",
+    "SQL": {
+      "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+      "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+      "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+      "app.farm_authoring_storage._find": 60,
+      "app.job_store._event": 1,
+      "app.job_store._locked_job": 31,
+      "app.job_store._renew_in_transaction": 1,
+      "app.market_candidate_store._candidate_in_transaction": 120,
+      "app.market_candidate_store._checked_candidate": 60,
+      "app.market_candidate_store._input_in_transaction": 1020,
+      "app.market_candidate_store._shared_reader": 900,
+      "app.market_hold_store._report_row": 90,
+      "app.market_source_store._select_with_job": 2280,
+      "app.market_source_store.read_scope": 30,
+      "app.runtime_connection_scope._session": 360,
+      "app.runtime_login.verify_runtime_identity": 633,
+      "app.runtime_roles._database": 273,
+      "app.runtime_roles._scope": 1365,
+      "app.runtime_roles.audit_runtime_roles": 2457,
+      "app.thermal_run_store._decision_context_in_transaction": 210,
+      "app.thermal_run_store.get_snapshot": 30
+    },
+    "actual_farm_Runs": 0,
+    "application_source_changed": false,
+    "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+    "checkpoint_sha256": "e96dc537050a959b9ad2b30e2f1c10850643292b49b58940d07ac04dbff97cd3",
+    "current_calls": [
+      {
+        "caller": "_current",
+        "parent": "_before",
+        "phase": "before"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "private_advance"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "private_advance"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "private_advance"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "private_advance"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "private_advance"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "private_advance"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "private_advance"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "private_advance"
+      },
+      {
+        "caller": "_current",
+        "parent": "confirm",
+        "phase": "confirm"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "confirm"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "confirm"
+      },
+      {
+        "caller": "_current",
+        "parent": "confirm",
+        "phase": "confirm"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "confirm"
+      },
+      {
+        "caller": "current",
+        "parent": "_guard",
+        "phase": "confirm"
+      }
+    ],
+    "driver_execute_wall_ns_by_phase": {
+      "before": 429868499,
+      "confirm": 1746407866,
+      "private_advance": 2004483185
+    },
+    "new_solar_deployed": false,
+    "normal64_accepted": false,
+    "numeric_calls": {
+      "CLI": 0,
+      "NIR": 8,
+      "PAR": 8,
+      "RHS": 8,
+      "advance": 1,
+      "event": 0,
+      "prepare_binding": 1,
+      "prepare_context": 1,
+      "restore": 1,
+      "solar": 8,
+      "start": 0,
+      "step": 1,
+      "ventilation": 8
+    },
+    "original_checkpoint_bytes_counts_UTC_equal": true,
+    "original_confirmed_UTC": "2026-10-01T00:01:30.123456Z",
+    "phases": [
+      {
+        "phase": "before",
+        "this_python_process_CPU_ns": 650544769,
+        "wall_ns": 895105868
+      },
+      {
+        "phase": "private_advance",
+        "this_python_process_CPU_ns": 4536527908,
+        "wall_ns": 5547318343
+      },
+      {
+        "phase": "confirm",
+        "this_python_process_CPU_ns": 4313952477,
+        "wall_ns": 5203762113
+      }
+    ],
+    "planned_steps": 64,
+    "rights_or_gate_approval": false,
+    "scope": "single current before/private advance/confirm quantum; cProfile and wrappers included; phase/storage/driver/inclusive times overlap and must not be summed; Python CPU excludes PostgreSQL; warmup uses actual signed writer/current guards and original numerical chunk1, not independent actor64 proof",
+    "steps_before_after": [
+      44,
+      45
+    ],
+    "storage_loads": [
+      {
+        "caller": "app.crop_greenhouse_solar_server_custody._load",
+        "commits": 45,
+        "phase": "private_advance",
+        "wall_ns": 301089627
+      },
+      {
+        "caller": "app.crop_greenhouse_solar_storage._resume",
+        "commits": 45,
+        "phase": "private_advance",
+        "wall_ns": 291657659
+      },
+      {
+        "caller": "app.crop_greenhouse_solar_server_custody._load",
+        "commits": 46,
+        "phase": "confirm",
+        "wall_ns": 307709357
+      },
+      {
+        "caller": "app.crop_greenhouse_solar_server_custody._load",
+        "commits": 46,
+        "phase": "confirm",
+        "wall_ns": 308562348
+      },
+      {
+        "caller": "app.crop_greenhouse_solar_server_custody._load",
+        "commits": 46,
+        "phase": "confirm",
+        "wall_ns": 301708527
+      }
+    ],
+    "top_exclusive": [
+      {
+        "exclusive_seconds": 2.2959317660000003,
+        "file": "dependency/connection.py",
+        "function": "wait",
+        "inclusive_seconds": 4.1004228110000005,
+        "line": 479,
+        "primitive_calls": 10478,
+        "total_calls": 10478
+      },
+      {
+        "exclusive_seconds": 1.517203949,
+        "file": "stdlib/encoder.py",
+        "function": "iterencode",
+        "inclusive_seconds": 1.5506611330000002,
+        "line": 205,
+        "primitive_calls": 16885,
+        "total_calls": 16885
+      },
+      {
+        "exclusive_seconds": 0.468018072,
+        "file": "stdlib/decoder.py",
+        "function": "raw_decode",
+        "inclusive_seconds": 0.800504474,
+        "line": 343,
+        "primitive_calls": 4066,
+        "total_calls": 4066
+      },
+      {
+        "exclusive_seconds": 0.353066335,
+        "file": "dependency/_cursor_base.py",
+        "function": "_send_query_prepared",
+        "inclusive_seconds": 0.353066335,
+        "line": 583,
+        "primitive_calls": 9312,
+        "total_calls": 9312
+      },
+      {
+        "exclusive_seconds": 0.297362791,
+        "file": "dependency/_connection_info.py",
+        "function": "get_parameters",
+        "inclusive_seconds": 0.49155454400000004,
+        "line": 78,
+        "primitive_calls": 1623,
+        "total_calls": 1623
+      },
+      {
+        "exclusive_seconds": 0.267815314,
+        "file": "backend/app/crop_cycle_input_stream.py",
+        "function": "pairs",
+        "inclusive_seconds": 0.329936129,
+        "line": 46,
+        "primitive_calls": 420263,
+        "total_calls": 420263
+      },
+      {
+        "exclusive_seconds": 0.22342455400000003,
+        "file": "builtin",
+        "function": "<built-in method builtins.isinstance>",
+        "inclusive_seconds": 0.24476524400000002,
+        "line": 0,
+        "primitive_calls": 1616692,
+        "total_calls": 1616692
+      },
+      {
+        "exclusive_seconds": 0.213550065,
+        "file": "stdlib/copy.py",
+        "function": "deepcopy",
+        "inclusive_seconds": 0.45967935400000004,
+        "line": 118,
+        "primitive_calls": 2632,
+        "total_calls": 219778
+      },
+      {
+        "exclusive_seconds": 0.20980799600000002,
+        "file": "dependency/_cursor_base.py",
+        "function": "_maybe_prepare_gen",
+        "inclusive_seconds": 0.876523107,
+        "line": 275,
+        "primitive_calls": 20406,
+        "total_calls": 20406
+      },
+      {
+        "exclusive_seconds": 0.18244010400000002,
+        "file": "backend/app/jobs.py",
+        "function": "_validate_input_fields",
+        "inclusive_seconds": 0.43916248300000005,
+        "line": 37,
+        "primitive_calls": 2426,
+        "total_calls": 97618
+      },
+      {
+        "exclusive_seconds": 0.16427271200000002,
+        "file": "builtin",
+        "function": "<built-in method _hashlib.openssl_sha256>",
+        "inclusive_seconds": 0.16427271200000002,
+        "line": 0,
+        "primitive_calls": 28427,
+        "total_calls": 28427
+      },
+      {
+        "exclusive_seconds": 0.144598897,
+        "file": "builtin",
+        "function": "<method 'search' of 're.Pattern' objects>",
+        "inclusive_seconds": 0.144598897,
+        "line": 0,
+        "primitive_calls": 228905,
+        "total_calls": 228905
+      },
+      {
+        "exclusive_seconds": 0.13549698000000002,
+        "file": "builtin",
+        "function": "<built-in method builtins.all>",
+        "inclusive_seconds": 0.45898393800000004,
+        "line": 0,
+        "primitive_calls": 68499,
+        "total_calls": 77132
+      },
+      {
+        "exclusive_seconds": 0.131669442,
+        "file": "backend/app/economic_contracts.py",
+        "function": "untrusted_data",
+        "inclusive_seconds": 0.217151073,
+        "line": 394,
+        "primitive_calls": 6614,
+        "total_calls": 180108
+      },
+      {
+        "exclusive_seconds": 0.128730874,
+        "file": "backend/app/provenance.py",
+        "function": "<genexpr>",
+        "inclusive_seconds": 0.182044809,
+        "line": 14,
+        "primitive_calls": 978245,
+        "total_calls": 978245
+      },
+      {
+        "exclusive_seconds": 0.12332222500000001,
+        "file": "builtin",
+        "function": "<built-in method _io.open>",
+        "inclusive_seconds": 0.18921174100000002,
+        "line": 0,
+        "primitive_calls": 15424,
+        "total_calls": 15424
+      },
+      {
+        "exclusive_seconds": 0.11832672400000001,
+        "file": "dependency/array.py",
+        "function": "dump_list",
+        "inclusive_seconds": 0.323141108,
+        "line": 161,
+        "primitive_calls": 5853,
+        "total_calls": 5853
+      },
+      {
+        "exclusive_seconds": 0.10414424400000001,
+        "file": "builtin",
+        "function": "<method 'get' of 'dict' objects>",
+        "inclusive_seconds": 0.10414424400000001,
+        "line": 0,
+        "primitive_calls": 662260,
+        "total_calls": 662260
+      },
+      {
+        "exclusive_seconds": 0.09438795600000001,
+        "file": "builtin",
+        "function": "<method 'validate_json' of 'pydantic_core._pydantic_core.SchemaValidator' objects>",
+        "inclusive_seconds": 0.444395362,
+        "line": 0,
+        "primitive_calls": 3259,
+        "total_calls": 3259
+      },
+      {
+        "exclusive_seconds": 0.08935965500000001,
+        "file": "builtin",
+        "function": "<built-in method builtins.any>",
+        "inclusive_seconds": 0.28674904500000004,
+        "line": 0,
+        "primitive_calls": 66638,
+        "total_calls": 66638
+      },
+      {
+        "exclusive_seconds": 0.08258705000000001,
+        "file": "dependency/_cursor_base.py",
+        "function": "_select_current_result",
+        "inclusive_seconds": 0.20193407700000002,
+        "line": 504,
+        "primitive_calls": 9929,
+        "total_calls": 9929
+      },
+      {
+        "exclusive_seconds": 0.07368814800000001,
+        "file": "builtin",
+        "function": "<method 'to_python' of 'pydantic_core._pydantic_core.SchemaSerializer' objects>",
+        "inclusive_seconds": 0.07368814800000001,
+        "line": 0,
+        "primitive_calls": 7422,
+        "total_calls": 7422
+      },
+      {
+        "exclusive_seconds": 0.07312795100000001,
+        "file": "builtin",
+        "function": "<built-in method builtins.ord>",
+        "inclusive_seconds": 0.07312795100000001,
+        "line": 0,
+        "primitive_calls": 1204928,
+        "total_calls": 1204928
+      },
+      {
+        "exclusive_seconds": 0.06761956400000001,
+        "file": "builtin",
+        "function": "<method 'read' of '_io.BufferedReader' objects>",
+        "inclusive_seconds": 0.06761956400000001,
+        "line": 0,
+        "primitive_calls": 15421,
+        "total_calls": 15421
+      },
+      {
+        "exclusive_seconds": 0.062214071,
+        "file": "backend/app/crop_cycle_input_stream.py",
+        "function": "_need",
+        "inclusive_seconds": 0.062224698,
+        "line": 32,
+        "primitive_calls": 1103630,
+        "total_calls": 1103630
+      },
+      {
+        "exclusive_seconds": 0.060705075000000004,
+        "file": "backend/app/farm_inputs.py",
+        "function": "_records",
+        "inclusive_seconds": 0.06392165600000001,
+        "line": 188,
+        "primitive_calls": 1104,
+        "total_calls": 7544
+      },
+      {
+        "exclusive_seconds": 0.058838617,
+        "file": "builtin",
+        "function": "<method 'append' of 'list' objects>",
+        "inclusive_seconds": 0.058838617,
+        "line": 0,
+        "primitive_calls": 369697,
+        "total_calls": 369697
+      },
+      {
+        "exclusive_seconds": 0.058056588000000006,
+        "file": "stdlib/copy.py",
+        "function": "_deepcopy_dict",
+        "inclusive_seconds": 0.45036161500000005,
+        "line": 217,
+        "primitive_calls": 2630,
+        "total_calls": 12765
+      },
+      {
+        "exclusive_seconds": 0.057982438000000004,
+        "file": "dependency/array.py",
+        "function": "_find_list_element",
+        "inclusive_seconds": 0.14487860900000002,
+        "line": 53,
+        "primitive_calls": 8916,
+        "total_calls": 8916
+      },
+      {
+        "exclusive_seconds": 0.057705176000000004,
+        "file": "backend/app/runtime_roles.py",
+        "function": "audit_runtime_roles",
+        "inclusive_seconds": 2.9174042730000003,
+        "line": 172,
+        "primitive_calls": 273,
+        "total_calls": 273
+      },
+      {
+        "exclusive_seconds": 0.056863040000000004,
+        "file": "dependency/_connection_base.py",
+        "function": "_exec_command",
+        "inclusive_seconds": 0.060636674,
+        "line": 443,
+        "primitive_calls": 2196,
+        "total_calls": 2196
+      },
+      {
+        "exclusive_seconds": 0.054593636,
+        "file": "dependency/array.py",
+        "function": "_flatiter",
+        "inclusive_seconds": 0.078251585,
+        "line": 89,
+        "primitive_calls": 226839,
+        "total_calls": 226839
+      },
+      {
+        "exclusive_seconds": 0.054393180000000006,
+        "file": "dependency/_queries.py",
+        "function": "dump",
+        "inclusive_seconds": 0.6166371770000001,
+        "line": 94,
+        "primitive_calls": 9929,
+        "total_calls": 9929
+      },
+      {
+        "exclusive_seconds": 0.05286342,
+        "file": "backend/app/runtime_roles.py",
+        "function": "_tables",
+        "inclusive_seconds": 0.056091144,
+        "line": 102,
+        "primitive_calls": 49959,
+        "total_calls": 49959
+      },
+      {
+        "exclusive_seconds": 0.051590355000000004,
+        "file": "builtin",
+        "function": "<method 'sub' of 're.Pattern' objects>",
+        "inclusive_seconds": 0.051590355000000004,
+        "line": 0,
+        "primitive_calls": 91538,
+        "total_calls": 91538
+      },
+      {
+        "exclusive_seconds": 0.051021668000000006,
+        "file": "backend/app/market_source_store.py",
+        "function": "<genexpr>",
+        "inclusive_seconds": 0.051021668000000006,
+        "line": 133,
+        "primitive_calls": 366750,
+        "total_calls": 366750
+      },
+      {
+        "exclusive_seconds": 0.047959749,
+        "file": "backend/app/market_source_store.py",
+        "function": "<genexpr>",
+        "inclusive_seconds": 0.06760719100000001,
+        "line": 75,
+        "primitive_calls": 319500,
+        "total_calls": 319500
+      },
+      {
+        "exclusive_seconds": 0.0466741,
+        "file": "dependency/cursor.py",
+        "function": "fetchone",
+        "inclusive_seconds": 0.06899595600000001,
+        "line": 239,
+        "primitive_calls": 8470,
+        "total_calls": 8470
+      },
+      {
+        "exclusive_seconds": 0.045475915000000006,
+        "file": "dependency/array.py",
+        "function": "_dump_item",
+        "inclusive_seconds": 0.045475915000000006,
+        "line": 188,
+        "primitive_calls": 137274,
+        "total_calls": 137274
+      },
+      {
+        "exclusive_seconds": 0.045404258,
+        "file": "dependency/rows.py",
+        "function": "_get_names",
+        "inclusive_seconds": 0.07842792,
+        "line": 240,
+        "primitive_calls": 9929,
+        "total_calls": 9929
+      },
+      {
+        "exclusive_seconds": 0.044886783,
+        "file": "stdlib/pathlib.py",
+        "function": "_parse_path",
+        "inclusive_seconds": 0.088885054,
+        "line": 387,
+        "primitive_calls": 14057,
+        "total_calls": 14057
+      },
+      {
+        "exclusive_seconds": 0.043228215,
+        "file": "builtin",
+        "function": "<built-in method __new__ of type object at 0xa44b40>",
+        "inclusive_seconds": 0.043228215,
+        "line": 0,
+        "primitive_calls": 212635,
+        "total_calls": 212635
+      },
+      {
+        "exclusive_seconds": 0.041733926000000005,
+        "file": "dependency/sql.py",
+        "function": "format",
+        "inclusive_seconds": 0.11211393800000001,
+        "line": 220,
+        "primitive_calls": 10102,
+        "total_calls": 10102
+      },
+      {
+        "exclusive_seconds": 0.039877315,
+        "file": "dependency/_cursor_base.py",
+        "function": "_execute_gen",
+        "inclusive_seconds": 1.772921812,
+        "line": 195,
+        "primitive_calls": 20955,
+        "total_calls": 20955
+      },
+      {
+        "exclusive_seconds": 0.039020699,
+        "file": "stdlib/__init__.py",
+        "function": "sub",
+        "inclusive_seconds": 0.14204223300000002,
+        "line": 179,
+        "primitive_calls": 91468,
+        "total_calls": 91468
+      },
+      {
+        "exclusive_seconds": 0.038677175,
+        "file": "backend/app/provenance.py",
+        "function": "_exact_name",
+        "inclusive_seconds": 0.30815807300000003,
+        "line": 13,
+        "primitive_calls": 59116,
+        "total_calls": 59116
+      },
+      {
+        "exclusive_seconds": 0.036207161,
+        "file": "builtin",
+        "function": "<method 'decode' of 'bytes' objects>",
+        "inclusive_seconds": 0.036207161,
+        "line": 0,
+        "primitive_calls": 116318,
+        "total_calls": 116318
+      },
+      {
+        "exclusive_seconds": 0.035397768,
+        "file": "stdlib/__init__.py",
+        "function": "dumps",
+        "inclusive_seconds": 1.6306549240000001,
+        "line": 183,
+        "primitive_calls": 16885,
+        "total_calls": 16885
+      },
+      {
+        "exclusive_seconds": 0.035343438000000005,
+        "file": "stdlib/__init__.py",
+        "function": "_compile",
+        "inclusive_seconds": 0.056326737,
+        "line": 280,
+        "primitive_calls": 96981,
+        "total_calls": 96981
+      },
+      {
+        "exclusive_seconds": 0.035062337,
+        "file": "dependency/conninfo.py",
+        "function": "_parse_conninfo",
+        "inclusive_seconds": 0.050127635000000004,
+        "line": 92,
+        "primitive_calls": 699,
+        "total_calls": 699
+      }
+    ]
+  },
+  "receipt": {
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "actual_child_exit": 0,
+    "all_protected_sources_and_assets_preserved": true,
+    "application_source_changed": false,
+    "case": "focused-solar-worker-current-late-quantum-profile-v2",
+    "failed_v1_receipt_sha256": "d81c83b7e2d0f00af59e1aff57087a28b01c378d0fe7244b6f677684cae1be7b",
+    "log_sha256": "dbf5db3a0317afbf149f6f5497886cbf76b3aca78e3530b5801f95a8117b0b11",
+    "max_combined_RSS_bytes": 1011163136,
+    "max_single_PID_RSS_bytes": 141316096,
+    "native_CLI": {
+      "effort": "xhigh",
+      "model": "gpt-6.1-sol",
+      "raw_line_sha256": "9c7cf8c22122f32f3264eafa2be885eec4f84b0f4c2131aac9d9bf3e8adcf878",
+      "recursive_CLI": false,
+      "subagents": false,
+      "timestamp": "2026-10-19T20:42:25.161Z"
+    },
+    "normal64_accepted": false,
+    "only_reference_zero_step_count_corrected": true,
+    "original_entries": 2148,
+    "original_preflight_sha256": "1cc82759bed0a21ba41e7079a417697c5c8b07247e1633760c0d42b64277f86d",
+    "owned_cleanup_complete": true,
+    "protected_roots": 5,
+    "raw_profile_sha256": "7f41f61c5004010ac14525035c913a694ce810eeda99f43ab2c8ef0e66199203",
+    "recorded_at": "2026-10-19T21:03:28.610988Z",
+    "same_source82_not_rerun": true,
+    "source_pins_sha256": "e5009086b935174c00e4fbf87802629a790a1a7931f6cc80eea3457f530de08c",
+    "terminal_sha256": "10cdcc34e67bb73088e3da647a3d581d480032500cf07772c54b21dc8277d92e",
+    "test_source_sha256": "24a2f24c18ad5e47ccdb8406c805accd3bf74178b3cd5f26ec565c0a8536e218",
+    "tests_passed": 1,
+    "wall_seconds": 126.70248031499796
+  }
+}

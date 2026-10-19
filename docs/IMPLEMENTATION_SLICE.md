@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**Worker 전진 개선의 원 정상 미완료 — 2026-10-20 KST:** [최종 CI39321398376](../research/solar-worker-checkpoint-advance-native-normal-20261020.md)도 원360초/64 미완료·종료 뒤 저장 metadata44/64·actor−15/−15·정상/DB count proof 없음이다. 같은 app82/로컬13.723946%는 전체 처리량 수용이 아니다. 같은 source를 재접수하지 않고 현재 늦은 이력의 before/private advance/confirm 한 묶음 비용을 관측한다. 원 actor/input/청크/예산·관문과 정상→hold→취소→계산 중WebGL→WSL 적용 순서는 유지한다. 새 Solar 미배포·실제 농장 Run0·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
+**Worker 전진 개선의 원 정상 미완료 — 2026-10-20 KST:** [최종 CI39321398376](../research/solar-worker-checkpoint-advance-native-normal-20261020.md)도 원360초/64 미완료·종료 뒤 저장 metadata44/64·actor−15/−15·정상/DB count proof 없음이다. 같은 app82/로컬13.723946%는 전체 처리량 수용이 아니다. [현재 늦은44→45 묶음1검사](../research/solar-worker-late-quantum-observation-20261020.md)로 원 bytes/UTC·current15/SQL9,929/원천2,280·정리를 대사했다. 다음은 인코딩 호출/소비 경계 검토이며 같은 source의 원 정상은 재접수하지 않는다. 원 actor/input/청크/예산·관문과 정상→hold→취소→계산 중WebGL→WSL 적용 순서는 유지한다. 새 Solar 미배포·실제 농장 Run0·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 
 **Worker 전진/독립 확인 로컬 수용 — 2026-10-20 KST:** [최종 같은 app source82검사·실제 제품 비교](../research/solar-worker-checkpoint-advance-implementation-20261020.md)로 worker가 버리는 진행 응답의 생성만 줄였다. 공개 응답과 계산/저장·현재 권리·독립 confirm/lease/cancel·원 값/UTC·정리를 보존했다. 로컬 평균13.723946% 감소는 원64 처리량 수용이 아니다. 다음은 변경 source의 원 계측 OFF 독립 정상64이며 원 actor/input/chunk1/poll/retry360/RSS를 유지한다. 이후 독립 hold→HTTP취소→계산 중WebGL→WSL 사용자 적용이다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 
