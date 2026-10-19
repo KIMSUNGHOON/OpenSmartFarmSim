@@ -88,3 +88,9 @@ guard101.053초·합 RSS995,598,336bytes·원본/5root/FD/소유 정리를 확�
 76422:0에서 최종116검사/다음 독립 정상 상태를5173/5174에 no-store 동일 bytes로 게시했다.
 현재 source/syntax·문서 링크2,283개·원 actor/query/probe/역할/worker·원 HTML/환기 frozen2,173파일,
 5root/원본/상한/FD·소유 정리를 확인했다. UI 코드·DOM/WebGL은 변경하거나 재검사하지 않았다.
+
+source `eb943d9d44c7bcf369758b2015a0889d360a99ef`의
+[원 독립 정상 CI39190518816](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39190518816)를
+계측 OFF로 기동하고 실제 같은 head의 실행 중 상태를 확인했다. 정상 완료/처리량은 아직 미수용이다.
+
+59672:0에서 같은 원 CI 실행 중 상태를 두 UI에 게시하고 source/원본/5root/상한/FD·소유 정리를 보존했다.

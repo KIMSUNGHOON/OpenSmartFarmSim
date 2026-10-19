@@ -35,6 +35,44 @@
     "recursive_cli": false,
     "timestamp": "2026-10-19T01:45:28.238Z"
   },
+  "native_normal_check": {
+    "actor_instrumentation": false,
+    "created_at": "2026-10-19T02:33:24Z",
+    "head_sha": "eb943d9d44c7bcf369758b2015a0889d360a99ef",
+    "pending": true,
+    "run_id": 39190518816,
+    "status": "in_progress"
+  },
+  "native_status_publication": {
+    "UI_code_changed": false,
+    "actual_tool": "59672:0",
+    "both_HTTP_200_same_bytes_no_store": true,
+    "browser_rerun": false,
+    "raw_terminal_sha256": "a3f91a8b3bcdd64b32ff9a603e1c38b2cf40d6927211ba5bc87445fd6e1cfb47",
+    "result": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 912261120,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.3624227899999823
+    },
+    "stage": "focused-reference-audit-scope-v2-native-status-v1"
+  },
   "new_Solar_deployed": false,
   "next_task": "crop-solar-audit-scope-v2-native-normal",
   "normal_unpaused_execution_accepted": false,
@@ -147,6 +185,7 @@
     298,
     183
   ],
+  "source_commit": "eb943d9d44c7bcf369758b2015a0889d360a99ef",
   "source_parent_commit": "96eb12c66f716978ea7f1611c9bcd9885865bcfc",
   "source_sha256": {
     "backend/app/farm_registration_read_scope.py": "1e471952b68d93c5654f713b8c6bac3c3a5a22fd670f58835522860515b4f159",
