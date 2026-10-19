@@ -1,0 +1,168 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "earlier_source_checks_not_added": [
+    "16375:0 initial present1",
+    "69434:0 initial late5",
+    "96194:0 earlier lifetime15"
+  ],
+  "focused_distinct_cases": 34,
+  "fresh_exec_or_SIGKILL_rerun": false,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "guard_seconds": 411.6703325389972,
+  "implemented": true,
+  "limits": {
+    "SQL_projection_per_batch_limit": 1048576,
+    "byte_count": "pg_column_size(row) plus uncompressed octet_length(payload) and joined job input length; conservative metadata accounting",
+    "conservative_retained_bytes": 1048576,
+    "guard_PID_bytes": 536870912,
+    "guard_combined_bytes": 1073741824,
+    "keys_total": 128
+  },
+  "local_primitive_accepted": true,
+  "max_combined_RSS_bytes": 1012367360,
+  "meaningful_budget_RED": {
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "actual_assertion": "DID NOT RAISE ValueError for nine compressible64KiB payloads plus job input bytes",
+    "actual_child_exit": 1,
+    "actual_tool": "4976:1",
+    "included_in_pass_count": false,
+    "owned_cleanup_empty": true,
+    "source_and_five_roots_preserved": true
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "f20a93f9692891f5ed892cc8264014ba460a2ec22b56e3877d0811ced743a6e6",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T07:24:47.639Z"
+  },
+  "new_Solar_deployed": false,
+  "normal_native_accepted": false,
+  "pure_verifier_integration": false,
+  "recorded_at": "2026-10-19T07:48:46.214321+00:00",
+  "review": {
+    "architecture": "existing owned pure-bundle and audited read scope; all existing runtime source files unchanged",
+    "correctness": "real SCRAM exact keys/absent entries, before/after raw comparison, late source/job/candidate/role/principal changes and poisoned lifetime checks passed",
+    "findings": [],
+    "performance": "primitive lookups add no SQL; integration/paired cost and native64 unproven",
+    "security": "parameterized exact keys, role/identity owner checks, SQL-side uncompressed size suppression, copied/nested/closed/code/provider/table-pointer denial and cleanup",
+    "simplicity": "one private module and focused real DB tests; no extra stack or SQL interception"
+  },
+  "rights_or_gate_approval": false,
+  "scope": "local primitive only, not verifier integration or full production adoption",
+  "source_sha256": {
+    "backend/app/market_reference_row_readset.py": "587be5012156f297835234885ec7bfee582d81022437988e37ee591e3c97d153"
+  },
+  "stages": [
+    {
+      "actual_tool": "61923:0",
+      "current_app_pin": true,
+      "distinct_cases": 10,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1012367360,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 119.49366184899918
+      },
+      "stage": "focused-reference-row-readset-boundary10-v2",
+      "terminal_sha256": "c5ac4436e0e0cdffae9b8dab054097adb52145d7552c838447c4232bb67ffacb",
+      "test_source_sha256": "225df177d13e6038b6ec15ccae5999b977dbaaf3b55a286040719029faddaf85"
+    },
+    {
+      "actual_tool": "32357:0",
+      "current_app_pin": true,
+      "distinct_cases": 8,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1011806208,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 98.10524739699758
+      },
+      "stage": "focused-reference-row-readset-late8-v2",
+      "terminal_sha256": "f14bece2bf456b8ada15a6a2150b6aff9cb5c21f88201c4bbe64c2afab80b0fb",
+      "test_source_sha256": "ec7253f4547647320b55f2cfdf052abc2e9a743c35a8c22099fe00f85cfaa8f1"
+    },
+    {
+      "actual_tool": "42928:0",
+      "current_app_pin": true,
+      "distinct_cases": 16,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1012338688,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 142585856,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 194.0714232930004
+      },
+      "stage": "focused-reference-row-readset-lifetime16-v2",
+      "terminal_sha256": "28aa6b53bcb7caa0743b13443cc1fb3ab929fae7e962ffcd1b7912e1318cdf37",
+      "test_source_sha256": "ec7253f4547647320b55f2cfdf052abc2e9a743c35a8c22099fe00f85cfaa8f1"
+    }
+  ],
+  "status_publication": {
+    "UI_code_DOM_WebGL_changed_or_rerun": false,
+    "actual_tool": "61369:0",
+    "both_UI_same_no_store": true,
+    "combined_peak_RSS_bytes": 889311232,
+    "existing_app_callers": 0,
+    "pair_and_primitive_pins_and_syntax_links_original_actors_frozen_five_roots_caps_FD_cleanup": true
+  },
+  "test_source_sha256": "ec7253f4547647320b55f2cfdf052abc2e9a743c35a8c22099fe00f85cfaa8f1"
+}

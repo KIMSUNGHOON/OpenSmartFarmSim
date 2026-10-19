@@ -1,9 +1,30 @@
 # Closed current reference row readset — v3 proposal
 
-Status: **proposed; not implemented or adopted**.
+Status: **primitive implemented and locally accepted by34 actual SCRAM checks;
+verifier integration and full v3 adoption remain proposed**.
+[Primitive evidence](../research/market-current-reference-row-readset-primitive-20261019.md).
 [Current-source evidence and fixture-only comparison](../research/crop-solar-current-read-candidate-evaluation-20261019.md).
 The accepted [v1 verifier](market-current-reference-bundle-v1.md) and
 [v2 audit lifetime](market-current-reference-audit-scope-v2.md) remain the product baseline.
+
+## Implemented primitive interface
+
+`market_reference_row_readset.verify_rows(owner, tenant, source_keys,
+candidate_keys, consume) -> None` requires an existing owned `_Bundle` and its
+physical shared SCRAM/Read Committed/read-only connection. Source keys are
+unique `(kind, record_id, revision)` tuples, candidate keys unique
+`(input_id, revision)` tuples. The combined limit is128 keys and1MiB of
+conservative retained row accounting. Each SQL batch also suppresses raw fields
+above its1MiB limit; the combined size is checked before `consume`.
+
+The private reader returns copied rows or explicit `None` for requested absent
+keys, and rejects unknown keys. `consume` must return `None`. It is a trusted
+internal consumer; it must not publish intermediate rows. Lookup checks add no
+SQL. Full existing physical identity/isolation checks surround capture/recheck.
+The primitive clears its row/connection references and tokens; the enclosing
+source scope owns the physical connection and final role audit. Its successful
+exit is still required before accepting the outer verifier. No existing runtime
+caller uses this primitive yet.
 
 ## Boundary
 
