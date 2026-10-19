@@ -30,12 +30,13 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 순서 | 산출물 | 수용 기준 |
 | --- | --- | --- |
 | 1 — 로컬 수용 | [원문 지문 primitive48](../research/market-current-reference-receipt-primitive-20261019.md) | 실제 SCRAM 원 bytes/metadata·명시 부재·PG16/정규화·128키/범주 합1MiB·tenant/owner/connection/수명·같은 저장 hash의 원문 변경/권리·정리 통과. 제품 verifier 호출0·동등성/성능 미수용. |
-| 2 — 다음 | 순수 default getter 동등성/의존성 증거 | code/schema/Decimal·완전한 mutable 의존성을 원 full trace와 대사. dynamic/unknown/미입증 경로는 v2. 늦은 변경·권리·파생 manifest/대체 우선순위와 원 값/UTC를 확인. |
+| 2 — 진행 | [조건부 대조·반례12](../research/market-current-reference-receipt-equivalence-20261019.md)·운영 의존성 guard | 원88참조2회/7종172반환·hidden manifest/현재 인증·모델/코드 상태와 우선/fallback을 대사했다. 연구 helper 수용이며 운영 guard·전체 조건부 동등성은 미수용이다. |
+| 2a — 다음 | 실제 default HTTP/worker 의존성 guard | 기본 함수/클래스·전이 코드/정책·compiled model validator/serializer·정규화/Decimal/잠금 판본을 수명에 결속. 초기 미지원 callback/closure/plugin은 v2, anchor 후 변경은 poison/hold. 현재 인증/권한·파생 manifest·worker/API 구성·원 값/UTC/정리 보존. |
 | 3 | 같은 registration 수명의 anchor/현재 지문 연결 | 최초 full 검증 및 같은 지문의 전후 full trace 성공 뒤에만 반복 순수 data 재구성 생략. 동적/현재 권한·role 전후·취소/임대 보존, 회귀/동등성/paired 실제 비용·검토 통과 뒤 채택. |
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.
-다음 한 단계의 산출물은 getter별 실제 반환값/코드·설정·원문/동적 의존성 목록과 full trace 동등성 증거다.
+연구 대조12에서 원88참조·source74/candidate34/pin2·순수 후보76/dynamic12와7종172반환을 확인했다. 다음 산출물은 실제 HTTP/worker의 의존성 guard 코드·현재 변경 거부/기존 v2 경로·같은 full trace 대조 증거다. 프로세스 내부 identity/repr 연구 helper는 운영 guard로 사용하지 않는다.
 기본 source7종·candidate 우선/fallback·pin/파생 manifest·Decimal/정규화/현재 scope를 대사하고,
 시간·외부 상태·callback·미입증 의존성 경로는 v2 유지/명시 비적격으로 처리한다.
 동등성 증거 전에는 반복 getter를 생략하거나 현재 계산 경로를 변경하지 않는다.

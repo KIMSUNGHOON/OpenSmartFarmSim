@@ -1,0 +1,197 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "actual_tool": "48629:0",
+  "existing_primitive48_and_baseline_pins_unchanged": true,
+  "focused_distinct_cases": 12,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "guard": {
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 1027694592,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 141316096,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 144.3190678969986
+  },
+  "initial_check_not_counted": {
+    "actual_tool": "52409:0",
+    "counted_in12": false,
+    "passed_cases": 7,
+    "reason": "preliminary narrower research helper version; all cases rerun in final12",
+    "stage": "focused-reference-receipt-equivalence-first-v1"
+  },
+  "native64_normal_accepted": false,
+  "native_CI_dispatched": false,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "6fe8d6671e266fdd2f2ec6ed2b6cd904f7ea630a0a1098ca3861444f9e52f93c",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T09:04:24.788Z"
+  },
+  "new_Solar_deployed": false,
+  "observations": {
+    "bearer-expiry": {
+      "actual_current_verifier_denied": true,
+      "current_principal_expired": true,
+      "permission_cache_permitted": false,
+      "pure_dependency_envelope_stable": true
+    },
+    "candidate-priority": {
+      "before_after_candidate_values_equal": true,
+      "source_getter_calls": 0,
+      "unused_source_changed": true,
+      "unused_source_keys": 0
+    },
+    "full-trace": {
+      "candidate_keys": 34,
+      "counts_by_method": {
+        "get_decision_context": 3,
+        "get_economic_input": 34,
+        "get_economic_scenario": 2,
+        "get_economic_scenario_pin": 1,
+        "get_input_rights": 35,
+        "get_joint_shock": 1,
+        "get_joint_shock_pin": 1,
+        "get_market_candidate": 1,
+        "get_market_hold_report": 3,
+        "get_settlement_applicability": 1,
+        "get_settlement_evidence": 2,
+        "tenant_is_authenticated": 4
+      },
+      "dependency_envelope_stable": true,
+      "dynamic_indexes": 12,
+      "logical_reads": 88,
+      "original_full_trace_repetitions": 2,
+      "pin_keys": 2,
+      "pure_indexes": 76,
+      "source_keys": 74,
+      "values_and_order_preserved": true
+    },
+    "manifest-negative-control": {
+      "actual_candidate_validation_denied": true,
+      "dependency_envelope_stable": true,
+      "derived_getters_must_remain_dynamic": true,
+      "explicit_receipts_stable": true,
+      "unrecorded_manifest_input_changed": true
+    },
+    "seven-families": {
+      "default_return_comparisons": 172,
+      "families": [
+        "economic_input",
+        "economic_scenario",
+        "input_rights",
+        "joint_shock",
+        "prior_batch_cost",
+        "settlement_applicability",
+        "settlement_evidence"
+      ],
+      "raw_receipts_stable": true,
+      "source_pin_paths": 2,
+      "source_records": 86
+    }
+  },
+  "performance_acceptance": false,
+  "product_verifier_integration": false,
+  "production_dependency_guard_implemented": false,
+  "pure_getter_equivalence_unconditionally_proven": false,
+  "pytest_summary": "12 passed in 137.09s (0:02:17)",
+  "raw_observation_sha256": {
+    "receipt-equivalence-bearer-expiry.json": "78848899d83bb9a6e0303c13baf46e3ff4741cda02a2c28ef2b8f3b599a9b2eb",
+    "receipt-equivalence-candidate-priority.json": "6254d5496a1c7aad5e72a340bbe148f694734c8204d4bf7008d951e5d15da613",
+    "receipt-equivalence-full-trace.json": "e847a2268c419d16399ff062e1c36c0c4e9a7ded4f7dfd0659447a52f8694d58",
+    "receipt-equivalence-manifest-negative-control.json": "80937ed3dab15c4637c0c6aeb8b8f40765b9d1cb1eba0b2e9e558a0b82dfc087",
+    "receipt-equivalence-seven-families.json": "eaefcfe6cfabd900d5678255b05f3c6234c74ccf0b1b0d977b8b2097032bcbea"
+  },
+  "recorded_at": "2026-10-19T09:17:06.843969+00:00",
+  "research_evidence_accepted": true,
+  "reviewed_dependency_source_sha256": {
+    "backend/app/api_market_source.py": "78e46cfa2c13d2addcdf90bdc2713eaf151e56095087f1a69885c6923e559602",
+    "backend/app/economic_contracts.py": "b43fb87d5f0c2b0afca5665446718678aecc35741c3bdfca0948a02effeb3fa9",
+    "backend/app/economics.py": "3ebd4eb54d530841591278bacdf81401f9c7f7db25a8e6d3d84c63b23125b178",
+    "backend/app/jobs.py": "0e7f0bd4fb60cb20fb299b9440ad83a46888ce370979cf66869719bbbcf3e466",
+    "backend/app/market.py": "637c54dbc5efedd451d15d8af622991bc21f3b7370740a99800d7a5ee6e36a23",
+    "backend/app/market_candidate_store.py": "0420835e211222fced5927de62b478ba296a2f83bde14e70d9fd164883e2e182",
+    "backend/app/market_scenario.py": "e2a7097ceb1432b4328119655fda4eb445eb89a969ced2c0fe120aeb39080ed3",
+    "backend/app/market_source_store.py": "b96c4704295eb8fa282357f2ec8bad9c518a565d4fc1e7536d2793be1b0951bf",
+    "backend/app/provenance.py": "8b616d1ca21233b39f9b69e8dbec475e0483bc8d8b38baa18c99c4bfdcd93b0f"
+  },
+  "rights_or_gate_approval": false,
+  "scope": "conditional default-getter differential evidence and negative controls, not an implemented runtime dependency seal or verifier integration",
+  "source_baseline_commit": "3d8d544fb1ac70ab15a6df7e55d5ebca97d3de53",
+  "source_sha256": {
+    "backend/tests/test_market_reference_receipt_equivalence.py": "f340da1298d60d52b8a505599b8a20dc522abb88f33a44fa2195c754a156f20b",
+    "research/market-reference-receipt-equivalence.py": "6a9818d5c35df953e3f700362dd8d25869ccf6c2799753c23f9aff0e5d6ecfc3"
+  },
+  "status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_tool": "16497:0",
+    "browser_rerun": false,
+    "frozen_ventilation_files_preserved": 2173,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 900395008,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 2.648621312000614
+    },
+    "local_links_checked": 2375,
+    "new_source_syntax_checked": 2,
+    "original_actor_body_and_header_checked": true,
+    "product_research_helper_imports": 0,
+    "reported_at": "2026-10-19T09:19:13.910344Z",
+    "stage": "focused-reference-receipt-equivalence12-status-v1",
+    "status_sha256": "f59254f862de0b592a0a4687a22debcd2b44f4a6dbde5f766f4fcf97088af59b",
+    "terminal_sha256": "e585ac71916fff612e86b956b437fa10d5bbfbece684b9facc937984a2fc682c",
+    "whole_equivalence_task_unchecked": true
+  },
+  "terminal_sha256": "2cc444aabb2ee96b394f58ce314371b93b161e016d9e2a5ade1a81be3510929d"
+}

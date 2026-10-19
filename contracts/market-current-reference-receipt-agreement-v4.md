@@ -3,6 +3,8 @@
 Status: **standalone receipt primitive locally accepted by48 actual SCRAM checks;
 pure-getter equivalence and verifier integration remain proposed**.
 [Primitive implementation/evidence](../research/market-current-reference-receipt-primitive-20261019.md).
+[Conditional differential evidence and counterexamples](../research/market-current-reference-receipt-equivalence-20261019.md)
+passed12 actual DB checks; a production dependency guard is not implemented.
 [Measured v3 rejection and private v4 feasibility](../research/market-current-reference-row-integration-evaluation-20261019.md).
 The accepted v2 verifier and standalone v3 primitive remain unchanged.
 
@@ -58,6 +60,18 @@ primitive inputs reject; future baseline eligibility fallback is not implemented
   session/profile/slot/Task/thread/code changes and cleanup.
 
 ## Equivalence and publication conditions
+
+The research evidence covers88 logical reads, all7 source families and explicit
+negative controls. Its in-process identity/repr envelope is not a runtime seal.
+Implement and test actual default HTTP/worker eligibility and dependency guards
+before accepting this phase or binding an anchor. Initially unsupported
+callbacks/closures/plugins/models retain v2; drift after anchoring poisons the
+current operation. Include transitive code, policies, compiled model
+validators/serializers, normalization/Decimal and locked library versions.
+Keep current principal/expiry checks and all existing authority boundaries.
+Derived candidate/scenario/pin getters must still perform actual manifest input
+validation: an input outside the explicit trace changed while those trace
+receipts remained equal, and the original candidate validation denied it.
 
 The private prototype deliberately replaces some actual source getter calls;
 v3's getter-count/order condition does not prove v4. Define eligible default
