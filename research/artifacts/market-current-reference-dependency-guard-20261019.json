@@ -1,0 +1,338 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_guard_wall_seconds": 427.6969414330015,
+  "actual_farm_Runs": 0,
+  "all_original_getters_still_executed": true,
+  "composition": {
+    "all_original_getters_executed": true,
+    "candidate_keys": 34,
+    "full_trace_repetitions": 2,
+    "logical_reads_per_trace": 88,
+    "models": 36,
+    "pin_keys": 2,
+    "raw_receipts_and_guard_accepted": true,
+    "registration_values_preserved": true,
+    "source_keys": 74
+  },
+  "composition_sha256": "f2ade0cdb061d4223f42de510a8342985d49255268979621afaa75165464d22a",
+  "conditional_default_decoding_equivalence_accepted": true,
+  "existing_v2_and_primitive34_HTTP58_primitive48_preserved": true,
+  "focused_distinct_cases": 37,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "limits": {
+    "snapshot_nodes": 200000,
+    "snapshot_text_and_bytes": 2097152
+  },
+  "local_dependency_guard_accepted": true,
+  "native64_normal_accepted": false,
+  "native_CI_dispatched": false,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "aaaf23a2c3005a55dd5acd84a0e3d50c54971152f09b4f893304bf8371970bbd",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T09:22:10.051Z"
+  },
+  "new_Solar_deployed": false,
+  "performance_acceptance": false,
+  "preliminary_not_counted": [
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "96447:1",
+      "counted_in37": false,
+      "explanation": "missing module after actual registration fixture",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-guard-RED-v1",
+      "terminal_sha256": "72311e3e672c04f60b3026f2742d4fa892269f795f94c074fcff9977908c2bbd",
+      "wall_seconds": 15.747697506994882
+    },
+    {
+      "actual_child_exit": 0,
+      "actual_tool": "61650:0",
+      "counted_in37": false,
+      "explanation": "earlier normal case, not added to37",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-guard-first-v1",
+      "terminal_sha256": "27cf42d353b8033c659bc6deb7a61cfae28f5c31a9da2870ff32097f0101f412",
+      "wall_seconds": 15.703683423002076
+    },
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "87227:1",
+      "counted_in37": false,
+      "explanation": "closed guard retained owner/registration; release and stale-access poisoning fixed",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-close-RED-v1",
+      "terminal_sha256": "bdb9dac801ea3a46f2bb9373ee5b0fd09a25e1e30dba5f593aa21d907464dda0",
+      "wall_seconds": 15.9074028479954
+    },
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "69015:1",
+      "counted_in37": false,
+      "explanation": "HTTP fixture provider was not updated consistently on shared job store",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-guard-boundary-v1",
+      "terminal_sha256": "a909fa47cf71df2e52c96a13a7676cbdb28c8a3a1eec51e975bb67cfd7bad210",
+      "wall_seconds": 94.95949486299651
+    },
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "13351:1",
+      "counted_in37": false,
+      "explanation": "imported Python function alias drift was not detected; added alias binding",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-alias-RED-v1",
+      "terminal_sha256": "4acdcb43dd2b801d06d28038e1817deaf639e239d4cd95d155b7d862b34daa1d",
+      "wall_seconds": 15.36014478099969
+    },
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "14725:1",
+      "counted_in37": false,
+      "explanation": "expiry correctly raised existing PermissionError; fixture expected only ValueError",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-guard-boundary-v2",
+      "terminal_sha256": "c9f0df070e0d9665240b41bfd33c34030b75799d479de96c754c61f4f0b6ccf5",
+      "wall_seconds": 126.33186804099387
+    },
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "56583:1",
+      "counted_in37": false,
+      "explanation": "JSON helper/copy dispatch changes were not detected; pinned relevant library state",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-libraries-RED-v1",
+      "terminal_sha256": "66a75faeec524d015e33cbca3a069712544d8e75f51f258d1f8573857fe51320",
+      "wall_seconds": 28.16311682700325
+    },
+    {
+      "actual_child_exit": 0,
+      "actual_tool": "14172:0",
+      "counted_in37": false,
+      "explanation": "earlier10 boundary cases, not added to37",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-guard-boundary-v3",
+      "terminal_sha256": "129e7b93af62b8c08f1c47313fb4437f38780702ad61202a5ef46213660e5c0a",
+      "wall_seconds": 128.4319667939999
+    },
+    {
+      "actual_child_exit": 2,
+      "actual_tool": "76183:2",
+      "counted_in37": false,
+      "explanation": "new version tests omitted required indirect login fixture; collection failure",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-lock-RED-v1",
+      "terminal_sha256": "eb81d9e4ab25074396ef3af05c77c246373f9eb40ae57dc45b5dc72abb3f02da",
+      "wall_seconds": 3.181764316999761
+    },
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "68204:1",
+      "counted_in37": false,
+      "explanation": "installed version metadata was not checked against lock; enforcement added",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "source_and_protected_previews_preserved": true,
+      "stage": "focused-reference-dependency-lock-RED-v2",
+      "terminal_sha256": "e44386b20ac13088b63382e48e3542decee36ca396f00367bf12c715b31b5917",
+      "wall_seconds": 5.134645297999668
+    }
+  ],
+  "product_verifier_integration": false,
+  "recorded_at": "2026-10-19T09:58:00.053510+00:00",
+  "registration_bound_cases": 35,
+  "rights_or_gate_approval": false,
+  "scope": "standalone production dependency guard and conditional default-decoding equivalence; no getter-skipping integration or permission cache",
+  "source_baseline_commit": "c15d57799276e67488b4d44f55bb832000a7151c",
+  "source_sha256": {
+    "backend/app/market_reference_dependencies.py": "43caa3725bbda5dc5f4e40c5babeb3bb6222211be4f99bcffe999f1b0686be24",
+    "backend/tests/test_market_reference_dependencies.py": "c1e94a07c013bf84f9ab540f4386a3c739bd3ece1429dfcdfb5b8b39ff3d92bf"
+  },
+  "stages": [
+    {
+      "actual_tool": "55597:0",
+      "distinct_cases": 14,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1007611904,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 149.0176100969984
+      },
+      "pytest_summary": "14 passed, 23 deselected in 141.32s (0:02:21)",
+      "source_sha256": {
+        "backend/app/market_reference_dependencies.py": "43caa3725bbda5dc5f4e40c5babeb3bb6222211be4f99bcffe999f1b0686be24",
+        "backend/tests/test_market_reference_dependencies.py": "c1e94a07c013bf84f9ab540f4386a3c739bd3ece1429dfcdfb5b8b39ff3d92bf"
+      },
+      "stage": "focused-reference-dependency-guard-boundary-final-v1",
+      "terminal_sha256": "9f41d3c3f2e38810be376660e2ec281740797217fbbd27e9821006f38b12fde4"
+    },
+    {
+      "actual_tool": "85388:0",
+      "distinct_cases": 16,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1011138560,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 192.94250445999933
+      },
+      "pytest_summary": "16 passed, 21 deselected in 182.90s (0:03:02)",
+      "source_sha256": {
+        "backend/app/market_reference_dependencies.py": "43caa3725bbda5dc5f4e40c5babeb3bb6222211be4f99bcffe999f1b0686be24",
+        "backend/tests/test_market_reference_dependencies.py": "c1e94a07c013bf84f9ab540f4386a3c739bd3ece1429dfcdfb5b8b39ff3d92bf"
+      },
+      "stage": "focused-reference-dependency-guard-late-final-v1",
+      "terminal_sha256": "7c632c5ba12dc988b744925690e86c03016b1c7dffd0da775c03173a32d58760"
+    },
+    {
+      "actual_tool": "8048:0",
+      "distinct_cases": 7,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1008967680,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 147136512,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 85.73682687600376
+      },
+      "pytest_summary": "7 passed, 30 deselected in 81.49s (0:01:21)",
+      "source_sha256": {
+        "backend/app/market_reference_dependencies.py": "43caa3725bbda5dc5f4e40c5babeb3bb6222211be4f99bcffe999f1b0686be24",
+        "backend/tests/test_market_reference_dependencies.py": "c1e94a07c013bf84f9ab540f4386a3c739bd3ece1429dfcdfb5b8b39ff3d92bf"
+      },
+      "stage": "focused-reference-dependency-guard-lifetime-final-v1",
+      "terminal_sha256": "5f32f951f8400a29908bde5a40bab459cd8a87edc732010d2462e34aa083d196"
+    }
+  ],
+  "status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_tool": "56780:0",
+    "browser_rerun": false,
+    "frozen_ventilation_files_preserved": 2173,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 892502016,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 2.3854514979975647
+    },
+    "local_links_checked": 2388,
+    "new_source_syntax_checked": 2,
+    "original_actor_body_and_header_checked": true,
+    "product_guard_callers": 0,
+    "reported_at": "2026-10-19T10:00:21.311919Z",
+    "stage": "focused-reference-dependency-guard37-status-v1",
+    "status_sha256": "3eb18d9e91ab1c39134cc5a36bc405653d9520655eca94c13e28d413d96a640d",
+    "terminal_sha256": "e7096f04fbc8f04957429772d174b5446273967cf2180c93a737e0ed8e51bd81"
+  },
+  "unconditional_getter_equivalence_proven": false,
+  "version_lock_checks": 2,
+  "versions": {
+    "pydantic": "2.13.5",
+    "pydantic_core": "2.46.5",
+    "python_observed": "3.12.3",
+    "python_supported_family": "3.12"
+  }
+}

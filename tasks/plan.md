@@ -30,13 +30,13 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 순서 | 산출물 | 수용 기준 |
 | --- | --- | --- |
 | 1 — 로컬 수용 | [원문 지문 primitive48](../research/market-current-reference-receipt-primitive-20261019.md) | 실제 SCRAM 원 bytes/metadata·명시 부재·PG16/정규화·128키/범주 합1MiB·tenant/owner/connection/수명·같은 저장 hash의 원문 변경/권리·정리 통과. 제품 verifier 호출0·동등성/성능 미수용. |
-| 2 — 진행 | [조건부 대조·반례12](../research/market-current-reference-receipt-equivalence-20261019.md)·운영 의존성 guard | 원88참조2회/7종172반환·hidden manifest/현재 인증·모델/코드 상태와 우선/fallback을 대사했다. 연구 helper 수용이며 운영 guard·전체 조건부 동등성은 미수용이다. |
-| 2a — 다음 | 실제 default HTTP/worker 의존성 guard | 기본 함수/클래스·전이 코드/정책·compiled model validator/serializer·정규화/Decimal/잠금 판본을 수명에 결속. 초기 미지원 callback/closure/plugin은 v2, anchor 후 변경은 poison/hold. 현재 인증/권한·파생 manifest·worker/API 구성·원 값/UTC/정리 보존. |
-| 3 | 같은 registration 수명의 anchor/현재 지문 연결 | 최초 full 검증 및 같은 지문의 전후 full trace 성공 뒤에만 반복 순수 data 재구성 생략. 동적/현재 권한·role 전후·취소/임대 보존, 회귀/동등성/paired 실제 비용·검토 통과 뒤 채택. |
+| 2 — 로컬 수용 | [조건부 대조·반례12](../research/market-current-reference-receipt-equivalence-20261019.md) + [의존성 guard37](../research/market-current-reference-dependency-guard-20261019.md) | 검토한 default DTO 재구성 범위만 수용했다. 원88참조2회/7종172반환·동적 manifest/현재 인증·우선/fallback과 실제 guard/원문 지문 결합을 대사했다. 무조건 전체 getter 동등성/생략·성능 미수용. |
+| 2a — 로컬 수용 | [의존성 guard37](../research/market-current-reference-dependency-guard-20261019.md) | guard 자체 SQL0·36모델/코드/정책·JSON/copy 전이 상태/잠금 판본·초기 비적격 v2·도중 변경 poison·HTTP principal과 authority 구성·취소/복제/정리 통과. 제품 호출0이며 새 배포는 미수용. |
+| 3 — 다음 | 같은 registration 수명의 anchor/현재 지문 연결 | 최초 full 검증 및 같은 지문의 전후 full trace 성공 뒤에만 반복 순수 data 재구성 생략. 동적/현재 권한·role 전후·취소/임대 보존, 회귀/동등성/paired 실제 비용·검토 통과 뒤 채택. |
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.
-연구 대조12에서 원88참조·source74/candidate34/pin2·순수 후보76/dynamic12와7종172반환을 확인했다. 다음 산출물은 실제 HTTP/worker의 의존성 guard 코드·현재 변경 거부/기존 v2 경로·같은 full trace 대조 증거다. 프로세스 내부 identity/repr 연구 helper는 운영 guard로 사용하지 않는다.
+연구 대조12와 실제 guard37에서 검토한 default DTO의 조건부 범위를 수용했다. 같은 최종 source의 guard37은 원문 primitive와 원88참조2회를 결합하고 모든 원 getter를 실행했다. guard 합427.697초다. 다음은 정확한 활성 guard/등록/trace에 결속한 full anchor/현재 지문 연결이다. 초기 후보 존재/부재 선택도 전후 확인하고, 현재 principal/권한·동적 getter/manifest·모든 기존 current 경계를 실행한다. guard가 닫히거나 교체된 뒤 bare 등록 값으로 기대를 재사용하지 않는다. 먼저 실제 paired 비용/원 값·UTC/일반 경로를 대사하고 유용한 개선 근거 뒤 관련 worker/HTTP 회귀와 원64로 진행한다. 연구 identity/repr helper를 운영 guard로 사용하지 않는다.
 기본 source7종·candidate 우선/fallback·pin/파생 manifest·Decimal/정규화/현재 scope를 대사하고,
 시간·외부 상태·callback·미입증 의존성 경로는 v2 유지/명시 비적격으로 처리한다.
 동등성 증거 전에는 반복 getter를 생략하거나 현재 계산 경로를 변경하지 않는다.

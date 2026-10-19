@@ -4,7 +4,9 @@ Status: **standalone receipt primitive locally accepted by48 actual SCRAM checks
 pure-getter equivalence and verifier integration remain proposed**.
 [Primitive implementation/evidence](../research/market-current-reference-receipt-primitive-20261019.md).
 [Conditional differential evidence and counterexamples](../research/market-current-reference-receipt-equivalence-20261019.md)
-passed12 actual DB checks; a production dependency guard is not implemented.
+passed12 actual DB checks. The [standalone dependency guard](../research/market-current-reference-dependency-guard-20261019.md)
+and reviewed default DTO reconstruction equivalence were locally accepted by37
+focused checks. Getter-skipping integration remains unimplemented.
 [Measured v3 rejection and private v4 feasibility](../research/market-current-reference-row-integration-evaluation-20261019.md).
 The accepted v2 verifier and standalone v3 primitive remain unchanged.
 
@@ -25,8 +27,9 @@ primitive inputs reject; future baseline eligibility fallback is not implemented
 ## Development order
 
 1. Accepted: closed exact-key SQL receipt primitive with48 real DB checks.
-2. Specify and prove eligible pure-data/default-getter semantics and complete
-   mutable dependencies; unsupported callbacks, schemas or repositories use v2.
+2. Accepted for the reviewed default DTO/code/model/configuration profile:
+   conditional differential evidence and owned dependency guard. Initially
+   unsupported callbacks, schemas or repositories retain v2.
 3. Bind an expectation only after a full original trace passes between matching
    fresh receipt snapshots in the same registration lifetime. Initial full farm
    validation is still required. It is not a cross-request authorization ticket.
@@ -63,8 +66,14 @@ primitive inputs reject; future baseline eligibility fallback is not implemented
 
 The research evidence covers88 logical reads, all7 source families and explicit
 negative controls. Its in-process identity/repr envelope is not a runtime seal.
-Implement and test actual default HTTP/worker eligibility and dependency guards
-before accepting this phase or binding an anchor. Initially unsupported
+`market_reference_dependencies.scope(owner, witness)` now yields an owned guard
+or `None` for an initially unsupported decoding profile. It uses bounded structural
+state, actual locked versions and native compiled model objects. It adds no SQL
+and retains actual current authority checks and enclosing role audits. Its
+conditional scope is documented in the37-check evidence, including full trace
+and raw receipt composition. The future anchor must belong to the exact active
+guard/registration/trace; closing or replacing a guard cannot transfer it.
+Initially unsupported
 callbacks/closures/plugins/models retain v2; drift after anchoring poisons the
 current operation. Include transitive code, policies, compiled model
 validators/serializers, normalization/Decimal and locked library versions.
