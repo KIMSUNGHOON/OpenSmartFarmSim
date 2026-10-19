@@ -1,0 +1,126 @@
+{
+  "G0_G4": "not_assessed",
+  "actor_exits": {
+    "api": -15,
+    "worker": -15
+  },
+  "actor_hashes_verified": true,
+  "actual_farm_Runs": 0,
+  "application_query_sha256": "95d52950af17fa8ad90a2999c8c1410f3e5228c823cfd3f9ccac11bd794ae747",
+  "archive_downloaded_once": true,
+  "artifact": {
+    "digest": "sha256:914d549905fd05248335f0f11b9d1cd616f6b407a9f9149995cc382902b9de1d",
+    "id": 12220731516,
+    "name": "solar-unpaused-normal-6f0fa5be525796dab82b71c2f152bfbabf133613",
+    "size_in_bytes": 3291
+  },
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "collector_sha256": "a2c82f9a9ade8c6410e14b4fc02dcb588333a30ce593579621b6d43df9a77f03",
+  "conclusion": "failure",
+  "files": [
+    "actor-diagnostics.json",
+    "failure-checkpoint-diagnostics.json",
+    "failure.json",
+    "resource.json"
+  ],
+  "head_sha": "6f0fa5be525796dab82b71c2f152bfbabf133613",
+  "job": {
+    "conclusion": "failure",
+    "id": 118296085104,
+    "name": "independent normal Solar execution",
+    "status": "completed"
+  },
+  "local_focused_tests_preserved": 82,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "9c7cf8c22122f32f3264eafa2be885eec4f84b0f4c2131aac9d9bf3e8adcf878",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T20:42:25.161Z"
+  },
+  "new_solar_deployed": false,
+  "next_action": "one current late-history original worker quantum observation; not normal64 acceptance",
+  "normal64_accepted": false,
+  "observed_at": "2026-10-19T20:51:18.298644Z",
+  "raw_file_sha256": {
+    "actor-diagnostics.json": "c7be673c60fa87d7b5944f9255e76ab0085f36af846fde199d8b45f2f0c3f257",
+    "failure-checkpoint-diagnostics.json": "2b20f6dd6c74d6ca773e6d037d1d479df1d7d443444623a1070003545c6c5c2b",
+    "failure.json": "caeef10a9162d92609cde8d7f0459a8b7e469119a2d13e2ea63663f3c9bd6d3e",
+    "resource.json": "b4462f1211b9175118fee9d476b75777d6e87b3b73afd618d903823ca8287a35"
+  },
+  "resource": {
+    "FD_before_after": [
+      7,
+      7
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 1435,
+    "WSL_capacity_accepted": false,
+    "actual_child_exit": 1,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 366948352,
+    "hosted_only": true,
+    "local_protected_roots_present": false,
+    "owned_non_zombie_remaining": [],
+    "reason": null,
+    "rights_or_gate_approval": false,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 130011136,
+    "temporary_entries_remaining": 0,
+    "wall_seconds": 383.02742786900006
+  },
+  "rights_or_gate_approval": false,
+  "run_id": 39321398376,
+  "same_source_normal_rerun": false,
+  "status": "completed",
+  "steps": [
+    {
+      "completed_at": "2026-10-19T20:44:00Z",
+      "conclusion": "success",
+      "name": "Build the pinned native test PostgreSQL",
+      "number": 5,
+      "started_at": "2026-10-19T20:41:35Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-10-19T20:50:23Z",
+      "conclusion": "failure",
+      "name": "Original independent unpaused normal execution",
+      "number": 6,
+      "started_at": "2026-10-19T20:44:00Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-10-19T20:50:24Z",
+      "conclusion": "success",
+      "name": "Store curated normal execution evidence",
+      "number": 7,
+      "started_at": "2026-10-19T20:50:23Z",
+      "status": "completed"
+    }
+  ],
+  "stopped_metadata_diagnostic_only": {
+    "G0_G4": "not_assessed",
+    "checkpoint_payload_sha256": "76d859ff348d31337bdbb53faa8212182c6b9a2daa819d27018db47d8bbeaeb6",
+    "checkpoint_recorded_at": "2026-10-19T20:50:14.631541+00:00",
+    "evidence_kind": "stored_owned_fixture_metadata_only",
+    "job": {
+      "attempt": 1,
+      "state": "simulating"
+    },
+    "normal_execution_accepted": false,
+    "observed_at": "2026-10-19T20:50:23.075792+00:00",
+    "owned_cluster_identity_verified": true,
+    "rights_or_gate_approval": false,
+    "stored_checkpoint": {
+      "computed_through_utc": "2026-10-01T00:01:28.123456Z",
+      "planned_steps": 64,
+      "publication_sequence": 45,
+      "status": "yielded",
+      "steps": 44
+    },
+    "transaction_isolation": "repeatable read",
+    "transaction_read_only": true
+  }
+}
