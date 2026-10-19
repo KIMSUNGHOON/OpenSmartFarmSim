@@ -64,6 +64,9 @@ guard43.480초·원본2,148항목/5root/frozen 두 화면·512MiB/PID/합1GiB를
 
 ## 다음 한 단계와 수용 기준
 
+**후속 평가로 갱신:** [현재 후보 비교](crop-solar-current-read-candidate-evaluation-20261019.md)에서 전달/직접 ACL 후보를 기각했다.
+다음은 [정확한 키의 닫힌 행 readset primitive](../contracts/market-current-reference-row-readset-v3.md)이며 아직 미구현·미채택이다. 아래 SQL 후보는 당시 계획과 수용 조건이다.
+
 이번 관측은 현재 등록 검증의 I/O 비용을 뒷받침한다. 다음 후보는 기존 역할 감사 안의
 반복 SQL 왕복을 줄이는 작은 변경이다. **아직 구현·채택하지 않았다.** 새 운영 계층은 추가하지 않는다.
 

@@ -11,8 +11,14 @@ public TLS1 + Solar7 + worker13 + query13 + HTTP24=58건이며 private GREEN/이
 [후속 단계 진단/현재 한 청크](../research/crop-solar-capture-pending-phase-cost-20261019.md)를 제한된 관측으로 수용했다.
 CI39211556239는 실제 확정15/64·phase 예외 기록0·current/등록의 비용을 확인했다.
 현재 청크는10.029925초·current12/등록24/재구성1/원천1,824·연결144/SQL7,113/감사183이다.
-다음 한 단계는 기존 역할 감사 SQL 왕복 감소 후보다. 모든 fresh 역할/schema/관계/열/권한 사실·거부/늦은 변경과
-원 조회 순서/수치/UTC·일반 경로/worker/HTTP·5root/자원/정리를 보존해야 한다. 같은 fixture paired 비용·SQL 감소 후 검토한다.
+[현재 후보 비교/footprint](../research/crop-solar-current-read-candidate-evaluation-20261019.md)에서 기각된15→4 후보를 재적용하지 않았다.
+원 SQL pipeline은 일관된 개선 없음, 직접 ACL 행렬은 더 느려 미채택이다. 같은 source의 native CI도 반복하지 않았다.
+원천74개를1,824회·파생 입력34개의 미존재를816회 조회했다. 시험 전용 행 묶음은 원 getter/순서/수치/UTC·감사183을 유지해
+약5.1%/5.4% 감소했지만 tenant 전체85/11행 조회·SQL interception을 사용해 제품/보안 수용은 아니다.
+다음 한 단계는 [닫힌 행 readset v3](../contracts/market-current-reference-row-readset-v3.md)의 primitive 구현/실제 DB 검사다.
+정확한 trace 키/부재·원 source/job 원문·개수/용량·전후 변경·현재 권리/principal·connection/slot/실행 소유/코드/수명과
+중첩/복제/예외 정리를 확인한 뒤에만 pure verifier에 연결한다. baseline v2/초기 full검증/모든 current 경계는 유지한다.
+이후 actual logical1,824/순서·원 값/UTC/proof·일반 경로/worker/HTTP·5root/자원/정리와 paired 비용·검토를 거쳐 채택한다.
 아직 미구현·미채택이며 진단은 정상 수용이 아니다.
 같은 정상 반복이나 상한/actor/입력 변경은 하지 않는다. 그 뒤 수정 source의 독립 정상은 다음을 유지한다. 원64/chunk1/조회·retry360/RSS,
 64/start1/CLI0/attempt1/success1·두 전진 prefix·원 UTC/수치·두 actor 종료0·FD/역할/schema/소유 PG/임시 정리 proof가 수용 기준이다.
