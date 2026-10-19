@@ -1,0 +1,100 @@
+{
+  "DOI": "10.23138/RDA.20260707-00001.r1",
+  "DOI_date_token": "20260707; not used as publication timestamp",
+  "G0_G4": "not_assessed",
+  "access_evidence_scope": "public HTML and client control flow only; no server download/authentication claim",
+  "actual_farm_Runs": 0,
+  "actual_variety_and_cycle_match": null,
+  "application_source_changed": false,
+  "available_at": null,
+  "catalog_cherry_tomato_farm_count": 79,
+  "catalog_crop": "cherry tomato among multiple declared crops",
+  "catalog_material_type": "processed data",
+  "catalog_period": "2024/25 crop cycle; exact observation times not received",
+  "catalog_publication_and_registration_date": "2026-07-01",
+  "cultivar_adopted": false,
+  "data_adopted": false,
+  "dataset_filename_displayed": "스마트팜_2024.zip",
+  "dataset_raw_sha256": null,
+  "declared_license": "CC0 1.0",
+  "first_direct_retrieval_at": "2026-10-19T20:45:59.126923Z",
+  "holds": [
+    "lawful authenticated file access or authorized provider copy",
+    "file-specific rights and personal record review",
+    "actual variety/farm/cycle mapping",
+    "timestamps/timezone/units/QC/missingness/management and growth/harvest alignment",
+    "calibration versus unused independent validation split",
+    "historical availability and corrections/revisions"
+  ],
+  "independent_local_cycles_acquired": 0,
+  "independent_validation_split": null,
+  "measurement_QC": null,
+  "measurement_units": null,
+  "metadata_bytes": 72552,
+  "metadata_raw_sha256": "4e16b7df5fe14a67cdea772726875ba9d064a44d8c24b46e34cc9c29887b0950",
+  "native_metadata_requests": {
+    "API_key_requested": false,
+    "authentication_attempted": false,
+    "catalog_HTTP_status": 200,
+    "count": 5,
+    "dataset_bytes_received": 0,
+    "form_submission": false,
+    "method": "GET",
+    "provider_contact": false
+  },
+  "product_id": "RDA-dataId-4163",
+  "product_identity_check_enabled": true,
+  "public_client_sources": [
+    {
+      "bytes": 10622,
+      "raw_sha256": "590f574966d97f808a71b6bf8512b99fdf46142f7456d61d5f0f7003355ccc30",
+      "retrieved_at": "2026-10-19T20:46:13.470684Z",
+      "url": "https://adp.rda.go.kr/js/portal/data/dataPblcateDetail.js?version=1.0.10065"
+    },
+    {
+      "bytes": 4444,
+      "raw_sha256": "70cd06104a6bc99f2bbd2491401011725100144d571321d344d3c435edbbf445",
+      "retrieved_at": "2026-10-19T20:46:14.203195Z",
+      "url": "https://adp.rda.go.kr/js/portal/data/download.js?version=1.0.10065"
+    },
+    {
+      "authentication_attempted": false,
+      "bytes": 724,
+      "contacts_or_form_submission": false,
+      "only_public_client_code_read": true,
+      "raw_sha256": "d4a410993e88b4a08c9d1104be448f72bef750b41472fd2de0826eb14656133f",
+      "retrieved_at": "2026-10-19T20:47:24.065781Z",
+      "url": "https://adp.rda.go.kr/js/dcp/nice/nice.js"
+    },
+    {
+      "authentication_attempted": false,
+      "bytes": 2034,
+      "contacts_or_form_submission": false,
+      "only_public_client_code_read": true,
+      "raw_sha256": "06d84b37859611ac00f246b98de954a8a4b245bdfbd8217ad975271ad0641676",
+      "retrieved_at": "2026-10-19T20:47:39.552730Z",
+      "url": "https://adp.rda.go.kr/js/portal/data/commData.js?version=1.0.10065"
+    }
+  ],
+  "publication_time_precision": "day; timezone unknown",
+  "raw_dataset_received": false,
+  "reviewed_at": "2026-10-19T20:48:38.843810Z",
+  "reviewer": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "9c7cf8c22122f32f3264eafa2be885eec4f84b0f4c2131aac9d9bf3e8adcf878",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T20:42:25.161Z"
+  },
+  "rights_or_gate_approval": false,
+  "rights_review": {
+    "display": "file-specific review pending",
+    "external_CLI_processing": "file-specific review pending",
+    "generic_usage_notice_applicability": "unresolved; neither blanket prohibition nor approval inferred",
+    "redistribution": "file-specific review pending",
+    "use": "file-specific review pending"
+  },
+  "source_url": "https://adp.rda.go.kr/portal/pub/data/dataDetail.do?dataId=4163&dataTypeCd=PBLCATE",
+  "vintage": "version1/r1"
+}

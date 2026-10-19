@@ -2649,3 +2649,7 @@ DB 후보와 새 cycle API/client/3D는 이 SHA 밖이다.
 위 role/config 예정도 [실제 로컬 수용](../research/crop-cycle-storage-roles-implementation.md)으로 대체한다.
 농장 결합/서버 실행의 후속 CI도 위0f2925f에서 수용했다. DB는 로컬 수용했고 다음은 같은 ID의 cycle API다.
 진행 중 CI를 후속 push로 취소하지 않는다.
+
+## 국내 독립 자료 접근 병행: RDA4163 — 2026-10-20 KST
+
+[새 공식 제품의 공개 메타데이터/접근 검토](../research/crop-domestic-rda-2024-catalog-20261020.md)를 완료했다. 후속 `crop-domestic-rda-2024-file-access`는 정당한 본인인증/권한 있는 파일 제공과 파일별 조건에 의존한다. 현재 원자료 수신/채택/독립 작기는0이다. 이 경로의 확보를 원 actor64/모델/저장3D 개발의 선행으로 추가하지 않는다. 현장 검증에는 실제 품종·농장/작기·시각/단위/QC·미사용 검증 분리가 확인된 파일이 별도로 필요하다. 제품의79농가 표기를79개 검증 작기 확보로 세지 않는다.
