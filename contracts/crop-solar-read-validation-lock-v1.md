@@ -1,12 +1,13 @@
-# Solar read validation lock scope — v1 candidate
+# Solar read validation lock scope — v1
 
-Basis: [current55 checks, native22/64 and diagnostic15/64](../research/crop-solar-shared-read-locks-implementation-20261019.md).
-The current diagnostic has16 confirm returns/0 exception events, but7 actual
+Basis: [previous55 checks, native22/64 and diagnostic15/64](../research/crop-solar-shared-read-locks-implementation-20261019.md).
+The baseline diagnostic has16 confirm returns/0 exception events, but7 actual
 writer advance Pending events. Current validation remains expensive. This is an
 implemented read/read boundary followed by a proposed narrower read lock scope;
-the new candidate is implemented and under verification;
-[40 current-source checks](../research/crop-solar-read-validation-lock-implementation-20261019.md)
-have passed. It is not adopted or fully accepted. The actual post-capture
+[62 current-source checks and review](../research/crop-solar-read-validation-lock-implementation-20261019.md)
+accept the local software component. The original uninstrumented64 independent
+normal in item5 remains pending, followed by hold/cancel/calculating WebGL, WSL
+capacity and user activation. Full operational acceptance is not complete. The actual post-capture
 reader/current vs writer RED passed as a diagnosis in41317:1: writer advance
 was rejected with SolarCustodyPending. Initial GREEN28208:0 and final-source
 boundary7/4703:0 now include writer progress and stale-read rejection.
@@ -49,5 +50,3 @@ remain required.
    normal. Independent hold/cancel/calculating WebGL, WSL capacity and user
    activation follow. Rights/independent G0–G4 evidence and the whole product
    remain separate. Same-source failed normal/diagnostic reruns are not evidence.
-
-Use the current native Codex CLI gpt-6.1-sol/xhigh session; no recursive CLI.

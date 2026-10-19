@@ -1,8 +1,8 @@
-# Solar 읽기 검증의 잠금 구간 후보 — 2026-10-19 KST
+# Solar 읽기 검증의 짧은 잠금 구간 로컬 수용 — 2026-10-19 KST
 
-상태: **구현·현재40개 고유 검사 통과, 후보 미채택**.
+상태: **현재62개 고유 검사·검토로 로컬 소프트웨어 수용. 독립 원64·운영 수용은 미완료**.
 [계약](../contracts/crop-solar-read-validation-lock-v1.md) ·
-[원 독립22/64·현재 진단15/64/실제 RED](crop-solar-shared-read-locks-implementation-20261019.md) ·
+[이전 판본의 원22/64·진단15/64/실제 RED](crop-solar-shared-read-locks-implementation-20261019.md) ·
 [기계 증거](artifacts/crop-solar-read-validation-lock-implementation-20261019.json).
 
 ## 변경
@@ -29,19 +29,31 @@ root→intent SH/NB를 재획득해 같은 상태인지 확인한다. 바뀐 정
 | Solar 권리/서명 변조·늦은 게시 거부·수치 보류·서명 도메인 분리 |4|83327:0|
 | 실제 작업자 정상/hold·chunk/terminal 취소·임대 만료/새 시도 인계 |5|72509:0|
 | 검증6지점 취소·늦은 입력/임대 변경 차단 |8|97316:0|
+| query none/current·heartbeat/새 시도·미확정/실제 EX·권리/직렬화 철회 |6|84216:0|
+| query followup EX/해제·HEAD 전진/변조·디렉터리 교체·정상/hold 결과 조회 |7|64938:0|
+| prefix 읽기 전용·현재/늦은 권리·취소·선택자/실제 EX 아래 불변 읽기 |5|29446:0|
+| prefix 원 페이지/희소 UTC·서명 이력 rollback/fork 거부·정상/hold 종료 |4|48177:0|
 
 41317:1의 실제 writer Pending RED 뒤 같은 private 검사28208:0이 통과했다.
-그 GREEN은 artifact 사용량 snapshot을 더하기 전source54350e이므로 현재40건에 합산하지 않는다.
+그 GREEN은 artifact 사용량 snapshot을 더하기 전source54350e이므로 현재62건에 합산하지 않는다.
 위7건은 최종source5f5bbcc에서245.066초 guard로 통과했다. 최대 합 RSS는 기계 증거를 따른다.
 source/원본2,148항목·frozen 두 UI/5root·512MiB/PID/합1GiB·FD4→4·소유 비좀비/PG/임시/passfile0을 확인했다.
-이전 shared read55검사는 그 이전 source의 기록이며 이 후보의 현재40검사에 합산하지 않는다.
+이전 shared read55검사는 그 이전 source의 기록이며 이 후보의 현재62검사에 합산하지 않는다.
 
-## 남은 수용
+## 검토·남은 수용
 
-기존 reader/helper9·default files7·custody4는 새 source에서 통과했다. 작업자13도 통과했다. 남은 query13 → prefix9의 관련 회귀와
-최종 검토 뒤 로컬 컴포넌트만 수용한다. 그 뒤 변경 source의 원 계측 OFF64 독립 정상,
-독립 hold → 실제 HTTP 취소 → 계산 중 WebGL → WSL 용량/사용자 적용을 검증한다.
-전체 backend/browser·fresh exec/SIGKILL은 현재 후보에서 재실행하지 않았다.
+새 경계7와 기존55의 실제 새 source 회귀를 모두 통과했다. 제품 변경은 custody1파일이며
+기본 파일 helper/수식/입력·writer EX·worker/query/prefix/API·원 actor/probe/workflow는 그대로다.
+현재 권리/원천 검사는 모두 수행하고, named FD·디렉터리/intent·signed HEAD/ancestry와 파일 사용량을
+잠금 재획득 후 대사한다. 검증 실패 세션을 재사용하지 않고 부분 응답도 반환하지 않는다.
+syntax2파일·git diff와 실제62건/10guard의 동일 최종source5f5bbcc를 검토했고 추가 제품 수정 사유는 없었다.
+
+관측 guard 합계2,083.339초(약34.7분)·최대 합 RSS1,062,330,368bytes다.
+5root/동적 자식·원본/frozen/두 UI·512MiB/PID/합1GiB·FD4→4·소유 PG/임시/passfile 정리를 확인했다.
+이 수용은 로컬 소프트웨어 범위다. 다음은 변경 source의 원 계측 OFF64 독립 정상이며,
+64/start1/CLI0/attempt1/success1·두 actor 종료0·두 전진 prefix·원 수치/UTC·전체 owned 정리 증거가 필요하다.
+그 뒤 독립 hold → 실제 HTTP 취소 → 계산 중 WebGL → WSL 용량/사용자 적용을 검증한다.
+전체 backend/browser·fresh exec/SIGKILL은 현재 source에서 재실행하지 않았다.
 원 입력64/chunk1/조회·retry360/RSS를 바꾸거나 같은 실패 source의 정상/진단을 반복하지 않는다.
 
 현재 native Codex CLI gpt-6.1-sol/xhigh에서 구현/판단했으며 재귀 CLI/서브에이전트는 없다.
@@ -50,3 +62,5 @@ source/원본2,148항목·frozen 두 UI/5root·512MiB/PID/합1GiB·FD4→4·소�
 전체 완료 날짜를 확정하지 않는다. goal은 active다.
 
 92807:0에서 중간7검사·미채택 상태를 두 UI에 같은 no-store bytes로 게시했고, 현재source/2syntax·2,303링크·원 actor/header·frozen HTML/2,173파일·5root/원본/상한/FD/소유 정리를 확인했다. UI 코드/DOM/WebGL은 변경·재검사하지 않았다.
+
+3518:0에서62건 로컬 수용/남은 원64·후속 조건을 두 UI에 같은 no-store bytes로 게시했다. 현재 source/syntax/링크·원 actor/header·frozen HTML/2,173파일·5root/상한/FD/소유 정리를 확인했다. UI 코드/DOM/WebGL은 변경·재검사하지 않았다.
