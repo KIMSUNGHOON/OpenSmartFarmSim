@@ -1,0 +1,579 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "app_git_tree": "06c53492aa6d559c7f9d4b91e12f5d52797a9c8e",
+  "conditional12_acceptance_unchanged": true,
+  "focused_distinct_tests_passed": 3,
+  "guard37_acceptance_unchanged": true,
+  "guard_wall_total_seconds": 209.8770028949948,
+  "hosted_CI_observation": {
+    "current_runs": [],
+    "latest": {
+      "conclusion": "failure",
+      "diagnostic_only": true,
+      "head": "ae93637c2e945a1ce73839918f1daf7bbd9f68d2",
+      "id": 39211556239,
+      "status": "completed"
+    },
+    "new_CI_dispatched": false,
+    "previous_normal": {
+      "conclusion": "failure",
+      "head": "583bd633ba71060df5355961f74d190177a85010",
+      "id": 39210494752,
+      "status": "completed"
+    }
+  },
+  "integration_adopted": false,
+  "local58_acceptance_unchanged": true,
+  "native_cli": {
+    "effort": "xhigh",
+    "invocation": "existing native CLI turn; no recursive invocation",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "d82490f3e4dba359971681cb80d05c61d55537a823d22b98b724e5c149363405",
+    "raw_prompts_published": false,
+    "subagents_used": false,
+    "timestamp": "2026-10-19T10:32:11.527Z"
+  },
+  "new_solar_deployed": false,
+  "next_step": "Assess scoped physical connection reuse across original separate transactions, preserving current role/identity/data checks and row-lock release boundaries; prove actual paired benefit before implementation adoption. No automatic prepared-query speedup is established.",
+  "normal64_accepted": false,
+  "paired_actual_cost": [
+    {
+      "actual_step": 2,
+      "baseline_seconds": 7.086337230000936,
+      "candidate_increase_percent": 18.82511535506266,
+      "candidate_seconds": 8.420348387997365,
+      "order": "baseline,candidate"
+    },
+    {
+      "actual_step": 3,
+      "baseline_seconds": 7.127252662998217,
+      "candidate_increase_percent": 17.405567848555357,
+      "candidate_seconds": 8.36779146099434,
+      "order": "candidate,baseline"
+    }
+  ],
+  "primitive34_acceptance_unchanged": true,
+  "production_code_changed": false,
+  "profile_intervals_overlap": true,
+  "profile_wall_is_throughput_measure": false,
+  "receipt48_acceptance_unchanged": true,
+  "recorded_at": "2026-10-19T10:34:06.606890Z",
+  "research_evidence_accepted": true,
+  "research_files_sha256": {
+    "research/artifacts/market-current-reference-agreement-cost-evaluation-20261019-connection-test.py.txt": "f717cb71170b11f7a4b0a8a13879caa824b2721ea27d0cef4ba0d846a546d7ff",
+    "research/artifacts/market-current-reference-agreement-cost-evaluation-20261019-helper.py.txt": "fdf3c13b9cd04dabb4f2bd85b97f0c54cf7fad2a577e74a35345e1a154695600",
+    "research/artifacts/market-current-reference-agreement-cost-evaluation-20261019-pair-test.py.txt": "33c63416db6ce16310013ebb1761ee2df8850be2bd0a6720432d7bf90c015782",
+    "research/artifacts/market-current-reference-agreement-cost-evaluation-20261019-profile-test.py.txt": "98367c08f73cc05d257274631b6865baf887251213d76a6a134301331768e141"
+  },
+  "rights_or_gate_approval": false,
+  "schema_version": "reference-agreement-cost-evaluation-v1",
+  "source_baseline_commit": "e5f4f713b931ed95b1ce46f3c0730b8a33835117",
+  "source_sha256": {
+    "backend/app/crop_greenhouse_solar_farm_binding.py": "ff4daddacecd43f5cfa43e8dac484661e94e3ea3cd8f0a6f424573f4afa501f7",
+    "backend/app/farm_registration_read_scope.py": "1e471952b68d93c5654f713b8c6bac3c3a5a22fd670f58835522860515b4f159",
+    "backend/app/market_candidate_store.py": "0420835e211222fced5927de62b478ba296a2f83bde14e70d9fd164883e2e182",
+    "backend/app/market_reference_bundle.py": "7994806cb008d268f7d85eeda2c7bd15076e28a52c2a103c9646ee6ebe8a4dcf",
+    "backend/app/market_reference_dependencies.py": "43caa3725bbda5dc5f4e40c5babeb3bb6222211be4f99bcffe999f1b0686be24",
+    "backend/app/market_reference_receipts.py": "e93170b4c93b657a0b0890f05108d8590ea7254f222a8bee6fe5f22f64ae1cb9",
+    "backend/app/market_reference_row_readset.py": "587be5012156f297835234885ec7bfee582d81022437988e37ee591e3c97d153",
+    "backend/app/market_source_store.py": "b96c4704295eb8fa282357f2ec8bad9c518a565d4fc1e7536d2793be1b0951bf",
+    "backend/tests/test_market_reference_dependencies.py": "c1e94a07c013bf84f9ab540f4386a3c739bd3ece1429dfcdfb5b8b39ff3d92bf",
+    "backend/tests/test_market_reference_receipts.py": "eccd19e1599c0d339ce3afdff049bc8eeab985e8a30b3fa0922e570f3eaa50bd"
+  },
+  "stages": [
+    {
+      "case": "focused-reference-agreement-components-pair-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 984354816,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2492,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 84.45419036599924
+      },
+      "observation": {
+        "G0_G4": "not_assessed",
+        "SQL_interception": false,
+        "actual_final_role_audits_preserved": 183,
+        "app_source_changed": false,
+        "normal64_accepted": false,
+        "original_values_UTC_checkpoint_counts_preserved": true,
+        "rights_or_gate_approval": false,
+        "samples": [
+          {
+            "agreement": {},
+            "mode": "baseline",
+            "receipt_SQL": 0,
+            "role_SQL_execute_calls": 2745,
+            "role_audits": 183,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_row_queries": 1824,
+            "total_SQL": 7113,
+            "wall_seconds": 7.086337230000936
+          },
+          {
+            "agreement": {
+              "data_proofs": 1672,
+              "dynamic_getters": 264,
+              "full_anchors": 1,
+              "supported_frames": 1,
+              "unsupported_frames": 0
+            },
+            "mode": "candidate",
+            "receipt_SQL": 48,
+            "role_SQL_execute_calls": 2745,
+            "role_audits": 183,
+            "source_read_trace_sha256": "3f697ab9e1f03e46c4284da7506139395a5538fe10ac3a3febea710f5f951ec3",
+            "source_row_queries": 152,
+            "total_SQL": 5291,
+            "wall_seconds": 8.420348387997365
+          },
+          {
+            "agreement": {
+              "data_proofs": 1672,
+              "dynamic_getters": 264,
+              "full_anchors": 1,
+              "supported_frames": 1,
+              "unsupported_frames": 0
+            },
+            "mode": "candidate",
+            "receipt_SQL": 48,
+            "role_SQL_execute_calls": 2745,
+            "role_audits": 183,
+            "source_read_trace_sha256": "3f697ab9e1f03e46c4284da7506139395a5538fe10ac3a3febea710f5f951ec3",
+            "source_row_queries": 152,
+            "total_SQL": 5291,
+            "wall_seconds": 8.36779146099434
+          },
+          {
+            "agreement": {},
+            "mode": "baseline",
+            "receipt_SQL": 0,
+            "role_SQL_execute_calls": 2745,
+            "role_audits": 183,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_row_queries": 1824,
+            "total_SQL": 7113,
+            "wall_seconds": 7.127252662998217
+          }
+        ],
+        "scope": "private guarded agreement component feasibility with actual custody advances; no production integration or security adoption",
+        "source_getter_repetition_deliberately_replaced": true
+      },
+      "observation_sha256": "5a6b4fa1d31326b48569e530c60808c72db5cfc5d8cb0177e87dbef85b117767",
+      "source_pin_manifest_sha256": "1b64bc6d99558a5c4cf313f6423a54021110400b526d8bab7e713584826abee8",
+      "terminal_evidence": "tool and durable terminal.private.json",
+      "terminal_sha256": "125e962c39fe728244ae8b25854f5f409dfa8f6fd1085c3435ed51b31e529204",
+      "test_result": "1 passed in 80.55s (0:01:20)",
+      "tool_terminal": "43121:0"
+    },
+    {
+      "case": "focused-reference-agreement-cost-profile-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 973733888,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2492,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 82.26402620499721
+      },
+      "observation": {
+        "G0_G4": "not_assessed",
+        "app_source_changed": false,
+        "original_values_UTC_checkpoint_counts_preserved": true,
+        "rights_or_gate_approval": false,
+        "samples": [
+          {
+            "SQL_by_caller": {
+              "app.farm_authoring_storage._find": {
+                "calls": 48,
+                "execute_seconds": 0.05003386297903489
+              },
+              "app.job_store._locked_job": {
+                "calls": 24,
+                "execute_seconds": 0.019245051029429305
+              },
+              "app.market_candidate_store._candidate_in_transaction": {
+                "calls": 96,
+                "execute_seconds": 0.04476357199746417
+              },
+              "app.market_candidate_store._checked_candidate": {
+                "calls": 48,
+                "execute_seconds": 0.039366073011478875
+              },
+              "app.market_candidate_store._input_in_transaction": {
+                "calls": 816,
+                "execute_seconds": 0.2321963460126426
+              },
+              "app.market_candidate_store._shared_reader": {
+                "calls": 720,
+                "execute_seconds": 0.14012201213336084
+              },
+              "app.market_hold_store._report_row": {
+                "calls": 72,
+                "execute_seconds": 0.03164558901335113
+              },
+              "app.market_source_store._select_with_job": {
+                "calls": 1824,
+                "execute_seconds": 0.6383859729467076
+              },
+              "app.market_source_store.read_scope": {
+                "calls": 24,
+                "execute_seconds": 0.007538609999755863
+              },
+              "app.runtime_login.verify_runtime_identity": {
+                "calls": 504,
+                "execute_seconds": 0.1846619800053304
+              },
+              "app.runtime_roles._database": {
+                "calls": 183,
+                "execute_seconds": 0.05848242200590903
+              },
+              "app.runtime_roles._scope": {
+                "calls": 915,
+                "execute_seconds": 0.6294789919702453
+              },
+              "app.runtime_roles.audit_runtime_roles": {
+                "calls": 1647,
+                "execute_seconds": 2.2420185138544184
+              },
+              "app.thermal_run_store._decision_context_in_transaction": {
+                "calls": 168,
+                "execute_seconds": 0.07572321203770116
+              },
+              "app.thermal_run_store.get_snapshot": {
+                "calls": 24,
+                "execute_seconds": 0.019758863003517035
+              }
+            },
+            "agreement": {},
+            "functions": {
+              "app.farm_authoring_storage._find": {
+                "calls": 48,
+                "inclusive_seconds": 1.2869577619931079
+              },
+              "app.farm_registration_read_scope._current": {
+                "calls": 23,
+                "inclusive_seconds": 8.71177293699293
+              },
+              "app.market_runtime.connect_market": {
+                "calls": 24,
+                "inclusive_seconds": 0.6015403930068715
+              },
+              "app.runtime_login.connect_runtime": {
+                "calls": 144,
+                "inclusive_seconds": 0.9732352450664621
+              },
+              "app.runtime_roles.audit_runtime_roles": {
+                "calls": 183,
+                "inclusive_seconds": 3.17060540804232
+              }
+            },
+            "mode": "baseline",
+            "profiled_wall_seconds": 12.602681200005463
+          },
+          {
+            "SQL_by_caller": {
+              "app.farm_authoring_storage._find": {
+                "calls": 48,
+                "execute_seconds": 0.04461912600527285
+              },
+              "app.job_store._locked_job": {
+                "calls": 24,
+                "execute_seconds": 0.020261854006093927
+              },
+              "app.market_candidate_store._candidate_in_transaction": {
+                "calls": 52,
+                "execute_seconds": 0.02188425398344407
+              },
+              "app.market_candidate_store._checked_candidate": {
+                "calls": 48,
+                "execute_seconds": 0.03591546900133835
+              },
+              "app.market_candidate_store._input_in_transaction": {
+                "calls": 68,
+                "execute_seconds": 0.019995652975921985
+              },
+              "app.market_candidate_store._shared_reader": {
+                "calls": 1052,
+                "execute_seconds": 0.19822264608956175
+              },
+              "app.market_hold_store._report_row": {
+                "calls": 72,
+                "execute_seconds": 0.0307361730519915
+              },
+              "app.market_reference_receipts._catalog": {
+                "calls": 96,
+                "execute_seconds": 0.0805159100345918
+              },
+              "app.market_reference_receipts._read": {
+                "calls": 48,
+                "execute_seconds": 0.38410618402122054
+              },
+              "app.market_source_store._select_with_job": {
+                "calls": 152,
+                "execute_seconds": 0.05401903490565019
+              },
+              "app.market_source_store.read_scope": {
+                "calls": 24,
+                "execute_seconds": 0.007309886976145208
+              },
+              "app.runtime_login.verify_runtime_identity": {
+                "calls": 670,
+                "execute_seconds": 0.2250511949605425
+              },
+              "app.runtime_roles._database": {
+                "calls": 183,
+                "execute_seconds": 0.05470897703344235
+              },
+              "app.runtime_roles._scope": {
+                "calls": 915,
+                "execute_seconds": 0.6187702849201742
+              },
+              "app.runtime_roles.audit_runtime_roles": {
+                "calls": 1647,
+                "execute_seconds": 2.219210003000626
+              },
+              "app.thermal_run_store._decision_context_in_transaction": {
+                "calls": 168,
+                "execute_seconds": 0.07229663300677203
+              },
+              "app.thermal_run_store.get_snapshot": {
+                "calls": 24,
+                "execute_seconds": 0.01994436400855193
+              }
+            },
+            "agreement": {
+              "data_proofs": 1672,
+              "dynamic_getters": 264,
+              "full_anchors": 1,
+              "supported_frames": 1,
+              "unsupported_frames": 0
+            },
+            "functions": {
+              "app.farm_authoring_storage._find": {
+                "calls": 48,
+                "inclusive_seconds": 1.258220536976296
+              },
+              "app.farm_registration_read_scope._current": {
+                "calls": 23,
+                "inclusive_seconds": 11.466412462978042
+              },
+              "app.market_reference_dependencies._snapshot": {
+                "calls": 49,
+                "inclusive_seconds": 4.476848910991976
+              },
+              "app.market_reference_dependencies.check": {
+                "calls": 48,
+                "inclusive_seconds": 4.556197749021521
+              },
+              "app.market_reference_receipts._catalog": {
+                "calls": 96,
+                "inclusive_seconds": 0.12563902700640028
+              },
+              "app.market_reference_receipts._guard": {
+                "calls": 96,
+                "inclusive_seconds": 0.362195663015882
+              },
+              "app.market_reference_receipts._read": {
+                "calls": 48,
+                "inclusive_seconds": 0.9746896239958005
+              },
+              "app.market_runtime.connect_market": {
+                "calls": 24,
+                "inclusive_seconds": 0.608086434971483
+              },
+              "app.runtime_login.connect_runtime": {
+                "calls": 144,
+                "inclusive_seconds": 0.9791236159871914
+              },
+              "app.runtime_roles.audit_runtime_roles": {
+                "calls": 183,
+                "inclusive_seconds": 3.134828007001488
+              }
+            },
+            "mode": "candidate",
+            "profiled_wall_seconds": 15.461840194002434
+          }
+        ],
+        "scope": "instrumented component diagnosis only; inclusive times overlap and profiling changes costs; no throughput or adoption claim"
+      },
+      "observation_sha256": "98f2a268cad099e67295451d1af02f92784cadd1dc3446ab5dc858844afc247d",
+      "source_pin_manifest_sha256": "1b64bc6d99558a5c4cf313f6423a54021110400b526d8bab7e713584826abee8",
+      "terminal_evidence": "tool and durable terminal.private.json",
+      "terminal_sha256": "f61e4eb6873c4e8599c99e65c1d2d7b4f6e285be45401f68cb221291f8e902bd",
+      "test_result": "1 passed in 78.93s (0:01:18)",
+      "tool_terminal": "30697:0"
+    },
+    {
+      "case": "focused-registration-connection-footprint-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 973889536,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2492,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 43.158786323998356
+      },
+      "observation": {
+        "G0_G4": "not_assessed",
+        "actual_steps": 2,
+        "app_source_changed": false,
+        "audited_physical_backend_count": 144,
+        "authority_only": true,
+        "connection_calls": 144,
+        "connections_by_caller": {
+          "app.job_store.connect": 72,
+          "app.market_runtime.connect_market -> app.market_source_store.connect": 24,
+          "app.thermal_run_store.connect": 48
+        },
+        "driver_prepare_thresholds": [
+          5
+        ],
+        "original_UTC_checkpoint_counts_preserved_by_unchanged_execution": true,
+        "profiled_wall_seconds": 10.503983369999332,
+        "rights_or_gate_approval": false,
+        "role_audit_calls": 183,
+        "role_audits_per_connection_histogram": {
+          "1": 120,
+          "17": 1,
+          "2": 23
+        },
+        "row_lock_queries_by_caller": {
+          "app.farm_authoring_storage._prepare": 1,
+          "app.farm_registration_read_scope._current": 23
+        },
+        "same_DSN": true,
+        "same_policy_object": true,
+        "same_principal_provider": true,
+        "scope": "one actual unchanged custody advance connection identity/transaction footprint; profiling cost is not a throughput measure"
+      },
+      "observation_sha256": "a7862b68a5e019cff44d4b4918aeb820d7e2a310f7bc98f0d364bd9a48e88748",
+      "source_pin_manifest_sha256": "1b64bc6d99558a5c4cf313f6423a54021110400b526d8bab7e713584826abee8",
+      "terminal_evidence": "durable terminal.private.json; original exec handle unavailable after compaction",
+      "terminal_sha256": "073a2084bf46e406f43d6ca42e3b79cc75de24b8d1cd44064cffa50eaa6f460b",
+      "test_result": "1 passed in 40.82s",
+      "tool_terminal": null
+    }
+  ],
+  "status_publication": {
+    "HTTP_status": [
+      200,
+      200
+    ],
+    "UI_code_changed": false,
+    "browser_DOM_or_WebGL_rerun": false,
+    "cache_control": "no-store",
+    "frozen_HTML_preserved": true,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 894074880,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_count": 2498,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 2.674795439997979
+    },
+    "local_links_checked": 2404,
+    "ports": [
+      5173,
+      5174
+    ],
+    "publisher_sha256": "3a3510993394e0757e6c5ec304cf1c41429a19619f86780f3920a73b4161794e",
+    "same_JSON_bytes": true,
+    "status_sha256": "0eed39bbbfb33158226a094c19320f337f99084320d04d43072db5fe171aa339",
+    "terminal_sha256": "3e615c1cf60e97a471d827ee2c3b0866239d4ebd7ea53416a39619ec4c0fc204",
+    "tool_terminal": "50301:0",
+    "ventilation_frozen_files_preserved": 2173
+  },
+  "tracked_app_file_count": 260,
+  "tracked_app_manifest_sha256": "da14f262346e923a0e8c73eb3356ab9e7372e2f1178921350fc2880d80ec4ac1",
+  "unchanged_native64_repeated": false
+}

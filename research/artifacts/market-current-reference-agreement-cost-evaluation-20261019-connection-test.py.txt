@@ -1,0 +1,51 @@
+from pathlib import Path
+import json,os,sys,time
+ROOT=Path('/home/sunghoonk/Workspaces/OpenSmartFarmSim');sys.path[:0]=[str(ROOT/'backend'),str(ROOT/'backend/tests')]
+import pytest,psycopg
+from test_crop_greenhouse_solar_execution_query import (worker_setup,producer_setup,authoring,profiles,login_database,original_login_scope,login_scope,query_cleanup)
+import test_crop_greenhouse_solar_execution_query as reference
+
+@reference.reference.pytestmark
+@pytest.mark.usefixtures('query_cleanup')
+def test_actual_authority_connection_and_transaction_boundaries(worker_setup,monkeypatch):
+ worker,_,raw,_=worker_setup;server=worker.server;jobs=server.binding.farms.replay.jobs
+ for _ in range(2):server.advance('tenant-1',raw,budget=1)
+ callers={};cohort=[];per_connection={};locked={};thresholds=set();execute=psycopg.Connection.execute
+ def profile(frame,event,arg):
+  if event!='call' or frame.f_globals.get('__name__')!='app.runtime_login' or frame.f_code.co_name!='connect_runtime':return
+  current=frame.f_back;store=None;stack=[]
+  for _ in range(3):
+   if current is None:break
+   stack.append(current.f_globals.get('__name__')+'.'+current.f_code.co_name)
+   candidate=current.f_locals.get('self')
+   if candidate is not None and hasattr(candidate,'runtime_identity'):store=candidate;break
+   current=current.f_back
+  key=' -> '.join(stack);callers[key]=callers.get(key,0)+1
+  binding=frame.f_locals
+  principal=getattr(store,'principal_provider',getattr(store,'_principal_provider',None))
+  cohort.append((binding['policy'] is jobs.runtime_identity[0],binding['kind']=='authority',binding['dsn']==jobs._dsn,principal is jobs.principal_provider))
+ def executing(conn,query,params=None,**kw):
+  frame=sys._getframe(1);module=frame.f_globals.get('__name__');name=frame.f_code.co_name
+  if module=='app.runtime_roles' and name=='_database':
+   pid=conn.info.backend_pid;per_connection[pid]=per_connection.get(pid,0)+1;thresholds.add(conn.prepare_threshold)
+  if module=='app.job_store' and name=='_locked_job':
+   parent=frame.f_back;key=parent.f_globals.get('__name__')+'.'+parent.f_code.co_name
+   locked[key]=locked.get(key,0)+1
+  return execute(conn,query,params,**kw)
+ with monkeypatch.context() as patch:
+  patch.setattr(psycopg.Connection,'execute',executing);sys.setprofile(profile)
+  try:
+   start=time.perf_counter();value=json.loads(server.advance('tenant-1',raw,budget=1));wall=time.perf_counter()-start
+  finally:sys.setprofile(None)
+ assert value['steps']==2 and len(cohort)==144 and sum(per_connection.values())==183
+ assert all(all(values) for values in cohort)
+ histogram={str(count):list(per_connection.values()).count(count) for count in sorted(set(per_connection.values()))}
+ result={'scope':'one actual unchanged custody advance connection identity/transaction footprint; profiling cost is not a throughput measure',
+  'connection_calls':len(cohort),'audited_physical_backend_count':len(per_connection),'role_audit_calls':sum(per_connection.values()),
+  'connections_by_caller':callers,'role_audits_per_connection_histogram':histogram,
+  'driver_prepare_thresholds':sorted(thresholds),'same_policy_object':True,'authority_only':True,'same_DSN':True,'same_principal_provider':True,
+  'row_lock_queries_by_caller':locked,'actual_steps':value['steps'],'profiled_wall_seconds':wall,
+  'original_UTC_checkpoint_counts_preserved_by_unchanged_execution':True,'app_source_changed':False,
+  'G0_G4':'not_assessed','rights_or_gate_approval':False}
+ target=Path(os.environ['OSSF_SOLAR_EXECUTION_QUERY_EVIDENCE'])/'registration-connection-footprint.json'
+ with target.open('x') as f:os.fchmod(f.fileno(),0o400);json.dump(result,f,sort_keys=True,indent=2);f.flush();os.fsync(f.fileno())

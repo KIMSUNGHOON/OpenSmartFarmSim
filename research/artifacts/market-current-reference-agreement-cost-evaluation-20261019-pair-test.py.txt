@@ -1,0 +1,58 @@
+from pathlib import Path
+from hashlib import sha256
+import json,os,runpy,sys,time
+ROOT=Path('/home/sunghoonk/Workspaces/OpenSmartFarmSim')
+sys.path[:0]=[str(ROOT/'backend'),str(ROOT/'backend/tests')]
+import pytest,psycopg
+from test_crop_greenhouse_solar_execution_query import (worker_setup,producer_setup,authoring,profiles,login_database,original_login_scope,login_scope,query_cleanup)
+import test_crop_greenhouse_solar_execution_query as reference
+
+@reference.reference.pytestmark
+@pytest.mark.usefixtures('query_cleanup')
+def test_accepted_components_same_actual_advances(worker_setup,tmp_path,monkeypatch):
+ worker,job_id,raw,value=worker_setup
+ candidate=worker.server;directory=tmp_path/'original-current-reference';directory.mkdir(mode=0o700)
+ baseline=type(candidate)(candidate.binding,directory,input_resolver=candidate.input_resolver,integrity_key=candidate.integrity_key)
+ helper=runpy.run_path('/home/sunghoonk/.local/state/OpenSmartFarmSim/20261019-post-boot-resume/reference-agreement-components.private.py')
+ execute=psycopg.Connection.execute
+ def run(mode,measure=False):
+  counts={'role_SQL':0,'audits':0,'source':[],'receipt_SQL':0,'SQL':0};stats={};frames=None
+  def executing(conn,query,params=None,**kw):
+   frame=sys._getframe(1);module=frame.f_globals.get('__name__');name=frame.f_code.co_name
+   counts['SQL']+=1
+   if module=='app.runtime_roles':
+    counts['role_SQL']+=1
+    if name=='_database':counts['audits']+=1
+   if module=='app.market_source_store' and name=='_select_with_job':
+    counts['source'].append((*params,frame.f_back.f_locals.get('pin',False)))
+   if module=='app.market_reference_receipts' and name=='_read':counts['receipt_SQL']+=1
+   return execute(conn,query,params,**kw)
+  with monkeypatch.context() as patch:
+   if mode=='candidate':stats,frames=helper['install'](worker.server.binding.farms,patch)
+   if measure:patch.setattr(psycopg.Connection,'execute',executing)
+   start=time.perf_counter();result=json.loads((candidate if mode=='candidate' else baseline).advance('tenant-1',raw,budget=1));wall=time.perf_counter()-start
+   if frames is not None:assert len(frames)==0
+  return result,{'mode':mode,'wall_seconds':wall,'role_audits':counts['audits'],
+    'role_SQL_execute_calls':counts['role_SQL'],'source_row_queries':len(counts['source']),
+    'source_read_trace_sha256':sha256(json.dumps(counts['source'],separators=(',',':')).encode()).hexdigest(),
+    'receipt_SQL':counts['receipt_SQL'],'total_SQL':counts['SQL'],'agreement':dict(stats)}
+ fields=('steps','planned_steps','status','counts','checkpoint','last_confirmed','times','provenance_sha256','artifact_sha256')
+ def same(a,b):assert all(a[k]==b[k] for k in fields)
+ for _ in range(2):same(run('baseline')[0],run('candidate')[0])
+ rows=[]
+ for step,order in ((2,('baseline','candidate')),(3,('candidate','baseline'))):
+  selected={}
+  for mode in order:
+   selected[mode]=run(mode,True);progress,row=selected[mode]
+   assert progress['steps']==step and row['role_audits']==183 and row['role_SQL_execute_calls']==2745
+   rows.append(row)
+  same(selected['baseline'][0],selected['candidate'][0])
+  assert selected['baseline'][1]['source_row_queries']==1824
+  record=selected['candidate'][1];assert record['agreement']['data_proofs']>0 and record['agreement']['unsupported_frames']==0
+  assert record['source_row_queries']<1824
+ record={'scope':'private guarded agreement component feasibility with actual custody advances; no production integration or security adoption',
+   'samples':rows,'original_values_UTC_checkpoint_counts_preserved':True,'actual_final_role_audits_preserved':183,
+   'source_getter_repetition_deliberately_replaced':True,'SQL_interception':False,
+   'app_source_changed':False,'normal64_accepted':False,'G0_G4':'not_assessed','rights_or_gate_approval':False}
+ target=Path(os.environ['OSSF_SOLAR_EXECUTION_QUERY_EVIDENCE'])/'reference-agreement-components-pair.json'
+ with target.open('x') as f:os.fchmod(f.fileno(),0o400);json.dump(record,f,sort_keys=True,indent=2);f.flush();os.fsync(f.fileno())

@@ -1,12 +1,20 @@
 # Current raw dependency receipt agreement — v4 proposal
 
-Status: **standalone receipt primitive locally accepted by48 actual SCRAM checks;
-pure-getter equivalence and verifier integration remain proposed**.
+Status: **standalone receipt primitive48, dependency guard37 and reviewed default
+DTO conditional equivalence locally accepted; production integration deferred
+after the guarded candidate failed the cost criterion**.
 [Primitive implementation/evidence](../research/market-current-reference-receipt-primitive-20261019.md).
 [Conditional differential evidence and counterexamples](../research/market-current-reference-receipt-equivalence-20261019.md)
 passed12 actual DB checks. The [standalone dependency guard](../research/market-current-reference-dependency-guard-20261019.md)
 and reviewed default DTO reconstruction equivalence were locally accepted by37
-focused checks. Getter-skipping integration remains unimplemented.
+focused checks. Production getter-skipping integration remains unimplemented.
+[The subsequent guarded component candidate](../research/market-current-reference-agreement-cost-evaluation-20261019.md)
+preserved original values/UTC and183 role audits but was18.83%/17.41% slower
+in the two actual paired advances. It was rejected before production integration
+or full adversarial integration regression. The accepted primitives remain;
+this candidate must not be adopted unchanged. The next candidate to evaluate is
+connection lifetime across original separate transactions, as tracked in the
+[implementation order](../tasks/plan.md).
 [Measured v3 rejection and private v4 feasibility](../research/market-current-reference-row-integration-evaluation-20261019.md).
 The accepted v2 verifier and standalone v3 primitive remain unchanged.
 

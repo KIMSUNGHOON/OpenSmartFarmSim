@@ -1,0 +1,93 @@
+"""Private component feasibility only; no application source or gate changes."""
+from weakref import WeakKeyDictionary
+import sys
+from app import market_reference_bundle as bundles,market_reference_dependencies as dependencies,market_reference_receipts as receipts
+
+KINDS={'get_economic_scenario':'economic_scenario','get_economic_scenario_pin':'economic_scenario',
+ 'get_economic_input':'economic_input','get_joint_shock':'joint_shock','get_joint_shock_pin':'joint_shock',
+ 'get_input_rights':'input_rights','get_settlement_applicability':'settlement_applicability',
+ 'get_settlement_evidence':'settlement_evidence','get_prior_batch_cost':'prior_batch_cost'}
+DYNAMIC={'tenant_is_authenticated','get_market_candidate','get_market_hold_report','get_decision_context'}
+SCENARIOS={'get_market_candidate','get_economic_scenario','get_economic_scenario_pin'}
+
+
+def install(farms,patch):
+ from app.farm_registration_read_scope import RegistrationRead
+ from app.market_candidate_store import MarketCandidateStore
+ frames=WeakKeyDictionary();original_trace=bundles._verify_trace
+ original_verify=MarketCandidateStore.verify_current_reads;original_close=RegistrationRead.close
+ stats={'full_anchors':0,'data_proofs':0,'dynamic_getters':0,'supported_frames':0,'unsupported_frames':0}
+ def snapshot(reader):
+  return tuple(tuple(sorted(group.items())) for group in reader.receipts)
+ def key_plan(trace,candidates,pins):
+  source=[]
+  for name,args,_ in trace:
+   if name in DYNAMIC:continue
+   if name not in KINDS:return None
+   if name in SCENARIOS and pins.get(args) is not None:continue
+   if name=='get_economic_input' and candidates.get(args) is not None:continue
+   key=(KINDS[name],*args,*(('single',) if name=='get_prior_batch_cost' else ()))
+   if key not in source:source.append(key)
+  return tuple(source)
+ def observing(owner,tenant,slot,trace):
+  witness=farms._registration_read.get()
+  assert witness is not None and witness.active and witness.repository is owner
+  frame=frames.get(witness)
+  if frame is None:
+   manager=dependencies.scope(owner,witness);guard=manager.__enter__()
+   if guard is None:
+    manager.__exit__(None,None,None);frames[witness]=False;stats['unsupported_frames']+=1
+    return original_trace(owner,tenant,slot,trace)
+   frame={'manager':manager,'guard':guard,'trace':tuple(trace),'expected':None,'pending':None,'keys':None}
+   frames[witness]=frame;stats['supported_frames']+=1
+  if frame is False:return original_trace(owner,tenant,slot,trace)
+  guard=frame['guard'];guard.check();assert tuple(trace)==frame['trace']
+  bundle=bundles._Bundle(owner,tenant,slot,owner._reference_reader(tenant));bundle.token=slot.set(bundle)
+  try:
+   presence=[]
+   if frame['keys'] is None:
+    candidate_keys=tuple(dict.fromkeys(args for name,args,_ in trace if name=='get_economic_input'))
+    pin_keys=tuple(dict.fromkeys(args for name,args,_ in trace if name in SCENARIOS))
+    assert candidate_keys or pin_keys
+    receipts.verify_receipts(owner,tenant,(),candidate_keys,pin_keys,lambda reader:presence.append(snapshot(reader)))
+    candidates,pins=map(dict,presence[0][1:])
+    source_keys=key_plan(trace,candidates,pins)
+    assert source_keys is not None and len(source_keys)+len(candidate_keys)+len(pin_keys)<=128
+    frame['keys']=(source_keys,candidate_keys,pin_keys)
+   def consume(reader):
+    current=snapshot(reader)
+    if frame['expected'] is None:
+     assert presence and current[1:]==presence[0][1:]
+     original_trace(owner,tenant,slot,trace)
+     frame['pending']=current;stats['full_anchors']+=1
+    else:
+     assert current==frame['expected']
+     pins=dict(current[2]);dynamic=[]
+     for item in trace:
+      name,args,_=item
+      assert owner._tenant('market_candidate_read')==tenant
+      if name in DYNAMIC or (name in SCENARIOS and pins[args] is not None):dynamic.append(item)
+      else:stats['data_proofs']+=1
+     original_trace(owner,tenant,slot,tuple(dynamic));stats['dynamic_getters']+=len(dynamic)
+   receipts.verify_receipts(owner,tenant,*frame['keys'],consume)
+   bundle.guard(owner,tenant)
+  finally:bundle.close()
+ def verifying(owner,tenant,trace):
+  result=original_verify(owner,tenant,trace)
+  witness=farms._registration_read.get();frame=frames.get(witness)
+  if frame:
+   # Source scope's actual final role audit already succeeded before binding an anchor.
+   frame['guard'].check()
+   if frame['pending'] is not None:
+    assert frame['expected'] is None
+    frame['expected']=frame['pending'];frame['pending']=None
+  return result
+ def closing(witness):
+  frame=frames.pop(witness,None)
+  try:
+   if frame:frame['manager'].__exit__(*sys.exc_info())
+  finally:original_close(witness)
+ patch.setattr(bundles,'_verify_trace',observing)
+ patch.setattr(MarketCandidateStore,'verify_current_reads',verifying)
+ patch.setattr(RegistrationRead,'close',closing)
+ return stats,frames

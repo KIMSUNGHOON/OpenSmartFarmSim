@@ -1,0 +1,58 @@
+from pathlib import Path
+import json,os,runpy,sys,time
+ROOT=Path('/home/sunghoonk/Workspaces/OpenSmartFarmSim')
+sys.path[:0]=[str(ROOT/'backend'),str(ROOT/'backend/tests')]
+import pytest,psycopg
+from test_crop_greenhouse_solar_execution_query import (worker_setup,producer_setup,authoring,profiles,login_database,original_login_scope,login_scope,query_cleanup)
+import test_crop_greenhouse_solar_execution_query as reference
+from app import market_reference_dependencies as dependencies
+
+@reference.reference.pytestmark
+@pytest.mark.usefixtures('query_cleanup')
+def test_component_costs_in_actual_advance(worker_setup,tmp_path,monkeypatch):
+ worker,_,raw,_=worker_setup;candidate=worker.server;directory=tmp_path/'baseline-current-reference';directory.mkdir(mode=0o700)
+ baseline=type(candidate)(candidate.binding,directory,input_resolver=candidate.input_resolver,integrity_key=candidate.integrity_key)
+ helper=runpy.run_path('/home/sunghoonk/.local/state/OpenSmartFarmSim/20261019-post-boot-resume/reference-agreement-components.private.py')
+ execute=psycopg.Connection.execute
+ selected={
+ ('app.market_reference_dependencies','_snapshot'),('app.market_reference_dependencies','check'),
+ ('app.market_reference_receipts','_read'),('app.market_reference_receipts','_catalog'),
+ ('app.market_reference_receipts','_guard'),('app.market_runtime','connect_market'),
+ ('app.runtime_login','connect_runtime'),('app.runtime_roles','audit_runtime_roles'),
+ ('app.farm_registration_read_scope','_current'),('app.farm_authoring_storage','_find')}
+ def advance(mode,profile=False):
+  times={};active={};sql={};stats={};frames=None
+  def event(frame,kind,arg):
+   key=(frame.f_globals.get('__name__'),frame.f_code.co_name)
+   if key not in selected:return
+   if kind=='call':active[id(frame)]=(key,time.perf_counter())
+   elif kind=='return':
+    found=active.pop(id(frame),None)
+    if found:
+     name='.'.join(found[0]);v=times.setdefault(name,{'calls':0,'inclusive_seconds':0.0});v['calls']+=1;v['inclusive_seconds']+=time.perf_counter()-found[1]
+  def executing(conn,query,params=None,**kw):
+   f=sys._getframe(1);key=f.f_globals.get('__name__')+'.'+f.f_code.co_name
+   start=time.perf_counter();result=execute(conn,query,params,**kw)
+   v=sql.setdefault(key,{'calls':0,'execute_seconds':0.0});v['calls']+=1;v['execute_seconds']+=time.perf_counter()-start
+   return result
+  with monkeypatch.context() as patch:
+   if mode=='candidate':stats,frames=helper['install'](worker.server.binding.farms,patch)
+   if profile:
+    patch.setattr(psycopg.Connection,'execute',executing);sys.setprofile(event)
+   try:
+    start=time.perf_counter();result=json.loads((candidate if mode=='candidate' else baseline).advance('tenant-1',raw,budget=1));wall=time.perf_counter()-start
+   finally:
+    if profile:sys.setprofile(None)
+   if frames is not None:assert len(frames)==0
+  return result,{'mode':mode,'profiled_wall_seconds':wall,'functions':times,'SQL_by_caller':sql,'agreement':dict(stats)}
+ fields=('steps','planned_steps','status','counts','checkpoint','last_confirmed','times','provenance_sha256','artifact_sha256')
+ for _ in range(2):
+  a,_=advance('baseline');b,_=advance('candidate');assert all(a[k]==b[k] for k in fields)
+ a,ma=advance('baseline',True);b,mb=advance('candidate',True);assert all(a[k]==b[k] for k in fields)
+ assert ma['functions']['app.runtime_roles.audit_runtime_roles']['calls']==mb['functions']['app.runtime_roles.audit_runtime_roles']['calls']==183
+ assert mb['agreement']['data_proofs']==1672 and mb['agreement']['unsupported_frames']==0
+ record={'scope':'instrumented component diagnosis only; inclusive times overlap and profiling changes costs; no throughput or adoption claim',
+  'samples':[ma,mb],'original_values_UTC_checkpoint_counts_preserved':True,'app_source_changed':False,
+  'G0_G4':'not_assessed','rights_or_gate_approval':False}
+ target=Path(os.environ['OSSF_SOLAR_EXECUTION_QUERY_EVIDENCE'])/'reference-agreement-cost-profile.json'
+ with target.open('x') as f:os.fchmod(f.fileno(),0o400);json.dump(record,f,sort_keys=True,indent=2);f.flush();os.fsync(f.fileno())

@@ -12,6 +12,11 @@
 현재 native Codex CLI `gpt-6.1-sol/xhigh`의 실제 문맥 시각/해시·코드/출력 해시를 기록했다.
 재귀 CLI나 하위 에이전트를 사용하지 않았다.
 
+후속 [보호 연결 비용 평가](market-current-reference-agreement-cost-evaluation-20261019.md)는
+원 수치·UTC/감사183을 보존했으나 두 실제 구간에서 약18.8%/17.4% 느려 후보를 미채택했다.
+이 guard37의 독립 수용은 유지하며 제품 통합은 보류한다. 현재 다음 단계는 해당 기록과
+[구현 순서](../tasks/plan.md)의 연결 수명 후보 평가다. 아래 다음 단계 문구는 비용 측정 전의 계획이다.
+
 ## 구현
 
 `scope(owner, witness)`는 최초 full 등록 조회가 끝난 같은 `RegistrationRead` 수명에 진입한다.
