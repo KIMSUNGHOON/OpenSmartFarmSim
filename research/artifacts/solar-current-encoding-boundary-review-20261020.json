@@ -1,0 +1,400 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "all_original_assertion_ASTs_retained": 14,
+  "application_source_changed": false,
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "component_raw_sha256": "9e28fa965be6590e96f93e3cefea3a6efb4a5609d8d2928d29ed24fec6d34047",
+  "component_resource": {
+    "combined_peak_RSS_bytes": 847400960,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 2.3945235629944364
+  },
+  "component_security_acceptance": false,
+  "component_terminal_sha256": "52c725ca35bceb76f528de34c449cc9910ea10bec49cd614e9b00f7d10b9aa11",
+  "failed_v1": {
+    "RSS_caps_unchanged": true,
+    "accepted": false,
+    "all_original_preservation_assertion_ASTs_retained": 14,
+    "exact_initial_exception_unrecovered": true,
+    "failed_case": "focused-solar-current-encoding-call-paths-v1",
+    "failure_location": "independent confirm wrapped an exception; no raw exception message or local values copied",
+    "five_frame_512_group_observer_assertion_present": true,
+    "log_sha256": "60fe4c0f4a849e342430df787b62a074f6761b62ae693362cdbdc73d7eb77cd6",
+    "observed_at": "2026-10-19T21:13:05.756855Z",
+    "owned_cleanup_complete": true,
+    "product_source_or_inputs_changed": false,
+    "terminal_sha256": "123ef7738f7c9715d00db267cc12ab9ad02192d18e53a27fd9a2f1e50d13d3e7",
+    "test_source_sha256": "f6e1a31904c0bcd9d6748c0394e73ac6e7d6883bd232e63f50e95b385faa8db0",
+    "v2_direct_three_frame_metadata_bound": 512,
+    "v2_five_frame_cardinality_observation_only": true,
+    "v2_observer_returns_original_value_even_if_metadata_collection_fails": true,
+    "v2_source_sha256": "8cb1ebbbaae5e458ddc4c4d32032b407da689c9a50bce31f6b05ada6340c17ec"
+  },
+  "fresh_tree_component": {
+    "application_changed": false,
+    "bytes_per_pass": 4190691,
+    "cycle_fallback_error_matched": true,
+    "decoded_vectors_matched": 6,
+    "exact_original_canonical_bytes_equal": true,
+    "mean_component_wall_reduction_pct": "12.02073657479496860098285535",
+    "new_solar_deployed": false,
+    "normal64_accepted": false,
+    "paired_component_wall_reduction_pct": [
+      "13.75704525342440636987285811",
+      "10.23230693022485073596953262"
+    ],
+    "rows": [
+      {
+        "encodings": 618,
+        "mode": "baseline",
+        "wall_ns": 379792761
+      },
+      {
+        "encodings": 618,
+        "mode": "candidate",
+        "wall_ns": 327544499
+      },
+      {
+        "encodings": 618,
+        "mode": "candidate",
+        "wall_ns": 330995297
+      },
+      {
+        "encodings": 618,
+        "mode": "baseline",
+        "wall_ns": 368724299
+      }
+    ],
+    "samples_in_original_blob_load_order": 103,
+    "scope": "isolated canonical encoding of fresh strictly decoded blobs from owned saved fixture; GC outside timing; no guarded worker/current query/callback fallback fingerprint overhead measured; component feasibility only, no whole-quantum gain or security acceptance",
+    "source_or_permission_result_cache": false,
+    "source_payloads_or_digests_exported": false
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "fc89d1328074fd403f116e7d03e10ccf1b915bb9856a12ec0a446f8723786add",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T21:05:53.252Z"
+  },
+  "new_solar_deployed": false,
+  "next_action": "existing bounded original64 worker-api diagnostic, same input/actor body/chunk1/poll/retry360/RSS, observer-only, no normal acceptance",
+  "normal64_accepted": false,
+  "owned_saved_blob_sizes": [
+    {
+      "canonical_sizes": {
+        "bound_payload": 40999,
+        "checkpoint": 17699,
+        "context": 182555,
+        "initial_rhs": 139053,
+        "manifest": 4830,
+        "program": 13370,
+        "source_chunk": 40487
+      },
+      "head_commit_count": 46,
+      "source_and_bound_hashes_verified": true
+    }
+  ],
+  "previous_82_or_profile1_not_repeated": true,
+  "recorded_at": "2026-10-19T21:29:46.664365Z",
+  "rights_or_gate_approval": false,
+  "source_SHA256": {
+    "backend/app/crop_climate_joint_continuation.py": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/app/crop_greenhouse_solar_execution_query.py": "95d52950af17fa8ad90a2999c8c1410f3e5228c823cfd3f9ccac11bd794ae747",
+    "backend/app/crop_greenhouse_solar_input_evidence.py": "2c105a74ffd67313867a7f05da992d741d66cb748dd48543bd57783a7a70a145",
+    "backend/app/crop_greenhouse_solar_storage.py": "065ff9f9706bed285f19b82e67277123947715af285cc6438a77fed3c7e30d6d",
+    "backend/app/jobs.py": "0e7f0bd4fb60cb20fb299b9440ad83a46888ce370979cf66869719bbbcf3e466",
+    "backend/app/market_source_store.py": "4e81a33032f68a53b84f81beb7df1b6408d080facf78b53acb0d16497a109254",
+    "research/crop-solar-api-response-trace.py": "5dd560be01ea655dc9645e47091a536256fe3cb514f37755fb3fc5fdffa0298c",
+    "research/crop-solar-worker-progress-trace.py": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373"
+  },
+  "top_aggregate_encoding_paths": [
+    {
+      "calls": 1302,
+      "duplicates_at_same_path": 971,
+      "duplicates_within_current_visit": 805,
+      "encoded_bytes": 32647518,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "_hash",
+          "line": 32,
+          "module": "app.crop_climate_joint_continuation"
+        }
+      ],
+      "wall_ns": 537638699
+    },
+    {
+      "calls": 517,
+      "duplicates_at_same_path": 404,
+      "duplicates_within_current_visit": 404,
+      "encoded_bytes": 21278405,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 30,
+          "module": "app.crop_cycle_continuation"
+        },
+        {
+          "function": "_blob",
+          "line": 54,
+          "module": "app.crop_cycle_artifact"
+        }
+      ],
+      "wall_ns": 328397455
+    },
+    {
+      "calls": 456,
+      "duplicates_at_same_path": 365,
+      "duplicates_within_current_visit": 365,
+      "encoded_bytes": 7852936,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "_load",
+          "line": 192,
+          "module": "app.crop_greenhouse_solar_storage"
+        }
+      ],
+      "wall_ns": 134112759
+    },
+    {
+      "calls": 31,
+      "duplicates_at_same_path": 28,
+      "duplicates_within_current_visit": 15,
+      "encoded_bytes": 5660197,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "verify",
+          "line": 273,
+          "module": "app.crop_greenhouse_solar_input_evidence"
+        }
+      ],
+      "wall_ns": 86777821
+    },
+    {
+      "calls": 31,
+      "duplicates_at_same_path": 28,
+      "duplicates_within_current_visit": 15,
+      "encoded_bytes": 5786460,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "verify",
+          "line": 248,
+          "module": "app.crop_greenhouse_solar_input_evidence"
+        }
+      ],
+      "wall_ns": 84688154
+    },
+    {
+      "calls": 31,
+      "duplicates_at_same_path": 28,
+      "duplicates_within_current_visit": 15,
+      "encoded_bytes": 5783577,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "_signature",
+          "line": 222,
+          "module": "app.crop_greenhouse_solar_input_evidence"
+        }
+      ],
+      "wall_ns": 84261888
+    },
+    {
+      "calls": 2640,
+      "duplicates_at_same_path": 2397,
+      "duplicates_within_current_visit": 1425,
+      "encoded_bytes": 1742370,
+      "stack": [
+        {
+          "function": "_json",
+          "line": 33,
+          "module": "app.market_scenario"
+        },
+        {
+          "function": "fingerprint",
+          "line": 27,
+          "module": "app.market_reference_bundle"
+        }
+      ],
+      "wall_ns": 58489921
+    },
+    {
+      "calls": 2280,
+      "duplicates_at_same_path": 2058,
+      "duplicates_within_current_visit": 1170,
+      "encoded_bytes": 1782660,
+      "stack": [
+        {
+          "function": "canonical_input_bytes",
+          "line": 62,
+          "module": "app.jobs"
+        },
+        {
+          "function": "_model",
+          "line": 152,
+          "module": "app.market_source_store"
+        }
+      ],
+      "wall_ns": 41497631
+    },
+    {
+      "calls": 32,
+      "duplicates_at_same_path": 29,
+      "duplicates_within_current_visit": 16,
+      "encoded_bytes": 1210080,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "_source",
+          "line": 103,
+          "module": "app.crop_greenhouse_solar_input_evidence"
+        }
+      ],
+      "wall_ns": 15205215
+    },
+    {
+      "calls": 1396,
+      "duplicates_at_same_path": 1301,
+      "duplicates_within_current_visit": 1301,
+      "encoded_bytes": 1158296,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "_checked",
+          "line": 73,
+          "module": "app.crop_greenhouse_solar_server_custody"
+        }
+      ],
+      "wall_ns": 13820588
+    },
+    {
+      "calls": 456,
+      "duplicates_at_same_path": 454,
+      "duplicates_within_current_visit": 454,
+      "encoded_bytes": 2202480,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "_load",
+          "line": 176,
+          "module": "app.crop_greenhouse_solar_storage"
+        }
+      ],
+      "wall_ns": 13236248
+    },
+    {
+      "calls": 62,
+      "duplicates_at_same_path": 59,
+      "duplicates_within_current_visit": 46,
+      "encoded_bytes": 1504430,
+      "stack": [
+        {
+          "function": "_canonical",
+          "line": 31,
+          "module": "app.crop_climate_joint_continuation"
+        },
+        {
+          "function": "_record_hashes",
+          "line": 167,
+          "module": "app.crop_greenhouse_solar_input_evidence"
+        }
+      ],
+      "wall_ns": 10494696
+    }
+  ],
+  "trace_case": "focused-solar-current-encoding-call-paths-v2",
+  "trace_log_sha256": "a78194785146fa329f1b855498ce8aeb70865f5004b408a9e941d0914f492712",
+  "trace_raw_sha256": "51eccecbce004736eee42481999379e6734337e7fe644fc8e91f175f06d70eeb",
+  "trace_resource": {
+    "combined_peak_RSS_bytes": 951193600,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "original_source_entries": 2148,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "protected_root_count": 5,
+    "single_PID_peak_RSS_bytes": 124174336,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 126.6970126540109
+  },
+  "trace_script_sha256": "8cb1ebbbaae5e458ddc4c4d32032b407da689c9a50bce31f6b05ada6340c17ec",
+  "trace_source_pins_sha256": "c49df4d58082e941b2475054797448a201dbd411fd8e25d6560265c2ad9c55e6",
+  "trace_summary": {
+    "SQL": 9929,
+    "collector_errors": [],
+    "current_calls": 15,
+    "encode_calls": 16885,
+    "encoded_bytes": 104203471,
+    "encoded_payloads_or_digests_exported": false,
+    "first_original_512_limit_exceeded": {
+      "current_visit": 0,
+      "five_frame_sites": 513,
+      "phase": "confirm"
+    },
+    "five_frame_sites": 581,
+    "original_UTC": "2026-10-01T00:01:30.123456Z",
+    "original_bytes_counts_UTC_equal": true,
+    "permission_or_data_result_cache": false,
+    "role_audits": 273,
+    "source_reads": 2280,
+    "steps_before_after": [
+      44,
+      45
+    ],
+    "three_frame_paths": 238
+  },
+  "trace_terminal_sha256": "e60817a9f50f303c348cd8d85fc7f251d573801da440dff2ff1f0bdfe5ceac2f",
+  "trace_test_passed": 1,
+  "whole_quantum_candidate_adopted": false,
+  "whole_quantum_trial_run": false
+}
