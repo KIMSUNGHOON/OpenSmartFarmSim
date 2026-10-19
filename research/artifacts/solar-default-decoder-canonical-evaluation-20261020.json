@@ -1,0 +1,233 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "all_negative_security_regressions_run": false,
+  "application_source_changed": false,
+  "boundary_case": "focused-solar-default-decoder-boundary-v1",
+  "boundary_log_sha256": "acb50bc88917f57929611d63c707e0ccd387dae970fefba6e9100a81f12eba7b",
+  "boundary_pytest_passed": 1,
+  "boundary_size_and_hash_vectors": 3,
+  "boundary_terminal_sha256": "514115fb13ffd42593237ca3c49d1a67eb2e1a0daf74ae353ad6c530cddbefe1",
+  "boundary_vectors": 36,
+  "candidate_source_pins": {
+    "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-default-decoder/candidate_v1.py": "2287f8aab3daef64962ed4ba6195b1a864fbdaae18a5e9178ae67ee6fbd6518c",
+    "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-default-decoder/test_decoder_boundary_v1.py": "5d35173186863a25cc7c2835b5fe169f5c33c653dfd96ba09f2f8e36dfb765f3",
+    "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-default-decoder/test_decoder_cost_v1.py": "6b6f30c9b679e958e1a5f9b2c1ae3d6fa6b09c9d5a83ebe9b07877d25aff352d"
+  },
+  "controller_source_pins_sha256": "be5df0e7097de8acfab63fdc0e53051bc3ff96019c0ce022be2293c0f471a9be",
+  "cost_case": "focused-solar-default-decoder-cost-v1",
+  "cost_criterion_met": true,
+  "cost_pytest_passed": 1,
+  "decision": "cost qualified only; unsupported custom-codec behavior blocks adoption; no production parser or model change",
+  "existing82_rerun": false,
+  "known_holds": {
+    "at": "2026-10-19T22:03:09.798832+00:00",
+    "candidate_only_default_unmutated_codecs": true,
+    "counterexample_shape": "A custom f._json that raises must still raise in original _blob; private fast canonical success currently bypasses it, so product adoption prohibited. No claim that this is deployed or a source change.",
+    "decision": "Cost-only trial remains unapproved; even positive timing requires default/custom dispatch and final-source negative security/error ownership proof.",
+    "known_unimplemented_custom_fallbacks": [
+      "f._json callable or function code/globals changed",
+      "inputs._json callable or code/globals and JSON module replaced",
+      "json.loads/default decoder/scanner/number coercion hooks changed",
+      "canonical function globals encoder changed",
+      "reentrancy/concurrent mutation between entry proof and return"
+    ],
+    "source_review_only": true
+  },
+  "log_sha256": "bfd329013428a9c63e68c41bd57f6bea9abc50695f9b45fe402ec5f729338481",
+  "mean_reduction_pct": 7.911313674397805,
+  "next": "default/custom codec dispatch RED/GREEN and error/alias/security closure before final-source whole-quantum cost and related regressions",
+  "normal64_accepted": false,
+  "official_and_installed_source": {
+    "actual_signature": "(data, *, allow_inf_nan=True, cache_strings=Ellipsis, allow_partial=Ellipsis)",
+    "browser_tool_primary_sources": [
+      {
+        "facts_reviewed": [
+          "partial parsing defaults off",
+          "cache_strings false disables string caching",
+          "jiter accepts nonfinite by default; explicit flag required"
+        ],
+        "result": "web primary page successfully read; urllib403 preserved",
+        "url": "https://pydantic.dev/docs/validation/latest/concepts/json/",
+        "version_scope": "live official document, not installed2.46.5 source tag proof"
+      },
+      {
+        "facts_reviewed": [
+          "allow_inf_nan keyword",
+          "cache_strings keyword",
+          "allow_partial keyword"
+        ],
+        "result": "web primary search supports signature; installed pyi independently hashed",
+        "url": "https://pydantic.dev/docs/validation/dev/api/pydantic-core/pydantic_core/",
+        "version_scope": "live official API; installed signature and stub control trial"
+      }
+    ],
+    "code_module_file_sha256": "95f68ef2535a5102a03442e073d4906c01211b208902f56e24ec23cea402b5a0",
+    "independent_numerical_compatibility_not_proven": true,
+    "installed_core_version": "2.46.5",
+    "installed_from_json_stub_sha256": "2471be7790f57f51e09c54571dead111c6b15277d2ab16727c6175ce324b4f6f",
+    "installed_pyi_sha256": "1ff946f222a2bf70697dddeb8b163bc73b3aee013eb347a202a25a49b9c5f12b",
+    "native_CLI": {
+      "effort": "xhigh",
+      "model": "gpt-6.1-sol",
+      "raw_line_sha256": "bfafc495a9a6dc2def79780b71e20c0b47cbd182004b30d59f83d1d17fd74022",
+      "recursive_CLI": false,
+      "subagents": false,
+      "timestamp": "2026-10-19T21:57:33.417Z"
+    },
+    "official_sources": [
+      {
+        "HTTP_code": 403,
+        "adopted": false,
+        "error_type": "HTTPError",
+        "retrieved_at": "2026-10-19T22:02:01.003174+00:00",
+        "url": "https://pydantic.dev/docs/validation/latest/concepts/json/"
+      },
+      {
+        "HTTP_code": 403,
+        "adopted": false,
+        "error_type": "HTTPError",
+        "retrieved_at": "2026-10-19T22:02:01.167317+00:00",
+        "url": "https://pydantic.dev/docs/validation/dev/api/pydantic-core/pydantic_core/"
+      },
+      {
+        "HTTP_code": 404,
+        "adopted": false,
+        "error_type": "HTTPError",
+        "retrieved_at": "2026-10-19T22:02:01.428148+00:00",
+        "url": "https://raw.githubusercontent.com/pydantic/pydantic-core/v2.46.5/python/pydantic_core/_pydantic_core.pyi"
+      }
+    ],
+    "successful_web_API_URL": "https://pydantic.dev/docs/validation/latest/api/pydantic-core/pydantic_core/#pydantic_core.from_json",
+    "successful_web_API_result_sha256": "268a6158ad60ae272782f26164aef95672d7b39889feadab8dc804d80ebf864b"
+  },
+  "original_bytes_counts_UTC_equal": true,
+  "paired_reduction_pct": [
+    13.420814111945914,
+    1.6707983523132794
+  ],
+  "preflight": {
+    "G0_G4": "not_assessed",
+    "at": "2026-10-19T22:01:13.786359+00:00",
+    "both_pairs_must_improve": true,
+    "codec_global_alias_mutations_and_all_errors_proven": false,
+    "explicit_parser_flags": {
+      "allow_inf_nan": false,
+      "allow_partial": false,
+      "cache_strings": false
+    },
+    "mean_whole_quantum_min_pct": 2,
+    "native_CLI": {
+      "effort": "xhigh",
+      "model": "gpt-6.1-sol",
+      "raw_line_sha256": "bfafc495a9a6dc2def79780b71e20c0b47cbd182004b30d59f83d1d17fd74022",
+      "recursive_CLI": false,
+      "subagents": false,
+      "timestamp": "2026-10-19T21:57:33.417Z"
+    },
+    "new_dependency": false,
+    "normal64_accepted": false,
+    "official_document": "https://pydantic.dev/docs/validation/latest/concepts/json/",
+    "original_actor_input64_chunk1_poll_retry360_RSS_unchanged": true,
+    "parser_success_only_if_original_canonical_bytes_equal": true,
+    "product_adopted": false,
+    "pydantic": "2.13.5",
+    "pydantic_core": "2.46.5",
+    "scope": "private default-function feasibility; ASCII and no unicode-escape; fresh original read/hash; no cache; original parser and canonical check on fallback outside caught-fast-error context",
+    "source_SHA256": {
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-default-decoder/candidate_v1.py": "2287f8aab3daef64962ed4ba6195b1a864fbdaae18a5e9178ae67ee6fbd6518c",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-default-decoder/test_decoder_boundary_v1.py": "5d35173186863a25cc7c2835b5fe169f5c33c653dfd96ba09f2f8e36dfb765f3"
+    }
+  },
+  "product_adopted": false,
+  "raw_sha256": "02a22a8b3992d8e49050d409c791c0219afd717a7ed5e49f91469d6520a43f75",
+  "resource": {
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 684032000,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 126124032,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 159.17229649999354
+  },
+  "rights_or_gate_approval": false,
+  "rows": [
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "34a864b8af27a899bee9d0894ad87480369336e5b3c291424d42bb62871f3d53",
+      "current_checks": 15,
+      "decoder": {
+        "fallback": 0,
+        "fast": 0
+      },
+      "mode": "baseline",
+      "original_UTC": "2026-10-01T00:01:24.123456Z",
+      "role_SQL": 273,
+      "source_SQL": 2280,
+      "steps": 42,
+      "wall_ns": 9690677504
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "80c1071c343e5e4e706e7c3fb8f056ad7b473f61717aff7c60c03f87f96fd761",
+      "current_checks": 15,
+      "decoder": {
+        "fallback": 7,
+        "fast": 490
+      },
+      "mode": "candidate",
+      "original_UTC": "2026-10-01T00:01:26.123456Z",
+      "role_SQL": 273,
+      "source_SQL": 2280,
+      "steps": 43,
+      "wall_ns": 8390109690
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "b0bedd9c913e67ec7fdbc0759e3ef0a34da28d48a26a094b2b60c501a1ce9873",
+      "current_checks": 15,
+      "decoder": {
+        "fallback": 7,
+        "fast": 500
+      },
+      "mode": "candidate",
+      "original_UTC": "2026-10-01T00:01:28.123456Z",
+      "role_SQL": 273,
+      "source_SQL": 2280,
+      "steps": 44,
+      "wall_ns": 8412564791
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "e96dc537050a959b9ad2b30e2f1c10850643292b49b58940d07ac04dbff97cd3",
+      "current_checks": 15,
+      "decoder": {
+        "fallback": 0,
+        "fast": 0
+      },
+      "mode": "baseline",
+      "original_UTC": "2026-10-01T00:01:30.123456Z",
+      "role_SQL": 273,
+      "source_SQL": 2280,
+      "steps": 45,
+      "wall_ns": 8555510113
+    }
+  ],
+  "scope": "private default-codec feasibility only; original42..45 before/private advance/confirm; original fresh read/hash; explicit locked C parser and original canonical exact bytes else original strict parser/canonical; ASCII/no unicode-escape fastscope; no parsed-value cache; all codec/global alias/security/error closure not fully accepted",
+  "terminal_sha256": "899686e60b19ff366912885f6250f49a14a60bfbaf0d93d0cca4624fca925c3d",
+  "version": 1
+}
