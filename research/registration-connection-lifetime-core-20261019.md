@@ -1,7 +1,7 @@
 # 등록 조회의 연결 수명 본체 — 2026-10-19 KST
 
 상태: **연결 관리 본체·최종 source의51개 기능 검사와 실제 paired 비용1검사를 로컬 수용**.
-관련 worker/query/HTTP 전체 회귀·독립 원64·새 Solar 배포는 아직 미수용이다.
+본체 수용 당시 관련 worker/query/HTTP 회귀·독립 원64·새 Solar 배포는 미수용이었다. 후속58 로컬 통합 수용은 아래 링크를 따른다.
 [계약](../contracts/farm-registration-connection-lifetime-v1.md) ·
 [구현](../backend/app/runtime_connection_scope.py) ·
 [새 검사28](../backend/tests/test_registration_connection_lifetime.py) ·
@@ -13,6 +13,10 @@
 그 후보의 getter 생략이나 검사를 줄이는 방식을 사용하지 않았다.
 현재 native Codex CLI `gpt-6.1-sol/xhigh`의 실제 문맥 시각/해시를 기록했다.
 재귀 CLI·하위 에이전트는 사용하지 않았다.
+
+후속 [같은 application source의 관련58 회귀·검토](registration-connection-lifetime-integration-20261019.md)로
+로컬 통합을 수용했다. 현재 다음은 변경 source의 원 계측 OFF64 독립 정상이다.
+아래 관련 회귀 미수용 문구는 본체52 수용 당시의 범위다.
 
 ## 구현 범위
 

@@ -1,8 +1,9 @@
 # Farm registration connection lifetime — v1 candidate
 
-Status: [core implementation locally accepted by52 focused checks](../research/registration-connection-lifetime-core-20261019.md).
-Related worker/query/HTTP regression and independent original64 remain pending;
-full integration and deployment are not accepted. The private normal-cost experiment
+Status: [core52](../research/registration-connection-lifetime-core-20261019.md) and
+[related original worker/query/HTTP58 regression](../research/registration-connection-lifetime-integration-20261019.md)
+locally accepted. Independent original64, calculating WebGL and deployment remain pending.
+The private normal-cost experiment
 preserved183 role audits,1,824 ordered source reads,432 transaction ends and
 original values/UTC, while reusing one physical connection across144 leases.
 Its two advances improved by about26%/23%. This is feasibility evidence only;
