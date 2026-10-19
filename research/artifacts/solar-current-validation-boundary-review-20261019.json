@@ -1,0 +1,3472 @@
+{
+  "CPU_sampling": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "app_source_changed": false,
+    "client_thread_cpu_ns": 6122027955,
+    "dropped": 0,
+    "leaf_frames": [
+      {
+        "function": "iterencode",
+        "line": 258,
+        "module": "json.encoder",
+        "samples": 211
+      },
+      {
+        "function": "_send_query_prepared",
+        "line": 602,
+        "module": "psycopg._cursor_base",
+        "samples": 89
+      },
+      {
+        "function": "<lambda>",
+        "line": 1,
+        "module": "namedtuple_ConninfoOption",
+        "samples": 88
+      },
+      {
+        "function": "wait",
+        "line": 495,
+        "module": "psycopg.connection",
+        "samples": 75
+      },
+      {
+        "function": "_check_results",
+        "line": 468,
+        "module": "psycopg._cursor_base",
+        "samples": 44
+      },
+      {
+        "function": "open",
+        "line": 1015,
+        "module": "pathlib",
+        "samples": 36
+      },
+      {
+        "function": "pairs",
+        "line": 46,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 35
+      },
+      {
+        "function": "dump_list",
+        "line": 174,
+        "module": "psycopg.types.array",
+        "samples": 27
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 234,
+        "module": "app.runtime_roles",
+        "samples": 22
+      },
+      {
+        "function": "model_dump",
+        "line": 475,
+        "module": "pydantic.main",
+        "samples": 21
+      },
+      {
+        "function": "sub",
+        "line": 186,
+        "module": "re",
+        "samples": 21
+      },
+      {
+        "function": "untrusted_data",
+        "line": 402,
+        "module": "app.economic_contracts",
+        "samples": 21
+      },
+      {
+        "function": "_pins",
+        "line": 66,
+        "module": "app.crop_greenhouse_solar_input_evidence",
+        "samples": 21
+      },
+      {
+        "function": "get_loader",
+        "line": 264,
+        "module": "psycopg._adapters_map",
+        "samples": 18
+      },
+      {
+        "function": "_exact_name",
+        "line": 13,
+        "module": "app.provenance",
+        "samples": 16
+      },
+      {
+        "function": "_get_names",
+        "line": 244,
+        "module": "psycopg.rows",
+        "samples": 15
+      },
+      {
+        "function": "raw_decode",
+        "line": 353,
+        "module": "json.decoder",
+        "samples": 15
+      },
+      {
+        "function": "read_bytes",
+        "line": 1022,
+        "module": "pathlib",
+        "samples": 14
+      },
+      {
+        "function": "get_dumper",
+        "line": 192,
+        "module": "psycopg._adapters_map",
+        "samples": 14
+      },
+      {
+        "function": "<genexpr>",
+        "line": 14,
+        "module": "app.provenance",
+        "samples": 14
+      },
+      {
+        "function": "_validate_input_fields",
+        "line": 46,
+        "module": "app.jobs",
+        "samples": 13
+      },
+      {
+        "function": "dict_row_",
+        "line": 120,
+        "module": "psycopg.rows",
+        "samples": 13
+      },
+      {
+        "function": "deepcopy",
+        "line": 118,
+        "module": "copy",
+        "samples": 12
+      },
+      {
+        "function": "_need",
+        "line": 32,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 12
+      },
+      {
+        "function": "_exec_command",
+        "line": 474,
+        "module": "psycopg._connection_base",
+        "samples": 11
+      },
+      {
+        "function": "encode",
+        "line": 31,
+        "module": "app.market_scenario",
+        "samples": 10
+      },
+      {
+        "function": "maintain_gen",
+        "line": 191,
+        "module": "psycopg._preparing",
+        "samples": 10
+      },
+      {
+        "function": "read_bytes",
+        "line": 1021,
+        "module": "pathlib",
+        "samples": 10
+      },
+      {
+        "function": "_flatiter",
+        "line": 99,
+        "module": "psycopg.types.array",
+        "samples": 10
+      },
+      {
+        "function": "__init__",
+        "line": 222,
+        "module": "psycopg._typeinfo",
+        "samples": 9
+      },
+      {
+        "function": "iterencode",
+        "line": 249,
+        "module": "json.encoder",
+        "samples": 9
+      },
+      {
+        "function": "dict_row_",
+        "line": 121,
+        "module": "psycopg.rows",
+        "samples": 9
+      },
+      {
+        "function": "_binding",
+        "line": 209,
+        "module": "app.crop_greenhouse_solar_input_evidence",
+        "samples": 9
+      },
+      {
+        "function": "<genexpr>",
+        "line": 133,
+        "module": "app.market_source_store",
+        "samples": 8
+      },
+      {
+        "function": "pairs",
+        "line": 49,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 7
+      },
+      {
+        "function": "_verified",
+        "line": 173,
+        "module": "app.market_source_store",
+        "samples": 7
+      },
+      {
+        "function": "utc",
+        "line": 21,
+        "module": "app.economic_contracts",
+        "samples": 7
+      },
+      {
+        "function": "_parse_path",
+        "line": 404,
+        "module": "pathlib",
+        "samples": 7
+      },
+      {
+        "function": "dump",
+        "line": 159,
+        "module": "psycopg.types.array",
+        "samples": 6
+      },
+      {
+        "function": "_binding",
+        "line": 60,
+        "module": "app.crop_greenhouse_solar_farm_binding",
+        "samples": 6
+      },
+      {
+        "function": "_dump_item",
+        "line": 190,
+        "module": "psycopg.types.array",
+        "samples": 6
+      },
+      {
+        "function": "dump",
+        "line": 103,
+        "module": "psycopg._queries",
+        "samples": 6
+      },
+      {
+        "function": "check",
+        "line": 111,
+        "module": "app.runtime_connection_scope",
+        "samples": 6
+      },
+      {
+        "function": "__init__",
+        "line": 44,
+        "module": "psycopg.cursor",
+        "samples": 6
+      },
+      {
+        "function": "_deepcopy_dict",
+        "line": 221,
+        "module": "copy",
+        "samples": 6
+      },
+      {
+        "function": "deepcopy",
+        "line": 128,
+        "module": "copy",
+        "samples": 6
+      },
+      {
+        "function": "maybe_add_to_cache",
+        "line": 150,
+        "module": "psycopg._preparing",
+        "samples": 6
+      },
+      {
+        "function": "_maybe_prepare_gen",
+        "line": 312,
+        "module": "psycopg._cursor_base",
+        "samples": 5
+      },
+      {
+        "function": "get_parameters",
+        "line": 103,
+        "module": "psycopg._connection_info",
+        "samples": 5
+      },
+      {
+        "function": "get_parameters",
+        "line": 99,
+        "module": "psycopg._connection_info",
+        "samples": 5
+      }
+    ],
+    "nearest_app_frames": [
+      {
+        "function": "_canonical",
+        "line": 31,
+        "module": "app.crop_climate_joint_continuation",
+        "samples": 169
+      },
+      {
+        "function": "_select_with_job",
+        "line": 221,
+        "module": "app.market_source_store",
+        "samples": 97
+      },
+      {
+        "function": "_pins",
+        "line": 66,
+        "module": "app.crop_greenhouse_solar_input_evidence",
+        "samples": 55
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 238,
+        "module": "app.runtime_roles",
+        "samples": 47
+      },
+      {
+        "function": "verify_runtime_identity",
+        "line": 15,
+        "module": "app.runtime_login",
+        "samples": 46
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 255,
+        "module": "app.runtime_roles",
+        "samples": 40
+      },
+      {
+        "function": "_input_in_transaction",
+        "line": 529,
+        "module": "app.market_candidate_store",
+        "samples": 38
+      },
+      {
+        "function": "pairs",
+        "line": 46,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 35
+      },
+      {
+        "function": "_client",
+        "line": 65,
+        "module": "app.runtime_connection_scope",
+        "samples": 32
+      },
+      {
+        "function": "_shared_reader",
+        "line": 263,
+        "module": "app.market_candidate_store",
+        "samples": 32
+      },
+      {
+        "function": "verify_runtime_identity",
+        "line": 18,
+        "module": "app.runtime_login",
+        "samples": 31
+      },
+      {
+        "function": "_validate_input_fields",
+        "line": 44,
+        "module": "app.jobs",
+        "samples": 26
+      },
+      {
+        "function": "_shared_reader",
+        "line": 268,
+        "module": "app.market_candidate_store",
+        "samples": 25
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 274,
+        "module": "app.runtime_roles",
+        "samples": 24
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 234,
+        "module": "app.runtime_roles",
+        "samples": 22
+      },
+      {
+        "function": "scoped_lookup",
+        "line": 398,
+        "module": "app.market_candidate_store",
+        "samples": 21
+      },
+      {
+        "function": "canonical_input_bytes",
+        "line": 62,
+        "module": "app.jobs",
+        "samples": 21
+      },
+      {
+        "function": "untrusted_data",
+        "line": 402,
+        "module": "app.economic_contracts",
+        "samples": 21
+      },
+      {
+        "function": "check",
+        "line": 111,
+        "module": "app.runtime_connection_scope",
+        "samples": 16
+      },
+      {
+        "function": "_exact_name",
+        "line": 13,
+        "module": "app.provenance",
+        "samples": 16
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 196,
+        "module": "app.runtime_roles",
+        "samples": 14
+      },
+      {
+        "function": "<genexpr>",
+        "line": 14,
+        "module": "app.provenance",
+        "samples": 14
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 280,
+        "module": "app.runtime_roles",
+        "samples": 14
+      },
+      {
+        "function": "_validate_input_fields",
+        "line": 46,
+        "module": "app.jobs",
+        "samples": 13
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 190,
+        "module": "app.runtime_roles",
+        "samples": 13
+      },
+      {
+        "function": "_shared_profile",
+        "line": 241,
+        "module": "app.market_candidate_store",
+        "samples": 13
+      },
+      {
+        "function": "_select_with_job",
+        "line": 230,
+        "module": "app.market_source_store",
+        "samples": 13
+      },
+      {
+        "function": "_session",
+        "line": 73,
+        "module": "app.runtime_connection_scope",
+        "samples": 12
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 177,
+        "module": "app.runtime_roles",
+        "samples": 12
+      },
+      {
+        "function": "_need",
+        "line": 32,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 12
+      },
+      {
+        "function": "_shared_reader",
+        "line": 269,
+        "module": "app.market_candidate_store",
+        "samples": 11
+      },
+      {
+        "function": "_pins",
+        "line": 47,
+        "module": "app.crop_greenhouse_solar_storage",
+        "samples": 11
+      },
+      {
+        "function": "_binding",
+        "line": 60,
+        "module": "app.crop_greenhouse_solar_farm_binding",
+        "samples": 10
+      },
+      {
+        "function": "encode",
+        "line": 31,
+        "module": "app.market_scenario",
+        "samples": 10
+      },
+      {
+        "function": "_scope",
+        "line": 157,
+        "module": "app.runtime_roles",
+        "samples": 10
+      },
+      {
+        "function": "_database",
+        "line": 123,
+        "module": "app.runtime_roles",
+        "samples": 10
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 214,
+        "module": "app.runtime_roles",
+        "samples": 10
+      },
+      {
+        "function": "read",
+        "line": 148,
+        "module": "app.farm_registration_read_scope",
+        "samples": 10
+      },
+      {
+        "function": "_canonical",
+        "line": 33,
+        "module": "app.thermal_run_store",
+        "samples": 10
+      },
+      {
+        "function": "_canonical",
+        "line": 30,
+        "module": "app.crop_cycle_continuation",
+        "samples": 10
+      },
+      {
+        "function": "<genexpr>",
+        "line": 67,
+        "module": "app.crop_greenhouse_solar_input_evidence",
+        "samples": 9
+      },
+      {
+        "function": "_scope",
+        "line": 137,
+        "module": "app.runtime_roles",
+        "samples": 9
+      },
+      {
+        "function": "_model",
+        "line": 152,
+        "module": "app.market_source_store",
+        "samples": 9
+      },
+      {
+        "function": "_scope",
+        "line": 128,
+        "module": "app.runtime_roles",
+        "samples": 9
+      },
+      {
+        "function": "_binding",
+        "line": 209,
+        "module": "app.crop_greenhouse_solar_input_evidence",
+        "samples": 9
+      },
+      {
+        "function": "_decision_context_in_transaction",
+        "line": 328,
+        "module": "app.thermal_run_store",
+        "samples": 9
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 186,
+        "module": "app.runtime_roles",
+        "samples": 8
+      },
+      {
+        "function": "_json",
+        "line": 33,
+        "module": "app.market_scenario",
+        "samples": 8
+      },
+      {
+        "function": "<genexpr>",
+        "line": 133,
+        "module": "app.market_source_store",
+        "samples": 8
+      },
+      {
+        "function": "<genexpr>",
+        "line": 101,
+        "module": "app.farm_registration_read_scope",
+        "samples": 8
+      }
+    ],
+    "nearest_source_frames": [
+      {
+        "function": "",
+        "line": 0,
+        "module": "<outside_source>",
+        "samples": 1197
+      },
+      {
+        "function": "_select_with_job",
+        "line": 221,
+        "module": "app.market_source_store",
+        "samples": 97
+      },
+      {
+        "function": "_model",
+        "line": 152,
+        "module": "app.market_source_store",
+        "samples": 60
+      },
+      {
+        "function": "connect",
+        "line": 92,
+        "module": "app.market_source_store",
+        "samples": 46
+      },
+      {
+        "function": "read_scope",
+        "line": 108,
+        "module": "app.market_source_store",
+        "samples": 36
+      },
+      {
+        "function": "_model",
+        "line": 148,
+        "module": "app.market_source_store",
+        "samples": 25
+      },
+      {
+        "function": "_select_with_job",
+        "line": 230,
+        "module": "app.market_source_store",
+        "samples": 13
+      },
+      {
+        "function": "<genexpr>",
+        "line": 133,
+        "module": "app.market_source_store",
+        "samples": 8
+      },
+      {
+        "function": "_verified",
+        "line": 173,
+        "module": "app.market_source_store",
+        "samples": 7
+      },
+      {
+        "function": "read_scope",
+        "line": 100,
+        "module": "app.market_source_store",
+        "samples": 7
+      },
+      {
+        "function": "_table",
+        "line": 125,
+        "module": "app.market_source_store",
+        "samples": 5
+      },
+      {
+        "function": "<genexpr>",
+        "line": 75,
+        "module": "app.market_source_store",
+        "samples": 4
+      },
+      {
+        "function": "_read",
+        "line": 289,
+        "module": "app.market_source_store",
+        "samples": 4
+      },
+      {
+        "function": "_read_in_transaction",
+        "line": 310,
+        "module": "app.market_source_store",
+        "samples": 4
+      },
+      {
+        "function": "_verified",
+        "line": 178,
+        "module": "app.market_source_store",
+        "samples": 4
+      },
+      {
+        "function": "read_scope",
+        "line": 101,
+        "module": "app.market_source_store",
+        "samples": 3
+      },
+      {
+        "function": "_name",
+        "line": 74,
+        "module": "app.market_source_store",
+        "samples": 3
+      },
+      {
+        "function": "_read_context",
+        "line": 112,
+        "module": "app.market_source_store",
+        "samples": 3
+      },
+      {
+        "function": "tenant_is_authenticated",
+        "line": 139,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_read_in_transaction",
+        "line": 309,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_checked_job_input",
+        "line": 166,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_table",
+        "line": 124,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_select_with_job",
+        "line": 229,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_model",
+        "line": 150,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_read_context",
+        "line": 114,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_read_context",
+        "line": 122,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_checked_job_input",
+        "line": 169,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_tenant",
+        "line": 132,
+        "module": "app.market_source_store",
+        "samples": 1
+      },
+      {
+        "function": "_name",
+        "line": 75,
+        "module": "app.market_source_store",
+        "samples": 1
+      }
+    ],
+    "new_solar_deployed": false,
+    "normal64_accepted": false,
+    "original_confirmed_UTC": "2026-10-01T00:00:04.123456Z",
+    "rights_or_gate_approval": false,
+    "samples": 1537,
+    "scope": "owned test-process ITIMER_PROF samples at2ms requested CPU intervals;48frame limit, max12000; no app methods or outputs replaced; signal/timer restored; nearest Python frames can attribute C-extension work; sampling/observer bias exists, not throughput acceptance",
+    "source_kind_samples": {
+      "<outside_source_read>": 1310,
+      "economic_input": 83,
+      "economic_scenario": 29,
+      "input_rights": 87,
+      "joint_shock": 21,
+      "settlement_applicability": 2,
+      "settlement_evidence": 5
+    },
+    "steps": 2,
+    "timer_and_handler_restored": true,
+    "top_stacks": [
+      {
+        "frames": [
+          {
+            "function": "_send_query_prepared",
+            "line": 602,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 297,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 221,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_input_rights",
+            "line": 328,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 396,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 13
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_hash",
+            "line": 32,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_record_hashes",
+            "line": 160,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "verify",
+            "line": 264,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 137,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 11
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_hash",
+            "line": 32,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_record_hashes",
+            "line": 160,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "verify",
+            "line": 264,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 134,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 10
+      },
+      {
+        "frames": [
+          {
+            "function": "_send_query_prepared",
+            "line": 602,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 297,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 221,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 319,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 522,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 8
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_signature",
+            "line": 222,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "verify",
+            "line": 252,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 137,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          },
+          {
+            "function": "_guard",
+            "line": 117,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 8
+      },
+      {
+        "frames": [
+          {
+            "function": "_send_query_prepared",
+            "line": 602,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 297,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_input_in_transaction",
+            "line": 529,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 519,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 8
+      },
+      {
+        "frames": [
+          {
+            "function": "_check_results",
+            "line": 468,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 317,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 221,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_input_rights",
+            "line": 328,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 396,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 7
+      },
+      {
+        "frames": [
+          {
+            "function": "encode",
+            "line": 31,
+            "module": "app.market_scenario"
+          },
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_json",
+            "line": 33,
+            "module": "app.market_scenario"
+          },
+          {
+            "function": "fingerprint",
+            "line": 27,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_current",
+            "line": 134,
+            "module": "app.farm_registration_read_scope"
+          },
+          {
+            "function": "read",
+            "line": 146,
+            "module": "app.farm_registration_read_scope"
+          }
+        ],
+        "samples": 7
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_signature",
+            "line": 222,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "verify",
+            "line": 252,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 134,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          },
+          {
+            "function": "_guard",
+            "line": 117,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 7
+      },
+      {
+        "frames": [
+          {
+            "function": "<lambda>",
+            "line": 1,
+            "module": "namedtuple_ConninfoOption"
+          },
+          {
+            "function": "get_parameters",
+            "line": 91,
+            "module": "psycopg._connection_info"
+          },
+          {
+            "function": "verify_runtime_identity",
+            "line": 15,
+            "module": "app.runtime_login"
+          },
+          {
+            "function": "_shared_reader",
+            "line": 267,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_reference_reader",
+            "line": 309,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "guard",
+            "line": 62,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_reference_value",
+            "line": 337,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 394,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 6
+      },
+      {
+        "frames": [
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 221,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_input_rights",
+            "line": 328,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 396,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          }
+        ],
+        "samples": 6
+      },
+      {
+        "frames": [
+          {
+            "function": "<lambda>",
+            "line": 1,
+            "module": "namedtuple_ConninfoOption"
+          },
+          {
+            "function": "_parse_conninfo",
+            "line": 101,
+            "module": "psycopg.conninfo"
+          },
+          {
+            "function": "conninfo_to_dict",
+            "line": 82,
+            "module": "psycopg.conninfo"
+          },
+          {
+            "function": "_shared_profile",
+            "line": 241,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_shared_reader",
+            "line": 253,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_reference_reader",
+            "line": 309,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "guard",
+            "line": 62,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_reference_value",
+            "line": 330,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 394,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          }
+        ],
+        "samples": 6
+      },
+      {
+        "frames": [
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 221,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 319,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 522,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          }
+        ],
+        "samples": 6
+      },
+      {
+        "frames": [
+          {
+            "function": "dump_list",
+            "line": 174,
+            "module": "psycopg.types.array"
+          },
+          {
+            "function": "dump",
+            "line": 184,
+            "module": "psycopg.types.array"
+          },
+          {
+            "function": "dump",
+            "line": 103,
+            "module": "psycopg._queries"
+          },
+          {
+            "function": "convert",
+            "line": 92,
+            "module": "psycopg._queries"
+          },
+          {
+            "function": "_convert_query",
+            "line": 465,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 205,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "audit_runtime_roles",
+            "line": 255,
+            "module": "app.runtime_roles"
+          },
+          {
+            "function": "connect",
+            "line": 227,
+            "module": "app.thermal_run_store"
+          },
+          {
+            "function": "read_connection",
+            "line": 217,
+            "module": "app.runtime_connection_scope"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "<lambda>",
+            "line": 1,
+            "module": "namedtuple_ConninfoOption"
+          },
+          {
+            "function": "get_parameters",
+            "line": 100,
+            "module": "psycopg._connection_info"
+          },
+          {
+            "function": "verify_runtime_identity",
+            "line": 15,
+            "module": "app.runtime_login"
+          },
+          {
+            "function": "_shared_reader",
+            "line": 267,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_reference_reader",
+            "line": 309,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "guard",
+            "line": 62,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_reference_value",
+            "line": 337,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 394,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "<lambda>",
+            "line": 1,
+            "module": "namedtuple_ConninfoOption"
+          },
+          {
+            "function": "get_parameters",
+            "line": 91,
+            "module": "psycopg._connection_info"
+          },
+          {
+            "function": "_shared_reader",
+            "line": 263,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_reference_reader",
+            "line": 309,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "guard",
+            "line": 62,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_reference_value",
+            "line": 330,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 394,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_current",
+            "line": 134,
+            "module": "app.farm_registration_read_scope"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "_send_query_prepared",
+            "line": 602,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 297,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "verify_runtime_identity",
+            "line": 18,
+            "module": "app.runtime_login"
+          },
+          {
+            "function": "_shared_reader",
+            "line": 267,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_reference_reader",
+            "line": 309,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "guard",
+            "line": 62,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_reference_value",
+            "line": 330,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 394,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "pairs",
+            "line": 46,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "raw_decode",
+            "line": 353,
+            "module": "json.decoder"
+          },
+          {
+            "function": "decode",
+            "line": 337,
+            "module": "json.decoder"
+          },
+          {
+            "function": "loads",
+            "line": 359,
+            "module": "json"
+          },
+          {
+            "function": "_json",
+            "line": 52,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "verify",
+            "line": 247,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 137,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          },
+          {
+            "function": "_guard",
+            "line": 117,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "<lambda>",
+            "line": 1,
+            "module": "namedtuple_ConninfoOption"
+          },
+          {
+            "function": "get_parameters",
+            "line": 91,
+            "module": "psycopg._connection_info"
+          },
+          {
+            "function": "verify_runtime_identity",
+            "line": 15,
+            "module": "app.runtime_login"
+          },
+          {
+            "function": "_shared_reader",
+            "line": 267,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_reference_reader",
+            "line": 309,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "guard",
+            "line": 62,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_reference_value",
+            "line": 330,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 394,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "pairs",
+            "line": 46,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "raw_decode",
+            "line": 353,
+            "module": "json.decoder"
+          },
+          {
+            "function": "decode",
+            "line": 337,
+            "module": "json.decoder"
+          },
+          {
+            "function": "loads",
+            "line": 359,
+            "module": "json"
+          },
+          {
+            "function": "_json",
+            "line": 52,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "verify",
+            "line": 247,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 134,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          },
+          {
+            "function": "_guard",
+            "line": 117,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "<lambda>",
+            "line": 1,
+            "module": "namedtuple_ConninfoOption"
+          },
+          {
+            "function": "get_parameters",
+            "line": 91,
+            "module": "psycopg._connection_info"
+          },
+          {
+            "function": "_shared_reader",
+            "line": 263,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_reference_reader",
+            "line": 309,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "guard",
+            "line": 62,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_reference_value",
+            "line": 337,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 394,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_current",
+            "line": 134,
+            "module": "app.farm_registration_read_scope"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "as_bytes",
+            "line": 401,
+            "module": "psycopg.sql"
+          },
+          {
+            "function": "<genexpr>",
+            "line": 139,
+            "module": "psycopg.sql"
+          },
+          {
+            "function": "as_bytes",
+            "line": 139,
+            "module": "psycopg.sql"
+          },
+          {
+            "function": "<genexpr>",
+            "line": 139,
+            "module": "psycopg.sql"
+          },
+          {
+            "function": "as_bytes",
+            "line": 139,
+            "module": "psycopg.sql"
+          },
+          {
+            "function": "_ensure_bytes",
+            "line": 169,
+            "module": "psycopg._queries"
+          },
+          {
+            "function": "convert",
+            "line": 69,
+            "module": "psycopg._queries"
+          },
+          {
+            "function": "_convert_query",
+            "line": 465,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 205,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_signature",
+            "line": 222,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "verify",
+            "line": 252,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 134,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          },
+          {
+            "function": "_guard",
+            "line": 110,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_signature",
+            "line": 222,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "verify",
+            "line": 252,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 137,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          },
+          {
+            "function": "_guard",
+            "line": 110,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 5
+      },
+      {
+        "frames": [
+          {
+            "function": "dump_list",
+            "line": 174,
+            "module": "psycopg.types.array"
+          },
+          {
+            "function": "dump",
+            "line": 184,
+            "module": "psycopg.types.array"
+          },
+          {
+            "function": "dump",
+            "line": 103,
+            "module": "psycopg._queries"
+          },
+          {
+            "function": "convert",
+            "line": 92,
+            "module": "psycopg._queries"
+          },
+          {
+            "function": "_convert_query",
+            "line": 465,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 205,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "audit_runtime_roles",
+            "line": 238,
+            "module": "app.runtime_roles"
+          },
+          {
+            "function": "connect",
+            "line": 88,
+            "module": "app.job_store"
+          },
+          {
+            "function": "read_connection",
+            "line": 217,
+            "module": "app.runtime_connection_scope"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "sub",
+            "line": 186,
+            "module": "re"
+          },
+          {
+            "function": "_validate_input_fields",
+            "line": 44,
+            "module": "app.jobs"
+          },
+          {
+            "function": "canonical_input_bytes",
+            "line": 61,
+            "module": "app.jobs"
+          },
+          {
+            "function": "_model",
+            "line": 152,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_verified",
+            "line": 174,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 301,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 319,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 522,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "untrusted_data",
+            "line": 402,
+            "module": "app.economic_contracts"
+          },
+          {
+            "function": "untrusted_data",
+            "line": 402,
+            "module": "app.economic_contracts"
+          },
+          {
+            "function": "<genexpr>",
+            "line": 404,
+            "module": "app.economic_contracts"
+          },
+          {
+            "function": "untrusted_data",
+            "line": 404,
+            "module": "app.economic_contracts"
+          },
+          {
+            "function": "untrusted_data",
+            "line": 402,
+            "module": "app.economic_contracts"
+          },
+          {
+            "function": "fingerprint",
+            "line": 27,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_current",
+            "line": 134,
+            "module": "app.farm_registration_read_scope"
+          },
+          {
+            "function": "read",
+            "line": 146,
+            "module": "app.farm_registration_read_scope"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "dict_row_",
+            "line": 120,
+            "module": "psycopg.rows"
+          },
+          {
+            "function": "fetchone",
+            "line": 250,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 230,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_input_rights",
+            "line": 328,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 396,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "_get_names",
+            "line": 244,
+            "module": "psycopg.rows"
+          },
+          {
+            "function": "dict_row",
+            "line": 118,
+            "module": "psycopg.rows"
+          },
+          {
+            "function": "_make_row_maker",
+            "line": 79,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "_select_current_result",
+            "line": 529,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_set_results",
+            "line": 535,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 318,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 221,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "<lambda>",
+            "line": 1,
+            "module": "namedtuple_ConninfoOption"
+          },
+          {
+            "function": "get_parameters",
+            "line": 100,
+            "module": "psycopg._connection_info"
+          },
+          {
+            "function": "_shared_reader",
+            "line": 263,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_reference_reader",
+            "line": 309,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "guard",
+            "line": 62,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_reference_value",
+            "line": 330,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 394,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "_verify_shared",
+            "line": 122,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify",
+            "line": 157,
+            "module": "app.market_reference_bundle"
+          },
+          {
+            "function": "verify_current_reads",
+            "line": 324,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_current",
+            "line": 134,
+            "module": "app.farm_registration_read_scope"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "_need",
+            "line": 32,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "pairs",
+            "line": 49,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "raw_decode",
+            "line": 353,
+            "module": "json.decoder"
+          },
+          {
+            "function": "decode",
+            "line": 337,
+            "module": "json.decoder"
+          },
+          {
+            "function": "loads",
+            "line": 359,
+            "module": "json"
+          },
+          {
+            "function": "_json",
+            "line": 52,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "verify",
+            "line": 247,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 137,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "audit_runtime_roles",
+            "line": 234,
+            "module": "app.runtime_roles"
+          },
+          {
+            "function": "connect",
+            "line": 227,
+            "module": "app.thermal_run_store"
+          },
+          {
+            "function": "read_connection",
+            "line": 217,
+            "module": "app.runtime_connection_scope"
+          },
+          {
+            "function": "__enter__",
+            "line": 137,
+            "module": "contextlib"
+          },
+          {
+            "function": "get_snapshot",
+            "line": 282,
+            "module": "app.thermal_run_store"
+          },
+          {
+            "function": "_current",
+            "line": 133,
+            "module": "app.farm_registration_read_scope"
+          },
+          {
+            "function": "read",
+            "line": 146,
+            "module": "app.farm_registration_read_scope"
+          },
+          {
+            "function": "read_registration",
+            "line": 442,
+            "module": "app.farm_authoring_storage"
+          },
+          {
+            "function": "_registration",
+            "line": 114,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 135,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "_check_results",
+            "line": 468,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 317,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 221,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 319,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "get_economic_input",
+            "line": 522,
+            "module": "app.market_candidate_store"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "pairs",
+            "line": 46,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "raw_decode",
+            "line": 353,
+            "module": "json.decoder"
+          },
+          {
+            "function": "decode",
+            "line": 337,
+            "module": "json.decoder"
+          },
+          {
+            "function": "loads",
+            "line": 359,
+            "module": "json"
+          },
+          {
+            "function": "_json",
+            "line": 52,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "verify",
+            "line": 247,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 134,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 154,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "current",
+            "line": 312,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          },
+          {
+            "function": "_guard",
+            "line": 110,
+            "module": "app.crop_greenhouse_solar_server_custody"
+          }
+        ],
+        "samples": 4
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "canonical_input_bytes",
+            "line": 62,
+            "module": "app.jobs"
+          },
+          {
+            "function": "_model",
+            "line": 152,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_verified",
+            "line": 174,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 301,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read",
+            "line": 290,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "get_input_rights",
+            "line": 328,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "scoped_read",
+            "line": 57,
+            "module": "app.api_market_source"
+          },
+          {
+            "function": "scoped_lookup",
+            "line": 396,
+            "module": "app.market_candidate_store"
+          },
+          {
+            "function": "_verify_trace",
+            "line": 86,
+            "module": "app.market_reference_bundle"
+          }
+        ],
+        "samples": 4
+      }
+    ],
+    "wall_ns": 8980667947
+  },
+  "G0_G4": "not_assessed",
+  "SQL_exclusive": {
+    "client_thread_cpu_ns": 6475239874,
+    "operations": {
+      "execute": {
+        "calls": 12919,
+        "client_thread_cpu_ns": 1889664923,
+        "wall_ns": 4550637116
+      },
+      "fetchall": {
+        "calls": 1797,
+        "client_thread_cpu_ns": 28925496,
+        "wall_ns": 31382135
+      },
+      "fetchone": {
+        "calls": 11080,
+        "client_thread_cpu_ns": 81178762,
+        "wall_ns": 91914044
+      }
+    },
+    "rows_untampered": true,
+    "wall_ns": 9253056679
+  },
+  "actual_farm_Runs": 0,
+  "application_source_commit": "94e11a4e1609e8b8a57c75c8d4659c01b37f90db",
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "498c833dd69fa44350522509f954aea3742806e29e3d0a07153c965c603eeab3",
+  "dataflow_static_review": {
+    "compiled_or_economic_numeric_result_consumed_by_this_method": false,
+    "current_v1_requires_full_reference_revalidation": true,
+    "current_v1_weakening_approved": false,
+    "farm_whole_hash_includes_economic_pin_objective_constraints_and_crop_sales_metadata": true,
+    "next_contract_acceptance": [
+      "Map all current physical assumptions, crop/batch/zone/area/calendar/decision-time and input-source rights to explicit immutable authorities.",
+      "Retain v1 current economic rights/farm-reference checks and APIs; any physical-only capability must be separately versioned and default-denied until its own deterministic proofs exist.",
+      "Opaque original economic hashes do not authorize current economics or become permission cache; classify effects of revoked economic versus actual physical-source rights.",
+      "Specify unchanged original64/chunk1/360/RSS/numeric-values/UTC/actors acceptance applicability before switching the execution path; retain original failures.",
+      "Prove actual SCRAM/fresh current and late revocation, grant/source/code mutation, lease/cancel, atomic publication/hold and owned resource cleanup; independent normal/hold/cancel/WebGL/user activation follow."
+    ],
+    "opaque_source_binding_hash_covers_economic_context": true,
+    "physical_projection_contract_implemented": false,
+    "registration_consumed_top_fields": [
+      "binding",
+      "farm"
+    ],
+    "source_sha256": {
+      "backend/app/crop_greenhouse_solar_continuation.py": "37d43747e54160cbb4aa590375442abe4bb4b88d2584ccddfe70aa1b68b170ee",
+      "backend/app/crop_greenhouse_solar_farm_binding.py": "70c2dc9429708f58a8c64d2c9d8de328c9fd16a91f6ff97a7d319221bd75945f",
+      "backend/app/crop_greenhouse_solar_joint.py": "ed5d7b564367491f524b76ad9d2da82f821bfbeeb6538164dd6bdf316172abd7",
+      "backend/app/crop_greenhouse_solar_program.py": "b81b8e07663f28e9b5a5ba14953aa63fe3f6519759e4edc5f63846d893327bfb",
+      "backend/app/crop_greenhouse_solar_result_store.py": "c3ff0a62f8dbd9b9a2e10827ca29e756f4e2419eefb53f405fc2db8acd13da0a",
+      "backend/app/farm_authoring_storage.py": "96ec01beb3e39d7bb0f5b0896824f6208a3219fb926e6ab860c42a6297b57966",
+      "backend/app/farm_inputs.py": "a4b06b2e42fd372df2c9216ed87d8e762cd4b33f2677e0a0916fd72aaf8a8e07",
+      "backend/app/farm_registration_read_scope.py": "cbbfb1ef7da1cfb26cb3f2e8d78e80e8a940a30ebdf5186abbef8b70cea3cbe1",
+      "backend/app/runtime_roles.py": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0"
+    }
+  },
+  "diagnostic_and_trial_tests_passed": 5,
+  "driver_observation": {
+    "adaptation_module": "psycopg_binary._psycopg",
+    "dependency_or_environment_change": false,
+    "libpq_runtime_version": 180006,
+    "pq_implementation": "binary",
+    "psycopg": "3.3.6",
+    "python": "3.12.3"
+  },
+  "external_documentation": {
+    "adopted_as_input_data": false,
+    "available_at": null,
+    "product_id": "Python-3.12-json",
+    "publication_time": null,
+    "raw_document_stored_or_redistributed": false,
+    "retrieved_date_UTC": "2026-10-19",
+    "url": "https://docs.python.org/3.12/library/json.html",
+    "use": "Primary software API reference for sorted keys, separators and ASCII escaping only; local trial was rejected."
+  },
+  "full_product_completion": null,
+  "goal_status": "active",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T14:38:42.075Z",
+    "turn_context_sha256": "9096d858f7691b208b81b7ed3efb78124a023693ab122e89652677e6737c3770"
+  },
+  "new_solar_deployed": false,
+  "normal64_accepted": false,
+  "normal64_run": false,
+  "previous_88_not_rerun_or_added": true,
+  "product_app_and_tests_unchanged": true,
+  "product_code_adopted": false,
+  "recorded_at": "2026-10-19T14:56:55.562570Z",
+  "remaining_focused_hours": null,
+  "rights_or_gate_approval": false,
+  "role_audit_boundaries": {
+    "SQL_write_statements": 3,
+    "audits": 343,
+    "by_direct_caller": {
+      "app.job_store.connect": {
+        "calls": 123,
+        "client_cpu_ns": 393815464,
+        "wall_ns": 1114199737
+      },
+      "app.market_candidate_store._reference_guard": {
+        "calls": 52,
+        "client_cpu_ns": 162503164,
+        "wall_ns": 455620148
+      },
+      "app.market_candidate_store.read_scope": {
+        "calls": 8,
+        "client_cpu_ns": 31147011,
+        "wall_ns": 84214929
+      },
+      "app.market_runtime.connect_market": {
+        "calls": 40,
+        "client_cpu_ns": 132893580,
+        "wall_ns": 357228779
+      },
+      "app.market_source_store.read_scope": {
+        "calls": 40,
+        "client_cpu_ns": 123812768,
+        "wall_ns": 346378476
+      },
+      "app.thermal_run_store.connect": {
+        "calls": 80,
+        "client_cpu_ns": 257591035,
+        "wall_ns": 709975001
+      }
+    },
+    "client_read_only_None_not_server_readonly_proof": true,
+    "client_thread_cpu_ns": 6236212918,
+    "complete_raw_caller_chains_kept_private": true,
+    "groups": 33,
+    "new_audit_grouping_approved": false,
+    "wall_ns": 9039766119
+  },
+  "schema_version": "solar-current-validation-boundary-review-v1",
+  "stages": [
+    {
+      "case": "focused-current-source-low-overhead-cost-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1010319360,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 78.75607163400127
+      },
+      "log_sha256": "dc6c6fbc43e2202bc5aaa71fe6ece13a37dafc6c53ac9dbb6da9ed23b0f88a50",
+      "raw_evidence_sha256": {
+        "current-product-sql-client-cost.json": "1cd01a0640aefb56e842e6b9299375efdfdf77a1b0439e17dba5c6ba1d790431",
+        "current-source-owned-cpu-samples.json": "54379fcfc49b4ec8c1f8379e0a2bcff0a890789c79acf33c3d94dcce9e3075fd"
+      },
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "7a2a1340745d6ca91ac3fdec253dc592fd119724bcacd1a22f8898db118a0660",
+      "tests_passed": 2
+    },
+    {
+      "case": "focused-input-canonical-envelope-cost-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1017810944,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 67.49628509399918
+      },
+      "log_sha256": "c5f11fa1bc44245ae325ea1a7eb798fe97f8fba12c944dc8dc60b7bccca864d2",
+      "raw_evidence_sha256": {
+        "input-canonical-envelope-paired-cost.json": "23574b66835ad9804654d0c0f752021cf82a3d15fa06354473fa6d111c45c179"
+      },
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "7a2a1340745d6ca91ac3fdec253dc592fd119724bcacd1a22f8898db118a0660",
+      "tests_passed": 1
+    },
+    {
+      "case": "focused-per-audit-allowed-tables-cost-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 992509952,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 67.1278876429933
+      },
+      "log_sha256": "07b2e3d824e7ba10b223724c2c7139b5ea73f928ad8f62816ec2175cbb9313a2",
+      "raw_evidence_sha256": {
+        "per-audit-allowed-tables-paired-cost.json": "cacacd13e272e87d7419deb2a54d7532b36238908a53e1e00df431720123f311"
+      },
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "7a2a1340745d6ca91ac3fdec253dc592fd119724bcacd1a22f8898db118a0660",
+      "tests_passed": 1
+    },
+    {
+      "case": "focused-current-role-audit-boundaries-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 987672576,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 41.0682361950021
+      },
+      "log_sha256": "cce3e85742939eafd4c28f72d7c7ed87d7cf79ab200b59e1554e17b26b3b09e9",
+      "raw_evidence_sha256": {
+        "current-role-audit-boundaries.json": "bf87f8a581f2dcf5b2a5ebbef14350033484eb544a8b60e4072fae1adceca8e5"
+      },
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "7a2a1340745d6ca91ac3fdec253dc592fd119724bcacd1a22f8898db118a0660",
+      "tests_passed": 1
+    }
+  ],
+  "status_publication": {
+    "FD": [
+      4,
+      4
+    ],
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "browser_rerun": false,
+    "case": "focused-validation-boundary-review-status-v1",
+    "frozen_HTML_and_2173_ventilation_files_preserved": true,
+    "guard_seconds": 1.3798017939989222,
+    "local_links": 2391,
+    "log_sha256": "a00c0277494b9bf2531cc4b4128eb3315a8e3b21ac960f0d1b41a8b13cada196",
+    "owned_cleanup_remaining": 0,
+    "protected_live": true,
+    "reported_at": "2026-10-19T14:58:21.880419Z",
+    "status_sha256": "09cc1699a065e0d932bb402273e1b795ef8835e0d6a9f6b7b2b78912a4c2d632"
+  },
+  "trial_scope_errata": {
+    "input-canonical-envelope-paired-cost.json": "Raw scope text copied from the prior projection template contains stale extra-immutable-projection and callback-equivalence wording. Executed candidate AST/probe source and timing/SQL/UTC fields define this trial. No separate callback-count/negative-case proof is claimed."
+  },
+  "trials": {
+    "canonical_envelope": {
+      "SQL": 12919,
+      "all_original_counts_UTC_preserved": true,
+      "both_pairs_must_be_lower": true,
+      "decision": "rejected_not_implemented",
+      "mean_wall_reduction_pct": -1.1108404083580492,
+      "minimum_mean_reduction_pct": 2,
+      "modes": [
+        "baseline",
+        "candidate",
+        "candidate",
+        "baseline"
+      ],
+      "negative_boundary_regressions_run": false,
+      "ordered_source_trace_measured": false,
+      "paired_wall_reductions_pct": [
+        -1.8519300466385724,
+        -0.37825685964152367
+      ],
+      "role_audits": 343,
+      "source_reads": 3040,
+      "steps": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "wall_seconds": [
+        8.707104585002526,
+        8.868354071004433,
+        8.841521146998275,
+        8.808203512999171
+      ]
+    },
+    "per_audit_allowed_tables": {
+      "SQL": 12919,
+      "all_original_counts_UTC_preserved": true,
+      "both_pairs_must_be_lower": true,
+      "decision": "rejected_not_implemented",
+      "mean_wall_reduction_pct": -0.3191029839096915,
+      "minimum_mean_reduction_pct": 2,
+      "modes": [
+        "baseline",
+        "candidate",
+        "candidate",
+        "baseline"
+      ],
+      "negative_boundary_regressions_run": false,
+      "ordered_source_trace_measured": false,
+      "paired_wall_reductions_pct": [
+        -1.394570984515342,
+        0.739860825322225
+      ],
+      "role_audits": 343,
+      "source_reads": 3040,
+      "steps": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "tables_calls": [
+        62769,
+        686,
+        686,
+        62769
+      ],
+      "wall_seconds": [
+        8.69541424199997,
+        8.816677966002317,
+        8.765597623998474,
+        8.830934247002006
+      ]
+    }
+  }
+}

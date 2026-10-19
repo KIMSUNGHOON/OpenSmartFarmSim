@@ -94,7 +94,9 @@
 - [x] **`crop-solar-current-SQL-client-CPU-cost`** — 같은 기록의 복원 source 진단2. 실제 SQL/fetch의 배타적wall/clientCPU와 owned CPU샘플1,584개·원step2/UTC·timer복원/정리를 확인했다. 동시/중첩 시간과 표본 수를 성능 수용으로 합산하지 않는다. 기존46은 기록으로 유지한다.
 - [x] **`crop-solar-input-evidence-projection-cost`** — [최종 source88검사/검토](../research/solar-input-binding-metadata-20261019.md). 새7/소비·입력74/제품paired1/normal·hold2/권리4에서 원record/14필드·전체 검증·SQL12,919/감사343/원천3,040/UTC·현재/늦은 철회·정리를 유지했다. 제품 평균3.0958%와 사설3.5128%를 구분한다. 교차 호출 권한/검증 cache는 없다. 원 독립64/배포는 미수용이다.
 - [x] **`crop-solar-current-source-materialization-cost`** — 같은 기록의 별도 진단1. 원천3,040회의 종류·typed 검증/정규화·SQL의 선택한 중첩/배타 비용과 원 값/UTC·profiler 복원·정리를 대사했다. 계측 오버헤드 포함으로 처리량/후보 이득을 추정하지 않고88에 더하지 않는다.
-- [ ] **`crop-solar-current-source-low-overhead-cost`** — 기존 진단을 낮은 오버헤드의 실제 source/SQL 기여도와 대사해 다음 최소 후보를 정한다. 원 현재 source/부재·원문/작업 bytes·model 상태·권리/검토·원 값/UTC·감사/읽기 순서/수명·정리를 보존한다. 근거 없는 코드 변경/검증 결과 cache·기각된 getter/세션/감사 후보·변경 없는64 반복은 하지 않는다.
+- [x] **`crop-solar-current-source-low-overhead-cost`** — [진단/시험5건·원 코드 보존](../research/solar-current-validation-boundary-review-20261019.md). CPU1,537표본/timer복원·배타 SQL비용/원12,919·감사343/원천3,040/UTC·정리를 대사했다. canonical envelope와 감사 허용 목록 후보는 평균/짝별 개선이 부족해 미채택했으며 제품94e11a4/88검사는 그대로다.
+- [x] **`crop-solar-physical-economic-dependency-review`** — 같은 기록의 실제343감사 호출자/쓰기3문장과 소비필드/등록→경제 전체 재검증 연결을 source SHA/AST로 대조했다. compiled/경제 수치는 이 물리 결속 소비에 없지만 full source_binding hash와 v1 권리 계약이 있으므로 기존 검증 생략/과거 receipt 대체는 승인하지 않았다. 정적 설계 검토를 실행 검사 수에 더하지 않는다.
+- [ ] **`crop-solar-current-physical-farm-contract`** — 생장 계산용 농장 facts와 현재 권리/검토·등록/지역/작기·source/model/metadata 책임을 명세와 대조해 별도 판본 필요성을 결정하고 최소 reader 계약/의존성/거부 행렬을 작성한다. v1 등록/경제·현재 철회/범위/metadata 권리를 보존하며 과거 승인/권한 cache로 바꾸지 않는다. 명시 선택/기본 거부·원64/chunk1/360/RSS/숫자/UTC/actor 적용 관계를 전환 전에 확정하고, 실제 fresh/늦은 철회·lease/cancel/원자 게시·paired/독립 정상/hold/HTTP취소/WebGL·WSL 정리를 단계별 수용 조건으로 둔다.
 
 
 
