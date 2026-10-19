@@ -1,0 +1,247 @@
+{
+  "G0_G4": "not_assessed",
+  "RED_expected_failures": 1,
+  "actual_farm_Runs": 0,
+  "all_negative_security_regressions_run": false,
+  "application_source_changed": false,
+  "cost_criterion_met": false,
+  "cost_raw_sha256": "4062e6df85be1affadadc0b8d823d066ed1820f2a859f184f869da57a912cd75",
+  "cost_tests_passed": 1,
+  "decision": "REJECTED: whole guarded cost below mean2/bothpositive and actual preimport semantic counterexample; prior unguarded7.9113% is not adoptable",
+  "existing82_rerun": false,
+  "final_boundary_tests_passed": 25,
+  "full_security_or_library_closure_accepted": false,
+  "mean_reduction_pct": -1.5698248460110473,
+  "next_primary_sources": [
+    "https://www.postgresql.org/docs/16/functions-conditional.html#FUNCTIONS-CASE",
+    "https://www.postgresql.org/docs/16/queries-with.html#QUERIES-WITH-CTE-MATERIALIZATION"
+  ],
+  "next_primary_web_output_sha256": "ab37d808eefa77f0809bb90668ca23f3122271089db32e292aca08890874382f",
+  "next_review_only": "role matrix conditional first-error/snapshot semantics; no SQL implementation approved",
+  "normal64_CI_dispatched": false,
+  "normal64_accepted": false,
+  "original_bytes_counts_UTC_equal": true,
+  "paired_reduction_pct": [
+    -3.6819126959452517,
+    0.30298713600179117
+  ],
+  "preflight": {
+    "G0_G4": "not_assessed",
+    "GREEN_final": "focused-solar-codec-dispatch-boundaries-v3 25 tests; real sys recursion/integer policies changed and restored",
+    "RED": "focused-solar-codec-dispatch-red-v1 expected custom-parser actualfailure; not product failure",
+    "actual_farm_Runs": 0,
+    "all_product_acceptance_proven": false,
+    "both_pairs_must_improve": true,
+    "candidate": "guarded_v1; full current before/after fast-parser snapshot; no crossload cache",
+    "cost_mean_min_pct": 2,
+    "import_time_trust_and_all_hostile_mutations_proven": false,
+    "native_CLI": {
+      "effort": "xhigh",
+      "model": "gpt-6.1-sol",
+      "raw_line_sha256": "287cb86f6f218189c978f006a15eb251d417875146c5374c9e49403dbf346192",
+      "recursive_CLI": false,
+      "subagents": false,
+      "timestamp": "2026-10-19T22:07:44.026Z"
+    },
+    "original_actor_input64_chunk1_poll_retry360_RSS_unchanged": true,
+    "prepared_at": "2026-10-19T22:12:04.831925+00:00",
+    "product_source_changed": false,
+    "source_SHA256": {
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-codec-dispatch/guarded_v1.py": "7f00f0ea1f4893495db84febb90ddfaa65d02dec06c28e26544ed03b92f185a8",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-codec-dispatch/test_boundaries_guarded_v1.py": "2962d471dcf3d97dfd10b08101aff2120e8404841a22e8874498323af932c01e",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-codec-dispatch/test_dispatch_guarded_v1.py": "cebf8068239ebb0dcb606f623fffe241b735dc964891b7f844fe3630228eea65",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-codec-dispatch/test_dispatch_v1.py": "2a871c42f032be0c67d8aaeae2fa23993ed9b48129c5e8ce97652cf53279fb21",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261020-codec-dispatch/test_guarded_cost_v1.py": "f9fad731ea82da2808af5bfd8bc0039a248846f9dbd36a2a8c36bad08f61082a"
+    }
+  },
+  "preflight_sha256": "6b188ac7dba75e908423defc96bab0bd9ea796f654ef20f73444af321827fe7f",
+  "preimport_witness": {
+    "G0_G4": "not_assessed",
+    "guarded_result": "normal_value",
+    "original_result": "RuntimeError",
+    "preimport_custom_parser_counterexample_confirmed": true,
+    "private_candidate_adopted": false,
+    "product_source_changed": false
+  },
+  "preimport_witness_tests_passed": 1,
+  "previous_initial_GREEN9_and_v2_25_not_added": true,
+  "product_adopted": false,
+  "product_source_changed": false,
+  "resources": {
+    "RED": {
+      "actual_child_exit": 1,
+      "case": "focused-solar-codec-dispatch-red-v1",
+      "combined_peak_RSS_bytes": 488013824,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "controller_source_pins_sha256": "56ffa7a106657992df63499f1b848759ef9e5845cf591d874e624b46fc94e45c",
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "a8b1f01d807a14efb3999d2a60d2a8d079a9581fbcf122247ac09e13db7d82d8",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 88014848,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "e4f284662b3de5855b2a59c024639c1a2d2462a9c505b58bb90e2eea26ecd718",
+      "wall_seconds": 0.8617400799994357
+    },
+    "cost": {
+      "actual_child_exit": 0,
+      "case": "focused-solar-codec-dispatch-cost-v1",
+      "combined_peak_RSS_bytes": 608739328,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "controller_source_pins_sha256": "56ffa7a106657992df63499f1b848759ef9e5845cf591d874e624b46fc94e45c",
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "c771cecd7c2728eef8e592da18d44ffaa23606bfa768074872bbe02bc11dbee3",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 125038592,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "3a29314f0d32fae38acfd3a3fb003eeecede262e395de50e37ddc68e159156d3",
+      "wall_seconds": 156.17588711700228
+    },
+    "final_boundaries": {
+      "actual_child_exit": 0,
+      "case": "focused-solar-codec-dispatch-boundaries-v3",
+      "combined_peak_RSS_bytes": 451661824,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "controller_source_pins_sha256": "56ffa7a106657992df63499f1b848759ef9e5845cf591d874e624b46fc94e45c",
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "ae0215b2fe75461b1fb2672274c44bf3bbda6d7bfcd1adba236c1c788c4fafb2",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 79118336,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "a483a5856021f9a4dea06033d1d54ac3cb380219de941b267cf477f733977218",
+      "wall_seconds": 0.8646428430074593
+    },
+    "preimport_counterexample": {
+      "actual_child_exit": 0,
+      "case": "focused-solar-codec-preimport-counterexample-v1",
+      "combined_peak_RSS_bytes": 448307200,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "controller_source_pins_sha256": "56ffa7a106657992df63499f1b848759ef9e5845cf591d874e624b46fc94e45c",
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "0c33791aa03cbc8826ba04efd1b062adb3baa875c47625e4de7090bd753d7635",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 87019520,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "bf356a1ec2d929321071672ce33c2f481e6e87ddae7d92e21cc1f472f80afcc9",
+      "wall_seconds": 1.115267090004636
+    }
+  },
+  "rights_or_gate_approval": false,
+  "rows": [
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "34a864b8af27a899bee9d0894ad87480369336e5b3c291424d42bb62871f3d53",
+      "current_checks": 15,
+      "decoder": {
+        "fallback": 0,
+        "fast": 0
+      },
+      "mode": "baseline",
+      "original_UTC": "2026-10-01T00:01:24.123456Z",
+      "role_SQL": 273,
+      "source_SQL": 2280,
+      "steps": 42,
+      "wall_ns": 8162181448
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "80c1071c343e5e4e706e7c3fb8f056ad7b473f61717aff7c60c03f87f96fd761",
+      "current_checks": 15,
+      "decoder": {
+        "fallback": 7,
+        "fast": 490
+      },
+      "mode": "candidate",
+      "original_UTC": "2026-10-01T00:01:26.123456Z",
+      "role_SQL": 273,
+      "source_SQL": 2280,
+      "steps": 43,
+      "wall_ns": 8462705843
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "b0bedd9c913e67ec7fdbc0759e3ef0a34da28d48a26a094b2b60c501a1ce9873",
+      "current_checks": 15,
+      "decoder": {
+        "fallback": 7,
+        "fast": 500
+      },
+      "mode": "candidate",
+      "original_UTC": "2026-10-01T00:01:28.123456Z",
+      "role_SQL": 273,
+      "source_SQL": 2280,
+      "steps": 44,
+      "wall_ns": 9177115342
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "e96dc537050a959b9ad2b30e2f1c10850643292b49b58940d07ac04dbff97cd3",
+      "current_checks": 15,
+      "decoder": {
+        "fallback": 0,
+        "fast": 0
+      },
+      "mode": "baseline",
+      "original_UTC": "2026-10-01T00:01:30.123456Z",
+      "role_SQL": 273,
+      "source_SQL": 2280,
+      "steps": 45,
+      "wall_ns": 9205005324
+    }
+  ],
+  "scope": "private default-codec feasibility only; original42..45 before/private advance/confirm; original fresh read/hash; explicit locked C parser and original canonical exact bytes else original strict parser/canonical; ASCII/no unicode-escape fastscope; no parsed-value cache; library state+default function+actual recursion/integer policy snapshots before/afterfast; observed custom alias/file/ownership boundary25; import-time trust and complete hostile mutation closure not accepted",
+  "version": 1,
+  "witness_raw_sha256": "17171bccbdc78463a0706d0b144c9350466d5ef76d77195aee830fb43070cfce",
+  "witness_source_sha256": "3d94d81c4ef0d6328f1fad86ed6744bf4d7fb3f54d424ec0d5013b7cd7ed5b65"
+}

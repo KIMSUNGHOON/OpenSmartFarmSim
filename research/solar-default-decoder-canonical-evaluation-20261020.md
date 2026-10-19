@@ -1,5 +1,7 @@
 # 기본 decoder·원 canonical 대사 — 2026-10-20 KST
 
+**후속 결정:** [최종 dispatch 평가](solar-codec-dispatch-evaluation-20261020.md)는 guard 포함 비용−1.569825%와 import 전 custom parser 반례로 후보를 미채택했다. 아래7.911314%는 무보호 사설 비용 기록이며 제품 적용 근거가 아니다.
+
 [기계 증거](artifacts/solar-default-decoder-canonical-evaluation-20261020.json) · [선행 진단](solar-current-worker-api-diagnostic-20261020.md).
 
 ## 검토한 경계
