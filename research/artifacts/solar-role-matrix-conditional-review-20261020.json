@@ -1,0 +1,254 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "application_code_changed": false,
+  "candidate_adopted": false,
+  "cost_trial_performed": false,
+  "decision": "REJECT general CASE combination: error order passed but actual READ COMMITTED/STABLE predicate snapshot counterexample",
+  "excluded_or_superseded_trials": {
+    "focused-solar-role-matrix-conditional-order-v1": {
+      "actual_child_exit": 0,
+      "log_sha256": "9915be16f3e92fc8fc486a86c97f472dfabb289026dc176413c21bbe95824faa",
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "reason": "wrong previous status-publisher mode after private preparation SyntaxError; no semantic test",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "4952e0248fb17443af229b9cf8d710ccd77489d3b29758f6896f4b93f614f03f"
+    },
+    "focused-solar-role-matrix-snapshot-v1": {
+      "actual_child_exit": 1,
+      "log_sha256": "dc723696a38407564ac8a00e43a044acfda2bc4eeb767242ee61134031851065",
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "reason": "wrong attempt column before injection",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "8fd7ab3e7fe112922c1eb15be0507133325427a16a7d616f3f839bdd317e3b9c"
+    },
+    "focused-solar-role-matrix-snapshot-v2": {
+      "actual_child_exit": 1,
+      "log_sha256": "9529e3057cf800b01fa1f45172eac7143f4fe648d5d4480fe754991159fcabb5",
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "reason": "owned attempt_count mutation rejected by claim closure constraint; constraints retained",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "2aa49dd64076a5826922edbe23692ff2d48101ac7bd98c052e3561a140cae427"
+    },
+    "focused-solar-role-matrix-snapshot-v3": {
+      "actual_child_exit": 0,
+      "log_sha256": "1ec451f4710dace8cbbffe543aaa2342be9b5533a8559bed66a2e5a38b39bc6f",
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "reason": "preliminary successful witness but table advisory barrier incorrectly STABLE; excluded",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "c1ae5808d47f1ece35b4d9321f272cd24b99873ffc46775cc36135cdae8c1eac"
+    },
+    "focused-solar-role-matrix-snapshot-v4": {
+      "actual_child_exit": 0,
+      "log_sha256": "a6ad58ca9c42d515e7f8a9fc528792de6723869357d0b89172ed388e6ee86166",
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "reason": "correct volatility witness; superseded by v5 exact timestamp restoration assertions",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "6b9850d2f17f00913f9004e7384f61b5b81acc76f181aa79841f92ff08d03a0a"
+    }
+  },
+  "final_tests_passed": 2,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "ecb2ed254b5dfd4389a5a369e86ad080a7509422391ce9804fcdd7f635c7080b",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T22:21:08.203Z"
+  },
+  "new_CI_dispatch": false,
+  "new_solar_deployed": false,
+  "next_array_primary_output_sha256": "8e1e0d2e25a5d794f9940cad959a602e19fb8601a46145ec65e343333aae80cc",
+  "next_review_only": "unchanged role SQL/statement boundaries with bounded typed-array parameter representation; no schema/service/permission cache",
+  "normal64_accepted": false,
+  "older82_not_rerun": true,
+  "preflight": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "at": "2026-10-19T22:23:19.073817+00:00",
+    "candidate": "SELECT CASE WHEN EXISTS(original_table_SQL) THEN table_hold WHEN EXISTS(original_column_SQL) THEN column_hold ELSE NULL END; original bound params concatenated; no product newSQLfunction/schema",
+    "cost_trial_allowed_before_snapshot_review": false,
+    "native_CLI": {
+      "effort": "xhigh",
+      "model": "gpt-6.1-sol",
+      "raw_line_sha256": "ecb2ed254b5dfd4389a5a369e86ad080a7509422391ce9804fcdd7f635c7080b",
+      "recursive_CLI": false,
+      "subagents": false,
+      "timestamp": "2026-10-19T22:21:08.203Z"
+    },
+    "normal64_accepted": false,
+    "original_four_statement_counterexample_required": true,
+    "product_adopted": false,
+    "source_SHA256": {
+      "backend/app/runtime_roles.py": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+      "test_conditional_error_order_v2.py": "ab411df0af38a79641b2b78ed024ab2c0c6200a3b6d6b5fa3c86e43411933fc2"
+    },
+    "statement_snapshot_and_concurrent_change_equivalence_proven": false
+  },
+  "preflight_sha256": "6a3668cd1bb03b638b60aa5db579694a6cab89d1a6347349932aafa9e579126f",
+  "primary_sources": [
+    "https://www.postgresql.org/docs/16/functions-conditional.html#FUNCTIONS-CASE",
+    "https://www.postgresql.org/docs/16/xfunc-volatility.html",
+    "https://www.postgresql.org/docs/16/transaction-iso.html#XACT-READ-COMMITTED"
+  ],
+  "private_final_source_SHA256": {
+    "test_conditional_error_order_v2.py": "ab411df0af38a79641b2b78ed024ab2c0c6200a3b6d6b5fa3c86e43411933fc2",
+    "test_conditional_snapshot_v5.py": "700233159d063b1ff80594c64b3b953c911259bdc71487844ea56080dca58240"
+  },
+  "proofs": {
+    "order": {
+      "case": "focused-solar-role-matrix-conditional-order-v2",
+      "evidence": {
+        "G0_G4": "not_assessed",
+        "actual_SCRAM": true,
+        "actual_farm_Runs": 0,
+        "all_faults_restored_and_original_audit_passed": true,
+        "all_four_default_results_empty": true,
+        "application_code_changed": false,
+        "batch_SQLSTATE": "P0001",
+        "batch_exception": "RaiseException",
+        "batch_execute_failed_before_first_fetch": true,
+        "batch_transaction_status": "INERROR",
+        "candidate_adopted": false,
+        "conditional_SQL_sha256": "08d5ec76c40fef5be0430dbbadf0aab389b0cc8c2f2ff9857bc809b12827f921",
+        "conditional_first_reason": "runtime_table_grant_matrix",
+        "conditional_first_transaction_status": "INTRANS",
+        "conditional_following_SELECT_succeeded": true,
+        "conditional_later_SQLSTATE": "P0001",
+        "conditional_later_transaction_status": "INERROR",
+        "conditional_normal_reason": null,
+        "cost_trial_performed": false,
+        "new_solar_deployed": false,
+        "normal64_accepted": false,
+        "original_exception": "RolePolicyHold",
+        "original_following_SELECT_succeeded": true,
+        "original_later_SQLSTATE": "P0001",
+        "original_later_transaction_status": "INERROR",
+        "original_reason": "runtime_table_grant_matrix",
+        "original_tail_statement_sha256": [
+          "b0dc7786ea00709f90df3cb0c84301f6a3a107a70750088c68294360bb66c14c",
+          "d8d4120184781c73ba702cb6b14616495b11b91ae82a011caf9936a5634a32b7",
+          "b935f13690fa0e34bfe41178864df01c6d4e011c9f824ff7a360ebcb538f1a31",
+          "31f9fc497e89a1a9833bf4033a93e71d3ac2a0914b86766fd056b1303f0c3f0f"
+        ],
+        "original_transaction_status": "INTRANS",
+        "rights_or_gate_approval": false,
+        "scope": "actual four original audit tail SELECTs and literalized original bound params; owned SCRAM fixture with explicit project-first search_path plus invalid DELETE grant and invoker routine; native protocol counterexample, not a hosted timeout cause or current production exploit",
+        "statement_snapshot_equivalence_proven": false
+      },
+      "log_sha256": "1e61ac60b6f861de3d0ae2c7a1c7577775d6901737b9de45dcefc9d4be57641f",
+      "raw_name": "role-matrix-conditional-error-order.json",
+      "raw_sha256": "5c440869015becb15bb39797ab7476eb724b7527116f28e839770db01623ff00",
+      "resource": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 525594624,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 119558144,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 17.558807309993426
+      },
+      "source_pins_sha256": "ddfd5e02c8e27a134055961455c6973ebabebdcf8fad7236850e9263af28ac6a",
+      "terminal_sha256": "c6819973937ff3aca08e1734c2f82c7e3066242214b39b5391c8d0bea98b39e1"
+    },
+    "snapshot": {
+      "case": "focused-solar-role-matrix-snapshot-v5",
+      "evidence": {
+        "G0_G4": "not_assessed",
+        "actual_SCRAM": true,
+        "actual_farm_Runs": 0,
+        "all_faults_restored_original_audit_passed": true,
+        "application_code_changed": false,
+        "candidate_adopted": false,
+        "column_predicate_volatility": "STABLE",
+        "conditional_SQL_sha256": "08d5ec76c40fef5be0430dbbadf0aab389b0cc8c2f2ff9857bc809b12827f921",
+        "cost_trial_performed": false,
+        "counterexample": "two original statements see a committed fixture-state change in the later STABLE column predicate; the CASE statement retains its initial snapshot and returns no hold",
+        "explicit_owned_project_first_search_path": true,
+        "isolation": "read committed",
+        "normal64_accepted": false,
+        "not_a_default_role_runtime_exploit_or_timeout_cause": true,
+        "owned_invoker_functions_only": true,
+        "rights_or_gate_approval": false,
+        "rows": [
+          {
+            "actual_block_observed": true,
+            "admin_change_committed_before_release": true,
+            "kind": "RolePolicyHold",
+            "mode": "original",
+            "reason": "runtime_column_grant_matrix",
+            "transaction": "INTRANS"
+          },
+          {
+            "actual_block_observed": true,
+            "admin_change_committed_before_release": true,
+            "kind": "value",
+            "mode": "conditional",
+            "reason": null,
+            "transaction": "INTRANS"
+          }
+        ],
+        "same_bound_parameters": true,
+        "source_role_table_SQL_unchanged": true,
+        "table_barrier_volatility": "VOLATILE",
+        "timestamp_exact_restoration_returning_checked": true
+      },
+      "log_sha256": "d18dc2228911a95a0edf88583dd35c485a65fd9dcedbd546f6560ad91324573e",
+      "raw_name": "role-matrix-conditional-snapshot-counterexample.json",
+      "raw_sha256": "927287e0ee6124baa215eef49a435c90c872f9e33a70784723045880fa0cd60e",
+      "resource": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 583577600,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 120627200,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 17.337404892008635
+      },
+      "source_pins_sha256": "ddfd5e02c8e27a134055961455c6973ebabebdcf8fad7236850e9263af28ac6a",
+      "terminal_sha256": "3cb32c553b57049439996e25cfb2530c2ba3055ed352635f2d90f29485c55ec1"
+    }
+  },
+  "rights_or_gate_approval": false,
+  "snapshot_primary_output_sha256": "fb96d607816c97081a6f0131a8447536b71c8629e62087bee806e9572dedd05d",
+  "source_SHA256": {
+    "backend/.venv/lib/python3.12/site-packages/psycopg/types/array.py": "844d5a43312eb476040fa0e2447021b59d9a6011612a11d89f4277f4dba15648",
+    "backend/app/runtime_roles.py": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+    "backend/uv.lock": "e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3"
+  },
+  "statement_snapshot_equivalence_proven": false,
+  "version": 1
+}

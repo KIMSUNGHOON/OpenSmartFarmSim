@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "원360초 정상64 미완료입니다. decoder 후보는 최종 guard 포함 평균1.57% 느렸고 초기 설정의 오류 반례가 있어 미채택했습니다. 다음 권한 감사 조건부 평가·관련 회귀와 정상64·계산 중3D·새 일사/실제 농장 자료 확보 전에는 전체 완료일을 추정할 근거가 없습니다.",
-  "estimate_reviewed_at": "2026-10-19T22:19:39.662513Z",
+  "estimate_reason": "원360초 정상64 미완료입니다. 권한 감사 SQL 결합은 실제 동시 변경에서 원 보류/후보 정상 값 차이가 있어 미채택했습니다. 원 SQL/순서를 유지하는 입력 표현과 관련 회귀·정상64·계산 중3D·새 일사/실제 농장 자료 확보 전에는 전체 완료일을 추정할 근거가 없습니다.",
+  "estimate_reviewed_at": "2026-10-19T22:32:44.131497Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-19T22:19:39.662513Z",
+  "reported_at": "2026-10-19T22:32:44.131497Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,7 +24,7 @@
       "state": "completed"
     },
     {
-      "evidence": "원 정상44/64 미완료·진단confirm27/64를 유지합니다. decoder 경계25/비용1/초기 반례1을 확인했지만 guard 포함 평균−1.57%·한 짝 악화와 오류 차이로 미채택입니다. 앞선 무보호7.91%는 제품 이득이 아닙니다. 원 bytes/UTC/current/SQL·정리를 보존했고 다음은 table/column 권한 감사 조건부 평가 검토입니다.",
+      "evidence": "원 정상44/64 미완료·진단confirm27/64를 유지합니다. 권한 감사 첫 오류1·snapshot 반례1에서 원 경로의 보류/후보 정상 값 차이를 확인해 SQL 결합을 미채택했습니다. 실제 복원/원 감사·현재 서비스/원본/정리 통과, 제품 변경은 없습니다. 다음은 원 SQL/순서를 유지하는 bound-array 표현 검토입니다.",
       "id": "execution_3d",
       "state": "next"
     },
