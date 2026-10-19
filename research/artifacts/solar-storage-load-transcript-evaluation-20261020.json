@@ -1,0 +1,443 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "actual_late_quantum_trial": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "criterion_met": false,
+    "full_dependency_closure_proven": false,
+    "mean_wall_reduction_pct": 0.15294246148621093,
+    "negative_security_acceptance": false,
+    "new_solar_deployed": false,
+    "normal64_accepted": false,
+    "original_values_UTC_equal": true,
+    "paired_wall_reduction_pct": [
+      -1.5657401638168627,
+      1.8165690451886058
+    ],
+    "product_adopted": false,
+    "rights_or_gate_approval": false,
+    "rows": [
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 68,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 35,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 136,
+          "app.market_candidate_store._checked_candidate": 68,
+          "app.market_candidate_store._input_in_transaction": 1156,
+          "app.market_candidate_store._shared_reader": 1020,
+          "app.market_hold_store._report_row": 102,
+          "app.market_source_store._select_with_job": 2584,
+          "app.market_source_store.read_scope": 34,
+          "app.runtime_connection_scope._session": 408,
+          "app.runtime_login.verify_runtime_identity": 717,
+          "app.runtime_roles._database": 301,
+          "app.runtime_roles._scope": 1505,
+          "app.runtime_roles.audit_runtime_roles": 2709,
+          "app.thermal_run_store._decision_context_in_transaction": 238,
+          "app.thermal_run_store.get_snapshot": 34
+        },
+        "UTC": "2026-10-01T00:01:24.123456Z",
+        "checkpoint_sha256": "34a864b8af27a899bee9d0894ad87480369336e5b3c291424d42bb62871f3d53",
+        "current_count": 17,
+        "mode": "baseline",
+        "step": 42,
+        "transcript": [],
+        "wall_ns": 8969867175
+      },
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 68,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 35,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 136,
+          "app.market_candidate_store._checked_candidate": 68,
+          "app.market_candidate_store._input_in_transaction": 1156,
+          "app.market_candidate_store._shared_reader": 1020,
+          "app.market_hold_store._report_row": 102,
+          "app.market_source_store._select_with_job": 2584,
+          "app.market_source_store.read_scope": 34,
+          "app.runtime_connection_scope._session": 408,
+          "app.runtime_login.verify_runtime_identity": 717,
+          "app.runtime_roles._database": 301,
+          "app.runtime_roles._scope": 1505,
+          "app.runtime_roles.audit_runtime_roles": 2709,
+          "app.thermal_run_store._decision_context_in_transaction": 238,
+          "app.thermal_run_store.get_snapshot": 34
+        },
+        "UTC": "2026-10-01T00:01:26.123456Z",
+        "checkpoint_sha256": "80c1071c343e5e4e706e7c3fb8f056ad7b473f61717aff7c60c03f87f96fd761",
+        "current_count": 17,
+        "mode": "candidate",
+        "step": 43,
+        "transcript": [
+          {
+            "blob_reads": 97,
+            "capture": true,
+            "clone_bytes": 199323
+          },
+          {
+            "clone_bytes": 199323,
+            "fallback": false,
+            "fresh_original_blob_calls": 97,
+            "full_header_validation": true
+          }
+        ],
+        "wall_ns": 9110311988
+      },
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 68,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 35,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 136,
+          "app.market_candidate_store._checked_candidate": 68,
+          "app.market_candidate_store._input_in_transaction": 1156,
+          "app.market_candidate_store._shared_reader": 1020,
+          "app.market_hold_store._report_row": 102,
+          "app.market_source_store._select_with_job": 2584,
+          "app.market_source_store.read_scope": 34,
+          "app.runtime_connection_scope._session": 408,
+          "app.runtime_login.verify_runtime_identity": 717,
+          "app.runtime_roles._database": 301,
+          "app.runtime_roles._scope": 1505,
+          "app.runtime_roles.audit_runtime_roles": 2709,
+          "app.thermal_run_store._decision_context_in_transaction": 238,
+          "app.thermal_run_store.get_snapshot": 34
+        },
+        "UTC": "2026-10-01T00:01:28.123456Z",
+        "checkpoint_sha256": "b0bedd9c913e67ec7fdbc0759e3ef0a34da28d48a26a094b2b60c501a1ce9873",
+        "current_count": 17,
+        "mode": "candidate",
+        "step": 44,
+        "transcript": [
+          {
+            "blob_reads": 99,
+            "capture": true,
+            "clone_bytes": 199389
+          },
+          {
+            "clone_bytes": 199389,
+            "fallback": false,
+            "fresh_original_blob_calls": 99,
+            "full_header_validation": true
+          }
+        ],
+        "wall_ns": 9098379578
+      },
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 68,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 35,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 136,
+          "app.market_candidate_store._checked_candidate": 68,
+          "app.market_candidate_store._input_in_transaction": 1156,
+          "app.market_candidate_store._shared_reader": 1020,
+          "app.market_hold_store._report_row": 102,
+          "app.market_source_store._select_with_job": 2584,
+          "app.market_source_store.read_scope": 34,
+          "app.runtime_connection_scope._session": 408,
+          "app.runtime_login.verify_runtime_identity": 717,
+          "app.runtime_roles._database": 301,
+          "app.runtime_roles._scope": 1505,
+          "app.runtime_roles.audit_runtime_roles": 2709,
+          "app.thermal_run_store._decision_context_in_transaction": 238,
+          "app.thermal_run_store.get_snapshot": 34
+        },
+        "UTC": "2026-10-01T00:01:30.123456Z",
+        "checkpoint_sha256": "e96dc537050a959b9ad2b30e2f1c10850643292b49b58940d07ac04dbff97cd3",
+        "current_count": 17,
+        "mode": "baseline",
+        "step": 45,
+        "transcript": [],
+        "wall_ns": 9266715870
+      }
+    ],
+    "scope": "same original CASE6/64/chunk1 worker before/server.advance/confirm at42..45; capture/dependency/fresh full blobs/header/clone included; warmup uses original signed publisher and numerical chunks/guards, not original API actor or normal64 proof"
+  },
+  "application_code_changed": false,
+  "application_source_commit": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "a18da9558cd83d62edd1fb9a64ea8829ee59fd9da08b72cbce380d23229daa32",
+  "candidate_adopted": false,
+  "criteria": {
+    "created_at": "2026-10-19T19:08:55.739596+00:00",
+    "native_CLI": {
+      "effort": "xhigh",
+      "model": "gpt-6.1-sol",
+      "raw_line_sha256": "ec8fecb3d2371702c81ed363c2143d56e19fb5c8fdace8e8937a01a3f2296ee6",
+      "recursive_CLI": false,
+      "subagents": false,
+      "timestamp": "2026-10-19T19:04:04.221Z"
+    },
+    "normal64_accepted": false,
+    "product_changes_authorized_only_after_focused_acceptance": false,
+    "same_resource_caps": true,
+    "security_review_not_approved_by_cost_trial": true,
+    "source_commit": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
+    "stage1": "isolated same original CASE6/64/chunk1 history,41-step loader ABBA; include dependency snapshot + fresh HEAD/header/notice/profile validation + EVERY original blob read and canonical parse/budget + fresh result clone; cap capture outside stage1 timing, must include capture in any subsequent full-quantum trial",
+    "stage1_each_pair_wall_reduction_must_be_positive": true,
+    "stage1_mean_wall_reduction_min_pct": 20,
+    "stage2_capture_and_revalidation_costs_included": true,
+    "stage2_each_pair_wall_reduction_must_be_positive": true,
+    "stage2_original_full_quantum_mean_min_pct": 2,
+    "stage2_required_before_product_change": true
+  },
+  "criteria_sha256": "a944f56a33e80279c006f1dca6727ef4f18be3727b491d14d8e00c53f98aa223",
+  "diagnostic_and_comparison_tests_passed": 2,
+  "early_fixture_failure": {
+    "accepted": false,
+    "case": "focused-solar-storage-transcript-review-cost-v1",
+    "log_sha256": "44e1b0f01111dbcd4ff9beb565e3cc75bcbe2de86d7477cb8af6ca14ed24cda3",
+    "owned_remaining": 0,
+    "reason": "snapshot tried freezing imported dataclasses.field default MISSING before timing; v2 scoped function metadata to the defining reviewed modules while preserving imported alias identities; default not a selected storage semantic dependency; no product change",
+    "terminal_sha256": "a63af1b176b3cac87057830f85fb14b1af4a42d8d8ad50df7d6a0ea26b183f8b"
+  },
+  "early_publication_failure": {
+    "accepted": false,
+    "case": "focused-solar-transcript-rejected-final-status-v1",
+    "log_sha256": "0ec4c6e0fd462ed69e64d8b8a5b55969cce0283635a88cea1ec69dc95454a522",
+    "owned_remaining": 0,
+    "reason": "prior verifier still expected transcript task unchecked after new acceptance evidence existed; new immutable helper expects checked task, all other guards retained; failure occurred before publication",
+    "terminal_sha256": "f4343792661fae6da4ea2f6b9142f8b3fd77241d07f3880deaa829dabfa46cf5"
+  },
+  "full_dependency_closure_proven": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "guard_seconds_sum": 157.3771206800011,
+  "isolated_loader_trial": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "counterexamples": [
+      "current_limits_change_falls_back_and_rejects",
+      "same_function_identity_changed_code_falls_back_and_rejects",
+      "current_notice_source_change_falls_back_and_rejects",
+      "returned_mutable_DTO_is_not_the_stored_clone",
+      "single_consumption",
+      "changed_blob_bytes_reject_after_fresh_read"
+    ],
+    "full_dependency_closure_proven": false,
+    "mean_wall_reduction_pct": 41.18545314325364,
+    "negative_security_acceptance": false,
+    "normal64_accepted": false,
+    "paired_wall_reduction_pct": [
+      40.3513104955118,
+      41.990859438272224
+    ],
+    "product_adopted": false,
+    "rights_or_gate_approval": false,
+    "rows": [
+      {
+        "label": "baseline",
+        "wall_ns": 232773632
+      },
+      {
+        "clone_bytes": 199257,
+        "fallback": false,
+        "fresh_original_blob_calls": 95,
+        "full_header_validation": true,
+        "label": "candidate",
+        "wall_ns": 138846421
+      },
+      {
+        "clone_bytes": 199257,
+        "fallback": false,
+        "fresh_original_blob_calls": 95,
+        "full_header_validation": true,
+        "label": "candidate",
+        "wall_ns": 139847762
+      },
+      {
+        "label": "baseline",
+        "wall_ns": 241078838
+      }
+    ],
+    "scope": "private41-step isolated loader feasibility only; original actual blob read/parse/canonical/budget and header/notice/profile checks retained; dependency fingerprints and fresh clone included; capture outside timed interval, must include capture in later quantum; not security or product adoption",
+    "stage1_criterion_met": true
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "ec8fecb3d2371702c81ed363c2143d56e19fb5c8fdace8e8937a01a3f2296ee6",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T19:04:04.221Z"
+  },
+  "new_CI_dispatch_or_restart": false,
+  "new_solar_deployed": false,
+  "next_step": "Review the current role audit final four SELECT statements against simple-query multiple-result transport: current statement snapshots, result/error ordering, safe literal binding, transaction cleanup, fixed response behavior and installed Psycopg implementation. No query batching or audit changes approved; distinguish rejected prior pipeline and15-to4 query folding.",
+  "normal64_accepted": false,
+  "previous_focused72_or_history2_not_rerun_or_added": true,
+  "private_probe_sha256": {
+    "review_and_cost_v1.py": "3125e8820c8bf965c2c6cbe639842d6190230e80b03ba6b35424162459307d04",
+    "review_and_cost_v2.py": "7a61de5fe3882688969f8a0af0ddaa86e9124d91858f4a9c4790e99fa8856e6d",
+    "test_storage_transcript_review_v1.py": "fab67f127bee027dafd4ec52fec23894bf245ce532b19ff87c733eda53676c8f",
+    "test_storage_transcript_review_v2.py": "f6ad7155985626c10f2555646011702ab8083622ec678b7c2bb77a9c25f34dd3",
+    "test_transcript_full_quantum_cost_v1.py": "aeeddafdd55df5970dfe5b00779daa9db4b6d94cce94a6b7da20983437a9e3c5",
+    "transcript_candidate_quantum_v1.py": "96902d62453a775d4083c1e8c1c41589195af5fc5ec3945d3f05d8e27e6c9918",
+    "transcript_candidate_v1.py": "7611fee4e8dfb0149ec85f8e26fe150d00f6fc29880cd6cc343bd2bb08dbfb10",
+    "transcript_candidate_v2.py": "f4cf79f306fd4d68fab6a29f4d588008e096d1ceb0de769e797e9c22eecc1851"
+  },
+  "recorded_at": "2026-10-19T19:18:54.241686Z",
+  "rejection": "actual full late quantum mean0.15294246148621093pct<2pct and first pair is slower; isolated loader improvement does not establish full quantum performance; further security/product acceptance stopped",
+  "remaining_focused_hours": null,
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-storage-load-transcript-evaluation-v1",
+  "source_review": {
+    "bytes_only_reuse_rejected": true,
+    "candidate_security_not_approved": true,
+    "mutable_consumers": {
+      "ArtifactWriter._resume": [
+        "assigns commit_digests/counts/last to writer state"
+      ],
+      "ArtifactWriter.append": [
+        "appends to commit_digests",
+        "replaces counts/last/checkpoint/head"
+      ]
+    },
+    "new_CI_dispatch": false,
+    "normal64_accepted": false,
+    "observed_counterexamples": [
+      "current LIMITS",
+      "same function identity with changed code",
+      "notice source pointer/content",
+      "returned DTO mutation",
+      "single consumption",
+      "fresh blob byte change"
+    ],
+    "producer_order": [
+      "first full session guard and same selected HEAD fence",
+      "session _load: current binding + signed ancestry + storage full load",
+      "prepare callback and immediate full current guard",
+      "restore original checkpoint",
+      "writer _resume: exclusive lock + usage + current HEAD + second storage full load + binding/checkpoint equality",
+      "original chunk/append/publication and progress/confirm checks"
+    ],
+    "product_code_changed": false,
+    "reviewed_load_output_order": [
+      "header",
+      "context",
+      "commit_digests",
+      "checkpoint",
+      "last_chunk",
+      "times",
+      "page_index",
+      "counts"
+    ],
+    "rights_or_gate_approval": false,
+    "software_reference": {
+      "URL": "https://docs.python.org/3.12/library/marshal.html",
+      "actual_local_interpreter": "3.12.3",
+      "page_version": "3.12.15",
+      "role": "review same-process clone feasibility only, no new package/persistent file format/public format; no untrusted marshal bytes; no source text copied or agricultural data adopted"
+    },
+    "source_version": {
+      "backend/app/crop_climate_joint_time.py": {
+        "AST_sha256": "36204ce34fc26eecf5b1d0bad8d8e1147faa7424b5e4c456bcccd2dfa42c520e",
+        "sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c"
+      },
+      "backend/app/crop_cycle_artifact.py": {
+        "AST_sha256": "263c44bea77604f68d7d1f8396a1223e1038645ba81a2ca13fb34abe7313ff2a",
+        "sha256": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7"
+      },
+      "backend/app/crop_cycle_input_stream.py": {
+        "AST_sha256": "9dfd88704c8c19f102b04f29a93c953d745b07e2e0639f90e7650a52dc04f609",
+        "sha256": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53"
+      },
+      "backend/app/crop_greenhouse_solar_server_custody.py": {
+        "AST_sha256": "817c2c40c9c4b05714291c01f3f133f0b7808098b1b29288474d85f796800ea5",
+        "sha256": "e713e5533b7238fce9e07404ea914d0248bddefd858781adf18929a14e25401c"
+      },
+      "backend/app/crop_greenhouse_solar_storage.py": {
+        "AST_sha256": "d4198e0092760ad4762ef07c32b8289ae1b7f7b970317f24fdd493c71ef3fe2f",
+        "sha256": "065ff9f9706bed285f19b82e67277123947715af285cc6438a77fed3c7e30d6d"
+      }
+    },
+    "unresolved_dependencies_before_any_product_adoption": [
+      "snapshot MODS omits solar clock module alias rebinding of clock._point even though it includes defining clock_helpers module; function code test does not cover this alias",
+      "snapshot omits base artifact/input JSON modules; fresh parse alone does not prove all strict runtime type semantics if current decoder changes",
+      "opaque token/dir identity and same operation/owner/thread binding must be proven; feasibility dictionary source_fd is not a production binding",
+      "complete closure/default/closure-cell metadata proof and native negative/concurrency/failure/close acceptance not run",
+      "actual full quantum comparison including capture and future corrected dependency guard must pass independently; no acceptance from initial41pct micro result"
+    ]
+  },
+  "source_review_sha256": "1ca7b8e0c60b8d241805d580f1e92b23e2bc014c491873d6a104a0c43d693f94",
+  "stages": [
+    {
+      "case": "focused-solar-storage-transcript-review-cost-v2",
+      "evidence_file": "new/solar-custody/storage-transcript-review-and-cost.private.json",
+      "evidence_sha256": "c8552510c5f2195007b954540360a8dcd20b33c2cdec54e89e494b4012bb6eb1",
+      "guard": {
+        "combined_peak_RSS_bytes": 924516352,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "protected_root_count": 5,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "wall_seconds": 13.413636016994133
+      },
+      "log_sha256": "289f25c87f6fe595db60f63288456941038fcec0bec90e0f0ec07a2c1db06906",
+      "source_pins_sha256": "a86dff25b55e66ec3beb020df992aea27f85a3554808d983c16389083b1d5982",
+      "terminal_sha256": "c82fddc649a5693ec292f880c61b6f071e7c01c2b65d0920621db85da860857e",
+      "tests_passed": 1
+    },
+    {
+      "case": "focused-solar-storage-transcript-late-quantum-cost-v1",
+      "evidence_file": "new/query/storage-transcript-original-late-quantum-cost.json",
+      "evidence_sha256": "fd3621d30245d3be33c964f13bf7cbd9741a25dc55ec20d1ead6e3f5f3848ce2",
+      "guard": {
+        "combined_peak_RSS_bytes": 1008947200,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "protected_root_count": 5,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "wall_seconds": 143.96348466300697
+      },
+      "log_sha256": "7b6cfe097e4754cb48de37ed43b56d095380201a4a603ea738fe3c534647e768",
+      "source_pins_sha256": "a86dff25b55e66ec3beb020df992aea27f85a3554808d983c16389083b1d5982",
+      "terminal_sha256": "8fa13677515b0b14900d141b828eecd4f8887d44c7ba4d3cc1ab66cc058112ac",
+      "tests_passed": 1
+    }
+  ],
+  "status_publication": {
+    "HTTP_both200_equal_no_store": true,
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "case": "focused-solar-transcript-rejected-final-status-v2",
+    "closed_prior_stage_publisher_sha256": "48c27599dd1a9c62d7a9a2cf6842f7f0d809ba5beb089b963511937a68628d24",
+    "counts_overlap_not_added": true,
+    "earlier_reports_links_checked": 6,
+    "guard_seconds": 1.3774652849970153,
+    "log_sha256": "5183542c6d428335e100a4e84ce5836ea5e44a22268e863a6b6d255a4da5ddbd",
+    "new_report_links_checked": 2,
+    "publisher_sha256": "ff3700868be7aeb2ef6ed9791e19a6705da0570de4e7d4e6764a9bffa28ddba2",
+    "reported_at": "2026-10-19T19:19:51.747243Z",
+    "selected_docs_links_checked": 2743,
+    "source_pins_sha256": "d4c638d542a0943e4851721f3b8413e6f9d45c1cc4aa295233790deee1695cd0",
+    "status_sha256": "2711c0ba4e5737f22344ef163d7fafee0b64df7235c9f5cb2d47fe138fbd06ff",
+    "terminal_sha256": "cb06bd862021ff87915b332cf66f344828c3619fb60c6840b20308a9d6ec8fe3"
+  }
+}

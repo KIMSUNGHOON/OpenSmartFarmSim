@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-현재 실행 관측: [sourceaeb7a90의 CI39303668519](../research/solar-existing-intent-resume-native-normal-20261020.md)도 원360초/64 미완료·종료 뒤 저장 metadata41/64다. 정상/DB count proof가 없어 관문은 미수용이다. [이력 길이 관측2건](../research/solar-history-validation-cost-review-20261020.md)으로 ancestry의 작은 비용과 loader 증가를 확인했고, 다음은 같은 advance 안의 반복 load 경계 검토다. 제품 검증 생략이나 권한 cache는 수용하지 않았다. 로컬72와 전체 처리량/새 Solar 배포를 구분하며 원 actor/input/예산·후속 순서·G0–G4는 유지한다.
+현재 실행 관측: [sourceaeb7a90의 CI39303668519](../research/solar-existing-intent-resume-native-normal-20261020.md)도 원360초/64 미완료·종료 뒤 저장 metadata41/64다. 정상/DB count proof가 없어 관문은 미수용이다. [이력 길이 관측2건](../research/solar-history-validation-cost-review-20261020.md)으로 ancestry의 작은 비용과 loader 증가를 확인했고, [후속 반복 load 후보](../research/solar-storage-load-transcript-evaluation-20261020.md)는 실제 평균0.1529%·짝 불일치로 미채택이다. 다음은 권한 감사 결과 전달의 동등성 검토다. 제품 검증 생략이나 권한 cache는 수용하지 않았다. 로컬72와 전체 처리량/새 Solar 배포를 구분하며 원 actor/input/예산·후속 순서·G0–G4는 유지한다.
 
 **기존 이력 재개 로컬 수용 — 2026-10-20 KST:** [같은 app source72검사·제품 평균5.0784% 감소](../research/solar-existing-intent-resume-implementation-20261020.md)를 확인했다. 기존 이력의 비생성 선택과 첫 full 검증/HEAD·나머지 현재/게시·원 수치/UTC·취소/임대·정리를 보존했다. 다음은 새 source의 원 독립64이며 이전 source41/64 실패·실제 자료/G0–G4·새 Solar/후속3D 보류는 유지한다. 아래는 당시 기록이다.
 

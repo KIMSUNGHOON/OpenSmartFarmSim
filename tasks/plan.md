@@ -57,9 +57,11 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 23 — 구현 로컬 수용 | [같은 app source72검사·실제품 비교](../research/solar-existing-intent-resume-implementation-20261020.md) | 원 full 물리/경제 권리·나머지 current/게시·수치/UTC·취소/임대/조회·정리를 유지하고 SQL11,125/감사301/원천2,584·제품 평균5.0784% 감소를 확인했다. source260개/핵심12 method AST는 같다. 자료/원64·배포 관문 수용은 아니다. |
 | 24 — 새 원 정상 미완료 | [CI39303668519/sourceaeb7a90](../research/solar-existing-intent-resume-native-normal-20261020.md) | 원360초/64 미완료·종료 뒤 저장 metadata41/64·actor−15/−15·정상/DB count proof 없음이다. artifact1회·ZIP/허용4파일/actor/hash·상한/소유 정리를 대사했다. 로컬72/5.0784%는 전체 처리량 수용이 아니다. 같은 source를 반복하지 않는다. |
 | 25 — 관측 완료 | [이력 길이별 파일 관측2건](../research/solar-history-validation-cost-review-20261020.md) | 원 CASE6/64/chunk1/UTC·checkpoint bytes/수치·원본/정리 보존.41/64의 ancestry8.538/14.155ms·loader256.211/372.452ms를 확인했다. ancestry 후보를 선택하지 않았고 전체 quantum/권리/원 정상 수용은 아니다. |
-| 26 — 다음 작은 경계 검토 | `crop-solar-storage-load-transcript-review` | 같은 advance의 최초load와 prepare/full current 검사 뒤 resume load를 대조한다. 모든 fresh 읽기/metadata/원문 SHA·HEAD·chain·코드/설정/함수/가변성·단일 소비/수명을 유지할 수 있는지 검토한다. 사전 반례/비용 기준 전 구현 수용은 없다. 원 독립 정상→hold→HTTP취소→계산 중WebGL→WSL 적용 순서는 유지한다. |
+| 26 — 경계 검토/사설 평가 완료 | [반복 load 검증 기록 후보](../research/solar-storage-load-transcript-evaluation-20261020.md) | 최초load→prepare/current→resume load·가변 목록/counts 소비를 대조하고 원95 blob 읽기/파싱·헤더/notice/profile을 유지한 독립 비용 평균41.1855%를 관측했다.6개 vector는 별도 pytest 건수가 아니며 완전한 의존성/보안 수용은 아니다. |
+| 27 — 실제 비용 미충족/미채택 | 같은 기록의 원 늦은 quantum 비교 | capture/의존성/복제까지 포함한42–45단계 ABBA 평균0.1529%·한 짝 악화로 미채택이다. 원SQL11,125/감사301/원천2,584/full current17·checkpoint/UTC/자원/정리를 유지했다. 제품 app source는 그대로이며 원64 수용이 아니다. |
+| 28 — 다음 작은 전달 검토 | `crop-solar-role-tail-simple-query-review` | 원 감사 마지막4 SELECT의 다중 결과 전달·문장별 snapshot·오류/인자/transaction·현재 철회/삭제를 공식/설치 source와 대조한다. 동등성 전 비용/제품 수용은 없다. 이전 SQL병합/pipeline 후보를 재적용하지 않는다. 원 독립 정상→hold→취소→계산 중WebGL→WSL 적용 순서를 유지한다. |
 
-위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md)은 당시의 지연된 API 관측이다. source8b5afe5의 [최종41/64 실패](../research/solar-current-guard-native-normal-20261020.md)를 확인했고, 현재24도 원64 미완료이며 25의 관측2건을 마쳤고 다음은26의 반복 저장 load 경계 검토다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
+위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md)은 당시의 지연된 API 관측이다. source8b5afe5의 [최종41/64 실패](../research/solar-current-guard-native-normal-20261020.md)를 확인했고, 현재24도 원64 미완료이며 25의 관측2건을 마쳤고 26/27의 반복 load 후보는 실제 비용 기준 미달로 미채택이며 다음은28의 감사 결과 전달 검토다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.

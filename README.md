@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**원 독립 정상 미완료 — 2026-10-20 KST:** [새 CI39303668519의 최종 실패](research/solar-existing-intent-resume-native-normal-20261020.md)를 확인했다. sourceaeb7a90·원360초 안64 미완료·종료 뒤 저장 metadata41/64·정상/DB count proof 없음이다. 로컬72/평균5.0784%를 전체 처리량으로 확대하지 않는다. [이력 길이별 관측2건](research/solar-history-validation-cost-review-20261020.md)으로 부모/서명 검사의 작은 비용과 저장 loader의 증가를 확인했다. 다음은 반복 저장 load의 닫힌 경계 검토이며, 원 actor/input/예산·관문과 독립 정상→hold→취소→계산 중3D→WSL 적용 순서는 유지한다. 새 Solar 미배포·실제 농장 Run0·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
+**원 독립 정상 미완료 — 2026-10-20 KST:** [새 CI39303668519의 최종 실패](research/solar-existing-intent-resume-native-normal-20261020.md)를 확인했다. sourceaeb7a90·원360초 안64 미완료·종료 뒤 저장 metadata41/64·정상/DB count proof 없음이다. 로컬72/평균5.0784%를 전체 처리량으로 확대하지 않는다. [이력 길이별 관측2건](research/solar-history-validation-cost-review-20261020.md)으로 부모/서명 검사의 작은 비용과 저장 loader의 증가를 확인했다. [반복 load 후보의 실제 비용 비교](research/solar-storage-load-transcript-evaluation-20261020.md)는 평균0.1529%/한 짝 악화로 미채택·제품 유지다. 다음은 권한 감사 결과 전달의 동등성 검토이며, 원 actor/input/예산·관문과 독립 정상→hold→취소→계산 중3D→WSL 적용 순서는 유지한다. 새 Solar 미배포·실제 농장 Run0·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 
 **기존 이력 재개 로컬 수용 — 2026-10-20 KST:** [최종 같은 app source의72검사](research/solar-existing-intent-resume-implementation-20261020.md)를 수용했다. 기존 계산의 비생성 진입과 첫 full 검증·선택 HEAD 재확인을 연결했다. 물리/경제 권리·원 값/UTC·취소/임대/조회·정리를 확인했고 실제 제품 비용 평균5.0784% 감소를 관측했다. 다음은 새 source의 원 계측 OFF64 독립 정상이다. [이전 source8b5afe5의41/64 실패](research/solar-current-guard-native-normal-20261020.md)는 보존하며 원64/후속3D·새 Solar 배포/실제 자료·관문은 미수용이다. 아래는 당시 기록이다.
 
