@@ -42,3 +42,5 @@
 원 독립 정상64→독립 hold→실제 HTTP취소→계산 중WebGL→WSL 용량/사용자 적용 순서, 새 Solar 미배포·실제 농장 Run0·국내 원 실측/독립 작기·G0–G4 보류·전체 완료일 미정·goal active를 유지한다.
 
 최종 게시 `focused-solar-transcript-rejected-final-status-v2`는 자식0·guard1.377465초였다. 새 링크2/앞선 보고서6/관련 문서2,743개의 중첩 수는 합산하지 않았다. 원 actor/같은 app/기존72·이력2/새 trial2의 증거를 대사하고 두 HTTP200/동일bytes/no-store·frozen HTML/환기2,173파일·5root/원본2,148·FD4→4·소유 정리를 확인했다. 첫 게시 검증은 이전 helper의 완료 전 checkbox 기대가 남아 게시 전에 실패했다. 새 helper에서 완료 증거에 맞는 checked 상태를 확인했으며 나머지 guard는 유지했다. 실패는 수용에 포함하지 않았다. 진행 기록은2026-10-19T19:19:51.747243Z이며 UI 코드/DOM/WebGL 재검증은 아니다.
+
+후속 [감사 전달/커서 평가](solar-role-tail-protocol-and-cursor-evaluation-20261020.md)에서 다중 결과는 원 오류/transaction 반례로 제외했고 cursor 후보는 실제 평균−5.1277%로 미채택했다. 제품은 유지했다. 다음은 worker가 버리는 advance 반환과 즉시 소비하는 confirm의 경계 검토다.
