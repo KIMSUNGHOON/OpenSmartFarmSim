@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+현재 실행 관측: [sourceaeb7a90의 CI39303668519](../research/solar-existing-intent-resume-native-normal-20261020.md)도 원360초/64 미완료·종료 뒤 저장 metadata41/64다. 정상/DB count proof가 없어 관문은 미수용이다. [이력 길이 관측2건](../research/solar-history-validation-cost-review-20261020.md)으로 ancestry의 작은 비용과 loader 증가를 확인했고, 다음은 같은 advance 안의 반복 load 경계 검토다. 제품 검증 생략이나 권한 cache는 수용하지 않았다. 로컬72와 전체 처리량/새 Solar 배포를 구분하며 원 actor/input/예산·후속 순서·G0–G4는 유지한다.
+
 **기존 이력 재개 로컬 수용 — 2026-10-20 KST:** [같은 app source72검사·제품 평균5.0784% 감소](../research/solar-existing-intent-resume-implementation-20261020.md)를 확인했다. 기존 이력의 비생성 선택과 첫 full 검증/HEAD·나머지 현재/게시·원 수치/UTC·취소/임대·정리를 보존했다. 다음은 새 source의 원 독립64이며 이전 source41/64 실패·실제 자료/G0–G4·새 Solar/후속3D 보류는 유지한다. 아래는 당시 기록이다.
 
 **독립 정상 실행의 현재 차단점 — 2026-10-20 KST:** [CI39280701330/source8b5afe5의 원360초 미완료/저장41단계](../research/solar-current-guard-native-normal-20261020.md)를 확인했다. 큐 API는 지연된 관측이었으며 run/job 최종 실패와 원 artifact를 대사했다. 제품을 유지한 현재 비용 관측3+trial1에서 JSON 후보를 미채택했다. 다음은 감사/보호 조회의 순서·소유권 대조이며 원64·후속hold/HTTP취소/실행 중3D/WSL 적용·실제 자료/G0–G4는 미완료다.

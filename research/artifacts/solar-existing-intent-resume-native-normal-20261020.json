@@ -1,0 +1,168 @@
+{
+  "CI": {
+    "URL": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39303668519",
+    "archive_downloads": 1,
+    "artifact_bytes": 3291,
+    "artifact_digest": "sha256:b50068d1b7fcb64b99c2fac0130bc780d24f6d7d58e707bbb2a46ab7065bc6c5",
+    "artifact_id": 12214345135,
+    "files": [
+      "actor-diagnostics.json",
+      "failure-checkpoint-diagnostics.json",
+      "failure.json",
+      "resource.json"
+    ],
+    "head_sha": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
+    "job_conclusion": "failure",
+    "job_id": 118235091581,
+    "job_status": "completed",
+    "original_normal_step_completed_at": "2026-10-19T18:43:43Z",
+    "original_normal_step_started_at": "2026-10-19T18:37:20Z",
+    "raw_file_sha256": {
+      "actor-diagnostics.json": "c7be673c60fa87d7b5944f9255e76ab0085f36af846fde199d8b45f2f0c3f257",
+      "failure-checkpoint-diagnostics.json": "6ae0463a44e3a1f06efbb9400eb8172f4a76c88229543ae5174dc01001c4fb98",
+      "failure.json": "caeef10a9162d92609cde8d7f0459a8b7e469119a2d13e2ea63663f3c9bd6d3e",
+      "resource.json": "1c6d259c700ac380356604a98f4a5270f4d8bc56848edb896dd9f2c2895f9d57"
+    },
+    "run_and_job_terminal_state_consistent": true,
+    "run_conclusion": "failure",
+    "run_id": 39303668519,
+    "run_status": "completed",
+    "terminal_observation_sha256": {
+      "artifacts": "dfb57543c2e273ddec1dd4934c5935c504ba2c3eb6b98c5fd2ef75c2a21bd987",
+      "jobs": "7ec781913f5a3e3792154724c2e04bdd2153608cb6f45e633849f7cecef7b6cf",
+      "run": "92c010d34f7399b8274349c767b3d7b4ab3ccc2e24f815093ffce4d3cf5d3aa1"
+    }
+  },
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "application_source_commit": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "a18da9558cd83d62edd1fb9a64ea8829ee59fd9da08b72cbce380d23229daa32",
+  "current_rights_from_stored_metadata_proven": false,
+  "database_cleanup_role_schema_count_proof_present": false,
+  "failure": {
+    "exception_type": "AssertionError",
+    "known_stage": "owned calculation timed out or failed",
+    "locations": [
+      {
+        "file": "crop_greenhouse_solar_unpaused_smoke.py",
+        "function": "exercise",
+        "line": 133
+      },
+      {
+        "file": "crop-greenhouse-solar-unpaused-probe.py",
+        "function": "exercise",
+        "line": 210
+      }
+    ],
+    "original_normal_accepted": false
+  },
+  "full_product_completion": null,
+  "goal_status": "active",
+  "hosted_resource": {
+    "FD_before_after": [
+      7,
+      7
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 1434,
+    "WSL_capacity_accepted": false,
+    "actual_child_exit": 1,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 368345088,
+    "hosted_only": true,
+    "local_protected_roots_present": false,
+    "owned_non_zombie_remaining": [],
+    "reason": null,
+    "rights_or_gate_approval": false,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 128155648,
+    "temporary_entries_remaining": 0,
+    "wall_seconds": 381.94552287600004
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_invocations": 0,
+    "subagent_invocations": 0,
+    "timestamp": "2026-10-19T18:52:40.502Z",
+    "turn_context_raw_line_sha256": "3ceafe77e203fdd15d31aa22392b71ac8db94a335a03af2cac1e778224b13dfc"
+  },
+  "new_dispatch_or_restart": false,
+  "new_solar_deployed": false,
+  "next_step": "Review cost growth with stored history length and the exact repeated ancestry checks before selecting a bounded private candidate; preserve every fresh read, current right, original actor/input/budget and G0-G4 gate.",
+  "normal64_accepted": false,
+  "normal_proof_present": false,
+  "original_actors": [
+    {
+      "api_proof_present": false,
+      "client_proof_present": false,
+      "exit_code": -15,
+      "log": {
+        "exception_types": [],
+        "locations": []
+      },
+      "role": "api",
+      "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+      "worker_proof_present": false
+    },
+    {
+      "api_proof_present": false,
+      "client_proof_present": false,
+      "exit_code": -15,
+      "log": {
+        "exception_types": [],
+        "locations": []
+      },
+      "role": "worker",
+      "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+      "worker_proof_present": false
+    }
+  ],
+  "previous_focused72_not_rerun_or_added": true,
+  "recorded_at": "2026-10-19T18:55:01.708421Z",
+  "remaining_focused_hours": null,
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-existing-intent-resume-native-normal-observation-v1",
+  "status_publication": {
+    "HTTP_both_200_equal_no_store": true,
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "case": "focused-solar-normal41-history2-final-status-v1",
+    "existing_selected_docs_links_checked": 2737,
+    "focused72_receipts_verified_not_rerun": true,
+    "frozen_HTML_and_ventilation2173_preserved": true,
+    "guard_seconds": 1.3804702849884052,
+    "link_counts_overlap_not_added": true,
+    "log_sha256": "9211ae56ed783590a474e945818073f1420fa8c7ae8c4f0d5e1536f8ed7a534b",
+    "new_report_links_checked": 5,
+    "original_actors_unchanged": true,
+    "reported_at": "2026-10-19T19:02:17.148115Z",
+    "source_pins_sha256": "44ef4b1c7f0d64285458dd65c1b1d2da270af79aa52cf41aafb339a66b8ee44c",
+    "status_sha256": "bc6ac17c88246e9952d42be5fa1e402c47424d91373bdf7205dfbad17e3a52c2",
+    "terminal_sha256": "e3fa5e241f31ce8417a89d754f29de44d5104f4cafe19df956c6dbcb24a177c9"
+  },
+  "stopped_stored_metadata": {
+    "G0_G4": "not_assessed",
+    "checkpoint_payload_sha256": "042a6cd3eca3df3db8e5a2d09d08ca444becd9d60f84cba10eaeae7075901cb5",
+    "checkpoint_recorded_at": "2026-10-19T18:43:33.887918+00:00",
+    "evidence_kind": "stored_owned_fixture_metadata_only",
+    "job": {
+      "attempt": 1,
+      "state": "simulating"
+    },
+    "normal_execution_accepted": false,
+    "observed_at": "2026-10-19T18:43:42.644004+00:00",
+    "owned_cluster_identity_verified": true,
+    "rights_or_gate_approval": false,
+    "stored_checkpoint": {
+      "computed_through_utc": "2026-10-01T00:01:22.123456Z",
+      "planned_steps": 64,
+      "publication_sequence": 42,
+      "status": "yielded",
+      "steps": 41
+    },
+    "transaction_isolation": "repeatable read",
+    "transaction_read_only": true
+  }
+}

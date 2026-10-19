@@ -68,3 +68,5 @@ query7의 잠금 해제2·snapshot 변경2·디렉터리1·terminal2가7건이�
 수용 source commit은 `aeb7a901e0860ffcacc2a0adf2469a6cb882e315`다. 새 [CI39303668519](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39303668519) / job118235091581를 한 번 접수했다. 2026-10-19T18:35:39.802746Z API 관측은 run/job `in_progress`·고정 PostgreSQL 빌드 중·원 계산 step `pending`이다. head/source·계측 OFF·원 actor/input/예산을 대사했다. 이는 계산 진행/완료나64 정상 수용의 증거가 아니며 같은 실행을 추적한다.
 
 CI 현황 게시 `focused-solar-existing-resume-CI-status-v1`도 자식0·guard1.630606초/동일 app72·원 actor/링크·두 HTTP/정리 검증을 통과했다. 진행 기록은2026-10-19T18:37:10.697216Z이며 새 UI/DOM/WebGL 수용은 아니다.
+
+후속 [원 독립 정상 최종 결과](solar-existing-intent-resume-native-normal-20261020.md)는 CI39303668519/sourceaeb7a90의 원360초 미완료·저장 metadata41/64다. 원64 정상/배포는 여전히 미수용이며 다음은 이력 길이별 검사 비용 관측이다. 위 접수/대기 문단은 당시 기록으로 보존한다.

@@ -1,0 +1,869 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "application_code_changed": false,
+  "application_source_commit": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "a18da9558cd83d62edd1fb9a64ea8829ee59fd9da08b72cbce380d23229daa32",
+  "diagnostic_tests_passed": 2,
+  "earlier_collection_failure": {
+    "case": "focused-solar-original64-history-cost-v1",
+    "log_sha256": "678ed1efe737254009e08286250f686278cef8e69078cfa71c5435ebe032f094",
+    "owned_remaining": 0,
+    "reason": "private pytest module missing backend/tests import path; no collection/test execution accepted; corrected only in new v2 probe",
+    "terminal_sha256": "fd80defc165e86177d891c9950b64d7b3eb2770648d9b6074bf855fc5dbec05c"
+  },
+  "full_product_completion": null,
+  "goal_status": "active",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_invocations": 0,
+    "subagent_invocations": 0,
+    "timestamp": "2026-10-19T18:52:40.502Z",
+    "turn_context_raw_line_sha256": "3ceafe77e203fdd15d31aa22392b71ac8db94a335a03af2cac1e778224b13dfc"
+  },
+  "new_dispatch_or_restart": false,
+  "new_solar_deployed": false,
+  "next_step": "Review a closed operation transcript for repeated storage load, retaining every fresh raw byte and metadata/hash check, current binding/rights, code/config dependencies, bounded memory, life/close and no authority-result caching; define negative and paired full-quantum acceptance before any product implementation. No candidate accepted yet.",
+  "normal64_accepted": false,
+  "observations": [
+    {
+      "G0_G4": "not_assessed",
+      "actual_farm_Runs": 0,
+      "app_source_changed": false,
+      "final_steps": 64,
+      "full_current_verifications": 0,
+      "new_solar_deployed": false,
+      "normal64_accepted": false,
+      "original_values_UTC_equal": true,
+      "rights_or_gate_approval": false,
+      "rows": [
+        {
+          "ancestry_wall_ns": 777929,
+          "checked_calls": 5,
+          "commits": 2,
+          "proof_bytes": 3482,
+          "proof_reads": 5,
+          "proof_sequence": 2,
+          "steps": 1,
+          "storage_load_wall_ns": 27687743
+        },
+        {
+          "ancestry_wall_ns": 3711684,
+          "checked_calls": 35,
+          "commits": 17,
+          "proof_bytes": 27032,
+          "proof_reads": 35,
+          "proof_sequence": 17,
+          "steps": 16,
+          "storage_load_wall_ns": 111602029
+        },
+        {
+          "ancestry_wall_ns": 7322107,
+          "checked_calls": 67,
+          "commits": 33,
+          "proof_bytes": 52184,
+          "proof_reads": 67,
+          "proof_sequence": 33,
+          "steps": 32,
+          "storage_load_wall_ns": 216523479
+        },
+        {
+          "ancestry_wall_ns": 8538026,
+          "checked_calls": 85,
+          "commits": 42,
+          "proof_bytes": 66332,
+          "proof_reads": 85,
+          "proof_sequence": 42,
+          "steps": 41,
+          "storage_load_wall_ns": 256210897
+        },
+        {
+          "ancestry_wall_ns": 14154825,
+          "checked_calls": 131,
+          "commits": 65,
+          "proof_bytes": 102488,
+          "proof_reads": 131,
+          "proof_sequence": 65,
+          "steps": 64,
+          "storage_load_wall_ns": 372452222
+        }
+      ],
+      "scope": "isolated pure ancestry/storage observation using original CASE6/64/output0..64by8/chunk1 and original UTC; signed fixture chain assembled separately, no current farm binding or API/worker execution; original methods called without replacement; not full-quantum throughput or rights acceptance"
+    },
+    {
+      "G0_G4": "not_assessed",
+      "actual_farm_Runs": 0,
+      "app_source_changed": false,
+      "final_steps": 64,
+      "full_current_verifications": 0,
+      "new_solar_deployed": false,
+      "normal64_accepted": false,
+      "original_values_UTC_equal": true,
+      "rights_or_gate_approval": false,
+      "rows": [
+        {
+          "ancestry_wall_ns": 677895,
+          "checked_calls": 5,
+          "commits": 2,
+          "proof_bytes": 3482,
+          "proof_reads": 5,
+          "proof_sequence": 2,
+          "steps": 1,
+          "storage_load_wall_ns": 24334551
+        },
+        {
+          "ancestry_wall_ns": 3725072,
+          "checked_calls": 35,
+          "commits": 17,
+          "proof_bytes": 27032,
+          "proof_reads": 35,
+          "proof_sequence": 17,
+          "steps": 16,
+          "storage_load_wall_ns": 112299697
+        },
+        {
+          "ancestry_wall_ns": 6581396,
+          "checked_calls": 67,
+          "commits": 33,
+          "proof_bytes": 52184,
+          "proof_reads": 67,
+          "proof_sequence": 33,
+          "steps": 32,
+          "storage_load_wall_ns": 197222289
+        },
+        {
+          "ancestry_wall_ns": 9461042,
+          "checked_calls": 85,
+          "commits": 42,
+          "proof_bytes": 66332,
+          "proof_reads": 85,
+          "proof_sequence": 42,
+          "steps": 41,
+          "storage_load_wall_ns": 248960208
+        },
+        {
+          "ancestry_wall_ns": 13623363,
+          "checked_calls": 131,
+          "commits": 65,
+          "proof_bytes": 102488,
+          "proof_reads": 131,
+          "proof_sequence": 65,
+          "steps": 64,
+          "storage_load_wall_ns": 366626959
+        }
+      ],
+      "scope": "isolated pure ancestry/storage observation using original CASE6/64/output0..64by8/chunk1 and original UTC; signed fixture chain assembled separately, no current farm binding or API/worker execution; original methods called without replacement; not full-quantum throughput or rights acceptance",
+      "storage_load_profile": {
+        "scope": "separate cProfile observation including profiler overhead, not unprofiled wall share or full quantum throughput",
+        "steps": 41,
+        "top_cumulative": [
+          {
+            "cumulative_seconds": 0.275625328,
+            "exclusive_seconds": 0.005711622,
+            "file": "crop_greenhouse_solar_storage.py",
+            "function": "_load",
+            "line": 147,
+            "primitive_calls": 1,
+            "total_calls": 1
+          },
+          {
+            "cumulative_seconds": 0.161490968,
+            "exclusive_seconds": 0.00036779600000000004,
+            "file": "crop_cycle_artifact.py",
+            "function": "_blob",
+            "line": 240,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.16109742700000002,
+            "exclusive_seconds": 0.0005711140000000001,
+            "file": "crop_cycle_artifact.py",
+            "function": "_blob",
+            "line": 49,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.160839171,
+            "exclusive_seconds": 0.000986647,
+            "file": "__init__.py",
+            "function": "dumps",
+            "line": 183,
+            "primitive_calls": 411,
+            "total_calls": 411
+          },
+          {
+            "cumulative_seconds": 0.159677542,
+            "exclusive_seconds": 0.0008362090000000001,
+            "file": "encoder.py",
+            "function": "encode",
+            "line": 183,
+            "primitive_calls": 411,
+            "total_calls": 411
+          },
+          {
+            "cumulative_seconds": 0.158471029,
+            "exclusive_seconds": 0.158471029,
+            "file": "encoder.py",
+            "function": "iterencode",
+            "line": 205,
+            "primitive_calls": 411,
+            "total_calls": 411
+          },
+          {
+            "cumulative_seconds": 0.10378163900000001,
+            "exclusive_seconds": 0.000388669,
+            "file": "crop_climate_joint_continuation.py",
+            "function": "_canonical",
+            "line": 31,
+            "primitive_calls": 316,
+            "total_calls": 316
+          },
+          {
+            "cumulative_seconds": 0.093556925,
+            "exclusive_seconds": 8.317800000000001e-05,
+            "file": "crop_cycle_artifact.py",
+            "function": "_json",
+            "line": 39,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.09347374700000001,
+            "exclusive_seconds": 0.00021578000000000002,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_json",
+            "line": 45,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.09312553400000001,
+            "exclusive_seconds": 0.000355206,
+            "file": "__init__.py",
+            "function": "loads",
+            "line": 299,
+            "primitive_calls": 99,
+            "total_calls": 99
+          },
+          {
+            "cumulative_seconds": 0.092443252,
+            "exclusive_seconds": 0.00023406400000000003,
+            "file": "decoder.py",
+            "function": "decode",
+            "line": 332,
+            "primitive_calls": 99,
+            "total_calls": 99
+          },
+          {
+            "cumulative_seconds": 0.09196625700000001,
+            "exclusive_seconds": 0.052161199000000005,
+            "file": "decoder.py",
+            "function": "raw_decode",
+            "line": 343,
+            "primitive_calls": 99,
+            "total_calls": 99
+          },
+          {
+            "cumulative_seconds": 0.080077672,
+            "exclusive_seconds": 0.000166143,
+            "file": "crop_climate_joint_continuation.py",
+            "function": "_hash",
+            "line": 32,
+            "primitive_calls": 146,
+            "total_calls": 146
+          },
+          {
+            "cumulative_seconds": 0.05811916,
+            "exclusive_seconds": 0.00015872800000000002,
+            "file": "crop_cycle_continuation.py",
+            "function": "_canonical",
+            "line": 29,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.039805058000000004,
+            "exclusive_seconds": 0.032947942,
+            "file": "crop_cycle_input_stream.py",
+            "function": "pairs",
+            "line": 46,
+            "primitive_calls": 54223,
+            "total_calls": 54223
+          },
+          {
+            "cumulative_seconds": 0.011914558,
+            "exclusive_seconds": 0.000214431,
+            "file": "crop_greenhouse_solar_storage.py",
+            "function": "_records",
+            "line": 84,
+            "primitive_calls": 84,
+            "total_calls": 84
+          },
+          {
+            "cumulative_seconds": 0.011668603000000001,
+            "exclusive_seconds": 6.327000000000001e-05,
+            "file": "crop_greenhouse_solar_storage.py",
+            "function": "_load_header",
+            "line": 109,
+            "primitive_calls": 1,
+            "total_calls": 1
+          },
+          {
+            "cumulative_seconds": 0.006878529,
+            "exclusive_seconds": 0.006878529,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_need",
+            "line": 32,
+            "primitive_calls": 139512,
+            "total_calls": 139512
+          },
+          {
+            "cumulative_seconds": 0.00492011,
+            "exclusive_seconds": 0.00492011,
+            "file": "~",
+            "function": "<built-in method _hashlib.openssl_sha256>",
+            "line": 0,
+            "primitive_calls": 249,
+            "total_calls": 249
+          },
+          {
+            "cumulative_seconds": 0.004741037,
+            "exclusive_seconds": 0.00015135000000000002,
+            "file": "crop_cycle_artifact.py",
+            "function": "_read",
+            "line": 44,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.004589687,
+            "exclusive_seconds": 0.0006383890000000001,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_read",
+            "line": 164,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.003913247,
+            "exclusive_seconds": 9.536e-06,
+            "file": "crop_climate_joint_continuation.py",
+            "function": "_prefix",
+            "line": 34,
+            "primitive_calls": 9,
+            "total_calls": 9
+          },
+          {
+            "cumulative_seconds": 0.0017563680000000001,
+            "exclusive_seconds": 9.7476e-05,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_digest",
+            "line": 41,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.0016588920000000001,
+            "exclusive_seconds": 9.7404e-05,
+            "file": "__init__.py",
+            "function": "fullmatch",
+            "line": 169,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.001435209,
+            "exclusive_seconds": 0.001435209,
+            "file": "~",
+            "function": "<method 'read' of '_io.BufferedReader' objects>",
+            "line": 0,
+            "primitive_calls": 96,
+            "total_calls": 96
+          },
+          {
+            "cumulative_seconds": 0.001399484,
+            "exclusive_seconds": 0.001399484,
+            "file": "~",
+            "function": "<method 'fullmatch' of 're.Pattern' objects>",
+            "line": 0,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.0009415210000000001,
+            "exclusive_seconds": 0.00026572600000000004,
+            "file": "<frozen os>",
+            "function": "fdopen",
+            "line": 1031,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.0008495320000000001,
+            "exclusive_seconds": 0.0008495320000000001,
+            "file": "~",
+            "function": "<built-in method posix.open>",
+            "line": 0,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.000747157,
+            "exclusive_seconds": 0.00013052700000000002,
+            "file": "crop_climate_joint_time.py",
+            "function": "_point",
+            "line": 100,
+            "primitive_calls": 51,
+            "total_calls": 51
+          },
+          {
+            "cumulative_seconds": 0.000681548,
+            "exclusive_seconds": 0.000680162,
+            "file": "~",
+            "function": "<built-in method _io.open>",
+            "line": 0,
+            "primitive_calls": 96,
+            "total_calls": 96
+          },
+          {
+            "cumulative_seconds": 0.0006035740000000001,
+            "exclusive_seconds": 0.000123959,
+            "file": "crop_climate_joint_time.py",
+            "function": "_at",
+            "line": 95,
+            "primitive_calls": 51,
+            "total_calls": 51
+          },
+          {
+            "cumulative_seconds": 0.000532611,
+            "exclusive_seconds": 0.000532611,
+            "file": "~",
+            "function": "<method 'encode' of 'str' objects>",
+            "line": 0,
+            "primitive_calls": 419,
+            "total_calls": 419
+          },
+          {
+            "cumulative_seconds": 0.00041436600000000005,
+            "exclusive_seconds": 0.000156491,
+            "file": "crop_climate_joint_time.py",
+            "function": "_stamp",
+            "line": 43,
+            "primitive_calls": 51,
+            "total_calls": 51
+          },
+          {
+            "cumulative_seconds": 0.000356697,
+            "exclusive_seconds": 0.000356697,
+            "file": "~",
+            "function": "<built-in method builtins.isinstance>",
+            "line": 0,
+            "primitive_calls": 1115,
+            "total_calls": 1115
+          },
+          {
+            "cumulative_seconds": 0.000336724,
+            "exclusive_seconds": 0.000336724,
+            "file": "~",
+            "function": "<method '__exit__' of '_io._IOBase' objects>",
+            "line": 0,
+            "primitive_calls": 96,
+            "total_calls": 96
+          }
+        ],
+        "top_exclusive": [
+          {
+            "cumulative_seconds": 0.158471029,
+            "exclusive_seconds": 0.158471029,
+            "file": "encoder.py",
+            "function": "iterencode",
+            "line": 205,
+            "primitive_calls": 411,
+            "total_calls": 411
+          },
+          {
+            "cumulative_seconds": 0.09196625700000001,
+            "exclusive_seconds": 0.052161199000000005,
+            "file": "decoder.py",
+            "function": "raw_decode",
+            "line": 343,
+            "primitive_calls": 99,
+            "total_calls": 99
+          },
+          {
+            "cumulative_seconds": 0.039805058000000004,
+            "exclusive_seconds": 0.032947942,
+            "file": "crop_cycle_input_stream.py",
+            "function": "pairs",
+            "line": 46,
+            "primitive_calls": 54223,
+            "total_calls": 54223
+          },
+          {
+            "cumulative_seconds": 0.006878529,
+            "exclusive_seconds": 0.006878529,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_need",
+            "line": 32,
+            "primitive_calls": 139512,
+            "total_calls": 139512
+          },
+          {
+            "cumulative_seconds": 0.275625328,
+            "exclusive_seconds": 0.005711622,
+            "file": "crop_greenhouse_solar_storage.py",
+            "function": "_load",
+            "line": 147,
+            "primitive_calls": 1,
+            "total_calls": 1
+          },
+          {
+            "cumulative_seconds": 0.00492011,
+            "exclusive_seconds": 0.00492011,
+            "file": "~",
+            "function": "<built-in method _hashlib.openssl_sha256>",
+            "line": 0,
+            "primitive_calls": 249,
+            "total_calls": 249
+          },
+          {
+            "cumulative_seconds": 0.001435209,
+            "exclusive_seconds": 0.001435209,
+            "file": "~",
+            "function": "<method 'read' of '_io.BufferedReader' objects>",
+            "line": 0,
+            "primitive_calls": 96,
+            "total_calls": 96
+          },
+          {
+            "cumulative_seconds": 0.001399484,
+            "exclusive_seconds": 0.001399484,
+            "file": "~",
+            "function": "<method 'fullmatch' of 're.Pattern' objects>",
+            "line": 0,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.160839171,
+            "exclusive_seconds": 0.000986647,
+            "file": "__init__.py",
+            "function": "dumps",
+            "line": 183,
+            "primitive_calls": 411,
+            "total_calls": 411
+          },
+          {
+            "cumulative_seconds": 0.0008495320000000001,
+            "exclusive_seconds": 0.0008495320000000001,
+            "file": "~",
+            "function": "<built-in method posix.open>",
+            "line": 0,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.159677542,
+            "exclusive_seconds": 0.0008362090000000001,
+            "file": "encoder.py",
+            "function": "encode",
+            "line": 183,
+            "primitive_calls": 411,
+            "total_calls": 411
+          },
+          {
+            "cumulative_seconds": 0.000681548,
+            "exclusive_seconds": 0.000680162,
+            "file": "~",
+            "function": "<built-in method _io.open>",
+            "line": 0,
+            "primitive_calls": 96,
+            "total_calls": 96
+          },
+          {
+            "cumulative_seconds": 0.004589687,
+            "exclusive_seconds": 0.0006383890000000001,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_read",
+            "line": 164,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.16109742700000002,
+            "exclusive_seconds": 0.0005711140000000001,
+            "file": "crop_cycle_artifact.py",
+            "function": "_blob",
+            "line": 49,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.000532611,
+            "exclusive_seconds": 0.000532611,
+            "file": "~",
+            "function": "<method 'encode' of 'str' objects>",
+            "line": 0,
+            "primitive_calls": 419,
+            "total_calls": 419
+          },
+          {
+            "cumulative_seconds": 0.10378163900000001,
+            "exclusive_seconds": 0.000388669,
+            "file": "crop_climate_joint_continuation.py",
+            "function": "_canonical",
+            "line": 31,
+            "primitive_calls": 316,
+            "total_calls": 316
+          },
+          {
+            "cumulative_seconds": 0.161490968,
+            "exclusive_seconds": 0.00036779600000000004,
+            "file": "crop_cycle_artifact.py",
+            "function": "_blob",
+            "line": 240,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.000356697,
+            "exclusive_seconds": 0.000356697,
+            "file": "~",
+            "function": "<built-in method builtins.isinstance>",
+            "line": 0,
+            "primitive_calls": 1115,
+            "total_calls": 1115
+          },
+          {
+            "cumulative_seconds": 0.09312553400000001,
+            "exclusive_seconds": 0.000355206,
+            "file": "__init__.py",
+            "function": "loads",
+            "line": 299,
+            "primitive_calls": 99,
+            "total_calls": 99
+          },
+          {
+            "cumulative_seconds": 0.000336724,
+            "exclusive_seconds": 0.000336724,
+            "file": "~",
+            "function": "<method '__exit__' of '_io._IOBase' objects>",
+            "line": 0,
+            "primitive_calls": 96,
+            "total_calls": 96
+          },
+          {
+            "cumulative_seconds": 0.000323978,
+            "exclusive_seconds": 0.000323978,
+            "file": "~",
+            "function": "<method 'decode' of 'bytes' objects>",
+            "line": 0,
+            "primitive_calls": 100,
+            "total_calls": 100
+          },
+          {
+            "cumulative_seconds": 0.00032076800000000003,
+            "exclusive_seconds": 0.00032076800000000003,
+            "file": "~",
+            "function": "<built-in method posix.fstat>",
+            "line": 0,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.0009415210000000001,
+            "exclusive_seconds": 0.00026572600000000004,
+            "file": "<frozen os>",
+            "function": "fdopen",
+            "line": 1031,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.00026054,
+            "exclusive_seconds": 0.00026054,
+            "file": "decoder.py",
+            "function": "__init__",
+            "line": 284,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.000259372,
+            "exclusive_seconds": 0.000259372,
+            "file": "~",
+            "function": "<method 'hexdigest' of '_hashlib.HASH' objects>",
+            "line": 0,
+            "primitive_calls": 249,
+            "total_calls": 249
+          },
+          {
+            "cumulative_seconds": 0.000237924,
+            "exclusive_seconds": 0.000237924,
+            "file": "~",
+            "function": "<method 'isoformat' of 'datetime.datetime' objects>",
+            "line": 0,
+            "primitive_calls": 51,
+            "total_calls": 51
+          },
+          {
+            "cumulative_seconds": 0.092443252,
+            "exclusive_seconds": 0.00023406400000000003,
+            "file": "decoder.py",
+            "function": "decode",
+            "line": 332,
+            "primitive_calls": 99,
+            "total_calls": 99
+          },
+          {
+            "cumulative_seconds": 0.09347374700000001,
+            "exclusive_seconds": 0.00021578000000000002,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_json",
+            "line": 45,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.011914558,
+            "exclusive_seconds": 0.000214431,
+            "file": "crop_greenhouse_solar_storage.py",
+            "function": "_records",
+            "line": 84,
+            "primitive_calls": 84,
+            "total_calls": 84
+          },
+          {
+            "cumulative_seconds": 0.000174982,
+            "exclusive_seconds": 0.000174982,
+            "file": "encoder.py",
+            "function": "__init__",
+            "line": 105,
+            "primitive_calls": 411,
+            "total_calls": 411
+          },
+          {
+            "cumulative_seconds": 0.000172912,
+            "exclusive_seconds": 0.000172912,
+            "file": "~",
+            "function": "<method 'match' of 're.Pattern' objects>",
+            "line": 0,
+            "primitive_calls": 198,
+            "total_calls": 198
+          },
+          {
+            "cumulative_seconds": 0.080077672,
+            "exclusive_seconds": 0.000166143,
+            "file": "crop_climate_joint_continuation.py",
+            "function": "_hash",
+            "line": 32,
+            "primitive_calls": 146,
+            "total_calls": 146
+          },
+          {
+            "cumulative_seconds": 0.05811916,
+            "exclusive_seconds": 0.00015872800000000002,
+            "file": "crop_cycle_continuation.py",
+            "function": "_canonical",
+            "line": 29,
+            "primitive_calls": 95,
+            "total_calls": 95
+          },
+          {
+            "cumulative_seconds": 0.00041436600000000005,
+            "exclusive_seconds": 0.000156491,
+            "file": "crop_climate_joint_time.py",
+            "function": "_stamp",
+            "line": 43,
+            "primitive_calls": 51,
+            "total_calls": 51
+          },
+          {
+            "cumulative_seconds": 0.004741037,
+            "exclusive_seconds": 0.00015135000000000002,
+            "file": "crop_cycle_artifact.py",
+            "function": "_read",
+            "line": 44,
+            "primitive_calls": 95,
+            "total_calls": 95
+          }
+        ]
+      }
+    }
+  ],
+  "previous_focused72_not_rerun_or_added": true,
+  "reason": "observed ancestry8.538026ms at41 and14.154825ms at64; no evidence of a material original full quantum improvement",
+  "recorded_at": "2026-10-19T19:01:21.877347Z",
+  "remaining_focused_hours": null,
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-history-validation-cost-observation-v1",
+  "selected_ancestry_optimization_adopted": false,
+  "stages": [
+    {
+      "case": "focused-solar-original64-history-cost-v2",
+      "evidence_file": "new/solar-custody/original64-history-cost.private.json",
+      "evidence_sha256": "028439657d8813aacf52faf624da24c9190dacc3ea36aca4f3f637319c2abaf5",
+      "guard": {
+        "combined_peak_RSS_bytes": 921067520,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "protected_root_count": 5,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "wall_seconds": 11.115779296989786
+      },
+      "log_sha256": "b9a4f13183ca452a9a3e0bafec87ab2de274a3ff78bf4a07ba559ed9d41c738b",
+      "private_probe": "test_history_validation_cost_v2.py",
+      "private_probe_sha256": "701f7a011a759881bef2b30272692423255640c5bd1fa38f4f9982f3f47e64b9",
+      "source_pins_sha256": "6eb4751503126b09f0f7e6af994640e69aa002b96d67ee47c1b17ac8370ac131",
+      "terminal_sha256": "83e206ee018ae4a28502054809f37069e08db8855fccf397329f9f45708b8590",
+      "tests_passed": 1
+    },
+    {
+      "case": "focused-solar-original64-history-profile-v1",
+      "evidence_file": "new/solar-custody/original64-history-load-profile.private.json",
+      "evidence_sha256": "8601cf90a989c59ab4c056e2028888f5fc4b4752b140b8fc4873b819855ffa87",
+      "guard": {
+        "combined_peak_RSS_bytes": 940691456,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "protected_root_count": 5,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "wall_seconds": 11.369430117003503
+      },
+      "log_sha256": "c7e76ae71f8f83337577c70e9c60fd0e684a5b6470a803d3fab761035bc84662",
+      "private_probe": "test_history_validation_cost_v3.py",
+      "private_probe_sha256": "57ea8cd52bd553ff2f4e9684fc3000d782f72befcdcddb14186a0d3d3b05e124",
+      "source_pins_sha256": "6eb4751503126b09f0f7e6af994640e69aa002b96d67ee47c1b17ac8370ac131",
+      "terminal_sha256": "fcf333decc11387b707e0d2ec27fbb1dec3fb7e097fa8cea769e3f8db646c6e5",
+      "tests_passed": 1
+    }
+  ],
+  "status_publication": {
+    "HTTP_both_200_equal_no_store": true,
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "case": "focused-solar-normal41-history2-final-status-v1",
+    "existing_selected_docs_links_checked": 2737,
+    "focused72_receipts_verified_not_rerun": true,
+    "frozen_HTML_and_ventilation2173_preserved": true,
+    "guard_seconds": 1.3804702849884052,
+    "link_counts_overlap_not_added": true,
+    "log_sha256": "9211ae56ed783590a474e945818073f1420fa8c7ae8c4f0d5e1536f8ed7a534b",
+    "new_report_links_checked": 5,
+    "original_actors_unchanged": true,
+    "reported_at": "2026-10-19T19:02:17.148115Z",
+    "source_pins_sha256": "44ef4b1c7f0d64285458dd65c1b1d2da270af79aa52cf41aafb339a66b8ee44c",
+    "status_sha256": "bc6ac17c88246e9952d42be5fa1e402c47424d91373bdf7205dfbad17e3a52c2",
+    "terminal_sha256": "e3fa5e241f31ce8417a89d754f29de44d5104f4cafe19df956c6dbcb24a177c9"
+  }
+}

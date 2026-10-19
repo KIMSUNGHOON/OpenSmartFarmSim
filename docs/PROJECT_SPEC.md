@@ -1,5 +1,7 @@
 # OpenSmartFarmSim 제품 명세
 
+현재 실행 관측: [sourceaeb7a90의 CI39303668519](../research/solar-existing-intent-resume-native-normal-20261020.md)도 원360초/64 미완료·종료 뒤 저장 metadata41/64다. 정상/DB count proof가 없어 관문은 미수용이다. [이력 길이 관측2건](../research/solar-history-validation-cost-review-20261020.md)으로 ancestry의 작은 비용과 loader 증가를 확인했고, 다음은 같은 advance 안의 반복 load 경계 검토다. 제품 검증 생략이나 권한 cache는 수용하지 않았다. 로컬72와 전체 처리량/새 Solar 배포를 구분하며 원 actor/input/예산·후속 순서·G0–G4는 유지한다.
+
 **기존 이력 재개 로컬 수용 — 2026-10-20 KST:** [같은 app source72검사·실제 비용](../research/solar-existing-intent-resume-implementation-20261020.md)에서 비생성 진입·첫 현재 검증/HEAD·원 값/UTC·권리/취소/임대/정리를 확인했다. 제품 평균5.0784% 감소는 로컬 관측이며 다음은 새 source의 원 독립64다. 이전 source의41/64 실패와 후속3D/배포·자료/관문 보류를 유지한다. 아래는 당시 기록이다.
 
 **현재 독립 정상 미완료 — 2026-10-20 KST:** [원 CI39280701330/41단계·현재 비용 관측4건](../research/solar-current-guard-native-normal-20261020.md). 원360초/64는 미완료이며 로컬64 집중검사와 구분한다. 제품8b5afe5/현재 권리·원 actor/input은 유지했고 JSON 후보는 기준 미달로 미채택이다. 현재 감사/보호 조회의 순서 대조 후 작은 후보를 판단하며 새 Solar/실행 중3D·실제 자료/관문·전체 완료일은 미수용/미정이다.
