@@ -100,6 +100,8 @@
 - [x] **`crop-solar-current-guard-ownership`** — [최종 같은 app source64검사/검토](../research/solar-current-guard-ownership-20261020.md). 새4/제품paired1/worker13/읽기경합7/query13/HTTP24/TLS1/fresh1에서 full v1 권리·원 값/UTC·게시/lease/cancel·lock/정리를 확인했다. SQL12,919→11,723/감사343→315/원천3,040→2,736·제품 평균8.8171% 감소. 사설9.2448%와 이전88을 구분하며 독립 원64/새 배포는 미수용이다.
 - [ ] **`crop-solar-current-guard-independent-normal64`** — 위 수용 source의 계측 OFF 원 actor/input64/chunk1/poll/retry360/RSS와 API/worker0·원 값/UTC·두 전진prefix·정상/완전 정리를 별도로 확인한다. 이전33/64 실패를 보존하며 새로운 더 쉬운 입력/시간/청크·검사 생략으로 통과시키지 않는다. 후속은 독립 hold→HTTP취소→계산 중WebGL→WSL 용량/사용자 적용이다.
   - [대기 관측](../research/solar-current-guard-independent-queue-20261020.md): CI39280701330/source8b5afe5 한 번 접수·계측 OFF. 2026-10-19T16:00:12.624737Z에 queued/실행기 미배정/steps0이며 GitHub Actions 처리 지연 공지가 있다. 동일 실행의 실제 종료/큐레이션 artifact 검증 전 체크하지 않는다.
+  - [후속 실제 실패](../research/solar-current-guard-native-normal-20261020.md): 같은 실행은 원360초/64 미완료·종료 뒤 저장41/64·actor−15/−15, 정상/DB count proof 없음이다. 앞선 큐 관측을 실제 미기동 확정으로 사용하지 않는다. 단계 차이를 성능 개선율로 환산하지 않는다.
+- [x] **`crop-solar-current-guard-post-normal-cost-review`** — 같은 source의 CPU/SQL/canonical 관측3+순수 JSON 후보 trial1=고유4건·원 SQL11,723/role315/원천2,736·counts/UTC·원본/5root/자원/정리. 후보는20개 경계 동등·평균1.4155%로 사전2% 미달/미채택이며 제품8b5afe5 유지다. 다음은 감사/보호 조회 순서 대조이고 원64 관문/배포 수용은 아니다.
 
 
 

@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**독립 정상 실행의 현재 차단점 — 2026-10-20 KST:** [CI39280701330/source8b5afe5의 원360초 미완료/저장41단계](../research/solar-current-guard-native-normal-20261020.md)를 확인했다. 큐 API는 지연된 관측이었으며 run/job 최종 실패와 원 artifact를 대사했다. 제품을 유지한 현재 비용 관측3+trial1에서 JSON 후보를 미채택했다. 다음은 감사/보호 조회의 순서·소유권 대조이며 원64·후속hold/HTTP취소/실행 중3D/WSL 적용·실제 자료/G0–G4는 미완료다.
+
 **독립 일사 계산 후속 — 2026-10-17:** [원 종료 뒤 저장 metadata](../research/crop-solar-unpaused-postmortem-20261017.md)를 수집한다. 잠금 수정13검사는 통과했으나 원 정상은381.069초/원360초 계산 상한으로 미완료다. actor를 계측하지 않는 수집4검사·원 로직/해시/상한 불변을 확인했고 CI39039991262가 진행 중이다. 정상·WSL 용량·계산 중3D·새 Solar/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.
 
 **현재 — 2026-10-17:** [호스팅 실제 정상/보류 저장3D 기능](../research/crop-solar-current-webgl-verification-20261017.md)을 수용했다. 로컬5root 전체 앱의 RSS 보류는 유지한다. [현재 독립 동시 실행의 RSS 보류](../research/crop-solar-current-unpaused-resource-20261017.md)를 기록했고 시험 대기 부모 회수를 준비한다. 다음 S2b/부모·S3/S4·사용자 배포/전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.

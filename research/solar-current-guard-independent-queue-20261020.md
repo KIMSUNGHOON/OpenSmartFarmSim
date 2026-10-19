@@ -1,5 +1,7 @@
 # 현재 검증 정리 source의 독립 정상 CI 대기 — 2026-10-20 KST
 
+**후속 증거:** [실제 실패/41단계·관측4건](solar-current-guard-native-normal-20261020.md)을 확인했다. 아래는 당시 API 응답의 기록이다. 뒤늦게 회수한 step 시각은 이 관측보다 앞서며, queued를 실제 미기동 확정으로 해석하지 않는다.
+
 [기계 증거](artifacts/solar-current-guard-normal64-queue-20261020.json) · [로컬64 수용](solar-current-guard-ownership-20261020.md) · [원 정상 계약](../contracts/crop-solar-unpaused-hosted-v1.md).
 
 ## 관측한 실행
