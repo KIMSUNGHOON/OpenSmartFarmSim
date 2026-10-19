@@ -77,6 +77,33 @@
       "stage": "focused-current-reference-context-red-v1"
     }
   ],
+  "native_CI_status_publication": {
+    "actual_tool": "59587:0",
+    "raw_terminal_sha256": "400714a2611b6616d88a161c97300f9b9eef82c56262a4c650cf35fa01882fe5",
+    "result": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 909737984,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.3630742260011175
+    },
+    "stage": "focused-current-reference-bundle-native-status-v3"
+  },
   "native_CLI": {
     "effort": "xhigh",
     "model": "gpt-6.1-sol",
@@ -84,12 +111,21 @@
     "recursive_cli": false,
     "timestamp": "2026-10-19T00:21:48.320Z"
   },
+  "native_normal_check": {
+    "actor_instrumentation": false,
+    "created_at": "2026-10-19T01:27:17Z",
+    "head_sha": "61543800aeba21bfbfbc3cbf20630a783d3d02f0",
+    "pending": true,
+    "run_id": 39185424202,
+    "status": "in_progress"
+  },
   "new_Solar_deployed": false,
   "next_task": "crop-solar-reference-bundle-native-normal",
   "nonacceptance_notes": [
     "Readers combined run exceeded RSS; controller short-temp cleanup and owned4passfile removal verified.",
     "Combined core session30passed but teardown immutable database-cleanup.json collided between modules. Not counted. Final modules rerun independently.",
-    "Earlier unit/pair variants predate exact-context token fix and are not final acceptance evidence."
+    "Earlier unit/pair variants predate exact-context token fix and are not final acceptance evidence.",
+    "Status publication focused-current-reference-bundle-native-status-v2 exited0 but source_preserved=false because report text was edited during the guard. It is not acceptance evidence; republish with stable sources."
   ],
   "nonacceptance_stages": [
     {
@@ -266,6 +302,7 @@
   "rights_or_gate_approval": false,
   "runtime_roles_worker_query_original_probe_unchanged": true,
   "scope": "local software acceptance of pure current reference verification; original native64 separate",
+  "source_commit": "61543800aeba21bfbfbc3cbf20630a783d3d02f0",
   "source_sha256": {
     "backend/app/crop_greenhouse_solar_farm_binding.py": "ff4daddacecd43f5cfa43e8dac484661e94e3ea3cd8f0a6f424573f4afa501f7",
     "backend/app/farm_registration_read_scope.py": "e9dfe90e979d8de1bbe8a9c398447d9ada1f1c1e7c377bedbbef05b3c6c4acd6",

@@ -76,3 +76,10 @@ step64/start1/CLI0/attempt1/success event1·두 actor 종료0·조회 계산/쓰
 66727:0에서 source/syntax·2,267개 로컬 문서 링크·원 actor/query/probe/역할/worker/수식 보존을 대사했다.
 96검사와 다음 원64 정상을 두 UI에 no-store 동일 bytes로 게시하고 원 HTML/환기 frozen2,173파일·
 5root/원본/상한·FD/소유 정리를 확인했다. UI 코드/DOM/WebGL은 변경하거나 재검사하지 않았다.
+
+source `61543800aeba21bfbfbc3cbf20630a783d3d02f0`의
+[원 독립 정상 CI39185424202](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39185424202)를
+계측 OFF로 기동했다. 이 기록 시점은 실행 중이며 정상 완료·처리량 수용이 아니다.
+
+실행 중 상태 게시의 첫 시도는 문서 동시 수정으로 source 보존이 False여서 수용하지 않았다.
+문서를 고정한 59587:0 재게시에서 source·원본·5root·두 화면·FD/소유 정리를 다시 확인했다.
