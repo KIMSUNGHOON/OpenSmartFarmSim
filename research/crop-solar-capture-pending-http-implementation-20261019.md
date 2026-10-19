@@ -65,5 +65,5 @@ frozen 자산/5root·512MiB/PID/합1GiB·FD4→4·소유 PG/임시/passfile0을 
 17427:0에서 확장 TLS1·미채택/남은 회귀와 원39/64·CI 실제status 미확보 상태를 두 UI에 같은 no-store bytes로 게시했다. 현재2파일 pin/3syntax·링크·원 actor/header·frozen HTML/2,173파일·5root/상한/FD/소유 정리를 확인했다. UI 코드/DOM/WebGL은 변경·재검사하지 않았다. 최초69155:1은 상태 이유252자가 기존240자 제한을 넘어 거부됐고234자로 줄였다. 제한은 유지했다.
 
 94972:0에서 로컬58 수용과 다음 원64 독립 정상을 두 UI에 같은 no-store bytes로 게시했다.
-두 파일 pin/3syntax·2,306개 로컬 링크·원 actor/header·frozen HTML/2,173파일·5root/상한/FD/소유 정리를 확인했다.
+두 파일 pin/3syntax·2,305개 로컬 링크·원 actor/header·frozen HTML/2,173파일·5root/상한/FD/소유 정리를 확인했다.
 합산 RSS888,143,872bytes였으며 UI 코드/DOM/WebGL은 변경·재검사하지 않았다.
