@@ -5,6 +5,7 @@
   "accepted_single_PID_peak_RSS_bytes": 170864640,
   "actual_farm_Runs": 0,
   "actual_product_cost_tests": 1,
+  "application_source_commit": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
   "application_source_version": {
     "kind": "backend_app_tree_sha256",
     "sha256": "a18da9558cd83d62edd1fb9a64ea8829ee59fd9da08b72cbce380d23229daa32"
@@ -103,6 +104,99 @@
   "new_test_sha256": {
     "backend/tests/test_solar_existing_intent_lock_files.py": "600cdf857ae2e88de456a8606f57dbcf5c9a14a0cdc5545aa55bc9f375585e18",
     "backend/tests/test_solar_existing_intent_resume.py": "1db787e7c140874f254238528c7894964a037aa98494c5ac29cbd728194ebe0e"
+  },
+  "next_independent_normal_CI": {
+    "API_status_not_compute_progress_or_acceptance": true,
+    "URL": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39303668519",
+    "created_at": "2026-10-19T18:34:48Z",
+    "dispatch_intent_sha256": "0b8a1763bda11a1b4963653371bf7a834a92413d43ee6d5fa63f34b81ddc47cc",
+    "dispatch_receipt_sha256": "d72faebc4aa9f20a3c56e537b7a1948219748d9a6ff4054a16c0610f9ee1512a",
+    "dispatches_requested": 1,
+    "head_sha": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
+    "normal64_accepted": false,
+    "observed_at": "2026-10-19T18:35:39.802746Z",
+    "observed_job": {
+      "conclusion": null,
+      "id": 118235091581,
+      "runner_name": "GitHub Actions 1000003991",
+      "started_at": "2026-10-19T18:34:53Z",
+      "status": "in_progress",
+      "steps": [
+        {
+          "completed_at": "2026-10-19T18:34:56Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "started_at": "2026-10-19T18:34:54Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-19T18:34:59Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "started_at": "2026-10-19T18:34:56Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-19T18:35:02Z",
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+          "started_at": "2026-10-19T18:34:59Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-19T18:35:07Z",
+          "conclusion": "success",
+          "name": "Install locked backend",
+          "started_at": "2026-10-19T18:35:02Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": null,
+          "conclusion": null,
+          "name": "Build the pinned native test PostgreSQL",
+          "started_at": "2026-10-19T18:35:07Z",
+          "status": "in_progress"
+        },
+        {
+          "completed_at": null,
+          "conclusion": null,
+          "name": "Original independent unpaused normal execution",
+          "started_at": null,
+          "status": "pending"
+        },
+        {
+          "completed_at": null,
+          "conclusion": null,
+          "name": "Store curated normal execution evidence",
+          "started_at": null,
+          "status": "pending"
+        },
+        {
+          "completed_at": null,
+          "conclusion": null,
+          "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+          "started_at": null,
+          "status": "pending"
+        },
+        {
+          "completed_at": null,
+          "conclusion": null,
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "started_at": null,
+          "status": "pending"
+        }
+      ]
+    },
+    "original_64_chunk1_poll_retry360_RSS_unchanged": true,
+    "original_actor_instrumentation": false,
+    "raw_sha256": {
+      "jobs": "728ec188a812466cee6a4c84c9d1cae28a37c91eb0d469bfccea0ee2af225bcf",
+      "run": "65611ddc055cfdcd2075a97149945e9ec6b5d7495ce7bf5b02959b3678ba471c"
+    },
+    "run_conclusion": null,
+    "run_id": 39303668519,
+    "run_status": "in_progress",
+    "workflow_file_unchanged": true
   },
   "normal64_accepted": false,
   "old64_not_added_without_rerun": true,
@@ -1050,6 +1144,44 @@
     }
   ],
   "status_publication": {
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "both_frozen_HTML_and_ventilation2173_files_preserved": true,
+    "browser_rerun": false,
+    "case": "focused-solar-existing-resume-CI-status-v1",
+    "combined_peak_RSS_bytes": 902094848,
+    "guard_seconds": 1.630606043006992,
+    "local_links_checked": 2724,
+    "log_sha256": "0b2eb204a6afd1e2e3f98f30fb1c490082f7a5cf9ce9d32b990dc07dc11f4f46",
+    "original_entries_preserved": 2148,
+    "owned_non_zombie_PG_temporary_passfiles_remaining": 0,
+    "protected_roots": 5,
+    "reason": null,
+    "reported_at": "2026-10-19T18:37:10.697216Z",
+    "single_PID_peak_RSS_bytes": 141316096,
+    "source_pins_sha256": "6de4d9fd1c1d6f8d5f8abbdc1f00b2665d604efe6ad5d7f1a8c80436056072f0",
+    "source_sha256": "b0e2db3532c59a085ffa991d4b35c6556fabebd7690a55005aa63939f6aaac99",
+    "terminal_sha256": "b49d0ea8395d678c39e3ed8225858dd8d48195c1a4175487ab1f04bd9c8f35e9"
+  },
+  "status_publication_before_CI": {
     "FD_before_after": [
       4,
       4

@@ -64,3 +64,7 @@ query7의 잠금 해제2·snapshot 변경2·디렉터리1·terminal2가7건이�
 원 정상 뒤 독립 hold→실제 HTTP취소→계산 중WebGL→WSL 용량/사용자 적용으로 간다. 새 Solar 미배포·실제 농장 Run0·국내 원 실측/독립 작기·G0–G4 보류·전체 완료일 미정·goal active를 유지한다. 새 CI 접수/종료는 별도 관측으로 기록한다.
 
 최종 게시 `focused-solar-existing-resume-final72-status-v1`는 자식0·guard1.637172초였다. 같은 app72/원 actor source 두 hash·관련 링크2,724개와 두 HTTP200/동일bytes/no-store·frozen HTML/환기2,173파일·5root/원본2,148/FD4→4/소유 정리를 확인했다. 진행 기록은2026-10-19T18:31:56.772848Z이며 UI 코드·DOM/WebGL을 다시 검증한 것은 아니다.
+
+수용 source commit은 `aeb7a901e0860ffcacc2a0adf2469a6cb882e315`다. 새 [CI39303668519](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39303668519) / job118235091581를 한 번 접수했다. 2026-10-19T18:35:39.802746Z API 관측은 run/job `in_progress`·고정 PostgreSQL 빌드 중·원 계산 step `pending`이다. head/source·계측 OFF·원 actor/input/예산을 대사했다. 이는 계산 진행/완료나64 정상 수용의 증거가 아니며 같은 실행을 추적한다.
+
+CI 현황 게시 `focused-solar-existing-resume-CI-status-v1`도 자식0·guard1.630606초/동일 app72·원 actor/링크·두 HTTP/정리 검증을 통과했다. 진행 기록은2026-10-19T18:37:10.697216Z이며 새 UI/DOM/WebGL 수용은 아니다.

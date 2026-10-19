@@ -106,6 +106,7 @@
 - [x] **`crop-solar-validation-cost-candidates`** — [형식 변환/현재 연결 필드/SQL 역할 식별](../research/solar-validation-cost-candidates-20261020.md)의 고유 사설3건·원 감사315/SQL11,723/원천2,736·counts/UTC·원본/5root/자원/정리. 평균 감소−13.5424%/1.9195%/−0.5091%로 모두 미채택·제품 유지다. 기존64/선행 진단과 합산하지 않으며 완전한 보안 동등성/원64/배포 수용은 아니다.
 - [x] **`crop-solar-existing-intent-entry-review`** — [원 호출자7곳/부작용·실제 재생성 반례](../research/solar-existing-intent-resume-implementation-20261020.md)와 [비생성 계약](../contracts/solar-existing-intent-resume-v1.md)을 대조했다. 기존 경로 그대로의 검사 제거는 기각하고 완전한 기존 이력만 선택하는 후보를 준비했다. 원 다음 guard의 수치 계산 차단·비공개 HEAD/기본·신규/adoption 경계를 확인했으며 독립64/배포 수용은 아니다.
 - [x] **`crop-solar-existing-intent-resume-implementation`** — 같은 app source의 기능71/실제품paired1=고유72검사. 첫 cold 구성 이동과 warm1회 차이만 대사했고 SQL11,723→11,125/감사315→301/원천2,736→2,584·제품 평균5.0784% 감소·원 숫자/UTC·현재 물리/경제 권리·취소/임대/조회/잠금/fresh/TLS·정리를 확인했다. 사설3.3782%·원 source 반례·RED/시험 오류/RSS 중단의 부분 성공은 합산하지 않았다. 새 원 독립64와 후속3D/배포·실제 자료 관문은 미수용이다.
+  - 새 원 독립 정상: [CI39303668519](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39303668519), sourceaeb7a90/job118235091581·한 번 접수/계측 OFF. 18:35:39Z API는 run/job실행 중·PG build/원 계산 pending이다. 실제 원64/curated artifact·정리 대사 전 독립 정상 checkbox는 유지한다.
 
 
 

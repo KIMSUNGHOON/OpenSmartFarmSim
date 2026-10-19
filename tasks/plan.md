@@ -55,7 +55,7 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 21 — 비용 후보3건 평가 완료 | [평면 형식 변환/연결 필드/SQL 역할 식별](../research/solar-validation-cost-candidates-20261020.md) | 원 감사315/SQL11,723/원천2,736·counts/UTC와 자원/정리를 유지했다. 평균 감소−13.5424%/1.9195%/−0.5091%로 모두 미채택·제품8b5afe5 그대로다. 원64 정상 관문은 미수용이다. |
 | 22 — 경계 검토 완료 | [기존 write 부작용/재생성 반례·비생성 계약](../research/solar-existing-intent-resume-implementation-20261020.md) | 원 호출자7곳과 실제 생성·current/lock/오류 경계를 대조했다. 기존 경로 그대로의 검사 제거는 기각하고, 완전한 기존 이력만 비생성 진입→첫 full guard/같은 HEAD 확인으로 연결하는 후보를 준비했다. |
 | 23 — 구현 로컬 수용 | [같은 app source72검사·실제품 비교](../research/solar-existing-intent-resume-implementation-20261020.md) | 원 full 물리/경제 권리·나머지 current/게시·수치/UTC·취소/임대/조회·정리를 유지하고 SQL11,125/감사301/원천2,584·제품 평균5.0784% 감소를 확인했다. source260개/핵심12 method AST는 같다. 자료/원64·배포 관문 수용은 아니다. |
-| 24 — 다음 원 독립 정상 | `crop-solar-current-guard-independent-normal64` | 새 수용 source의 원 actor/input64/chunk1/poll/retry360/RSS·계측 OFF·start1/CLI0/attempt1/success1·두 전진prefix/원 값/UTC·actor0/0·DB/소유 정리를 확인한다. 이후 독립hold→HTTP취소→계산 중WebGL→WSL 적용 순서는 유지한다. |
+| 24 — 새 원 독립 정상 추적 | `crop-solar-current-guard-independent-normal64` | 새 수용 source의 원 actor/input64/chunk1/poll/retry360/RSS·계측 OFF·start1/CLI0/attempt1/success1·두 전진prefix/원 값/UTC·actor0/0·DB/소유 정리를 확인한다. [CI39303668519](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39303668519)/sourceaeb7a90를 한 번 접수했고18:35Z API는 PG build/원 계산 pending이다. 실제 완료/원 artifact를 확인하기 전 관문은 미수용이다. 이후 독립hold→HTTP취소→계산 중WebGL→WSL 적용 순서는 유지한다. |
 
 위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md)은 당시의 지연된 API 관측이다. source8b5afe5의 [최종41/64 실패](../research/solar-current-guard-native-normal-20261020.md)를 확인했고, 현재는24의 새 source 원 독립 정상 차례다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
 
