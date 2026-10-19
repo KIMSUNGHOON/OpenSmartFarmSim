@@ -38,12 +38,15 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 4 — 본체 로컬 수용 | [등록 연결 수명 본체52검사](../research/registration-connection-lifetime-core-20261019.md) | 최종 같은 source의 core41/일반 로그인10·별도 정리/paired1. 실제144→1·감사183/원천1,824/트랜잭션 종료432·수치/UTC·현재 권한/수명·정리를 보존했다. 두 구간 약19.8%/21.3% 감소다. 전체 통합/새 배포 수용은 아니다. |
 | 5 — 로컬 수용 | [관련 원 worker/query/HTTP58 회귀·검토](../research/registration-connection-lifetime-integration-20261019.md) | 같은 제품 source의 실제 TLS1/Solar7/worker13/query13/HTTP24와 원 정상/hold/취소·임대/현재·늦은 권리/동시 변경·원 수치/UTC·조회 계산/쓰기0·자원/정리를 확인했다. 본체52는 중복 합산하지 않는다. |
 | 6 — 미완료 | [변경 source 원 계측 OFF64](../research/registration-connection-lifetime-native-normal-20261019.md) | CI39249166964/sourcef403b54는 원360초·종료 뒤33/64·정상/DB 정리 proof 없음으로 미수용이다. 원 actor/64/chunk1/조회·retry360/RSS와 전체 정상 수용 기준은 유지한다. |
-| 7 — 현재 실행 | 같은 source의 기존 bounded `phases` 진단1회 | 실제 CI39250605987의 job in_progress를 확인했다. 원 body/입력/한도를 유지하며 실제 current/등록/확정/advance·checkpoint/UTC·예외/종료/정리·run/head/digest를 대사한다. 결과로 최소 수정 범위를 정하고 진단 자체는 정상/처리량 수용으로 세지 않는다. |
+| 7 — 진단 대사 완료 | [실제 단계/한 묶음 비용](../research/registration-connection-lifetime-phase-cost-20261019.md) | CI39250605987/sourcef403b54는17/64·원360초 종료다. 등록734/재구성113·유한 journal·현재 로컬 한 묶음2/1/3재구성·원 수치/UTC/정리를 확인했다. 정상·처리량 수용이 아니다. |
+| 8 — 로컬 수용 | [checkpoint 등록 범위20검사/검토](../research/solar-checkpoint-registration-scope-20261019.md) | 새6/원 worker13/paired1·재구성6→4·물리29→7·원천3,040/UTC·권리/취소/임대/정리·평균 약5% 감소. 이전58/원64/새 배포로 세지 않는다. |
+| 9 — 진단 완료 | 같은 기록의 현재 exclusive 관측1 | get_parameters3,963회와 driver wait/JSON 비용·원 step2/UTC/정리 확인. 중첩 포함 시간/처리량은 합산하지 않는다. |
+| 10 — 다음 작은 관측/비교 | 현재 연결 매개변수 조회의 호출자별 비용→동등 후보 | 원 감사343/원천3,040·현재 인증/factory/세션·트랜잭션/늦은 변경·수치/UTC·5root/한도를 유지한다. 시험 전용 paired 비용이 일관되지 않으면 미채택한다. 기각 SQL/pipeline/ACL/v4 및 변경 없는 native64 반복은 하지 않는다. |
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.
 연구 대조12와 실제 guard37에서 검토한 default DTO의 조건부 범위를 수용했다. 같은 최종 source의 guard37은 원문 primitive와 원88참조2회를 결합하고 모든 원 getter를 실행했다. guard 합427.697초다. 후속 시험 전용 연결 후보는 실제 paired 비용 기준을 통과하지 못했다. 비교/비용 분리/연결 관측의3개 진단 검사·guard209.877초를 별도 기록했고 기존37/48/34/58을 재실행한 것으로 세지 않는다. 제품 app260파일은 그대로이며 v4 통합은 보류한다.
-연결 수명 본체는 원 `.connect()` 메서드 AST와 commit/rollback·실제 `NOWAIT` 잠금 해제를 보존했다. 모든 현재 identity/권한/자료/역할 감사를 실행하고 요청/등록·Task/thread/복제 문맥·종료 정리를 확인했다. 준비된 SQL 뒤 실제 SELECT 철회/NOLOGIN/역할 변경을 거부했다. 범용 pool·교차 요청 캐시는 추가하지 않았다. 원천1,824/순서와 트랜잭션 종료432는 같고 세션 점검 SQL288개가 추가됐다. 최종 source의 실제 두 구간 비용·core41·일반 로그인10/별도 fixture 정리만 로컬 수용했다. 같은 application source의 관련58 회귀·검토를 통과해 로컬 통합을 수용했다. 다음은 원 계측 OFF64 독립 정상이며 독립 처리량/새 배포는 아직 미수용이다.
+연결 수명 본체는 원 `.connect()` 메서드 AST와 commit/rollback·실제 `NOWAIT` 잠금 해제를 보존했다. 모든 현재 identity/권한/자료/역할 감사를 실행하고 요청/등록·Task/thread/복제 문맥·종료 정리를 확인했다. 준비된 SQL 뒤 실제 SELECT 철회/NOLOGIN/역할 변경을 거부했다. 범용 pool·교차 요청 캐시는 추가하지 않았다. 원천1,824/순서와 트랜잭션 종료432는 같고 세션 점검 SQL288개가 추가됐다. 최종 source의 실제 두 구간 비용·core41·일반 로그인10/별도 fixture 정리만 로컬 수용했다. 당시 같은 application source의 관련58 회귀·검토를 수용했고 후속 checkpoint 범위20검사도 별도로 로컬 수용했다. 현재 독립64는 미완료다. 위 연결 매개변수 비용 관측/비교로 다음 최소 수정을 정하며 원 계측 OFF64·독립 처리량/새 배포는 아직 미수용이다.
 기본 source7종·candidate 우선/fallback·pin/파생 manifest·Decimal/정규화/현재 scope를 대사하고,
 시간·외부 상태·callback·미입증 의존성 경로는 v2 유지/명시 비적격으로 처리한다.
 동등성 증거 전에는 반복 getter를 생략하거나 현재 계산 경로를 변경하지 않는다.

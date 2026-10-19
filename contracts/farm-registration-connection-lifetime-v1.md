@@ -65,3 +65,9 @@ registration. Close all owned connections and release tokens/references at exit.
 
 The current native `gpt-6.1-sol/xhigh` CLI owns this design judgment. No recursive
 CLI or subagent is used. WSL resource limits and protected services remain fixed.
+
+## Checkpoint currentness call
+
+[Checkpoint scope20](../research/solar-checkpoint-registration-scope-20261019.md) is locally accepted. `SolarExecutionCheckpointStore._current` enters the existing farm registration scope for this call when none exists; an existing server witness remains owned by its original caller. The two registration reads still perform actual current-source/authority checks. Nested scope rejection and transaction boundaries stay as specified above. This adds no public API, permission cache, or cross-call lifetime.
+
+Actual full-quantum ABBA reduced reconstruction6→4 and physical connections29→7 with3,040 ordered source reads and original counts/UTC. Internal audit counts were373→343 as a consequence of the existing scoped read path; the current audit on every original connection checkout is still performed. About5% lower local wall time is no independent64 or deployment acceptance. The next cost experiment preserves current connection settings/authentication and all remaining original acceptance criteria.

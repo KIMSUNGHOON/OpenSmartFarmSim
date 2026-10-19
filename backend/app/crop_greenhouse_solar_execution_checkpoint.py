@@ -1,5 +1,5 @@
 """Accept authenticated file checkpoints under the current simulation lease."""
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from copy import deepcopy
 from datetime import timezone
 from hashlib import sha256
@@ -132,7 +132,12 @@ class SolarExecutionCheckpointStore:
     def _current(self, tenant, value, request_raw, binding_raw):
         self._guard(tenant)
         directory, evidence = self.admission._resolve(tenant, value['request'])
-        self.admission.binding.current(tenant, request_raw, directory, evidence, binding_raw, write=True)
+        farms = self.admission.binding.farms
+        ref = value['request']['farm']
+        scope = (farms.registration_read_scope(tenant, ref['scenario_id'], ref['scenario_revision'],
+            ref['registration_sha256']) if farms._registration_read.get() is None else nullcontext())
+        with scope:
+            self.admission.binding.current(tenant, request_raw, directory, evidence, binding_raw, write=True)
         self._guard(tenant)
 
     def _history(self, conn, tenant, job):

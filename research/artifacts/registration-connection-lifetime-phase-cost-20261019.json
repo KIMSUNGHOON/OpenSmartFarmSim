@@ -1,0 +1,956 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "artifact": {
+    "digest": "sha256:8569828f757717c008c38c3d326aaba5aae99dd27d222c1469fe9c207164e10f",
+    "id": 12186191379,
+    "name": "solar-unpaused-normal-f403b546ec1cc4d6b3f061b60e0fe74a052d634d",
+    "size_in_bytes": 16646
+  },
+  "conclusion": "failure",
+  "digest_and_path_validated": true,
+  "evidence": {
+    "actor-diagnostics.json": [
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "api",
+        "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+        "worker_proof_present": false
+      },
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "worker",
+        "script_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8",
+        "worker_proof_present": false
+      }
+    ],
+    "failure-checkpoint-diagnostics.json": {
+      "actors_stopped_before_collection": true,
+      "application_query_sha256": "95d52950af17fa8ad90a2999c8c1410f3e5228c823cfd3f9ccac11bd794ae747",
+      "diagnostic_only": true,
+      "metadata": {
+        "G0_G4": "not_assessed",
+        "checkpoint_payload_sha256": "7fa31d6863fbb9eb0d947ce2db5633dd455d2d7b11708a6edcd49f7c076ff8d2",
+        "checkpoint_recorded_at": "2026-10-19T12:23:59.478526+00:00",
+        "evidence_kind": "stored_owned_fixture_metadata_only",
+        "job": {
+          "attempt": 1,
+          "state": "simulating"
+        },
+        "normal_execution_accepted": false,
+        "observed_at": "2026-10-19T12:24:05.333635+00:00",
+        "owned_cluster_identity_verified": true,
+        "rights_or_gate_approval": false,
+        "stored_checkpoint": {
+          "computed_through_utc": "2026-10-01T00:00:34.123456Z",
+          "planned_steps": 64,
+          "publication_sequence": 18,
+          "status": "yielded",
+          "steps": 17
+        },
+        "transaction_isolation": "repeatable read",
+        "transaction_read_only": true
+      },
+      "normal_execution_accepted": false,
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39250605987",
+      "source_commit": "f403b546ec1cc4d6b3f061b60e0fe74a052d634d"
+    },
+    "failure.json": {
+      "exception_type": "AssertionError",
+      "known_stage": "owned calculation timed out or failed",
+      "locations": [
+        {
+          "file": "crop_greenhouse_solar_unpaused_smoke.py",
+          "function": "exercise",
+          "line": 133
+        },
+        {
+          "file": "crop-greenhouse-solar-unpaused-probe.py",
+          "function": "exercise",
+          "line": 210
+        }
+      ],
+      "original_normal_accepted": false
+    },
+    "resource.json": {
+      "FD_before_after": [
+        7,
+        7
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1438,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 368865280,
+      "hosted_only": true,
+      "local_protected_roots_present": false,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "rights_or_gate_approval": false,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 127197184,
+      "temporary_entries_remaining": 0,
+      "wall_seconds": 383.17725096
+    },
+    "worker-progress-diagnostics.json": {
+      "collected_monotonic": 618.849633647,
+      "diagnostic_only": true,
+      "normal_execution_accepted": false,
+      "phases": {
+        "G0_G4": "not_assessed",
+        "active_phases": [
+          {
+            "phase": "worker.run_once",
+            "started_elapsed_seconds": 3.4395418659999564
+          },
+          {
+            "phase": "worker._custody_call",
+            "started_elapsed_seconds": 358.690163785
+          },
+          {
+            "phase": "custody.SolarServerCustody.advance",
+            "started_elapsed_seconds": 358.6906115329999
+          }
+        ],
+        "detail": "phases",
+        "dropped_recent_events": 57003,
+        "last_adopted": null,
+        "last_advanced": {
+          "computed_through_utc": "2026-10-01T00:00:34.123456Z",
+          "planned_steps": 64,
+          "status": "yielded",
+          "steps": 17
+        },
+        "last_confirmed": {
+          "computed_through_utc": "2026-10-01T00:00:34.123456Z",
+          "planned_steps": 64,
+          "status": "yielded",
+          "steps": 17
+        },
+        "last_observed_monotonic": 618.826824467,
+        "normal_execution_accepted": false,
+        "observation_only": true,
+        "outcome": null,
+        "phase_totals": {
+          "binding.SolarFarmBinding._guard": {
+            "calls": 1637,
+            "exception_events": 0,
+            "inclusive_seconds": 5.708919396998624,
+            "max_inclusive_seconds": 0.008485507999921538,
+            "returns": 1637
+          },
+          "binding.SolarFarmBinding._input": {
+            "calls": 734,
+            "exception_events": 0,
+            "inclusive_seconds": 44.076034585000855,
+            "max_inclusive_seconds": 0.11862501099994915,
+            "returns": 734
+          },
+          "binding.SolarFarmBinding._registration": {
+            "calls": 734,
+            "exception_events": 0,
+            "inclusive_seconds": 273.8175328779999,
+            "max_inclusive_seconds": 0.7505958350000128,
+            "returns": 734
+          },
+          "binding.SolarFarmBinding.current": {
+            "calls": 366,
+            "exception_events": 0,
+            "inclusive_seconds": 324.3316179209995,
+            "max_inclusive_seconds": 1.602794170999914,
+            "returns": 366
+          },
+          "compiler.compile_farm_inputs": {
+            "calls": 113,
+            "exception_events": 0,
+            "inclusive_seconds": 0.8496712169997522,
+            "max_inclusive_seconds": 0.011858888999995543,
+            "returns": 113
+          },
+          "custody.SolarServerCustody._open.<locals>.prepare": {
+            "calls": 18,
+            "exception_events": 0,
+            "inclusive_seconds": 29.88620081099998,
+            "max_inclusive_seconds": 1.8030424980000248,
+            "returns": 18
+          },
+          "custody.SolarServerCustody.advance": {
+            "calls": 19,
+            "exception_events": 0,
+            "inclusive_seconds": 189.17295905600014,
+            "max_inclusive_seconds": 12.955474469000023,
+            "returns": 18
+          },
+          "custody._Session._guard": {
+            "calls": 291,
+            "exception_events": 0,
+            "inclusive_seconds": 239.0153127679988,
+            "max_inclusive_seconds": 1.2780924720000257,
+            "returns": 291
+          },
+          "custody._Session._load": {
+            "calls": 89,
+            "exception_events": 0,
+            "inclusive_seconds": 10.045387334999987,
+            "max_inclusive_seconds": 0.22765484400008518,
+            "returns": 89
+          },
+          "custody._Session.advance": {
+            "calls": 18,
+            "exception_events": 0,
+            "inclusive_seconds": 169.40513143699985,
+            "max_inclusive_seconds": 11.898589629000014,
+            "returns": 18
+          },
+          "custody._Session.progress": {
+            "calls": 54,
+            "exception_events": 0,
+            "inclusive_seconds": 95.28744714699957,
+            "max_inclusive_seconds": 2.0034244819999003,
+            "returns": 54
+          },
+          "evidence.SolarInputEvidenceAuthority.verify": {
+            "calls": 752,
+            "exception_events": 0,
+            "inclusive_seconds": 27.247837002998608,
+            "max_inclusive_seconds": 0.07995425699999714,
+            "returns": 752
+          },
+          "farm.FarmAuthoringService._find": {
+            "calls": 1468,
+            "exception_events": 0,
+            "inclusive_seconds": 35.40985105100236,
+            "max_inclusive_seconds": 0.04800941899998179,
+            "returns": 1468
+          },
+          "farm.FarmAuthoringService._guard": {
+            "calls": 19046,
+            "exception_events": 0,
+            "inclusive_seconds": 12.726744043996575,
+            "max_inclusive_seconds": 0.006068882999954894,
+            "returns": 19046
+          },
+          "farm.FarmAuthoringService._prepare": {
+            "calls": 113,
+            "exception_events": 0,
+            "inclusive_seconds": 64.37043372900052,
+            "max_inclusive_seconds": 0.6619436759999644,
+            "returns": 113
+          },
+          "farm.FarmAuthoringService.read_registration": {
+            "calls": 734,
+            "exception_events": 0,
+            "inclusive_seconds": 253.33500450899902,
+            "max_inclusive_seconds": 0.7054507650000232,
+            "returns": 734
+          },
+          "model.advance_chunk": {
+            "calls": 18,
+            "exception_events": 0,
+            "inclusive_seconds": 1.3931602659999385,
+            "max_inclusive_seconds": 0.1275118690000454,
+            "returns": 18
+          },
+          "model.prepare_context": {
+            "calls": 18,
+            "exception_events": 0,
+            "inclusive_seconds": 0.22529229000002715,
+            "max_inclusive_seconds": 0.015553742000008697,
+            "returns": 18
+          },
+          "model.restore_checkpoint": {
+            "calls": 17,
+            "exception_events": 0,
+            "inclusive_seconds": 0.28634500599980584,
+            "max_inclusive_seconds": 0.02164192799995135,
+            "returns": 17
+          },
+          "research.OwnedResearchService.authority_snapshot": {
+            "calls": 734,
+            "exception_events": 0,
+            "inclusive_seconds": 19.863125811000657,
+            "max_inclusive_seconds": 0.05777710699999261,
+            "returns": 734
+          },
+          "thermal.ThermalRunStore.get_decision_context": {
+            "calls": 734,
+            "exception_events": 0,
+            "inclusive_seconds": 17.179895181000177,
+            "max_inclusive_seconds": 0.046473719000005076,
+            "returns": 734
+          },
+          "thermal.ThermalRunStore.get_snapshot": {
+            "calls": 734,
+            "exception_events": 0,
+            "inclusive_seconds": 17.383221821999882,
+            "max_inclusive_seconds": 0.04527160500003902,
+            "returns": 734
+          },
+          "worker._adopt": {
+            "calls": 1,
+            "exception_events": 0,
+            "inclusive_seconds": 1.679318511999952,
+            "max_inclusive_seconds": 1.679318511999952,
+            "returns": 1
+          },
+          "worker._before": {
+            "calls": 20,
+            "exception_events": 0,
+            "inclusive_seconds": 31.70858649399986,
+            "max_inclusive_seconds": 1.76458749599999,
+            "returns": 20
+          },
+          "worker._confirm": {
+            "calls": 18,
+            "exception_events": 0,
+            "inclusive_seconds": 132.5179916859998,
+            "max_inclusive_seconds": 7.975482147999969,
+            "returns": 18
+          },
+          "worker._custody_call": {
+            "calls": 38,
+            "exception_events": 0,
+            "inclusive_seconds": 323.41598145000023,
+            "max_inclusive_seconds": 12.957340863000013,
+            "returns": 37
+          },
+          "worker.run_once": {
+            "calls": 1,
+            "exception_events": 0,
+            "inclusive_seconds": 0.0,
+            "max_inclusive_seconds": 0.0,
+            "returns": 0
+          }
+        },
+        "recent_events": [
+          {
+            "elapsed_seconds": 358.066297524,
+            "event": "call",
+            "phase": "thermal.ThermalRunStore.get_decision_context"
+          },
+          {
+            "elapsed_seconds": 358.09855943799994,
+            "event": "return",
+            "inclusive_seconds": 0.032261913999946046,
+            "phase": "thermal.ThermalRunStore.get_decision_context"
+          },
+          {
+            "elapsed_seconds": 358.101189803,
+            "event": "return",
+            "inclusive_seconds": 0.03623961200003123,
+            "phase": "research.OwnedResearchService.authority_snapshot"
+          },
+          {
+            "elapsed_seconds": 358.10161221399994,
+            "event": "call",
+            "phase": "thermal.ThermalRunStore.get_snapshot"
+          },
+          {
+            "elapsed_seconds": 358.14025713,
+            "event": "return",
+            "inclusive_seconds": 0.03864491600006659,
+            "phase": "thermal.ThermalRunStore.get_snapshot"
+          },
+          {
+            "elapsed_seconds": 358.571686149,
+            "event": "call",
+            "phase": "compiler.compile_farm_inputs"
+          },
+          {
+            "elapsed_seconds": 358.578131567,
+            "event": "return",
+            "inclusive_seconds": 0.006445417999998426,
+            "phase": "compiler.compile_farm_inputs"
+          },
+          {
+            "elapsed_seconds": 358.57873966499994,
+            "event": "return",
+            "inclusive_seconds": 0.5461361979999992,
+            "phase": "farm.FarmAuthoringService._prepare"
+          },
+          {
+            "elapsed_seconds": 358.58212717799995,
+            "event": "call",
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.5827186949999,
+            "event": "return",
+            "inclusive_seconds": 0.0005915169999752834,
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.583288863,
+            "event": "return",
+            "inclusive_seconds": 0.5874224699999786,
+            "phase": "farm.FarmAuthoringService.read_registration"
+          },
+          {
+            "elapsed_seconds": 358.583684975,
+            "event": "call",
+            "phase": "farm.FarmAuthoringService._find"
+          },
+          {
+            "elapsed_seconds": 358.616602544,
+            "event": "return",
+            "inclusive_seconds": 0.03291756900000564,
+            "phase": "farm.FarmAuthoringService._find"
+          },
+          {
+            "elapsed_seconds": 358.619877566,
+            "event": "return",
+            "inclusive_seconds": 0.624409488000083,
+            "phase": "binding.SolarFarmBinding._registration"
+          },
+          {
+            "elapsed_seconds": 358.62037448599995,
+            "event": "call",
+            "phase": "binding.SolarFarmBinding._guard"
+          },
+          {
+            "elapsed_seconds": 358.62267079599997,
+            "event": "call",
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.62327748199993,
+            "event": "return",
+            "inclusive_seconds": 0.0006066859999691587,
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.623631274,
+            "event": "return",
+            "inclusive_seconds": 0.003256788000044253,
+            "phase": "binding.SolarFarmBinding._guard"
+          },
+          {
+            "elapsed_seconds": 358.62434465,
+            "event": "return",
+            "inclusive_seconds": 1.402703185000064,
+            "phase": "binding.SolarFarmBinding.current"
+          },
+          {
+            "elapsed_seconds": 358.63071475699996,
+            "event": "call",
+            "phase": "binding.SolarFarmBinding._guard"
+          },
+          {
+            "elapsed_seconds": 358.632753784,
+            "event": "call",
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.63333571399994,
+            "event": "return",
+            "inclusive_seconds": 0.0005819299999529903,
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.633678195,
+            "event": "return",
+            "inclusive_seconds": 0.0029634380000516103,
+            "phase": "binding.SolarFarmBinding._guard"
+          },
+          {
+            "elapsed_seconds": 358.68934275699996,
+            "event": "return",
+            "inclusive_seconds": 1.5401984809999476,
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 358.690163785,
+            "event": "call",
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 358.6906115329999,
+            "event": "call",
+            "phase": "custody.SolarServerCustody.advance"
+          },
+          {
+            "elapsed_seconds": 358.697352875,
+            "event": "call",
+            "phase": "binding.SolarFarmBinding._guard"
+          },
+          {
+            "elapsed_seconds": 358.699524872,
+            "event": "call",
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.70014056499997,
+            "event": "return",
+            "inclusive_seconds": 0.000615692999986095,
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.7004811119999,
+            "event": "return",
+            "inclusive_seconds": 0.0031282369999416915,
+            "phase": "binding.SolarFarmBinding._guard"
+          },
+          {
+            "elapsed_seconds": 358.70212621199994,
+            "event": "call",
+            "phase": "farm.FarmAuthoringService._guard"
+          },
+          {
+            "elapsed_seconds": 358.702654411,
+            "event": "return",
+            "inclusive_seconds": 0.0005281990000867154,
+            "phase": "farm.FarmAuthoringService._guard"
+          }
+        ],
+        "time_scope": "inclusive monotonic seconds; observer overhead included; nested durations overlap",
+        "trace_installed_monotonic": 260.124170056,
+        "version": "solar-worker-progress-observation-v2"
+      },
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39250605987",
+      "source_commit": "f403b546ec1cc4d6b3f061b60e0fe74a052d634d",
+      "trace_header_sha256": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373",
+      "worker_script_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8"
+    }
+  },
+  "local_quantum": {
+    "case": "focused-registration-worker-quantum-cost-v1",
+    "evidence": {
+      "G0_G4": "not_assessed",
+      "actual_farm_Runs": 0,
+      "app_source_changed": false,
+      "normal64_accepted": false,
+      "original_confirmed_UTC": "2026-10-01T00:00:04.123456Z",
+      "phases": {
+        "advance": {
+          "SQL": {
+            "app.farm_authoring_storage._find": {
+              "calls": 48,
+              "execute_seconds": 0.02979894198506372
+            },
+            "app.job_store._locked_job": {
+              "calls": 24,
+              "execute_seconds": 0.012251112966623623
+            },
+            "app.market_candidate_store._candidate_in_transaction": {
+              "calls": 96,
+              "execute_seconds": 0.033112145007180516
+            },
+            "app.market_candidate_store._checked_candidate": {
+              "calls": 48,
+              "execute_seconds": 0.030952164008340333
+            },
+            "app.market_candidate_store._input_in_transaction": {
+              "calls": 816,
+              "execute_seconds": 0.21896457797993207
+            },
+            "app.market_candidate_store._shared_reader": {
+              "calls": 720,
+              "execute_seconds": 0.13539629806473386
+            },
+            "app.market_hold_store._report_row": {
+              "calls": 72,
+              "execute_seconds": 0.02236693200393347
+            },
+            "app.market_source_store._select_with_job": {
+              "calls": 1824,
+              "execute_seconds": 0.6139682590801385
+            },
+            "app.market_source_store.read_scope": {
+              "calls": 24,
+              "execute_seconds": 0.007604271988384426
+            },
+            "app.runtime_connection_scope._session": {
+              "calls": 288,
+              "execute_seconds": 0.07663560499349842
+            },
+            "app.runtime_login.verify_runtime_identity": {
+              "calls": 504,
+              "execute_seconds": 0.15645613094238797
+            },
+            "app.runtime_roles._database": {
+              "calls": 183,
+              "execute_seconds": 0.05338247896725079
+            },
+            "app.runtime_roles._scope": {
+              "calls": 915,
+              "execute_seconds": 0.36513259494677186
+            },
+            "app.runtime_roles.audit_runtime_roles": {
+              "calls": 1647,
+              "execute_seconds": 1.770140410757449
+            },
+            "app.thermal_run_store._decision_context_in_transaction": {
+              "calls": 168,
+              "execute_seconds": 0.05307350809016498
+            },
+            "app.thermal_run_store.get_snapshot": {
+              "calls": 24,
+              "execute_seconds": 0.014451437993557192
+            }
+          },
+          "functions": {
+            "app.farm_authoring_storage._prepare": {
+              "calls": 1,
+              "inclusive_seconds": 0.620438126999943
+            },
+            "app.farm_registration_read_scope._current": {
+              "calls": 23,
+              "inclusive_seconds": 7.871318111967412
+            },
+            "app.farm_registration_read_scope.read": {
+              "calls": 24,
+              "inclusive_seconds": 8.761550054994586
+            },
+            "app.market_candidate_store._shared_reader": {
+              "calls": 360,
+              "inclusive_seconds": 1.1063631179567892
+            },
+            "app.market_reference_bundle.fingerprint": {
+              "calls": 2112,
+              "inclusive_seconds": 0.26059059816179797
+            },
+            "app.market_source_store._model": {
+              "calls": 1824,
+              "inclusive_seconds": 1.0066034949559253
+            },
+            "app.market_source_store._verified": {
+              "calls": 1824,
+              "inclusive_seconds": 1.0417018160878797
+            },
+            "app.runtime_connection_scope._client": {
+              "calls": 432,
+              "inclusive_seconds": 0.2541288899592473
+            },
+            "app.runtime_connection_scope._session": {
+              "calls": 288,
+              "inclusive_seconds": 0.083315158066398
+            },
+            "app.runtime_connection_scope.check": {
+              "calls": 578,
+              "inclusive_seconds": 0.22698323098302353
+            },
+            "app.runtime_login.connect_runtime": {
+              "calls": 144,
+              "inclusive_seconds": 0.5002749839841272
+            },
+            "app.runtime_roles.audit_runtime_roles": {
+              "calls": 183,
+              "inclusive_seconds": 2.4252509220241336
+            }
+          },
+          "profiled_wall_seconds": 11.548157551995246
+        },
+        "before": {
+          "SQL": {
+            "app.crop_greenhouse_solar_execution_checkpoint._lease": {
+              "calls": 2,
+              "execute_seconds": 0.002895008001360111
+            },
+            "app.farm_authoring_storage._find": {
+              "calls": 4,
+              "execute_seconds": 0.003764822999073658
+            },
+            "app.job_store._event": {
+              "calls": 1,
+              "execute_seconds": 0.0007893129950389266
+            },
+            "app.job_store._locked_job": {
+              "calls": 3,
+              "execute_seconds": 0.002380808007728774
+            },
+            "app.job_store._renew_in_transaction": {
+              "calls": 1,
+              "execute_seconds": 0.0015039879945106804
+            },
+            "app.market_candidate_store._candidate_in_transaction": {
+              "calls": 8,
+              "execute_seconds": 0.00406091599870706
+            },
+            "app.market_candidate_store._checked_candidate": {
+              "calls": 4,
+              "execute_seconds": 0.00336605900520226
+            },
+            "app.market_candidate_store._input_in_transaction": {
+              "calls": 68,
+              "execute_seconds": 0.02037578403542284
+            },
+            "app.market_candidate_store._shared_reader": {
+              "calls": 60,
+              "execute_seconds": 0.012176367970823776
+            },
+            "app.market_hold_store._report_row": {
+              "calls": 6,
+              "execute_seconds": 0.002653169009136036
+            },
+            "app.market_source_store._select_with_job": {
+              "calls": 152,
+              "execute_seconds": 0.05925936695712153
+            },
+            "app.market_source_store.read_scope": {
+              "calls": 2,
+              "execute_seconds": 0.0005615210102405399
+            },
+            "app.runtime_login.verify_runtime_identity": {
+              "calls": 44,
+              "execute_seconds": 0.018710795004153624
+            },
+            "app.runtime_roles._database": {
+              "calls": 46,
+              "execute_seconds": 0.012225681981362868
+            },
+            "app.runtime_roles._scope": {
+              "calls": 230,
+              "execute_seconds": 0.1274197310413001
+            },
+            "app.runtime_roles.audit_runtime_roles": {
+              "calls": 414,
+              "execute_seconds": 0.5169140800426248
+            },
+            "app.thermal_run_store._decision_context_in_transaction": {
+              "calls": 14,
+              "execute_seconds": 0.006218474984052591
+            },
+            "app.thermal_run_store.get_snapshot": {
+              "calls": 2,
+              "execute_seconds": 0.0018474969983799383
+            }
+          },
+          "functions": {
+            "app.farm_authoring_storage._prepare": {
+              "calls": 2,
+              "inclusive_seconds": 1.3039797309975256
+            },
+            "app.market_candidate_store._shared_reader": {
+              "calls": 30,
+              "inclusive_seconds": 0.09657044101913925
+            },
+            "app.market_source_store._model": {
+              "calls": 152,
+              "inclusive_seconds": 0.08359663200826617
+            },
+            "app.market_source_store._verified": {
+              "calls": 152,
+              "inclusive_seconds": 0.08678643196617486
+            },
+            "app.runtime_login.connect_runtime": {
+              "calls": 14,
+              "inclusive_seconds": 0.10226536500704242
+            },
+            "app.runtime_roles.audit_runtime_roles": {
+              "calls": 46,
+              "inclusive_seconds": 0.7184985859857989
+            }
+          },
+          "profiled_wall_seconds": 1.7301331920025405
+        },
+        "confirm": {
+          "SQL": {
+            "app.crop_greenhouse_solar_execution_checkpoint._history": {
+              "calls": 2,
+              "execute_seconds": 0.0016617609944660217
+            },
+            "app.crop_greenhouse_solar_execution_checkpoint._lease": {
+              "calls": 3,
+              "execute_seconds": 0.0028625519989873283
+            },
+            "app.crop_greenhouse_solar_execution_checkpoint.confirm": {
+              "calls": 1,
+              "execute_seconds": 0.0007686120006837882
+            },
+            "app.farm_authoring_storage._find": {
+              "calls": 28,
+              "execute_seconds": 0.018571676009742077
+            },
+            "app.job_store._locked_job": {
+              "calls": 14,
+              "execute_seconds": 0.00842963501054328
+            },
+            "app.market_candidate_store._candidate_in_transaction": {
+              "calls": 56,
+              "execute_seconds": 0.02165631397656398
+            },
+            "app.market_candidate_store._checked_candidate": {
+              "calls": 28,
+              "execute_seconds": 0.019673691989737563
+            },
+            "app.market_candidate_store._input_in_transaction": {
+              "calls": 476,
+              "execute_seconds": 0.13249742993502878
+            },
+            "app.market_candidate_store._shared_reader": {
+              "calls": 420,
+              "execute_seconds": 0.0788690881090588
+            },
+            "app.market_hold_store._report_row": {
+              "calls": 42,
+              "execute_seconds": 0.013879206009733025
+            },
+            "app.market_source_store._select_with_job": {
+              "calls": 1064,
+              "execute_seconds": 0.36556385011499515
+            },
+            "app.market_source_store.read_scope": {
+              "calls": 14,
+              "execute_seconds": 0.004384099003800657
+            },
+            "app.runtime_connection_scope._session": {
+              "calls": 144,
+              "execute_seconds": 0.038335958000971004
+            },
+            "app.runtime_login.verify_runtime_identity": {
+              "calls": 295,
+              "execute_seconds": 0.09363108698016731
+            },
+            "app.runtime_roles._database": {
+              "calls": 144,
+              "execute_seconds": 0.03889509996952256
+            },
+            "app.runtime_roles._scope": {
+              "calls": 720,
+              "execute_seconds": 0.32298322004498914
+            },
+            "app.runtime_roles.audit_runtime_roles": {
+              "calls": 1296,
+              "execute_seconds": 1.4659610539602
+            },
+            "app.thermal_run_store._decision_context_in_transaction": {
+              "calls": 98,
+              "execute_seconds": 0.03294407096109353
+            },
+            "app.thermal_run_store.get_snapshot": {
+              "calls": 14,
+              "execute_seconds": 0.009403474010468926
+            }
+          },
+          "functions": {
+            "app.farm_authoring_storage._prepare": {
+              "calls": 3,
+              "inclusive_seconds": 1.9319684609945398
+            },
+            "app.farm_registration_read_scope._current": {
+              "calls": 11,
+              "inclusive_seconds": 3.7456718260000343
+            },
+            "app.farm_registration_read_scope.read": {
+              "calls": 12,
+              "inclusive_seconds": 4.54290557596687
+            },
+            "app.market_candidate_store._shared_reader": {
+              "calls": 210,
+              "inclusive_seconds": 0.6549207210118766
+            },
+            "app.market_reference_bundle.fingerprint": {
+              "calls": 1056,
+              "inclusive_seconds": 0.1299560400802875
+            },
+            "app.market_source_store._model": {
+              "calls": 1064,
+              "inclusive_seconds": 0.5851849850732833
+            },
+            "app.market_source_store._verified": {
+              "calls": 1064,
+              "inclusive_seconds": 0.6061001920243143
+            },
+            "app.runtime_connection_scope._client": {
+              "calls": 216,
+              "inclusive_seconds": 0.12632640204537893
+            },
+            "app.runtime_connection_scope._session": {
+              "calls": 144,
+              "inclusive_seconds": 0.04172388396546012
+            },
+            "app.runtime_connection_scope.check": {
+              "calls": 290,
+              "inclusive_seconds": 0.11166331310232636
+            },
+            "app.runtime_login.connect_runtime": {
+              "calls": 85,
+              "inclusive_seconds": 0.3378085730219027
+            },
+            "app.runtime_roles.audit_runtime_roles": {
+              "calls": 144,
+              "inclusive_seconds": 2.018547402934928
+            }
+          },
+          "profiled_wall_seconds": 7.746714285996859
+        }
+      },
+      "rights_or_gate_approval": false,
+      "scope": "one actual before/advance/confirm quantum; instrumentation costs included; inclusive function times overlap and must not be summed; not throughput acceptance",
+      "steps": 2
+    },
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 1002332160,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 55.6516531429952
+    },
+    "source_commit": "63b30147c9a8ed7cf14e865a67133ed76713fec8",
+    "source_sha256": {
+      "backend/app/crop_greenhouse_solar_execution_checkpoint.py": "5cc224dabbc74f53627d82f7ceb98ac566e1959c707acac0bb9ff4725af8aa49",
+      "backend/app/crop_greenhouse_solar_execution_worker.py": "a03ef72277169bc96759528cc895da28e2ea70fed63689625ee3410517d510ef",
+      "backend/app/crop_greenhouse_solar_server_custody.py": "ec175e16dd03d2f9546284e2ccafab9201b70e7a9a7ec2969253dcf9e4b4f34a",
+      "backend/app/farm_authoring_storage.py": "96ec01beb3e39d7bb0f5b0896824f6208a3219fb926e6ab860c42a6297b57966",
+      "backend/app/farm_registration_read_scope.py": "cbbfb1ef7da1cfb26cb3f2e8d78e80e8a940a30ebdf5186abbef8b70cea3cbe1",
+      "backend/app/market_source_store.py": "4e81a33032f68a53b84f81beb7df1b6408d080facf78b53acb0d16497a109254",
+      "backend/app/runtime_connection_scope.py": "d983e38331ceab33509eab63a2bf4120fc5a725fcbfb401f655d1859f03c5a2c",
+      "backend/app/runtime_login.py": "dffdcee5f410ab56465e60ff4227f2dbe3e2dc0846f51658fc50a73033000aa8",
+      "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+      "backend/tests/test_registration_connection_lifetime.py": "014ca84a1a7174cc06a9ec618e7579ad7e74d57d36c0beac73f82ff919861d0d"
+    },
+    "test_source_sha256": "a970ddcfb79db0b5a70a008a4ee3d2d355002893105ad15216324befed885749"
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T12:39:33.316Z",
+    "turn_context_sha256": "3860478f41c621be02760bdfa6502caba6fab4d235f635c92cb933c47d4231bc"
+  },
+  "new_solar_deployed": false,
+  "normal64_accepted": false,
+  "raw_evidence_sha256": {
+    "actor-diagnostics.json": "efbaf21ff36539ce1c98a2855350c62cf2dcbc2fb0f88e06674a2a9567abcfc7",
+    "failure-checkpoint-diagnostics.json": "cee8bbf8b170eec939007167c5bd275b197af680b30269c340ab90dfdd7f24c8",
+    "failure.json": "caeef10a9162d92609cde8d7f0459a8b7e469119a2d13e2ea63663f3c9bd6d3e",
+    "resource.json": "e74263670efa576ef21599ee0a16a664f1c6de8660e16ee61ca8e732d53029bd",
+    "worker-progress-diagnostics.json": "345cd27e49d8eed7ba1e59637ccafef2764efb1a6f52277643b94654457c1d15"
+  },
+  "rights_or_gate_approval": false,
+  "run_id": 39250605987,
+  "scope": "bounded hosted diagnostic and one local instrumented quantum; inclusive times overlap; no throughput comparison",
+  "source_commit": "f403b546ec1cc4d6b3f061b60e0fe74a052d634d"
+}

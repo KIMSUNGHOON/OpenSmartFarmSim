@@ -1,0 +1,885 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "excluded_attempts": [
+    "focused-solar-checkpoint-scope-red-v1: invalid parametrized selector; no tests",
+    "focused-solar-checkpoint-scope-red-v2: wrong relative path; no tests",
+    "focused-solar-checkpoint-scope-red-v3: expected observed reconstruction2 !=1",
+    "focused-solar-checkpoint-scope-green-v1: three expected denial exception classes incomplete; not adopted"
+  ],
+  "exclusive_profile": {
+    "case": "focused-checkpoint-quantum-exclusive-profile-v1",
+    "diagnostic_only": true,
+    "evidence": {
+      "G0_G4": "not_assessed",
+      "actual_farm_Runs": 0,
+      "app_source_changed": false,
+      "new_solar_deployed": false,
+      "normal64_accepted": false,
+      "original_confirmed_UTC": "2026-10-01T00:00:04.123456Z",
+      "profiled_wall_seconds": 14.109948723998968,
+      "rights_or_gate_approval": false,
+      "scope": "one actual current-source before/advance/confirm quantum; cProfile overhead included; inclusive times overlap; exclusive profile attribution only; not throughput acceptance",
+      "steps": 2,
+      "top_exclusive": [
+        {
+          "exclusive_seconds": 3.028975065,
+          "file": "dependency/connection.py",
+          "function": "wait",
+          "inclusive_seconds": 5.460483993,
+          "line": 479,
+          "primitive_calls": 13648,
+          "total_calls": 13648
+        },
+        {
+          "exclusive_seconds": 0.950168349,
+          "file": "stdlib/encoder.py",
+          "function": "iterencode",
+          "inclusive_seconds": 0.9961434330000001,
+          "line": 205,
+          "primitive_calls": 12516,
+          "total_calls": 12516
+        },
+        {
+          "exclusive_seconds": 0.729313092,
+          "file": "dependency/_connection_info.py",
+          "function": "get_parameters",
+          "inclusive_seconds": 1.1888267780000001,
+          "line": 78,
+          "primitive_calls": 3963,
+          "total_calls": 3963
+        },
+        {
+          "exclusive_seconds": 0.472120024,
+          "file": "dependency/_cursor_base.py",
+          "function": "_send_query_prepared",
+          "inclusive_seconds": 0.472120024,
+          "line": 583,
+          "primitive_calls": 12302,
+          "total_calls": 12302
+        },
+        {
+          "exclusive_seconds": 0.453760184,
+          "file": "stdlib/decoder.py",
+          "function": "raw_decode",
+          "inclusive_seconds": 0.7866113650000001,
+          "line": 343,
+          "primitive_calls": 3053,
+          "total_calls": 3053
+        },
+        {
+          "exclusive_seconds": 0.29250183900000004,
+          "file": "dependency/_cursor_base.py",
+          "function": "_maybe_prepare_gen",
+          "inclusive_seconds": 1.190988237,
+          "line": 275,
+          "primitive_calls": 26544,
+          "total_calls": 26544
+        },
+        {
+          "exclusive_seconds": 0.288385959,
+          "file": "builtin",
+          "function": "<built-in method builtins.isinstance>",
+          "inclusive_seconds": 0.31729036600000005,
+          "line": 0,
+          "primitive_calls": 2066515,
+          "total_calls": 2066515
+        },
+        {
+          "exclusive_seconds": 0.285465607,
+          "file": "stdlib/copy.py",
+          "function": "deepcopy",
+          "inclusive_seconds": 0.6290465230000001,
+          "line": 118,
+          "primitive_calls": 3502,
+          "total_calls": 288608
+        },
+        {
+          "exclusive_seconds": 0.259925512,
+          "file": "backend/app/crop_cycle_input_stream.py",
+          "function": "pairs",
+          "inclusive_seconds": 0.32950527300000004,
+          "line": 46,
+          "primitive_calls": 421867,
+          "total_calls": 421867
+        },
+        {
+          "exclusive_seconds": 0.240847473,
+          "file": "backend/app/jobs.py",
+          "function": "_validate_input_fields",
+          "inclusive_seconds": 0.576863089,
+          "line": 37,
+          "primitive_calls": 3226,
+          "total_calls": 125658
+        },
+        {
+          "exclusive_seconds": 0.188161147,
+          "file": "builtin",
+          "function": "<method 'search' of 're.Pattern' objects>",
+          "inclusive_seconds": 0.188161147,
+          "line": 0,
+          "primitive_calls": 290565,
+          "total_calls": 290565
+        },
+        {
+          "exclusive_seconds": 0.17765519500000002,
+          "file": "builtin",
+          "function": "<built-in method _hashlib.openssl_sha256>",
+          "inclusive_seconds": 0.17765519500000002,
+          "line": 0,
+          "primitive_calls": 31474,
+          "total_calls": 31474
+        },
+        {
+          "exclusive_seconds": 0.17394663500000002,
+          "file": "backend/app/economic_contracts.py",
+          "function": "untrusted_data",
+          "inclusive_seconds": 0.28504221,
+          "line": 394,
+          "primitive_calls": 8644,
+          "total_calls": 230468
+        },
+        {
+          "exclusive_seconds": 0.165539176,
+          "file": "backend/app/provenance.py",
+          "function": "<genexpr>",
+          "inclusive_seconds": 0.235509833,
+          "line": 14,
+          "primitive_calls": 1262175,
+          "total_calls": 1262175
+        },
+        {
+          "exclusive_seconds": 0.148803834,
+          "file": "builtin",
+          "function": "<built-in method _io.open>",
+          "inclusive_seconds": 0.23745138600000001,
+          "line": 0,
+          "primitive_calls": 17035,
+          "total_calls": 17035
+        },
+        {
+          "exclusive_seconds": 0.147675321,
+          "file": "builtin",
+          "function": "<built-in method builtins.all>",
+          "inclusive_seconds": 0.545969296,
+          "line": 0,
+          "primitive_calls": 85113,
+          "total_calls": 94816
+        },
+        {
+          "exclusive_seconds": 0.14605769300000002,
+          "file": "builtin",
+          "function": "<method 'get' of 'dict' objects>",
+          "inclusive_seconds": 0.14605769300000002,
+          "line": 0,
+          "primitive_calls": 896425,
+          "total_calls": 896425
+        },
+        {
+          "exclusive_seconds": 0.14598391800000002,
+          "file": "dependency/array.py",
+          "function": "dump_list",
+          "inclusive_seconds": 0.41421171,
+          "line": 161,
+          "primitive_calls": 7363,
+          "total_calls": 7363
+        },
+        {
+          "exclusive_seconds": 0.137548911,
+          "file": "builtin",
+          "function": "<method 'validate_json' of 'pydantic_core._pydantic_core.SchemaValidator' objects>",
+          "inclusive_seconds": 0.604719301,
+          "line": 0,
+          "primitive_calls": 4289,
+          "total_calls": 4289
+        },
+        {
+          "exclusive_seconds": 0.11522107100000001,
+          "file": "builtin",
+          "function": "<built-in method builtins.any>",
+          "inclusive_seconds": 1.084837811,
+          "line": 0,
+          "primitive_calls": 81715,
+          "total_calls": 81715
+        },
+        {
+          "exclusive_seconds": 0.115018932,
+          "file": "dependency/_cursor_base.py",
+          "function": "_select_current_result",
+          "inclusive_seconds": 0.283380723,
+          "line": 504,
+          "primitive_calls": 12919,
+          "total_calls": 12919
+        },
+        {
+          "exclusive_seconds": 0.10227295800000001,
+          "file": "builtin",
+          "function": "<method 'to_python' of 'pydantic_core._pydantic_core.SchemaSerializer' objects>",
+          "inclusive_seconds": 0.10227295800000001,
+          "line": 0,
+          "primitive_calls": 9502,
+          "total_calls": 9502
+        },
+        {
+          "exclusive_seconds": 0.09637720400000001,
+          "file": "builtin",
+          "function": "<built-in method builtins.ord>",
+          "inclusive_seconds": 0.09637720400000001,
+          "line": 0,
+          "primitive_calls": 1567178,
+          "total_calls": 1567178
+        },
+        {
+          "exclusive_seconds": 0.09343636200000001,
+          "file": "builtin",
+          "function": "<built-in method __new__ of type object at <address>>",
+          "inclusive_seconds": 0.09343636200000001,
+          "line": 0,
+          "primitive_calls": 467865,
+          "total_calls": 467865
+        },
+        {
+          "exclusive_seconds": 0.08508508000000001,
+          "file": "stdlib/copy.py",
+          "function": "_deepcopy_dict",
+          "inclusive_seconds": 0.6162592480000001,
+          "line": 217,
+          "primitive_calls": 3500,
+          "total_calls": 16675
+        },
+        {
+          "exclusive_seconds": 0.07870845300000001,
+          "file": "builtin",
+          "function": "<method 'append' of 'list' objects>",
+          "inclusive_seconds": 0.07870845300000001,
+          "line": 0,
+          "primitive_calls": 473791,
+          "total_calls": 473791
+        },
+        {
+          "exclusive_seconds": 0.07765577,
+          "file": "dependency/array.py",
+          "function": "_find_list_element",
+          "inclusive_seconds": 0.191519925,
+          "line": 53,
+          "primitive_calls": 11216,
+          "total_calls": 11216
+        },
+        {
+          "exclusive_seconds": 0.07755880100000001,
+          "file": "dependency/_queries.py",
+          "function": "dump",
+          "inclusive_seconds": 0.811465383,
+          "line": 94,
+          "primitive_calls": 12919,
+          "total_calls": 12919
+        },
+        {
+          "exclusive_seconds": 0.07721349500000001,
+          "file": "dependency/_connection_base.py",
+          "function": "_exec_command",
+          "inclusive_seconds": 0.082869254,
+          "line": 443,
+          "primitive_calls": 2916,
+          "total_calls": 2916
+        },
+        {
+          "exclusive_seconds": 0.07648608400000001,
+          "file": "backend/app/runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "inclusive_seconds": 3.7302588400000003,
+          "line": 172,
+          "primitive_calls": 343,
+          "total_calls": 343
+        },
+        {
+          "exclusive_seconds": 0.074218403,
+          "file": "builtin",
+          "function": "<method 'read' of '_io.BufferedReader' objects>",
+          "inclusive_seconds": 0.074218403,
+          "line": 0,
+          "primitive_calls": 17032,
+          "total_calls": 17032
+        },
+        {
+          "exclusive_seconds": 0.073284324,
+          "file": "dependency/array.py",
+          "function": "_flatiter",
+          "inclusive_seconds": 0.10313222200000001,
+          "line": 89,
+          "primitive_calls": 285169,
+          "total_calls": 285169
+        },
+        {
+          "exclusive_seconds": 0.071555746,
+          "file": "stdlib/pathlib.py",
+          "function": "_parse_path",
+          "inclusive_seconds": 0.142972194,
+          "line": 387,
+          "primitive_calls": 23407,
+          "total_calls": 23407
+        },
+        {
+          "exclusive_seconds": 0.07015708200000001,
+          "file": "backend/app/market_source_store.py",
+          "function": "<genexpr>",
+          "inclusive_seconds": 0.07015708200000001,
+          "line": 133,
+          "primitive_calls": 489000,
+          "total_calls": 489000
+        },
+        {
+          "exclusive_seconds": 0.069591385,
+          "file": "backend/app/crop_cycle_input_stream.py",
+          "function": "_need",
+          "inclusive_seconds": 0.069597251,
+          "line": 32,
+          "primitive_calls": 1045839,
+          "total_calls": 1045839
+        },
+        {
+          "exclusive_seconds": 0.06838954,
+          "file": "builtin",
+          "function": "<method 'sub' of 're.Pattern' objects>",
+          "inclusive_seconds": 0.06838954,
+          "line": 0,
+          "primitive_calls": 117868,
+          "total_calls": 117868
+        },
+        {
+          "exclusive_seconds": 0.06620199,
+          "file": "dependency/cursor.py",
+          "function": "fetchone",
+          "inclusive_seconds": 0.09612157,
+          "line": 239,
+          "primitive_calls": 11080,
+          "total_calls": 11080
+        },
+        {
+          "exclusive_seconds": 0.06419720400000001,
+          "file": "backend/app/runtime_roles.py",
+          "function": "_tables",
+          "inclusive_seconds": 0.068299151,
+          "line": 102,
+          "primitive_calls": 62769,
+          "total_calls": 62769
+        },
+        {
+          "exclusive_seconds": 0.063922951,
+          "file": "backend/app/market_source_store.py",
+          "function": "<genexpr>",
+          "inclusive_seconds": 0.09011914,
+          "line": 75,
+          "primitive_calls": 426000,
+          "total_calls": 426000
+        },
+        {
+          "exclusive_seconds": 0.062376405,
+          "file": "dependency/array.py",
+          "function": "_dump_item",
+          "inclusive_seconds": 0.062376405,
+          "line": 188,
+          "primitive_calls": 172574,
+          "total_calls": 172574
+        },
+        {
+          "exclusive_seconds": 0.061640467000000004,
+          "file": "dependency/rows.py",
+          "function": "_get_names",
+          "inclusive_seconds": 0.10911253200000001,
+          "line": 240,
+          "primitive_calls": 12919,
+          "total_calls": 12919
+        },
+        {
+          "exclusive_seconds": 0.058075908,
+          "file": "dependency/sql.py",
+          "function": "format",
+          "inclusive_seconds": 0.1533978,
+          "line": 220,
+          "primitive_calls": 13462,
+          "total_calls": 13462
+        },
+        {
+          "exclusive_seconds": 0.057470081000000006,
+          "file": "builtin",
+          "function": "<method 'decode' of 'bytes' objects>",
+          "inclusive_seconds": 0.057470081000000006,
+          "line": 0,
+          "primitive_calls": 195006,
+          "total_calls": 195006
+        },
+        {
+          "exclusive_seconds": 0.054744647,
+          "file": "dependency/_cursor_base.py",
+          "function": "_execute_gen",
+          "inclusive_seconds": 2.388574867,
+          "line": 195,
+          "primitive_calls": 27273,
+          "total_calls": 27273
+        },
+        {
+          "exclusive_seconds": 0.051794472,
+          "file": "backend/app/provenance.py",
+          "function": "_exact_name",
+          "inclusive_seconds": 0.401109321,
+          "line": 13,
+          "primitive_calls": 76036,
+          "total_calls": 76036
+        },
+        {
+          "exclusive_seconds": 0.051384695,
+          "file": "stdlib/__init__.py",
+          "function": "sub",
+          "inclusive_seconds": 0.186518977,
+          "line": 179,
+          "primitive_calls": 117798,
+          "total_calls": 117798
+        },
+        {
+          "exclusive_seconds": 0.049401689000000006,
+          "file": "dependency/conninfo.py",
+          "function": "_parse_conninfo",
+          "inclusive_seconds": 0.072510592,
+          "line": 92,
+          "primitive_calls": 929,
+          "total_calls": 929
+        },
+        {
+          "exclusive_seconds": 0.047064752,
+          "file": "backend/app/market_source_store.py",
+          "function": "_name",
+          "inclusive_seconds": 0.19765306700000002,
+          "line": 73,
+          "primitive_calls": 48200,
+          "total_calls": 48200
+        },
+        {
+          "exclusive_seconds": 0.044028572,
+          "file": "dependency/_adapters_map.py",
+          "function": "__init__",
+          "inclusive_seconds": 0.058471111000000006,
+          "line": 75,
+          "primitive_calls": 12926,
+          "total_calls": 12926
+        },
+        {
+          "exclusive_seconds": 0.043283051,
+          "file": "stdlib/__init__.py",
+          "function": "_compile",
+          "inclusive_seconds": 0.069065284,
+          "line": 280,
+          "primitive_calls": 120339,
+          "total_calls": 120339
+        }
+      ]
+    },
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 982925312,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 48.6480413439931
+    },
+    "not_added_to_focused20": true,
+    "raw_evidence_sha256": "537095e845cd76bfc318024bc0d21cf21f23d3619ad3e5ce1befc951b8bfc79d",
+    "test_source_sha256": "fe9ce822d48e52c9e4db1048af6ccf508bab754762fdc5c24a357fe1f29438cc"
+  },
+  "final_publication": {
+    "HTML_frozen_both_preserved": true,
+    "HTTP": [
+      {
+        "cache_control": "no-store",
+        "port": 5173,
+        "same_bytes": true,
+        "status": 200
+      },
+      {
+        "cache_control": "no-store",
+        "port": 5174,
+        "same_bytes": true,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "case": "focused-checkpoint-scope-final20-status-v1",
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 896634880,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.3680871129981824
+    },
+    "local_links_checked": 2378,
+    "log_sha256": "672039d6dc33881b39a426a11b2199976bb70cef7bc76273641c127a26df6cfe",
+    "reported_at": "2026-10-19T13:01:35.024336Z",
+    "status_source_sha256": "719d85f647741f2bbbf2a82e11d2782a2a8cd70f5c97e6b79a5594ba211e6818"
+  },
+  "focused_distinct_tests_passed": 20,
+  "functional_tests_passed": 19,
+  "local_scope_adopted": true,
+  "mean_local_wall_reduction_pct": 4.95965554153186,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T12:39:33.316Z",
+    "turn_context_sha256": "3860478f41c621be02760bdfa6502caba6fab4d235f635c92cb933c47d4231bc"
+  },
+  "new_solar_deployed": false,
+  "next_task": "Attribute 3963 ConnectionInfo.get_parameters calls by actual caller, then compare a narrowly equivalent current-parameter access candidate; preserve original role/source/session/factory/UTC checks and reject inconsistent cost improvements. No already-rejected SQL/pipeline/ACL/v4 repeat or unchanged native64 repeat.",
+  "normal64_accepted": false,
+  "paired": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "baseline_source_commit": "63b30147c9a8ed7cf14e865a67133ed76713fec8",
+    "normal64_accepted": false,
+    "original_current_AST_only": true,
+    "rights_or_gate_approval": false,
+    "rows": [
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 80,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 41,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 160,
+          "app.market_candidate_store._checked_candidate": 80,
+          "app.market_candidate_store._input_in_transaction": 1360,
+          "app.market_candidate_store._shared_reader": 1200,
+          "app.market_hold_store._report_row": 120,
+          "app.market_source_store._select_with_job": 3040,
+          "app.market_source_store.read_scope": 40,
+          "app.runtime_connection_scope._session": 432,
+          "app.runtime_login.verify_runtime_identity": 843,
+          "app.runtime_roles._database": 373,
+          "app.runtime_roles._scope": 1865,
+          "app.runtime_roles.audit_runtime_roles": 3357,
+          "app.thermal_run_store._decision_context_in_transaction": 280,
+          "app.thermal_run_store.get_snapshot": 40
+        },
+        "mode": "baseline",
+        "ordered_source_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "physical_connections": 29,
+        "reconstructions": 6,
+        "step": 2,
+        "wall_seconds": 10.184750940003141
+      },
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 80,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 41,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 160,
+          "app.market_candidate_store._checked_candidate": 80,
+          "app.market_candidate_store._input_in_transaction": 1360,
+          "app.market_candidate_store._shared_reader": 1200,
+          "app.market_hold_store._report_row": 120,
+          "app.market_source_store._select_with_job": 3040,
+          "app.market_source_store.read_scope": 40,
+          "app.runtime_connection_scope._session": 480,
+          "app.runtime_login.verify_runtime_identity": 843,
+          "app.runtime_roles._database": 343,
+          "app.runtime_roles._scope": 1715,
+          "app.runtime_roles.audit_runtime_roles": 3087,
+          "app.thermal_run_store._decision_context_in_transaction": 280,
+          "app.thermal_run_store.get_snapshot": 40
+        },
+        "mode": "candidate",
+        "ordered_source_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "physical_connections": 7,
+        "reconstructions": 4,
+        "step": 3,
+        "wall_seconds": 9.787481002997083
+      },
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 80,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 41,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 160,
+          "app.market_candidate_store._checked_candidate": 80,
+          "app.market_candidate_store._input_in_transaction": 1360,
+          "app.market_candidate_store._shared_reader": 1200,
+          "app.market_hold_store._report_row": 120,
+          "app.market_source_store._select_with_job": 3040,
+          "app.market_source_store.read_scope": 40,
+          "app.runtime_connection_scope._session": 480,
+          "app.runtime_login.verify_runtime_identity": 843,
+          "app.runtime_roles._database": 343,
+          "app.runtime_roles._scope": 1715,
+          "app.runtime_roles.audit_runtime_roles": 3087,
+          "app.thermal_run_store._decision_context_in_transaction": 280,
+          "app.thermal_run_store.get_snapshot": 40
+        },
+        "mode": "candidate",
+        "ordered_source_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "physical_connections": 7,
+        "reconstructions": 4,
+        "step": 4,
+        "wall_seconds": 9.718888183997478
+      },
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 80,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 41,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 160,
+          "app.market_candidate_store._checked_candidate": 80,
+          "app.market_candidate_store._input_in_transaction": 1360,
+          "app.market_candidate_store._shared_reader": 1200,
+          "app.market_hold_store._report_row": 120,
+          "app.market_source_store._select_with_job": 3040,
+          "app.market_source_store.read_scope": 40,
+          "app.runtime_connection_scope._session": 432,
+          "app.runtime_login.verify_runtime_identity": 843,
+          "app.runtime_roles._database": 373,
+          "app.runtime_roles._scope": 1865,
+          "app.runtime_roles.audit_runtime_roles": 3357,
+          "app.thermal_run_store._decision_context_in_transaction": 280,
+          "app.thermal_run_store.get_snapshot": 40
+        },
+        "mode": "baseline",
+        "ordered_source_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "physical_connections": 29,
+        "reconstructions": 6,
+        "step": 5,
+        "wall_seconds": 10.33955302600225
+      }
+    ],
+    "scope": "four same-job ABBA full before/advance/confirm quanta; observers execute actual calls; local feasibility only"
+  },
+  "paired_cost_tests_passed": 1,
+  "prior_related58_repeated": false,
+  "review": {
+    "architecture": "scope only within one _current call; existing server witness and original transactions remain",
+    "correctness": "new6 and original worker13 passed; no numeric/model/lease/publication implementation changed",
+    "performance": "same-job ABBA full quantum about5 percent lower; no throughput or native64 claim",
+    "security": "late principal/source/grant and copied context denied; current source reads and role audits continue; no permission cache",
+    "simplicity": "one existing checkpoint method uses the existing scoped registration; no new dependency or public API"
+  },
+  "rights_or_gate_approval": false,
+  "source_sha256": {
+    "backend/app/crop_greenhouse_solar_execution_checkpoint.py": "73dbe6d4e19591753cdd133da4ef7c212a68cc38bf38b968824dbf96e3e8c551",
+    "backend/tests/test_solar_checkpoint_registration_scope.py": "2520d79372e3e299e4aa5d0d3ed560ff66ac85c08df25e4b8de244650e2b4dab"
+  },
+  "stages": [
+    {
+      "case": "focused-solar-checkpoint-scope-green-v2",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests_passed": 6,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1011339264,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 85.37377759100491
+      },
+      "log_sha256": "4d24a81b702b2d96aff8c74437cc2f94428b9a7bb8f4501e9a4dc9d91dfc746f",
+      "same_final_source": true,
+      "saved_evidence_sha256": {
+        "evidence/new/query/checkpoint-current-denied-copied_context.json": "b5f13dc208af9430afbc5bd8a6a23457702f5cd09ab8928cc66b9c48ee8b67d7",
+        "evidence/new/query/checkpoint-current-denied-grant.json": "6d2315b47302f99845590db74aabdce77405a9d409cebc7d303571fb7bda4c09",
+        "evidence/new/query/checkpoint-current-denied-scope.json": "9bb5bd65698aa8f8fc357def4d07edebbb403bb2d178edd0acb3d00e577bf2c2",
+        "evidence/new/query/checkpoint-current-denied-source.json": "db664f7b3b253801f917948e3d99d1374445c1cced40849f25c6dfa5c7a2c5c7",
+        "evidence/new/query/checkpoint-current-scope-false.json": "461e070344cc50d1c14893523ca3a82847252c6948d40206c952cd1d661e1f59",
+        "evidence/new/query/checkpoint-current-scope-true.json": "7703e92ec8447882a5b2c5b480e1e7d08850230d6a1faf2efd084010b19c6729",
+        "evidence/new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      }
+    },
+    {
+      "case": "focused-solar-checkpoint-scope-cost-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests_passed": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1005391872,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 74.6734337950038
+      },
+      "log_sha256": "0407797f09beabe5951d2d975b7bf0c7aab2a69a8aba528f876e7959247ddcca",
+      "same_final_source": true,
+      "saved_evidence_sha256": {
+        "evidence/new/query/checkpoint-current-paired-cost.json": "c11abacd7049e84a2836a7a3e51c08f9c5432442f749da75f3a0b83edc0c1ec5",
+        "evidence/new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      }
+    },
+    {
+      "case": "focused-checkpoint-scope-worker5-v1",
+      "database_cleanup_evidence": "original module-autouse pytest assertions passed; worker observer env absent; no separate JSON emitted; not independent native64 cleanup proof",
+      "distinct_tests_passed": 5,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1061498880,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 255.80353454000578
+      },
+      "log_sha256": "cf075b35d3a937efd937bec9519f7b35a7409c276c16305754c67a5150df6951",
+      "same_final_source": true,
+      "saved_evidence_sha256": {}
+    },
+    {
+      "case": "focused-checkpoint-scope-worker8-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests_passed": 8,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1041784832,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 233.1520414139959
+      },
+      "log_sha256": "6890ad577be578b3caa2ee590d07d0b3a806feed59ae37bbd1a401c469f69893",
+      "same_final_source": true,
+      "saved_evidence_sha256": {
+        "evidence/new/worker/cancel-validation-before.json": "e223f689b9f771d955bb8e6d98c85c5d22f9d5f41352490b0387e9740e8f0d9a",
+        "evidence/new/worker/cancel-validation-confirm_after.json": "f5571bdce57c4ca4bba889854d104e436dd8d34ff6e703bf960ababc2209b946",
+        "evidence/new/worker/cancel-validation-confirm_before.json": "ddb1ad5f72929caffa18a96592aa2e0fc2de1cc1273d9ba1b26fa9486a8afc3b",
+        "evidence/new/worker/cancel-validation-finish_after.json": "1041f0541154b15fbd9bd86104a725cb6ad1b491d0010a48fb1fded38ec9560c",
+        "evidence/new/worker/cancel-validation-finish_before.json": "d6427b7531acc284a8af7ee2d674e4562e4a9e319e9d16547d4b21ab1adad4b8",
+        "evidence/new/worker/cancel-validation-result_after.json": "b915dea3ceab96bf641a5cd9b16fc78ebfd23f03f93f29f27e17071a7ef94497",
+        "evidence/new/worker/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "evidence/new/worker/late-validation-expire.json": "ef9263fd8113a8a9d3531a64f87ae091ab2e4f156e0beab3729a897779fce218",
+        "evidence/new/worker/late-validation-input.json": "b722045213f8144e375d7430e55ab27fb4af691b437e172721cf663638cf28f6"
+      }
+    }
+  ],
+  "unchanged_connection_core_source_sha256": {
+    "backend/app/farm_authoring_storage.py": "96ec01beb3e39d7bb0f5b0896824f6208a3219fb926e6ab860c42a6297b57966",
+    "backend/app/farm_registration_read_scope.py": "cbbfb1ef7da1cfb26cb3f2e8d78e80e8a940a30ebdf5186abbef8b70cea3cbe1",
+    "backend/app/market_source_store.py": "4e81a33032f68a53b84f81beb7df1b6408d080facf78b53acb0d16497a109254",
+    "backend/app/runtime_connection_scope.py": "d983e38331ceab33509eab63a2bf4120fc5a725fcbfb401f655d1859f03c5a2c",
+    "backend/app/runtime_login.py": "dffdcee5f410ab56465e60ff4227f2dbe3e2dc0846f51658fc50a73033000aa8",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+    "backend/tests/test_registration_connection_lifetime.py": "014ca84a1a7174cc06a9ec618e7579ad7e74d57d36c0beac73f82ff919861d0d"
+  }
+}
