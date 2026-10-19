@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+- [x] **`preview-existing-authentication-renewal-20261020`** — [실제 만료 전 동일 입력 갱신](../research/frozen-preview-authentication-renewal-20261020.md). 같은 bearer/모델·키·결과/DB counts·두 frozen HTML, legacy8·joint입력3/저장9·환기8의 인증/원 bytes·UTC·조회 계산/쓰기0·TLS/FD/5root/원본/상한/정리를 확인했다. 새 Solar/과학 관문·전체 CI/새 browser 검증은 별도다.
+
 - [x] **`crop-solar-current-binding-cost`** — [실제 한 청크의 검증 반복](../research/crop-solar-current-binding-cost-20261018.md).
   원 source9144809·실제1→2/UTC·proof3개/identity·관찰1검사·5root/정리 통과.
   current12/registration24/audit528·수치 청크0.048초를 분리했다. 계측 포함14.760초이며 원64 정상 수용은 아니다.

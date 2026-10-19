@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 권한 matrix 평가 미채택 — 2026-10-20 KST:** [실제 오류 순서1·snapshot 반례1](../research/solar-role-matrix-conditional-review-20261020.md)을 확인했다. CASE 결합은 해당 첫 오류는 보존했으나 동시 변경에서 원 경로의 hold와 후보 정상 값이 달라 미채택·비용 trial 없음이다. 제품 app은 유지한다. 다음은 원 SQL/statement 순서를 유지하는 bound-array 표현 검토다. [원 계측 OFF CI의44/64 미완료](../research/solar-worker-checkpoint-advance-native-normal-20261020.md)·같은 app82의 로컬 범위와 정상→hold→취소→계산 중WebGL→WSL 순서를 유지한다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
+**현재 권한 matrix 평가 미채택 — 2026-10-20 KST:** [실제 오류 순서1·snapshot 반례1](../research/solar-role-matrix-conditional-review-20261020.md)을 확인했다. CASE 결합은 해당 첫 오류는 보존했으나 동시 변경에서 원 경로의 hold와 후보 정상 값이 달라 미채택·비용 trial 없음이다. 제품 app은 유지한다. 기존 두 UI의 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)과 원 조회를 확인했다. 다음은 원 SQL/statement 순서를 유지하는 bound-array 표현 검토다. [원 계측 OFF CI의44/64 미완료](../research/solar-worker-checkpoint-advance-native-normal-20261020.md)·같은 app82의 로컬 범위와 정상→hold→취소→계산 중WebGL→WSL 순서를 유지한다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 
 **Worker 전진/독립 확인 로컬 수용 — 2026-10-20 KST:** [최종 같은 app source82검사·실제 제품 비교](../research/solar-worker-checkpoint-advance-implementation-20261020.md)로 worker가 버리는 진행 응답의 생성만 줄였다. 공개 응답과 계산/저장·현재 권리·독립 confirm/lease/cancel·원 값/UTC·정리를 보존했다. 로컬 평균13.723946% 감소는 원64 처리량 수용이 아니다. 다음은 변경 source의 원 계측 OFF 독립 정상64이며 원 actor/input/chunk1/poll/retry360/RSS를 유지한다. 이후 독립 hold→HTTP취소→계산 중WebGL→WSL 사용자 적용이다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 

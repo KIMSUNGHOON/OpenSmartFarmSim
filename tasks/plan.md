@@ -1,5 +1,7 @@
 # 구현 순서
 
+기존 사용자 경로는 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)으로 만료 전에 보존했다. 실제 만료에 따른 유지 작업이며 핵심 순서 수용을 대신하지 않는다. 다음 준비 시각은2026-10-20T21:40Z 이전이고 주 작업39의 bound-array 검토를 유지한다.
+
 ## capture Pending HTTP 로컬 수용·다음 독립 정상 — 2026-10-19 KST
 
 [최종 두 파일/고유58검사](../research/crop-solar-capture-pending-http-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다.
