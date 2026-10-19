@@ -183,10 +183,17 @@ class VerifiedSolarInputEvidence:
     review_id:str
     referenced_bytes:int
     _token:object=field(repr=False)
+    _raw_binding_metadata:bytes=field(repr=False)
 
     @property
     def record(self):
         _need(self._token is _TOKEN);return files.inputs._json(self._raw_record)
+
+    @property
+    def binding_metadata(self):
+        _need(self._token is _TOKEN and type(self._raw_binding_metadata) is bytes
+            and 0<len(self._raw_binding_metadata)<=MAX_EVIDENCE_BYTES)
+        return files.inputs._json(self._raw_binding_metadata)
 
     @property
     def rights_or_gate_approval(self):return False
@@ -257,5 +264,12 @@ class SolarInputEvidenceAuthority:
         _record_hashes(p['record'],expected_context_sha256,expected_binding_sha256,continuation._identity(profiles),source_provenance)
         _need(self._review(review['evidence_id'],expected_source_sha256)==review
             and _current(directory,expected_source_sha256)==(raw,hashes))
+        record=p['record']
+        metadata={'program_id':record['program']['scenario']['input_id'],
+            'period':{'start':record['binding']['start_utc'],'end':record['binding']['end_utc']},
+            'context_sha256':record['context_sha256'],'time_binding_sha256':record['binding_sha256'],
+            'initial_state_sha256':record['initial_state_sha256'],'model_identity':record['manifest']['identity'],
+            'review':review,'provenance':record['provenance']}
         return VerifiedSolarInputEvidence(_canonical(p['record']),sha256(evidence_raw).hexdigest(),
-            expected_source_sha256,review['evidence_id'],sum(map(len,raw.values())),_TOKEN)
+            expected_source_sha256,review['evidence_id'],sum(map(len,raw.values())),_TOKEN,
+            _raw_binding_metadata=_canonical(metadata))

@@ -92,7 +92,9 @@
 - [x] **`crop-solar-current-connection-parameter-cost`** — [최종 source46검사/검토](../research/market-current-connection-parameters-20261019.md). 실제 호출자 관측→시험 후보→제품 AST 대사/최종 paired와 새9/공유29/늦은 변경5/normal·hold2를 수용했다. 조회3,963→2,163·원 SQL12,919/감사343/원천3,040/순서/UTC·현재성/정리를 보존했다. 최종 제품 약2.53% 감소와 사설 후보 약4.76%를 구분한다. 이전20/58/관측·사설 후보를46에 더하지 않는다.
 - [x] **`crop-solar-current-read-session-projection-cost`** — [실제 제품 비교/복원](../research/current-read-session-projection-evaluation-20261019.md). 사설3.52%와 달리 제품은 평균0.015%·짝별-1.843%/+1.815%로 일관된 이득을 입증하지 못해 미채택했다. 후보8경계/실제비교1만 기록하고 추가 후보 회귀를 중단했다. app/tests를30f8104 bytes로 복원했으며 새 세션API는 제품에 없다.
 - [x] **`crop-solar-current-SQL-client-CPU-cost`** — 같은 기록의 복원 source 진단2. 실제 SQL/fetch의 배타적wall/clientCPU와 owned CPU샘플1,584개·원step2/UTC·timer복원/정리를 확인했다. 동시/중첩 시간과 표본 수를 성능 수용으로 합산하지 않는다. 기존46은 기록으로 유지한다.
-- [ ] **`crop-solar-input-evidence-projection-cost`** — 같은 기록의 CPU 관측이 가리킨 input-evidence verify/binding._input의 JSON decode/정규화 호출·비용을 분리한 뒤 검증된 결속 메타데이터의 작은 불변 투영 후보를 실제 paired로 비교한다. 원 서명/schema/검토자/현재파일·해시/software pin/권리 검사·공개record 의미·원 수치/UTC·감사/원천/수명/정리를 보존한다. 검증 생략/권한 cache나 기각 후보 반복은 하지 않는다.
+- [x] **`crop-solar-input-evidence-projection-cost`** — [최종 source88검사/검토](../research/solar-input-binding-metadata-20261019.md). 새7/소비·입력74/제품paired1/normal·hold2/권리4에서 원record/14필드·전체 검증·SQL12,919/감사343/원천3,040/UTC·현재/늦은 철회·정리를 유지했다. 제품 평균3.0958%와 사설3.5128%를 구분한다. 교차 호출 권한/검증 cache는 없다. 원 독립64/배포는 미수용이다.
+- [x] **`crop-solar-current-source-materialization-cost`** — 같은 기록의 별도 진단1. 원천3,040회의 종류·typed 검증/정규화·SQL의 선택한 중첩/배타 비용과 원 값/UTC·profiler 복원·정리를 대사했다. 계측 오버헤드 포함으로 처리량/후보 이득을 추정하지 않고88에 더하지 않는다.
+- [ ] **`crop-solar-current-source-low-overhead-cost`** — 기존 진단을 낮은 오버헤드의 실제 source/SQL 기여도와 대사해 다음 최소 후보를 정한다. 원 현재 source/부재·원문/작업 bytes·model 상태·권리/검토·원 값/UTC·감사/읽기 순서/수명·정리를 보존한다. 근거 없는 코드 변경/검증 결과 cache·기각된 getter/세션/감사 후보·변경 없는64 반복은 하지 않는다.
 
 
 

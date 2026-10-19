@@ -91,16 +91,15 @@ class SolarFarmBinding:
         checked=self.input_authority.verify(directory,source['source_sha256'],evidence_raw,
             expected_context_sha256=source['context_sha256'],expected_binding_sha256=source['time_binding_sha256'])
         _need(type(checked) is evidence.VerifiedSolarInputEvidence and checked.rights_or_gate_approval is False)
-        record=checked.record;program=record['program'];binding=record['binding']
-        _need(program['scenario']['input_id']==source['program_id'])
-        review=evidence.files.inputs._json(evidence_raw)['payload']['review']
+        metadata=checked.binding_metadata
+        _need(metadata['program_id']==source['program_id'])
         return {'source_sha256':checked.source_sha256,'program_id':source['program_id'],
-            'period':{'start':binding['start_utc'],'end':binding['end_utc']},
-            'context_sha256':record['context_sha256'],'time_binding_sha256':record['binding_sha256'],
-            'evidence_sha256':checked.evidence_sha256,'initial_state_sha256':record['initial_state_sha256'],
-            'model_identity':record['manifest']['identity'],'review':review,
-            'provenance':record['provenance'],
-            'provenance_sha256':sha256(documents._canonical(record['provenance'])).hexdigest(),
+            'period':metadata['period'],
+            'context_sha256':metadata['context_sha256'],'time_binding_sha256':metadata['time_binding_sha256'],
+            'evidence_sha256':checked.evidence_sha256,'initial_state_sha256':metadata['initial_state_sha256'],
+            'model_identity':metadata['model_identity'],'review':metadata['review'],
+            'provenance':metadata['provenance'],
+            'provenance_sha256':sha256(documents._canonical(metadata['provenance'])).hexdigest(),
             'normalization_version':evidence.NORMALIZATION_VERSION,'qc_version':evidence.QC_VERSION,
             'input_evidence_version':evidence.VERSION}
 

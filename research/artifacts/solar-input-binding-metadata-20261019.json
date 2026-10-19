@@ -1,0 +1,485 @@
+{
+  "G0_G4": "not_assessed",
+  "RED_expected_missing_property_failure_not_added": true,
+  "actual_farm_Runs": 0,
+  "actual_product_comparison": {
+    "SQL": 12919,
+    "baseline_AST_used_current_receipt_code_identities": true,
+    "mean_wall_reduction_pct": 3.0957841677895837,
+    "modes": [
+      "baseline",
+      "candidate",
+      "candidate",
+      "baseline"
+    ],
+    "no_python_call_profiler_during_timing": true,
+    "ordered_source_trace_measured": false,
+    "original_UTC_and_counts_preserved": true,
+    "paired_wall_reductions_pct": [
+      1.1838911214569148,
+      4.967436115787239
+    ],
+    "role_audits": 343,
+    "source_reads": 3040,
+    "steps": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "verify_prefix_and_decorators_AST_equal": true,
+    "wall_seconds": [
+      8.990801018000639,
+      8.88435972300067,
+      8.727891433001787,
+      9.184106032997079
+    ]
+  },
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "498c833dd69fa44350522509f954aea3742806e29e3d0a07153c965c603eeab3",
+  "baseline_application_commit": "30f8104a51bfaa718d2f6d0abdd1f9fb857e1471",
+  "baseline_revision": "ffad57c2181e00427442662a06a6f4774e089e66",
+  "changed_product_sha256": {
+    "backend/app/crop_greenhouse_solar_farm_binding.py": "70c2dc9429708f58a8c64d2c9d8de328c9fd16a91f6ff97a7d319221bd75945f",
+    "backend/app/crop_greenhouse_solar_input_evidence.py": "2c105a74ffd67313867a7f05da992d741d66cb748dd48543bd57783a7a70a145"
+  },
+  "final_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "both_frozen_HTML_preserved": true,
+    "browser_rerun": false,
+    "case": "focused-input-binding-final88-status-v1",
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "frozen_ventilation_files": 2173,
+    "guard_seconds": 1.3655438260029769,
+    "local_links": 2387,
+    "log_sha256": "522383937e8a1482c2ef7e1f1dd03b81412ad8276cb03326b5bf6e8c750d794a",
+    "original_actor_hashes_preserved": true,
+    "owned_cleanup_remaining": 0,
+    "protected_live": true,
+    "reported_at": "2026-10-19T14:35:57.727475Z",
+    "status_sha256": "305a752f50c693c865717654d29b86d49d2c289d14b6af54752177c4af70bd1a"
+  },
+  "focused_distinct_tests_passed": 88,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "independent_normal64_run": false,
+  "local_implementation_adopted": true,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T14:25:26.243Z",
+    "turn_context_sha256": "adf38e27aa3abcdf7eae1ed7b90377892279c9beec59c37a737923d96a536075"
+  },
+  "new_solar_deployed": false,
+  "new_tests_sha256": {
+    "backend/tests/test_solar_binding_metadata_consumer.py": "980a177a1ea10aa7c721d7b886bf2abd5f1da3d023d007690259351ce2cd45f8",
+    "backend/tests/test_solar_input_binding_metadata.py": "c1b38cc973f47d4524dcb3534f1b137a2f0cb320a510247d7e51de7370f716d5"
+  },
+  "next": "Attribute the remaining actual source verification/SQL caller cost with a low-overhead observation before choosing another small candidate; keep all fresh source/permission/model state checks and original numeric outputs/UTC; do not reuse rejected getter/session/audit candidates or repeat unchanged native64.",
+  "normal64_accepted": false,
+  "prior_46_and_private_observations_not_added": true,
+  "prior_consumer1_not_added": true,
+  "private_profiled_check_equivalence": {
+    "all_ABBA_rows_equal": true,
+    "current_files": 83,
+    "pins": 305,
+    "private_profiled_not_product_throughput": true,
+    "review": 82,
+    "rights": 40,
+    "verify": 41
+  },
+  "private_unprofiled_mean_wall_reduction_pct": 3.5128009009691707,
+  "probe_source_sha256": "94568bafe497a80f094597edb29a2ad513b778f41a94559e3ca07430259f935e",
+  "raw_evidence_files": {
+    "focused-input-binding-projection-cost-v1": "input-binding-projection-paired-cost.json",
+    "focused-input-binding-projection-unprofiled-cost-v1": "input-binding-projection-unprofiled-cost.json",
+    "focused-input-evidence-json-cost-v1": "input-evidence-json-cost.json",
+    "focused-product-input-binding-metadata-cost-v1": "product-input-binding-metadata-paired-cost.json"
+  },
+  "raw_evidence_sha256": {
+    "focused-input-binding-projection-cost-v1": "27e8d228bbe127ae833f2562ce07cabdb9ee333b6d597dfb3c9d8aa01a54f40f",
+    "focused-input-binding-projection-unprofiled-cost-v1": "99e0489d29e173c0a0e5ae253cfd529b140c5c3e197f78e302d1e1faf5ccc803",
+    "focused-input-evidence-json-cost-v1": "e2c7732dbbcbe3ffaed95b48265309673ae74f33b5d65eb4940c3ff7ed8732d1",
+    "focused-product-input-binding-metadata-cost-v1": "ce27ca896e929982ef73993ca28326ef5bc39297576d008a93b532fb0e8abfc2"
+  },
+  "recorded_at": "2026-10-19T14:33:28.430862Z",
+  "remaining_focused_hours": null,
+  "review": {
+    "architecture": "Projection constructed only after complete existing verification; original public wire/schema/storage contracts and workers unchanged.",
+    "correctness": "Detached immutable metadata agrees with original signed/full-record 14-field binding; full record bytes/getter unchanged; original all-sample/event/UTC normal and hold results preserved.",
+    "performance": "Actual final-source unprofiled ABBA both pairs lower; about3.096percent local mean, not independent throughput.",
+    "required_finding_resolved": "Removed test dependency on historical Git objects; final consumer test uses full verified record and signed receipt independently.",
+    "security": "Original verify prefix/decorators retained; current source/review/software-pin and farm/read-time late rights revocations reject.",
+    "simplicity": "Two product modules only; one bounded bytes field and getter, one explicit closed consumer; no new dependency or cross-call cache."
+  },
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-input-binding-metadata-evaluation-v1",
+  "source_materialization_diagnostic": {
+    "SQL": 12919,
+    "case": "focused-current-source-materialization-cost-v1",
+    "client_thread_cpu_ns": 19529858433,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 1005715456,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 54.01280144399789
+    },
+    "log_sha256": "415bad5bd58dfdbb66da53f37fd4cde5b757c8916c85f4858b3948e5d4b664e1",
+    "no_methods_or_results_replaced": true,
+    "not_added_to_acceptance_88": true,
+    "operations": {
+      "SQL.execute": {
+        "calls": 12919,
+        "exclusive_client_cpu_ns": 4470718660,
+        "exclusive_wall_ns": 7018121017,
+        "inclusive_client_cpu_ns": 4470718660,
+        "inclusive_wall_ns": 7018121017
+      },
+      "SQL.fetchone": {
+        "calls": 11080,
+        "exclusive_client_cpu_ns": 177493643,
+        "exclusive_wall_ns": 175947920,
+        "inclusive_client_cpu_ns": 177493643,
+        "inclusive_wall_ns": 175947920
+      },
+      "model.dump": {
+        "calls": 6080,
+        "exclusive_client_cpu_ns": 80848491,
+        "exclusive_wall_ns": 79910289,
+        "inclusive_client_cpu_ns": 80848491,
+        "inclusive_wall_ns": 79910289
+      },
+      "model.validate_json": {
+        "calls": 3040,
+        "exclusive_client_cpu_ns": 719287090,
+        "exclusive_wall_ns": 715398273,
+        "inclusive_client_cpu_ns": 719287090,
+        "inclusive_wall_ns": 715398273
+      },
+      "source._checked_job_input": {
+        "calls": 3040,
+        "exclusive_client_cpu_ns": 15714141,
+        "exclusive_wall_ns": 15453168,
+        "inclusive_client_cpu_ns": 15714141,
+        "inclusive_wall_ns": 15453168
+      },
+      "source._model": {
+        "calls": 3040,
+        "exclusive_client_cpu_ns": 181617432,
+        "exclusive_wall_ns": 183310990,
+        "inclusive_client_cpu_ns": 2084439652,
+        "inclusive_wall_ns": 2075844416
+      },
+      "source._read_in_transaction": {
+        "calls": 3040,
+        "exclusive_client_cpu_ns": 174545339,
+        "exclusive_wall_ns": 175009924,
+        "inclusive_client_cpu_ns": 3793245132,
+        "inclusive_wall_ns": 4068406606
+      },
+      "source._select_with_job": {
+        "calls": 3040,
+        "exclusive_client_cpu_ns": 351188614,
+        "exclusive_wall_ns": 352312658,
+        "inclusive_client_cpu_ns": 1286786096,
+        "inclusive_wall_ns": 1571729625
+      },
+      "source._tenant": {
+        "calls": 19560,
+        "exclusive_client_cpu_ns": 766822800,
+        "exclusive_wall_ns": 763524833,
+        "inclusive_client_cpu_ns": 766822800,
+        "inclusive_wall_ns": 763524833
+      },
+      "source._verified": {
+        "calls": 3040,
+        "exclusive_client_cpu_ns": 83678519,
+        "exclusive_wall_ns": 83588728,
+        "inclusive_client_cpu_ns": 2183832312,
+        "inclusive_wall_ns": 2174886312
+      },
+      "source.canonical": {
+        "calls": 3040,
+        "exclusive_client_cpu_ns": 1130647695,
+        "exclusive_wall_ns": 1124802154,
+        "inclusive_client_cpu_ns": 1130647695,
+        "inclusive_wall_ns": 1124802154
+      }
+    },
+    "ordered_source_trace_sha256": "dddb217bc0070180b32ada1565dd4a5fd68190de42cf5d0415314f24f8b5b2f9",
+    "probe_source_sha256": "dfb28126e491873cb98d87eb5dde1e60ead9cc375399ab079f3631037f477ead",
+    "profile_restored": true,
+    "raw_sha256": "3b7cb4beef83adfef0631f943c2a4d8fb2379d09d925455fd7abe856c75b53cb",
+    "role_audits": 343,
+    "scope": "Selected Python profiler; exclusive times subtract selected nested calls only; overhead included; no performance acceptance.",
+    "source_counts": [
+      {
+        "calls": 1360,
+        "kind": "economic_input",
+        "pin": false
+      },
+      {
+        "calls": 40,
+        "kind": "economic_scenario",
+        "pin": false
+      },
+      {
+        "calls": 40,
+        "kind": "economic_scenario",
+        "pin": true
+      },
+      {
+        "calls": 1400,
+        "kind": "input_rights",
+        "pin": false
+      },
+      {
+        "calls": 40,
+        "kind": "joint_shock",
+        "pin": false
+      },
+      {
+        "calls": 40,
+        "kind": "joint_shock",
+        "pin": true
+      },
+      {
+        "calls": 40,
+        "kind": "settlement_applicability",
+        "pin": false
+      },
+      {
+        "calls": 80,
+        "kind": "settlement_evidence",
+        "pin": false
+      }
+    ],
+    "source_reads": 3040,
+    "tests_passed": 1,
+    "wall_ns": 22162878350
+  },
+  "stages": [
+    {
+      "case": "focused-input-binding-metadata-green7-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 944877568,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 2.1378183770066244
+      },
+      "log_sha256": "3e425503f17ad05305c89c65fda1270c602571bd8425f348a6ef4baa22a740af",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "cdd18006a0c63a7c477bbc9430b4dfd9378f843c44c3420ccba90b6d47f8b342",
+      "tests_passed": 7
+    },
+    {
+      "case": "focused-input-binding-evidence-regressions-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1005465600,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 19.996739775997412
+      },
+      "log_sha256": "fb04227453b92affba6a87eb578725ee513d21afcf200f340e4a97b4811fdce7",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "5f255a80f946521e6e247dc470f7745d01f1dc7e90513b857d6d1e9dc003325a",
+      "tests_passed": 74
+    },
+    {
+      "case": "focused-product-input-binding-metadata-cost-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1004150784,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 67.96068087399908
+      },
+      "log_sha256": "3314b037a374f77de9b889db674d8730c3ba3864e52029471b777a79dace2a92",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "cdd18006a0c63a7c477bbc9430b4dfd9378f843c44c3420ccba90b6d47f8b342",
+      "tests_passed": 1
+    },
+    {
+      "case": "focused-input-binding-worker2-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1015058432,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 129.18185736499436
+      },
+      "log_sha256": "4d3599a7c9110c01bd94939b115748756b97bce15bbd2583a47ba5d9eb0c4d74",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "5f255a80f946521e6e247dc470f7745d01f1dc7e90513b857d6d1e9dc003325a",
+      "tests_passed": 2
+    },
+    {
+      "case": "focused-input-binding-current-rights4-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1031585792,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 62.31739856799686
+      },
+      "log_sha256": "4afb25a4cb709098f1004b2ec10066b02db1975a55d52fa2989e42d73381fa70",
+      "same_backend_app_tree": true,
+      "source_pins_sha256": "5f255a80f946521e6e247dc470f7745d01f1dc7e90513b857d6d1e9dc003325a",
+      "tests_passed": 4
+    }
+  ],
+  "whole_backend_or_browser_suite_run": false,
+  "worker_outcomes": {
+    "completed": {
+      "counts": {
+        "outcome": 1,
+        "publication": 1,
+        "registry": 1,
+        "result_links": 1
+      },
+      "original_values_and_UTC_preserved": true,
+      "read_calculations": 0,
+      "restore": 2,
+      "start": 1,
+      "steps": 16
+    },
+    "hold": {
+      "counts": {
+        "outcome": 1,
+        "publication": 0,
+        "registry": 1,
+        "result_links": 1
+      },
+      "original_values_and_UTC_preserved": true,
+      "read_calculations": 0,
+      "restore": 2,
+      "start": 1,
+      "steps": 16
+    }
+  }
+}
