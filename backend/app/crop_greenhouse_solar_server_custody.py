@@ -1,6 +1,7 @@
 """Server signatures over original solar calculations and confirmed HEADs."""
 from contextlib import contextmanager, ExitStack
 from hashlib import sha256
+import fcntl
 import hmac
 import os
 from pathlib import Path
@@ -89,21 +90,50 @@ def _head(value):
 
 
 class _Session:
-    def __init__(self,owner,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,*,write=False):
-        _need(type(write) is bool)
+    def __init__(self,owner,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,*,write=False,read_locks=None):
+        _need(type(write) is bool and (read_locks is None or (not write and type(read_locks) is tuple
+            and len(read_locks)==2 and all(type(fd) is int for fd in read_locks))))
         self.owner,self.root,self.intent,self.proofs,self.artifact=owner,root,intent,proofs,artifact
         self.identity,self.intent_raw,self.binding_raw,self.current=identity,intent_raw,binding_raw,current
         self.path='/proc/self/fd/'+str(intent)+'/artifact'
         self.intent_sha256=_hash(intent_raw);self.binding_sha256=_hash(binding_raw)
         self._writable=write
+        self._read_locks=() if read_locks is None else (
+            (root,'.custody-lock',read_locks[0]),(intent,'.intent-lock',read_locks[1]))
+        self._read_active=True
 
     def _guard(self):
-        self.owner._binding();_need(self.current()==self.binding_raw)
+        self.owner._binding()
+        if self._read_locks:
+            _need(self._read_active);before=self._read_snapshot();self._read_active=False
+            for _,_,fd in reversed(self._read_locks):fcntl.flock(fd,fcntl.LOCK_UN)
+            _need(self.current()==self.binding_raw)
+            for _,_,fd in self._read_locks:
+                try:fcntl.flock(fd,fcntl.LOCK_SH|fcntl.LOCK_NB)
+                except BlockingIOError:raise files.CycleCustodyPending('solar calculation custody busy') from None
+            self.owner._binding()
+            if self._read_snapshot()!=before:raise files.CycleCustodyPending('solar calculation snapshot changed')
+            self._read_active=True
+        else:_need(self.current()==self.binding_raw)
+        self._files_guard()
+
+    def _files_guard(self):
         files._same_directory(self.root,self.identity,self.intent)
         files._same_directory(self.intent,'proofs',self.proofs)
         files._same_directory(self.intent,'artifact',self.artifact)
         _need(files._read(self.intent,'intent.json',LIMITS['intent_bytes'])==self.intent_raw)
         files._usage(self.root,'root')
+
+    def _read_snapshot(self):
+        self._files_guard()
+        for parent,name,fd in self._read_locks:
+            info=files._secure(fd,modes=(0o600,));named=os.stat(name,dir_fd=parent,follow_symlinks=False)
+            _need(info.st_size==0 and (info.st_dev,info.st_ino)==(named.st_dev,named.st_ino))
+        usage=files._usage(self.artifact,'artifact')
+        if not files._exists(self.artifact,'HEAD'):return None,None,usage
+        raw=files._read(self.artifact,'HEAD',8192)
+        _,proof=self._selected(files.inputs._json(raw))
+        return raw,proof,usage
 
     def _proof(self,head):
         digest=_head(head);raw=files._read(self.proofs,digest+'.json',LIMITS['proof_bytes'])
@@ -258,12 +288,12 @@ class SolarServerCustody:
                 _need(type(value) is tuple and len(value)==2 and isinstance(value[0],(str,Path)) and type(value[1]) is bytes)
                 return value
             root=files.job_store._open_directory_nofollow(self.directory);opened.append(root)
-            opened.append(files._file(root,'.custody-lock',lock=True,shared=not write));files._usage(root,'root')
+            root_lock=files._file(root,'.custody-lock',lock=True,shared=not write);opened.append(root_lock);files._usage(root,'root')
             identity=_intent_id(tenant,request)
             if not files._exists(root,identity):
                 _need(write and sum(_digest(n) for n in os.listdir(root))<LIMITS['root_intents'])
             intent=files._directory(root,identity,create=write);opened.append(intent)
-            opened.append(files._file(intent,'.intent-lock',lock=True,shared=not write))
+            intent_lock=files._file(intent,'.intent-lock',lock=True,shared=not write);opened.append(intent_lock)
             if files._exists(intent,'intent.json'):
                 raw=files._read(intent,'intent.json',LIMITS['intent_bytes'])
                 old=_checked(raw,self.integrity_key,INTENT_DOMAIN,LIMITS['intent_bytes'])
@@ -280,7 +310,7 @@ class SolarServerCustody:
             def current():
                 self._binding();d,r=resolve()
                 return self.binding.current(tenant,request_raw,d,r,binding_raw,write=write)
-            _need(current()==binding_raw)
+            if write:_need(current()==binding_raw)
             if not files._exists(intent,'intent.json'):
                 n,c=files._usage(root,'root')
                 _need(n+2*LIMITS['intent_bytes']<=LIMITS['root_bytes'] and c+4<=LIMITS['root_files'])
@@ -288,7 +318,9 @@ class SolarServerCustody:
             else:_need(files._read(intent,'intent.json',LIMITS['intent_bytes'])==intent_raw)
             proofs=files._directory(intent,'proofs',create=write);opened.append(proofs)
             artifact=files._directory(intent,'artifact',create=write);opened.append(artifact)
-            session=_Session(self,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,write=write)
+            session=_Session(self,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,write=write,
+                read_locks=None if write else (root_lock,intent_lock))
+            if not write:session._guard()
             def prepare():
                 _need(write is True)
                 session._guard();d,r=resolve();source=request['input']

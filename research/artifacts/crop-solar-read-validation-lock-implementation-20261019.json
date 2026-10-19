@@ -1,0 +1,106 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "adopted": false,
+  "focused_distinct_tests_passed": 7,
+  "fresh_exec_or_SIGKILL_rerun": false,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "historical_shared_read_checks": 55,
+  "implemented": true,
+  "meaningful_RED": {
+    "actual_tool": "41317:1",
+    "actual_writer_advance_during_post_capture_reader_current_validation": true,
+    "exception_type": "SolarCustodyPending",
+    "resource": {
+      "actual_child_exit": 1,
+      "combined_peak_RSS_bytes": 992784384,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 35.82912827900145
+    },
+    "stage": "focused-solar-read-validation-lock-red-v1",
+    "terminal_sha256": "d17b03416b87691044a89f3a60e13293b595b94159c004c7a0ee60b5922094f2",
+    "test_sha256": "7f9fb0154480a0e3062f16bf06ad4fbe279012bbe3dfeb32aabfe8c7f48732ad"
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "42696108b6b33c9cd305b93a0d89622dea04983a3c2fca3756cab041cfcef059",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T04:36:15.957Z"
+  },
+  "new_Solar_deployed": false,
+  "normal_native_accepted": false,
+  "pre_final_GREEN": {
+    "actual_tool": "28208:0",
+    "included_in_current_count": false,
+    "source_sha256": "54350efd0dd0b98b685de00ecbbc749333ed3872163c18435c928744f9bb977c"
+  },
+  "recorded_at": "2026-10-19T04:48:04.801524+00:00",
+  "remaining_checks": [
+    "existing shared reader and file boundary9",
+    "default files7 and custody4",
+    "worker13",
+    "query13",
+    "prefix9",
+    "review and local adoption",
+    "changed-source original uninstrumented64 normal",
+    "independent hold/cancel/calculating WebGL/WSL capacity/user activation"
+  ],
+  "rights_or_gate_approval": false,
+  "source_parent_commit": "317f2bbdf6381c4d4462790abebe84275bfb7292",
+  "source_sha256": {
+    "backend/app/crop_greenhouse_solar_server_custody.py": "5f5bbcc31fbe02ff34e53f512ac17b026166d4d6442ddfc7016b891435b02142"
+  },
+  "stages": [
+    {
+      "actual_tool": "4703:0",
+      "current_source_pins": true,
+      "distinct_tests": 7,
+      "raw_terminal_sha256": "1724581bc2f7fcff978517e675841b17cfdb2051bb1e16fd58bc5e4c991c9e19",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1026695168,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 148844544,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 245.06625349300157
+      },
+      "stage": "focused-solar-read-validation-lock-boundaries-v1"
+    }
+  ]
+}

@@ -1,6 +1,13 @@
 # 구현 순서
 
-## 읽기 공유 잠금 로컬 수용·55검사/독립 실행 — 2026-10-19 KST
+## 읽기 검증 잠금 후보·현재7검사/남은 수용 — 2026-10-19 KST
+
+[현재 새 구현7검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)에서
+actual writer step2·stale reader Pending/fresh 원 UTC, root/intent 재잠금 실패/교체와 권리·pre-HEAD 실패를 확인했다.
+후보 미채택이다. 다음은 기존 reader/helper9 → default7/custody4 → worker13 → query13 → prefix9 → 검토다.
+기존55는 그 이전 source의 기록으로 새 후보7에 합산하지 않는다. 원64 독립/hold/취소/계산 중WebGL/
+WSL 용량·사용자 적용·실제 자료/관문과 전체 완료일 미정/goal active를 유지한다. 아래는 이전 판본의 기록이다.
+
 
 [현재 구현/검증 기록](../research/crop-solar-shared-read-locks-implementation-20261019.md)에 고유55검사를 기록했다.
 실제 reader/confirm/query 공존·writer 배제/해제·읽기 prepare/advance/게시/파일 생성 금지,

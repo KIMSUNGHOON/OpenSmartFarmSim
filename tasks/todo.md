@@ -67,7 +67,7 @@
   CI39197827938/source4478d28은 원360초/guard382.741초·종료 뒤22/64로 미완료다. 정상/DB 정리 proof 없음.
 - [x] **`crop-solar-shared-read-remaining-cost`** — 현재 source의 실제1→2 청크·현재12/등록24/재구성1·원천1,824/순서·원 UTC/proof 보존과 연결/감사/SQL 비용을 관측한다. 한 계측 사례이며 원64 수용/처리량 수치가 아니다. [76498:0](../research/crop-solar-shared-read-locks-implementation-20261019.md): 청크9.732초·연결144/감사183/SQL7,113/원 수치·순서·UTC·5root/정리 확인.
 - [x] **`crop-solar-shared-read-worker-api-diagnostic`** — [기존 bounded 관찰](../contracts/crop-solar-worker-progress-diagnostics-v1.md)을 변경 source에서1회 적용한다. 원 actor/64/chunk1/조회/retry360/RSS 유지·실제 phase/HTTP/예외·원 progress/actor/head/digest를 대사한다. 정상 수용으로 세지 않는다. CI39198782317의 실제15/64·confirm16반환/예외0·advance writer Pending7사건·HTTP25/원 actor/header/종료를 대사했다.
-- [ ] **`crop-solar-read-validation-lock`** — [현재 권리 검증의 짧은 잠금 후보](../contracts/crop-solar-read-validation-lock-v1.md). 실제 current 검증 중 writer 진행 RED → 보호 snapshot capture/재확인 → 권리/HEAD/identity·원 값/UTC·취소/임대·조회 계산/쓰기0·55관련 회귀와5root/원본/상한/정리를 검증한다. 원 정상/계산 중3D 수용은 별도다. 41317:1의 실제 post-capture current 검증 중 writer Pending RED는 확보했다. 구현/GREEN은 아직 없다.
+- [ ] **`crop-solar-read-validation-lock`** — [현재 권리 검증의 짧은 잠금 후보](../contracts/crop-solar-read-validation-lock-v1.md). 실제 current 검증 중 writer 진행 RED → 보호 snapshot capture/재확인 → 권리/HEAD/identity·원 값/UTC·취소/임대·조회 계산/쓰기0·55관련 회귀와5root/원본/상한/정리를 검증한다. 원 정상/계산 중3D 수용은 별도다. 41317:1의 실제 post-capture current 검증 중 writer Pending RED는 확보했다. [현재 구현7검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)는 통과했으나 미채택이다. 기존55관련 회귀와 검토가 남았다.
 
 
 
