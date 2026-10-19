@@ -1,5 +1,7 @@
 # 첫 구현 범위
 
+**Worker 전진/독립 확인 로컬 수용 — 2026-10-20 KST:** [최종 같은 app source82검사·실제 제품 비교](../research/solar-worker-checkpoint-advance-implementation-20261020.md)로 worker가 버리는 진행 응답의 생성만 줄였다. 공개 응답과 계산/저장·현재 권리·독립 confirm/lease/cancel·원 값/UTC·정리를 보존했다. 로컬 평균13.723946% 감소는 원64 처리량 수용이 아니다. 다음은 변경 source의 원 계측 OFF 독립 정상64이며 원 actor/input/chunk1/poll/retry360/RSS를 유지한다. 이후 독립 hold→HTTP취소→계산 중WebGL→WSL 사용자 적용이다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
+
 현재 실행 관측: [sourceaeb7a90의 CI39303668519](../research/solar-existing-intent-resume-native-normal-20261020.md)도 원360초/64 미완료·종료 뒤 저장 metadata41/64다. 정상/DB count proof가 없어 관문은 미수용이다. [이력 길이 관측2건](../research/solar-history-validation-cost-review-20261020.md)으로 ancestry의 작은 비용과 loader 증가를 확인했고, [후속 반복 load 후보](../research/solar-storage-load-transcript-evaluation-20261020.md)는 실제 평균0.1529%·짝 불일치로 미채택이다. [후속 다중 결과/커서 후보](../research/solar-role-tail-protocol-and-cursor-evaluation-20261020.md)도 오류 순서 반례/실제 비용 악화로 미채택이다. 다음은 공개 조회/현재 권리와 checkpoint를 유지하는 worker 미사용 반환 경계 검토다. 제품 검증 생략이나 권한 cache는 수용하지 않았다. 로컬72와 전체 처리량/새 Solar 배포를 구분하며 원 actor/input/예산·후속 순서·G0–G4는 유지한다.
 
 **기존 이력 재개 로컬 수용 — 2026-10-20 KST:** [최종 source72검사/제품 비용](../research/solar-existing-intent-resume-implementation-20261020.md)를 수용했다. 기존 이력의 비생성 진입·첫 full 검증/HEAD와 나머지 현재 경계·원 수치/UTC·정리를 확인했다. SQL11,125/감사301/원천2,584·제품 평균5.0784% 감소이며 다음은 새 source의 원 독립64다. 원64/후속3D·새 배포/자료 관문 수용은 아니다. 아래는 당시 기록이다.

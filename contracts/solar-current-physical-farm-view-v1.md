@@ -5,6 +5,9 @@ Independent64, deployment and scientific gates remain unaccepted.
 The subsequent [existing-intent resume contract](solar-existing-intent-resume-v1.md)
 adds a separately selected noncreating advance entry. The original `entry_guard`
 option and default/new-intent/adoption checks below retain their modes.
+The later [worker checkpoint advancement](solar-worker-checkpoint-advance-v1.md)
+returns only a private `None` acknowledgement from guarded writes. Public progress
+pre/post checks and the independently confirmed checkpoint reads retain their modes.
 Precedents: [binding v1](crop-greenhouse-solar-farm-binding-v1.md),
 [registration v1](farm-authoring-storage-v1.md),
 [observed dependency/cost](../research/solar-current-validation-boundary-review-20261019.md).

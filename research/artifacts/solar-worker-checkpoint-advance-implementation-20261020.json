@@ -1,0 +1,805 @@
+{
+  "G0_G4": "not_assessed",
+  "SQL_before_after": [
+    11125,
+    9929
+  ],
+  "actual_farm_Runs": 0,
+  "app_changed": [
+    "backend/app/crop_greenhouse_solar_server_custody.py",
+    "backend/app/crop_greenhouse_solar_execution_worker.py"
+  ],
+  "backend_app_file_count": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "baseline": "original Session.advance body, compiled with final product input/software pins",
+  "baseline_application_source_commit": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
+  "controller_cases": 38,
+  "cost_raw_sha256": "a4de30a6bf42fdfdd51e1b5ec7237e82072d0ada9867a0e735034fb9494a19e8",
+  "cost_rows": [
+    {
+      "UTC": "2026-10-01T00:00:04.123456Z",
+      "checkpoint_sha256": "2413bc31c46db75d41f814f354655c1aa0099deb085fdbafa0cc43b6482e1ef6",
+      "mode": "baseline",
+      "step": 2,
+      "wall_ns": 8141987289
+    },
+    {
+      "UTC": "2026-10-01T00:00:06.123456Z",
+      "checkpoint_sha256": "ddc9c734b652cb02e9724213c99582734804ca94be5bd4df0af18c1e570e4af7",
+      "mode": "product",
+      "step": 3,
+      "wall_ns": 7033147605
+    },
+    {
+      "UTC": "2026-10-01T00:00:08.123456Z",
+      "checkpoint_sha256": "b1788ccb97a4edaf89f3b34d47bddffd49a14e53fd629a129e860ca6b2afee66",
+      "mode": "product",
+      "step": 4,
+      "wall_ns": 6930643310
+    },
+    {
+      "UTC": "2026-10-01T00:00:10.123456Z",
+      "checkpoint_sha256": "002275d30f2557cfe637777198907c386556ea0ab1a4f3a1cc2a6b103eb83209",
+      "mode": "baseline",
+      "step": 5,
+      "wall_ns": 8043026087
+    }
+  ],
+  "criteria_sha256": "8b7be9decc4b1d891939bfc9ff8c45d349983868b50031d496115b73ee4f1f13",
+  "excluded_current_source_cases": [
+    {
+      "accepted_tests": 0,
+      "actual_child_exit": -15,
+      "case": "regression-solar-worker-ack-regression-query7_part4-v1",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "RSS_limit",
+      "terminal_sha256": "7c5233634b6be47d9263bae59e528ec3534efbe4e700b9aa6a54979151c9bc99",
+      "wall_seconds": 33.9033761019964
+    },
+    {
+      "accepted_tests": 0,
+      "actual_child_exit": 4,
+      "case": "regression-solar-worker-ack-regression-query-terminal-normal-v2",
+      "log_sha256": "f54cc3bb92bdd3cf57603fae83274ccf6ca4bee2edfa6f6caa249afe9bd7f8a7",
+      "reason": null,
+      "terminal_sha256": "4bf73c27cce0099fd537f7f1ffa808b41e364d32c7ecfded0fd36f8e4b6fb382",
+      "wall_seconds": 3.675359610992018
+    },
+    {
+      "accepted_tests": 0,
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-query-terminal-collection-v1",
+      "log_sha256": "ec1525a791648c1fee509e3c75c1074765f9c5490b93bba82e84c13be3992045",
+      "reason": null,
+      "terminal_sha256": "8a63e572ef6db56eb8e5fe06503fd487696cb174673d778a9f53b959ac7f61a6",
+      "wall_seconds": 3.675226263992954
+    }
+  ],
+  "excluded_from_82": [
+    "expected RED",
+    "private prototype GREEN",
+    "private prototype cost",
+    "previous source acceptance"
+  ],
+  "existing_regression_tests": 71,
+  "failed_case_cleanup_sha256": "99a2bef67b4d460d7d3a1af3b1d3dcfee5b0fa1a526185c95870f837f628f807",
+  "full_backend_browser_CI_run": false,
+  "full_current_checks_before_after": [
+    17,
+    15
+  ],
+  "independent_confirmation_required": true,
+  "journal_sha256": "2d9959f57abb58a4288f6312c1b940dfb62cd338a839487ac64c94f2d111881c",
+  "local_implementation_adopted": true,
+  "max_combined_RSS_bytes": 1070297088,
+  "max_single_PID_RSS_bytes": 170602496,
+  "mean_wall_reduction_pct": 13.723945784893493,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "82339740bc16124349e1021914334f4923e51261229b389dee3952a0cee9705e",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T19:42:43.005Z"
+  },
+  "new_functional_tests": 10,
+  "new_solar_deployed": false,
+  "new_worker_assertions": 104,
+  "next": "original independent normal64, then hold, HTTP cancel, calculating WebGL, WSL/user activation",
+  "normal64_accepted": false,
+  "original_worker_assertions_preserved": 103,
+  "other_app_files_unchanged": 259,
+  "paired_wall_reduction_pct": [
+    13.618784267792536,
+    13.830401206803893
+  ],
+  "preflight_sha256": "ed9c4aea3968425fae71ff982ccef3ab1dce0f50758a3f8f0e77c4e5ee149ccb",
+  "private_ack_is_no_claim": true,
+  "product_cost_tests": 1,
+  "public_advance_default_preserved": true,
+  "recorded_at": "2026-10-19T20:39:14.446236+00:00",
+  "rights_result_cache": false,
+  "role_audits_before_after": [
+    301,
+    273
+  ],
+  "scope": "local software acceptance only",
+  "source_reads_before_after": [
+    2584,
+    2280
+  ],
+  "stages": [
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-ack-v1",
+      "combined_peak_RSS_bytes": 1022873600,
+      "log_sha256": "24d84c428ec14aa35dbcaddd0c36c888baf046a58df51838d150e2db1f497698",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "617839d07574fcc187c27f78c20b04b3884ae1ae0678781f9c89ebd7ad92da11",
+      "tests_passed": 1,
+      "wall_seconds": 39.67889094600105
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-options-v1",
+      "combined_peak_RSS_bytes": 1012862976,
+      "log_sha256": "6a9db294add43060c7ea03828d1bfb06128fef25d2ed84895424918ac9811f20",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "9b33e2df8b43f04180860e915fd59f6e60b17379c5b2227ffef060a311293523",
+      "tests_passed": 1,
+      "wall_seconds": 18.01569822798774
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-current-v1",
+      "combined_peak_RSS_bytes": 1017577472,
+      "log_sha256": "23e4bcb80b819b2081be4f6f52dad1f4873ec1ee48cb76b8d7819babbcfa2278",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "f02a82c8a029b3c7022176f610f4f3bcca2cd321f3c4c06e3ec102b3c6c25009",
+      "tests_passed": 1,
+      "wall_seconds": 23.461075788000016
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-confirm-v1",
+      "combined_peak_RSS_bytes": 1002455040,
+      "log_sha256": "7ce93a1a91bc9ed4497121e236a8df4cc3e6eb03f98cc3ab6e570df22355b7ff",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 145313792,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "81a942ef1ab22001094b3a788d097a85ffb0899b3d45b897be9b25b3940f7d6a",
+      "tests_passed": 1,
+      "wall_seconds": 26.9286819530098
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-proof-v1",
+      "combined_peak_RSS_bytes": 1013567488,
+      "log_sha256": "f315957a4f7eb517e8b1f743d9b906645b238b72d96dd3b4900e8600f1632f90",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "9bf0d6f8d797a5e7ab9de516f2fdb5fe811eb2c05d00d30c6dbe07efcad94d5c",
+      "tests_passed": 1,
+      "wall_seconds": 26.307307095994474
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-terminal-normal-v1",
+      "combined_peak_RSS_bytes": 1006882816,
+      "log_sha256": "b63ba2ba60e9b5bb8f0b6bcd8be9a0fdd91a7e3434eae00121719489ea3283f5",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "355f9b28d8517399bd3ebd8d5c63abcf8c9dbed227316b3f48acbb9cf377a0eb",
+      "tests_passed": 1,
+      "wall_seconds": 26.289038711998728
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-terminal-hold-v1",
+      "combined_peak_RSS_bytes": 1020551168,
+      "log_sha256": "108e933a1aba645c8b8da269cf90478347cdc099045021c910369efc5733abf8",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "d38ed01452719d9ee1d8b2a4ec8fd6d36d846fafecdbc9813eb96471f0360660",
+      "tests_passed": 1,
+      "wall_seconds": 27.6673977090104
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-worker-v1",
+      "combined_peak_RSS_bytes": 1039233024,
+      "log_sha256": "91c9a5ed0e2e9b0c80bc6242402d2399de2756077336639cff970e8e933f8820",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "52fa6d4714d0185362a55d199196e8f5575816167ed30ac01002791cedbd1074",
+      "tests_passed": 1,
+      "wall_seconds": 52.703857098007575
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-noop-v1",
+      "combined_peak_RSS_bytes": 1000132608,
+      "log_sha256": "ccb4a0a2013cf80056a6179746425966280097e035ed0dd8e0c430b8c929a625",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 159272960,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "79d20d48dc98a2f845182884479273295911cf6201d21e47c66ed1fdc54566e6",
+      "tests_passed": 1,
+      "wall_seconds": 21.278902229998494
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-worker-revoke-v1",
+      "combined_peak_RSS_bytes": 1002156032,
+      "log_sha256": "026728a255b6688833b1002b7a6866e08694ad14df0a363d46547603dc76e025",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "f59c1b5746a18d5696ecf9d71abfad87989970a791bd4ff4599cd1178d9d4598",
+      "tests_passed": 1,
+      "wall_seconds": 25.382755243990687
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-product-cost-v1",
+      "combined_peak_RSS_bytes": 1010245632,
+      "log_sha256": "fd9d4c8e6dc88e23d07453ba085ad6fb95cb7fda5cb78a1e98076a7e44923136",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "923e79217a9d2b15973374fcb066a5c60a97696e2c51f03e9df80e1cb726e159",
+      "terminal_sha256": "0ee4f12eba11e944b27da7b4ea748aec69b54a60621b141cb7fcf6aafd20ade8",
+      "tests_passed": 1,
+      "wall_seconds": 68.33057589299278
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-regression-green7-v1",
+      "combined_peak_RSS_bytes": 1005457408,
+      "log_sha256": "40a8a14e3b9091d053b831594c2a02147170f0dc5cf4f631e98f234a4c63d687",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "ed3b673dd1d0c61a52821fac30768c87ec773b532faf80ccb4b9999445cb7375",
+      "tests_passed": 7,
+      "wall_seconds": 161.4475458990055
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "focused-solar-worker-ack-regression-lock-files-green-v1",
+      "combined_peak_RSS_bytes": 991244288,
+      "log_sha256": "024c7e63dbadb254d8e6d3ba3a1e030a0166a89c1206421ffa5562e9ee8193fc",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "28fbb72bb4bd0107f0924700b0d3eaca98718531fb936ce460b9a704f0910ea9",
+      "tests_passed": 1,
+      "wall_seconds": 25.53123670500645
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-shared-locks-v1",
+      "combined_peak_RSS_bytes": 1067343872,
+      "log_sha256": "709f709412264b174027cafc687a31d498399fca2b3e3adc6c54bb17d6fa5e8a",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 146972672,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "d583b5df90c5f35fc4b7c57b027e03b01154ccc8914c721615a611cf1ac4cdd3",
+      "tests_passed": 7,
+      "wall_seconds": 186.48906278199865
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-HTTP24-v1",
+      "combined_peak_RSS_bytes": 943607808,
+      "log_sha256": "00df58b6591991ab88a047cac6ac84b216c17cf8205a76386963a8563abe3cdb",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "c15f341eb8d064b4942a4b5b0d9d86084dc8db0ea00077cc06614bee94c5a71b",
+      "tests_passed": 24,
+      "wall_seconds": 2.3945894979988225
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-ownership4-v1",
+      "combined_peak_RSS_bytes": 984145920,
+      "log_sha256": "9ccf72647b982a9a59ca0233f20ef0ea609183ea6bbceeeebbff64b6e8d858ff",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "4cd7c32f0cbd6266bde10b518ad5023630bc4764e18c5ac37edfb7b2137ddd59",
+      "tests_passed": 4,
+      "wall_seconds": 66.88309460200253
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-fresh1-v1",
+      "combined_peak_RSS_bytes": 1047863296,
+      "log_sha256": "c199ed8863fefccf1020db9d5d9fbf01a32b73cf7ecb89d3a3feb19f6cb681f6",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "29662b47e16755aa8663562b5b1bf47ec56873034556c6b5c67b01dfb575c970",
+      "tests_passed": 1,
+      "wall_seconds": 40.316775731989765
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-TLS1-v1",
+      "combined_peak_RSS_bytes": 1049722880,
+      "log_sha256": "f7dd27fc6e3519ca0835ababd3bc2255a25d910d61e96082f791bc9472e4206f",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 170602496,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "60c75598a8bf424aecdb56e33898b44ec17b06226bea5b685ead5780ee3dd50a",
+      "tests_passed": 1,
+      "wall_seconds": 38.575158894003835
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-worker5-v1",
+      "combined_peak_RSS_bytes": 1035448320,
+      "log_sha256": "6c82a4e6e74136e566fa008533a301c159dd075b11faf32c700b325e79d1d21f",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "c8b45a9d35293abf443473129fa86cecfc0f02f258ed9dac1599c08db9ffde37",
+      "tests_passed": 5,
+      "wall_seconds": 214.65836466600012
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-cancel-finish-after-v1",
+      "combined_peak_RSS_bytes": 1025212416,
+      "log_sha256": "627fb085a88f187c14fdb04c536a729ca04204acce4849d1cc6c520d034022c5",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "50a758997932411c214e7f3c0539697c4ee3a3e3a43ed6c27c58cfeb041f2391",
+      "tests_passed": 1,
+      "wall_seconds": 33.474800640004105
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-cancel_before-v1",
+      "combined_peak_RSS_bytes": 970858496,
+      "log_sha256": "842bd8c4497c42fe981ea0a4ff3c8f0881c9270ae93f6d57ec6f36dde6d59221",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "365d8b367f56396a57b48e0924048e7dbc9f7f2eab2d86df4594069c162e38c2",
+      "tests_passed": 1,
+      "wall_seconds": 16.279144296000595
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-cancel_confirm_before-v1",
+      "combined_peak_RSS_bytes": 985595904,
+      "log_sha256": "f78f97fbda13c53b38468735235ba63095995f0305b53244985c868b7b52eeff",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "9622cc254e9cb37d6a9cc54a9a7ff0875819981c83f06d8b008b29a0153a8f3b",
+      "tests_passed": 1,
+      "wall_seconds": 25.639635943007306
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-cancel_confirm_after-v1",
+      "combined_peak_RSS_bytes": 999890944,
+      "log_sha256": "1aef78192cf0423a3e5dec1d3b1d8a74005e1b1d53aea2f67e720be4bc09ef4a",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "07070d3fc84d1079f957ed0d50c17b949c9b5247c87e779a03ac572bce2728c2",
+      "tests_passed": 1,
+      "wall_seconds": 26.85948763099441
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-cancel_finish_before-v1",
+      "combined_peak_RSS_bytes": 1018097664,
+      "log_sha256": "82de6a9933630bf362bad93a10d20eeda7f84d44b132155b6ffe0b7d4002b6ff",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "34705ef5f9be10a51bb32c908dee3b898f5f2e9c63c2c18dd5c9f5eb5cdd0822",
+      "tests_passed": 1,
+      "wall_seconds": 33.46581905700441
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-cancel_result_after-v1",
+      "combined_peak_RSS_bytes": 1019039744,
+      "log_sha256": "3bdc3ffecfa66a10dda5187e16e212a14326bd6161f822308f0fcf975045da9c",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "0583575b713de9df1ad148e3c080b437b915a724e28bc5d5f8b7f8eebfdd4f61",
+      "tests_passed": 1,
+      "wall_seconds": 33.16110333400138
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-fence_confirm-v1",
+      "combined_peak_RSS_bytes": 993312768,
+      "log_sha256": "bbdcd1919dcdfe4be208472edc423cbd625107f80605d3d56b3d08a4b061c8c2",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "478c7f02c9eef57c21ded9287cef98e4df480205a3f70f8c931aded0f410c3ed",
+      "tests_passed": 1,
+      "wall_seconds": 25.872099670988973
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-fence_finish-v1",
+      "combined_peak_RSS_bytes": 1009819648,
+      "log_sha256": "6a23f294d6cc7b6122cff64043cff81d7657bda356d088e7b7ed9e52f4b72be5",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "b9561f35b3cbfcb134c381a55d983c340b10ec6c291afa5256d27a45609cf693",
+      "tests_passed": 1,
+      "wall_seconds": 33.095631748990854
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query6_part1-v1",
+      "combined_peak_RSS_bytes": 994197504,
+      "log_sha256": "304f2bfa339e9bd64280d526d5a37f0b8db702cfe7ab87ad4c6dff078fb1c9e6",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "dee06751f70031210044be12c339813d501a8f25c2fd50f00f4a47ef19c1f1b6",
+      "tests_passed": 1,
+      "wall_seconds": 24.5183355689951
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query6_part2-v1",
+      "combined_peak_RSS_bytes": 1012191232,
+      "log_sha256": "f7c8f4c7f6ba03632c3e5c47354cf7e422ace996e4d834a3b7e9b223cb4b963e",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "6e5ab8bedc4a8436bd83c975adf981f1fae2f15ffaad94a36c168182d6da8d8d",
+      "tests_passed": 1,
+      "wall_seconds": 45.26672308301204
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query6_part3-v1",
+      "combined_peak_RSS_bytes": 1015517184,
+      "log_sha256": "2b222c771fe608384b5f2161230c2d53f7520edac607f0d454c34ef0d46535be",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "5fdc13b7a065fc84cf2696f801b4da866cf6876d1b248126e678babd641f569a",
+      "tests_passed": 1,
+      "wall_seconds": 48.00821601599455
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query6_part4-v1",
+      "combined_peak_RSS_bytes": 1010585600,
+      "log_sha256": "25410e1e6dc5876817b749766b7916ea6132c57fa480c14875e455ccccdb97af",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "97f5c72b5c077ae5ec7c093f8a7cdbb4c7a1e6feb08ff7baeeb71f6b9b23f370",
+      "tests_passed": 1,
+      "wall_seconds": 18.551406289989245
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query6_part5-v1",
+      "combined_peak_RSS_bytes": 1028792320,
+      "log_sha256": "1a12518de15a51385815cc0544f47bf70756f1fda6589de6bfa4f502615cf745",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "55d9bcf07f2fb70705e89b85d3ed1866d161afed04ca4c172896478ea1f8f702",
+      "tests_passed": 1,
+      "wall_seconds": 18.584613461993285
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query6_part6-v1",
+      "combined_peak_RSS_bytes": 1002483712,
+      "log_sha256": "f9dd7227489d746576ffd003a1b4e01af1baa8b1502b9c8c0ac699cf758072e1",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "d2f03756c76d57410ec546369e32ef26e9f3f35e2d69375fd9a7f9fbc787506a",
+      "tests_passed": 1,
+      "wall_seconds": 19.847624178000842
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query7_part1-v1",
+      "combined_peak_RSS_bytes": 1023717376,
+      "log_sha256": "13e43c98184909025a59e6419f4638e25271ef953fae18cec136ea6f07daf289",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 147140608,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "b5cec38923888eec4077d5801aee342cb33a6b7001190209332d2553e2a4e30f",
+      "tests_passed": 2,
+      "wall_seconds": 58.246994241999346
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query7_part2-v1",
+      "combined_peak_RSS_bytes": 1022091264,
+      "log_sha256": "7b4667896f7abb8b6f67d628d16038088196642c8f65bdd137a3d104aa7e69a1",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "da5ecaa9dc35a6dcdff98dd62d4fdced8c3247bf31eeef9784f2119c54fe62e1",
+      "tests_passed": 2,
+      "wall_seconds": 66.04143216600642
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query7_part3-v1",
+      "combined_peak_RSS_bytes": 1010798592,
+      "log_sha256": "e0620da48b58b085352f36d58e0a713131e63fa6628a16f20f6bfb5f0d86d066",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "6ff41a9270cb6bc2be462d7ad587fade47f947b6578c5d04e576606bec1ba87a",
+      "tests_passed": 1,
+      "wall_seconds": 30.865053892004653
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query-terminal-normal-v3",
+      "combined_peak_RSS_bytes": 1070297088,
+      "log_sha256": "f6b3d1337258b4e918017e2b0867712e66b26ce53a457cc4bf37194a0c790d62",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "beef2e89d56db16d3cf29fcbe28ee8f5c11962d77e24731708c7ff1ef035f5ad",
+      "tests_passed": 1,
+      "wall_seconds": 44.96699003899994
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "case": "regression-solar-worker-ack-regression-query-terminal-hold-v3",
+      "combined_peak_RSS_bytes": 1039069184,
+      "log_sha256": "283ea55820c7546d4b4f389bfdb56bb5978e9fdaffc44a7eafa5cdbe29b3f5f9",
+      "original_and_frozen_sources_preserved": true,
+      "owned_cleanup_complete": true,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_pins_sha256": "79b3dcff87e38ae2555229bb3eb99a86690dcbea6e763d6ba687a3c60907d44f",
+      "terminal_sha256": "fe4bf8764768be4c246fed64065624a5d301d8ab4d1fb7dd4ccb34ec53b20a13",
+      "tests_passed": 1,
+      "wall_seconds": 44.58304074499756
+    }
+  ],
+  "test_source_sha256": {
+    "backend/tests/test_crop_greenhouse_solar_execution_worker.py": "adf02dd75a38442c0bb623c1d2a6a12a1c2ef3524d11c4e8bacc9c61c622a41a",
+    "backend/tests/test_solar_worker_checkpoint_advance.py": "4abca5acf0cc0f328667036e9c0d4a421dae601e1b32efe255670aa74747bfa0"
+  },
+  "tests_passed": 82,
+  "total_controller_wall_seconds": 1739.6681616779824,
+  "unchanged_custody_methods": [
+    "_Session.__init__",
+    "_Session._guard",
+    "_Session._files_guard",
+    "_Session._read_snapshot",
+    "_Session._proof",
+    "_Session._selected",
+    "_Session._load",
+    "_Session._reserve",
+    "_Session._publish",
+    "_Session.progress",
+    "SolarServerCustody.__init__",
+    "SolarServerCustody._pointers",
+    "SolarServerCustody._binding",
+    "SolarServerCustody._open",
+    "SolarServerCustody.advance",
+    "SolarServerCustody.inspect",
+    "SolarServerCustody.page"
+  ],
+  "worker_only_one_call_attribute_changed": true
+}

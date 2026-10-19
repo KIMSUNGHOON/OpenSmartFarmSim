@@ -1,5 +1,7 @@
 # 시스템 아키텍처와 실행 계약
 
+**Worker checkpoint 전진 — 2026-10-20 KST:** [내부 ack 계약](../contracts/solar-worker-checkpoint-advance-v1.md)을 [같은 source82검사/제품 비용](../research/solar-worker-checkpoint-advance-implementation-20261020.md)으로 로컬 수용했다. worker만 guarded write 뒤 `None`을 받고 기존 독립 `_confirm`의 현재/서명/lease/cancel 검증 결과를 소비한다. 공개 progress 전후 guard·수치/파일 게시·결과 원자성은 유지한다. 원 독립64/새 배포/과학 관문은 별도다.
+
 **기존 일사 이력 재개 — 2026-10-20 KST:** [비생성 진입 계약](../contracts/solar-existing-intent-resume-v1.md)을 [최종 같은 source72검사/실제 비용](../research/solar-existing-intent-resume-implementation-20261020.md)으로 로컬 수용했다. `advance`의 완전한 기존 이력만 생성 없는 진입과 첫 full current guard/선택 HEAD 확인을 연결한다. default/new/adoption과 나머지 현재/게시 검증을 유지하며 공개 API/수치 프로필·권한 cache 변경은 없다. 원 독립64/배포·과학 관문은 별도다.
 
 [초기 계산 평가 연결](../contracts/calculation-assessment-v1.md)은 실제 완료 열·경제 작업을 같은 서명 문맥·결정 시각에 결합해 `/v1/assessments`로 접수한다. CLI/서버가 영수증·저장 결과·해시를 반복 검사하며, 승인 작물/공통 농장·시장/현장/미래/대응 비교 근거가 없는 합성 경로는 보류와 누락 사유만 저장한다. 전체 FarmScenario·실제 CLI·독립 운영 조립·브라우저/G1/G4 수용은 [후속 증거](../research/calculation-assessment-implementation.md)와 별도다.

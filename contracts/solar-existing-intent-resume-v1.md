@@ -3,7 +3,9 @@
 Status: locally accepted with [72 focused checks and final product comparison](../research/solar-existing-intent-resume-implementation-20261020.md),
 2026-10-20 KST. Independent64/deployment/scientific gates remain unaccepted.
 Extends [current guard ownership](solar-current-physical-farm-view-v1.md)
-only for the private noncreating path used by `SolarServerCustody.advance`.
+for the private noncreating path used by `SolarServerCustody.advance`.
+The subsequent [worker checkpoint advancement](solar-worker-checkpoint-advance-v1.md)
+extends the same guarded entry to `_advance_for_checkpoint`; it returns no progress claim.
 The existing `entry_guard=False` option remains strictly read-only.
 
 ## Boundary
@@ -30,13 +32,15 @@ may instead use an explicitly selected, noncreating entry:
    continuation, creation or publication. A changed, missing or authentic older
    HEAD is a hold. Authentic history validation remains in the original loader.
 5. Preserve every later source/prepare, calculation, proof/HEAD publication and
-   progress guard, lease/cancellation/input fence and cleanup. The first frame
+   progress guard whenever progress is produced, lease/cancellation/input fence and cleanup.
+   The subsequent private worker write acknowledgement produces no progress; its
+   independent checkpoint confirmation retains the original guarded reads. The first frame
    reconstruction moves to the first advance guard; only the following warm
    verification at that closed entry boundary is removed.
 
 The private `_advance_resume` option is exact bool and valid only with write
-entry and the existing eager `entry_guard` setting. `advance` is its only product
-caller. Default `_open`, new/incomplete intent entry and worker adoption retain
+entry and the existing eager `entry_guard` setting. Its product callers are public
+`advance` and the separately accepted private `_advance_for_checkpoint`. Default `_open`, new/incomplete intent entry and worker adoption retain
 their eager checks and original setup behavior. Result/checkpoint/read callers
 retain their existing modes. A missing member before selection uses the original
 eager path; a member lost after selection fails closed.
