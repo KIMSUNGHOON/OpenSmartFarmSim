@@ -1,5 +1,25 @@
 # 구현 순서
 
+## 현재 남은 비용 관측 수용·순수 감사 scope 후보 — 2026-10-19 KST
+
+[실제1→2단계 관측18369:0](../research/crop-solar-reference-bundle-remaining-cost-20261019.md)에서
+current12/등록24/재구성1·원천1,824/순서·원 UTC/proof3·원본/5root/상한/정리를 확인했다.
+144연결/298감사/8,976SQL이며 순수 검증의 source/candidate/reference scope 감사가 겹친다.
+다음 한 단계는 [v2 후보](../contracts/market-current-reference-audit-scope-v2.md)의 같은 작업 전후 실제 감사 유지/내부 중복 축소다.
+일반·대체 조회와 각 실제 원천/권리/identity 검사·늦은 철회/수명/오류/정리를 유지하고 실제 paired 비용 뒤에만 채택한다.
+현재 후보 미구현이며 v1 유지·원64 정상/계산 중3D/새 Solar 배포 미수용이다. 수용 전 완료 날짜는 미정이다.
+이후 원 정상→hold→취소→계산 중 WebGL→WSL 용량/사용자 적용과 실제 자료/독립 관문 경로를 유지한다.
+
+## 현재 묶음 원 정상 미완료·다음 실제 비용 관측 — 2026-10-19 KST
+
+[동일 source의 독립 CI39185424202](../research/market-current-reference-bundle-implementation-20261019.md#원-독립-정상-결과와-다음-관측)는
+원360초 제한/감독379.456초·종료 뒤25/64 저장 메타데이터로 미완료다. RSS 중단은 아니며 정상/DB 정리 proof가 없다.
+96개 로컬 컴포넌트 수용은 유지하고 전체 처리량·계산 중3D·배포 수용은 하지 않는다.
+다음은 현재 실제1→2단계에서 남은 연결/감사/SQL·원천/수치 비용을 집계하고 최소 수정 경계를 정하는 것이다.
+원 값/UTC·원천 순서/중복·current12/등록24/재구성1·확정 파일/현재 권리·원본/5root/상한/정리가 수용 기준이다.
+같은 source의 CI는 반복하지 않는다. 이후 원 정상→hold→취소→계산 중 WebGL→WSL 용량/사용자 적용을 유지한다.
+원64 미완료로 완료 날짜는 미정이며 실제 권리/독립 농장·미래·비교 검증은 병행 가능한 외부 의존성이다.
+
 ## 현재 참조 읽기 묶음 로컬 수용 — 2026-10-19 KST
 
 [96검사/현재 원문·권한·수명·최종 paired 관측](../research/market-current-reference-bundle-implementation-20261019.md)을 수용했다.

@@ -113,14 +113,122 @@
   },
   "native_normal_check": {
     "actor_instrumentation": false,
+    "artifact": {
+      "digest": "sha256:ff42b1de0e659a464c3f3912ca1fce18b9f708b5566f56e6a102efc421eef7b5",
+      "id": 12157798826,
+      "name": "solar-unpaused-normal-61543800aeba21bfbfbc3cbf20630a783d3d02f0",
+      "size_in_bytes": 3290
+    },
+    "checkpoint_metadata_is_current_source_or_rights_validation": false,
+    "conclusion": "failure",
     "created_at": "2026-10-19T01:27:17Z",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "worker",
+          "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+          "worker_proof_present": false
+        }
+      ],
+      "failure-checkpoint-diagnostics.json": {
+        "actors_stopped_before_collection": true,
+        "application_query_sha256": "ab6992768f580c4d46278fcbe2d3215583dfd3a55c9fe0aa84b51fb3e038d565",
+        "diagnostic_only": true,
+        "metadata": {
+          "G0_G4": "not_assessed",
+          "checkpoint_payload_sha256": "965fcbc454717f3da6486984d0f7be7ac386de4abf51ab5ed6887de8311847d0",
+          "checkpoint_recorded_at": "2026-10-19T01:35:48.035051+00:00",
+          "evidence_kind": "stored_owned_fixture_metadata_only",
+          "job": {
+            "attempt": 1,
+            "state": "simulating"
+          },
+          "normal_execution_accepted": false,
+          "observed_at": "2026-10-19T01:35:55.722144+00:00",
+          "owned_cluster_identity_verified": true,
+          "rights_or_gate_approval": false,
+          "stored_checkpoint": {
+            "computed_through_utc": "2026-10-01T00:00:50.123456Z",
+            "planned_steps": 64,
+            "publication_sequence": 26,
+            "status": "yielded",
+            "steps": 25
+          },
+          "transaction_isolation": "repeatable read",
+          "transaction_read_only": true
+        },
+        "normal_execution_accepted": false,
+        "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+        "run_id": "39185424202",
+        "source_commit": "61543800aeba21bfbfbc3cbf20630a783d3d02f0"
+      },
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 133
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1428,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 364675072,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 128077824,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 379.4563693470001
+      }
+    },
     "head_sha": "61543800aeba21bfbfbc3cbf20630a783d3d02f0",
-    "pending": true,
+    "normal_and_database_cleanup_proof_present": false,
+    "pending": false,
     "run_id": 39185424202,
-    "status": "in_progress"
+    "status": "completed"
   },
   "new_Solar_deployed": false,
-  "next_task": "crop-solar-reference-bundle-native-normal",
+  "next_task": "crop-solar-reference-bundle-remaining-cost",
   "nonacceptance_notes": [
     "Readers combined run exceeded RSS; controller short-temp cleanup and owned4passfile removal verified.",
     "Combined core session30passed but teardown immutable database-cleanup.json collided between modules. Not counted. Final modules rerun independently.",
@@ -291,6 +399,13 @@
       ],
       "scope": "two same actual advances,ABBA,original current loop selected only by test; no native64 acceptance"
     }
+  },
+  "postmortem_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "8e3118dd22e0eab2530d537f8b3e19a3e7157ddc05165ae134998397d0b2f551",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T01:29:47.776Z"
   },
   "review": {
     "authority": "No authorization result cache. Pure internal loop owns its read scope; full audits before/after, current principal/pointer/session/source checks per held read.",

@@ -37,6 +37,15 @@
 - [ ] **`crop-solar-reference-bundle-native-normal`** — 현재 묶음 코드의 원 계측 OFF 독립 정상64단계.
   원 입력/chunk1/조회·재시도/360초/RSS 그대로 두 전진 prefix·원 값/UTC·64/start1/CLI0/attempt1/success event1,
   두 actor 종료0·조회 계산/SQL 변경0·FD/role/schema/PG/임시 정리를 대사한다. 이후 hold→취소→계산 중3D 순서다.
+  CI39185424202/source6154380은 원360초 제한·감독379.456초/actor -15·종료 뒤25/64로 미완료다. 정상/DB 정리 proof는 없다.
+- [x] **`crop-solar-reference-bundle-remaining-cost`** — [현재 코드 실제 청크 비용 관측](../research/market-current-reference-bundle-implementation-20261019.md#원-독립-정상-결과와-다음-관측).
+  실제1→2단계의 남은 연결/감사/SQL·원천/수치 비용을 집계하고 원 값/UTC·원천1,824/순서·current12/등록24/재구성1,
+  확정 파일/현재 권리·5root/원본/자원/FD/소유 정리를 대사한 뒤 최소 후속 경계를 정한다. 같은 CI를 반복하지 않는다.
+  [18369:0 실제 관측](../research/crop-solar-reference-bundle-remaining-cost-20261019.md)에서144연결/298감사/8,976SQL·원천1,824/순서·원 UTC/proof3 보존을 확인했다.
+- [ ] **`crop-solar-current-reference-audit-scope-v2`** — [순수 검증의 중복 감사 축소 후보](../contracts/market-current-reference-audit-scope-v2.md).
+  source scope의 실제 전후 감사로 같은 작업의 내부 중복만 합친다. 일반/대체 조회·각 원천/현재 identity·권리 검사,
+  늦은 grant/principal/source/연결 변경·복제 Context/Task/중첩·오류/다음 작업 재검증·원 읽기/UTC/정리를 보존한다.
+  같은 실제 advance의 paired 비용이 유용할 때만 채택하고 원64 정상은 별도 검증한다. 현재 후보 미구현/미수용이다.
 
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,

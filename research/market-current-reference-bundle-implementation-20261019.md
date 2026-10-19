@@ -83,3 +83,26 @@ source `61543800aeba21bfbfbc3cbf20630a783d3d02f0`의
 
 실행 중 상태 게시의 첫 시도는 문서 동시 수정으로 source 보존이 False여서 수용하지 않았다.
 문서를 고정한 59587:0 재게시에서 source·원본·5root·두 화면·FD/소유 정리를 다시 확인했다.
+
+## 원 독립 정상 결과와 다음 관측
+
+위 CI39185424202는 **실패**로 종료했다. 원360초 계산 제한에서 감독379.456초,
+API/worker 각각 -15였다. 종료 뒤 소유 cluster의 읽기 전용/repeatable read 진단은
+**25/64·yielded·sequence26·UTC2026-10-01T00:00:50.123456Z·attempt1/simulating**을 읽었다.
+이는 저장 메타데이터 관측이며 현재 원천/권리 검증·정상 완료 수용이 아니다.
+원 actor2개/query/probe hash와 artifact ZIP/digest/path를 확인했다. hosted 합 RSS364,675,072bytes·
+단일128,077,824bytes·resource reason null·FD7→7·소유 비좀비/임시0이다.
+정상/DB 정리 proof는 없으며 WSL의5root 동시 용량을 입증하지 않는다.
+이전16/64와 이번25/64는 실행별 저장 관측이며 통제된 전체 처리량 비교로 주장하지 않는다.
+
+같은 source로 CI를 반복하지 않는다. 다음 한 단계는
+[기존 실제 청크 비용 관측 계약](../contracts/crop-solar-current-binding-cost-v1.md)의 현재 코드 적용이다.
+실제1→2단계의 current/등록/role/연결·SQL/원천/수치 계산 비용을 비밀값 없이 집계한다.
+원 UTC/값·확정 파일 identity/내용·원천1,824/중복 순서·current12/등록24/재구성1을 확인하고,
+원5root·2,148항목·frozen source/assets·두 화면·512MiB/PID/합1GiB·FD/소유 정리를 통과해야 한다.
+관측은 컴포넌트 진단이며 원64 정상 수용 수에 넣지 않는다. 결과로 최소 후속 변경을 정한다.
+새 Solar 배포·G0–G4·실제 농장0과 전체 완료일 미정/goal active는 유지한다.
+
+[실제 남은 비용 관측18369:0](crop-solar-reference-bundle-remaining-cost-20261019.md)을 완료했다.
+144연결/298감사/8,976SQL과 원천1,824/순서·원 UTC/proof3·원본/5root/정리를 확인했다.
+다음 후보는 [순수 감사 scope v2](../contracts/market-current-reference-audit-scope-v2.md)이며 현재 미구현/미수용이다.
