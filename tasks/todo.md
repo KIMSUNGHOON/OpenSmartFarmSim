@@ -99,6 +99,7 @@
 - [x] **`crop-solar-current-physical-farm-contract`** — [현재 v1 뷰/검증 소유권 계약](../contracts/solar-current-physical-farm-view-v1.md). 별도 physical-only capability를 도입하지 않고 full 등록/경제·현재 권리와 기존 actor/input을 유지한다. 소비 facts/현재성·철회·명시 읽기/기본 즉시 검증·원64/360/RSS/actor 적용 관계와 단계별 수용을 확정했다.
 - [x] **`crop-solar-current-guard-ownership`** — [최종 같은 app source64검사/검토](../research/solar-current-guard-ownership-20261020.md). 새4/제품paired1/worker13/읽기경합7/query13/HTTP24/TLS1/fresh1에서 full v1 권리·원 값/UTC·게시/lease/cancel·lock/정리를 확인했다. SQL12,919→11,723/감사343→315/원천3,040→2,736·제품 평균8.8171% 감소. 사설9.2448%와 이전88을 구분하며 독립 원64/새 배포는 미수용이다.
 - [ ] **`crop-solar-current-guard-independent-normal64`** — 위 수용 source의 계측 OFF 원 actor/input64/chunk1/poll/retry360/RSS와 API/worker0·원 값/UTC·두 전진prefix·정상/완전 정리를 별도로 확인한다. 이전33/64 실패를 보존하며 새로운 더 쉬운 입력/시간/청크·검사 생략으로 통과시키지 않는다. 후속은 독립 hold→HTTP취소→계산 중WebGL→WSL 용량/사용자 적용이다.
+  - [대기 관측](../research/solar-current-guard-independent-queue-20261020.md): CI39280701330/source8b5afe5 한 번 접수·계측 OFF. 2026-10-19T16:00:12.624737Z에 queued/실행기 미배정/steps0이며 GitHub Actions 처리 지연 공지가 있다. 동일 실행의 실제 종료/큐레이션 artifact 검증 전 체크하지 않는다.
 
 
 

@@ -51,6 +51,8 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 17 — 계약/로컬 구현 수용 | [현재 v1 물리 뷰·검증 소유권64검사](../research/solar-current-guard-ownership-20261020.md) | 새 물리-only 판본 없이 full 등록/현재 경제·권리와 actor/input을 유지했다. 명시 읽기만 첫 progress에서, prepare 반환 직후는 즉시 caller에서 원 검증을 수행한다. SQL11,723/감사315/원천2,736·제품 평균8.8171% 감소·값/UTC·늦은 변경/lock/정리. |
 | 18 — 다음 독립 관문 | 같은 source의 계측 OFF 원64 정상 | 원 actor/input64/chunk1/poll/retry360/RSS·두 전진prefix/원값/UTC·actor0/0·DB/소유 정리를 통과한다. 이전33/64와 진단17/64는 보존하며 현재64 집중검사를 독립 정상으로 대체하지 않는다. 이후 독립hold/HTTP취소/계산 중WebGL/WSL 사용자 적용 순서다. |
 
+위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md): source8b5afe5·원 계측 OFF를 한 번 접수했다. 2026-10-19T16:00:12.624737Z에 queued/runner 미배정/steps0이며 같은 시각 GitHub Actions 처리 지연 공지가 있다. 같은 run의 실제 종료와 원 artifact를 확인한다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
+
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.
 연구 대조12와 실제 guard37에서 검토한 default DTO의 조건부 범위를 수용했다. 같은 최종 source의 guard37은 원문 primitive와 원88참조2회를 결합하고 모든 원 getter를 실행했다. guard 합427.697초다. 후속 시험 전용 연결 후보는 실제 paired 비용 기준을 통과하지 못했다. 비교/비용 분리/연결 관측의3개 진단 검사·guard209.877초를 별도 기록했고 기존37/48/34/58을 재실행한 것으로 세지 않는다. 제품 app260파일은 그대로이며 v4 통합은 보류한다.

@@ -1,0 +1,121 @@
+{
+  "CI_restart_or_duplicate_dispatch": false,
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "application_code_changed": false,
+  "full_backend_or_browser_suite_rerun": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "kind": "point_in_time_external_CI_observation",
+  "local_focused64_accepted": true,
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "648e0755dc409c726c1a2131f4446bc560f9bcdb2f399414688392390032176e",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "subagents_spawned": 0,
+    "turn_context_at": "2026-10-19T15:58:12.517Z"
+  },
+  "new_solar_deployed": false,
+  "normal64_accepted": false,
+  "observation": {
+    "actions_status": "degraded_performance",
+    "check_annotation_count": 0,
+    "incident": [
+      {
+        "created_at": "2026-10-19T15:49:25.828Z",
+        "id": "8tzbpcnl75jp",
+        "name": "Degraded availability for GitHub Actions, GitHub Pages and Webhooks",
+        "resolved_at": null,
+        "status": "investigating",
+        "updated_at": "2026-10-19T15:56:34.100Z"
+      }
+    ],
+    "job_id": 118154056615,
+    "job_status": "queued",
+    "normal64_accepted": false,
+    "observed_at": "2026-10-19T16:00:12.624737Z",
+    "provider_incident_explains_processing_delay_but_individual_causality_not_proven": true,
+    "raw_sha256": {
+      "check": "85bf12f67a0cc37681b10fb4aca80cbc005eff6881b51edfd1315a7df8e41517",
+      "github_status": "b02fa980b4548bb31b391f01fe50692688eb664341768e4296b27049b59b1b8b",
+      "job": "87f46025f2c7165936804b88cafd4a6f15929dd9b4a53c938da06c546a207af3",
+      "run": "feea7f65ea0466f439006118bddd7c66bfeed9dd07d0ef773908fb4ba16da956"
+    },
+    "rights_or_gate_approval": false,
+    "run_conclusion": null,
+    "run_created_at": "2026-10-19T15:48:08Z",
+    "run_id": 39280701330,
+    "run_status": "queued",
+    "runner_name": null,
+    "source_head": "8b5afe5ffc056c60474a72fca57c19d6328aba65",
+    "status_updated_at": "2026-10-19T15:56:34.118Z",
+    "status_url": "https://www.githubstatus.com/api/v2/summary.json",
+    "step_count": 0
+  },
+  "observation_raw_sha256": "9b26f2d3317d7a3b784f11ecf16d8e64fe7414c4df930bd1aee68e87f21767ad",
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-current-guard-normal64-queue-v1",
+  "source_record": {
+    "QC": "official HTTPS JSON and exact run/job/head; queued is not terminal",
+    "available_at": "2026-10-19T15:56:34.100Z",
+    "display": "paraphrased_status_and_source_link",
+    "observation_time": "2026-10-19T16:00:12.624737Z",
+    "product_id": "GitHub Status Actions / incident 8tzbpcnl75jp",
+    "publication_time": "2026-10-19T15:56:34.100Z",
+    "raw_sha256": "b02fa980b4548bb31b391f01fe50692688eb664341768e4296b27049b59b1b8b",
+    "redistribution": "raw_response_not_published; no_agricultural_input_adoption",
+    "retrieval_time": "2026-10-19T16:00:12.624737Z",
+    "reviewer": "native Codex CLI gpt-6.1-sol / xhigh",
+    "source_url": "https://www.githubstatus.com/api/v2/summary.json",
+    "units": "not_applicable_status_metadata",
+    "use": "external_dependency_observation_only",
+    "vintage": "2026-10-19T15:56:34.118Z"
+  },
+  "status_publication_verification": {
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "actual_child_exit": 0,
+    "application_tree_and_previous64_stage_hashes_verified": true,
+    "both_frozen_HTML_equal": true,
+    "browser_or_DOM_rerun": false,
+    "case": "focused-solar-independent-queue-status-v1",
+    "combined_peak_RSS_bytes": 898805760,
+    "guard_seconds": 1.3791565850042389,
+    "local_links": {
+      "counts_overlap_do_not_sum": true,
+      "current_source_and_reports": 2508,
+      "queue_report_subset": 1870
+    },
+    "log_sha256": "ba57516dbb31e2209badc3c3b83badff7cf9088a3922e8235efa60c34a04f5f6",
+    "new_tests_run": 0,
+    "original_actor_hashes_verified": true,
+    "owned_PG_temporary_passfile_remaining": 0,
+    "owned_non_zombie_remaining": 0,
+    "preserved_frozen_ventilation_files": 2173,
+    "preserved_original_entries": 2148,
+    "protected_root_count": 5,
+    "reason": null,
+    "reported_at": "2026-10-19T16:01:15.539257Z",
+    "single_PID_peak_RSS_bytes": 141316096,
+    "source_pins_sha256": "30e25bea10b9c01accc4ab2b1728fa971c0f6c5e0e17874aa2acfc89e485eba6",
+    "source_sha256": "77d07e2cc631192a97cd13d290e7db0a6f11e94a4d4d3be0078286d1500ff95c",
+    "terminal_sha256": "be7915d4a5201143cc35bad7817f222cb08660e1bad669544bfc5fafadff4947"
+  }
+}
