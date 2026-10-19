@@ -89,6 +89,30 @@ def _head(value):
     return _hash(_canonical(value))
 
 
+def _existing_history(root,identity):
+    if not (files._exists(root,'.custody-lock') and files._exists(root,identity)):return False
+    intent=files._directory(root,identity)
+    try:
+        if not all(files._exists(intent,name) for name in ('.intent-lock','intent.json','proofs','artifact')):return False
+        proofs=files._directory(intent,'proofs')
+        try:files._secure(proofs,directory=True)
+        finally:os.close(proofs)
+        artifact=files._directory(intent,'artifact')
+        try:return files._exists(artifact,'HEAD')
+        finally:os.close(artifact)
+    finally:os.close(intent)
+
+
+def _existing_lock(parent,name):
+    fd=os.open(name,os.O_RDWR|os.O_NOFOLLOW|os.O_NONBLOCK|os.O_CLOEXEC,dir_fd=parent)
+    try:
+        info=files._secure(fd,modes=(0o600,));_need(info.st_size==0)
+        try:fcntl.flock(fd,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        except BlockingIOError:raise files.CycleCustodyPending('existing custody lock busy') from None
+        return fd
+    except BaseException:os.close(fd);raise
+
+
 class _Session:
     def __init__(self,owner,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,*,write=False,read_locks=None):
         _need(type(write) is bool and (read_locks is None or (not write and type(read_locks) is tuple
@@ -231,6 +255,9 @@ class _Session:
     def advance(self,budget,prepare):
         _need(self._writable is True)
         self._guard();existing=files._exists(self.artifact,'HEAD')
+        resume_head=getattr(self,'_resume_head',None)
+        if resume_head is not None:
+            _need(type(resume_head) is bytes and existing and files._read(self.artifact,'HEAD',8192)==resume_head)
         data=None
         if existing:
             head,digest,data=self._load()
@@ -275,8 +302,9 @@ class SolarServerCustody:
         finally:os.close(fd)
 
     @contextmanager
-    def _open(self,tenant,request_raw,write,*,entry_guard=True):
+    def _open(self,tenant,request_raw,write,*,entry_guard=True,_advance_resume=False):
         _need(type(write) is bool and type(entry_guard) is bool and (entry_guard or not write))
+        _need(type(_advance_resume) is bool and (not _advance_resume or write is True))
         opened=[];lifetime=ExitStack()
         try:
             self._binding();self.binding._guard(tenant,write);request=self.binding._request(request_raw)
@@ -288,19 +316,20 @@ class SolarServerCustody:
                 _need(type(value) is tuple and len(value)==2 and isinstance(value[0],(str,Path)) and type(value[1]) is bytes)
                 return value
             root=files.job_store._open_directory_nofollow(self.directory);opened.append(root)
-            root_lock=files._file(root,'.custody-lock',lock=True,shared=not write);opened.append(root_lock);files._usage(root,'root')
+            resume_existing=_advance_resume and _existing_history(root,_intent_id(tenant,request))
+            root_lock=(_existing_lock(root,'.custody-lock') if resume_existing else files._file(root,'.custody-lock',lock=True,shared=not write));opened.append(root_lock);files._usage(root,'root')
             identity=_intent_id(tenant,request)
             if not files._exists(root,identity):
                 _need(write and sum(_digest(n) for n in os.listdir(root))<LIMITS['root_intents'])
-            intent=files._directory(root,identity,create=write);opened.append(intent)
-            intent_lock=files._file(intent,'.intent-lock',lock=True,shared=not write);opened.append(intent_lock)
+            intent=files._directory(root,identity,create=write and not resume_existing);opened.append(intent)
+            intent_lock=(_existing_lock(intent,'.intent-lock') if resume_existing else files._file(intent,'.intent-lock',lock=True,shared=not write));opened.append(intent_lock)
             if files._exists(intent,'intent.json'):
                 raw=files._read(intent,'intent.json',LIMITS['intent_bytes'])
                 old=_checked(raw,self.integrity_key,INTENT_DOMAIN,LIMITS['intent_bytes'])
                 if old.get('request_sha256')!=_hash(request_raw):raise SolarCustodyConflict('solar calculation revision conflict')
                 binding_raw=farms.documents._canonical(old['binding'])
             else:
-                _need(write);directory,receipt=resolve();binding_raw=self.binding.prepare(tenant,request_raw,directory,receipt)
+                _need(write and not resume_existing);directory,receipt=resolve();binding_raw=self.binding.prepare(tenant,request_raw,directory,receipt)
             payload={'version':INTENT_VERSION,'scope':SCOPE,'G0_G4':'not_assessed','rights_or_gate_approval':False,'tenant_id':tenant,'intent_id':identity,
                 'request_sha256':_hash(request_raw),'binding':files.inputs._json(binding_raw),
                 'resolver_version':self.input_resolver.version,'custody_code_sha256':CODE_SHA256,
@@ -310,16 +339,18 @@ class SolarServerCustody:
             def current():
                 self._binding();d,r=resolve()
                 return self.binding.current(tenant,request_raw,d,r,binding_raw,write=write)
-            if write:_need(current()==binding_raw)
+            if write and not resume_existing:_need(current()==binding_raw)
             if not files._exists(intent,'intent.json'):
                 n,c=files._usage(root,'root')
                 _need(n+2*LIMITS['intent_bytes']<=LIMITS['root_bytes'] and c+4<=LIMITS['root_files'])
-            if write:files._immutable(intent,'intent.json',intent_raw,LIMITS['intent_bytes'],'.intent-')
+            if write and not resume_existing:files._immutable(intent,'intent.json',intent_raw,LIMITS['intent_bytes'],'.intent-')
             else:_need(files._read(intent,'intent.json',LIMITS['intent_bytes'])==intent_raw)
-            proofs=files._directory(intent,'proofs',create=write);opened.append(proofs)
-            artifact=files._directory(intent,'artifact',create=write);opened.append(artifact)
+            proofs=files._directory(intent,'proofs',create=write and not resume_existing);opened.append(proofs)
+            artifact=files._directory(intent,'artifact',create=write and not resume_existing);opened.append(artifact)
+            resume_head=files._read(artifact,'HEAD',8192) if resume_existing else None
             session=_Session(self,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,write=write,
                 read_locks=None if write else (root_lock,intent_lock))
+            session._resume_head=resume_head
             if not write and entry_guard:session._guard()
             def prepare():
                 _need(write is True)
@@ -342,7 +373,7 @@ class SolarServerCustody:
 
     def advance(self,tenant,request_raw,*,budget):
         _need(type(budget) is int and 1<=budget<=continuation.MAX_CHUNK_BOUNDARIES)
-        with self._open(tenant,request_raw,True) as (session,prepare):return session.advance(budget,prepare)
+        with self._open(tenant,request_raw,True,_advance_resume=True) as (session,prepare):return session.advance(budget,prepare)
 
     def inspect(self,tenant,request_raw):
         with self._open(tenant,request_raw,False,entry_guard=False) as (session,_):return session.progress()

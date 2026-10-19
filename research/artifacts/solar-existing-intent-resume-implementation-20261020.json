@@ -1,0 +1,1090 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_combined_peak_RSS_bytes": 1060302848,
+  "accepted_guard_seconds": 1451.214371107024,
+  "accepted_single_PID_peak_RSS_bytes": 170864640,
+  "actual_farm_Runs": 0,
+  "actual_product_cost_tests": 1,
+  "application_source_version": {
+    "kind": "backend_app_tree_sha256",
+    "sha256": "a18da9558cd83d62edd1fb9a64ea8829ee59fd9da08b72cbce380d23229daa32"
+  },
+  "baseline_application_commit": "8b5afe5ffc056c60474a72fca57c19d6328aba65",
+  "failed_or_intermediate_attempts": [
+    {
+      "accepted_tests_added": 0,
+      "actual_child_exit": 1,
+      "case": "focused-solar-noncreating-existing-entry-cost-v1",
+      "classification": "incorrect test assumption about location of first frame reconstruction; no acceptance",
+      "combined_peak_RSS_bytes": 1009709056,
+      "log_sha256": "3e96f0835dfb24385e01773aa1d15a0fb492290266c4731f89c35133ece11468",
+      "reason": null,
+      "terminal_sha256": "cbe2a551e0247f0b84402876ee25603de791f04562549bcb28917465742c0897"
+    },
+    {
+      "accepted_tests_added": 0,
+      "actual_child_exit": 1,
+      "case": "focused-solar-noncreating-existing-entry-cost-v2",
+      "classification": "fixture local variable shadowed warm helper; before measured quanta",
+      "combined_peak_RSS_bytes": 999796736,
+      "log_sha256": "41fdab4e79ab0ff4468310d58adaa5a2dacbfb0962e907bfbff5884a9fcd225c",
+      "reason": null,
+      "terminal_sha256": "ad9bbdeb14aa6cd2c182608d94cd59042201a940003c12ac2a324625cdce1dd7"
+    },
+    {
+      "accepted_tests_added": 0,
+      "actual_child_exit": 1,
+      "case": "focused-solar-existing-resume-red-v1",
+      "classification": "expected RED: new private option not implemented",
+      "combined_peak_RSS_bytes": 982945792,
+      "log_sha256": "3867587320bbbea5c25d9d1cb49edacd90653795f884d586c6a637e3c063c548",
+      "reason": null,
+      "terminal_sha256": "01bfa9a1455c406bc3c032dd3ce729e1a148daaea23dadaab143f1b2a8ec4975"
+    },
+    {
+      "accepted_tests_added": 0,
+      "actual_child_exit": 1,
+      "case": "focused-solar-existing-resume-lock-ownership-v1",
+      "classification": "RSS hold during combined modules; no partial successes counted",
+      "combined_peak_RSS_bytes": 1076113408,
+      "log_sha256": "0c77f3e29b70e1f26a45a502961fa75985c7a41f4234b2bc6af01b0090313a57",
+      "reason": "RSS_limit",
+      "terminal_sha256": "0139c8beab65ae40a5186e2a2c72ae983ab89139b6117b2e2f8bbe610e0af616"
+    },
+    {
+      "accepted_tests_added": 0,
+      "actual_child_exit": 1,
+      "case": "focused-solar-existing-resume-lock-files-v1",
+      "classification": "test expected only custody hold, OS rejected read-only lock with PermissionError; product denial unchanged",
+      "combined_peak_RSS_bytes": 970498048,
+      "log_sha256": "500dd41b9f2beb62c1186c83fb581be6c72bdc38b9bd4251b378d45f4eec458d",
+      "reason": null,
+      "terminal_sha256": "9c17d7b380a83187d1059bb666a222b5087f5be3ff28782838465d5159c21b18"
+    },
+    {
+      "accepted_tests_added": 0,
+      "actual_child_exit": -15,
+      "case": "regression-solar-existing-resume-worker8-v1",
+      "classification": "RSS hold during combined vectors; same original vectors passed in fresh isolated processes/clusters",
+      "combined_peak_RSS_bytes": 1084600320,
+      "later_owned_cleanup": {
+        "credential_contents_read_or_logged": false,
+        "observed_at": "2026-10-19T18:10:40.540161+00:00",
+        "original_failure_preserved": true,
+        "original_terminal_sha256": "212231268ea480fcd020c2ff251888744f496dbe58f3e779d897cb70619de934",
+        "owned_observed_PG_identities_live": 0,
+        "remaining_named_temporary_DB_directories": 0,
+        "remaining_stage_passfiles": 0,
+        "removed_owned_passfiles": 4,
+        "resource_acceptance": false
+      },
+      "later_owned_cleanup_sha256": "b01e7489e972b992aa0361aea62a098ebfb032f44b237614d0c1039eb26a7ba3",
+      "log_sha256": "dfa3476846ce31adf8b1496b34595fb3f5ca2adf22b6df8ca2264c718b985cd9",
+      "reason": "RSS_limit",
+      "terminal_sha256": "212231268ea480fcd020c2ff251888744f496dbe58f3e779d897cb70619de934"
+    }
+  ],
+  "focused_distinct_tests_passed": 72,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "functional_tests": 71,
+  "goal_status": "active",
+  "local_implementation_adopted": true,
+  "native_CLI": {
+    "effort": "xhigh",
+    "existing_native_CLI": true,
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "fa7b13df68843d8c6406b26931e0a125a9619ba005d27b9a84406734bf457906",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T17:27:45.170Z"
+  },
+  "new_solar_deployed": false,
+  "new_test_sha256": {
+    "backend/tests/test_solar_existing_intent_lock_files.py": "600cdf857ae2e88de456a8606f57dbcf5c9a14a0cdc5545aa55bc9f375585e18",
+    "backend/tests/test_solar_existing_intent_resume.py": "1db787e7c140874f254238528c7894964a037aa98494c5ac29cbd728194ebe0e"
+  },
+  "normal64_accepted": false,
+  "old64_not_added_without_rerun": true,
+  "original_actor_sha256": {
+    "api": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+    "worker": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6"
+  },
+  "original_entry_counterexample": {
+    "case": "focused-solar-existing-intent-original-write-review-v1",
+    "next_original_guard_rejected_revoked_numerical_work": true,
+    "not_an_original_unauthorized_publication_claim": true,
+    "not_in_final72": true,
+    "original_entry_can_recreate_deleted_intent": true,
+    "raw_sha256": "14846e4513fc6ff18776a22976db92fc04530fe8a02f62d98d412997c065720f",
+    "source_commit": "8b5afe5ffc056c60474a72fca57c19d6328aba65"
+  },
+  "permission_or_authority_result_cache_added": false,
+  "physical_economic_rights_still_jointly_required": true,
+  "predeclared_cost_criteria_sha256": "86e47d74171524b22e6325bcee7cf60ed8599b9fa7fc9b96f99fa62bad756ad7",
+  "private_comparison": {
+    "all_other_current_checks_and_SQL_reconciled": true,
+    "case": "focused-solar-noncreating-existing-entry-cost-v3",
+    "mean_wall_reduction_pct": 3.3782089181504817,
+    "minimum_mean_reduction_pct": 2,
+    "not_independent64_throughput_acceptance": true,
+    "original_counts_and_microsecond_UTC_preserved": true,
+    "paired_wall_reductions_pct": [
+      4.150341907990776,
+      2.6182364106596174
+    ],
+    "raw_file": "noncreating-existing-entry-paired-cost.json",
+    "raw_sha256": "7e6ab9cbc873b746f47d2689144d599502756e122d898cb22259b33a0402e01e",
+    "rows": [
+      {
+        "SQL": 11723,
+        "full_current_checks": 18,
+        "mode": "baseline",
+        "role_audits": 315,
+        "source_reads": 2736,
+        "step": 2,
+        "wall_seconds": 7.892185300996061
+      },
+      {
+        "SQL": 11125,
+        "full_current_checks": 17,
+        "mode": "candidate",
+        "role_audits": 301,
+        "source_reads": 2584,
+        "step": 3,
+        "wall_seconds": 7.564632626992534
+      },
+      {
+        "SQL": 11125,
+        "full_current_checks": 17,
+        "mode": "candidate",
+        "role_audits": 301,
+        "source_reads": 2584,
+        "step": 4,
+        "wall_seconds": 7.808527346001938
+      },
+      {
+        "SQL": 11723,
+        "full_current_checks": 18,
+        "mode": "baseline",
+        "role_audits": 315,
+        "source_reads": 2736,
+        "step": 5,
+        "wall_seconds": 8.01846984300937
+      }
+    ]
+  },
+  "private_probe_sha256": {
+    "configure-acceptance-stage.py": "5834f63fc14e646f7d292db594f0ca26a421cfcd092b29b032553c97b3a50647",
+    "custody-8b5afe5-baseline.private.py": "513c9aa8eca874ddaac24085a71d172bbbe1a72b582ed79f1b583fffbc256ddb",
+    "first-cost-reconciliation-failure-probe.private.py": "b2efbc7e0c4fd85428260dc34c67079b5372d6ceef9928363f49500436fa2774",
+    "original-write-review-probe.private.py": "b90a9ee3be973a922bb1bad683bcafe5dd02d21801cd6ee1f1f201c86e36e21d",
+    "second-cost-fixture-name-failure-probe.private.py": "0c99c1126009d325c1708cc4f302afcca158c5129146e13425975508272bff2c",
+    "test_existing_intent_entry_v1.py": "2d997d419585e885d0c4f3ee03c05a559aa4e5dd8c182b4f9537bbec9392fc2c",
+    "test_existing_resume_product_cost_v1.py": "7c919e25a1cb688cd3a2595f87900a8df06884d829eb07d2eb7e88a59945449a"
+  },
+  "product_comparison": {
+    "all_other_current_checks_and_SQL_reconciled": true,
+    "case": "focused-solar-existing-resume-product-cost-v1",
+    "mean_wall_reduction_pct": 5.078398037511622,
+    "minimum_mean_reduction_pct": 2,
+    "not_independent64_throughput_acceptance": true,
+    "original_counts_and_microsecond_UTC_preserved": true,
+    "paired_wall_reductions_pct": [
+      4.774005507427026,
+      5.375130740320117
+    ],
+    "raw_file": "existing-resume-actual-product-paired-cost.json",
+    "raw_sha256": "f63b99914386b62a624d306ac75277e70181a558d62eaa27f0321aa24a9779f1",
+    "rows": [
+      {
+        "SQL": 11723,
+        "full_current_checks": 18,
+        "mode": "baseline",
+        "role_audits": 315,
+        "source_reads": 2736,
+        "step": 2,
+        "wall_seconds": 7.9398541420086985
+      },
+      {
+        "SQL": 11125,
+        "full_current_checks": 17,
+        "mode": "product",
+        "role_audits": 301,
+        "source_reads": 2584,
+        "step": 3,
+        "wall_seconds": 7.5608050679875305
+      },
+      {
+        "SQL": 11125,
+        "full_current_checks": 17,
+        "mode": "product",
+        "role_audits": 301,
+        "source_reads": 2584,
+        "step": 4,
+        "wall_seconds": 7.70701838300738
+      },
+      {
+        "SQL": 11723,
+        "full_current_checks": 18,
+        "mode": "baseline",
+        "role_audits": 315,
+        "source_reads": 2736,
+        "step": 5,
+        "wall_seconds": 8.14481271499244
+      }
+    ]
+  },
+  "product_open_callers_before_change": [
+    {
+      "call": "self._open(tenant, request_raw, True)",
+      "class": "SolarServerCustody",
+      "file": "crop_greenhouse_solar_server_custody.py",
+      "line": 345,
+      "method": "advance"
+    },
+    {
+      "call": "self._open(tenant, request_raw, False, entry_guard=False)",
+      "class": "SolarServerCustody",
+      "file": "crop_greenhouse_solar_server_custody.py",
+      "line": 348,
+      "method": "inspect"
+    },
+    {
+      "call": "self._open(tenant, request_raw, False, entry_guard=False)",
+      "class": "SolarServerCustody",
+      "file": "crop_greenhouse_solar_server_custody.py",
+      "line": 351,
+      "method": "page"
+    },
+    {
+      "call": "self.server._open(self.tenant_id, request_raw, True)",
+      "class": "SolarExecutionWorker",
+      "file": "crop_greenhouse_solar_execution_worker.py",
+      "line": 89,
+      "method": "_adopt"
+    },
+    {
+      "call": "self.server._open(tenant, request_raw, False, entry_guard=False)",
+      "class": "SolarExecutionCheckpointStore",
+      "file": "crop_greenhouse_solar_execution_checkpoint.py",
+      "line": 164,
+      "method": "_session"
+    },
+    {
+      "call": "self.server._open(tenant, request_raw, False)",
+      "class": "SolarResultStore",
+      "file": "crop_greenhouse_solar_result_store.py",
+      "line": 251,
+      "method": "_session"
+    },
+    {
+      "call": "self.server._open(tenant, request_raw, False)",
+      "class": "SolarResultStore",
+      "file": "crop_greenhouse_solar_result_store.py",
+      "line": 331,
+      "method": "_read"
+    }
+  ],
+  "recorded_at": "2026-10-19T18:27:59.112080Z",
+  "remaining_focused_hours": null,
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-existing-intent-resume-local-acceptance-v1",
+  "scientific_profiles_or_coefficients_changed": false,
+  "source_preflight": {
+    "backend_app_files": 261,
+    "backend_app_tree_sha256": "a18da9558cd83d62edd1fb9a64ea8829ee59fd9da08b72cbce380d23229daa32",
+    "changed_application_files": [
+      "backend/app/crop_greenhouse_solar_server_custody.py"
+    ],
+    "mandatory_methods_unchanged_AST": [
+      "_Session.__init__",
+      "_Session._guard",
+      "_Session._files_guard",
+      "_Session._read_snapshot",
+      "_Session._proof",
+      "_Session._selected",
+      "_Session._load",
+      "_Session._reserve",
+      "_Session._publish",
+      "_Session.progress",
+      "_open.current",
+      "_open.prepare"
+    ],
+    "new_public_API_data_or_numeric_coefficient_changes": false,
+    "new_solar_deployed": false,
+    "normal64_accepted": false,
+    "private_product_three_method_AST_equivalence_preflight_passed": true,
+    "private_product_two_helper_AST_equivalence_with_explicit_alias_normalization_passed": true,
+    "remaining_application_files_unchanged": 260,
+    "rights_or_gate_approval": false
+  },
+  "source_preflight_sha256": "4090c5d9fda0c1987fbe3ff0659ad44d10c867b942871d1aeb2f1316324bc123",
+  "source_review_sha256": "899cde73648a5833458bfd6ee38e6928a28e8bc57c8c2fafb2ec1736cc150ba5",
+  "stages": [
+    {
+      "case": "focused-solar-existing-resume-green7-v1",
+      "distinct_tests": 7,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 997359616,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 161.67750034799974
+      },
+      "log_sha256": "7ba942c61991e1bbbfc995ba301f5ea6dc05937095281ad8a4915a3024a25fb2",
+      "raw_evidence_sha256": {
+        "new/solar-custody/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-custody/existing-resume-current-rights.json": "7d61d9bd73600c4899b30055be088566523aeacc7bd83747c4232109bc29f1c8",
+        "new/solar-custody/existing-resume-existing-locks.json": "7d61d9bd73600c4899b30055be088566523aeacc7bd83747c4232109bc29f1c8",
+        "new/solar-custody/existing-resume-lost-members.json": "20cbd6cecfd3c19e03a78cac29f3c98fa891870ef85beedbe8a827c2180e579a",
+        "new/solar-custody/existing-resume-noncreating-entry.json": "d5e3452b8511b3d91752a9fc21708b9a88cdfcc5adef5c3e461b84a35a915d44",
+        "new/solar-custody/existing-resume-selected-head.json": "a49166fc371b5a622c2d236dae387c6293067802e5751b72e74ea3c25a446834"
+      },
+      "source_pins_sha256": "25385eeaf29e1211720fee6d1a125b48e331bcdd7b000f954f12afda512bad15",
+      "terminal_sha256": "792450316dd53b2f836747a32ed6836a8928bbc8dcebc3344938f5bb9b0113c6"
+    },
+    {
+      "case": "focused-solar-existing-resume-lock-files-green-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 982953984,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 25.38913093500014
+      },
+      "log_sha256": "c8838fc7c910cc9dcb7708c9d4ad4b723d22a3153a327e1202341d574ba9e93e",
+      "raw_evidence_sha256": {
+        "new/solar-custody/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-custody/existing-resume-lock-file-security.json": "47f633b38eaf5c2e96b516cdb596cbdc751dd26f22559644bedf7c5456f25a64"
+      },
+      "source_pins_sha256": "0b63381eb0be35e8398a615acb37a8147f7adc8e6071f00d421b5d965edb28c0",
+      "terminal_sha256": "7e562b277e9d4861406046e19f150c9d12a4a538ec14c0310962508167fcdc56"
+    },
+    {
+      "case": "focused-solar-existing-resume-product-cost-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1005019136,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 61.75365778700507
+      },
+      "log_sha256": "6fb0ca2631b8eb0f3bdca0916fc79b7496122c041dbe506c9e5afe3f7066eafb",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/query/existing-resume-actual-product-paired-cost.json": "f63b99914386b62a624d306ac75277e70181a558d62eaa27f0321aa24a9779f1"
+      },
+      "source_pins_sha256": "0b63381eb0be35e8398a615acb37a8147f7adc8e6071f00d421b5d965edb28c0",
+      "terminal_sha256": "1ad5d1ade1c2d929efc318eb500f0b920681d193c70b53ea7a883af3d9d0a028"
+    },
+    {
+      "case": "regression-solar-existing-resume-shared-locks-v1",
+      "distinct_tests": 7,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1060302848,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 147304448,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 186.8550598980073
+      },
+      "log_sha256": "3fafb0049eabe23da83222cac0ef7f42747cdb6d26122bf0939b0f034fd37443",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      },
+      "source_pins_sha256": "0b63381eb0be35e8398a615acb37a8147f7adc8e6071f00d421b5d965edb28c0",
+      "terminal_sha256": "b0c955663856d713b29f1f5ea8989f3fe85011a748326bf936529285720905d6"
+    },
+    {
+      "case": "regression-solar-existing-resume-HTTP24-v1",
+      "distinct_tests": 24,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 936706048,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 2.3898010999982944
+      },
+      "log_sha256": "84f5a7f746629f8c0b5201f1bdd581c070931915480944e6c8e6fe1e5e3c31c2",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "9374b98a8b43dad24646da97bda3cb7c334ea8f2fae8829ea6d4abfbfc13ce58"
+    },
+    {
+      "case": "regression-solar-existing-resume-ownership4-v1",
+      "distinct_tests": 4,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 993267712,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 66.9129990490037
+      },
+      "log_sha256": "26874ae89925e2ccdcd76d4b26ed3fe7b64881a98699054109d4202d8171d8cb",
+      "raw_evidence_sha256": {
+        "new/solar-custody/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "c49dde334a0e696f9a8ed71a3cf8231a9b52114ad4e20102617f332906d136bd"
+    },
+    {
+      "case": "regression-solar-existing-resume-fresh1-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1056862208,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 147632128,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 40.44155120699725
+      },
+      "log_sha256": "7e78fbd7f58dcc1d774f8af2ccbfedcb40211ddd8dba4fc873a30ba57c55210f",
+      "raw_evidence_sha256": {
+        "new/solar-custody/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-custody/normal.json": "b8e8ea28ba59fc3a43359583c13e55243c40601c1cc9899d3b4a69b2ebb712e3"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "46810873df146d2b84f43975516f6793931d4762075dac3851bbc68062c4a04c"
+    },
+    {
+      "case": "regression-solar-existing-resume-TLS1-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1044434944,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 170864640,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 38.36796305999451
+      },
+      "log_sha256": "f7dd27fc6e3519ca0835ababd3bc2255a25d910d61e96082f791bc9472e4206f",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-execution-http/capture-change.json": "b088244a4641ccf1e957411be04118edfb36997393a5bc26b983ecf2f805e1fa"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "458d102abac44c3027304c08f030551c127e684da4ccbcf5f24a51594a4351bc"
+    },
+    {
+      "case": "regression-solar-existing-resume-worker5-v1",
+      "distinct_tests": 5,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1036271616,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 222.40539446700132
+      },
+      "log_sha256": "11d0992671c7dc5c8a98413ac7353d8a8a0f0ab326e8531a024838f23f10cd0f",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "c471d05e4e383197a9f5431954d25d5357ca70ac6bc70e7295ca1e6743916142"
+    },
+    {
+      "case": "regression-solar-existing-resume-cancel-finish-after-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1028481024,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 33.21502829599194
+      },
+      "log_sha256": "b2d0d1c3fccd6ad03c5fb1e75e194ab782f4391295543be1bd7dba58fbe3c102",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "2aac0007096b58a5bfa73cb03e81b0913be5b4ae3c5b8c601e724b45bc899771"
+    },
+    {
+      "case": "regression-solar-existing-resume-cancel_before-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 992047104,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 15.941894667004817
+      },
+      "log_sha256": "7b7a7c737195af499ff5f75e3e5dcbc088027849257870f4edd6afb5074e2e20",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "8bc92164dce2e65f4b48fd6c96b39abeb09a10ca62273357ca2f4c050500ca12"
+    },
+    {
+      "case": "regression-solar-existing-resume-cancel_confirm_before-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1012101120,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 25.852621785001247
+      },
+      "log_sha256": "a5c1e7f539d39158df6d7a6b1182cf2b9b4ed22410f446d11b9584a32495dc39",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "576635b5a9483be528d1bed7ac243854d1bb520b842878ea73c88674e6dde481"
+    },
+    {
+      "case": "regression-solar-existing-resume-cancel_confirm_after-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 997724160,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 26.994645519007463
+      },
+      "log_sha256": "e040bb186419eb74ba471b36769f040dba2ec58f25eb8c14e91a343afec0ba5a",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "6c40895399b7b973eccdae183253a5a79a2fb5b51f9d1e00f7964d51f8a5954d"
+    },
+    {
+      "case": "regression-solar-existing-resume-cancel_finish_before-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1028956160,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 144039936,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 33.178801071000635
+      },
+      "log_sha256": "dd64dc7e36c8a3ed80a277b6e6be004a9cae7a4ab779b86ddd83ae4dc6742c6c",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "93fe2e363d854a1449499d4cc5c4f139526bfc39e863ddbe43c0184484a0f872"
+    },
+    {
+      "case": "regression-solar-existing-resume-cancel_result_after-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1030365184,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 33.435239215003094
+      },
+      "log_sha256": "846a639dc1fcfc180f604be1e1e1c1a9efb26b2cf189340e21cf631026d1675a",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "431e5bb9fc3e746932706dcb0ec43d8015341393255192546cdbc348d2a5de7c"
+    },
+    {
+      "case": "regression-solar-existing-resume-fence_confirm-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1020035072,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 26.12337749899598
+      },
+      "log_sha256": "dc5868fc786a2e6aee8fedcae27c5269ac78a960e5c4cd1b93550c6a3502ef94",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "a11e3667be42571eed0e2c8186142ee570819592b6dc9e7c20cd53068033f7ac"
+    },
+    {
+      "case": "regression-solar-existing-resume-fence_finish-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1034416128,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 146079744,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 33.374639027009835
+      },
+      "log_sha256": "3b9f9aa4f5e7729be74d1823b72ba852e506b73218dd414ae1cb4a7ea04af836",
+      "raw_evidence_sha256": {},
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "cf0a6e3b4de42efae2cb4617944e971f63ac049c6f8c062f350e03eea9cd31db"
+    },
+    {
+      "case": "regression-solar-existing-resume-query6_part1-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1014263808,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 24.790353218995733
+      },
+      "log_sha256": "bfa4517bab4b90c2d2a058723c2f98e8d10fa261ad2c4337681d27f08f71f266",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/query/none.json": "5fdd6eca1f5ec2a8be1020d9ce4a285aef2b5034778632268063329a5d235752"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "1f28492341028c59a8041eb8d41486965e155351e86b6f3ef4e439ec71d0e5c3"
+    },
+    {
+      "case": "regression-solar-existing-resume-query6_part2-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1024585728,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 45.69317610000144
+      },
+      "log_sha256": "8b0d912fcb157c35b50696f1289c6189d08de98e50f9a7e08c11b21cbaa015e9",
+      "raw_evidence_sha256": {
+        "new/query/checkpoint.json": "e7ea13128095fc0985bd9fe87aa0ca3e90d5191bb71bf47bb0aec543f6cfe750",
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "ba783406213f35f5aff5da385fb27477a49d6db9c14d045aa7957638cfcde9d1"
+    },
+    {
+      "case": "regression-solar-existing-resume-query6_part3-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1043197952,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 48.11802439899475
+      },
+      "log_sha256": "c673cc4c699302af060220e04ec19fbd5600c9cd244a54cb9542e0562bcce52e",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/query/unavailable.json": "d6c4dc4112d72b9ba10b1a8728c1f0876d81d45b413ae49a113234d935f5a911"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "6150ef0b397174e0843a761826b2fa457a34bcaefc8dc145c20c6974f87caa87"
+    },
+    {
+      "case": "regression-solar-existing-resume-query6_part4-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1003638784,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 18.62317703300505
+      },
+      "log_sha256": "4c162e97915325c31d1b9ab825110d3e0dda582acf3cbe65ebc1833a58394297",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/query/rights.json": "a2eafd16be61105535df84745482640af65bd8dbc48d423ae157469b55109672"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "55a6894a350b39ac7b8a38f45b43f2bbe1e777811491ef6061c4685a16920302"
+    },
+    {
+      "case": "regression-solar-existing-resume-query6_part5-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1031036928,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 18.816930824003066
+      },
+      "log_sha256": "d4bb930d6682fab37ea74b455802dca1f063744f8cae167da0fb8dfaad353ea1",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/query/job-drift.json": "4965c3f46a7ccbfc08b9b36ef3e2e2a88d3a5a40ebaa7fae3b18377bbc91d8da"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "8632ded89a0283c7a263b2972b689a118e28d5927cdebc6a72076d6d155ffd54"
+    },
+    {
+      "case": "regression-solar-existing-resume-query6_part6-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1020366848,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 20.17900502900011
+      },
+      "log_sha256": "94931fda86fcfe1768e305c0fe51eec04c442b0026433f1f351afc9dd2cb287c",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/query/serialization-rights.json": "bb39cdb3c886a67a0fe8c41c52abd9406f8b76ea913f9de399401729e2005267"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "34ae775c4ac7216d41937d219e820920d5768ea109034a06e4136a06edbea444"
+    },
+    {
+      "case": "regression-solar-existing-resume-query7_part1-v1",
+      "distinct_tests": 2,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1021923328,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141385728,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 58.50828487800027
+      },
+      "log_sha256": "80ffa991e8cf101587d70b421a38f220be73fc0c2f6bd3df1728b251e811334c",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "6ff40f7688eab112ad64842c186bd1021f43dba6a0e9d76468c33c30235ba30f"
+    },
+    {
+      "case": "regression-solar-existing-resume-query7_part2-v1",
+      "distinct_tests": 2,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1028112384,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 148422656,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 66.06497296399903
+      },
+      "log_sha256": "8b277a2f4fc0f0b8108535e2d2a5b89d83674f80f3c727c419a55bc36937a4d0",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "127febe1447346937831ccc0fb0dd3ec73058251b1008e0bc1805ef27b8796ca"
+    },
+    {
+      "case": "regression-solar-existing-resume-query7_part3-v1",
+      "distinct_tests": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1019162624,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 30.655599525998696
+      },
+      "log_sha256": "3f3ffab2c041ab7e8b9510086795e3a284fed1dfa4c36b30be57860fccf0f13f",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "9f7d2e035010e6ece0f285b0379b5b8c9dc023ae008aeb931ee6bb87784d9d8d"
+    },
+    {
+      "case": "regression-solar-existing-resume-query7_part4-v1",
+      "distinct_tests": 2,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1049690112,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 146968576,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 85.45554220500344
+      },
+      "log_sha256": "7979fa3505c57c3f54007c04ba1bb5989ec27ee0295a45be5446cb0c852b6e6b",
+      "raw_evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/query/terminal-completed.json": "b0c79c8a035db74337a39bc65c1e12e899ed848c81d23deb07b48ebacd3aefbe",
+        "new/query/terminal-hold.json": "f226a3061be2bafc65a69ebba46e1b1e446ffbd60a7ab9fa47eb6f4d786ccdb8"
+      },
+      "source_pins_sha256": "0d7a0e53e1164f1af76479df117616a89ff6057c4a79092bf5746f7dc8d9276f",
+      "terminal_sha256": "5b351d6d588d4625912c5267bb162001eb21eb88310aa01c0f8524f01f0720c8"
+    }
+  ],
+  "status_publication": {
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "both_frozen_HTML_and_ventilation2173_files_preserved": true,
+    "browser_rerun": false,
+    "case": "focused-solar-existing-resume-final72-status-v1",
+    "combined_peak_RSS_bytes": 901644288,
+    "guard_seconds": 1.6371722639887594,
+    "local_links_checked": 2724,
+    "log_sha256": "b9bda40feca8ba20b8ac84f91c6942c893c47a2740571e57a135c81a6bf2de67",
+    "original_entries_preserved": 2148,
+    "owned_non_zombie_PG_temporary_passfiles_remaining": 0,
+    "protected_roots": 5,
+    "reason": null,
+    "reported_at": "2026-10-19T18:31:56.772848Z",
+    "single_PID_peak_RSS_bytes": 141316096,
+    "source_pins_sha256": "7701f1fbeb4caf48455e303b78f26e2d11be75991a9d5cce6e9b496dc76d916f",
+    "source_sha256": "be00ddd296b393a2ae19ec9ceaaa947dbf42dda69e3358cd1ea2f5ea5bb2ccf8",
+    "terminal_sha256": "ee46c0ef613c28e3363d0de4c2522075fb11ddc741989d70cda7817bba434735"
+  }
+}

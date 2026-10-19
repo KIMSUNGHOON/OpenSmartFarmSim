@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**후속 비용 평가 — 2026-10-20 KST:** [형식 변환/연결 필드/SQL 역할 식별3검사](../research/solar-validation-cost-candidates-20261020.md)를 원 SQL/권리·counts/UTC로 완료했다. 모두 비용 기준 미달로 미채택·제품8b5afe5 유지다. 다음은 기존 intent 재개의 파일 쓰기/현재 검증 소유권 대조이며 원64/후속3D·새 배포 수용은 아니다.
+**기존 이력 재개 로컬 수용 — 2026-10-20 KST:** [최종 source72검사/제품 비용](../research/solar-existing-intent-resume-implementation-20261020.md)를 수용했다. 기존 이력의 비생성 진입·첫 full 검증/HEAD와 나머지 현재 경계·원 수치/UTC·정리를 확인했다. SQL11,125/감사301/원천2,584·제품 평균5.0784% 감소이며 다음은 새 source의 원 독립64다. 원64/후속3D·새 배포/자료 관문 수용은 아니다. 아래는 당시 기록이다.
 
 **현재 독립 정상 미완료 — 2026-10-20 KST:** [원 CI39280701330/41단계·현재 비용 관측4건](../research/solar-current-guard-native-normal-20261020.md). 원360초/64 미완료·actor−15/−15이며 정상/DB count proof는 없다. 제품8b5afe5/현재 권리·원 actor/input을 유지했고 JSON 후보는 평균1.4155%로 미채택이다. 다음은 현재 감사/보호 조회 순서 대조다. 원 정상→hold→HTTP취소→계산 중3D→WSL 사용자 적용과 전체 관문 보류를 유지한다.
 

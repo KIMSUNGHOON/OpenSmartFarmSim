@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**후속 비용 평가 — 2026-10-20 KST:** [형식 변환/연결 필드/SQL 역할 식별3검사](../research/solar-validation-cost-candidates-20261020.md)를 완료했으나 모두 미채택이다. 제품 변경0·원64 미완료이며 다음은 기존 intent 재개의 파일 쓰기와 현재 검증 소유권 대조다. 아래41단계 실패와 실제 자료/G0–G4·새 Solar/후속3D 보류는 유지한다.
+**기존 이력 재개 로컬 수용 — 2026-10-20 KST:** [같은 app source72검사·제품 평균5.0784% 감소](../research/solar-existing-intent-resume-implementation-20261020.md)를 확인했다. 기존 이력의 비생성 선택과 첫 full 검증/HEAD·나머지 현재/게시·원 수치/UTC·취소/임대·정리를 보존했다. 다음은 새 source의 원 독립64이며 이전 source41/64 실패·실제 자료/G0–G4·새 Solar/후속3D 보류는 유지한다. 아래는 당시 기록이다.
 
 **독립 정상 실행의 현재 차단점 — 2026-10-20 KST:** [CI39280701330/source8b5afe5의 원360초 미완료/저장41단계](../research/solar-current-guard-native-normal-20261020.md)를 확인했다. 큐 API는 지연된 관측이었으며 run/job 최종 실패와 원 artifact를 대사했다. 제품을 유지한 현재 비용 관측3+trial1에서 JSON 후보를 미채택했다. 다음은 감사/보호 조회의 순서·소유권 대조이며 원64·후속hold/HTTP취소/실행 중3D/WSL 적용·실제 자료/G0–G4는 미완료다.
 

@@ -53,9 +53,11 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 19 — 관측/후보 평가 완료 | 같은 기록의 현재 source 관측3+trial1 | SQL11,723/role315/원천2,736·원 counts/UTC·정리, CPU/SQL/canonical 비용을 분리했다. JSON 후보는 평균1.4155%<2%로 미채택·제품 그대로다. 다음은 현재 감사/보호 조회의 순서 대조로 호출 소유권 후보 유무를 판단한다. 원 정상 이후 hold/HTTP취소/계산 중WebGL/WSL 적용 순서는 유지한다. |
 | 20 — 순서 관측/후보 평가 완료 | [감사 순서·행렬 표현2검사](../research/solar-role-audit-sequence-20261020.md) | 기록한 SQL/callback barrier 사이의 동일 scope 연속4쌍을 식별했다. 별도 행렬 표현은 원 감사315/SQL11,723/원천2,736·counts/UTC를 유지했으나 평균1.4517%로 미채택이다. 다음은 `_model` 형식 해석의 순수성/의존성 대조이며 getter/현재 검사 생략은 승인하지 않는다. |
 | 21 — 비용 후보3건 평가 완료 | [평면 형식 변환/연결 필드/SQL 역할 식별](../research/solar-validation-cost-candidates-20261020.md) | 원 감사315/SQL11,723/원천2,736·counts/UTC와 자원/정리를 유지했다. 평균 감소−13.5424%/1.9195%/−0.5091%로 모두 미채택·제품8b5afe5 그대로다. 원64 정상 관문은 미수용이다. |
-| 22 — 다음 작은 검토 | `crop-solar-existing-intent-entry-review` | `_open`→`advance`의 기존 intent 재개에서 첫 실제 파일 쓰기/계산·공개 이전 검증 책임과 그 사이 resolver/callback·잠금/오류를 대조한다. default/new-intent/adoption과 마지막 현재 검사를 보존할 수 있다는 source/변경 반례가 있어야 계약/사설 후보를 준비한다. 검토만으로 검사 생략이나 수용을 승인하지 않는다. |
+| 22 — 경계 검토 완료 | [기존 write 부작용/재생성 반례·비생성 계약](../research/solar-existing-intent-resume-implementation-20261020.md) | 원 호출자7곳과 실제 생성·current/lock/오류 경계를 대조했다. 기존 경로 그대로의 검사 제거는 기각하고, 완전한 기존 이력만 비생성 진입→첫 full guard/같은 HEAD 확인으로 연결하는 후보를 준비했다. |
+| 23 — 구현 로컬 수용 | [같은 app source72검사·실제품 비교](../research/solar-existing-intent-resume-implementation-20261020.md) | 원 full 물리/경제 권리·나머지 current/게시·수치/UTC·취소/임대/조회·정리를 유지하고 SQL11,125/감사301/원천2,584·제품 평균5.0784% 감소를 확인했다. source260개/핵심12 method AST는 같다. 자료/원64·배포 관문 수용은 아니다. |
+| 24 — 다음 원 독립 정상 | `crop-solar-current-guard-independent-normal64` | 새 수용 source의 원 actor/input64/chunk1/poll/retry360/RSS·계측 OFF·start1/CLI0/attempt1/success1·두 전진prefix/원 값/UTC·actor0/0·DB/소유 정리를 확인한다. 이후 독립hold→HTTP취소→계산 중WebGL→WSL 적용 순서는 유지한다. |
 
-위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md): source8b5afe5·원 계측 OFF를 한 번 접수했다. 2026-10-19T16:00:12.624737Z에 queued/runner 미배정/steps0이며 같은 시각 GitHub Actions 처리 지연 공지가 있다. 같은 run의 실제 종료와 원 artifact를 확인한다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
+위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md)은 당시의 지연된 API 관측이다. source8b5afe5의 [최종41/64 실패](../research/solar-current-guard-native-normal-20261020.md)를 확인했고, 현재는24의 새 source 원 독립 정상 차례다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.

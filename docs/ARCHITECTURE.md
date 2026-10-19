@@ -1,5 +1,7 @@
 # 시스템 아키텍처와 실행 계약
 
+**기존 일사 이력 재개 — 2026-10-20 KST:** [비생성 진입 계약](../contracts/solar-existing-intent-resume-v1.md)을 [최종 같은 source72검사/실제 비용](../research/solar-existing-intent-resume-implementation-20261020.md)으로 로컬 수용했다. `advance`의 완전한 기존 이력만 생성 없는 진입과 첫 full current guard/선택 HEAD 확인을 연결한다. default/new/adoption과 나머지 현재/게시 검증을 유지하며 공개 API/수치 프로필·권한 cache 변경은 없다. 원 독립64/배포·과학 관문은 별도다.
+
 [초기 계산 평가 연결](../contracts/calculation-assessment-v1.md)은 실제 완료 열·경제 작업을 같은 서명 문맥·결정 시각에 결합해 `/v1/assessments`로 접수한다. CLI/서버가 영수증·저장 결과·해시를 반복 검사하며, 승인 작물/공통 농장·시장/현장/미래/대응 비교 근거가 없는 합성 경로는 보류와 누락 사유만 저장한다. 전체 FarmScenario·실제 CLI·독립 운영 조립·브라우저/G1/G4 수용은 [후속 증거](../research/calculation-assessment-implementation.md)와 별도다.
 
 상태: **설계 초안, 2026-09-27.** [제품 명세](PROJECT_SPEC.md)의 단계별 권고 범위와 [자료 기준선](RESEARCH_BASELINE.md)의 권리·품질 관문을 구현할 계약이다. 비용·마진 계산은 [경제 계약](ECONOMICS.md)을 따른다. [기술 스택](TECH_STACK.md)은 구현 선택이며 설치·운영 검증은 아직 하지 않았다. **개발 중 연구·설계와 배포 제품의 지역별 조사·수집 판단·추천 판단 모두 Codex CLI `gpt-6.1-sol` `xhigh`를 필수 사용한다.**
