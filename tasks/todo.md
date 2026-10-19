@@ -103,6 +103,8 @@
   - [후속 실제 실패](../research/solar-current-guard-native-normal-20261020.md): 같은 실행은 원360초/64 미완료·종료 뒤 저장41/64·actor−15/−15, 정상/DB count proof 없음이다. 앞선 큐 관측을 실제 미기동 확정으로 사용하지 않는다. 단계 차이를 성능 개선율로 환산하지 않는다.
 - [x] **`crop-solar-current-guard-post-normal-cost-review`** — 같은 source의 CPU/SQL/canonical 관측3+순수 JSON 후보 trial1=고유4건·원 SQL11,723/role315/원천2,736·counts/UTC·원본/5root/자원/정리. 후보는20개 경계 동등·평균1.4155%로 사전2% 미달/미채택이며 제품8b5afe5 유지다. 다음은 감사/보호 조회 순서 대조이고 원64 관문/배포 수용은 아니다.
 - [x] **`crop-solar-current-role-audit-sequence`** — [순서/행렬 후보 평가](../research/solar-role-audit-sequence-20261020.md)의 고유2건·실제 감사315/SQL11,723/원천2,736·counts/UTC·원본/5root/자원/정리. 관측된 연속 감사4쌍만으로 삭제/권한 cache를 승인하지 않는다. 별도 행렬 표현은 평균1.4517%로 미채택·제품 유지다. 다음은 원천 형식 해석/검증 의존성 대조이며 독립 원64/배포는 미수용이다.
+- [x] **`crop-solar-validation-cost-candidates`** — [형식 변환/현재 연결 필드/SQL 역할 식별](../research/solar-validation-cost-candidates-20261020.md)의 고유 사설3건·원 감사315/SQL11,723/원천2,736·counts/UTC·원본/5root/자원/정리. 평균 감소−13.5424%/1.9195%/−0.5091%로 모두 미채택·제품 유지다. 기존64/선행 진단과 합산하지 않으며 완전한 보안 동등성/원64/배포 수용은 아니다.
+- [ ] **`crop-solar-existing-intent-entry-review`** — 선행: `crop-solar-validation-cost-candidates`. `_open`→`_Session.advance`의 기존 intent 재개에서 첫 full current 검사 전후의 실제 파일 쓰기·resolver/callback·잠금/실패 경계를 원 source와 대조한다. default `_open`/신규 intent/worker adoption의 현재 검증, 첫 실제 쓰기·계산과 마지막 게시 전 검사를 보존할 수 있을 때만 계약과 사설 호출 소유권 후보를 준비한다. 수용: 호출자/부작용 표·늦은 권리/파일 변경 반례·명시적 검증 책임·원 입력/수치/UTC·정리 기준. 코드 생략/새 cache/비용 개선/독립64는 이 검토 완료만으로 승인하지 않는다.
 
 
 
