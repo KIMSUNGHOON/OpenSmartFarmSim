@@ -50,3 +50,16 @@ remain required.
    normal. Independent hold/cancel/calculating WebGL, WSL capacity and user
    activation follow. Rights/independent G0–G4 evidence and the whole product
    remain separate. Same-source failed normal/diagnostic reruns are not evidence.
+
+## HTTP transient boundary follow-up — 2026-10-19
+
+The [typed capture Pending fix and58 targeted checks](../research/crop-solar-capture-pending-http-implementation-20261019.md)
+accept the local exception boundary. `_Session` emits `SolarCustodyPending` for
+busy read-lock reacquisition and changed protected snapshots. `_open` preserves
+that type, and the query converts it to `SolarExecutionQueryPending` before its
+general hold handler. The existing HTTP mapping returns503 without partial
+numeric fields. Actual SCRAM/verified TLS verifies recovery200, rights422,
+scope403, unchanged DB and original step/UTC. Permanent rights/integrity failures
+retain rejection. ResultStore's exception-preserving wrapper is unchanged.
+This local acceptance does not complete item5's independent native64, calculating
+WebGL, WSL capacity, user activation or G0–G4 evidence.

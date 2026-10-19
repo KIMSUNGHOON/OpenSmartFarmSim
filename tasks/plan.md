@@ -1,14 +1,16 @@
 # 구현 순서
 
-## capture Pending HTTP 후보·실제1검사/남은 수용 — 2026-10-19 KST
+## capture Pending HTTP 로컬 수용·다음 독립 정상 — 2026-10-19 KST
 
-[새 후보/실제 TLS1검사](../research/crop-solar-capture-pending-http-implementation-20261019.md)는
-GET의 제어된 writer 진행422를503/부분 수치 없음·후속200/DB 불변/원 UTC로 수정했다.
-미채택이다. 확장 TLS 권리422/scope403도93137:0에서 통과했다. 남은 Solar 읽기7 → worker13 → query13 → HTTP 오류24 → 검토다.
-public TLS1을 포함해 모두 현재 source에서 통과하면58건이며 같은 private GREEN은 중복 합산하지 않는다.
-이전 read-scope62는 이전 source의 기록으로 새1검사에 합산하지 않는다. 원64·hold/취소/계산 중3D·
-WSL 사용자 적용·실제 자료/독립 관문과 전체 완료일 미정/goal active를 유지한다. 아래는 이전 판본의 기록이다.
-
+[최종 두 파일/고유58검사](../research/crop-solar-capture-pending-http-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다.
+public TLS1 + Solar7 + worker13 + query13 + HTTP24=58건이며 private GREEN/이전62는 합산하지 않았다.
+원 값/UTC·현재/늦은 권리·조회 계산/SQL 변경0·5root/상한/정리와 코드 검토를 통과했다.
+실제 guard 합계는1,343.631초(약22.4분), 합산 최대 RSS1,041,448,960bytes다.
+다음 한 단계는 변경 source의 원 계측 OFF64 독립 정상이다. 원64/chunk1/조회·retry360/RSS,
+64/start1/CLI0/attempt1/success1·두 전진 prefix·원 UTC/수치·두 actor 종료0·FD/역할/schema/소유 PG/임시 정리 proof가 수용 기준이다.
+원360초에 준비/정리·CI 대기가 추가되며, 통과 전 다음 단계의 완료 시간을 확정하지 않는다.
+독립 정상 → hold → 실제 HTTP 취소 → 계산 중 WebGL → WSL 용량/사용자 적용 순서다.
+실제 자료/독립 관문·전체 완료일 미정/goal active를 유지한다. 아래는 이전 판본의 기록이다.
 
 [현재 구현/62검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)를 로컬 소프트웨어로 수용했다.
 새 경계7와 기존55를 현재 최종source에서 실행했고, 원 값/UTC·모든 current 권리/원천 검사·writer EX,
