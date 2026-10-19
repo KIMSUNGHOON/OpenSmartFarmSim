@@ -67,3 +67,26 @@ frozen 자산/5root·512MiB/PID/합1GiB·FD4→4·소유 PG/임시/passfile0을 
 94972:0에서 로컬58 수용과 다음 원64 독립 정상을 두 UI에 같은 no-store bytes로 게시했다.
 두 파일 pin/3syntax·2,305개 로컬 링크·원 actor/header·frozen HTML/2,173파일·5root/상한/FD/소유 정리를 확인했다.
 합산 RSS888,143,872bytes였으며 UI 코드/DOM/WebGL은 변경·재검사하지 않았다.
+
+## 후속 원 독립 정상의 미완료 — CI39210494752
+
+source `583bd633ba71060df5355961f74d190177a85010`의 trace-OFF 원64 실행은 실패했다.
+원 부모의360초 기준 단언이며 guard382.137초·자식1·자원 중단 사유 없음이었다.
+API/worker는 소유 정리 과정에서 각각-15로 종료됐고, API의 별도 예외 위치/실제 HTTP status는 없다.
+정상 수용 파일과 DB 정리 proof도 없다. 이전 CI39/64는 다른 종료 원인이므로 처리량 개선/악화 비교로 쓰지 않는다.
+
+종료 뒤 같은 소유 cluster의 READ ONLY/REPEATABLE READ metadata는 attempt1/simulating,
+24/64/yielded/publication25와 UTC `2026-10-01T00:00:48.123456Z`를 보여줬다.
+이것은 종료 뒤 저장 metadata이며 현재 source/권리 또는 계산 결과의 정상 수용 검증이 아니다.
+hosted 합산 RSS363,646,976bytes·단일128,987,136bytes·FD7→7·소유 non-zombie/임시0은 확인했다.
+WSL5root 용량·DB 역할/schema 정리 proof나 G4로 확대하지 않는다.
+
+artifact12166794422/3,286bytes의 SHA256은
+`23fff1f9f19b1509219862ef46f0ba95f873b1478fe7fb2b0fc68358f93f0dc4`다.
+run/head/name/digest·허용4파일/경로/용량을 엄격히 검증했다. 실제 HTTP status/code는 미확보다.
+
+다음 한 단계는 [기존 bounded 단계 진단](../contracts/crop-solar-worker-progress-diagnostics-v1.md)의
+`phases`를 현재 source에서1회 적용하는 것이다. 실제 current/등록/guard/advance/confirm의 시간과 원 반환
+checkpoint/UTC·원 actor/header/run/head/digest·종료/정리를 대사해 다음 최소 수정 범위를 정한다.
+원64/chunk1/조회/retry360/RSS·현재 권리/자료 검사·수식은 유지한다. 진단 자체는 정상 수용이 아니다.
+같은 미완료 정상 재실행이나 독립 hold/취소/WebGL의 선행 수용으로 대체하지 않는다.

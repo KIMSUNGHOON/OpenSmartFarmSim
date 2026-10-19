@@ -88,6 +88,12 @@
     "query_only_catch_status": 422
   },
   "max_combined_RSS_bytes": 1041448960,
+  "native24_status_publication": {
+    "UI_code_DOM_WebGL_changed_or_rerun": false,
+    "actual_tool": "38535:0",
+    "same_UI_no_store": true,
+    "source_frozen_five_roots_caps_FD_cleanup_preserved": true
+  },
   "native_CLI": {
     "effort": "xhigh",
     "model": "gpt-6.1-sol",
@@ -95,11 +101,123 @@
     "recursive_cli": false,
     "timestamp": "2026-10-19T04:36:15.957Z"
   },
+  "native_normal": {
+    "actors": [
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "api",
+        "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+        "worker_proof_present": false
+      },
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "worker",
+        "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+        "worker_proof_present": false
+      }
+    ],
+    "actual_HTTP_status_known": false,
+    "artifact": {
+      "digest": "sha256:23fff1f9f19b1509219862ef46f0ba95f873b1478fe7fb2b0fc68358f93f0dc4",
+      "id": 12166794422,
+      "name": "solar-unpaused-normal-583bd633ba71060df5355961f74d190177a85010",
+      "size_in_bytes": 3286
+    },
+    "conclusion": "failure",
+    "database_cleanup_proof_present": false,
+    "digest_and_path_validated": true,
+    "failure": {
+      "exception_type": "AssertionError",
+      "known_stage": "owned calculation timed out or failed",
+      "locations": [
+        {
+          "file": "crop_greenhouse_solar_unpaused_smoke.py",
+          "function": "exercise",
+          "line": 133
+        },
+        {
+          "file": "crop-greenhouse-solar-unpaused-probe.py",
+          "function": "exercise",
+          "line": 210
+        }
+      ],
+      "original_normal_accepted": false
+    },
+    "head_sha": "583bd633ba71060df5355961f74d190177a85010",
+    "normal_accepted": false,
+    "normal_proof_present": false,
+    "post_stop_metadata_only": {
+      "actors_stopped_before_collection": true,
+      "application_query_sha256": "95d52950af17fa8ad90a2999c8c1410f3e5228c823cfd3f9ccac11bd794ae747",
+      "diagnostic_only": true,
+      "metadata": {
+        "G0_G4": "not_assessed",
+        "checkpoint_payload_sha256": "2f10710ea3eb0a1ccc00b3c12dc8efd3d65e0f5d6ae423e408dcb06622b3e2b1",
+        "checkpoint_recorded_at": "2026-10-19T06:41:05.026893+00:00",
+        "evidence_kind": "stored_owned_fixture_metadata_only",
+        "job": {
+          "attempt": 1,
+          "state": "simulating"
+        },
+        "normal_execution_accepted": false,
+        "observed_at": "2026-10-19T06:41:09.002238+00:00",
+        "owned_cluster_identity_verified": true,
+        "rights_or_gate_approval": false,
+        "stored_checkpoint": {
+          "computed_through_utc": "2026-10-01T00:00:48.123456Z",
+          "planned_steps": 64,
+          "publication_sequence": 25,
+          "status": "yielded",
+          "steps": 24
+        },
+        "transaction_isolation": "repeatable read",
+        "transaction_read_only": true
+      },
+      "normal_execution_accepted": false,
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39210494752",
+      "source_commit": "583bd633ba71060df5355961f74d190177a85010"
+    },
+    "resource": {
+      "FD_before_after": [
+        7,
+        7
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1405,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 363646976,
+      "hosted_only": true,
+      "local_protected_roots_present": false,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "rights_or_gate_approval": false,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 128987136,
+      "temporary_entries_remaining": 0,
+      "wall_seconds": 382.137467517
+    },
+    "run_id": 39210494752
+  },
   "new_Solar_deployed": false,
   "normal_native_accepted": false,
-  "recorded_at": "2026-10-19T06:31:04.449790+00:00",
+  "recorded_at": "2026-10-19T06:43:02.685847+00:00",
   "remaining_checks": [
-    "changed-source original trace-OFF native64 normal",
+    "one bounded current-source phase diagnostic, then evidence-backed fix and changed-source trace-OFF native64",
     "independent hold and actual HTTP cancel",
     "calculating WebGL",
     "WSL capacity and user activation",
