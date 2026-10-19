@@ -203,7 +203,260 @@
       }
     ]
   },
+  "current_worker_api_diagnostic": {
+    "HTTP_codes": {
+      "solar_execution_unavailable": 4
+    },
+    "HTTP_responses": 25,
+    "HTTP_status_counts": {
+      "200": 20,
+      "202": 1,
+      "503": 4
+    },
+    "active_phases": [
+      {
+        "phase": "worker.run_once",
+        "started_elapsed_seconds": 3.433905737999993
+      },
+      {
+        "phase": "worker._custody_call",
+        "started_elapsed_seconds": 354.810435401
+      }
+    ],
+    "actors": [
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "api",
+        "script_sha256": "4c589b25aa265e748d4ebf08c2853799589f9aa5c4fc9b92ffcb19ed6e12a291",
+        "worker_proof_present": false
+      },
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "worker",
+        "script_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8",
+        "worker_proof_present": false
+      }
+    ],
+    "actual_writer_pending_trace": {
+      "exception_type": "SolarCustodyPending",
+      "locations": [
+        {
+          "file": "crop_greenhouse_solar_execution_worker.py",
+          "function": "<lambda>",
+          "line": 163
+        },
+        {
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "advance",
+          "line": 313
+        },
+        {
+          "file": "contextlib.py",
+          "function": "__enter__",
+          "line": 137
+        },
+        {
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "function": "_open",
+          "line": 304
+        }
+      ]
+    },
+    "api_header_sha256": "5dd560be01ea655dc9645e47091a536256fe3cb514f37755fb3fc5fdffa0298c",
+    "api_script_sha256": "4c589b25aa265e748d4ebf08c2853799589f9aa5c4fc9b92ffcb19ed6e12a291",
+    "artifact": {
+      "digest": "sha256:4dd5e5c21e6f29199ae80543c04382d2dad5add258019c2d35cf93e4fbb27d85",
+      "id": 12162884097,
+      "name": "solar-unpaused-normal-4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9",
+      "size_in_bytes": 24715
+    },
+    "caught_entries": 14,
+    "caught_types": {
+      "SolarCustodyPending": 14
+    },
+    "conclusion": "failure",
+    "database_cleanup_proof_present": false,
+    "diagnostic_only": true,
+    "digest_and_path_validated": true,
+    "dropped_API_exceptions": 46,
+    "dropped_HTTP_responses": 0,
+    "dropped_recent_events": 127,
+    "failure_checkpoint": {
+      "actors_stopped_before_collection": true,
+      "application_query_sha256": "ab6992768f580c4d46278fcbe2d3215583dfd3a55c9fe0aa84b51fb3e038d565",
+      "diagnostic_only": true,
+      "metadata": {
+        "G0_G4": "not_assessed",
+        "checkpoint_payload_sha256": "3bc71dbad51b35726c2cd4d294b49cda9548b93d3400c796ad0a0b4ef9ff93b2",
+        "checkpoint_recorded_at": "2026-10-19T04:26:52.588030+00:00",
+        "evidence_kind": "stored_owned_fixture_metadata_only",
+        "job": {
+          "attempt": 1,
+          "state": "simulating"
+        },
+        "normal_execution_accepted": false,
+        "observed_at": "2026-10-19T04:27:02.651841+00:00",
+        "owned_cluster_identity_verified": true,
+        "rights_or_gate_approval": false,
+        "stored_checkpoint": {
+          "computed_through_utc": "2026-10-01T00:00:30.123456Z",
+          "planned_steps": 64,
+          "publication_sequence": 16,
+          "status": "yielded",
+          "steps": 15
+        },
+        "transaction_isolation": "repeatable read",
+        "transaction_read_only": true
+      },
+      "normal_execution_accepted": false,
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39198782317",
+      "source_commit": "4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9"
+    },
+    "head_sha": "4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9",
+    "last_adopted": null,
+    "last_advanced": null,
+    "last_confirmed": {
+      "computed_through_utc": "2026-10-01T00:00:30.123456Z",
+      "planned_steps": 64,
+      "status": "yielded",
+      "steps": 15
+    },
+    "normal_accepted": false,
+    "normal_proof_present": false,
+    "outcome": null,
+    "phase_totals_inclusive_overlapping": {
+      "worker._adopt": {
+        "calls": 1,
+        "exception_events": 0,
+        "inclusive_seconds": 1.8554827659999944,
+        "max_inclusive_seconds": 1.8554827659999944,
+        "returns": 1
+      },
+      "worker._before": {
+        "calls": 25,
+        "exception_events": 0,
+        "inclusive_seconds": 39.327363982999856,
+        "max_inclusive_seconds": 1.7145883980000463,
+        "returns": 25
+      },
+      "worker._confirm": {
+        "calls": 16,
+        "exception_events": 0,
+        "inclusive_seconds": 123.65503644100002,
+        "max_inclusive_seconds": 8.263136078999992,
+        "returns": 16
+      },
+      "worker._custody_call": {
+        "calls": 34,
+        "exception_events": 7,
+        "inclusive_seconds": 323.28059317699996,
+        "max_inclusive_seconds": 15.907790415000022,
+        "returns": 33
+      },
+      "worker.run_once": {
+        "calls": 1,
+        "exception_events": 0,
+        "inclusive_seconds": 0.0,
+        "max_inclusive_seconds": 0.0,
+        "returns": 0
+      }
+    },
+    "prefix_status_counts": {
+      "accepted": 14,
+      "none": 1
+    },
+    "raw_provenance_sha256": "e638301c21c96027501fd45d89f8d5e78484769abec21a1738e90fca1278d46d",
+    "recent_event_count": 32,
+    "resource": {
+      "FD_before_after": [
+        7,
+        7
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1423,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 367403008,
+      "hosted_only": true,
+      "local_protected_roots_present": false,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "rights_or_gate_approval": false,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 129609728,
+      "temporary_entries_remaining": 0,
+      "wall_seconds": 385.006016153
+    },
+    "retained_API_exception_count": 16,
+    "retained_API_exception_types": {
+      "StopAsyncIteration": 4,
+      "StopIteration": 12
+    },
+    "run_id": 39198782317,
+    "worker_header_sha256": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373",
+    "worker_script_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8"
+  },
   "focused_distinct_tests_passed": 55,
+  "followup_read_validation_lock": {
+    "GREEN_passed": false,
+    "adopted": false,
+    "contract": "contracts/crop-solar-read-validation-lock-v1.md",
+    "implemented": false,
+    "meaningful_RED": {
+      "actual_tool": "41317:1",
+      "actual_writer_advance_during_post_capture_reader_current_validation": true,
+      "exception_type": "SolarCustodyPending",
+      "resource": {
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 992784384,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 35.82912827900145
+      },
+      "stage": "focused-solar-read-validation-lock-red-v1",
+      "terminal_sha256": "d17b03416b87691044a89f3a60e13293b595b94159c004c7a0ee60b5922094f2",
+      "test_sha256": "7f9fb0154480a0e3062f16bf06ad4fbe279012bbe3dfeb32aabfe8c7f48732ad"
+    },
+    "remaining": "short protected capture/recheck; current validation outside file locks; writer advance and stale reader Pending; relevant regressions then changed-source original64",
+    "status_publication": {
+      "UI_code_or_browser_rerun": false,
+      "actual_tool": "75470:0",
+      "both_UI_same_no_store": true,
+      "frozen_sources_and_5roots_preserved": true,
+      "source_and_links_verified": true
+    }
+  },
   "fresh_exec_or_SIGKILL_rerun": false,
   "full_acceptance": false,
   "full_backend_or_browser_suite_run": false,
@@ -342,8 +595,9 @@
   "new_Solar_deployed": false,
   "next_diagnosis": {
     "actual_current_one_chunk_cost": "completed",
-    "bounded_worker_api_on_changed_source": "in_progress",
+    "bounded_worker_api_on_changed_source": "completed",
     "head_sha": "4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9",
+    "next": "bounded RED for writer during read current validation; then short protected snapshot capture/recheck design",
     "normal_accepted": false,
     "run_id": 39198782317,
     "unchanged_normal_rerun_allowed": false
@@ -353,7 +607,7 @@
     "10219:2 collection failure from DBfixtureparam on fastOS tests; no testsran; fast module separated"
   ],
   "normal_native_accepted": false,
-  "recorded_at": "2026-10-19T04:20:08.991616+00:00",
+  "recorded_at": "2026-10-19T04:34:51.583551+00:00",
   "remaining_checks": [
     "original uninstrumented64 independent API/worker normal",
     "independent unpaused hold and actual HTTP cancel",

@@ -10,7 +10,12 @@
 **로컬 소프트웨어 컴포넌트만 수용**한다. 후속 원 계측 OFF64 CI39197827938/source4478d28은
 원360초/guard382.741초·종료 뒤22/64로 미완료다. 정상/DB 정리 proof는 없다.
 현재76498:0에서 실제 청크9.732초·연결144/감사183/SQL7,113·원 수치/UTC/원천 순서·5root/정리를 확인했다.
-다음은 진행 중인 기존 bounded worker/API CI39198782317 → 관측 대사 → 근거 있는 최소 수정/검증이다.
+현재 bounded worker/API CI39198782317은15/64·시간 제한으로 종료했다. confirm16반환/예외0,
+실제 advance writer Pending7사건·HTTP25건·원 actor/header/정리를 관측 범위로 대사했다.
+다음은 [읽기 current 검증의 잠금 후보](../contracts/crop-solar-read-validation-lock-v1.md)의 실제 RED →
+짧은 보호 snapshot capture/재확인 → 권리/HEAD/identity·원 값/UTC·현재55관련 회귀/자원 검증이다.
+41317:1에서 post-capture current 검증 중 실제 writer Pending을 재현했고5root/원본/상한/정리를 보존했다.
+새 구현/GREEN은 아직 없다. 다음 한 단계는 writer step2 게시 + 바뀐 HEAD의 reader Pending/no partial + fresh 원step2/UTC 일치다.
 같은 원 정상의 반복이나 새 기반 작업 추가로 대체하지 않는다. 후속 정상 수용은 다음을 유지한다.
 원 입력64/chunk1/조회·retry/360초·수식/현재 권한/RSS를 유지하며 두 전진 prefix·원 값/UTC,
 64/start1/CLI0/attempt1/success1·두 actor 종료0·조회 계산/쓰기0·전체 owned 정리 증거를 대사한다.

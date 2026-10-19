@@ -99,6 +99,52 @@ SQL은7,113회/execute3.918210초다. 등록 읽기24회7.606876초·current12�
 이1건은 진단이며 앞선55건에 합산하지 않는다. 앞선EB의9.707초와 비교한 속도 개선도 주장하지 않는다.
 
 현재 source의 bounded worker/API [CI39198782317](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39198782317)이
-진행 중이다. 정확한 head는 `4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9`이며 원 actor 본문/64/chunk1/
+완료됐다(실패·관측만 수용). 정확한 head는 `4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9`이며 원 actor 본문/64/chunk1/
 조회·retry360/RSS는 유지하고 기존 선택 header만 켰다. 진단은 정상 수용을 금지한다.
 현재 등록/current 검사의 반복 비용 관측과 실제 동시 단계/예외를 함께 대사한 뒤 다음 최소 수정을 정한다.
+
+## 현재 worker/API 진단 — CI39198782317
+
+정확한 actor/header·run/head·원 prototype/query hash와 ZIP digest/path를 대사했다.
+artifact12162884097/24,715bytes·SHA256 `4dd5e5c21e6f29199ae80543c04382d2dad5add258019c2d35cf93e4fbb27d85`다.
+원360초/guard385.006초·자식1/두 actor-15·자원 reasonnull로 종료했다. 최대 합367,403,008bytes,
+단일129,609,728bytes·FD7→7·소유 비좀비/임시0이며 정상/DB 정리 proof는 없다.
+실제 마지막 확인은15/64·yielded·UTC30.123456Z, 종료 후 metadata도15/64/sequence16/attempt1/simulating이다.
+worker-api의 last_adopted/last_advanced/outcome은null이며 그 값을 추정하지 않는다.
+
+| 실제 단계 | call/return | 예외 사건 | 중첩 포함 초 |
+| --- | ---: | ---: | ---: |
+| adopt |1/1|0|1.855483|
+| before |25/25|0|39.327364|
+| confirm |16/16|0|123.655036|
+| custody_call |34/33|7|323.280593|
+| run_once |1/0|0|아직 반환 없음|
+
+이 시간은 겹치고 관찰 overhead를 포함하므로 합산하거나 전후 처리량으로 비교하지 않는다.
+남은 active는run_once/custody_call이다. 최근32사건/127drop이며 caught14기록은
+writer advance→_open의 SolarCustodyPending7사건이 raise/handler에 각각 기록된 것이다.
+confirm의16반환에서는 예외 사건0을 관측했지만 전체 충돌 해결이나 정상 완료를 뜻하지 않는다.
+HTTP25건은202×1/200×20/503×4(`solar_execution_unavailable`), accepted prefix14건을 포함한다.
+HTTPdrop0, 예외는최근16개(StopIteration12/StopAsyncIteration4)·46drop이므로 전체 무오류를 주장하지 않는다.
+
+현재 증거는 비싼 current 검증과 reader SH가 writer EX를 막는 구간의 재검토를 정당화한다.
+다음은 [읽기 current 검증의 잠금 구간 후보](../contracts/crop-solar-read-validation-lock-v1.md)의
+실제 writer/reader RED → 짧은 공유 잠금 아래 snapshot capture/재확인 → 현재 권리/HEAD/identity/원 값·UTC 회귀다.
+권리/감사 결과를 캐시하거나 검사를 생략하지 않고 writer EX·원 retry360/RSS·수식/입력을 유지한다.
+이 후보는 미구현·미수용이며 이전55건의 소프트웨어 수용과 독립 원64 미수용을 구분한다.
+
+## 후속 잠금 구간 후보의 실제 RED — 41317:1
+
+원 source의 실제 reader가 `_load`로 step1을 잡은 뒤 current 검증에서 기다리게 했고,
+별도 문맥의 실제 writer `advance(budget=1)`가 SolarCustodyPending으로 거부됐다.
+reader를 finally에서 해제하고 thread/context 종료 후 writer 예외를 다시 내보냈다.
+따라서 수집/fixture 오류가 아닌 새 요구의 의미 있는 RED다. 새 동작의 GREEN은 아직 없다.
+guard35.829초·합 RSS992,784,384bytes·source/5root/원본/frozen/FD4→4·소유 PG/임시/passfile0을 보존했다.
+이 실패는 앞선55건의 수용 수에 포함하지 않는다. 제품2개 파일도 추가 변경하지 않았다.
+
+다음 한 단계의 수용 기준은 실제 writer가 검증 대기 중step2를 원 UTC로 게시하고,
+그 사이 HEAD가 바뀐 reader는 부분 bytes 없이 Pending, 이후 fresh read는 실제step2와 일치하는 것이다.
+짧은 SH capture/재확인·writer EX·현재 권리/원천/identity와 원 retry/시간/RSS를 유지한다.
+현재 후보는 설계/RED만 완료했고 구현·관련 회귀·독립 원64/계산 중3D 수용은 남아 있다.
+
+75470:0에서 진단 완료/실제 RED·다음 수용 조건을 두 UI에 게시했다. source/링크·원 actor/header·frozen HTML/2,173파일·5root/상한/FD·소유 정리를 확인했다. UI 코드/DOM/WebGL은 변경·재검사하지 않았다.
