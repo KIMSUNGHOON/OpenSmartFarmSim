@@ -1,4 +1,6 @@
 """Independent OS lock semantics for the existing secure file helper."""
+from contextlib import contextmanager
+import fcntl
 import os
 import subprocess
 import sys
@@ -20,6 +22,19 @@ def probe(path, mode):
         stdin=subprocess.DEVNULL, capture_output=True, timeout=10)
     assert result.returncode in (0, 2)
     return result.returncode
+
+
+@contextmanager
+def exclusive_locks(*paths):
+    opened = []
+    try:
+        for path in paths:
+            fd = os.open(path, os.O_RDONLY|os.O_NOFOLLOW|os.O_CLOEXEC)
+            opened.append(fd)
+            fcntl.flock(fd, fcntl.LOCK_EX|fcntl.LOCK_NB)
+        yield
+    finally:
+        for fd in reversed(opened): os.close(fd)
 
 
 def test_default_exclusive_and_shared_locks_use_independent_open_descriptions(tmp_path):

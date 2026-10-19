@@ -1,11 +1,12 @@
-# Solar custody shared read locks — v1 candidate
+# Solar custody shared read locks — v1
 
 Evidence: [current worker/API diagnosis](../research/crop-solar-audit-scope-v2-worker-api-diagnostic-20261019.md).
 The retained worker path is `_confirm` → custody open Pending → bounded retry →
 attempt1/queued/solar_execution_busy. The original trace-OFF run is incomplete.
-This candidate is implemented and under verification;
-[20 focused checks](../research/crop-solar-shared-read-locks-implementation-20261019.md)
-have passed. It is not adopted or accepted as a complete component yet.
+[55 focused checks and review](../research/crop-solar-shared-read-locks-implementation-20261019.md)
+accept the local software component. The original uninstrumented64 independent
+normal in item5 remains pending, followed by hold/cancel/calculating WebGL, WSL
+capacity and user activation. Full operational acceptance is not complete.
 
 ## Change boundary
 

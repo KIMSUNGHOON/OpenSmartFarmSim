@@ -17,6 +17,7 @@ from test_crop_greenhouse_solar_execution_worker import (
     login_database, original_login_scope, login_scope)
 import test_crop_greenhouse_solar_execution_worker as reference
 from test_deterministic_job_discovery import persisted_digest as jobs_digest
+from test_crop_solar_custody_file_locks import exclusive_locks
 
 
 def persisted_digest(jobs):
@@ -191,12 +192,17 @@ def test_checkpoint_unconfirmed_descendant_and_real_lock_are_unavailable(setup, 
     readonly(value); before = persisted_digest(worker.jobs)
     with monkeypatch.context() as patch:
         calls = forbid(patch); mismatch = read(query, job_id)
-    with worker.server._open('tenant-1', raw, False):
+    value[4]['scopes'].update({'simulation_execute', 'crop_result_write'})
+    worker.checkpoints.confirm('tenant-1', job_id, attempt=lease['attempt'], lease_token=lease['lease_token'])
+    readonly(value); after_confirmation = persisted_digest(worker.jobs)
+    intent, _, _ = reference.producer.locations(worker.server, raw)
+    with exclusive_locks(worker.server.directory/'.custody-lock', intent/'.intent-lock'):
         with monkeypatch.context() as patch:
             calls = forbid(patch); busy = read(query, job_id)
     for result in (mismatch, busy):
         assert result['checkpoint_status'] == 'unavailable' and result['checkpoint'] is result['result'] is None
-    assert persisted_digest(worker.jobs) == before
+    assert persisted_digest(worker.jobs) == after_confirmation != before
+    assert read(query, job_id)['checkpoint_status'] == 'current'
     save('unavailable', {'unconfirmed': mismatch, 'busy': busy, 'calls': calls, 'query_database_unchanged': True})
 
 
@@ -361,9 +367,10 @@ def test_checkpoint_lock_is_released_during_followup_checks(setup, monkeypatch, 
         attempt=lease['attempt'], lease_token=lease['lease_token'])
     readonly(value); before = persisted_digest(worker.jobs)
     terminal = query._terminal; owners = []
+    intent, _, _ = reference.producer.locations(worker.server, raw)
     def competing_open(*args, **kwargs):
         result = terminal(*args, **kwargs)
-        other = worker.server._open('tenant-1', raw, False)
+        other = exclusive_locks(worker.server.directory/'.custody-lock', intent/'.intent-lock')
         other.__enter__();owners.append(other)
         if not keep_competing_lock:
             other.__exit__(None, None, None);owners.clear()

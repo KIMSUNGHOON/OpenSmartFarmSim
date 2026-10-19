@@ -1,15 +1,21 @@
 # 구현 순서
 
-## 읽기 공유 후보 구현·20검사/남은 수용 — 2026-10-19 KST
+## 읽기 공유 잠금 로컬 수용·55검사/독립 실행 — 2026-10-19 KST
 
-[현재 구현/검증 기록](../research/crop-solar-shared-read-locks-implementation-20261019.md)에 실제20개 고유 검사를 기록했다.
-writer 기본 배타 잠금 유지·독립 reader/confirm/query 공존·writer 배제/해제·읽기 prepare/advance/게시/파일 생성 금지,
-기본 helper/파일 보안·권리 철회·Solar 권리/서명/수치 보류/도메인 분리와 원본/5root/자원/정리를 확인했다.
-**후보 미채택**이다. 다음은 실제 작업자 정상/hold → 취소/임대/늦은 입력 → query의 현재/잠금/권리/terminal →
-prefix read/current/잠금/권리의 관련 회귀 → 검토/로컬 수용 → 원 계측 OFF64 독립 정상이다.
-전체 backend/browser·fresh exec/SIGKILL은 새 source에서 재실행하지 않았다. 이전116검사를 이 후보의 수로 합산하지 않는다.
-원 retry/입력/청크/조회/360초/RSS·수식/권한 검사는 유지한다. 이후 독립 hold/실제 취소/계산 중 WebGL/WSL 용량·사용자 적용,
+[현재 구현/검증 기록](../research/crop-solar-shared-read-locks-implementation-20261019.md)에 고유55검사를 기록했다.
+실제 reader/confirm/query 공존·writer 배제/해제·읽기 prepare/advance/게시/파일 생성 금지,
+기본 helper/파일 보안·현재 권리/서명·worker 정상/hold/취소/임대/늦은 입력과 query/prefix의
+원 값/UTC·현재/잠금/늦은 권리·원문/디렉터리/서명 이력 변경 거부·조회 계산/SQL 변경0을 확인했다.
+5root/동적 자식·원본/두 UI·512MiB/PID/합1GiB·FD4→4·소유 PG/임시/passfile 정리를 보존했다.
+**로컬 소프트웨어 컴포넌트만 수용**한다. 다음은 원 계측 OFF64 독립 API/worker 정상이다.
+원 입력64/chunk1/조회·retry/360초·수식/현재 권한/RSS를 유지하며 두 전진 prefix·원 값/UTC,
+64/start1/CLI0/attempt1/success1·두 actor 종료0·조회 계산/쓰기0·전체 owned 정리 증거를 대사한다.
+이후 독립 hold → 실제 HTTP 취소 → 계산 중 WebGL → WSL 용량/사용자 적용 순서다.
+현재 source의 전체 backend/browser·fresh exec/SIGKILL은 재실행하지 않았다. 이전116검사를55에 합산하지 않는다.
+55검사의 실제 guard 합계는 약32.1분이다. 독립 정상은 원360초와 준비/정리·CI 대기 시간이 필요하며
+아직 완료하지 않았으므로 후속 단계·전체 제품의 완료 날짜를 확정하지 않는다.
 실제 자료 권리·독립 현장/미래/비교 관문과 전체 완료일 미정/goal active를 유지한다.
+아래 진단/미구현 문구는 이 수정 이전의 기록이다.
 
 ## 현재 진단 수용·Solar 읽기 공유 잠금 후보 — 2026-10-19 KST
 

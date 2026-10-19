@@ -486,7 +486,8 @@ def test_selector_bounds_missing_unaccepted_and_actual_lock(setup, monkeypatch):
                 {'view': 'samples', 'selector': pin, 'start': 999}):
             with pytest.raises(model.SolarPrefixRequestRejected): query.read('tenant-1', job_id, **options)
         with pytest.raises(model.SolarPrefixSelectionConflict): query.read('tenant-1', job_id, selector=dict(pin, proof_sha256='a'*64))
-        with worker.server._open('tenant-1', raw, False):
+        intent, _, _ = reference.reference.producer.locations(worker.server, raw)
+        with reference.exclusive_locks(worker.server.directory/'.custody-lock', intent/'.intent-lock'):
             original = model.custody.files._file
             def without_lock(*a, **kw):
                 assert not kw.get('lock'), 'prefix acquired writer lock'
