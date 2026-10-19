@@ -160,7 +160,7 @@ class SolarExecutionWorker:
                 if confirmed is not None and confirmed['checkpoint']['status'] in ('completed', 'hold'):
                     return self._custody_call(lease, lambda:self._finish(lease, confirmed))
                 raw = self._before(lease)
-                self._custody_call(lease, lambda:self.server.advance(self.tenant_id, raw, budget=self.chunk_budget))
+                self._custody_call(lease, lambda:self.server._advance_for_checkpoint(self.tenant_id, raw, budget=self.chunk_budget))
                 next_confirmed = self._custody_call(lease, lambda:self._confirm(lease))
                 if confirmed is not None and next_confirmed['event_id'] == confirmed['event_id']:
                     raise checkpoints.SolarCheckpointHold('solar worker made no checkpoint progress')

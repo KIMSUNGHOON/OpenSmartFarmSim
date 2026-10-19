@@ -99,12 +99,18 @@ def test_queued_actual_calculation_original_values_and_atomic_completion(setup, 
     value[4]['scopes'].remove('simulation_create')
     chunks, renewals = [], []
     origin = time.monotonic()
-    original_advance = producer.model.SolarServerCustody.advance
+    original_advance = producer.model.SolarServerCustody._advance_for_checkpoint
+    original_confirm = model.SolarExecutionWorker._confirm
     original_before = model.SolarExecutionWorker._before
     def timed_advance(instance, *a, **kw):
         start = time.monotonic(); result = original_advance(instance, *a, **kw); end = time.monotonic()
+        assert result is None
         chunks.append({'start':start-origin, 'end':end-origin, 'seconds':end-start,
-                       'budget':kw['budget'], 'steps':json.loads(result)['steps']})
+                       'budget':kw['budget']})
+        return result
+    def timed_confirm(instance, *a, **kw):
+        result = original_confirm(instance, *a, **kw)
+        if chunks and 'steps' not in chunks[-1]: chunks[-1]['steps'] = result['checkpoint']['steps']
         return result
     def timed_before(instance, *a, **kw):
         start = time.monotonic(); result = original_before(instance, *a, **kw); end = time.monotonic()
@@ -112,7 +118,8 @@ def test_queued_actual_calculation_original_values_and_atomic_completion(setup, 
         return result
     with monkeypatch.context() as patch:
         calls = producer.measured(patch)
-        patch.setattr(producer.model.SolarServerCustody, 'advance', timed_advance)
+        patch.setattr(producer.model.SolarServerCustody, '_advance_for_checkpoint', timed_advance)
+        patch.setattr(model.SolarExecutionWorker, '_confirm', timed_confirm)
         patch.setattr(model.SolarExecutionWorker, '_before', timed_before)
         outcome = worker.run_once(job_id)
     worker_seconds = time.monotonic() - origin
@@ -193,12 +200,12 @@ def expire(worker, job_id):
 def test_chunk_cancel_acknowledged_without_checkpoint_or_result(setup, monkeypatch, point):
     worker, job_id, raw, _ = setup
     if point == 'chunk':
-        original = producer.model.SolarServerCustody.advance
+        original = producer.model.SolarServerCustody._advance_for_checkpoint
         def cancel(server, *a, **kw):
             result = original(server, *a, **kw)
             assert worker.jobs.cancel('tenant-1', job_id)
             return result
-        monkeypatch.setattr(producer.model.SolarServerCustody, 'advance', cancel)
+        monkeypatch.setattr(producer.model.SolarServerCustody, '_advance_for_checkpoint', cancel)
     else:
         worker.server.advance('tenant-1', raw, budget=128)
         original = model.SolarExecutionWorker._finish
@@ -223,10 +230,10 @@ def test_chunk_expiry_and_new_attempt_adopts_prefix_before_remaining_calculation
     worker, job_id, raw, _ = setup
     with monkeypatch.context() as patch:
         calls = producer.measured(patch)
-        measured = producer.model.SolarServerCustody.advance
+        measured = producer.model.SolarServerCustody._advance_for_checkpoint
         def lost(server, *a, **kw):
             result = measured(server, *a, **kw); expire(worker, job_id); return result
-        patch.setattr(producer.model.SolarServerCustody, 'advance', lost)
+        patch.setattr(producer.model.SolarServerCustody, '_advance_for_checkpoint', lost)
         first = worker.run_once(job_id)
     assert first.state == 'unclosed' and first.result_id is None
     progress = json.loads(worker.server.inspect('tenant-1', raw))

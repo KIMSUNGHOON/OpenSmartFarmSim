@@ -252,8 +252,8 @@ class _Session:
             'hold':None if last is None else last['hold'],'times':times,'storage_bytes':size,'file_count':count}
         raw=_canonical(value);_need(len(raw)<=LIMITS['progress_bytes']);self._guard();return raw
 
-    def advance(self,budget,prepare):
-        _need(self._writable is True)
+    def advance(self,budget,prepare,*,_return_progress=True):
+        _need(self._writable is True and type(_return_progress) is bool)
         self._guard();existing=files._exists(self.artifact,'HEAD')
         resume_head=getattr(self,'_resume_head',None)
         if resume_head is not None:
@@ -261,7 +261,7 @@ class _Session:
         data=None
         if existing:
             head,digest,data=self._load()
-            if head['artifact_sha256'] is not None:return self.progress()
+            if head['artifact_sha256'] is not None:return self.progress() if _return_progress else None
         binding=prepare();ctx=binding._context;self._guard()
         cp=continuation.start(ctx) if data is None else None if data[3] is None else continuation.restore_checkpoint(
             ctx,_canonical(data[3]['value']),expected_sha256=data[3]['sha256'])
@@ -276,7 +276,7 @@ class _Session:
             if writer._last['status'] in ('completed','hold'):
                 self._guard();self._reserve('finalize');writer.finalize();self._guard()
         finally:writer.close()
-        return self.progress()
+        return self.progress() if _return_progress else None
 
 
 class SolarServerCustody:
@@ -374,6 +374,10 @@ class SolarServerCustody:
     def advance(self,tenant,request_raw,*,budget):
         _need(type(budget) is int and 1<=budget<=continuation.MAX_CHUNK_BOUNDARIES)
         with self._open(tenant,request_raw,True,_advance_resume=True) as (session,prepare):return session.advance(budget,prepare)
+
+    def _advance_for_checkpoint(self,tenant,request_raw,*,budget):
+        _need(type(budget) is int and 1<=budget<=continuation.MAX_CHUNK_BOUNDARIES)
+        with self._open(tenant,request_raw,True,_advance_resume=True) as (session,prepare):return session.advance(budget,prepare,_return_progress=False)
 
     def inspect(self,tenant,request_raw):
         with self._open(tenant,request_raw,False,entry_guard=False) as (session,_):return session.progress()
