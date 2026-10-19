@@ -22,6 +22,15 @@
   각 경계의 현재 계정/권한/판본·원천 변경과 늦은 철회·취소/만료 차단을 동등하게 유지한다.
   원 binding/수치/UTC/HMAC/ancestry·조회 계산/쓰기0·FD/원본/정리를 보존하고 실제 반복 수/paired 비용을 입증한다.
   원 입력/chunk1/조회/재시도/360초/메모리 상한은 그대로 두며 원64 정상은 별도 수용한다.
+  - [x] **`crop-solar-role-phase-candidate-evaluation`** — [82검사/실제 paired 관측 뒤 미채택](../research/runtime-role-audit-phases-evaluation-20261019.md).
+    15→4 SQL 후보는 감사 컴포넌트만 감소하고 실제 advance는 약2% 감소/약0.2% 증가라 개선 근거가 부족했다.
+    제품 코드 원 bytes를 복원했고 patch만 연구 증거로 보존했다. 변경 없는 native CI를 반복하지 않았다.
+  - [x] **`crop-solar-current-audit-call-paths`** — 같은 기록의 실제 current12/감사528/연결144와 호출 위치.
+    내부 `_reference_guard`312회·나머지 연결/경계 감사216회를 분리하고5root/원본/정리를 대사했다.
+  - [ ] **`crop-solar-current-reference-bundle`** — 위 기록의 다음 한 단계 기준1–4를 따른다.
+    한 current 경계의 서버 전용 참조 읽기 묶음·현재 원문/권리/서명·principal/pointer와 작업 전후 실제 role 검증,
+    종료 전 외부 결과/서명/게시0·도중 변경 시 전체 차단·수명/오류/정리·원12경계와 실제 paired 비용을 입증한다.
+    성능이나 권한 결과 캐시를 이유로 판본/원천 검사 또는 원 시간/청크/조회/RSS 한도를 바꾸지 않는다.
 
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,

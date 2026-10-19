@@ -1,0 +1,346 @@
+--- a/backend/app/runtime_roles.py
++++ b/backend/app/runtime_roles.py
+@@ -169,68 +169,115 @@
+     return kind == "supervisor" and name in SUPERVISOR_TABLES and privilege == "SELECT"
+ 
+ 
++def _audit_current_scope(conn, policy):
++    login = isinstance(policy, RuntimeLoginPolicy)
++    row = conn.execute("""
++        WITH config AS (
++            SELECT %s::text AS schema_name, %s::text AS owner_name, %s::name[] AS role_names,
++                %s::text[] AS required_tables, %s::boolean AS login, %s::text AS database_name,
++                %s::integer AS connection_limit
++        ), scope AS (
++            SELECT n.oid AS schema_oid, r.oid AS owner_oid, r.rolsuper, r.rolcanlogin,
++                r.rolcreaterole, r.rolcreatedb, r.rolreplication, r.rolbypassrls
++            FROM pg_namespace n JOIN pg_roles r ON r.oid=n.nspowner CROSS JOIN config c
++            WHERE n.nspname=c.schema_name AND r.rolname=c.owner_name
++        ), relations AS (
++            SELECT c.oid, c.relname, c.relkind, c.relowner FROM pg_class c CROSS JOIN scope s
++            WHERE c.relnamespace=s.schema_oid AND c.relkind IN ('r','p','v','m','f','S')
++        ), routines AS (
++            SELECT p.oid, p.proowner, p.prosecdef FROM pg_proc p CROSS JOIN scope s
++            WHERE p.pronamespace=s.schema_oid
++        ), profiles AS (
++            SELECT r.oid, r.rolname, r.rolsuper, r.rolcanlogin, r.rolcreaterole, r.rolcreatedb,
++                r.rolreplication, r.rolbypassrls, r.rolinherit, r.rolconnlimit
++            FROM pg_roles r CROSS JOIN config c WHERE r.rolname=ANY(c.role_names)
++        ), approved AS (
++            SELECT s.*, ARRAY[s.owner_oid] || ARRAY(SELECT oid FROM profiles) AS identities FROM scope s
++        ), unexpected_acl AS (
++            SELECT 1 FROM pg_class c CROSS JOIN LATERAL aclexplode(c.relacl) a CROSS JOIN approved s
++                WHERE c.relnamespace=s.schema_oid AND NOT a.grantee=ANY(s.identities)
++            UNION ALL SELECT 1 FROM pg_attribute t JOIN pg_class c ON c.oid=t.attrelid
++                CROSS JOIN LATERAL aclexplode(t.attacl) a CROSS JOIN approved s
++                WHERE c.relnamespace=s.schema_oid AND NOT a.grantee=ANY(s.identities)
++            UNION ALL SELECT 1 FROM pg_proc p CROSS JOIN LATERAL aclexplode(p.proacl) a CROSS JOIN approved s
++                WHERE p.pronamespace=s.schema_oid AND NOT a.grantee=ANY(s.identities)
++        ), rights AS (
++            SELECT r.rolname, has_schema_privilege(r.rolname,s.schema_oid,'USAGE') AS usage,
++                has_database_privilege(r.rolname,current_database(),'CREATE') AS db_create,
++                EXISTS (SELECT 1 FROM pg_namespace WHERE nspname !~ '^pg_(toast_)?temp_'
++                    AND has_schema_privilege(r.rolname,oid,'CREATE')) AS ddl,
++                EXISTS (SELECT 1 FROM pg_proc p WHERE p.prosecdef
++                    AND has_function_privilege(r.rolname,p.oid,'EXECUTE')
++                    AND has_schema_privilege(r.rolname,p.pronamespace,'USAGE')) AS definer
++            FROM profiles r CROSS JOIN scope s
++        )
++        SELECT CASE
++            WHEN c.login AND current_database()<>c.database_name THEN 'runtime_database_scope_mismatch'
++            WHEN NOT EXISTS (SELECT 1 FROM scope) OR EXISTS (
++                SELECT 1 FROM scope WHERE rolsuper OR rolcanlogin OR rolcreaterole OR rolcreatedb
++                    OR rolreplication OR rolbypassrls) THEN 'dedicated_nonruntime_owner_required'
++            WHEN EXISTS (
++                SELECT 1 FROM pg_namespace n CROSS JOIN scope s
++                    WHERE n.nspowner=s.owner_oid AND n.oid<>s.schema_oid
++                UNION ALL SELECT 1 FROM pg_class t CROSS JOIN scope s
++                    WHERE t.relowner=s.owner_oid AND t.relnamespace<>s.schema_oid
++                        AND t.relnamespace<>'pg_toast'::regnamespace
++                UNION ALL SELECT 1 FROM pg_proc p CROSS JOIN scope s
++                    WHERE p.proowner=s.owner_oid AND p.pronamespace<>s.schema_oid
++            ) THEN 'owner_not_dedicated_to_project'
++            WHEN EXISTS (
++                SELECT 1 FROM pg_roles r CROSS JOIN scope s WHERE NOT r.rolsuper AND r.oid<>s.owner_oid
++                    AND (has_schema_privilege(r.oid,s.schema_oid,'CREATE')
++                        OR pg_has_role(r.oid,s.owner_oid,'MEMBER'))
++            ) THEN 'uncontrolled_project_creators'
++            WHEN EXISTS (
++                SELECT 1 FROM unnest(c.required_tables) required(name) WHERE NOT EXISTS (
++                    SELECT 1 FROM relations WHERE relkind='r' AND relname=required.name)
++            ) OR EXISTS (SELECT 1 FROM relations r CROSS JOIN scope s WHERE r.relowner<>s.owner_oid)
++                OR EXISTS (SELECT 1 FROM routines r CROSS JOIN scope s
++                    WHERE r.proowner<>s.owner_oid OR r.prosecdef) THEN 'unexpected_project_objects_or_owners'
++            WHEN (SELECT count(*) FROM profiles)<>4 OR EXISTS (
++                SELECT 1 FROM profiles WHERE rolsuper OR rolcreaterole OR rolcreatedb OR rolreplication
++                    OR rolbypassrls OR rolcanlogin<>c.login
++                    OR (c.login AND (rolinherit OR rolconnlimit<>c.connection_limit))
++            ) OR EXISTS (SELECT 1 FROM pg_auth_members
++                WHERE member IN (SELECT oid FROM profiles) OR roleid IN (SELECT oid FROM profiles))
++                THEN 'runtime_role_attributes_or_membership'
++            WHEN c.login AND EXISTS (SELECT 1 FROM profiles
++                WHERE NOT has_database_privilege(rolname,c.database_name,'CONNECT'))
++                THEN 'runtime_database_connect_required'
++            WHEN EXISTS (SELECT 1 FROM unexpected_acl) THEN 'unexpected_project_acl_identity'
++            WHEN EXISTS (SELECT 1 FROM rights WHERE usage IS NOT TRUE OR db_create OR ddl OR definer)
++                THEN 'runtime_ddl_or_definer_escape'
++            WHEN EXISTS (
++                SELECT 1 FROM profiles r CROSS JOIN relations s
++                    CROSS JOIN unnest(ARRAY['SELECT','UPDATE','USAGE']) privileges(privilege)
++                WHERE CASE WHEN s.relkind='S' THEN has_sequence_privilege(r.rolname,s.oid,privilege)
++                    ELSE FALSE END
++            ) THEN 'runtime_sequence_privilege'
++            ELSE NULL END AS hold_reason,
++            (SELECT row_to_json(s) FROM scope s) AS scope,
++            coalesce((SELECT jsonb_agg(r ORDER BY r.relname) FROM relations r),'[]'::jsonb) AS relations,
++            coalesce((SELECT jsonb_agg(r ORDER BY r.oid) FROM routines r),'[]'::jsonb) AS routines
++        FROM config c
++    """, (policy.schema, policy.owner, list(policy.roles.values()), list(_tables(policy)),
++          login, policy.database if login else None, policy.connection_limit if login else None)).fetchone()
++    if row["hold_reason"] is not None:
++        raise RolePolicyHold(row["hold_reason"])
++    return row["scope"], row["relations"], row["routines"]
++
++
+ def audit_runtime_roles(conn, policy):
+-    """Validate effective rights, including PUBLIC/columns/inheritance, after commit."""
+-    _database(conn, policy)
+-    scope, relations, routines = _scope(conn, policy)
++    """Validate current effective rights with separate table and column inquiries."""
++    scope, relations, routines = _audit_current_scope(conn, policy)
+     login = isinstance(policy, RuntimeLoginPolicy)
+-    roles = conn.execute("""
+-        SELECT oid, rolname, rolsuper, rolcanlogin, rolcreaterole, rolcreatedb,
+-            rolreplication, rolbypassrls, rolinherit, rolconnlimit FROM pg_roles WHERE rolname=ANY(%s)
+-    """, (list(policy.roles.values()),)).fetchall()
+-    if (len(roles) != 4 or any(row[name] for row in roles for name in (
+-            "rolsuper", "rolcreaterole", "rolcreatedb", "rolreplication", "rolbypassrls")) or
+-            any(row["rolcanlogin"] != login or
+-                (login and (row["rolinherit"] or row["rolconnlimit"] != policy.connection_limit))
+-                for row in roles) or
+-            conn.execute("SELECT 1 FROM pg_auth_members WHERE member=ANY(%s) OR roleid=ANY(%s)",
+-                         ([row["oid"] for row in roles], [row["oid"] for row in roles])).fetchone()):
+-        raise RolePolicyHold("runtime_role_attributes_or_membership")
+     role_names = list(policy.roles.values())
+-    if login and conn.execute("""
+-        SELECT 1 FROM unnest(%s::name[]) profiles(role_name)
+-        WHERE NOT has_database_privilege(role_name,%s,'CONNECT') LIMIT 1
+-    """, (role_names, policy.database)).fetchone():
+-        raise RolePolicyHold("runtime_database_connect_required")
+-    approved = [scope["owner_oid"], *[row["oid"] for row in roles]]
+-    unexpected_acl = conn.execute("""
+-        SELECT 1 FROM pg_class c CROSS JOIN LATERAL aclexplode(c.relacl) a
+-            WHERE c.relnamespace=%s AND NOT a.grantee=ANY(%s)
+-        UNION ALL SELECT 1 FROM pg_attribute t JOIN pg_class c ON c.oid=t.attrelid
+-            CROSS JOIN LATERAL aclexplode(t.attacl) a
+-            WHERE c.relnamespace=%s AND NOT a.grantee=ANY(%s)
+-        UNION ALL SELECT 1 FROM pg_proc p CROSS JOIN LATERAL aclexplode(p.proacl) a
+-            WHERE p.pronamespace=%s AND NOT a.grantee=ANY(%s)
+-        LIMIT 1
+-    """, (scope["schema_oid"], approved) * 3).fetchone()
+-    if unexpected_acl:
+-        raise RolePolicyHold("unexpected_project_acl_identity")
+     privileges = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES", "TRIGGER"]
+     if conn.info.server_version >= 170000:
+         privileges.append("MAINTAIN")
+     table_names = {relation["oid"]: relation["relname"] for relation in relations
+                    if relation["relkind"] != "S"}
+     role_kinds = {role: kind for kind, role in policy.roles.items()}
+-    rights = conn.execute("""
+-        SELECT role_name, has_schema_privilege(role_name,%s,'USAGE') AS usage,
+-            has_database_privilege(role_name,current_database(),'CREATE') AS db_create,
+-            EXISTS (SELECT 1 FROM pg_namespace WHERE nspname !~ '^pg_(toast_)?temp_'
+-                AND has_schema_privilege(role_name,oid,'CREATE')) AS ddl,
+-            EXISTS (SELECT 1 FROM pg_proc p WHERE p.prosecdef
+-                AND has_function_privilege(role_name,p.oid,'EXECUTE')
+-                AND has_schema_privilege(role_name,p.pronamespace,'USAGE')) AS definer
+-        FROM unnest(%s::name[]) profiles(role_name)
+-    """, (scope["schema_oid"], role_names)).fetchall()
+-    if any(not row["usage"] or row["db_create"] or row["ddl"] or row["definer"] for row in rights):
+-        raise RolePolicyHold("runtime_ddl_or_definer_escape")
+-    sequence_ids = [relation["oid"] for relation in relations if relation["relkind"] == "S"]
+-    if sequence_ids and conn.execute("""
+-        SELECT 1 FROM unnest(%s::name[]) profiles(role_name)
+-            CROSS JOIN unnest(%s::oid[]) sequences(oid)
+-            CROSS JOIN unnest(ARRAY['SELECT','UPDATE','USAGE']) privileges(privilege)
+-        WHERE has_sequence_privilege(role_name,sequences.oid,privilege) LIMIT 1
+-    """, (role_names, sequence_ids)).fetchone():
+-        raise RolePolicyHold("runtime_sequence_privilege")
+     expected = [(role, oid, privilege)
+         for role, kind in role_kinds.items() for oid, name in table_names.items()
+         for privilege in privileges if _allowed(policy, kind, name, privilege)]
+@@ -271,24 +318,27 @@
+         LIMIT 1
+     """, (*expected_params, role_names, list(table_names))).fetchone():
+         raise RolePolicyHold("runtime_column_grant_matrix")
+-    if conn.execute("""
+-        SELECT 1 FROM unnest(%s::name[]) profiles(role_name)
+-            CROSS JOIN unnest(%s::oid[]) routine(oid)
+-        WHERE has_function_privilege(role_name,routine.oid,'EXECUTE') LIMIT 1
+-    """, (role_names, [routine['oid'] for routine in routines])).fetchone():
++    trailing = conn.execute("""
++        SELECT EXISTS (
++            SELECT 1 FROM unnest(%s::name[]) profiles(role_name)
++                CROSS JOIN unnest(%s::oid[]) routine(oid)
++            WHERE has_function_privilege(role_name,routine.oid,'EXECUTE')
++        ) AS routine_bad, EXISTS (
++            SELECT 1 FROM unnest(ARRAY['r','S','f']::"char"[]) k
++                LEFT JOIN pg_default_acl d ON d.defaclrole=%s
++                    AND d.defaclnamespace=0 AND d.defaclobjtype=k
++                CROSS JOIN LATERAL aclexplode(coalesce(d.defaclacl,acldefault(k,%s))) a
++                WHERE a.grantee<>%s
++            UNION ALL
++            SELECT 1 FROM pg_default_acl d CROSS JOIN LATERAL aclexplode(d.defaclacl) a
++            WHERE d.defaclrole=%s AND d.defaclnamespace=%s
++                AND a.grantee<>%s AND d.defaclobjtype IN ('r','S','f')
++        ) AS defaults_bad
++    """, (role_names, [routine['oid'] for routine in routines],
++          *((scope["owner_oid"],) * 4 + (scope["schema_oid"], scope["owner_oid"])))).fetchone()
++    if trailing["routine_bad"]:
+         raise RolePolicyHold("runtime_routine_privilege")
+-    bad_defaults = conn.execute("""
+-        SELECT 1 FROM unnest(ARRAY['r','S','f']::"char"[]) k
+-            LEFT JOIN pg_default_acl d ON d.defaclrole=%s
+-                AND d.defaclnamespace=0 AND d.defaclobjtype=k
+-            CROSS JOIN LATERAL aclexplode(coalesce(d.defaclacl,acldefault(k,%s))) a
+-            WHERE a.grantee<>%s
+-        UNION ALL
+-        SELECT 1 FROM pg_default_acl d CROSS JOIN LATERAL aclexplode(d.defaclacl) a
+-        WHERE d.defaclrole=%s AND d.defaclnamespace=%s
+-            AND a.grantee<>%s AND d.defaclobjtype IN ('r','S','f') LIMIT 1
+-    """, (scope["owner_oid"],) * 4 + (scope["schema_oid"], scope["owner_oid"])).fetchone()
+-    if bad_defaults:
++    if trailing["defaults_bad"]:
+         raise RolePolicyHold("uncontrolled_creator_defaults")
+     return {"policy_version": ("runtime-authored-run-login-policy-v8" if policy.authored_run_storage else
+                                "runtime-authored-release-login-policy-v7" if policy.authored_release_storage else
+--- /dev/null
++++ b/backend/tests/test_runtime_role_audit_phases.py
+@@ -0,0 +1,86 @@
++"""Actual current audits with bounded catalog round trips and original matrices."""
++import pytest
++from dataclasses import replace
++from psycopg import sql
++
++from app.runtime_login import connect_runtime
++from app.runtime_roles import audit_runtime_roles, RolePolicyHold
++from test_runtime_role_matrix import (
++    login_database, original_login_scope, login_scope, selected_policy,
++    matrix_cleanup, matrix_kind)
++
++pytestmark = [selected_policy, pytest.mark.usefixtures('matrix_cleanup')]
++
++
++@pytest.mark.parametrize('login_scope', [True, False], indirect=True)
++def test_current_audit_has_four_reads_and_unchanged_empty_matrices(login_scope):
++    _, policy, dsns = login_scope
++    observed = []
++
++    class Reads:
++        def __init__(self, conn): self.conn = conn
++        def __getattr__(self, name): return getattr(self.conn, name)
++        def execute(self, query, params=None):
++            assert isinstance(query, str) and query.lstrip().split(None, 1)[0].upper() in {'WITH', 'SELECT'}
++            result = self.conn.execute(query, params)
++            observed.append((matrix_kind(query), result.rowcount))
++            return result
++
++    with connect_runtime(dsns['authority'], policy, 'authority') as conn:
++        result = audit_runtime_roles(Reads(conn), policy)
++    assert result['roles'] == policy.roles and result['tables'] >= 26
++    assert [(kind, count) for kind, count in observed if kind] == [('table', 0), ('column', 0)]
++    assert len(observed) == 4
++
++
++@pytest.mark.parametrize('fault,reason', [
++    ('database', 'runtime_database_scope_mismatch'),
++    ('schema', 'dedicated_nonruntime_owner_required'),
++    ('owner_name', 'dedicated_nonruntime_owner_required'),
++    ('owner_login', 'dedicated_nonruntime_owner_required'),
++    ('owner_escape', 'owner_not_dedicated_to_project'),
++    ('creator', 'uncontrolled_project_creators'),
++    ('missing_table', 'unexpected_project_objects_or_owners'),
++    ('table_owner', 'unexpected_project_objects_or_owners'),
++    ('usage', 'runtime_ddl_or_definer_escape'),
++])
++def test_consolidated_scope_keeps_current_holds(login_scope, fault, reason):
++    base, policy, dsns = login_scope
++    selected = policy
++    restore = None
++    owner, role = sql.Identifier(policy.owner), sql.Identifier(policy.roles['authority'])
++    schema = sql.Identifier(policy.schema)
++    target = sql.Identifier(policy.schema, 'ai_decisions')
++    if fault in {'database', 'schema', 'owner_name'}:
++        field = {'owner_name': 'owner'}.get(fault, fault)
++        selected = replace(policy, **{field: 'absent_audit_phase_scope'})
++        command = None
++    elif fault == 'owner_login':
++        command = sql.SQL('ALTER ROLE {} LOGIN').format(owner)
++        restore = sql.SQL('ALTER ROLE {} NOLOGIN').format(owner)
++    elif fault == 'owner_escape':
++        outside = sql.Identifier(policy.schema + '_outside')
++        command = sql.SQL('CREATE SCHEMA {} AUTHORIZATION {}').format(outside, owner)
++        restore = sql.SQL('DROP SCHEMA {}').format(outside)
++    elif fault == 'creator':
++        command = sql.SQL('GRANT CREATE ON SCHEMA {} TO {}').format(schema, role)
++        restore = sql.SQL('REVOKE CREATE ON SCHEMA {} FROM {}').format(schema, role)
++    elif fault == 'missing_table':
++        command = sql.SQL('ALTER TABLE {} RENAME TO absent_audit_phase_table').format(target)
++        restore = sql.SQL('ALTER TABLE {} RENAME TO ai_decisions').format(
++            sql.Identifier(policy.schema, 'absent_audit_phase_table'))
++    elif fault == 'table_owner':
++        command = sql.SQL('ALTER TABLE {} OWNER TO {}').format(target, role)
++        restore = sql.SQL('ALTER TABLE {} OWNER TO {}').format(target, owner)
++    else:
++        command = sql.SQL('REVOKE USAGE ON SCHEMA {} FROM {}').format(schema, role)
++        restore = sql.SQL('GRANT USAGE ON SCHEMA {} TO {}').format(schema, role)
++    with connect_runtime(dsns['authority'], policy, 'authority') as conn:
++        try:
++            if command is not None:
++                with base.connect() as admin: admin.execute(command)
++            with pytest.raises(RolePolicyHold, match='^' + reason + '$'):
++                audit_runtime_roles(conn, selected)
++        finally:
++            if restore is not None:
++                with base.connect() as admin: admin.execute(restore)
+--- /dev/null
++++ b/contracts/runtime-role-audit-phases-v1.md
+@@ -0,0 +1,38 @@
++# Current runtime privilege audit phases — v1
++
++Follow-up to the [actual15-statement cost](../research/crop-solar-role-sql-cost-20261019.md).
++Consolidate current catalog reads; never reuse an authorization result or
++retain a connection across audits. The original role policy, installation,
++effective privilege inquiries and all12 Solar current boundaries remain.
++
++The candidate has four read-only statements per audit:
++
++1. Database, dedicated owner, creator/object scope, role attributes/membership,
++   CONNECT, unexpected ACLs, schema/DDL/definer and sequence access. Check
++   these current facts in one SELECT with CTEs and preserve hold priority.
++   Return the same discovered relation/routine identities for the matrices.
++2. The existing full table/grant-option mismatch query, unchanged.
++3. The existing table/column/grant-option mismatch query, unchanged and fresh.
++4. Current routine execution and creator defaults, retaining hold priority.
++
++Each SELECT reads current server data. This does not assert a transaction-wide
++snapshot under Read Committed. Keep the separate matrices and their current
++NULL-aware checks so revocation or object deletion after discovery or between
++the matrices still fails closed. No SQL mutations, new functions, schema changes,
++new dependencies, numerical/worker changes or timing/cap increases are included.
++
++Acceptance: at most four actual audit statements, each successful matrix still
++returns zero rows, identical policy metadata and existing holds; selected and
++unselected storage and all existing NOLOGIN/SCRAM role-hardening regression
++tests pass. Include actual between-statement changes, current farm/source rights
++and normal/hold result query regression. Measure the same owned component in
++paired order with the original implementation; do not infer native throughput
++from an isolated timing. Preserve5root/descendants, source/HTML/originals,
++512MiB/PID/1GiB combined and complete owned resource cleanup.
++
++The use of CTEs and statement snapshots follows PostgreSQL16 documentation on
++[WITH](https://www.postgresql.org/docs/16/queries-with.html),
++[privilege inquiries](https://www.postgresql.org/docs/16/functions-info.html#FUNCTIONS-INFO-ACCESS-TABLE)
++and [Read Committed](https://www.postgresql.org/docs/16/transaction-iso.html).
++The grouping and acceptance criteria are project design decisions. Actual farm
++data/rights, G0–G4, original native64-step success and deployment remain separate.

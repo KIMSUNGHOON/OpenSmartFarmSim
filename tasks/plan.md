@@ -1,5 +1,17 @@
 # 구현 순서
 
+## 현재 SQL 묶음 후보 미채택·호출 경계 고정 — 2026-10-19 KST
+
+[후보82검사/실제 관찰](../research/runtime-role-audit-phases-evaluation-20261019.md)을 완료했다.
+15→4 SQL 후보는 실제 advance 개선 근거가 부족하고 복잡성이 늘어 제품 코드를 원 bytes로 복원했다.
+원 current12/감사528/연결144 중312회가 내부 보류/판단 문맥 참조 검증임을 실제 호출 위치로 확인했다.
+다음은 같은 경계의 순수 내부 참조 읽기 묶음을 최소 계약으로 구현·검증하는 것이다. 현재 principal/
+scope/pointer·원문/서명/QC·작업 전후 실제 role 감사와 종료 전 외부 반환0/도중 변경 전체 차단을 유지한다.
+원12경계·원 값/UTC/HMAC/ancestry·종료/원본/FD/정리와 실제 paired 비용을 입증한 뒤에만 채택한다.
+이후 원64 독립 정상→hold→취소→계산 중 WebGL→WSL 용량/사용자 적용 순서는 유지한다.
+현재 application은 변경되지 않아 같은16/64 실패 source의 CI는 반복하지 않았다. 실제 자료 권리/독립
+농장·전망·비교 관문과 전체 완료일은 미완료/미정이며 goal active다. 아래는 당시 기록이다.
+
 ## 현재 요청 내 재구성 감소 수용 — 2026-10-19 KST
 
 [고유26검사/실제 paired 관측](../research/farm-registration-read-scope-implementation-20261019.md)을 컴포넌트 범위로 수용했다.
