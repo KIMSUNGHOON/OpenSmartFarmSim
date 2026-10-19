@@ -1,0 +1,1349 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "app_source_restored_exact_HEAD": true,
+  "fresh_exec_or_SIGKILL_rerun": false,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "integration_adopted": false,
+  "native_CI_repeated": false,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "d5a3bc163f931cd14931d8c089c615cb0079b17d4164ca5dfb5aaef3f286923e",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T07:54:06.587Z"
+  },
+  "native_CLI_contract_review": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "7c27ce04a9eb87116218a27c6368676cfbaee7b7bb4acbe98c33170d3c482dc9",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T08:28:55.827Z"
+  },
+  "new_Solar_deployed": false,
+  "primitive34_acceptance_unchanged": true,
+  "recorded_at": "2026-10-19T08:26:57.727261+00:00",
+  "restored_source_sha256": {
+    "backend/app/crop_greenhouse_solar_farm_binding.py": "ff4daddacecd43f5cfa43e8dac484661e94e3ea3cd8f0a6f424573f4afa501f7",
+    "backend/app/farm_registration_read_scope.py": "1e471952b68d93c5654f713b8c6bac3c3a5a22fd670f58835522860515b4f159",
+    "backend/app/market_candidate_store.py": "0420835e211222fced5927de62b478ba296a2f83bde14e70d9fd164883e2e182",
+    "backend/app/market_reference_bundle.py": "7994806cb008d268f7d85eeda2c7bd15076e28a52c2a103c9646ee6ebe8a4dcf",
+    "backend/app/market_reference_row_readset.py": "587be5012156f297835234885ec7bfee582d81022437988e37ee591e3c97d153",
+    "backend/app/market_source_store.py": "b96c4704295eb8fa282357f2ec8bad9c518a565d4fc1e7536d2793be1b0951bf"
+  },
+  "rights_or_gate_approval": false,
+  "scope": "v3 integration cost evaluation/rejection and private v4 receipt feasibility, not normal execution or gate acceptance",
+  "source_baseline_commit": "536d8c0121cfae3f741ab32775d9e0d1d4beaca6",
+  "stages": [
+    {
+      "actual_tool": "17113:0",
+      "do_not_sum_as_distinct_regressions": true,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 989081600,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 15.931341626001085
+      },
+      "scope": "one actual integrated-loop equality check on the earlier candidate",
+      "source_sha256": {
+        "backend/app/crop_greenhouse_solar_farm_binding.py": "8cce777738f0de072acfc47dd50be1072abc15c12c4564a85f84fd83ec1c892d",
+        "backend/app/farm_registration_read_scope.py": "9ff4d192f3872310b2597ef938325eb2c31943463b970520bfef9406b6b18724",
+        "backend/app/market_candidate_store.py": "b775ec860a9190ac263a5881f8b8f4de7b3364d22fea5fd8cf75d5760d466fe1",
+        "backend/app/market_reference_bundle.py": "9964e0fae7dddff102fca2a96c5328eab0fa5e5efc13f71932f7ba09f5fe965c",
+        "backend/app/market_reference_row_readset.py": "d651a74c0857dfe12574738a9c684e5703baec6e5903e43395cf66325c9223b9",
+        "backend/app/market_source_store.py": "dabd0ba6629f42da52b1f9be69b5aabadafd011f8e4c973c871a38d731f859f8"
+      },
+      "stage": "focused-reference-row-integration-first-v1",
+      "terminal_sha256": "532116b687c653c4b065e5c6544ec0847d884ca888a6d67d11a952ce7a8c4a21"
+    },
+    {
+      "actual_tool": "74132:0",
+      "do_not_sum_as_distinct_regressions": true,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1014923264,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 79.20338729099967
+      },
+      "observations": {
+        "G0_G4": "not_assessed",
+        "SQL_interception": false,
+        "actual_source_order_and_duplicates_preserved": true,
+        "exact_key_production_integration": true,
+        "original_values_UTC_checkpoint_counts_preserved": true,
+        "product_code_changed": false,
+        "rights_or_gate_approval": false,
+        "role_audits_preserved": 183,
+        "samples": [
+          {
+            "batch_SQL": 0,
+            "candidate_row_SQL": 816,
+            "current_role_audits": 183,
+            "mode": "baseline",
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "source_row_SQL": 1824,
+            "wall_seconds": 6.908494113002234
+          },
+          {
+            "batch_SQL": 92,
+            "candidate_row_SQL": 34,
+            "current_role_audits": 183,
+            "mode": "candidate",
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "source_row_SQL": 76,
+            "wall_seconds": 7.132914454999991
+          },
+          {
+            "batch_SQL": 92,
+            "candidate_row_SQL": 34,
+            "current_role_audits": 183,
+            "mode": "candidate",
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "source_row_SQL": 76,
+            "wall_seconds": 7.116229162002128
+          },
+          {
+            "batch_SQL": 0,
+            "candidate_row_SQL": 816,
+            "current_role_audits": 183,
+            "mode": "baseline",
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "source_row_SQL": 1824,
+            "wall_seconds": 6.924930959001358
+          }
+        ],
+        "scope": "two same actual custody advances, ABBA; baseline selects the unchanged physical lookup path by test-only trace_keys eligibility override; no normal64 acceptance",
+        "source_sha256": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0"
+      },
+      "raw_metadata_clarification": "product_code_changed:false in the private measurement means that the measurement did not edit source while running; the candidate six-file diff existed before the guard and was later restored.",
+      "scope": "earlier candidate actual paired cost, not adopted",
+      "source_sha256": {
+        "backend/app/crop_greenhouse_solar_farm_binding.py": "8cce777738f0de072acfc47dd50be1072abc15c12c4564a85f84fd83ec1c892d",
+        "backend/app/farm_registration_read_scope.py": "9ff4d192f3872310b2597ef938325eb2c31943463b970520bfef9406b6b18724",
+        "backend/app/market_candidate_store.py": "b775ec860a9190ac263a5881f8b8f4de7b3364d22fea5fd8cf75d5760d466fe1",
+        "backend/app/market_reference_bundle.py": "9964e0fae7dddff102fca2a96c5328eab0fa5e5efc13f71932f7ba09f5fe965c",
+        "backend/app/market_reference_row_readset.py": "d651a74c0857dfe12574738a9c684e5703baec6e5903e43395cf66325c9223b9",
+        "backend/app/market_source_store.py": "dabd0ba6629f42da52b1f9be69b5aabadafd011f8e4c973c871a38d731f859f8"
+      },
+      "stage": "focused-reference-row-integration-pair-v1",
+      "terminal_sha256": "d598277df7000aa8526f6db455bff2bac137ea25534c98323b52cdc2106fe682"
+    },
+    {
+      "actual_tool": "37607:0",
+      "do_not_sum_as_distinct_regressions": true,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 995246080,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 44.70995178500016
+      },
+      "observations": {
+        "G0_G4": "not_assessed",
+        "SQL_execute_calls": 5020,
+        "SQL_execute_seconds": 3.5317011500046647,
+        "after": {
+          "computed_through_utc": "2026-10-01T00:00:04.123456Z",
+          "head_sha256": "c9f7ae480fb1ddbc5b041e2b59d97a3b8b96aa86a5833a1379d370acbc8c5329",
+          "planned_steps": 16,
+          "proof_sha256": "090e55e0c12e278b90b794adb11b1d5311a57a22e25e3a3c4bb7a19b78546b6e",
+          "status": "yielded",
+          "steps": 2
+        },
+        "before": {
+          "computed_through_utc": "2026-10-01T00:00:02.123456Z",
+          "head_sha256": "cb463bd8012bb3073a12cbb2fc3437f50ff3b8bf44de586af9425d672aeadd53",
+          "planned_steps": 16,
+          "proof_sha256": "dbe204ee452e969ca5bfc99733ceb697207487958d57b5cdaa2464784aa2f726",
+          "status": "yielded",
+          "steps": 1
+        },
+        "current_boundaries": 12,
+        "entries": [
+          {
+            "calls": 1,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "SolarServerCustody.advance",
+            "inclusive_seconds": 10.155639105,
+            "self_seconds": 0.000748314
+          },
+          {
+            "calls": 12,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "SolarServerCustody._open.<locals>.current",
+            "inclusive_seconds": 9.775561633,
+            "self_seconds": 7.7552e-05
+          },
+          {
+            "calls": 12,
+            "file": "crop_greenhouse_solar_farm_binding.py",
+            "function": "SolarFarmBinding.current",
+            "inclusive_seconds": 9.725566798000001,
+            "self_seconds": 0.00042288700000000005
+          },
+          {
+            "calls": 12,
+            "file": "crop_greenhouse_solar_farm_binding.py",
+            "function": "SolarFarmBinding._bind",
+            "inclusive_seconds": 9.725139465,
+            "self_seconds": 0.01274012
+          },
+          {
+            "calls": 1,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_Session.advance",
+            "inclusive_seconds": 9.066358762,
+            "self_seconds": 0.001623644
+          },
+          {
+            "calls": 11,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_Session._guard",
+            "inclusive_seconds": 8.752873237000001,
+            "self_seconds": 0.000295365
+          },
+          {
+            "calls": 24,
+            "file": "crop_greenhouse_solar_farm_binding.py",
+            "function": "SolarFarmBinding._registration",
+            "inclusive_seconds": 8.706214907,
+            "self_seconds": 0.001779238
+          },
+          {
+            "calls": 24,
+            "file": "farm_authoring_storage.py",
+            "function": "FarmAuthoringService.read_registration",
+            "inclusive_seconds": 8.034703378,
+            "self_seconds": 0.00017132800000000002
+          },
+          {
+            "calls": 24,
+            "file": "farm_registration_read_scope.py",
+            "function": "RegistrationRead.read",
+            "inclusive_seconds": 8.034516021,
+            "self_seconds": 0.00087799
+          },
+          {
+            "calls": 23,
+            "file": "farm_registration_read_scope.py",
+            "function": "RegistrationRead._current",
+            "inclusive_seconds": 7.35292844,
+            "self_seconds": 0.0013764270000000002
+          },
+          {
+            "calls": 23,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore.verify_current_reads",
+            "inclusive_seconds": 4.97013223,
+            "self_seconds": 0.000138529
+          },
+          {
+            "calls": 23,
+            "file": "market_reference_bundle.py",
+            "function": "verify",
+            "inclusive_seconds": 4.969993701,
+            "self_seconds": 0.004222886
+          },
+          {
+            "calls": 23,
+            "file": "market_reference_bundle.py",
+            "function": "_verify_shared",
+            "inclusive_seconds": 4.957722851000001,
+            "self_seconds": 0.001137809
+          },
+          {
+            "calls": 23,
+            "file": "market_reference_bundle.py",
+            "function": "_verify_trace",
+            "inclusive_seconds": 4.041313513,
+            "self_seconds": 0.001476695
+          },
+          {
+            "calls": 23,
+            "file": "market_reference_row_readset.py",
+            "function": "verify_rows",
+            "inclusive_seconds": 3.894704556,
+            "self_seconds": 0.0037474780000000003
+          },
+          {
+            "calls": 23,
+            "file": "market_reference_bundle.py",
+            "function": "_verify_trace.<locals>.consume",
+            "inclusive_seconds": 3.1868638710000003,
+            "self_seconds": 0.009861804
+          },
+          {
+            "calls": 183,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "inclusive_seconds": 2.9416427790000004,
+            "self_seconds": 0.044905599000000004
+          },
+          {
+            "calls": 2,
+            "file": "crop_greenhouse_solar_storage.py",
+            "function": "_operation.<locals>.run",
+            "inclusive_seconds": 2.4710639100000003,
+            "self_seconds": 9.8918e-05
+          },
+          {
+            "calls": 1,
+            "file": "crop_greenhouse_solar_storage.py",
+            "function": "ArtifactWriter.append",
+            "inclusive_seconds": 2.431052123,
+            "self_seconds": 0.001244342
+          },
+          {
+            "calls": 1,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_Session.advance.<locals>.<lambda>",
+            "inclusive_seconds": 2.371951885,
+            "self_seconds": 5.906000000000001e-06
+          },
+          {
+            "calls": 1,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_Session._publish",
+            "inclusive_seconds": 2.371945979,
+            "self_seconds": 4.0698e-05
+          },
+          {
+            "calls": 1104,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore.__getattr__.<locals>.scoped_lookup",
+            "inclusive_seconds": 1.8780048740000002,
+            "self_seconds": 0.0050741350000000005
+          },
+          {
+            "calls": 72,
+            "file": "job_store.py",
+            "function": "JobStore.connect",
+            "inclusive_seconds": 1.7265710870000002,
+            "self_seconds": 0.0037806790000000003
+          },
+          {
+            "calls": 1,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "SolarServerCustody._open.<locals>.prepare",
+            "inclusive_seconds": 1.7083184230000001,
+            "self_seconds": 0.0012401620000000002
+          },
+          {
+            "calls": 1,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_Session.progress",
+            "inclusive_seconds": 1.586182908,
+            "self_seconds": 6.707800000000001e-05
+          },
+          {
+            "calls": 1824,
+            "file": "api_market_source.py",
+            "function": "_MarketSources.__getattr__.<locals>.scoped_read",
+            "inclusive_seconds": 1.35547751,
+            "self_seconds": 0.003705916
+          },
+          {
+            "calls": 1824,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore._read",
+            "inclusive_seconds": 1.3176544250000002,
+            "self_seconds": 0.009010973
+          },
+          {
+            "calls": 1824,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore._read_in_transaction",
+            "inclusive_seconds": 1.2305495770000001,
+            "self_seconds": 0.008195952000000001
+          },
+          {
+            "calls": 48,
+            "file": "farm_authoring_storage.py",
+            "function": "FarmAuthoringService._find",
+            "inclusive_seconds": 1.214859957,
+            "self_seconds": 0.001560811
+          },
+          {
+            "calls": 475,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._shared_reader",
+            "inclusive_seconds": 1.172416252,
+            "self_seconds": 0.013990184000000001
+          },
+          {
+            "calls": 450,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._reference_reader",
+            "inclusive_seconds": 1.1324531740000001,
+            "self_seconds": 0.003225716
+          },
+          {
+            "calls": 48,
+            "file": "thermal_run_store.py",
+            "function": "ThermalRunStore.connect",
+            "inclusive_seconds": 1.122603892,
+            "self_seconds": 0.0025005070000000003
+          },
+          {
+            "calls": 2,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "SolarServerCustody._open",
+            "inclusive_seconds": 1.0883689810000001,
+            "self_seconds": 0.000135124
+          },
+          {
+            "calls": 414,
+            "file": "market_reference_bundle.py",
+            "function": "_Bundle.guard",
+            "inclusive_seconds": 1.049273114,
+            "self_seconds": 0.001885581
+          },
+          {
+            "calls": 144,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._reference_value",
+            "inclusive_seconds": 1.022936557,
+            "self_seconds": 0.001157449
+          },
+          {
+            "calls": 2640,
+            "file": "market_reference_row_readset.py",
+            "function": "_lookup",
+            "inclusive_seconds": 0.747057375,
+            "self_seconds": 0.008360769
+          },
+          {
+            "calls": 183,
+            "file": "runtime_roles.py",
+            "function": "_scope",
+            "inclusive_seconds": 0.734207052,
+            "self_seconds": 0.011529473
+          },
+          {
+            "calls": 25,
+            "file": "crop_greenhouse_solar_input_evidence.py",
+            "function": "_operation.<locals>.run",
+            "inclusive_seconds": 0.696469985,
+            "self_seconds": 0.014473969000000001
+          },
+          {
+            "calls": 2622,
+            "file": "market_reference_row_readset.py",
+            "function": "_Rows._check",
+            "inclusive_seconds": 0.5935882170000001,
+            "self_seconds": 0.031125220000000002
+          },
+          {
+            "calls": 1824,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore._verified",
+            "inclusive_seconds": 0.563429736,
+            "self_seconds": 0.009239076
+          },
+          {
+            "calls": 1824,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore._model",
+            "inclusive_seconds": 0.540707358,
+            "self_seconds": 0.013237921000000001
+          },
+          {
+            "calls": 619,
+            "file": "runtime_login.py",
+            "function": "verify_runtime_identity",
+            "inclusive_seconds": 0.456004393,
+            "self_seconds": 0.010673016
+          },
+          {
+            "calls": 92,
+            "file": "market_reference_row_readset.py",
+            "function": "_Rows._load",
+            "inclusive_seconds": 0.34814003400000004,
+            "self_seconds": 0.02103673
+          },
+          {
+            "calls": 3166,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._shared_profile",
+            "inclusive_seconds": 0.32827403800000005,
+            "self_seconds": 0.054003436
+          },
+          {
+            "calls": 69127,
+            "file": "jobs.py",
+            "function": "_validate_input_fields",
+            "inclusive_seconds": 0.30946559100000004,
+            "self_seconds": 0.127076345
+          },
+          {
+            "calls": 42979,
+            "file": "provenance.py",
+            "function": "_exact_name",
+            "inclusive_seconds": 0.22267945900000002,
+            "self_seconds": 0.027473382
+          },
+          {
+            "calls": 7129,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._tenant",
+            "inclusive_seconds": 0.211861183,
+            "self_seconds": 0.021943065
+          },
+          {
+            "calls": 254727,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_json.<locals>.pairs",
+            "inclusive_seconds": 0.19588049000000002,
+            "self_seconds": 0.153514761
+          },
+          {
+            "calls": 14473,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore._tenant",
+            "inclusive_seconds": 0.174843408,
+            "self_seconds": 0.029150095
+          },
+          {
+            "calls": 128121,
+            "file": "economic_contracts.py",
+            "function": "untrusted_data",
+            "inclusive_seconds": 0.153990021,
+            "self_seconds": 0.093180065
+          },
+          {
+            "calls": 34394,
+            "file": "market_source_store.py",
+            "function": "_name",
+            "inclusive_seconds": 0.139647362,
+            "self_seconds": 0.032789891
+          },
+          {
+            "calls": 721250,
+            "file": "provenance.py",
+            "function": "_exact_name.<locals>.<genexpr>",
+            "inclusive_seconds": 0.13201314,
+            "self_seconds": 0.093207223
+          },
+          {
+            "calls": 304866,
+            "file": "market_source_store.py",
+            "function": "_name.<locals>.<genexpr>",
+            "inclusive_seconds": 0.064555624,
+            "self_seconds": 0.045663429000000005
+          },
+          {
+            "calls": 133224,
+            "file": "runtime_roles.py",
+            "function": "_allowed",
+            "inclusive_seconds": 0.052551282000000005,
+            "self_seconds": 0.020337244
+          },
+          {
+            "calls": 361825,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore._tenant.<locals>.<genexpr>",
+            "inclusive_seconds": 0.049529171000000004,
+            "self_seconds": 0.049529171000000004
+          },
+          {
+            "calls": 18492,
+            "file": "market_reference_row_readset.py",
+            "function": "_keys.<locals>.<genexpr>",
+            "inclusive_seconds": 0.047988997000000005,
+            "self_seconds": 0.009741772000000001
+          },
+          {
+            "calls": 628952,
+            "file": "crop_cycle_input_stream.py",
+            "function": "_need",
+            "inclusive_seconds": 0.042375257,
+            "self_seconds": 0.042133371
+          },
+          {
+            "calls": 5060,
+            "file": "market_reference_bundle.py",
+            "function": "_Bundle.check",
+            "inclusive_seconds": 0.038323297,
+            "self_seconds": 0.015300433
+          },
+          {
+            "calls": 33489,
+            "file": "runtime_roles.py",
+            "function": "_tables",
+            "inclusive_seconds": 0.033918913,
+            "self_seconds": 0.031856675
+          },
+          {
+            "calls": 2645,
+            "file": "market_reference_row_readset.py",
+            "function": "_Rows._pointers",
+            "inclusive_seconds": 0.031460886,
+            "self_seconds": 0.014507993
+          },
+          {
+            "calls": 178225,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._tenant.<locals>.<genexpr>",
+            "inclusive_seconds": 0.029072728000000003,
+            "self_seconds": 0.029072728000000003
+          },
+          {
+            "calls": 137264,
+            "file": "market_reference_row_readset.py",
+            "function": "_keys.<locals>.<genexpr>.<genexpr>",
+            "inclusive_seconds": 0.024448842000000002,
+            "self_seconds": 0.017056374000000003
+          },
+          {
+            "calls": 5586,
+            "file": "economic_contracts.py",
+            "function": "EconomicNumber.decimal_string",
+            "inclusive_seconds": 0.022082669000000003,
+            "self_seconds": 0.009632235000000001
+          },
+          {
+            "calls": 9566,
+            "file": "economic_contracts.py",
+            "function": "utc",
+            "inclusive_seconds": 0.019709425000000003,
+            "self_seconds": 0.010511376000000001
+          },
+          {
+            "calls": 37030,
+            "file": "market_reference_row_readset.py",
+            "function": "_Rows._pointers.<locals>.<genexpr>",
+            "inclusive_seconds": 0.016952893,
+            "self_seconds": 0.010768734
+          }
+        ],
+        "old_proofs": 3,
+        "old_proofs_preserved": true,
+        "proof_directory_identity_preserved": true,
+        "queries": [
+          {
+            "calls": 183,
+            "execute_seconds": 0.4746838830069464,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 255
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.394688137974299,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 238
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.3401966700075718,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 196
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.27677933799350285,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 214
+          },
+          {
+            "calls": 92,
+            "execute_seconds": 0.26167329898817115,
+            "file": "market_reference_row_readset.py",
+            "function": "_Rows._load",
+            "line": 164
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.2027490479813423,
+            "file": "runtime_roles.py",
+            "function": "_scope",
+            "line": 137
+          },
+          {
+            "calls": 619,
+            "execute_seconds": 0.20095851606311044,
+            "file": "runtime_login.py",
+            "function": "verify_runtime_identity",
+            "line": 18
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.16778245694877114,
+            "file": "runtime_roles.py",
+            "function": "_scope",
+            "line": 128
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.10871457500616089,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 280
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.10231218201079173,
+            "file": "runtime_roles.py",
+            "function": "_scope",
+            "line": 157
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.09767891299270559,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 274
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.09084537201852072,
+            "file": "runtime_roles.py",
+            "function": "_scope",
+            "line": 152
+          },
+          {
+            "calls": 475,
+            "execute_seconds": 0.08733838301850483,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._shared_reader",
+            "line": 266
+          },
+          {
+            "calls": 475,
+            "execute_seconds": 0.08356399500189582,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._shared_reader",
+            "line": 267
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.07572859500942286,
+            "file": "runtime_roles.py",
+            "function": "_scope",
+            "line": 146
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.07493785601764102,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 186
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.07426710095387534,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 177
+          },
+          {
+            "calls": 168,
+            "execute_seconds": 0.0677418169871089,
+            "file": "thermal_run_store.py",
+            "function": "ThermalRunStore._decision_context_in_transaction",
+            "line": 326
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.0645844749706157,
+            "file": "runtime_roles.py",
+            "function": "audit_runtime_roles",
+            "line": 190
+          },
+          {
+            "calls": 183,
+            "execute_seconds": 0.05498777901448193,
+            "file": "runtime_roles.py",
+            "function": "_database",
+            "line": 123
+          },
+          {
+            "calls": 96,
+            "execute_seconds": 0.04523090798102203,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._candidate_in_transaction",
+            "line": 474
+          },
+          {
+            "calls": 48,
+            "execute_seconds": 0.04274356799578527,
+            "file": "farm_authoring_storage.py",
+            "function": "FarmAuthoringService._find",
+            "line": 146
+          },
+          {
+            "calls": 48,
+            "execute_seconds": 0.030298701996798627,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._checked_candidate",
+            "line": 446
+          },
+          {
+            "calls": 72,
+            "execute_seconds": 0.030188547036232194,
+            "file": "market_hold_store.py",
+            "function": "MarketHoldStore._report_row",
+            "line": 225
+          },
+          {
+            "calls": 76,
+            "execute_seconds": 0.025520910014165565,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore._select_with_job",
+            "line": 224
+          },
+          {
+            "calls": 24,
+            "execute_seconds": 0.01974720900034299,
+            "file": "job_store.py",
+            "function": "JobStore._locked_job",
+            "line": 690
+          },
+          {
+            "calls": 24,
+            "execute_seconds": 0.019567846014979295,
+            "file": "thermal_run_store.py",
+            "function": "ThermalRunStore.get_snapshot",
+            "line": 282
+          },
+          {
+            "calls": 34,
+            "execute_seconds": 0.009449865996430162,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._input_in_transaction",
+            "line": 530
+          },
+          {
+            "calls": 24,
+            "execute_seconds": 0.006741202003468061,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore.read_scope",
+            "line": 100
+          }
+        ],
+        "reconstructions": 1,
+        "registration_reads": 24,
+        "rights_or_gate_approval": false,
+        "role_audits": 183,
+        "role_callers": [
+          {
+            "calls": 72,
+            "file": "job_store.py",
+            "function": "JobStore.connect",
+            "inclusive_seconds": 1.2380484230000002
+          },
+          {
+            "calls": 48,
+            "file": "thermal_run_store.py",
+            "function": "ThermalRunStore.connect",
+            "inclusive_seconds": 0.807534336
+          },
+          {
+            "calls": 24,
+            "file": "market_runtime.py",
+            "function": "connect_market",
+            "inclusive_seconds": 0.409494876
+          },
+          {
+            "calls": 24,
+            "file": "market_source_store.py",
+            "function": "MarketSourceStore.read_scope",
+            "inclusive_seconds": 0.30382541500000004
+          },
+          {
+            "calls": 13,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore._reference_guard",
+            "inclusive_seconds": 0.15689640100000002
+          },
+          {
+            "calls": 2,
+            "file": "market_candidate_store.py",
+            "function": "MarketCandidateStore.read_scope",
+            "inclusive_seconds": 0.025843328000000002
+          }
+        ],
+        "runtime_connections": 144,
+        "scope": "one instrumented actual advance; overlapping profiler/SQL times, no native throughput acceptance",
+        "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+        "source_reads": 1824,
+        "wall_seconds": 10.157185456999287
+      },
+      "scope": "one actual earlier-candidate profiler observation",
+      "source_sha256": {
+        "backend/app/crop_greenhouse_solar_farm_binding.py": "8cce777738f0de072acfc47dd50be1072abc15c12c4564a85f84fd83ec1c892d",
+        "backend/app/farm_registration_read_scope.py": "9ff4d192f3872310b2597ef938325eb2c31943463b970520bfef9406b6b18724",
+        "backend/app/market_candidate_store.py": "b775ec860a9190ac263a5881f8b8f4de7b3364d22fea5fd8cf75d5760d466fe1",
+        "backend/app/market_reference_bundle.py": "9964e0fae7dddff102fca2a96c5328eab0fa5e5efc13f71932f7ba09f5fe965c",
+        "backend/app/market_reference_row_readset.py": "d651a74c0857dfe12574738a9c684e5703baec6e5903e43395cf66325c9223b9",
+        "backend/app/market_source_store.py": "dabd0ba6629f42da52b1f9be69b5aabadafd011f8e4c973c871a38d731f859f8"
+      },
+      "stage": "focused-reference-row-integration-guard-cost-v1",
+      "terminal_sha256": "a3e7230952e8115ee5b6c88cfa6029983bdb9f91ef88203ff4a9bf9d9dd2de4b"
+    },
+    {
+      "actual_tool": "23585:0",
+      "do_not_sum_as_distinct_regressions": true,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 998862848,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 79.44904239400057
+      },
+      "observations": {
+        "G0_G4": "not_assessed",
+        "SQL_interception": false,
+        "actual_source_order_and_duplicates_preserved": true,
+        "exact_key_production_integration": true,
+        "original_values_UTC_checkpoint_counts_preserved": true,
+        "product_code_changed": false,
+        "rights_or_gate_approval": false,
+        "role_audits_preserved": 183,
+        "samples": [
+          {
+            "batch_SQL": 0,
+            "candidate_row_SQL": 816,
+            "current_role_audits": 183,
+            "mode": "baseline",
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "source_row_SQL": 1824,
+            "wall_seconds": 7.06494299300175
+          },
+          {
+            "batch_SQL": 92,
+            "candidate_row_SQL": 34,
+            "current_role_audits": 183,
+            "mode": "candidate",
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "source_row_SQL": 76,
+            "wall_seconds": 6.980190381000284
+          },
+          {
+            "batch_SQL": 92,
+            "candidate_row_SQL": 34,
+            "current_role_audits": 183,
+            "mode": "candidate",
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "source_row_SQL": 76,
+            "wall_seconds": 6.992445924002823
+          },
+          {
+            "batch_SQL": 0,
+            "candidate_row_SQL": 816,
+            "current_role_audits": 183,
+            "mode": "baseline",
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "source_row_SQL": 1824,
+            "wall_seconds": 6.950927711000986
+          }
+        ],
+        "scope": "two same actual custody advances, ABBA; baseline selects the unchanged physical lookup path by test-only trace_keys eligibility override; no normal64 acceptance",
+        "source_sha256": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0"
+      },
+      "raw_metadata_clarification": "product_code_changed:false in the private measurement means that the measurement did not edit source while running; the candidate six-file diff existed before the guard and was later restored.",
+      "scope": "revised candidate actual paired cost, not adopted",
+      "source_sha256": {
+        "backend/app/crop_greenhouse_solar_farm_binding.py": "8cce777738f0de072acfc47dd50be1072abc15c12c4564a85f84fd83ec1c892d",
+        "backend/app/farm_registration_read_scope.py": "9ff4d192f3872310b2597ef938325eb2c31943463b970520bfef9406b6b18724",
+        "backend/app/market_candidate_store.py": "b775ec860a9190ac263a5881f8b8f4de7b3364d22fea5fd8cf75d5760d466fe1",
+        "backend/app/market_reference_bundle.py": "9964e0fae7dddff102fca2a96c5328eab0fa5e5efc13f71932f7ba09f5fe965c",
+        "backend/app/market_reference_row_readset.py": "7daf9a5715adbe2dd4acbb4e66d23a67f30bc42313dfd95716bbfeb26e397113",
+        "backend/app/market_source_store.py": "dabd0ba6629f42da52b1f9be69b5aabadafd011f8e4c973c871a38d731f859f8"
+      },
+      "stage": "focused-reference-row-integration-pair-v2",
+      "terminal_sha256": "eae10732c0880b0caa6de294da9f77b82c9b34930dfc79e70a780035a07ec500"
+    },
+    {
+      "actual_tool": "98196:0",
+      "do_not_sum_as_distinct_regressions": true,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1001381888,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 74.1961016819987
+      },
+      "observations": {
+        "G0_G4": "not_assessed",
+        "actual_source_order_and_duplicates_preserved": false,
+        "original_values_UTC_checkpoint_counts_preserved": true,
+        "product_code_changed": false,
+        "raw_receipt_feasibility_only": true,
+        "rights_or_gate_approval": false,
+        "role_audits_preserved": 183,
+        "samples": [
+          {
+            "current_role_audits": 183,
+            "mode": "baseline",
+            "receipt_metrics": {},
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "wall_seconds": 7.073584917001426
+          },
+          {
+            "current_role_audits": 183,
+            "mode": "candidate",
+            "receipt_metrics": {
+              "candidate_receipt_rows": 0,
+              "data_proofs": 1672,
+              "dynamic_getters": 264,
+              "full_anchor_traces": 1,
+              "pin_receipt_rows": 46,
+              "receipt_SQL": 138,
+              "source_receipt_rows": 3404
+            },
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "3f697ab9e1f03e46c4284da7506139395a5538fe10ac3a3febea710f5f951ec3",
+            "source_reads": 152,
+            "wall_seconds": 6.182102147002297
+          },
+          {
+            "current_role_audits": 183,
+            "mode": "candidate",
+            "receipt_metrics": {
+              "candidate_receipt_rows": 0,
+              "data_proofs": 1672,
+              "dynamic_getters": 264,
+              "full_anchor_traces": 1,
+              "pin_receipt_rows": 46,
+              "receipt_SQL": 138,
+              "source_receipt_rows": 3404
+            },
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "3f697ab9e1f03e46c4284da7506139395a5538fe10ac3a3febea710f5f951ec3",
+            "source_reads": 152,
+            "wall_seconds": 6.400657455000328
+          },
+          {
+            "current_role_audits": 183,
+            "mode": "baseline",
+            "receipt_metrics": {},
+            "role_SQL_execute_calls": 2745,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_reads": 1824,
+            "wall_seconds": 7.088331751001533
+          }
+        ],
+        "scope": "private raw-dependency agreement prototype only: full initial trace anchor, fresh exact-key SQL receipts and all dynamic getters; source pure getter repetition deliberately replaced, not production or security acceptance",
+        "source_getters_not_all_repeated": true,
+        "source_sha256": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0"
+      },
+      "scope": "private changed-semantics raw receipt feasibility only, not adopted",
+      "source_sha256": {
+        "backend/app/crop_greenhouse_solar_farm_binding.py": "ff4daddacecd43f5cfa43e8dac484661e94e3ea3cd8f0a6f424573f4afa501f7",
+        "backend/app/farm_registration_read_scope.py": "1e471952b68d93c5654f713b8c6bac3c3a5a22fd670f58835522860515b4f159",
+        "backend/app/market_candidate_store.py": "0420835e211222fced5927de62b478ba296a2f83bde14e70d9fd164883e2e182",
+        "backend/app/market_reference_bundle.py": "7994806cb008d268f7d85eeda2c7bd15076e28a52c2a103c9646ee6ebe8a4dcf",
+        "backend/app/market_reference_row_readset.py": "587be5012156f297835234885ec7bfee582d81022437988e37ee591e3c97d153",
+        "backend/app/market_source_store.py": "b96c4704295eb8fa282357f2ec8bad9c518a565d4fc1e7536d2793be1b0951bf"
+      },
+      "stage": "focused-reference-receipt-feasibility-pair-v1",
+      "terminal_sha256": "d88559ae64eda518920996327cd6f43500d83ff136ac1f4bffe7e56939051286"
+    }
+  ],
+  "status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_tool": "97143:0",
+    "app_callers": 0,
+    "browser_rerun": false,
+    "frozen_ventilation_files_preserved": 2173,
+    "full_backend_suite_run": false,
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 35590144,
+          "comm": "python3",
+          "pid": 2603
+        },
+        {
+          "RSS_bytes": 141316096,
+          "comm": "python",
+          "pid": 2627
+        },
+        {
+          "RSS_bytes": 7553024,
+          "comm": "nginx",
+          "pid": 2739
+        },
+        {
+          "RSS_bytes": 6848512,
+          "comm": "nginx",
+          "pid": 3734
+        },
+        {
+          "RSS_bytes": 17620992,
+          "comm": "postgres",
+          "pid": 2720
+        },
+        {
+          "RSS_bytes": 5390336,
+          "comm": "postgres",
+          "pid": 2726
+        },
+        {
+          "RSS_bytes": 6217728,
+          "comm": "postgres",
+          "pid": 2725
+        },
+        {
+          "RSS_bytes": 7647232,
+          "comm": "postgres",
+          "pid": 2724
+        },
+        {
+          "RSS_bytes": 4689920,
+          "comm": "postgres",
+          "pid": 2722
+        },
+        {
+          "RSS_bytes": 11358208,
+          "comm": "postgres",
+          "pid": 2721
+        },
+        {
+          "RSS_bytes": 123904000,
+          "comm": "python",
+          "pid": 3753
+        },
+        {
+          "RSS_bytes": 7536640,
+          "comm": "nginx",
+          "pid": 3850
+        },
+        {
+          "RSS_bytes": 6889472,
+          "comm": "nginx",
+          "pid": 5220
+        },
+        {
+          "RSS_bytes": 124358656,
+          "comm": "python",
+          "pid": 3849
+        },
+        {
+          "RSS_bytes": 17473536,
+          "comm": "postgres",
+          "pid": 3768
+        },
+        {
+          "RSS_bytes": 7344128,
+          "comm": "postgres",
+          "pid": 3775
+        },
+        {
+          "RSS_bytes": 4591616,
+          "comm": "postgres",
+          "pid": 3770
+        },
+        {
+          "RSS_bytes": 6086656,
+          "comm": "postgres",
+          "pid": 3769
+        },
+        {
+          "RSS_bytes": 15589376,
+          "comm": "postgres",
+          "pid": 613770
+        },
+        {
+          "RSS_bytes": 5120000,
+          "comm": "postgres",
+          "pid": 3777
+        },
+        {
+          "RSS_bytes": 5922816,
+          "comm": "postgres",
+          "pid": 3776
+        },
+        {
+          "RSS_bytes": 121114624,
+          "comm": "python",
+          "pid": 4930
+        },
+        {
+          "RSS_bytes": 106713088,
+          "comm": "python",
+          "pid": 4937
+        },
+        {
+          "RSS_bytes": 28282880,
+          "comm": "python3",
+          "pid": 613764
+        },
+        {
+          "RSS_bytes": 88768512,
+          "comm": "python",
+          "pid": 613771
+        }
+      ],
+      "RSS_samples": 5,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 898338816,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "7a6231802c06adcfdd726289cde5a2ef3b6bc8bb7929342bfefaf4fff4375bd9",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_count": 2480,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.3638595289958175
+    },
+    "local_links_checked": 2354,
+    "primitive34_and_local58_source_pins_unchanged": true,
+    "reported_at": "2026-10-19T08:30:49.607649Z",
+    "stage": "focused-reference-row-integration-status-v1",
+    "status_sha256": "c17faf7bfb6cf5db558c798f2b745300dc09daee2107703b8023ecfec51444d4",
+    "terminal_sha256": "d130e9e06736bc9e8bfd86f9d9145def4e304bafad9a47e0c4a81b8f791cf1a7"
+  },
+  "v3_patch_sha256": "096c357fb80da60ef6752d386831e5542e3334520b4638b3ed201aaf621164c4",
+  "v4_helper_sha256": "768867e7fd1f34e947aac76b605d3b9037a759d4cccf5266c71ef377bdb3ea45",
+  "v4_production_implemented": false,
+  "v4_pure_source_getter_repetition_changed": true
+}

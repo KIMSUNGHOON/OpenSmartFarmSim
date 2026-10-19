@@ -1,7 +1,10 @@
 # Closed current reference row readset — v3 proposal
 
-Status: **primitive implemented and locally accepted by34 actual SCRAM checks;
-verifier integration and full v3 adoption remain proposed**.
+Status: **primitive locally accepted by34 actual SCRAM checks; integration
+was evaluated and not adopted because actual cost did not improve consistently**.
+[Integration rejection/restoration and v4 research](../research/market-current-reference-row-integration-evaluation-20261019.md).
+The following integration boundary records the evaluated proposal; it is not a
+pending implementation task. The standalone primitive remains unchanged.
 [Primitive evidence](../research/market-current-reference-row-readset-primitive-20261019.md).
 [Current-source evidence and fixture-only comparison](../research/crop-solar-current-read-candidate-evaluation-20261019.md).
 The accepted [v1 verifier](market-current-reference-bundle-v1.md) and

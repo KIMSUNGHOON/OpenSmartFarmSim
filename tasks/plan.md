@@ -17,11 +17,23 @@ CI39211556239는 실제 확정15/64·phase 예외 기록0·current/등록의 비
 약5.1%/5.4% 감소했지만 tenant 전체85/11행 조회·SQL interception을 사용해 제품/보안 수용은 아니다.
 [닫힌 행 readset primitive](../research/market-current-reference-row-readset-primitive-20261019.md)를 최종34 실제 SCRAM 검사·검토로 로컬 수용했다.
 경계10/도중 변경8/수명16·동일 최종 source/5root/상한/정리이며 압축 원문 크기 제한 RED4976:1도 수정했다.
-다음은 [v3 계약](../contracts/market-current-reference-row-readset-v3.md)에 따른 pure verifier 연결이다.
-recorded trace의 정확한 키·일반/대체 및 초과 경로·기존 모든 getter/rights/principal/전후 role 감사와 실제 변경·수명 차단을 보존한다.
-baseline v2/초기 full검증/모든 current 경계는 유지하고 통합은 아직 미구현·미수용이다.
-이후 actual logical1,824/순서·원 값/UTC/proof·일반 경로/worker/HTTP·5root/자원/정리와 paired 비용·검토를 거쳐 채택한다.
-아직 미구현·미채택이며 진단은 정상 수용이 아니다.
+[실제 v3 통합 평가](../research/market-current-reference-row-integration-evaluation-20261019.md)는
+초기 두 청크 약3% 증가·경계 정리 후 약1.2% 감소/0.6% 증가로 유용하고 일관된 개선이 없어 미채택했다.
+원 getter1,824/순서·현재 검사/감사183·원 값/UTC는 보존했으나 비용 기준을 통과하지 못했다.
+후보 patch만 연구 산출물로 남기고 제품6파일을 HEAD536d8c0의 원 bytes로 복원했다.
+primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회귀 전체를 수용했다고 주장하지 않는다.
+연구 전용 원문 지문 대안은 약12.6%/9.7% 감소를 관측했지만 실제 source getter1,824→152로
+검증 의미가 달라져 동등성/보안/운영 수용은 아니다. 같은 정상 CI를 반복하지 않았다.
+
+다음은 [v4 제안](../contracts/market-current-reference-receipt-agreement-v4.md)의 작은 단계다.
+
+| 순서 | 산출물 | 수용 기준 |
+| --- | --- | --- |
+| 1 — 다음 | 정확한 키 SQL 지문 primitive·실제 SCRAM 증거 | source/job·candidate 입력/pin의 실제 원 bytes/metadata 지문·명시 부재·정규화/판본·한도·tenant/owner/connection/수명·도중 변경/정리. 기존 제품 verifier 미연결. |
+| 2 | 순수 default getter 동등성/의존성 증거 | code/schema/Decimal·완전한 mutable 의존성을 원 full trace와 대사. dynamic/unknown/미입증 경로는 v2. 늦은 변경·권리·파생 manifest/대체 우선순위와 원 값/UTC를 확인. |
+| 3 | 같은 registration 수명의 anchor/현재 지문 연결 | 최초 full 검증 및 같은 지문의 전후 full trace 성공 뒤에만 반복 순수 data 재구성 생략. 동적/현재 권한·role 전후·취소/임대 보존, 회귀/동등성/paired 실제 비용·검토 통과 뒤 채택. |
+
+어느 단계도 원64 정상·새 Solar/계산 중3D 또는 G0–G4 통과가 아니다.
 같은 정상 반복이나 상한/actor/입력 변경은 하지 않는다. 그 뒤 수정 source의 독립 정상은 다음을 유지한다. 원64/chunk1/조회·retry360/RSS,
 64/start1/CLI0/attempt1/success1·두 전진 prefix·원 UTC/수치·두 actor 종료0·FD/역할/schema/소유 PG/임시 정리 proof가 수용 기준이다.
 원360초에 준비/정리·CI 대기가 추가되며, 통과 전 다음 단계의 완료 시간을 확정하지 않는다.

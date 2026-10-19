@@ -1,0 +1,58 @@
+from weakref import WeakKeyDictionary
+from psycopg import sql
+
+def receipt_observer(farms, original_trace, execute):
+    expected=WeakKeyDictionary()
+    kinds={'get_economic_scenario':'economic_scenario','get_economic_scenario_pin':'economic_scenario',
+      'get_economic_input':'economic_input','get_joint_shock':'joint_shock','get_joint_shock_pin':'joint_shock',
+      'get_input_rights':'input_rights','get_settlement_applicability':'settlement_applicability',
+      'get_settlement_evidence':'settlement_evidence','get_prior_batch_cost':'prior_batch_cost'}
+    state={'source_receipt_rows':0,'candidate_receipt_rows':0,'pin_receipt_rows':0,'receipt_SQL':0,
+      'full_anchor_traces':0,'data_proofs':0,'dynamic_getters':0}
+    def snapshot(owner,tenant,trace):
+        reader=owner._reference_reader(tenant);assert reader is not None
+        conn=reader[0];source=owner._source._source
+        pin_keys=tuple(dict.fromkeys(args for name,args,_ in trace if name in ('get_market_candidate','get_economic_scenario','get_economic_scenario_pin')))
+        candidate_keys=tuple(dict.fromkeys(args for name,args,_ in trace if name=='get_economic_input'))
+        pins={k:None for k in pin_keys};candidates={k:None for k in candidate_keys}
+        if pin_keys:
+            values=execute(conn,sql.SQL("SELECT scenario_id,revision,encode(sha256(sha256(record_raw)||sha256(scenario_raw)||sha256(inputs_manifest_raw)),'hex') AS receipt FROM {} WHERE tenant_id=%s AND (scenario_id,revision) IN (SELECT * FROM unnest(%s::text[],%s::text[]))").format(owner._table('market_candidate_pins')),(tenant,[k[0] for k in pin_keys],[k[1] for k in pin_keys])).fetchall()
+            state['receipt_SQL']+=1;state['pin_receipt_rows']+=len(values)
+            for v in values:pins[(v['scenario_id'],v['revision'])]=v['receipt']
+        if candidate_keys:
+            values=execute(conn,sql.SQL("SELECT input_id,revision,encode(sha256(convert_to(((to_jsonb(c)-'payload_raw'-'recorded_at')||jsonb_build_object('payload_hex',encode(payload_raw,'hex'),'recorded_epoch',extract(epoch from recorded_at)))::text,'UTF8')),'hex') AS receipt FROM {} c WHERE tenant_id=%s AND (input_id,revision) IN (SELECT * FROM unnest(%s::text[],%s::text[]))").format(owner._table('market_candidate_inputs')),(tenant,[k[0] for k in candidate_keys],[k[1] for k in candidate_keys])).fetchall()
+            state['receipt_SQL']+=1;state['candidate_receipt_rows']+=len(values)
+            for v in values:candidates[(v['input_id'],v['revision'])]=v['receipt']
+        keys=[]
+        for name,args,_ in trace:
+            if name not in kinds:continue
+            if name in ('get_economic_scenario','get_economic_scenario_pin') and pins[args] is not None:continue
+            if name=='get_economic_input' and candidates[args] is not None:continue
+            key=(kinds[name],*args,*(('single',) if name=='get_prior_batch_cost' else ()))
+            if key not in keys:keys.append(key)
+        assert len(keys)+len(candidate_keys)+len(pin_keys)<=128
+        sources={k:None for k in keys}
+        if keys:
+            values=execute(conn,sql.SQL("SELECT s.kind,s.record_id,s.revision,encode(sha256(convert_to(((to_jsonb(s)-'payload_raw'-'recorded_at')||jsonb_build_object('payload_hex',encode(s.payload_raw,'hex'),'recorded_epoch',extract(epoch from s.recorded_at),'job_stage',j.stage,'job_input_hex',encode(j.input_bytes,'hex'),'job_input_sha',j.input_sha256))::text,'UTF8')),'hex') AS receipt FROM {} s JOIN unnest(%s::text[],%s::text[],%s::text[]) k(kind,record_id,revision) USING(kind,record_id,revision) LEFT JOIN {} j ON j.tenant_id=s.tenant_id AND j.job_id=s.job_id WHERE s.tenant_id=%s").format(source._table('market_source_records'),source._table('jobs')),( [k[0] for k in keys],[k[1] for k in keys],[k[2] for k in keys],tenant)).fetchall()
+            state['receipt_SQL']+=1;state['source_receipt_rows']+=len(values)
+            for v in values:sources[(v['kind'],v['record_id'],v['revision'])]=v['receipt']
+        assert owner._reference_reader(tenant) is not None
+        return sources,candidates,pins
+    def observing(owner,tenant,slot,trace):
+        witness=farms._registration_read.get();assert witness is not None and witness.active
+        before=snapshot(owner,tenant,trace)
+        if witness not in expected:
+            original_trace(owner,tenant,slot,trace)
+            assert snapshot(owner,tenant,trace)==before
+            expected[witness]=before;state['full_anchor_traces']+=1
+            return
+        assert before==expected[witness],'owned current raw dependency receipt mismatch'
+        _,_,pins=before
+        dynamic=tuple(item for item in trace if item[0] not in kinds or
+          (item[0] in ('get_economic_scenario','get_economic_scenario_pin') and pins[item[1]] is not None))
+        for name,args,_ in trace:
+            assert owner._tenant('market_candidate_read')==tenant
+        state['data_proofs']+=len(trace)-len(dynamic);state['dynamic_getters']+=len(dynamic)
+        original_trace(owner,tenant,slot,dynamic)
+        assert snapshot(owner,tenant,trace)==before
+    return observing,state

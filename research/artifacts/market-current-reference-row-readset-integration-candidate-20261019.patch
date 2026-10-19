@@ -1,0 +1,301 @@
+diff --git a/backend/app/crop_greenhouse_solar_farm_binding.py b/backend/app/crop_greenhouse_solar_farm_binding.py
+index 281ab3d..15fa706 100644
+--- a/backend/app/crop_greenhouse_solar_farm_binding.py
++++ b/backend/app/crop_greenhouse_solar_farm_binding.py
+@@ -12,7 +12,7 @@ from . import thermal_run_store as documents
+ from . import farm_inputs
+ from . import jobs
+ from . import farm_registration_read_scope as registration_reads
+-from . import market_candidate_store, market_reference_bundle
++from . import market_candidate_store, market_reference_bundle, market_reference_row_readset, market_source_store
+ 
+ VERSION='joint-solar-farm-binding-v1'
+ RIGHTS_VERSION='joint-solar-input-rights-v1'
+@@ -21,7 +21,8 @@ CODE_SHA256=sha256(Path(__file__).read_bytes()).hexdigest()
+ _MODULES={'input_evidence':evidence,'farm_authority':authored,'farm_inputs':farm_inputs,'job_inputs':jobs,
+     'permission_scopes':permissions,'runtime_roles':runtime_roles,'canonical_documents':documents,
+     'registration_read_scope':registration_reads,'market_candidate_store':market_candidate_store,
+-    'market_reference_bundle':market_reference_bundle}
++    'market_reference_bundle':market_reference_bundle,'market_reference_row_readset':market_reference_row_readset,
++    'market_source_store':market_source_store}
+ DEPENDENCY_SHA256={k:sha256(Path(m.__file__).read_bytes()).hexdigest() for k,m in _MODULES.items()}
+ _DEPENDENCY_RAW=documents._canonical(DEPENDENCY_SHA256)
+ 
+diff --git a/backend/app/farm_registration_read_scope.py b/backend/app/farm_registration_read_scope.py
+index 434e7d5..ec910fc 100644
+--- a/backend/app/farm_registration_read_scope.py
++++ b/backend/app/farm_registration_read_scope.py
+@@ -9,7 +9,7 @@ import sys
+ from threading import get_ident
+ 
+ from . import economic_contracts, economics, farm_input_compiler, farm_inputs, market, market_scenario
+-from . import market_candidate_store, market_reference_bundle
++from . import market_candidate_store, market_reference_bundle, market_reference_row_readset, market_source_store
+ 
+ 
+ MAX_LOOKUPS = market_reference_bundle.MAX_LOOKUPS
+@@ -72,7 +72,8 @@ class RegistrationRead:
+     def _code(self):
+         module = sys.modules[type(self.owner).__module__]
+         modules = (module, economic_contracts, economics, farm_input_compiler,
+-                   farm_inputs, market, market_scenario, market_candidate_store, market_reference_bundle)
++                   farm_inputs, market, market_scenario, market_candidate_store, market_reference_bundle,
++                   market_reference_row_readset, market_source_store)
+         methods = (self.owner._read_registration, self.owner._read, self.owner._prepare,
+                    module.compile_farm_inputs, module.validate_economic_scope,
+                    economics.EconomicLedger.calculate, economics.EconomicLedger._calculate_verified,
+@@ -85,6 +86,13 @@ class RegistrationRead:
+                    market_reference_bundle.verify, market_reference_bundle.fingerprint,
+                    market_reference_bundle._verify_shared, market_reference_bundle._verify_trace,
+                    market_reference_bundle._same_binding,
++                   market_reference_row_readset.trace_keys, market_reference_row_readset.verify_rows,
++                   market_reference_row_readset.source_lookup, market_reference_row_readset.candidate_lookup,
++                   market_reference_row_readset._Rows._check, market_reference_row_readset._Rows._guard,
++                   market_reference_row_readset._Rows._load, market_reference_row_readset._Rows._read,
++                   market_reference_row_readset._Rows._row, market_reference_row_readset._Rows._close,
++                   market_candidate_store.MarketCandidateStore._input_in_transaction,
++                   market_source_store.MarketSourceStore._select_with_job,
+                    market_reference_bundle._Bundle.check, market_reference_bundle._Bundle.guard,
+                    market_reference_bundle._Bundle.close)
+         policy = (market_scenario._json(market_scenario._FIELDS),
+diff --git a/backend/app/market_candidate_store.py b/backend/app/market_candidate_store.py
+index 8297f22..a8ba1c8 100644
+--- a/backend/app/market_candidate_store.py
++++ b/backend/app/market_candidate_store.py
+@@ -524,10 +524,13 @@ class MarketCandidateStore:
+     def _input_in_transaction(self, conn, tenant, input_id, revision):
+         if self._tenant("market_candidate_read") != tenant:
+             return None
+-        row = conn.execute(sql.SQL("""
+-            SELECT * FROM {} WHERE tenant_id=%s AND input_id=%s AND revision=%s
+-        """).format(self._table("market_candidate_inputs")),
+-            (tenant, input_id, revision)).fetchone()
++        from .market_reference_row_readset import candidate_lookup
++        selected, row = candidate_lookup(self, conn, tenant, input_id, revision)
++        if not selected:
++            row = conn.execute(sql.SQL("""
++                SELECT * FROM {} WHERE tenant_id=%s AND input_id=%s AND revision=%s
++            """).format(self._table("market_candidate_inputs")),
++                (tenant, input_id, revision)).fetchone()
+         return self._checked_input(row) if row is not None else None
+ 
+     def pin_market_candidate(self, record_value, scenario_value, new_records):
+diff --git a/backend/app/market_reference_bundle.py b/backend/app/market_reference_bundle.py
+index f35adfd..b01f0f3 100644
+--- a/backend/app/market_reference_bundle.py
++++ b/backend/app/market_reference_bundle.py
+@@ -81,9 +81,19 @@ def _verify_trace(owner, tenant, slot, trace):
+     bundle = _Bundle(owner, tenant, slot, owner._reference_reader(tenant))
+     bundle.token = slot.set(bundle)
+     try:
+-        for name, args, digest in trace:
+-            bundle.check(owner, tenant)
+-            _need(fingerprint(getattr(owner, name)(*args)) == digest)
++        def consume(_=None):
++            for name, args, digest in trace:
++                bundle.check(owner, tenant)
++                _need(fingerprint(getattr(owner, name)(*args)) == digest)
++        from . import market_reference_row_readset as rows
++        keys = rows.trace_keys(trace) if bundle.reader is not None else None
++        if keys is None:
++            consume()
++        else:
++            try:
++                rows.verify_rows(owner, tenant, *keys, consume)
++            except rows.ReadsetCapacity:
++                consume()
+         bundle.guard(owner, tenant)
+     finally:
+         bundle.close()
+diff --git a/backend/app/market_reference_row_readset.py b/backend/app/market_reference_row_readset.py
+index 0da461f..7323dd2 100644
+--- a/backend/app/market_reference_row_readset.py
++++ b/backend/app/market_reference_row_readset.py
+@@ -1,8 +1,9 @@
+ """Closed raw-row reads within an existing pure reference verification."""
+ from contextvars import ContextVar
+-from copy import deepcopy
++from datetime import datetime
+ from hashlib import sha256
+ from pathlib import Path
++from uuid import UUID
+ 
+ from psycopg import sql
+ 
+@@ -20,6 +21,37 @@ _SOURCE = ('tenant_id', 'kind', 'record_id', 'revision', 'job_id', 'payload_raw'
+            'source_job_input_sha256')
+ _CANDIDATE = ('tenant_id', 'input_id', 'revision', 'payload_raw',
+               'payload_sha256', 'recorded_at')
++_TRACE_SOURCE = {
++    'get_economic_scenario': 'economic_scenario', 'get_economic_scenario_pin': 'economic_scenario',
++    'get_economic_input': 'economic_input', 'get_joint_shock': 'joint_shock',
++    'get_joint_shock_pin': 'joint_shock', 'get_input_rights': 'input_rights',
++    'get_settlement_applicability': 'settlement_applicability',
++    'get_settlement_evidence': 'settlement_evidence', 'get_prior_batch_cost': 'prior_batch_cost',
++}
++
++
++class ReadsetCapacity(ValueError):
++    """No row consumer ran; the original audited verification may be used."""
++
++
++def trace_keys(trace):
++    source, candidates = [], []
++    for name, args, _ in trace:
++        if name not in _TRACE_SOURCE:
++            continue
++        if len(args) != (1 if name == 'get_prior_batch_cost' else 2):
++            return None
++        key = (_TRACE_SOURCE[name], *args, *(('single',) if name == 'get_prior_batch_cost' else ()))
++        if key not in source:
++            source.append(key)
++        if name == 'get_economic_input' and args not in candidates:
++            candidates.append(args)
++    if not 1 <= len(source) + len(candidates) <= MAX_KEYS:
++        return None
++    try:
++        return _keys(tuple(source), 3), _keys(tuple(candidates), 2)
++    except ValueError:
++        return None
+ 
+ 
+ def _need(value):
+@@ -49,7 +81,8 @@ class _Rows:
+         _need(1 <= sum(map(len, self.keys)) <= MAX_KEYS and _active.get() is None)
+         self.bundle = owner._reference_bundle.get()
+         _need(type(self.bundle) is bundles._Bundle)
+-        self.reader = self.bundle.guard(owner, tenant)
++        self.bundle.check(owner, tenant)
++        self.reader = self.bundle.reader
+         _need(self.reader is not None)
+         self.conn = self.reader[0]
+         self.source = owner._source._source
+@@ -69,18 +102,22 @@ class _Rows:
+         return (self.owner, self.tenant, self.keys, self.bundle, self.reader, self.conn,
+                 self.source, self.binding[:2], self.slot, _active, MAX_KEYS, MAX_BYTES, CODE_SHA256,
+                 _SOURCE, _CANDIDATE,
++                self.owner._source, self.owner.dsn, self.owner.schema, self.owner.runtime_identity,
++                self.source.dsn, self.source.schema, self.source.runtime_identity,
++                self.owner._principal_provider, self.owner._source._principal_provider,
++                self.source._principal_provider, self.owner._source._holds,
++                self.owner._scoped_reader, self.owner._scoped_references, self.source._scoped_reader,
++                self.owner._scoped_reader.get(), self.source._scoped_reader.get(),
+                 tuple((getattr(m, '__self__', None), getattr(m, '__func__', m)) for m in methods))
+ 
+     def _check(self):
+         try:
+             _need(self.active and not self.failed and self.slot is _active and self.slot.get() is self
+                   and self.token is not None and (MAX_KEYS, MAX_BYTES) == (128, 1048576)
+-                  and self._pointers() == self.fixed
+-                  and sha256(Path(__file__).read_bytes()).hexdigest() == CODE_SHA256)
++                  and self._pointers() == self.fixed)
+             self.slot.reset(self.token)
+             self.token = self.slot.set(self)
+-            _need(self.owner._shared_profile(self.binding[:2]) is not None
+-                  and self.owner._source._source is self.source
++            _need(self.owner._source._source is self.source
+                   and not self.conn.closed and self.owner._tenant('market_candidate_read') == self.tenant)
+             self.bundle.check(self.owner, self.tenant)
+         except Exception:
+@@ -90,6 +127,8 @@ class _Rows:
+     def _guard(self):
+         try:
+             self._check()
++            _need(sha256(Path(__file__).read_bytes()).hexdigest() == CODE_SHA256
++                  and self.owner._shared_profile(self.binding[:2]) is not None)
+             reader = self.bundle.guard(self.owner, self.tenant)
+             _need(reader is not None and len(reader) == len(self.reader) == 2
+                   and all(a is b for a, b in zip(reader, self.reader)))
+@@ -134,9 +173,13 @@ class _Rows:
+         _need(len(values) <= len(keys))
+         result, total = {}, 0
+         for row in values:
+-            _need(row.pop('ok') is True)
++            ok = row.pop('ok')
++            if ok is False:
++                raise ReadsetCapacity('current reference row capacity')
++            _need(ok is True)
+             size = row.pop('bytes')
+             _need(type(size) is int and 0 < size <= MAX_BYTES)
++            _need(all(type(value) in (str, bytes, UUID, datetime) for value in row.values()))
+             total += size
+             _need(total <= MAX_BYTES and row['tenant_id'] == self.tenant)
+             key = tuple(row[k] for k in (('kind', 'record_id', 'revision')
+@@ -156,7 +199,8 @@ class _Rows:
+         self._guard()
+         source, a = self._load(0)
+         candidates, b = self._load(1)
+-        _need(a + b <= MAX_BYTES)
++        if a + b > MAX_BYTES:
++            raise ReadsetCapacity('current reference row capacity')
+         self._guard()
+         return source, candidates
+ 
+@@ -171,7 +215,8 @@ class _Rows:
+             self._check()
+             _need(conn is self.conn and tenant == self.tenant and self.rows is not None
+                   and key in self.rows[index])
+-            return deepcopy(self.rows[index][key])
++            row = self.rows[index][key]
++            return row.copy() if row is not None else None
+         except Exception:
+             self.failed = True
+             raise
+@@ -193,10 +238,39 @@ def verify_rows(owner, tenant, source_keys, candidate_keys, consume):
+         raise ValueError('nested current reference row readset unavailable')
+     _need(callable(consume))
+     rows = _Rows(owner, tenant, source_keys, candidate_keys)
+-    rows.token = _active.set(rows)
++    rows.token = rows.slot.set(rows)
+     try:
+         rows.rows = rows._read()
+-        _need(consume(rows) is None)
+-        _need(rows._read() == rows.rows)
++        try:
++            _need(consume(rows) is None)
++        except ReadsetCapacity:
++            raise ValueError('current reference consumer failed') from None
++        try:
++            current = rows._read()
++        except ReadsetCapacity:
++            raise ValueError('current reference rows changed during verification') from None
++        _need(current == rows.rows)
+     finally:
+         rows._close()
++
++
++def _lookup(index, store, conn, tenant, key):
++    rows = _active.get()
++    if rows is None:
++        return False, None
++    _need(type(rows) is _Rows)
++    if store is (rows.source if index == 0 else rows.owner) and key in rows.keys[index]:
++        return True, rows._row(index, conn, tenant, key)
++    rows._check()
++    if store is (rows.source if index == 0 else rows.owner) and (conn is not rows.conn or tenant != rows.tenant):
++        rows.failed = True
++        raise ValueError('current reference row lookup binding changed')
++    return False, None
++
++
++def source_lookup(store, conn, tenant, kind, identity, revision):
++    return _lookup(0, store, conn, tenant, (kind, identity, revision))
++
++
++def candidate_lookup(store, conn, tenant, identity, revision):
++    return _lookup(1, store, conn, tenant, (identity, revision))
+diff --git a/backend/app/market_source_store.py b/backend/app/market_source_store.py
+index 810d7c4..01a0c66 100644
+--- a/backend/app/market_source_store.py
++++ b/backend/app/market_source_store.py
+@@ -217,6 +217,10 @@ class MarketSourceStore:
+             .format(self._table('market_source_records')), (tenant, kind, identity, revision)).fetchone()
+ 
+     def _select_with_job(self, conn, tenant, kind, identity, revision):
++        from .market_reference_row_readset import source_lookup
++        selected, row = source_lookup(self, conn, tenant, kind, identity, revision)
++        if selected:
++            return row
+         return conn.execute(sql.SQL('''
+             SELECT source.*, job.stage AS source_job_stage,
+                 job.input_bytes AS source_job_input_bytes,
