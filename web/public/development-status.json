@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "독립 CI39321398376은 원360초/64 미완료·저장 metadata44/64입니다. 현재 인코딩238경로/관측1에서 원 bytes/UTC·권리/SQL·정리를 확인했습니다. 구성요소12.02%는 전체 이득이 아니어서 미채택했고 다음은 기존 API·worker 동시 진단입니다. 새 일사 모델/계산 중3D·실제 농장 검증/전체 완료일은 미완료/미정입니다.",
-  "estimate_reviewed_at": "2026-10-19T21:30:27.618672Z",
+  "estimate_reason": "현재 동시 진단도 원360초 안에 미완료입니다. 같은 load 재사용 후보는 실제 평균1.09%로 기준2% 미달·미채택입니다. 다음 decoder/원 오류 경계를 검토 중이며 정상64·계산 중3D·새 일사 배포와 실제 농장 자료 확보 전에는 전체 완료일을 추정할 근거가 없습니다.",
+  "estimate_reviewed_at": "2026-10-19T21:59:33.267036Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-19T21:30:27.618672Z",
+  "reported_at": "2026-10-19T21:59:33.267036Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,7 +24,7 @@
       "state": "completed"
     },
     {
-      "evidence": "독립 CI39321398376은 원360초/64 미완료·저장 metadata44/64입니다. 현재 인코딩238경로/관측1에서 원 bytes/UTC·권리/SQL·정리를 확인했습니다. 구성요소12.02%는 전체 이득이 아니어서 미채택했고 다음은 기존 API·worker 동시 진단입니다. 새 일사 모델/계산 중3D·실제 농장 검증/전체 완료일은 미완료/미정입니다.",
+      "evidence": "원 정상44/64 미완료를 유지합니다. 동시 진단은 confirm27/64·HTTP202/200/503을 기록했으나 요청별 지연은 없습니다. 같은 load 후보는 평균1.09%로 기준2% 미달·미채택했습니다. 원 값/UTC·현재 검사·SQL·정리를 보존했고 다음은 decoder/canonical 경계 검토입니다. 새 일사/계산 중3D·실제 농장 검증은 미완료입니다.",
       "id": "execution_3d",
       "state": "next"
     },

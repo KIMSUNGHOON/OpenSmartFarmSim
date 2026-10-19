@@ -1,0 +1,183 @@
+{
+  "API": {
+    "dropped_exceptions": 55,
+    "dropped_responses": 0,
+    "per_request_latency_CPU_SQL_timestamps_available": false,
+    "responses": 27,
+    "status_counts": {
+      "200": 20,
+      "202": 1,
+      "503": 6
+    }
+  },
+  "G0_G4": "not_assessed",
+  "actor_exits": {
+    "api": -15,
+    "worker": -15
+  },
+  "actor_sha256": {
+    "api": "4c589b25aa265e748d4ebf08c2853799589f9aa5c4fc9b92ffcb19ed6e12a291",
+    "worker": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8"
+  },
+  "actual_farm_Runs": 0,
+  "archive_downloaded_once": true,
+  "artifact": {
+    "digest": "sha256:9ada3a768d0e7658232becb2c862bba9547ffb150ee024b305a4ba9026281a9b",
+    "id": 12223162857,
+    "name": "solar-unpaused-normal-0a06b3913c7444ad0e308e2ed10af64cc473a0d7",
+    "size_in_bytes": 16237
+  },
+  "database_cleanup_proof": null,
+  "diagnostic_only": true,
+  "expected_actor_and_header_evidence_sha256": "dca0e662abaa8a6147acf37d7f07403df41692b7c3aee317db99fcb5c88c836d",
+  "files": [
+    "actor-diagnostics.json",
+    "api-response-diagnostics.json",
+    "failure-checkpoint-diagnostics.json",
+    "failure.json",
+    "resource.json",
+    "worker-progress-diagnostics.json"
+  ],
+  "head_sha": "0a06b3913c7444ad0e308e2ed10af64cc473a0d7",
+  "interpretation": "Diagnostic only, no normal throughput or WSL capacity acceptance; phase times include nested and observer costs.",
+  "job": {
+    "conclusion": "failure",
+    "id": 118319433913,
+    "name": "Solar worker progress diagnostic (no acceptance)",
+    "status": "completed"
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "e3dc98458abc79528d0f80f0f0396e2c6caf85df30384741ff19172a5d472762",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T21:33:45.425Z"
+  },
+  "new_solar_deployed": false,
+  "normal64_accepted": false,
+  "normal_proof_file_present": false,
+  "original_actor_bodies_preserved": true,
+  "raw_file_sha256": {
+    "actor-diagnostics.json": "5734de40e95dae146349b2dcd1f8d334e97876b752edfc4c5197e7e782da28c9",
+    "api-response-diagnostics.json": "764dc1853d6f9992cdd433426ae7a6ba90b3935fba32ba5bc88ccd4e57cd0a95",
+    "failure-checkpoint-diagnostics.json": "e48b0e260994208846863ecbbe607dfa61342a699ef5161ebc5ca3c9be659cc9",
+    "failure.json": "caeef10a9162d92609cde8d7f0459a8b7e469119a2d13e2ea63663f3c9bd6d3e",
+    "resource.json": "50c0fe974bd3eb2175f5caab213be4e661a255446bbe9f139e2f61a83a31ace8",
+    "worker-progress-diagnostics.json": "7c23018b71ba631cfc395064db16659db0d622a4c6c81dfb2d466082ba4b1373"
+  },
+  "resource": {
+    "FD_before_after": [
+      7,
+      7
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 1456,
+    "WSL_capacity_accepted": false,
+    "actual_child_exit": 1,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 367112192,
+    "hosted_only": true,
+    "local_protected_roots_present": false,
+    "owned_non_zombie_remaining": [],
+    "reason": null,
+    "rights_or_gate_approval": false,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 132669440,
+    "temporary_entries_remaining": 0,
+    "wall_seconds": 385.31273127900005
+  },
+  "rights_or_gate_approval": false,
+  "run_id": 39328214424,
+  "status": "completed",
+  "stopped_metadata_diagnostic_only": {
+    "G0_G4": "not_assessed",
+    "checkpoint_payload_sha256": "2235baae9e749249cd6c1c1809a6b2e5ca3397ada344668a2d6a3efc60965254",
+    "checkpoint_recorded_at": "2026-10-19T21:40:46.373199+00:00",
+    "evidence_kind": "stored_owned_fixture_metadata_only",
+    "job": {
+      "attempt": 1,
+      "state": "simulating"
+    },
+    "normal_execution_accepted": false,
+    "observed_at": "2026-10-19T21:40:57.137230+00:00",
+    "owned_cluster_identity_verified": true,
+    "rights_or_gate_approval": false,
+    "stored_checkpoint": {
+      "computed_through_utc": "2026-10-01T00:00:54.123456Z",
+      "planned_steps": 64,
+      "publication_sequence": 28,
+      "status": "yielded",
+      "steps": 27
+    },
+    "transaction_isolation": "repeatable read",
+    "transaction_read_only": true
+  },
+  "verified_summary_sha256": "a2d3808b2eac7f111f351c92e8184a3c1f62ad66b9abf23d481a35f32ee9f8c2",
+  "version": 1,
+  "worker": {
+    "active_phases": [
+      {
+        "phase": "worker.run_once",
+        "started_elapsed_seconds": 3.4437160710000114
+      },
+      {
+        "phase": "worker._custody_call",
+        "started_elapsed_seconds": 358.156220077
+      },
+      {
+        "phase": "worker._confirm",
+        "started_elapsed_seconds": 358.15658499700004
+      }
+    ],
+    "detail": "worker-api",
+    "last_adopted": null,
+    "last_advanced": null,
+    "last_confirmed": {
+      "computed_through_utc": "2026-10-01T00:00:54.123456Z",
+      "planned_steps": 64,
+      "status": "yielded",
+      "steps": 27
+    },
+    "outcome": null,
+    "phase_totals": {
+      "worker._adopt": {
+        "calls": 1,
+        "exception_events": 0,
+        "inclusive_seconds": 1.4499110879999932,
+        "max_inclusive_seconds": 1.4499110879999932,
+        "returns": 1
+      },
+      "worker._before": {
+        "calls": 30,
+        "exception_events": 0,
+        "inclusive_seconds": 31.389099708999964,
+        "max_inclusive_seconds": 1.163335614999994,
+        "returns": 30
+      },
+      "worker._confirm": {
+        "calls": 29,
+        "exception_events": 0,
+        "inclusive_seconds": 145.3622002309999,
+        "max_inclusive_seconds": 5.800220011999954,
+        "returns": 28
+      },
+      "worker._custody_call": {
+        "calls": 59,
+        "exception_events": 0,
+        "inclusive_seconds": 323.1824654210002,
+        "max_inclusive_seconds": 8.655307945999994,
+        "returns": 58
+      },
+      "worker.run_once": {
+        "calls": 1,
+        "exception_events": 0,
+        "inclusive_seconds": 0.0,
+        "max_inclusive_seconds": 0.0,
+        "returns": 0
+      }
+    },
+    "time_scope": "inclusive monotonic seconds; observer overhead included; nested durations overlap"
+  },
+  "worker_caught_exceptions": null
+}

@@ -1,0 +1,184 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "all_negative_security_regressions_run": false,
+  "application_source_changed": false,
+  "candidate_source_pins": {
+    "candidate_sha256": "36e6af00b7f243b6c01fc82ed6a11b73765a47bb5305c817e311224eb01822ae",
+    "closure_acceptance": false,
+    "product_adopted": false,
+    "recorded_at": "2026-10-19T21:50:40.632382Z",
+    "test_sha256": "efa302cbb6b88df87ae99e130c54adf009a53c2486253741eb3ff9b9ad2fc938"
+  },
+  "case": "focused-solar-same-load-two-read-cost-v1",
+  "controller_source_pins_sha256": "470941d489d4927f7842f363a376680655d257b1a8cc1acc76d3be60d8c6e774",
+  "cost_criterion_met": false,
+  "decision": "rejected_below_predeclared_2pct; no product source change; do not increase cap or rerun to select timing",
+  "log_sha256": "c89b1637ca1b1335db9d00322909f1ea794f4cee751f480142176e25abde08e1",
+  "mean_reduction_pct": 1.0935505385381303,
+  "normal64_accepted": false,
+  "original82_suite_rerun": false,
+  "original_bytes_counts_UTC_equal": true,
+  "paired_reduction_pct": [
+    1.056565128751241,
+    1.1306475864760277
+  ],
+  "preflight": {
+    "all_alias_mutation_error_and_dependency_closure_proven": false,
+    "both_pairs_must_improve": true,
+    "fresh_full_file_read_and_actual_SHA_at_second_read_required": true,
+    "local_raw_bytes_bound": 1048576,
+    "mean_full_quantum_reduction_min_pct": 2,
+    "native_CLI": {
+      "effort": "xhigh",
+      "model": "gpt-6.1-sol",
+      "raw_line_sha256": "e3dc98458abc79528d0f80f0f0396e2c6caf85df30384741ff19172a5d472762",
+      "recursive_CLI": false,
+      "subagents": false,
+      "timestamp": "2026-10-19T21:33:45.425Z"
+    },
+    "new_scope": "only first and second traversal of commits inside the same storage._Files._load; no whole-load transcript across prepare/current/writer resume",
+    "no_reuse_across_loads_or_current_operations": true,
+    "normal64_accepted": false,
+    "observed_CI": 39328214424,
+    "original_actor_input64_chunk1_poll_retry360_RSS_unchanged": true,
+    "original_current_SQL_canonical_byte_numeric_UTC_guards_required": true,
+    "original_normal64_CI_failure": 39321398376,
+    "product_adopted": false,
+    "prototype_only_default_functions": true,
+    "same_load_first_pass_commit_values_not_exported": true,
+    "source_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db"
+  },
+  "preflight_sha256": "ff1ca76076d963497e0aece72d30f59c0547d06b3acc8ce187949cadbe60f49d",
+  "product_adopted": false,
+  "raw_sha256": "d9d3ca17540442cda2eda6b4d2c0635fb517ef7a976e3c4fd6006865e26558a2",
+  "resource": {
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 892030976,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 130912256,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 148.58703750099812
+  },
+  "rights_or_gate_approval": false,
+  "rows": [
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "34a864b8af27a899bee9d0894ad87480369336e5b3c291424d42bb62871f3d53",
+      "current_checks": 15,
+      "mode": "baseline",
+      "original_UTC": "2026-10-01T00:01:24.123456Z",
+      "role_SQL": 273,
+      "same_load_reuse": [],
+      "source_SQL": 2280,
+      "steps": 42,
+      "wall_ns": 8280512258
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "80c1071c343e5e4e706e7c3fb8f056ad7b473f61717aff7c60c03f87f96fd761",
+      "current_checks": 15,
+      "mode": "candidate",
+      "original_UTC": "2026-10-01T00:01:26.123456Z",
+      "role_SQL": 273,
+      "same_load_reuse": [
+        {
+          "bytes": 1026653,
+          "fresh_rechecked_bytes": 1026653,
+          "hits": 25
+        },
+        {
+          "bytes": 1026653,
+          "fresh_rechecked_bytes": 1026653,
+          "hits": 25
+        },
+        {
+          "bytes": 1026597,
+          "fresh_rechecked_bytes": 1026597,
+          "hits": 25
+        },
+        {
+          "bytes": 1026597,
+          "fresh_rechecked_bytes": 1026597,
+          "hits": 25
+        },
+        {
+          "bytes": 1026597,
+          "fresh_rechecked_bytes": 1026597,
+          "hits": 25
+        }
+      ],
+      "source_SQL": 2280,
+      "steps": 43,
+      "wall_ns": 8193023253
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "b0bedd9c913e67ec7fdbc0759e3ef0a34da28d48a26a094b2b60c501a1ce9873",
+      "current_checks": 15,
+      "mode": "candidate",
+      "original_UTC": "2026-10-01T00:01:28.123456Z",
+      "role_SQL": 273,
+      "same_load_reuse": [
+        {
+          "bytes": 1026597,
+          "fresh_rechecked_bytes": 1026597,
+          "hits": 25
+        },
+        {
+          "bytes": 1026597,
+          "fresh_rechecked_bytes": 1026597,
+          "hits": 25
+        },
+        {
+          "bytes": 1026589,
+          "fresh_rechecked_bytes": 1026589,
+          "hits": 25
+        },
+        {
+          "bytes": 1026589,
+          "fresh_rechecked_bytes": 1026589,
+          "hits": 25
+        },
+        {
+          "bytes": 1026589,
+          "fresh_rechecked_bytes": 1026589,
+          "hits": 25
+        }
+      ],
+      "source_SQL": 2280,
+      "steps": 44,
+      "wall_ns": 8162251599
+    },
+    {
+      "SQL": 9929,
+      "checkpoint_sha256": "e96dc537050a959b9ad2b30e2f1c10850643292b49b58940d07ac04dbff97cd3",
+      "current_checks": 15,
+      "mode": "baseline",
+      "original_UTC": "2026-10-01T00:01:30.123456Z",
+      "role_SQL": 273,
+      "same_load_reuse": [],
+      "source_SQL": 2280,
+      "steps": 45,
+      "wall_ns": 8255593265
+    }
+  ],
+  "software_feasibility_tests_passed": 1,
+  "terminal_sha256": "9ced93927dd7287a0a9755831a34790debb947ca469830ab742855018580dcc6",
+  "version": 1
+}
