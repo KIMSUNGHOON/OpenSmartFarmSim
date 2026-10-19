@@ -1,5 +1,7 @@
 # 첫 구현 범위
 
+**현재 감사 scope v2 — 2026-10-19 KST:** [현재 참조 검증116검사](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 원 값/UTC·현재 권리/수명·current12/등록24/재구성1·원천1,824/순서와 일반/대체 조회를 유지하고 감사298→183·두 실제 청크 약15.5%/13.7% 감소를 관측했다. 다음은 변경된 source의 원64 독립 정상이다. 전체 처리량·계산 중3D·새 Solar 배포·실제 자료/관문과 전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
+
 **현재 참조 검증 — 2026-10-19 KST:** [순수 내부 읽기 묶음96검사](../research/market-current-reference-bundle-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 원 값/UTC·현재 권리/수명·일반 조회를 유지하고 감사528→298·두 실제 청크 약15–17% 감소를 관측했다. 후속 원 독립 CI39185424202는25/64·시간 제한으로 미완료다. [남은 비용 관측](../research/crop-solar-reference-bundle-remaining-cost-20261019.md) 뒤 순수 검증의 내부 중복 감사 축소 후보→원 정상→hold→취소→계산 중 WebGL→WSL 용량/사용자 적용 순서다. 새 Solar·전체 처리량/최종 UI·실제 자료/관문·전체 완료일은 미수용/미정이다. 아래는 당시 기록이다.
 
 **독립 일사 계산 후속 — 2026-10-17:** [현재 권한 감사 query](../research/runtime-role-matrix-implementation-20261017.md)를 고유54검사로 수용했다. 등록 조회21감사의 반환24,024→0행·같은 DB paired 중앙값 약12.24% 감소를 관측했다. 후속 원 독립 실행 CI39042611904는383.075초·저장16/64로 미완료여서 전체 속도 개선은 미수용이다. [실제 한 청크 관찰](../research/crop-solar-current-binding-cost-20261018.md)에서 current12/등록24/감사528을 확인했다. 다음은 현재 검사를 유지하는 반복 재구성 감소다. 전체 처리량·S3/S4·WSL 용량·계산 중3D·새 Solar/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.

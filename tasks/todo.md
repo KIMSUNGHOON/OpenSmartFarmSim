@@ -42,10 +42,14 @@
   실제1→2단계의 남은 연결/감사/SQL·원천/수치 비용을 집계하고 원 값/UTC·원천1,824/순서·current12/등록24/재구성1,
   확정 파일/현재 권리·5root/원본/자원/FD/소유 정리를 대사한 뒤 최소 후속 경계를 정한다. 같은 CI를 반복하지 않는다.
   [18369:0 실제 관측](../research/crop-solar-reference-bundle-remaining-cost-20261019.md)에서144연결/298감사/8,976SQL·원천1,824/순서·원 UTC/proof3 보존을 확인했다.
-- [ ] **`crop-solar-current-reference-audit-scope-v2`** — [순수 검증의 중복 감사 축소 후보](../contracts/market-current-reference-audit-scope-v2.md).
+- [x] **`crop-solar-current-reference-audit-scope-v2`** — [순수 검증의 중복 감사 축소 후보](../contracts/market-current-reference-audit-scope-v2.md).
   source scope의 실제 전후 감사로 같은 작업의 내부 중복만 합친다. 일반/대체 조회·각 원천/현재 identity·권리 검사,
   늦은 grant/principal/source/연결 변경·복제 Context/Task/중첩·오류/다음 작업 재검증·원 읽기/UTC/정리를 보존한다.
-  같은 실제 advance의 paired 비용이 유용할 때만 채택하고 원64 정상은 별도 검증한다. 현재 후보 미구현/미수용이다.
+  [최종116검사/실제 paired 관측](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)으로 로컬 컴포넌트 수용.
+  current12/등록24/재구성1·원천1,824/순서·수치/UTC 보존, 감사298→183/두 표본 약15.5%/13.7% 감소다.
+- [ ] **`crop-solar-audit-scope-v2-native-normal`** — 위 변경의 원 계측 OFF64단계 독립 API/worker 정상.
+  원 입력/chunk1/조회·재시도/360초/RSS 유지·두 전진 prefix·원 값/UTC·64/start1/CLI0/attempt1/success event1,
+  두 actor 종료0·조회 계산/SQL 변경0·FD/역할/schema/소유 PG/임시 정리를 대사한다. 이후 독립 hold→취소→계산 중3D 순서다.
 
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,

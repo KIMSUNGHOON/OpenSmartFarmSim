@@ -1,5 +1,16 @@
 # 구현 순서
 
+## 감사 scope v2 로컬 수용·원 독립 정상 — 2026-10-19 KST
+
+[116검사/최종 실제 paired 관측](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)을 수용했다.
+source scope의 실제 전후 감사와 각 실제 원천/현재 권리/identity 검사를 유지하고 같은 순수 작업의 내부 중복을 합쳤다.
+메서드 교체/늦은 변경/복제/중첩/오류·일반/대체 조회·원 값/UTC/원천1,824/순서·5root/원본/자원/정리를 확인했다.
+원 current12/등록24/재구성1·감사298→183, 두 실제 청크 약15.5%/13.7% 감소이며 전체 처리량 수용은 아니다.
+다음은 변경된 source의 원 계측 OFF64단계 정상·두 전진 prefix·원 값/UTC·두 actor 종료/DB/FD/소유 정리다.
+원 입력/chunk1/조회·재시도/360초/RSS를 유지한다. 이후 독립 hold→취소→계산 중 WebGL→WSL 용량/사용자 적용 순서다.
+최종 검사 guard 합1,267.834초/paired101.053초는 준비·분석·문서/후속 CI 대기를 포함하지 않는다.
+원64 미완료로 사용자 적용/전체 완료 날짜는 미정이며 실제 권리/독립 현장·미래·비교 자료 확보는 병행한다.
+
 ## 현재 남은 비용 관측 수용·순수 감사 scope 후보 — 2026-10-19 KST
 
 [실제1→2단계 관측18369:0](../research/crop-solar-reference-bundle-remaining-cost-20261019.md)에서

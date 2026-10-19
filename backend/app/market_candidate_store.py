@@ -206,14 +206,10 @@ class MarketCandidateStore:
     def tenant_is_authenticated(self, tenant_id):
         return self._tenant("market_candidate_read") == tenant_id
 
-    def _shared_reader(self, tenant, conn, expected=None):
-        if conn is None:
-            return None
+    def _shared_profile(self, expected=None):
         from .api_market_source import _MarketSources
         from .market_source_store import MarketSourceStore
-        from .runtime_login import verify_runtime_identity
         from psycopg.conninfo import conninfo_to_dict
-        from psycopg.pq import TransactionStatus
         view = self._source
         if type(view) is not _MarketSources or type(view._source) is not MarketSourceStore:
             return None
@@ -235,6 +231,8 @@ class MarketCandidateStore:
         refs = (view, source, self.runtime_identity, source.runtime_identity,
                 self._principal_provider, view._principal_provider, source._principal_provider,
                 self._scoped_reader, source._scoped_reader, view._holds, self._reference_bundle)
+        refs += tuple(value for method in (view.read_scope, source.read_scope, source.connect)
+                      for value in (getattr(method, '__self__', None), getattr(method, '__func__', None)))
         values = (self.dsn, source.dsn, self.schema, source.schema)
         if expected is not None and (values != expected[1]
                 or any(now is not before for now, before in zip(refs, expected[0]))):
@@ -245,6 +243,18 @@ class MarketCandidateStore:
             raise MarketCandidateDenied('market candidate shared read binding rejected') from None
         if not (('host' in configured or 'hostaddr' in configured) and 'port' in configured):
             return None
+        return refs, values, configured
+
+    def _shared_reader(self, tenant, conn, expected=None):
+        if conn is None:
+            return None
+        from .runtime_login import verify_runtime_identity
+        from psycopg.pq import TransactionStatus
+        profile = self._shared_profile(expected)
+        if profile is None:
+            return None
+        refs, values, configured = profile
+        source = refs[1]
         if (type(conn) is not psycopg.Connection or conn.closed or conn.autocommit
                 or conn.info.transaction_status != TransactionStatus.INTRANS
                 or source._scoped_reader.get() != (conn, tenant)

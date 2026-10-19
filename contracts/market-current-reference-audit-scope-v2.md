@@ -1,9 +1,11 @@
-# Pure current reference audit scope — v2 candidate
+# Pure current reference audit scope — v2
 
 This is the next implementation boundary after the
 [v1 component and native failure](../research/market-current-reference-bundle-implementation-20261019.md)
 and [actual remaining cost](../research/crop-solar-reference-bundle-remaining-cost-20261019.md).
-It is not implemented or accepted yet. The v1 implementation remains the baseline.
+[Implementation and116 focused checks](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)
+accept this component locally. Original native64 normal, deployment and farm gates
+remain unaccepted. The v1 result is the historical comparison baseline.
 
 ## Small change
 
@@ -16,7 +18,9 @@ same operation. Do not add an authorization cache or a general audit-disable fla
 
 Before selecting this path, verify the actual shared connection, identical
 runtime policy/role/schema/DSN, source/candidate/held stores and principal provider,
-empty original slots, and supported exact bindings. Preserve current identity,
+empty original slots, and supported exact bound scope/connector methods. Pin
+method functions and receivers; replaced methods use the original audited path.
+Preserve current identity,
 scope, pointer, read-only/isolation and source checks before/after each held read.
 Retain the full ordered trace and duplicates, actual getters and canonical digests.
 The first reconstruction, each of the12 Solar current boundaries, normal getters

@@ -81,7 +81,10 @@ class RegistrationRead:
                    market_scenario.MarketScenarioService._check_bindings,
                    self.repository.verify_current_reads, self.repository._reference_guard,
                    self.repository._reference_reader, self.repository._reference_value,
+                   self.repository._shared_profile, self.repository._shared_reader,
                    market_reference_bundle.verify, market_reference_bundle.fingerprint,
+                   market_reference_bundle._verify_shared, market_reference_bundle._verify_trace,
+                   market_reference_bundle._same_binding,
                    market_reference_bundle._Bundle.check, market_reference_bundle._Bundle.guard,
                    market_reference_bundle._Bundle.close)
         policy = (market_scenario._json(market_scenario._FIELDS),

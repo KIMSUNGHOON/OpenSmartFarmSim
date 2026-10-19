@@ -1,0 +1,452 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "candidate_adopted_local_component": true,
+  "focused_distinct_tests_passed": 116,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "meaningful_RED": [
+    {
+      "actual_tool": "26576:1",
+      "raw_terminal_sha256": "5690dc33cc698cbb24bffb9098e1cec7d68904e8c9ad6c142635e3bcc11b757e",
+      "reason": null,
+      "source_preserved": true,
+      "stage": "focused-reference-audit-scope-v2-red-v1"
+    },
+    {
+      "actual_tool": "43478:1",
+      "raw_terminal_sha256": "7ec77490c5632d4037c04c0049df84072d698d2965e1b7bcf5a59b06641240ab",
+      "reason": null,
+      "source_preserved": true,
+      "stage": "focused-reference-audit-scope-v2-pointer-red-v1"
+    },
+    {
+      "actual_tool": "64286:1",
+      "raw_terminal_sha256": "f4dd91b83979a1e81733b155c7e7ab61eb7222b93c99c0cf1017dc9211412b07",
+      "reason": null,
+      "source_preserved": true,
+      "stage": "focused-reference-audit-scope-v2-connector-red-v1"
+    }
+  ],
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "bef62a420fe0e1e58fffcb02686864745582302866f5dcb4dc21615cf18ef903",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T01:45:28.238Z"
+  },
+  "new_Solar_deployed": false,
+  "next_task": "crop-solar-audit-scope-v2-native-normal",
+  "normal_unpaused_execution_accepted": false,
+  "paired_observation": {
+    "baseline_scope": "original v1 verify function selected only by test; common current helpers and same actual fixture/state in both paths",
+    "guard": {
+      "actual_tool": "25608:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 0,
+      "raw_terminal_sha256": "f15b51177a46ceef239d867b5f6582771fc36cbb9012efbde19a98f1ffa3b46e",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 995598336,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "f6e3d0d76061034902cd9e80063f50c4cc51f768497d4dde588610cd73a06279",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 101.05250005800008
+      },
+      "stage": "focused-reference-audit-scope-v2-advance-pair-v2"
+    },
+    "probe_sha256": "988c27c103165e89a911862918b11183ededbe70cebdbd728238dd1b22d49950",
+    "raw_result_sha256": "be933b350f30b8b3767b5959ad6b5612cef4e31877b3efe26f1d32d8ee333840",
+    "result": {
+      "G0_G4": "not_assessed",
+      "actual_source_read_order_and_duplicates_preserved": true,
+      "baseline_verifier_source_sha256": "644ad97afe61f3d5c2f05ae003d876bf8d969883e95805705b0b4ee7e991eb3a",
+      "candidate_verifier_source_sha256": "7994806cb008d268f7d85eeda2c7bd15076e28a52c2a103c9646ee6ebe8a4dcf",
+      "original_values_UTC_counts_checkpoint_preserved": true,
+      "rights_or_gate_approval": false,
+      "samples": [
+        {
+          "counts": {
+            "audits": 298,
+            "current": 12,
+            "reconstructions": 1,
+            "registrations": 24
+          },
+          "mode": "baseline",
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_reads": 1824,
+          "wall_seconds": 12.58362580999892
+        },
+        {
+          "counts": {
+            "audits": 183,
+            "current": 12,
+            "reconstructions": 1,
+            "registrations": 24
+          },
+          "mode": "candidate",
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_reads": 1824,
+          "wall_seconds": 10.638995662000525
+        },
+        {
+          "counts": {
+            "audits": 183,
+            "current": 12,
+            "reconstructions": 1,
+            "registrations": 24
+          },
+          "mode": "candidate",
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_reads": 1824,
+          "wall_seconds": 10.658933284999875
+        },
+        {
+          "counts": {
+            "audits": 298,
+            "current": 12,
+            "reconstructions": 1,
+            "registrations": 24
+          },
+          "mode": "baseline",
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_reads": 1824,
+          "wall_seconds": 12.354194608999023
+        }
+      ],
+      "scope": "two same actual advances,ABBA,original v1 verifier selected only by test; no native64 acceptance"
+    },
+    "throughput_or_native_completion_accepted": false
+  },
+  "prefinal_not_acceptance": [
+    "25310:0 initialGREEN1",
+    "10515:0 initialunit14",
+    "92692:0 initialbundle17",
+    "52271:0 pre-method-fix pair"
+  ],
+  "review_completed_at": "2026-10-19T02:29:40.548653+00:00",
+  "rights_or_gate_approval": false,
+  "role_audits_baseline_candidate": [
+    298,
+    183
+  ],
+  "source_parent_commit": "96eb12c66f716978ea7f1611c9bcd9885865bcfc",
+  "source_sha256": {
+    "backend/app/farm_registration_read_scope.py": "1e471952b68d93c5654f713b8c6bac3c3a5a22fd670f58835522860515b4f159",
+    "backend/app/market_candidate_store.py": "0420835e211222fced5927de62b478ba296a2f83bde14e70d9fd164883e2e182",
+    "backend/app/market_reference_bundle.py": "7994806cb008d268f7d85eeda2c7bd15076e28a52c2a103c9646ee6ebe8a4dcf"
+  },
+  "stages": [
+    {
+      "actual_tool": "69049:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 13,
+      "raw_terminal_sha256": "46dfd3b9c95abad7c90d018588ff60f492abe0a378919a9d351bc367e7ebf64f",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1020817408,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "99f6b54f0f35f9722ec94122e029fc57cce5225b52eea503cd9de33757ad48ac",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 153.3861582919999
+      },
+      "stage": "focused-reference-audit-scope-v2-pointer-green-v1"
+    },
+    {
+      "actual_tool": "32461:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 7,
+      "raw_terminal_sha256": "782230137f7e1813a743f3da133a20e30cf50d346bca0f9aaf17e79cc3f578e4",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1018994688,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "9a3ba5d2bf75f583a18975d9aeb3c802010f0a0f7f6b9c9bdcd50e11d9ed3ef9",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 85.79926820500077
+      },
+      "stage": "focused-reference-audit-scope-v2-final-remainder-v1"
+    },
+    {
+      "actual_tool": "81180:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 17,
+      "raw_terminal_sha256": "68e1767c88889e4e584a43920483aa3ef7f23ed6f896342cb765e48203015342",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1020186624,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "571360f625356ee98b3e79befdb63d265a83d3e14a88f0c817b87e8100b2a2f4",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 143.23596791700038
+      },
+      "stage": "regression-reference-audit-scope-v2-bundle-v2"
+    },
+    {
+      "actual_tool": "23806:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 49,
+      "raw_terminal_sha256": "6b5287477a8168ec3b61bce2b07ffca81749981fb010f70e0e4127704e510a9b",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1051279360,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "db8d245c97aeacd5f4fb740dc1a748e2c99040e3eab1293a20910beb6dc7bfaa",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 152354816,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 379.9482655060001
+      },
+      "stage": "regression-reference-audit-scope-v2-held-v1"
+    },
+    {
+      "actual_tool": "25523:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 11,
+      "raw_terminal_sha256": "e2f57132d1f74c3f0efbce80dc8b63b4ace7b9bcc462a039d5cada085ac23382",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1052766208,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "c2ed0fde3ba2b945a7647c7c67b25a17c90a88576943516a31f850e2bb275b61",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 86.60267992099944
+      },
+      "stage": "regression-reference-audit-scope-v2-pinned-v1"
+    },
+    {
+      "actual_tool": "99339:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 13,
+      "raw_terminal_sha256": "7f8cb6186ed2029a23e255b949c148f4df448e610f1db9c4c1d72a25a7d4a4d4",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1041891328,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "66d579058208fcae2230bb64a23a34d8da8919403f3c7eb764473b9a81fffacb",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 155.49714440599928
+      },
+      "stage": "regression-reference-audit-scope-v2-farm-v1"
+    },
+    {
+      "actual_tool": "65993:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 3,
+      "raw_terminal_sha256": "58cb6034c6d1079c4b40a210e1f611c87caf1b7a326bb6a054cfdbad116ff1ec",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1052790784,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "d6fd9050a1a25271589e2a856b5c676ca15a88a562aee39002ce12a2a6592958",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 125.49921143600113
+      },
+      "stage": "regression-reference-audit-scope-v2-query-v1"
+    },
+    {
+      "actual_tool": "85320:0",
+      "current_app_source_pins": true,
+      "distinct_tests": 3,
+      "raw_terminal_sha256": "08db8b14d148e7084fc6b4b1fee54794e8f980be520961ec30f23370b95ed157",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1038413824,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "61a431a88006cc4794f9f5f2bc237809ea4f253e8ce92c46353d658933bbb538",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 137.86531938199914
+      },
+      "stage": "regression-reference-audit-scope-v2-worker-v1"
+    }
+  ],
+  "status_publication": {
+    "UI_code_changed": false,
+    "actual_tool": "76422:0",
+    "both_HTTP_200_same_bytes_no_store": true,
+    "browser_rerun": false,
+    "frozen_HTML_and_2173_ventilation_files_preserved": true,
+    "local_links_checked": 2283,
+    "original_actor_hashes_checked": true,
+    "raw_terminal_sha256": "25e40f468ee237f9c33d3600f5f84678cce4d0fc78597c478100011de5d26dc2",
+    "result": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 914481152,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.3584947560011642
+    },
+    "stage": "focused-reference-audit-scope-v2-acceptance-status-v1"
+  },
+  "terminal_test_name_is_not_fresh_process_evidence": true,
+  "unchanged_current_boundaries": 12,
+  "unchanged_reconstructions": 1,
+  "unchanged_registration_reads": 24,
+  "unchanged_source_reads": 1824
+}
