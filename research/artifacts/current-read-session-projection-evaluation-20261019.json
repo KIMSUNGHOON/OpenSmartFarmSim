@@ -1,0 +1,1060 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "actual_product_comparison": {
+    "mean_wall_reduction_pct": 0.01479439426179674,
+    "paired_wall_changes_pct": [
+      -1.8425805623126124,
+      1.8149895399724114
+    ],
+    "rows": [
+      {
+        "SQL_statements": 12919,
+        "mode": "baseline",
+        "parameter_reads": 2163,
+        "role_audits": 343,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "source_reads": 3040,
+        "step": 2,
+        "wall_seconds": 8.863033310000901
+      },
+      {
+        "SQL_statements": 11719,
+        "mode": "candidate",
+        "parameter_reads": 2163,
+        "role_audits": 343,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "source_reads": 3040,
+        "step": 3,
+        "wall_seconds": 9.02634183900227
+      },
+      {
+        "SQL_statements": 11719,
+        "mode": "candidate",
+        "parameter_reads": 2163,
+        "role_audits": 343,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "source_reads": 3040,
+        "step": 4,
+        "wall_seconds": 8.978578240996285
+      },
+      {
+        "SQL_statements": 12919,
+        "mode": "baseline",
+        "parameter_reads": 2163,
+        "role_audits": 343,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "source_reads": 3040,
+        "step": 5,
+        "wall_seconds": 9.144550883000193
+      }
+    ]
+  },
+  "backend_app_files": 261,
+  "baseline_application_commit": "30f8104a51bfaa718d2f6d0abdd1f9fb857e1471",
+  "candidate_boundary_tests_passed": 8,
+  "candidate_cost_test_passed": 1,
+  "candidate_feature_adopted": false,
+  "candidate_performance_accepted": false,
+  "candidate_source_sha256": {
+    "backend/app/market_candidate_store.py": "176d595ac7bff776025108ee46e81c25568f8530862276c09d37ffe863df3f93",
+    "backend/app/runtime_login.py": "798dff099715627b1cfdb5d1cceebb74ed79453a6cc71cda81710030fa13e174",
+    "backend/tests/test_runtime_read_session.py": "886e7c01f7c0663309c469c703da02821178aed9a6cafe38d047c228b5484b25",
+    "contracts/runtime-read-session-v1.md": "fa52a8b06558bc27ecfb689c7f03d0fa2172469a3659f106ad59e19821257228"
+  },
+  "final_publication": {
+    "HTML_frozen_both_preserved": true,
+    "HTTP": [
+      {
+        "cache_control": "no-store",
+        "port": 5173,
+        "same_bytes": true,
+        "status": 200
+      },
+      {
+        "cache_control": "no-store",
+        "port": 5174,
+        "same_bytes": true,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_DOM_rerun": false,
+    "case": "focused-read-session-rejection-status-v1",
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 899424256,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.379042346998176
+    },
+    "local_links_checked": 2380,
+    "log_sha256": "286a1fe5c7815e00559f4cfd36e9fff8f23a779e52440b2fa2d4eae25a2acb17",
+    "reported_at": "2026-10-19T13:59:57.677740Z",
+    "status_source_sha256": "0656c22b445c336f87f677f129c1c4c1f638878feb937003bbd0581c73491958"
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T13:30:04.412Z",
+    "turn_context_sha256": "71cb6aea60876d6ee58b5a9c4bff01ae7f3b1fc3e9a8f7845a3ab04d357925a1"
+  },
+  "new_solar_deployed": false,
+  "next_task": "Attribute input-evidence verify/_input JSON decode and canonicalization call counts/cost, then trial an immutable already-verified binding-metadata projection. Keep all verification/signature/review/current-file/software-pin/rights calls and original public record semantics. No cross-call authority or permission cache.",
+  "normal64_accepted": false,
+  "private_trial": {
+    "mean_wall_reduction_pct": 3.523456081184062,
+    "paired_wall_changes_pct": [
+      2.3527135408540123,
+      4.653690285144895
+    ],
+    "rows": [
+      {
+        "SQL_statements": 12919,
+        "mode": "baseline",
+        "parameter_reads": 2163,
+        "role_audits": 343,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "source_reads": 3040,
+        "step": 2,
+        "wall_seconds": 9.304420159998699
+      },
+      {
+        "SQL_statements": 11719,
+        "mode": "candidate",
+        "parameter_reads": 2163,
+        "role_audits": 343,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "source_reads": 3040,
+        "step": 3,
+        "wall_seconds": 9.08551380699646
+      },
+      {
+        "SQL_statements": 11719,
+        "mode": "candidate",
+        "parameter_reads": 2163,
+        "role_audits": 343,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "source_reads": 3040,
+        "step": 4,
+        "wall_seconds": 9.189378829003545
+      },
+      {
+        "SQL_statements": 12919,
+        "mode": "baseline",
+        "parameter_reads": 2163,
+        "role_audits": 343,
+        "source_order_sha256": "930bbc7fc18dd745eebe17a2995663b4e29a038ae09f322eb9461946a856336e",
+        "source_reads": 3040,
+        "step": 5,
+        "wall_seconds": 9.637896691005153
+      }
+    ]
+  },
+  "product_app_and_tests_restored_bytes": true,
+  "raw_evidence_sha256": {
+    "focused-current-client-cpu-samples-v1": "3010cfd4aefed5f112f32e848e8135c2c15a49f442eac4f15fde1c657779bd4e",
+    "focused-current-read-session-projection-cost-v1": "ce73ad73f628b1b4a77322e68c0d9741915578759a3e4af72282861fa1846975",
+    "focused-current-sql-client-cost-v1": "fca691675ce97cb844b8ca3d1e226120b9e527dc6b77746cf24e6726dca872b0",
+    "focused-read-session-product-cost-v1": "6ad31d928471fea66aed15d8caeacb4366fa486d17b7d99414a79b19ca7b9b1c"
+  },
+  "remaining_candidate_regressions_run": false,
+  "restored_CPU_sampling": {
+    "client_thread_cpu_ns": 6448959003,
+    "delivery_and_C_extension_bias": true,
+    "dropped": 0,
+    "requested_CPU_timer_seconds": 0.002,
+    "samples": 1584,
+    "timer_and_handler_restored": true,
+    "top_leaf_frames": [
+      {
+        "function": "iterencode",
+        "line": 258,
+        "module": "json.encoder",
+        "samples": 209
+      },
+      {
+        "function": "<lambda>",
+        "line": 1,
+        "module": "namedtuple_ConninfoOption",
+        "samples": 109
+      },
+      {
+        "function": "_send_query_prepared",
+        "line": 602,
+        "module": "psycopg._cursor_base",
+        "samples": 98
+      },
+      {
+        "function": "pairs",
+        "line": 46,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 92
+      },
+      {
+        "function": "wait",
+        "line": 495,
+        "module": "psycopg.connection",
+        "samples": 48
+      },
+      {
+        "function": "_check_results",
+        "line": 468,
+        "module": "psycopg._cursor_base",
+        "samples": 40
+      },
+      {
+        "function": "dump_list",
+        "line": 174,
+        "module": "psycopg.types.array",
+        "samples": 33
+      },
+      {
+        "function": "open",
+        "line": 1015,
+        "module": "pathlib",
+        "samples": 26
+      },
+      {
+        "function": "sub",
+        "line": 186,
+        "module": "re",
+        "samples": 22
+      },
+      {
+        "function": "pairs",
+        "line": 49,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 22
+      },
+      {
+        "function": "<genexpr>",
+        "line": 14,
+        "module": "app.provenance",
+        "samples": 21
+      },
+      {
+        "function": "read_bytes",
+        "line": 1022,
+        "module": "pathlib",
+        "samples": 20
+      },
+      {
+        "function": "_get_names",
+        "line": 244,
+        "module": "psycopg.rows",
+        "samples": 18
+      },
+      {
+        "function": "_pins",
+        "line": 66,
+        "module": "app.crop_greenhouse_solar_input_evidence",
+        "samples": 16
+      },
+      {
+        "function": "_need",
+        "line": 32,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 16
+      }
+    ],
+    "top_nearest_app_frames": [
+      {
+        "function": "_canonical",
+        "line": 31,
+        "module": "app.crop_climate_joint_continuation",
+        "samples": 160
+      },
+      {
+        "function": "_select_with_job",
+        "line": 221,
+        "module": "app.market_source_store",
+        "samples": 100
+      },
+      {
+        "function": "pairs",
+        "line": 46,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 92
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 238,
+        "module": "app.runtime_roles",
+        "samples": 51
+      },
+      {
+        "function": "_input_in_transaction",
+        "line": 529,
+        "module": "app.market_candidate_store",
+        "samples": 43
+      },
+      {
+        "function": "_client",
+        "line": 65,
+        "module": "app.runtime_connection_scope",
+        "samples": 42
+      },
+      {
+        "function": "_pins",
+        "line": 66,
+        "module": "app.crop_greenhouse_solar_input_evidence",
+        "samples": 41
+      },
+      {
+        "function": "verify_runtime_identity",
+        "line": 15,
+        "module": "app.runtime_login",
+        "samples": 39
+      },
+      {
+        "function": "_shared_reader",
+        "line": 263,
+        "module": "app.market_candidate_store",
+        "samples": 37
+      },
+      {
+        "function": "_validate_input_fields",
+        "line": 44,
+        "module": "app.jobs",
+        "samples": 33
+      },
+      {
+        "function": "verify_runtime_identity",
+        "line": 18,
+        "module": "app.runtime_login",
+        "samples": 30
+      },
+      {
+        "function": "audit_runtime_roles",
+        "line": 255,
+        "module": "app.runtime_roles",
+        "samples": 30
+      },
+      {
+        "function": "pairs",
+        "line": 49,
+        "module": "app.crop_cycle_input_stream",
+        "samples": 22
+      },
+      {
+        "function": "<genexpr>",
+        "line": 14,
+        "module": "app.provenance",
+        "samples": 21
+      },
+      {
+        "function": "canonical_input_bytes",
+        "line": 62,
+        "module": "app.jobs",
+        "samples": 21
+      }
+    ],
+    "top_stacks": [
+      {
+        "frames": [
+          {
+            "function": "dump_list",
+            "line": 174,
+            "module": "psycopg.types.array"
+          },
+          {
+            "function": "dump",
+            "line": 184,
+            "module": "psycopg.types.array"
+          },
+          {
+            "function": "dump",
+            "line": 103,
+            "module": "psycopg._queries"
+          },
+          {
+            "function": "convert",
+            "line": 92,
+            "module": "psycopg._queries"
+          },
+          {
+            "function": "_convert_query",
+            "line": 465,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 205,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          }
+        ],
+        "samples": 33
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_hash",
+            "line": 32,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_record_hashes",
+            "line": 160,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "verify",
+            "line": 257,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          }
+        ],
+        "samples": 31
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "_signature",
+            "line": 215,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "verify",
+            "line": 245,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          }
+        ],
+        "samples": 28
+      },
+      {
+        "frames": [
+          {
+            "function": "_send_query_prepared",
+            "line": 602,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 297,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "execute",
+            "line": 113,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "execute",
+            "line": 302,
+            "module": "psycopg.connection"
+          },
+          {
+            "function": "_select_with_job",
+            "line": 221,
+            "module": "app.market_source_store"
+          },
+          {
+            "function": "_read_in_transaction",
+            "line": 296,
+            "module": "app.market_source_store"
+          }
+        ],
+        "samples": 27
+      },
+      {
+        "frames": [
+          {
+            "function": "pairs",
+            "line": 46,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "raw_decode",
+            "line": 353,
+            "module": "json.decoder"
+          },
+          {
+            "function": "decode",
+            "line": 337,
+            "module": "json.decoder"
+          },
+          {
+            "function": "loads",
+            "line": 359,
+            "module": "json"
+          },
+          {
+            "function": "_json",
+            "line": 52,
+            "module": "app.crop_cycle_input_stream"
+          },
+          {
+            "function": "verify",
+            "line": 240,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          }
+        ],
+        "samples": 27
+      },
+      {
+        "frames": [
+          {
+            "function": "_get_names",
+            "line": 244,
+            "module": "psycopg.rows"
+          },
+          {
+            "function": "dict_row",
+            "line": 118,
+            "module": "psycopg.rows"
+          },
+          {
+            "function": "_make_row_maker",
+            "line": 79,
+            "module": "psycopg.cursor"
+          },
+          {
+            "function": "_select_current_result",
+            "line": 529,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_set_results",
+            "line": 535,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_maybe_prepare_gen",
+            "line": 318,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "_execute_gen",
+            "line": 206,
+            "module": "psycopg._cursor_base"
+          },
+          {
+            "function": "wait",
+            "line": 495,
+            "module": "psycopg.connection"
+          }
+        ],
+        "samples": 18
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "verify",
+            "line": 260,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 138,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          }
+        ],
+        "samples": 17
+      },
+      {
+        "frames": [
+          {
+            "function": "iterencode",
+            "line": 258,
+            "module": "json.encoder"
+          },
+          {
+            "function": "encode",
+            "line": 200,
+            "module": "json.encoder"
+          },
+          {
+            "function": "dumps",
+            "line": 238,
+            "module": "json"
+          },
+          {
+            "function": "_canonical",
+            "line": 31,
+            "module": "app.crop_climate_joint_continuation"
+          },
+          {
+            "function": "verify",
+            "line": 241,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "run",
+            "line": 74,
+            "module": "app.crop_greenhouse_solar_input_evidence"
+          },
+          {
+            "function": "_input",
+            "line": 91,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          },
+          {
+            "function": "_bind",
+            "line": 135,
+            "module": "app.crop_greenhouse_solar_farm_binding"
+          }
+        ],
+        "samples": 16
+      }
+    ],
+    "wall_ns": 9104856001
+  },
+  "restored_SQL_observation": {
+    "client_cpu_outside_measured_DB_calls_ns": 4711629151,
+    "client_thread_cpu_ns": 6691991943,
+    "disjoint_outermost_calls_only": true,
+    "observer_overhead_included": true,
+    "operations": {
+      "execute": {
+        "calls": 12919,
+        "client_thread_cpu_ns": 1871472110,
+        "wall_ns": 4517090486
+      },
+      "fetchall": {
+        "calls": 1797,
+        "client_thread_cpu_ns": 27601602,
+        "wall_ns": 30191198
+      },
+      "fetchone": {
+        "calls": 11080,
+        "client_thread_cpu_ns": 81289080,
+        "wall_ns": 92128486
+      }
+    },
+    "server_CPU_not_measured": true,
+    "top_groups": [
+      {
+        "calls": 3040,
+        "client_thread_cpu_ns": 384297800,
+        "function": "_select_with_job",
+        "line": 221,
+        "module": "app.market_source_store",
+        "operation": "execute",
+        "query_sha256": "1c14e734489431daa13afad153054a3a0e378410f2084f7d2d89775e6cbe62f6",
+        "wall_ns": 679299320
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 153201077,
+        "function": "audit_runtime_roles",
+        "line": 255,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "d8d4120184781c73ba702cb6b14616495b11b91ae82a011caf9936a5634a32b7",
+        "wall_ns": 526532256
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 166134989,
+        "function": "audit_runtime_roles",
+        "line": 238,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "b0dc7786ea00709f90df3cb0c84301f6a3a107a70750088c68294360bb66c14c",
+        "wall_ns": 461045813
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 51783819,
+        "function": "audit_runtime_roles",
+        "line": 214,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "c1cab942d35132b09cab7f8d1b7fe43cba014a44e5de29125d8eae55cd9497a8",
+        "wall_ns": 410699372
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 53082015,
+        "function": "audit_runtime_roles",
+        "line": 196,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "aa1f5bcff5980761e6875c266410d7f7362bfb79cf3f3e967ec574df58e108cd",
+        "wall_ns": 377939107
+      },
+      {
+        "calls": 1360,
+        "client_thread_cpu_ns": 157645811,
+        "function": "_input_in_transaction",
+        "line": 529,
+        "module": "app.market_candidate_store",
+        "operation": "execute",
+        "query_sha256": "25887a31e882e3ed17ad6b8a3a9fe2dcae5695314f50d6b2cae9162a898774a7",
+        "wall_ns": 249119033
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 36595867,
+        "function": "_scope",
+        "line": 137,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "67fcbda54a5d7bb8296e2e5b46831fc8acf3275061ffa4ae866fd477c8c4d071",
+        "wall_ns": 213476734
+      },
+      {
+        "calls": 843,
+        "client_thread_cpu_ns": 117078770,
+        "function": "verify_runtime_identity",
+        "line": 18,
+        "module": "app.runtime_login",
+        "operation": "execute",
+        "query_sha256": "70dc9824972d1afb32bf4768529a1856f6533dd7fb4f02c67914585109af27be",
+        "wall_ns": 189513513
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 35800142,
+        "function": "_scope",
+        "line": 157,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "2574c8527a94e2bb4a75185395526c1a3c0f692084c3a07c9df24fd23216b8e1",
+        "wall_ns": 140354313
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 63844814,
+        "function": "audit_runtime_roles",
+        "line": 274,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "b935f13690fa0e34bfe41178864df01c6d4e011c9f824ff7a360ebcb538f1a31",
+        "wall_ns": 103819681
+      },
+      {
+        "calls": 480,
+        "client_thread_cpu_ns": 56195991,
+        "function": "_session",
+        "line": 73,
+        "module": "app.runtime_connection_scope",
+        "operation": "execute",
+        "query_sha256": "f6f2fd013f8c334d10fb13a9ad7718f4771a4715765c135645bd0885d7038250",
+        "wall_ns": 96714156
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 62196380,
+        "function": "audit_runtime_roles",
+        "line": 186,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "b86e9d19e118e23f5603abd0ec22fa73783d620e3f51a694748ae166250238b6",
+        "wall_ns": 89346128
+      },
+      {
+        "calls": 600,
+        "client_thread_cpu_ns": 55585673,
+        "function": "_shared_reader",
+        "line": 268,
+        "module": "app.market_candidate_store",
+        "operation": "execute",
+        "query_sha256": "da69ed32429a7730953ed4d9476d39925e381027a839a8eda4a77edb8389243d",
+        "wall_ns": 88305639
+      },
+      {
+        "calls": 343,
+        "client_thread_cpu_ns": 36205732,
+        "function": "_scope",
+        "line": 152,
+        "module": "app.runtime_roles",
+        "operation": "execute",
+        "query_sha256": "ebb731bcffe1d7204f1c7319fda1b17378dddea93890975cded6ac2fe1a0f19c",
+        "wall_ns": 87696739
+      },
+      {
+        "calls": 600,
+        "client_thread_cpu_ns": 54168460,
+        "function": "_shared_reader",
+        "line": 269,
+        "module": "app.market_candidate_store",
+        "operation": "execute",
+        "query_sha256": "1c14acdba350fc017fa2f9a6d0844090a95ca62f5d1095cba5e472f613cb3ec9",
+        "wall_ns": 85415229
+      }
+    ],
+    "wall_ns": 9485537896
+  },
+  "restored_backend_app_tree_sha256": "8ab6e2dbfc808c212a18e21cdcdcfc524f51df5a364cfaab3b4228c7c3c7fff9",
+  "restored_source_sha256": {
+    "backend/app/market_candidate_store.py": "6523e117147062392f7f3cac4bdde610a1398ca804f24a13d7b7fde735a6b458",
+    "backend/app/runtime_login.py": "dffdcee5f410ab56465e60ff4227f2dbe3e2dc0846f51658fc50a73033000aa8"
+  },
+  "rights_or_gate_approval": false,
+  "stages": [
+    {
+      "case": "focused-current-read-session-projection-cost-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1002934272,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 70.1836434029974
+      },
+      "log_sha256": "3fa74240a48830dea0f063570686f368905135cc83b6bd28d309a9a83b268022"
+    },
+    {
+      "case": "focused-read-session-green8-v2",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1004032000,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 12.779103799999575
+      },
+      "log_sha256": "6d6e92f2cb55477e68c75722490eae5066ea723eef2ee15a17784fd129224645"
+    },
+    {
+      "case": "focused-read-session-product-cost-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1006792704,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 68.14194883000164
+      },
+      "log_sha256": "9d239a160593f990d961501ccc97ed5c1d0b715c14be5a7001e14b4019d476c4"
+    },
+    {
+      "case": "focused-current-sql-client-cost-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1004109824,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 41.723336749004375
+      },
+      "log_sha256": "d46602325ffc13229ae2c36d86f71148ab42a75a9cd88c1d1bdcf8457a05af7b"
+    },
+    {
+      "case": "focused-current-client-cpu-samples-v1",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1005424640,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 41.558958369998436
+      },
+      "log_sha256": "653c50ae4d76875021c8761d8bd5e67b2b4a5d6caba8173d470d8cf15981859c"
+    }
+  ]
+}

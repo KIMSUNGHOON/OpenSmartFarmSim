@@ -42,12 +42,14 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 8 — 로컬 수용 | [checkpoint 등록 범위20검사/검토](../research/solar-checkpoint-registration-scope-20261019.md) | 새6/원 worker13/paired1·재구성6→4·물리29→7·원천3,040/UTC·권리/취소/임대/정리·평균 약5% 감소. 이전58/원64/새 배포로 세지 않는다. |
 | 9 — 진단 완료 | 같은 기록의 현재 exclusive 관측1 | get_parameters3,963회와 driver wait/JSON 비용·원 step2/UTC/정리 확인. 중첩 포함 시간/처리량은 합산하지 않는다. |
 | 10 — 로컬 수용 | [현재 연결 매개변수46검사](../research/market-current-connection-parameters-20261019.md) | 새9/공유29/늦은 변경5/normal·hold2/paired1·전체 backend app SHA 대사. 조회3,963→2,163·원 SQL12,919/감사343/원천3,040/UTC·현재성/정리와 제품 약2.53% 감소를 확인했다. 사설 약4.76%는 별도다. |
-| 11 — 다음 시험 후보 | 같은 기록의 현재 세션 SQL 한 투영 비교 | 원 current 값5개를 shared-reader마다 fresh SQL로 조회한다. identity/읽기 전용/isolation3질의의 동등성/실제 비용을 평가하며 기존 로그인·권한·원천·원 수치/UTC는 유지한다. 이 단계 구현/수용은 아직 없다. |
+| 11 — 미채택/제품 복원 | [현재 세션 SQL 후보의 실제 비교](../research/current-read-session-projection-evaluation-20261019.md) | 후보8경계/비교1은 통과했으나 제품 평균 약0.015%·짝별 불일치로 비용 수용 실패. app/tests30f8104 원bytes를 복원하고 남은 후보 회귀를 중단했다. 새API/독립64 수용이 아니다. |
+| 12 — 진단 완료 | 같은 기록의 현재 SQL·client CPU/owned 샘플 | 원 SQL12,919/감사343/원천3,040/step2/UTC·배타적wall/client CPU·1,584표본·timer/정리 확인. 표본·관찰비용을 처리량으로 쓰지 않는다. |
+| 13 — 다음 작은 관측/비교 | 입력 증거 JSON decode/정규화와 검증된 결속 투영 | 실제 호출·비용을 분리한 뒤 작은 불변 투영을 시험한다. 모든 기존 서명/현재파일·코드/검토자/권리 검증과 공개record 의미·원값/UTC·정리를 보존한다. 구현/수용은 아직 없다. |
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.
 연구 대조12와 실제 guard37에서 검토한 default DTO의 조건부 범위를 수용했다. 같은 최종 source의 guard37은 원문 primitive와 원88참조2회를 결합하고 모든 원 getter를 실행했다. guard 합427.697초다. 후속 시험 전용 연결 후보는 실제 paired 비용 기준을 통과하지 못했다. 비교/비용 분리/연결 관측의3개 진단 검사·guard209.877초를 별도 기록했고 기존37/48/34/58을 재실행한 것으로 세지 않는다. 제품 app260파일은 그대로이며 v4 통합은 보류한다.
-연결 수명 본체는 원 `.connect()` 메서드 AST와 commit/rollback·실제 `NOWAIT` 잠금 해제를 보존했다. 모든 현재 identity/권한/자료/역할 감사를 실행하고 요청/등록·Task/thread/복제 문맥·종료 정리를 확인했다. 준비된 SQL 뒤 실제 SELECT 철회/NOLOGIN/역할 변경을 거부했다. 범용 pool·교차 요청 캐시는 추가하지 않았다. 원천1,824/순서와 트랜잭션 종료432는 같고 세션 점검 SQL288개가 추가됐다. 최종 source의 실제 두 구간 비용·core41·일반 로그인10/별도 fixture 정리만 로컬 수용했다. 당시 같은 application source의 관련58 회귀·검토를 수용했고 후속 checkpoint 범위20검사도 별도로 로컬 수용했다. 현재 독립64는 미완료다. 연결 매개변수46을 로컬 수용했고 다음은 위 현재 세션3질의 투영 후보의 실제 동등/비용 비교이며 원 계측 OFF64·독립 처리량/새 배포는 아직 미수용이다.
+연결 수명 본체는 원 `.connect()` 메서드 AST와 commit/rollback·실제 `NOWAIT` 잠금 해제를 보존했다. 모든 현재 identity/권한/자료/역할 감사를 실행하고 요청/등록·Task/thread/복제 문맥·종료 정리를 확인했다. 준비된 SQL 뒤 실제 SELECT 철회/NOLOGIN/역할 변경을 거부했다. 범용 pool·교차 요청 캐시는 추가하지 않았다. 원천1,824/순서와 트랜잭션 종료432는 같고 세션 점검 SQL288개가 추가됐다. 최종 source의 실제 두 구간 비용·core41·일반 로그인10/별도 fixture 정리만 로컬 수용했다. 당시 같은 application source의 관련58 회귀·검토를 수용했고 후속 checkpoint 범위20검사도 별도로 로컬 수용했다. 현재 독립64는 미완료다. 연결 매개변수46을 로컬 수용했고 현재 세션3질의 후보는 제품 비용 미통과로 복원했고 다음은 위 입력 증거 JSON 경계의 실제 관측/비용 비교이며 원 계측 OFF64·독립 처리량/새 배포는 아직 미수용이다.
 기본 source7종·candidate 우선/fallback·pin/파생 manifest·Decimal/정규화/현재 scope를 대사하고,
 시간·외부 상태·callback·미입증 의존성 경로는 v2 유지/명시 비적격으로 처리한다.
 동등성 증거 전에는 반복 getter를 생략하거나 현재 계산 경로를 변경하지 않는다.
