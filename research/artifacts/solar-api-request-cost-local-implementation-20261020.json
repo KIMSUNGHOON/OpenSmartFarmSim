@@ -1,0 +1,210 @@
+{
+  "schema_version": "solar-api-request-cost-local-implementation-v1",
+  "recorded_at": "2026-10-20T04:29:21.241678+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-20T04:14:15.473Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_sha256": "0d74262f2c863243c1ab142857ed351de02b9f5478d324a80a233f93bae08ff8"
+  },
+  "local_implementation_accepted": true,
+  "actual_simultaneous_observation_accepted": false,
+  "unique_tests": 11,
+  "Python_versions": [
+    "3.12.3",
+    "3.12.13"
+  ],
+  "repeated_versions_not_extra_unique_tests": true,
+  "source_SHA256": {
+    "research/crop-solar-api-response-trace.py": "5a74d85065130bbddf49979b51f66554807a3262bd82be2006f247018e4af701",
+    "backend/tests/test_solar_api_response_trace.py": "428d8e363ed3f6471c6c5b9b0bae27e926c936636577d267f7051a2d128c347c"
+  },
+  "proofs": {
+    "native": {
+      "case": "focused-solar-api-request-cost-final11-native-v1",
+      "terminal_SHA256": "efb7ddd94b72cae69e69853af5b8e283a8d9ca2370ef23209e0bcc441195f9a1",
+      "log_SHA256": "3cb7cc0d8208aee3a05ed8d6e9f592979d7e8eec4c7f2311a7ea1931d0be08c5",
+      "source_pins_SHA256": "dd5e2420b64d3e9fab9ef1d64c3b5209866dd0cfda91e37fd082dd11e9d81397",
+      "terminal_summary": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 5,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 924995584,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "3cb7cc0d8208aee3a05ed8d6e9f592979d7e8eec4c7f2311a7ea1931d0be08c5",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 145444864,
+        "source_count": 2636,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.3898851289995946
+      }
+    },
+    "locked": {
+      "case": "focused-solar-api-request-cost-final11-locked-v1",
+      "terminal_SHA256": "533e7542d0e82fd78d6f8260a04308e00ac81fd5c94a016df27ba0b71d3a5a26",
+      "log_SHA256": "1095112e245b0dba63d6dc031c0e2606e4e66299e20e6800d114c732f11f898d",
+      "source_pins_SHA256": "dd5e2420b64d3e9fab9ef1d64c3b5209866dd0cfda91e37fd082dd11e9d81397",
+      "terminal_summary": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 4,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 940412928,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "1095112e245b0dba63d6dc031c0e2606e4e66299e20e6800d114c732f11f898d",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 145444864,
+        "source_count": 2636,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.1509549629990943
+      }
+    },
+    "actors": {
+      "case": "focused-solar-api-request-cost-actors-v2",
+      "terminal_SHA256": "55c2bc2a07b1de75f14aca93f75d2ae31851980b31b3aafd55cdf9c063e44f1d",
+      "log_SHA256": "8ad6afa874d938f3fb7adcd0916c78928bc199cfa3fa5dbbe3442d01665d64c9",
+      "source_pins_SHA256": "dd5e2420b64d3e9fab9ef1d64c3b5209866dd0cfda91e37fd082dd11e9d81397",
+      "terminal_summary": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 4,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 950177792,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "8ad6afa874d938f3fb7adcd0916c78928bc199cfa3fa5dbbe3442d01665d64c9",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 145444864,
+        "source_count": 2636,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.1211232259956887
+      }
+    }
+  },
+  "expected_actors": {
+    "detail": "worker-api",
+    "original_API_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+    "original_worker_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+    "API_header_sha256": "5a74d85065130bbddf49979b51f66554807a3262bd82be2006f247018e4af701",
+    "worker_header_sha256": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373",
+    "instrumented_API_sha256": "14471fb0fdba900755433555ff155ad41dd48753c36ebd993aabe4e74254d957",
+    "instrumented_worker_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8",
+    "original_actor_bodies_and_assertions_byte_equal_after_header_removal": true,
+    "normal64_accepted": false,
+    "app261_unchanged": true
+  },
+  "expected_actors_SHA256": "bef15be7574c01777329d30f60ab2e484a9bb6c5839cc771c195be4a8473c36f",
+  "private_source_SHA256": {
+    "native.private.json": "166768cd4746266373424c21bffd23b16ba9efa51e558277ac241aee25e5aa14",
+    "locked-tests.py": "fa42af692c28ca5b27f8804da6e0116bd010217d7445ef271cc4cff6b8a1bf1c",
+    "verify-actors.py": "5d35e392d9010eff2c401d362ae5b4c43a57b9f9fb3b9ef2e3539a94197732b6",
+    "verify-actors-v1.py": "3f0d792dfe3554ef4e49dff3a77429ba6120ade46e04b81850e1eed616128ace"
+  },
+  "excluded_setup_and_prior_revisions": [
+    {
+      "case": "focused-solar-api-request-cost-red-v1",
+      "reason": "expected missing route/time fields"
+    },
+    {
+      "case": "focused-solar-api-request-cost-green-v1",
+      "reason": "incorrect exact cross-clock CPU<=wall assertion; observed 263209 versus263186 ns; raw CPU was not clamped"
+    },
+    {
+      "case": "focused-solar-api-request-cost-green-v2",
+      "reason": "prior9 tests before overlap/nested SQL checks"
+    },
+    {
+      "case": "focused-solar-api-request-cost-locked-v1",
+      "reason": "prior9 locked tests before overlap/nested SQL checks"
+    },
+    {
+      "case": "focused-solar-api-request-cost-actors-v1",
+      "reason": "verifier incorrectly applied API provider prefix to worker; corrected to actual bare worker prefix; original expected SHA retained"
+    }
+  ],
+  "clock_documentation": {
+    "URL": "https://docs.python.org/3.12/library/time.html",
+    "online_document_version": "3.12.15",
+    "retrieved_at": "2026-10-20T04:29:21.241895+00:00",
+    "use": "technical API semantics only; no agricultural/economic data adopted",
+    "interpretation": "wall and per-thread CPU are separate clocks; record raw differences and clock metadata, no exact cross-clock inequality",
+    "reviewer": "native Codex CLI gpt-6.1-sol/xhigh"
+  },
+  "application_files_changed": 0,
+  "backend_app_count": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "normal64_accepted": false,
+  "new_Solar_deployed": false,
+  "full_backend_or_browser_CI_run": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "recursive_CLI_invocations": 0,
+  "subagents_spawned": 0,
+  "next": "one new selected worker-api diagnostic using this validated header; then reconcile actual costs and original actor/run/artifact/resource provenance"
+}

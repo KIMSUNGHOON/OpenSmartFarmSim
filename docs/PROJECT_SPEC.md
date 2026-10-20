@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**확인 작업의 등록 scope 후보 미채택 — 2026-10-20 KST:** [경계1/원 전체 비용1](../research/solar-confirm-registration-evaluation-20261020.md)에서 재구성4→3·원천2,280/현재15/저장 검증5와 원 값/UTC를 확인했으나 평균1.404965%·한 짝 악화로 후보를 제외했다. 제품 app261·기존 두 UI는 유지한다. 다음은 [기존 API observer의 요청별 비용 관측](../contracts/solar-api-request-cost-diagnostics-v1.md)이다. 원 정상64/새 Solar·실제 농장/관문·최종 UI/전체 날짜는 미완료/미정·goal active다.
+**API 요청별 비용 진단기 로컬 수용 — 2026-10-20 KST:** [고유11검사/두 Python판·원 actor 대조](../research/solar-api-request-cost-implementation-20261020.md)에서 client/server 시간·SQL/current/load·중첩/thread/오류·64KiB/비밀 미노출과 원 API/worker 본문 보존을 확인했다. 제품 app261·기존 두 UI는 유지한다. 다음은 새 observer로 실제 동시 관측1회다. 원 정상64/새 Solar·실제 농장/관문·최종 UI/전체 날짜는 미완료/미정·goal active다.
 
 아래 날짜별 기록은 당시 상태다.
 

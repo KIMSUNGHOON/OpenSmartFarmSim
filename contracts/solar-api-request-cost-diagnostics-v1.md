@@ -1,5 +1,7 @@
 # Solar API request cost diagnostics — v1
 
+Local observer accepted with [11 checks on both Python versions and actor hashes](../research/solar-api-request-cost-implementation-20261020.md). The actual simultaneous observation remains pending.
+
 Extends the existing [worker/API observer](crop-solar-worker-progress-diagnostics-v1.md).
 The [current simultaneous run](../research/solar-current-worker-api-diagnostic-20261020.md)
 records statuses and worker phases, but lacks API request latency/CPU/SQL cost.
@@ -18,7 +20,7 @@ wall duration, and a fixed route category if safely recognized. Caller-thread
 CPU measures only the client thread; never present it as server processing CPU.
 Unknown routes get a fixed `other` label. Never emit raw paths or identifiers.
 
-For the existing protected API `checked` functions executed in server threads,
+For the existing protected execution `checked` and prefix `read` functions in server threads,
 record outermost operation start/end, wall and that thread's CPU, counts of
 actual SQL execution/current validation/storage loads, and SQL execution wall
 time if attribution can be demonstrated. Match by an explicit bounded internal
@@ -26,6 +28,8 @@ thread/frame lifetime, without exporting frame locals, SQL, parameters, body,
 query, identity, token, DSN, exception message or unrestricted function names.
 Do not double count nested operations or sum nested wall times as exclusive cost.
 Retain incomplete entries as incomplete; do not manufacture return status.
+Record wall and CPU clocks independently with their implementation/resolution;
+do not clamp CPU to wall or require exact nanosecond ordering across clocks.
 
 Use the existing observer and dependencies. Bound active operations to16 and
 records to recent32 responses/operations and16 exceptions, with a hard64KiB
