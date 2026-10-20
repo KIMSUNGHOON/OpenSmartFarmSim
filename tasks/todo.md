@@ -2223,12 +2223,21 @@
         수용: UTC/KST·기간/날짜 경계·환경/관리 전후·실패 prefix/순서와 원 숫자/bytes·digest 보존;
         잘못된 정밀도/offset/지점/변조 거부와 실제 RHS/적분/관리/restore 호출0·원 모델/5root/자료/정리.
         custody·저장/API/3D/전체 작기·관문은 후속 수용이다.
-      - [ ] **`co2-immutable-storage`** — 다음 작은 자식; 선행: 위 UTC/v2 journal과 기존 Solar 파일 저장 계약.
+      - [x] **`co2-immutable-storage`** — [계약/수용](../contracts/crop-greenhouse-co2-storage-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-storage-20261021.json):103검사·10프로그램×3예산,
+        fresh 조회 계산0·8재개 지점/실제 SIGKILL2개·파일/권한/metadata 반례 수정과 원2MiB 페이지/
+        응답·5root/자료/정리를 확인했다. 선행: 위 UTC/v2 journal과 기존 Solar 파일 저장 계약.
         핵심3파일: 새 storage/집중 pytest/계약. 기존 secure files/fsync/content-addressed page·atomic HEAD를
         재사용해 원109상태/44연속·6사건/17수지·UTC/체크포인트·source hash를 별도 typed artifact로 보존한다.
         수용: 실제 writer/finalize/reader·fresh 조회의 수치/context/restore0; 중간 재개와 HEAD 직전/직후
         소유 SIGKILL·미게시 orphan 보존·변조/혼합/symlink/FIFO/원2MiB 페이지/용량·5root/자료/정리.
         파일 저장 뒤 입력 증거/농장 결속→서명 custody→DB/API/3D로 연결한다. 합성 저장은 농장/G0–G4 승인이 아니다.
+      - [ ] **`co2-input-evidence`** — 다음 작은 자식; 선행: 위 파일/UTC/v2 journal과 기존 Solar 입력 증거 계약.
+        핵심3파일: 새 evidence/집중 pytest/계약. 원 forcing program/CO₂ 상태·프로필/초기 RHS/UTC와
+        현재 review·provenance/단위/QC/시각/권리를 별도 HMAC 판본에 결속한다. 원 source/evidence 한도와
+        변수 coverage의 실제 크기를 먼저 재고 초과는 보류한다. 수용: issue 실제 초기 평가1·verify/fresh의
+        context/UTC/수치/restore0; 변조/잘못된 선언/늦은 철회·파일/원 자원 한도·5root/자료/정리.
+        합성 내부 선언의 소프트웨어 검증이며 외부 자료/G0/농장 승인이 아니다. 이후 농장 결속·서명 custody다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

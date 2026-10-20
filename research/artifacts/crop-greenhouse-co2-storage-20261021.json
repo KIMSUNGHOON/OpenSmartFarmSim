@@ -1,0 +1,231 @@
+{
+  "version": "crop-greenhouse-co2-immutable-storage-acceptance-v1",
+  "recorded_at": "2026-10-20T19:25:36.720451+00:00",
+  "storage_version": "joint-co2-solar-storage-research-v1",
+  "test_count": 103,
+  "case_budget_pairs": 30,
+  "original_programs": 10,
+  "chunk_budgets": [
+    1,
+    7,
+    128
+  ],
+  "state_count": 109,
+  "continuous_ledger_count": 44,
+  "event_total_count": 6,
+  "global_balance_count": 17,
+  "fresh_reader_forbidden_entrypoints": 19,
+  "fresh_reader_physical_context_time_restore_child_or_CLI_calls": 0,
+  "writer_close_reopen_positions": [
+    0,
+    1,
+    4,
+    5,
+    8,
+    9,
+    16,
+    17
+  ],
+  "owned_actual_SIGKILL_before_after_first_commit_HEAD": 2,
+  "SIGKILL_return_code": -9,
+  "pre_HEAD_orphan_bytes_preserved": true,
+  "real_injected_hold_cases": 6,
+  "maximum_fixture": {
+    "samples": 129,
+    "events": 128,
+    "forcing_rows": 129,
+    "largest_page_bytes": 1190935,
+    "largest_response_bytes": 1187613,
+    "stored_files": 26,
+    "stored_bytes": 7305640,
+    "duration_seconds": 8
+  },
+  "unchanged_page_response_byte_limit": 2097152,
+  "native_CLI_review": {
+    "decision_id": "co2-immutable-storage-20261021-v1",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "native_turn_context": {
+      "timestamp": "2026-10-20T19:08:00.962Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "event_line_sha256": "4bd76b98039b11c09c8715d4ce7b072b4160af0f5518890db20c4bae686503f1"
+    },
+    "session_creation_metadata": {
+      "source": "vscode",
+      "cli_version": "0.157.1",
+      "model_provider": "openai"
+    },
+    "creation_version_not_current_binary_measurement": true,
+    "no_recursive_CLI": true
+  },
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_storage.py": "6eb0b7a1474da307c75d175b8cb2c9988d12924c017d3b9b860027fad0e14f19",
+    "backend/tests/test_crop_greenhouse_co2_storage.py": "2dbb86ae8fc83bc94bda8d5a561e17792d3e265a3ea1314aef88ddc043b89919",
+    "contracts/crop-greenhouse-co2-storage-v1.md": "c31b22919ca42947ae19e0303c779bec56d9f158ea43a1024161e002de048369",
+    "backend/app/crop_greenhouse_co2_time.py": "e59960eeee0c36512a3c83913ce0bdc47695960152b20b4b68e110e4f97f499e",
+    "backend/app/crop_greenhouse_co2_continuation.py": "cf48f58eaa78b18f3a54e0ef42c039b92aed84030d583e13b48c0b89123f429b",
+    "backend/app/crop_greenhouse_co2_program.py": "4cc5ec905ea6e80f713b8fbb9e335a780bc83f75f9aa04b4baf61996db8978a6",
+    "backend/app/crop_greenhouse_co2_management.py": "bfc01cc5af5d73a26f25c646b531f7ff3d6de006adda245927a146d8d6cdbdb8",
+    "backend/app/crop_greenhouse_co2_joint.py": "5f157d7034ee6156cd7372f68b594336d09c461649ea1b676afc2d9abb7ab12f",
+    "backend/app/crop_greenhouse_co2_integration.py": "4774ca49e6c26cd64b7810d1d38b775fcda1a3302cd8f39b7122bf6faae6a2d9",
+    "backend/app/crop_greenhouse_solar_storage.py": "065ff9f9706bed285f19b82e67277123947715af285cc6438a77fed3c7e30d6d",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/app/operator_config.py": "2f130c455e04ce4b9eb2aa008ba45c1ac78cb75b652eb272f169e5a57181eb1b",
+    "fixtures/crop-greenhouse-co2-program-reference-cases-v1.json": "da09f6ff833d5c079b9bc48a2e06494fbec1fd123884881c2db146df60b69269",
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+  },
+  "RED": {
+    "result": "module absent; not numerical counterexample",
+    "terminal": {
+      "actual_child_exit": 1,
+      "wall_seconds": 0.8478219170065131,
+      "combined_peak_RSS_bytes": 637427712,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 3,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "945418e5bfd37e95ffe9282282ed2749c38f7ca55f7af7ad47b9265dba3749cb",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "first_full_run": {
+    "result": "59 passed then selected file mode change did not reject; not accepted",
+    "terminal": {
+      "actual_child_exit": 1,
+      "wall_seconds": 75.60810692899395,
+      "combined_peak_RSS_bytes": 723566592,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 294,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "e2e3216ec14a4a310ed9c7b267036b025c9b56a6af26194490191bd51d3aa402",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "security_extension": {
+    "scope": "new CO2 layer only; old shared file/model/storage code unchanged",
+    "checks": "same opened descriptor owner/mode/link/ACL/bounded bytes and stable metadata; directory/lock policy; typed rejection closes FDs",
+    "intermediate_result": "102 passed in119.31s",
+    "intermediate_terminal": {
+      "actual_child_exit": 0,
+      "wall_seconds": 119.9556579880009,
+      "combined_peak_RSS_bytes": 801193984,
+      "single_PID_peak_RSS_bytes": 201805824,
+      "RSS_samples": 466,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "f395c44b76944dd3ca57d02eefa81400f9f632d5b1db01d85f090b03cc76b108",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "GREEN": {
+    "result": "103 passed in120.32s",
+    "tested_contract_sha256": "83617ca55f2578612f6d9524d57a395cb918cb68f6a6f4c05822b2e02244e6b4",
+    "terminal": {
+      "actual_child_exit": 0,
+      "wall_seconds": 121.00041990098543,
+      "combined_peak_RSS_bytes": 801353728,
+      "single_PID_peak_RSS_bytes": 201400320,
+      "RSS_samples": 471,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "b7229861c70e3fc207ccc457989b20a2682a12520222913da2cf97219ccc2628",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "original_helpers_models_profiles_or_user_results_changed": false,
+  "not_run": [
+    "owned source/current review input evidence",
+    "farm/current rights/signed custody binding",
+    "DB/API/worker/saved109-state3D",
+    "whole-product CI/browser",
+    "full crop cycle/actual farm/forecast/ranking/deployment"
+  ],
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "next_child": "co2-input-evidence",
+  "development_status_publication": {
+    "reported_at": "2026-10-20T19:27:34.087557Z",
+    "sha256": "d8a540c0ee72f86c1a42e0af0f95c405e19ee222e46be491c6cd9899c3f073ce",
+    "both_ports_HTTP_200_same_bytes_no_store": true,
+    "frozen_HTML_both_preserved": true,
+    "ventilation_frozen_source_files_preserved": 2173,
+    "guard_wall_seconds": 0.341289980977308,
+    "guard_combined_RSS_bytes": 589996032,
+    "browser_DOM_rerun": false,
+    "new_CO2_model_deployed": false
+  }
+}

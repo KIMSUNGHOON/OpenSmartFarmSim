@@ -23,7 +23,7 @@
 | 6 과실/수확 부모 잔여 | 기존 구획/startup/수확 개발 경계 대사 → 미충족 전체 작기/변환·출처 hold 연결 | 8–16 |
 | 7 `crop-water-nutrient` | 배지/급배액 근거 → 물 재고 → 성분/재순환 → 사건/적분 → 수지·결측 hold | 15–28 |
 | 8 `crop-energy-purchases` | 명시 장비/COP·효율 → 전력/연료/보조설비 → 공급열·CO₂ 분리 → 계량 단위/hold | 8–16 |
-| 9 `crop-execution-link` | CO₂ UTC/재개 수용 뒤 불변 저장 → 새 상태·입력/농장 결속 → custody/DB/API → 같은 UTC3D·현재 권리/복원 | 10–18 |
+| 9 `crop-execution-link` | CO₂ UTC/재개·파일 저장 수용 뒤 입력 증거/농장 결속 → custody/DB/API → 같은 UTC3D·현재 권리/복원 | 10–18 |
 | 10 `crop-economic-link` | H/P/S/등급·재고 → 자원/구매량/원가 → Decimal 기존 원장 → 월별 현금/대사·hold | 12–22 |
 | 11 U1 잔여 | 원20/큰 packet 성능 → 역사적 CODE/다른 family → 동시 RSS/재시작/철회 → 원 디자인/사용자 적용 | 12–24 |
 | 12 U2 | 지역/달력 → 조사 근거·누락 → 시설/품종 입력 → 실제 API/접근성 | 12–20 |
@@ -55,6 +55,10 @@ UTC/서명 custody·저장/실행/3D는 남아 있어 현 낮은 신뢰 공수/�
 첫 최대128사건은8MiB 초과로 보류했고 journal/checkpoint v2로 일시적 after_rhs만 제외해 원량/
 독립 수치·재개를 보존했다. 최대 원본6,649,987/연결6,664,177bytes는 원8MiB 안이다.
 이 수용은 파일 저장/DB·현재 권리/API/3D나 전체 작기/자료 관문을 해제하지 않으며 공수/계획 창은 유지한다.
+[불변 파일 저장103검사](../contracts/crop-greenhouse-co2-storage-v1.md)로9행의 파일 자식을 완료했다.
+10프로그램×3예산·fresh 읽기 계산0·8재개 지점/HEAD 전후 SIGKILL과 원2MiB 페이지/응답을 수용했다.
+새 계층만 현재 FD의 owner/mode/link/ACL·읽기 전후 메타데이터를 보강해 실제 mode 반례를 수정했다.
+이 파일 커널은 현재 입력/농장·서명/DB/API/3D나 전체 작기·자료 관문을 해제하지 않아 공수/계획 창은 유지한다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
 기존 디자인 변환 복구와 독립 검토/해제 확보, 추가 큰 수치/성능 재설계 없음이라는 가정이면 약5–9개발주다.
@@ -110,12 +114,16 @@ P01의 [명시 기압/온도·wet/dry 순수 변환](../contracts/crop-co2-gas-v
 `co2-utc-binding`은 [시간 연결과 journal v2](../contracts/crop-greenhouse-co2-time-v1.md)의
 UTC110/프로그램38/재개122=270검사로 수용했다.13수치 진입점 금지·원 수치/순서·fresh 연결과
 11실패 시각/최대128사건·8MiB·원 자료/5root/자원을 보존했다. 초기 최대 크기 실패와 v2 수정 근거를 남겼다.
-다음 `co2-immutable-storage`는 [기존 Solar 파일 저장](../contracts/crop-greenhouse-solar-storage-v1.md)의
-secure files/fsync/페이지/atomic HEAD를 재사용하며 새109상태/44연속·6사건/17수지와 UTC/체크포인트를
-새 typed 저장 판본에 보존한다. 실제 writer/reader·별도 프로세스의 조회 계산/restore0,
-처음/경계/최종 재개와 HEAD 전후 소유 SIGKILL·잘못된 파일/판본/해시·원 페이지/자원 한도를 검증한다.
-핵심 새 storage/집중 pytest/계약이며 과거 artifact/원 모델·프로필/5root를 보존한다.
-파일 저장 뒤 입력 증거/농장 결속→서명 custody→DB/API/같은 UTC3D 순서다.
+`co2-immutable-storage`는 [103검사](../contracts/crop-greenhouse-co2-storage-v1.md)로 실제 파일/원량·UTC를 수용했다.
+최대129시점/128사건의 페이지1,190,935/응답1,187,613bytes는 원2MiB 안이다.
+새103코드의 metadata 거부/FD 정리와5root/원 자료/원 storage/프로필 보존을 확인했다.
+다음 `co2-input-evidence`는 [기존 Solar 입력 증거](../contracts/crop-greenhouse-solar-input-evidence-v1.md)의
+현재 review/합성 provenance·권리/QC/시각/단위 검사를 새 forcing program·CO₂ 상태에 결속한다.
+먼저 원1MiB source/2MiB evidence와 변수 coverage의 실제 크기/경계를 재며 초과는 hold/별도 수정으로 기록한다.
+수용: 원 프로그램/프로필/source/초기 RHS/UTC·review ID와 별도 HMAC domain, 실제 issue 초기 평가1과
+verify/fresh의 context/UTC/수치/restore0, 변조/늦은 철회·원 파일/자원 한도·5root/자료/정리.
+핵심 새 evidence/집중 pytest/계약이며 실제 외부 권리/G0 승인이나 농장 검증을 선언하지 않는다.
+이후 농장 결속→서명 custody→DB/API/같은 UTC3D 순서다.
 독립 농장 자료 확보는 병행하고 이 합성 파일 저장의 인위적인 개발 선행으로 추가하지 않는다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 그 뒤 새 짧은 적분/관리·continuation/저장/3D를 별도 수용하며 기존 checkpoint를 덮어쓰지 않는다.
