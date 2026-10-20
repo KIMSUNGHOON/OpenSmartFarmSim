@@ -82,6 +82,7 @@ test('opens original organ metadata into its own six saved WebGL frames without 
 });
 test('clears the original numerical scene and table when the current lookup is denied',async({page})=>{
   const api=await mocked(page),panel=await open(page);await sameSample(page,0);api.deny();
+  await panel.locator('.crop-lookup summary').click();
   await panel.getByRole('button',{name:'저장 연구 조회',exact:true}).click();
   await expect(panel.locator('.crop-viewer')).toHaveCount(0);await expect(panel.locator('.crop-table')).toHaveCount(0);
   await expect(panel.getByRole('alert')).toBeVisible();
