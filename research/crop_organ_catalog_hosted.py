@@ -21,9 +21,10 @@ def save(path, value):
         json.dump(value,stream,sort_keys=True,indent=2)
 
 
-def supervise(directory, capacity=None):
+def supervise(directory, capacity=None, diagnostic=False):
     assert os.environ.get('GITHUB_ACTIONS')=='true','hosted only; preserve protected WSL services'
     assert capacity in (None,1,20),'closed capacity case required'
+    assert type(diagnostic) is bool and (not diagnostic or capacity==20)
     evidence=Path(directory).resolve()
     evidence.mkdir(mode=0o700)
     spec=importlib.util.spec_from_file_location('organ_scope',ROOT/'research/owned-research-process-scope.py')
@@ -47,6 +48,7 @@ def supervise(directory, capacity=None):
         'research/crop_organ_catalog_hosted.py')
     if capacity is not None:
         env['OSSF_JOINT_PREFIX_RUNTIME_EVIDENCE']=str(evidence)
+        env['OSSF_ORGAN_CAPACITY_DIAGNOSTIC']='1' if diagnostic else '0'
         case=('test_normal_large_producer_size_and_single_metadata_preflight' if capacity==1 else
             'test_twenty_normal_large_signed_results_actual_HTTPS_capacity')
         targets=['tests/crop_organ_catalog_capacity_smoke.py::'+case]
@@ -106,6 +108,7 @@ def supervise(directory, capacity=None):
         'owned_temp_or_credentials_remaining':temporary_remaining,
         'source_preserved':unchanged,'source_SHA256':pins,'hosted_only':True,
         'capacity_result_count':capacity,
+        'capacity_diagnostic_only':diagnostic,
         'WSL_capacity_accepted':False,'actual_crop_Runs':0,'G0_G4':'not_assessed','U1_accepted':False}
     save(evidence/'resource-organ.json',result)
     if process is not None and process.returncode:
@@ -117,9 +120,11 @@ def supervise(directory, capacity=None):
     assert process is not None and process.returncode==0 and reason is None and not remaining and not temporary_remaining and before==after and unchanged,result
     if capacity is not None:
         native=json.loads((evidence/('organ-capacity-'+str(capacity)+'.private.json')).read_bytes())
-        assert native['accepted'] and native['record_count']==capacity and native['HTTPS_server_joined']
+        assert native['diagnostic_only']==diagnostic and (native['accepted'] or diagnostic)
+        assert native['record_count']==capacity and native['HTTPS_server_joined']
         assert all(n==0 for n in native['query_calls'].values())
-        print(json.dumps({'accepted_hosted_organ_capacity_child':capacity,
+        print(json.dumps({'accepted_hosted_organ_capacity_child':None if diagnostic else capacity,
+            'diagnostic_only':diagnostic,
             'packet_bytes_sum':native['packet_bytes_sum'],'responses':len(native['observations']),
             'combined_peak_RSS_bytes':combined,'WSL_capacity_accepted':False,
             'actual_crop_Runs':0,'G0_G4':'not_assessed'}))
@@ -133,5 +138,6 @@ def supervise(directory, capacity=None):
 
 
 if __name__=='__main__':
-    assert len(sys.argv)==2 or (len(sys.argv)==4 and sys.argv[2]=='--capacity' and sys.argv[3] in ('1','20'))
-    supervise(sys.argv[1],None if len(sys.argv)==2 else int(sys.argv[3]))
+    assert len(sys.argv)==2 or (len(sys.argv) in (4,5) and sys.argv[2]=='--capacity'
+        and sys.argv[3] in ('1','20') and (len(sys.argv)==4 or sys.argv[4]=='--diagnostic'))
+    supervise(sys.argv[1],None if len(sys.argv)==2 else int(sys.argv[3]),len(sys.argv)==5)

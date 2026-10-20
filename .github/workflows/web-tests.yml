@@ -16,6 +16,10 @@ on:
         type: choice
         default: none
         options: [none, '1', '20']
+      organ_capacity_diagnostic:
+        description: With organ_capacity20, observe existing catalogue phases only (no normal acceptance)
+        type: boolean
+        default: false
       unpaused_solar:
         description: Check only independent normal Solar API and worker execution (no WSL capacity claim)
         type: boolean
@@ -115,6 +119,7 @@ jobs:
     timeout-minutes: 20
     env:
       OSSF_ORGAN_CAPACITY: ${{ inputs.organ_capacity || 'none' }}
+      OSSF_ORGAN_CAPACITY_DIAGNOSTIC: ${{ inputs.organ_capacity_diagnostic && '1' || '0' }}
       OSSF_UNPAUSED_SOLAR: ${{ inputs.unpaused_solar && '1' || '0' }}
       OSSF_NATIVE_SOLAR: ${{ inputs.native_solar && '1' || '0' }}
       OSSF_NATIVE_ORGAN: ${{ inputs.native_organ && '1' || '0' }}
@@ -171,7 +176,12 @@ jobs:
             test "$OSSF_NATIVE_ORGAN" = '0'
             test "$OSSF_SOLAR_QUERY_SCOPE_COST" = '0'
             test "$OSSF_SOLAR_TRACE_WORKER" = '0'
-            backend/.venv/bin/python -B research/crop_organ_catalog_hosted.py "$RUNNER_TEMP/organ-capacity-evidence" --capacity "$OSSF_ORGAN_CAPACITY"
+            if [ "$OSSF_ORGAN_CAPACITY_DIAGNOSTIC" = '1' ]; then
+              test "$OSSF_ORGAN_CAPACITY" = '20'
+              backend/.venv/bin/python -B research/crop_organ_catalog_hosted.py "$RUNNER_TEMP/organ-capacity-evidence" --capacity 20 --diagnostic
+            else
+              backend/.venv/bin/python -B research/crop_organ_catalog_hosted.py "$RUNNER_TEMP/organ-capacity-evidence" --capacity "$OSSF_ORGAN_CAPACITY"
+            fi
           elif [ "$OSSF_SOLAR_QUERY_SCOPE_COST" = '1' ]; then
             test "$OSSF_SOLAR_TRACE_WORKER" = '0'
             backend/.venv/bin/python -B research/solar_query_scope_hosted.py "$RUNNER_TEMP/solar-unpaused-evidence/query-scope"

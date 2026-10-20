@@ -3,6 +3,7 @@ from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from hashlib import sha256
 import http.client
+from functools import wraps
 import json
 import os
 from pathlib import Path
@@ -18,6 +19,7 @@ import pytest
 
 from app.api_runtime import ApiRuntime
 from app.crop_result_store import CropResultStore, READ_SCOPES, MAX_PACKET_BYTES
+from app.crop_organ_result_catalog import OrganCropResultCatalog
 from app.http_identity import BearerGrant, BearerRegistry, token_digest
 from app.market_source_store import MarketSourceStore
 from app.thermal_run_store import _canonical
@@ -73,6 +75,43 @@ def fingerprint(store,result_id):
     return sha256(_canonical(fields)).hexdigest()
 
 
+def observe_catalogue(monkeypatch,evidence,total):
+    """Measure existing methods without replacing any query or current-rights check."""
+    started=time.monotonic()
+    journal={'diagnostic_only':True,'events':[],'calls':{}}
+    target=evidence/('organ-capacity-'+str(total)+'-phases.private.json')
+    def write(event):
+        assert len(journal['events'])<256
+        journal['events'].append(event)
+        temporary=target.with_suffix('.tmp')
+        with temporary.open('w') as stream:
+            os.fchmod(stream.fileno(),0o600)
+            json.dump(journal,stream,indent=2)
+        os.replace(temporary,target)
+    def wrap(name,method):
+        @wraps(method)
+        def observed(*args,**kwargs):
+            call=journal['calls'].get(name,0)+1
+            journal['calls'][name]=call
+            began=time.monotonic()
+            write({'method':name,'phase':'begin','call':call,'since_start_seconds':began-started})
+            outcome={}
+            try:
+                value=method(*args,**kwargs)
+                if name=='_rows':outcome['row_count']=len(value)
+                return value
+            except Exception as error:
+                outcome['error_type']=type(error).__name__
+                raise
+            finally:
+                write({'method':name,'phase':'end','call':call,
+                    'since_start_seconds':time.monotonic()-started,
+                    'wall_seconds':time.monotonic()-began,**outcome})
+        return observed
+    for name in ('_registration','_rows','_item'):
+        monkeypatch.setattr(OrganCropResultCatalog,name,wrap(name,getattr(OrganCropResultCatalog,name)))
+
+
 def exercise(setup,tls,tmp_path,monkeypatch,total):
     store,original,_,rights=setup
     evidence=Path(os.environ['OSSF_JOINT_PREFIX_RUNTIME_EVIDENCE'])
@@ -108,6 +147,10 @@ def exercise(setup,tls,tmp_path,monkeypatch,total):
         del packet,record
         progress('normal_producer_preparation')
     preparation_seconds=time.monotonic()-preparation
+    diagnostic=os.environ.get('OSSF_ORGAN_CAPACITY_DIAGNOSTIC')=='1'
+    if diagnostic:
+        assert total==20
+        observe_catalogue(monkeypatch,evidence,total)
     jobs,replay=store.jobs,store.farms.replay
     research,holds=replay.owned_research,replay.thermal.holds
     cert,key,_=tls
@@ -169,6 +212,7 @@ def exercise(setup,tls,tmp_path,monkeypatch,total):
         'preparation_seconds':preparation_seconds,'observations':observations,
         'request_deadline_seconds':30,'metadata_max_bytes':65536,
         'actual_TLS_SCRAM_Bearer':True,'accepted':False,'browser_performed':False,
+        'diagnostic_only':diagnostic,
         'WSL_browser_capacity_accepted':False,'actual_crop_Runs':0,'G0_G4':'not_assessed','U1_accepted':False}
     thread.start()
     try:
@@ -232,7 +276,7 @@ def exercise(setup,tls,tmp_path,monkeypatch,total):
         assert all(fingerprint(store,r['result_id'])==r['row_fingerprint'] for r in records)
         with jobs.connect() as conn:
             assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth']=='scram-sha-256'
-        result.update(accepted=True,query_calls=calls,selected_DB_counts_before_after=[before,counts()],
+        result.update(accepted=not diagnostic,query_calls=calls,selected_DB_counts_before_after=[before,counts()],
             original_rows_payloads_hashes_signatures_unchanged=True)
     finally:
         rights.allowed=True

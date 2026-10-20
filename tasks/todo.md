@@ -35,6 +35,9 @@
     [첫 사전 검사](../research/organ-catalog-capacity-preflight-20261021.md)는17.235083초·합1,095,081,984bytes의
     WSL RSS 보류이며20개/크기/HTTPS는 미검증이다. 원5root/자료와 종료 뒤 소유 PG/임시/자격증명0을 확인했다.
     같은 WSL 실행을 반복하지 않고 hosted 정상1개 사전 검사→원 상한 수용 시20개로 이어간다.
+    [hosted 실제 후속](../research/organ-catalog-hosted-capacity-20261021.md)은 정상1개4,474,409bytes/최대 HTTPS4.935101초를 수용했다.
+    실제20개/합89,488,180bytes 생성 뒤 첫 목록30.010263초로 미수용이다. 소유 종료/정리는 확인했다.
+    다음은 원 호출의 구간 계측1회→작은 수정/집중 회귀→계측 OFF 정상20개다. 마지막 row/DB 불변 대사는 이번 실패에서 미수행이다.
 
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
   고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·

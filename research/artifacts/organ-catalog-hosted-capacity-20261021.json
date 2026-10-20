@@ -1,0 +1,748 @@
+{
+  "G0_G4": "not_assessed",
+  "U1_accepted": false,
+  "WSL_capacity_accepted": false,
+  "actual_crop_Runs": 0,
+  "new_UI_deployed": false,
+  "overall_goal_complete": false,
+  "scope": "hosted synthetic normal organ metadata capacity only",
+  "single_preflight": {
+    "WSL_download_guard": {
+      "RSS_samples": 13,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 615731200,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 3.4778007740096655
+    },
+    "receipt": {
+      "U1_accepted": false,
+      "WSL_capacity_accepted": false,
+      "ZIP_SHA256": "3554f16784cbf851351bf63c116ca3d49a65df23df0507f7e8e1a4f63a10e1d2",
+      "artifact_digest": "sha256:3554f16784cbf851351bf63c116ca3d49a65df23df0507f7e8e1a4f63a10e1d2",
+      "artifact_id": 12279675484,
+      "deployed": false,
+      "files": {
+        "organ-capacity-1-progress.private.json": "5935e258bf8a073192810cd6ce1348d77afd1ff54865dd96ece7c265a6f635b3",
+        "organ-capacity-1.private.json": "ab36ab3087b8df71e3ada0b3bfbf789a9f3839636c90c6ba0d8c42fd9c1dfa25",
+        "resource-organ.json": "793199805d9f8f39481bacac32432a1cbdf7b4b44d959041c13d2a760722bdcc"
+      },
+      "job": 118728562903,
+      "job_conclusion": "success",
+      "other_jobs_skipped": true,
+      "result_count": 1,
+      "retrieved_at": "2026-10-20T15:52:36.927248+00:00",
+      "run": 39451887348,
+      "source_commit": "145624826c61e570339492d2fe5263ceef557526",
+      "workflow_conclusion": "success"
+    },
+    "resource": {
+      "FD_before_after": [
+        6,
+        6
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 128,
+      "U1_accepted": false,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "capacity_result_count": 1,
+      "combined_peak_RSS_bytes": 541847552,
+      "hosted_only": true,
+      "owned_non_zombie_remaining": [],
+      "owned_temp_or_credentials_remaining": [],
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 265076736,
+      "source_SHA256": {
+        "backend/tests/crop_organ_catalog_capacity_smoke.py": "ee8cf7dcc64b0c0da0314157604e570b71499e3ab41e4f08ad8b4c9e8ebaf438",
+        "contracts/crop-organ-catalog-capacity-v1.md": "13ac6f09857eed128e947f413b64926d6a925a2d7b29deddb515a133c3e5d223",
+        "research/crop_organ_catalog_hosted.py": "3da36083b9a81fb2ac4884d0e934a6819ff1b17f99509ff77501c0fd14a62b05"
+      },
+      "source_preserved": true,
+      "wall_seconds": 32.335402311000024
+    },
+    "result": {
+      "G0_G4": "not_assessed",
+      "HTTPS_server_joined": true,
+      "U1_accepted": false,
+      "WSL_browser_capacity_accepted": false,
+      "accepted": true,
+      "actual_TLS_SCRAM_Bearer": true,
+      "actual_crop_Runs": 0,
+      "browser_performed": false,
+      "metadata_max_bytes": 65536,
+      "observations": [
+        {
+          "body_SHA256": "7767d8dca62642b456d08705b95ad7bd0ad01b669b94d445184e161d945ec521",
+          "bytes": 728,
+          "cache_control": "no-store",
+          "expected_status": 200,
+          "full_response_seconds": 4.787275086000022,
+          "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=712742ad0be071b442c9152bf36e8d068473d9dfeb96ca60725288c034ff6061&crop_id=crop-1&limit=20",
+          "status": 200
+        },
+        {
+          "body_SHA256": "47f0a2b75b8fa72d10072c68d60e1c97a946040cd62c13d1bdda5730c9b20d87",
+          "bytes": 367,
+          "cache_control": "no-store",
+          "expected_status": 200,
+          "full_response_seconds": 1.3868326799999977,
+          "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=712742ad0be071b442c9152bf36e8d068473d9dfeb96ca60725288c034ff6061&crop_id=crop-1&limit=20&before_recorded_at=2026-10-20T15%3A51%3A37.939004Z&before_result_id=crop-result-v1%3Aee189ced0b01649e24914fb65cf4c567c11efe0c193c34e4851ea29c88c16384",
+          "status": 200
+        },
+        {
+          "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+          "bytes": 91,
+          "cache_control": "no-store",
+          "expected_status": 422,
+          "full_response_seconds": 1.0534504689999835,
+          "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=712742ad0be071b442c9152bf36e8d068473d9dfeb96ca60725288c034ff6061&crop_id=crop-1&limit=20",
+          "status": 422
+        },
+        {
+          "body_SHA256": "7767d8dca62642b456d08705b95ad7bd0ad01b669b94d445184e161d945ec521",
+          "bytes": 728,
+          "cache_control": "no-store",
+          "expected_status": 200,
+          "full_response_seconds": 4.935100918999979,
+          "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=712742ad0be071b442c9152bf36e8d068473d9dfeb96ca60725288c034ff6061&crop_id=crop-1&limit=20",
+          "status": 200
+        }
+      ],
+      "original_rows_payloads_hashes_signatures_unchanged": true,
+      "output_interval_seconds": 1,
+      "packet_bytes_sum": 4474409,
+      "period_seconds": 3600,
+      "preparation_seconds": 3.5155083299999887,
+      "program_SHA256": "229419a5729c66d4f5b61a47a87a0a1841a68a02a2d352f13cc19177a3440ab7",
+      "query_calls": {
+        "RHS": 0,
+        "SQL_writes": 0,
+        "integrate": 0,
+        "put": 0
+      },
+      "record_count": 1,
+      "records": [
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "3a096fed3b79a985a9e2b9aec036d8822170f2ccd10c8a4ca6000be8a0a84e8f",
+          "planned_steps": 3600,
+          "producer_seconds": 3.4391898690000176,
+          "recorded_at": "2026-10-20T15:51:37.939004Z",
+          "result_id": "crop-result-v1:ee189ced0b01649e24914fb65cf4c567c11efe0c193c34e4851ea29c88c16384",
+          "row_fingerprint": "84d896147fed240a03adb1f960989bb15cef9014f8a3680221d5c7f1244b6137",
+          "samples": 3601,
+          "steps": 3600
+        }
+      ],
+      "request_deadline_seconds": 30,
+      "samples_per_result": 3601,
+      "scope": "owned synthetic organ metadata capacity only",
+      "selected_DB_counts_before_after": [
+        {
+          "crop_research_results": 1,
+          "job_events": 89,
+          "jobs": 89,
+          "thermal_g1_runs": 0
+        },
+        {
+          "crop_research_results": 1,
+          "job_events": 89,
+          "jobs": 89,
+          "thermal_g1_runs": 0
+        }
+      ]
+    }
+  },
+  "source_commit": "145624826c61e570339492d2fe5263ceef557526",
+  "twenty_result": {
+    "WSL_download_guard": {
+      "RSS_samples": 11,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 624447488,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 2.9555940040154383
+    },
+    "failure": {
+      "error_lines": [
+        "E               TimeoutError: The read operation timed out",
+        "FAILED tests/[redacted-id].py::[redacted-id][login_scope0] - TimeoutError: The read operation timed out"
+      ],
+      "private_log_SHA256": "753f35fd59b29f7db93ac9d05ae15f7f499219edeb991d14375375d5ba075cf4"
+    },
+    "original_rows_final_comparison_performed": false,
+    "progress": {
+      "completed": 20,
+      "phase": "normal_producer_preparation",
+      "preparation_seconds": 92.22965482899997,
+      "records": [
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "45e24e2dd274a51af9fae8d1bb4f0b8511b603648f7829540f68cce5637fdcc1",
+          "planned_steps": 3600,
+          "producer_seconds": 4.511812171999992,
+          "recorded_at": "2026-10-20T15:56:02.769979Z",
+          "result_id": "crop-result-v1:67c91b57560512878a03d7986e24f992f9f49908f4c20dcdf60db66ed0067f35",
+          "row_fingerprint": "0508910d4aa0901a61cef23384e44f01be10cd2c833cf38f06da6a68ac5dea17",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "5bbe307ea404c442b7204403ae4092ef3e944b487d2049d2e8da1448b5fc5045",
+          "planned_steps": 3600,
+          "producer_seconds": 4.563729510000002,
+          "recorded_at": "2026-10-20T15:56:07.413628Z",
+          "result_id": "crop-result-v1:bff18cb73dd83fe390e58c4c255e7f963a47c4836d03af23b82dc0a614cb3675",
+          "row_fingerprint": "d50b296e7ca68feb4a9f79ce93e6407c5828c8c93f9ebb86145cd9a24eeda30b",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "61c1fdea2ca47ce62f806314417888096a9945bbb6db7ce0c07301c1b15cb69c",
+          "planned_steps": 3600,
+          "producer_seconds": 4.60851032299999,
+          "recorded_at": "2026-10-20T15:56:12.003472Z",
+          "result_id": "crop-result-v1:37a3b965613cd03129477d23e8ddd2e79f31c7eaa762afde40c5087135395556",
+          "row_fingerprint": "ad422ab3f12684e7f7342e8f0332fff072c7de654ecf76319556f65f70145c68",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "42a037e1ab8534b7cdc5d01667b9b4a36214cfd51640ec77d4ec6cf6551e0af3",
+          "planned_steps": 3600,
+          "producer_seconds": 4.537313198999982,
+          "recorded_at": "2026-10-20T15:56:16.703227Z",
+          "result_id": "crop-result-v1:663d155d705ab5183e2bd632677fa86ac0956297806917255fbbf092b950494b",
+          "row_fingerprint": "2aba22e1415b59a3ef5320f57703de5984d4a5f886aed1574d65c477a5331ef8",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "944921d3f80291d562eb761683174bfc7b6556f776a2c09d193af20998316a34",
+          "planned_steps": 3600,
+          "producer_seconds": 4.567418693999997,
+          "recorded_at": "2026-10-20T15:56:21.363356Z",
+          "result_id": "crop-result-v1:e79857099651bb073bc58a3530bc2146cad964cdc208de58d1ad3739e665aef2",
+          "row_fingerprint": "34b1828688b1b06a1b8a5e056f562b40927e496d82751c0ac22bdab72fc95e75",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "3c3e315595d01ff218733462635fcb4bf59da13d342d7ba7252df4b43386e08a",
+          "planned_steps": 3600,
+          "producer_seconds": 4.533120881000002,
+          "recorded_at": "2026-10-20T15:56:25.970168Z",
+          "result_id": "crop-result-v1:5b1f06507a4eba6ff7690eefadb93ddbad36b6d5b6a8e914a00c31ea84b279d4",
+          "row_fingerprint": "a2a3f1b5bd763fe112b22b03be9c85b133bba310db09e8a5310167119b1062d2",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "e5dcf514bd79a07c0b6a4f617d37310ddd79f0cf34dbbde6e957a0213e0a0d74",
+          "planned_steps": 3600,
+          "producer_seconds": 4.568077066000001,
+          "recorded_at": "2026-10-20T15:56:30.617238Z",
+          "result_id": "crop-result-v1:507984be257f166f78e80db654373eb67d59d4646417dcc8e89e58c604262836",
+          "row_fingerprint": "d557f4e9a88453ce83e1b54ace22bcd747f620e7b3b582248165b00504f00793",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "ff728f06efd90bd6ceda5f44f2e1b9f0f1de00031a5f6ede70ca7fccf30ab773",
+          "planned_steps": 3600,
+          "producer_seconds": 4.575266736999993,
+          "recorded_at": "2026-10-20T15:56:35.178085Z",
+          "result_id": "crop-result-v1:72135854782e554d0af7be4f90c3b2ee301b2c9354f2670b78381fd088a6f571",
+          "row_fingerprint": "d3bbdff4059c57342748e8a843d5e8b56e743d4f57e5ff082ef5a5113499ef96",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "bdb766df73b3e5542dc89085294b594e1792d26ad4de01ebcd8d33e40089fc3f",
+          "planned_steps": 3600,
+          "producer_seconds": 4.4536053089999825,
+          "recorded_at": "2026-10-20T15:56:39.791681Z",
+          "result_id": "crop-result-v1:09da7f9cb4b218b8418cb2e6a637029dfd19d49dde96e17eef7267d441193765",
+          "row_fingerprint": "01bbb5edffc3e41224a39a0df47c4bdebb18d9362ba7c3bf0f38438946680260",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "b546dc9d18215f3d13258636d7c54fe8002a93bdcff78fd9ec425486992ad02e",
+          "planned_steps": 3600,
+          "producer_seconds": 4.618668901999996,
+          "recorded_at": "2026-10-20T15:56:44.352943Z",
+          "result_id": "crop-result-v1:592dacbe5f1728d8125543ce45dfd0fdfab3625fd8a8cb4c2febff27cf6ee6c2",
+          "row_fingerprint": "a622e215632b1c4c3b2e43ad8c780343c695e7593bc723b7e2876c5eb93a3669",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "d9ddecb4c13fac0dee95bb12e7b3b48a1efcbfd193f897185e61ff7dc1355c8f",
+          "planned_steps": 3600,
+          "producer_seconds": 4.509857239000013,
+          "recorded_at": "2026-10-20T15:56:49.051722Z",
+          "result_id": "crop-result-v1:f0b26f9a96cd7886948ef3644de436915d523bbe342b690c8237fb2d92ed6d3f",
+          "row_fingerprint": "7460ccedae3ce4f742418d507b45378b7750d6c0eae7535df9ccf413a26724d1",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "ca4763e33d33ad48f16cc302afcf146a68357d766c31d316b6dd802b09718d84",
+          "planned_steps": 3600,
+          "producer_seconds": 4.544151275000019,
+          "recorded_at": "2026-10-20T15:56:53.667455Z",
+          "result_id": "crop-result-v1:a97e99113bc7bc465a51c6a9bcc8afb860080d3d54f71b0924a0061e16a6b082",
+          "row_fingerprint": "8f8d96a175f0d0e9a24ca02f0ef52adf0f19fe7d5a3c7f671a2e43a4242f1adb",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "1a8a68fa26c5bf73f6c222ce80e452e7c2434a9bf4fef82191a9f154c7e48c98",
+          "planned_steps": 3600,
+          "producer_seconds": 4.591944613999999,
+          "recorded_at": "2026-10-20T15:56:58.337165Z",
+          "result_id": "crop-result-v1:8b1bc597e8082dc2e4717d195001a8302b94d7aae4f4f47ff3aaaaff541173ff",
+          "row_fingerprint": "9969fd550358a407587aba8b83ac1edae8a650bcad49ecb0b0b2bfcd8265f544",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "ad59c3315047bd9e373ed7fc5154275200f8e7c45e9a7a5fda39c1ad5f001f94",
+          "planned_steps": 3600,
+          "producer_seconds": 4.569164949999987,
+          "recorded_at": "2026-10-20T15:57:02.973512Z",
+          "result_id": "crop-result-v1:7fc499e5b849187de5fc0168a8f6bccc9e813b0d4351c8ead47fa4b1d031290d",
+          "row_fingerprint": "167039aa5262e5789fc3b5afe7eb88b7fe8c13ca1691c53e3477add7c90b50c6",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "0efbe7596cde50ee18bba7ea6125d6b4ad72a1bbac547286b2d8550f30349cee",
+          "planned_steps": 3600,
+          "producer_seconds": 4.52640604100003,
+          "recorded_at": "2026-10-20T15:57:07.494556Z",
+          "result_id": "crop-result-v1:5fb55bf2f24020de9040709225dfc54f334a5364bd97bbe823d760f8ed023362",
+          "row_fingerprint": "3475f9ad2a607c757f4a7d41609ed6dbb6a059532d7ffff1a49f820854f47030",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "d32ec108f35fc9a7bdc68fa35d10eb9d45d918a00b799237adb21717c5f83d7b",
+          "planned_steps": 3600,
+          "producer_seconds": 4.492131558999972,
+          "recorded_at": "2026-10-20T15:57:12.132511Z",
+          "result_id": "crop-result-v1:085dff69012342f5f0e69062c063be5e67b7a15d3ce3a1588b28c711f0a1f952",
+          "row_fingerprint": "c6698d0db2dc5f62f2ca7ee75812ebdf8589a56278a70d2a5c7050f3bb45cd12",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "c852ffc870a3f297bf09c43a498d236195d4522db1fde665861cf33b05b59b70",
+          "planned_steps": 3600,
+          "producer_seconds": 4.521649749999995,
+          "recorded_at": "2026-10-20T15:57:16.661871Z",
+          "result_id": "crop-result-v1:ca63deffef18ba122cf16c7554db3aa11811cdab0d734d25c28286afcbc73612",
+          "row_fingerprint": "2086224ae15e05eee5011ee3932434c05fe2862f97c9a9ed1342670e1a5ec944",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "e040bad542897e1b2d92df5fafacd7b4084b59e8384379ff9d6f0343640bb51b",
+          "planned_steps": 3600,
+          "producer_seconds": 4.437587653000037,
+          "recorded_at": "2026-10-20T15:57:21.254670Z",
+          "result_id": "crop-result-v1:cc1a03a37a8c4ced8e72d0bec315966bcc6bff5c421d31b77047f3ea2007f0a9",
+          "row_fingerprint": "2c4c85a548fedefd35130ab974d381961a4755bb73cf0d1cc6969ae7f9424777",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "49e9eef5639e3bbb8e1863fe40dfbd7a81ebe394974e81843d3284512dc4a5e6",
+          "planned_steps": 3600,
+          "producer_seconds": 4.532791782999993,
+          "recorded_at": "2026-10-20T15:57:25.836894Z",
+          "result_id": "crop-result-v1:51011d719e3bcb9444713362dfaf746781b724f0be5cb23ae49963f62c7bceff",
+          "row_fingerprint": "cb69b048d658b711c438e26f359d2a7e2a3e0002596294ebec36dac26f54254c",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "492c57f4f85f30fcdaecea8b5cae574c2679897fc6af9ee8113a309524217434",
+          "planned_steps": 3600,
+          "producer_seconds": 4.525211508999973,
+          "recorded_at": "2026-10-20T15:57:30.438201Z",
+          "result_id": "crop-result-v1:16382c54516e4fc434cf93c0927e71e0c7a245f109cc8ca15e1c843111cdd5dc",
+          "row_fingerprint": "8f9045dd8e4fc95ee3373dc1b7780c9ef03d5a66587faa1096842fb6e15dc259",
+          "samples": 3601,
+          "steps": 3600
+        }
+      ],
+      "target": 20
+    },
+    "receipt": {
+      "U1_accepted": false,
+      "WSL_capacity_accepted": false,
+      "ZIP_SHA256": "ae3a55c3cdb09e087019348869225fc9303ac602872e4527aaf49c7610c44994",
+      "artifact_digest": "sha256:ae3a55c3cdb09e087019348869225fc9303ac602872e4527aaf49c7610c44994",
+      "artifact_id": 12277879674,
+      "deployed": false,
+      "files": {
+        "native-failure-summary.json": "369abf5abf1c20342281d65d5955fe63227d100d88a9896fa058e96aac36f136",
+        "organ-capacity-20-progress.private.json": "dc09ad0306db55b141c3dfcd1d4f9c501b228b65847693b5b60fc7083acc1650",
+        "organ-capacity-20.private.json": "2cd8a1cacc66a23050d56673d3f13831ba15fe5c2f29fed85bbfe760af602f07",
+        "resource-organ.json": "ecdc70fb8a56f3fcf101f5629cd4b062017489750497c881687b047726e50397"
+      },
+      "job": 118730724435,
+      "job_conclusion": "failure",
+      "other_jobs_skipped": true,
+      "result_count": 20,
+      "retrieved_at": "2026-10-20T15:59:31.236165+00:00",
+      "run": 39452498070,
+      "source_commit": "145624826c61e570339492d2fe5263ceef557526",
+      "workflow_conclusion": "failure"
+    },
+    "resource": {
+      "FD_before_after": [
+        6,
+        6
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 581,
+      "U1_accepted": false,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "capacity_result_count": 20,
+      "combined_peak_RSS_bytes": 603910144,
+      "hosted_only": true,
+      "owned_non_zombie_remaining": [],
+      "owned_temp_or_credentials_remaining": [],
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 326262784,
+      "source_SHA256": {
+        "backend/tests/crop_organ_catalog_capacity_smoke.py": "ee8cf7dcc64b0c0da0314157604e570b71499e3ab41e4f08ad8b4c9e8ebaf438",
+        "contracts/crop-organ-catalog-capacity-v1.md": "13ac6f09857eed128e947f413b64926d6a925a2d7b29deddb515a133c3e5d223",
+        "research/crop_organ_catalog_hosted.py": "3da36083b9a81fb2ac4884d0e934a6819ff1b17f99509ff77501c0fd14a62b05"
+      },
+      "source_preserved": true,
+      "wall_seconds": 148.43394869300002
+    },
+    "result": {
+      "G0_G4": "not_assessed",
+      "HTTPS_server_joined": true,
+      "U1_accepted": false,
+      "WSL_browser_capacity_accepted": false,
+      "accepted": false,
+      "actual_TLS_SCRAM_Bearer": true,
+      "actual_crop_Runs": 0,
+      "browser_performed": false,
+      "metadata_max_bytes": 65536,
+      "observations": [
+        {
+          "error_type": "TimeoutError",
+          "expected_status": 200,
+          "full_response_seconds": 30.010263371999997,
+          "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f55e365d4efbebee32d0a3160f621fceda6923b772d019bfc09ef32cb9d9d7&crop_id=crop-1&limit=20"
+        }
+      ],
+      "output_interval_seconds": 1,
+      "packet_bytes_sum": 89488180,
+      "period_seconds": 3600,
+      "preparation_seconds": 92.230606685,
+      "program_SHA256": "229419a5729c66d4f5b61a47a87a0a1841a68a02a2d352f13cc19177a3440ab7",
+      "query_calls": {
+        "RHS": 0,
+        "SQL_writes": 0,
+        "integrate": 0,
+        "put": 0
+      },
+      "record_count": 20,
+      "records": [
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "45e24e2dd274a51af9fae8d1bb4f0b8511b603648f7829540f68cce5637fdcc1",
+          "planned_steps": 3600,
+          "producer_seconds": 4.511812171999992,
+          "recorded_at": "2026-10-20T15:56:02.769979Z",
+          "result_id": "crop-result-v1:67c91b57560512878a03d7986e24f992f9f49908f4c20dcdf60db66ed0067f35",
+          "row_fingerprint": "0508910d4aa0901a61cef23384e44f01be10cd2c833cf38f06da6a68ac5dea17",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "5bbe307ea404c442b7204403ae4092ef3e944b487d2049d2e8da1448b5fc5045",
+          "planned_steps": 3600,
+          "producer_seconds": 4.563729510000002,
+          "recorded_at": "2026-10-20T15:56:07.413628Z",
+          "result_id": "crop-result-v1:bff18cb73dd83fe390e58c4c255e7f963a47c4836d03af23b82dc0a614cb3675",
+          "row_fingerprint": "d50b296e7ca68feb4a9f79ce93e6407c5828c8c93f9ebb86145cd9a24eeda30b",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "61c1fdea2ca47ce62f806314417888096a9945bbb6db7ce0c07301c1b15cb69c",
+          "planned_steps": 3600,
+          "producer_seconds": 4.60851032299999,
+          "recorded_at": "2026-10-20T15:56:12.003472Z",
+          "result_id": "crop-result-v1:37a3b965613cd03129477d23e8ddd2e79f31c7eaa762afde40c5087135395556",
+          "row_fingerprint": "ad422ab3f12684e7f7342e8f0332fff072c7de654ecf76319556f65f70145c68",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "42a037e1ab8534b7cdc5d01667b9b4a36214cfd51640ec77d4ec6cf6551e0af3",
+          "planned_steps": 3600,
+          "producer_seconds": 4.537313198999982,
+          "recorded_at": "2026-10-20T15:56:16.703227Z",
+          "result_id": "crop-result-v1:663d155d705ab5183e2bd632677fa86ac0956297806917255fbbf092b950494b",
+          "row_fingerprint": "2aba22e1415b59a3ef5320f57703de5984d4a5f886aed1574d65c477a5331ef8",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "944921d3f80291d562eb761683174bfc7b6556f776a2c09d193af20998316a34",
+          "planned_steps": 3600,
+          "producer_seconds": 4.567418693999997,
+          "recorded_at": "2026-10-20T15:56:21.363356Z",
+          "result_id": "crop-result-v1:e79857099651bb073bc58a3530bc2146cad964cdc208de58d1ad3739e665aef2",
+          "row_fingerprint": "34b1828688b1b06a1b8a5e056f562b40927e496d82751c0ac22bdab72fc95e75",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "3c3e315595d01ff218733462635fcb4bf59da13d342d7ba7252df4b43386e08a",
+          "planned_steps": 3600,
+          "producer_seconds": 4.533120881000002,
+          "recorded_at": "2026-10-20T15:56:25.970168Z",
+          "result_id": "crop-result-v1:5b1f06507a4eba6ff7690eefadb93ddbad36b6d5b6a8e914a00c31ea84b279d4",
+          "row_fingerprint": "a2a3f1b5bd763fe112b22b03be9c85b133bba310db09e8a5310167119b1062d2",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "e5dcf514bd79a07c0b6a4f617d37310ddd79f0cf34dbbde6e957a0213e0a0d74",
+          "planned_steps": 3600,
+          "producer_seconds": 4.568077066000001,
+          "recorded_at": "2026-10-20T15:56:30.617238Z",
+          "result_id": "crop-result-v1:507984be257f166f78e80db654373eb67d59d4646417dcc8e89e58c604262836",
+          "row_fingerprint": "d557f4e9a88453ce83e1b54ace22bcd747f620e7b3b582248165b00504f00793",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "ff728f06efd90bd6ceda5f44f2e1b9f0f1de00031a5f6ede70ca7fccf30ab773",
+          "planned_steps": 3600,
+          "producer_seconds": 4.575266736999993,
+          "recorded_at": "2026-10-20T15:56:35.178085Z",
+          "result_id": "crop-result-v1:72135854782e554d0af7be4f90c3b2ee301b2c9354f2670b78381fd088a6f571",
+          "row_fingerprint": "d3bbdff4059c57342748e8a843d5e8b56e743d4f57e5ff082ef5a5113499ef96",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "bdb766df73b3e5542dc89085294b594e1792d26ad4de01ebcd8d33e40089fc3f",
+          "planned_steps": 3600,
+          "producer_seconds": 4.4536053089999825,
+          "recorded_at": "2026-10-20T15:56:39.791681Z",
+          "result_id": "crop-result-v1:09da7f9cb4b218b8418cb2e6a637029dfd19d49dde96e17eef7267d441193765",
+          "row_fingerprint": "01bbb5edffc3e41224a39a0df47c4bdebb18d9362ba7c3bf0f38438946680260",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "b546dc9d18215f3d13258636d7c54fe8002a93bdcff78fd9ec425486992ad02e",
+          "planned_steps": 3600,
+          "producer_seconds": 4.618668901999996,
+          "recorded_at": "2026-10-20T15:56:44.352943Z",
+          "result_id": "crop-result-v1:592dacbe5f1728d8125543ce45dfd0fdfab3625fd8a8cb4c2febff27cf6ee6c2",
+          "row_fingerprint": "a622e215632b1c4c3b2e43ad8c780343c695e7593bc723b7e2876c5eb93a3669",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "d9ddecb4c13fac0dee95bb12e7b3b48a1efcbfd193f897185e61ff7dc1355c8f",
+          "planned_steps": 3600,
+          "producer_seconds": 4.509857239000013,
+          "recorded_at": "2026-10-20T15:56:49.051722Z",
+          "result_id": "crop-result-v1:f0b26f9a96cd7886948ef3644de436915d523bbe342b690c8237fb2d92ed6d3f",
+          "row_fingerprint": "7460ccedae3ce4f742418d507b45378b7750d6c0eae7535df9ccf413a26724d1",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "ca4763e33d33ad48f16cc302afcf146a68357d766c31d316b6dd802b09718d84",
+          "planned_steps": 3600,
+          "producer_seconds": 4.544151275000019,
+          "recorded_at": "2026-10-20T15:56:53.667455Z",
+          "result_id": "crop-result-v1:a97e99113bc7bc465a51c6a9bcc8afb860080d3d54f71b0924a0061e16a6b082",
+          "row_fingerprint": "8f8d96a175f0d0e9a24ca02f0ef52adf0f19fe7d5a3c7f671a2e43a4242f1adb",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "1a8a68fa26c5bf73f6c222ce80e452e7c2434a9bf4fef82191a9f154c7e48c98",
+          "planned_steps": 3600,
+          "producer_seconds": 4.591944613999999,
+          "recorded_at": "2026-10-20T15:56:58.337165Z",
+          "result_id": "crop-result-v1:8b1bc597e8082dc2e4717d195001a8302b94d7aae4f4f47ff3aaaaff541173ff",
+          "row_fingerprint": "9969fd550358a407587aba8b83ac1edae8a650bcad49ecb0b0b2bfcd8265f544",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "ad59c3315047bd9e373ed7fc5154275200f8e7c45e9a7a5fda39c1ad5f001f94",
+          "planned_steps": 3600,
+          "producer_seconds": 4.569164949999987,
+          "recorded_at": "2026-10-20T15:57:02.973512Z",
+          "result_id": "crop-result-v1:7fc499e5b849187de5fc0168a8f6bccc9e813b0d4351c8ead47fa4b1d031290d",
+          "row_fingerprint": "167039aa5262e5789fc3b5afe7eb88b7fe8c13ca1691c53e3477add7c90b50c6",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "0efbe7596cde50ee18bba7ea6125d6b4ad72a1bbac547286b2d8550f30349cee",
+          "planned_steps": 3600,
+          "producer_seconds": 4.52640604100003,
+          "recorded_at": "2026-10-20T15:57:07.494556Z",
+          "result_id": "crop-result-v1:5fb55bf2f24020de9040709225dfc54f334a5364bd97bbe823d760f8ed023362",
+          "row_fingerprint": "3475f9ad2a607c757f4a7d41609ed6dbb6a059532d7ffff1a49f820854f47030",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "d32ec108f35fc9a7bdc68fa35d10eb9d45d918a00b799237adb21717c5f83d7b",
+          "planned_steps": 3600,
+          "producer_seconds": 4.492131558999972,
+          "recorded_at": "2026-10-20T15:57:12.132511Z",
+          "result_id": "crop-result-v1:085dff69012342f5f0e69062c063be5e67b7a15d3ce3a1588b28c711f0a1f952",
+          "row_fingerprint": "c6698d0db2dc5f62f2ca7ee75812ebdf8589a56278a70d2a5c7050f3bb45cd12",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "c852ffc870a3f297bf09c43a498d236195d4522db1fde665861cf33b05b59b70",
+          "planned_steps": 3600,
+          "producer_seconds": 4.521649749999995,
+          "recorded_at": "2026-10-20T15:57:16.661871Z",
+          "result_id": "crop-result-v1:ca63deffef18ba122cf16c7554db3aa11811cdab0d734d25c28286afcbc73612",
+          "row_fingerprint": "2086224ae15e05eee5011ee3932434c05fe2862f97c9a9ed1342670e1a5ec944",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "e040bad542897e1b2d92df5fafacd7b4084b59e8384379ff9d6f0343640bb51b",
+          "planned_steps": 3600,
+          "producer_seconds": 4.437587653000037,
+          "recorded_at": "2026-10-20T15:57:21.254670Z",
+          "result_id": "crop-result-v1:cc1a03a37a8c4ced8e72d0bec315966bcc6bff5c421d31b77047f3ea2007f0a9",
+          "row_fingerprint": "2c4c85a548fedefd35130ab974d381961a4755bb73cf0d1cc6969ae7f9424777",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "49e9eef5639e3bbb8e1863fe40dfbd7a81ebe394974e81843d3284512dc4a5e6",
+          "planned_steps": 3600,
+          "producer_seconds": 4.532791782999993,
+          "recorded_at": "2026-10-20T15:57:25.836894Z",
+          "result_id": "crop-result-v1:51011d719e3bcb9444713362dfaf746781b724f0be5cb23ae49963f62c7bceff",
+          "row_fingerprint": "cb69b048d658b711c438e26f359d2a7e2a3e0002596294ebec36dac26f54254c",
+          "samples": 3601,
+          "steps": 3600
+        },
+        {
+          "packet_bytes": 4474409,
+          "payload_SHA256": "492c57f4f85f30fcdaecea8b5cae574c2679897fc6af9ee8113a309524217434",
+          "planned_steps": 3600,
+          "producer_seconds": 4.525211508999973,
+          "recorded_at": "2026-10-20T15:57:30.438201Z",
+          "result_id": "crop-result-v1:16382c54516e4fc434cf93c0927e71e0c7a245f109cc8ca15e1c843111cdd5dc",
+          "row_fingerprint": "8f9045dd8e4fc95ee3373dc1b7780c9ef03d5a66587faa1096842fb6e15dc259",
+          "samples": 3601,
+          "steps": 3600
+        }
+      ],
+      "request_deadline_seconds": 30,
+      "samples_per_result": 3601,
+      "scope": "owned synthetic organ metadata capacity only"
+    },
+    "selected_DB_counts_final_comparison_performed": false
+  }
+}

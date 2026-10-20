@@ -32,3 +32,8 @@ Web tests의 닫힌 `organ_capacity` 입력만 선택하고 Solar/브라우저 �
 생성 시작/반환/검사 완료의 진행 metadata와 최종 JSON만 artifact로 보존하며
 원 payload·계정/DSN/passfile/TLS private key나 private log는 업로드하지 않는다.
 hosted 성공은 보호5root를 포함한 WSL 동시 용량을 해제하지 않는다.
+
+정상20개가 원30초 응답으로 실패하면 `organ_capacity_diagnostic=true`의 별도 실행은
+기존 `_registration`/`_rows`/`_item`의 호출 시작/끝과 시간·개수만 계측한다.
+원 producer·SQL·현재 검사·요청/자원 상한을 유지하고 원본/토큰을 기록하지 않는다.
+관측 오버헤드가 있으므로 계측 실행은 정상 용량 수용으로 쓰지 않는다.
