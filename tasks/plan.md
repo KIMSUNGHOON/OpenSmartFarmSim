@@ -38,6 +38,10 @@ HTML/진행 JSON의200으로 보호 API의 정상 동작을 대신하지 않는�
    실제 WebGL·320/390px·현재 거부 시 제거를 확인했으나 수치 전송은 소프트웨어 fixture이며 실제 API/DB를 쓰지 않았다.
    다음은 지원 reader/CODE와 기존 동시 RSS hold를 선행 대조하고, 현재 App을 실제 원 저장 API/DB에 연결해
    원 ID/농장/UTC·값/현재 권리·소유 정리를 대사하는 별도 자식이다. 모의 응답으로 이 조건을 대체하지 않는다.
+   기관 v1의 store/integrator/rates는 보존 source와 원 bytes가 같으며 계산 작기별 runtime_roles CODE mismatch만으로
+   기관의 비호환을 단정하지 않는다. [hosted 실제 통합 자식](../contracts/crop-organ-native-acceptance-v1.md)은
+   기존 정상 producer/ApiRuntime과 전체 웹 CI의 같은 minified artifact를 사용해 원6시점·현재 권리/계정·hold를 검증한다.
+   새 synthetic 시험 row의 실제 통합과 역사적 원 row 채택·WSL5root 동시 용량/사용자 적용은 따로 기록한다.
    기존 30초 요청 제한의 실제20건/큰 packet·보존 CODE·minified App/원 UTC3D/권리와 사용자 적용이 남는다.
    [개발 기록 접근 동작](../research/catalog-development-disclosure-20261020.md)은
    웹1,864/250·동일 minified native3상태/키보드2조건·합907,010,048bytes/5root 보존으로 수용했다.

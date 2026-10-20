@@ -7,6 +7,10 @@ on:
         description: Also check actual stored Solar HTTPS and WebGL on an isolated hosted runner
         type: boolean
         default: false
+      native_organ:
+        description: Also check live organ catalogue, SCRAM, HTTPS and WebGL (hosted only; full browser suite required)
+        type: boolean
+        default: false
       unpaused_solar:
         description: Check only independent normal Solar API and worker execution (no WSL capacity claim)
         type: boolean
@@ -45,7 +49,7 @@ permissions:
 jobs:
   web:
     name: web (${{ inputs.browser_suite || 'all' }})
-    if: github.event_name != 'workflow_dispatch' || !inputs.unpaused_solar || inputs.native_solar
+    if: github.event_name != 'workflow_dispatch' || !inputs.unpaused_solar || inputs.native_solar || inputs.native_organ
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     defaults:
@@ -189,8 +193,8 @@ jobs:
           compression-level: 0
           if-no-files-found: ignore
   native_solar:
-    name: native Solar HTTPS and WebGL
-    if: github.event_name == 'workflow_dispatch' && inputs.native_solar
+    name: ${{ inputs.native_organ && 'native organ HTTPS and WebGL' || 'native Solar HTTPS and WebGL' }}
+    if: github.event_name == 'workflow_dispatch' && (inputs.native_solar || inputs.native_organ)
     needs: web
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -283,6 +287,7 @@ jobs:
           make install
           "$pg_task_root/install/bin/postgres" --version | grep -Fx 'postgres (PostgreSQL) 16.15'
       - name: Actual native stored Solar normal and hold browser checks
+        if: inputs.native_solar
         env:
           OSSF_BROWSER_SUITE: ${{ inputs.browser_suite || 'all' }}
         run: |
@@ -293,8 +298,17 @@ jobs:
           export OSSF_SOLAR_CHROMIUM="$(python3 -c 'import os; from pathlib import Path; p=list(Path(os.environ["PLAYWRIGHT_BROWSERS_PATH"]).glob("chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell")); assert len(p)==1; print(p[0])')"
           "$OSSF_SOLAR_CHROMIUM" --version
           backend/.venv/bin/python -B backend/tests/web_crop_greenhouse_solar_smoke.py all "$RUNNER_TEMP/solar-native-evidence"
+      - name: Live organ catalogue SCRAM HTTPS and WebGL
+        if: inputs.native_organ
+        run: |
+          set -euo pipefail
+          test "$OSSF_BROWSER_SUITE" = all
+          export OSSF_TEST_PG_BIN="$RUNNER_TEMP/solar-postgresql-16.15/install/bin"
+          export OSSF_TEST_PG_DSN='host=/owned-fixture dbname=postgres user=ossf_login_admin'
+          export OSSF_ORGAN_WEB_DIST="$RUNNER_TEMP/solar-tested-build/dist"
+          backend/.venv/bin/python -B research/crop_organ_catalog_hosted.py "$RUNNER_TEMP/organ-native-evidence"
       - name: Store curated native browser evidence
-        if: always()
+        if: always() && inputs.native_solar
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: solar-native-browser-${{ github.sha }}
@@ -305,6 +319,21 @@ jobs:
             ${{ runner.temp }}/solar-native-evidence/*/browser-frame-*.private.json
             ${{ runner.temp }}/solar-native-evidence/*/browser-failure.private.json
             ${{ runner.temp }}/solar-native-evidence/*/solar-*.private.png
+            ${{ runner.temp }}/solar-tested-build/build-provenance.json
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Store curated live organ evidence
+        if: always() && inputs.native_organ
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: organ-native-browser-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/organ-native-evidence/native-organ.json
+            ${{ runner.temp }}/organ-native-evidence/resource-organ.json
+            ${{ runner.temp }}/organ-native-evidence/native-failure-summary.json
+            ${{ runner.temp }}/organ-native-evidence/browser-failure.private.json
+            ${{ runner.temp }}/organ-native-evidence/organ-*.private.png
             ${{ runner.temp }}/solar-tested-build/build-provenance.json
           retention-days: 3
           compression-level: 0

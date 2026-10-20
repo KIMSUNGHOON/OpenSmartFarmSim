@@ -10,6 +10,11 @@
   연결해 farm→crop→organ 선택·원 ID/UTC/탄소/LAI·표/실제 WebGL, 현재 권리 철회/제거·복구를 확인한다.
   mock 응답 없이 실제 GET trace/원 row·payload/hash/서명 불변·조회 계산/쓰기0·원 요청/RSS 상한·5root/정리를 증거로 남긴다.
   기존20건/큰 packet 목록 용량·원 디자인·다른 저장 판본·전체 U1과 사용자 적용은 각각 별도 수용한다.
+  - [ ] **`organ-catalog-hosted-live-browser`** — [실제 통합 시험 계약](../contracts/crop-organ-native-acceptance-v1.md).
+    기존 직접 조회의 정상 producer/ApiRuntime을 재사용하고 같은 전체 CI의 minified 빌드를 실제 SCRAM/HTTPS에 연결한다.
+    목록→원6시점/표/WebGL·재접속·현재 권리/계정·numeric hold와 원 row/선택한 DB counts·조회 계산/쓰기0,
+    원30초·512MiB/PID/합1GiB/600초/.25초·소유 정리를 확인한다. hosted 자식이며 원5root의 WSL 동시 용량,
+    역사적 row의 지원 reader/CODE·원 디자인/사용자 적용과 기관 family/U1 전체는 완료하지 않는다.
 
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
   고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·
