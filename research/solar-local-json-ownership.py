@@ -142,19 +142,124 @@ def _live_stamp():
     return tuple(parts)
 
 
+class _JSONReferences:
+    """Retain approved objects; inspect all original mutable slots on each call."""
+    def __init__(self):
+        self.modules = []
+        self.classes = []
+        self.functions = []
+        self.containers = []
+        parts = []
+        seen = set()
+        def container(value):
+            if type(value) in (dict, list) and id(value) not in seen:
+                seen.add(id(value))
+                entries = tuple(sorted(value.items())) if type(value) is dict else tuple(enumerate(value))
+                self.containers.append((value, entries))
+                parts.append((id(value), tuple((k, id(v)) for k, v in entries)))
+                for _, item in entries:
+                    container(item)
+        functions = []
+        for module in _JSON_MODULES:
+            fields = {n: v for n, v in sorted(vars(module).items())
+                      if not n.startswith('__') and n not in _IGNORE}
+            self.modules.append((vars(module), fields))
+            parts.append((id(module), tuple((n, id(v)) for n, v in fields.items())))
+            for value in fields.values():
+                container(value)
+                if type(value) is types.FunctionType:
+                    functions.append(value)
+                elif type(value) is type and value.__module__.startswith('json'):
+                    attributes = tuple(sorted(vars(value).items()))
+                    self.classes.append((value, attributes))
+                    parts.append((id(value), tuple((n, id(v)) for n, v in attributes)))
+                    functions.extend(v for _, v in attributes if type(v) is types.FunctionType)
+        names = set()
+        for fn in functions:
+            self.functions.append((fn, fn.__code__, fn.__defaults__, fn.__kwdefaults__,
+                                   tuple(c.cell_contents for c in fn.__closure__ or ())))
+            _, code, defaults, kwdefaults, closure = self.functions[-1]
+            parts.append((id(fn), id(code), id(defaults), id(kwdefaults), tuple(id(v) for v in closure)))
+            container(fn.__kwdefaults__)
+            for value in fn.__defaults__ or ():
+                container(value)
+            names.update(fn.__code__.co_names)
+        self.builtins = tuple((n, vars(builtins).get(n)) for n in sorted(names))
+        self.limits = (sys.getrecursionlimit, sys.getrecursionlimit(),
+                       sys.get_int_max_str_digits, sys.get_int_max_str_digits())
+        parts.append(tuple((n, id(v)) for n, v in self.builtins))
+        recursion, recursion_value, digits, digits_value = self.limits
+        parts.append((id(recursion), recursion_value, id(digits), digits_value))
+        self.stamp = tuple(parts)
+
+    def current(self):
+        table = vars(builtins)
+        for name, value in self.builtins:
+            if table.get(name) is not value:
+                return False
+        if (json.encoder is not _JSON_MODULES[1] or json.decoder is not _JSON_MODULES[2]
+                or json.scanner is not _JSON_MODULES[3]):
+            return False
+        for table, expected in self.modules:
+            count = 0
+            for name, value in table.items():
+                if not name.startswith('__') and name not in _IGNORE:
+                    if name not in expected or expected[name] is not value:
+                        return False
+                    count += 1
+            if count != len(expected):
+                return False
+        for cls, entries in self.classes:
+            table = vars(cls)
+            if len(table) != len(entries):
+                return False
+            for name, value in entries:
+                if table.get(name, _MISSING) is not value:
+                    return False
+        for fn, code, defaults, kwdefaults, closure in self.functions:
+            if (fn.__code__ is not code or fn.__defaults__ is not defaults
+                    or fn.__kwdefaults__ is not kwdefaults):
+                return False
+            cells = fn.__closure__ or ()
+            if len(cells) != len(closure):
+                return False
+            for index, value in enumerate(closure):
+                if cells[index].cell_contents is not value:
+                    return False
+        for value, entries in self.containers:
+            if len(value) != len(entries):
+                return False
+            if type(value) is dict:
+                for key, item in entries:
+                    if value.get(key, _MISSING) is not item:
+                        return False
+            else:
+                for index, item in entries:
+                    if value[index] is not item:
+                        return False
+        recursion, recursion_value, digits, digits_value = self.limits
+        return (sys.getrecursionlimit is recursion and sys.get_int_max_str_digits is digits
+                and recursion() == recursion_value and digits() == digits_value)
+
+
+_MISSING = object()
 try:
     _JSON_APPROVED = json_reference_profile() in _APPROVED_JSON_PROFILES
     _JSON_STAMP = _live_stamp() if _JSON_APPROVED else None
+    _JSON_REFERENCES = _JSONReferences() if _JSON_APPROVED else None
+    if _JSON_APPROVED and _JSON_REFERENCES.stamp != _JSON_STAMP:
+        raise OwnershipUnavailable('JSON reference changed during approval')
 except (OwnershipUnavailable, AttributeError, TypeError, ValueError, RecursionError):
     _JSON_APPROVED = False
     _JSON_STAMP = None
+    _JSON_REFERENCES = None
 
 
 def native_json_current():
     if not _JSON_APPROVED:
         return False
     try:
-        return _live_stamp() == _JSON_STAMP
+        return _JSON_REFERENCES.current()
     except (AttributeError, TypeError, ValueError, RecursionError):
         return False
 
@@ -226,6 +331,25 @@ class _LegacyPolicy:
             and self.inputs.json is json and legacy.sha256 is sha256
             and hash_function.__globals__.get('sha256') is sha256)
         self.baseline = self.stamp() if self.approved else None
+        self.references = []
+        if self.approved:
+            functions = [getattr(owner, name, None) for owner, name in self.paths]
+            functions.extend((legacy._canonical, self.hash_function, self.canonical))
+            def names(code):
+                found = set(code.co_names)
+                for item in code.co_consts:
+                    if type(item) is types.CodeType:
+                        found.update(names(item))
+                return found
+            for fn in functions:
+                bindings = tuple((n, fn.__globals__.get(n, fn.__builtins__.get(n)))
+                                 for n in sorted(names(fn.__code__)))
+                self.references.append((fn, fn.__code__, fn.__defaults__, fn.__kwdefaults__, bindings))
+            self.aliases = (legacy.inputs, legacy._Files, self.inputs.json, legacy.sha256)
+            captured = tuple((id(fn), id(code), id(defaults), id(kwdefaults),
+                              tuple((n, id(v)) for n, v in bindings))
+                             for fn, code, defaults, kwdefaults, bindings in self.references)
+            self.approved = captured + (tuple(id(v) for v in self.aliases),) == self.baseline
 
     def stamp(self):
         functions = [getattr(owner, name, None) for owner, name in self.paths]
@@ -247,7 +371,24 @@ class _LegacyPolicy:
 
     def current(self):
         try:
-            return self.approved and native_json_current() and self.stamp() == self.baseline
+            if not self.approved or not native_json_current():
+                return False
+            for index, (owner, name) in enumerate(self.paths):
+                if getattr(owner, name, None) is not self.references[index][0]:
+                    return False
+            if (self.legacy._canonical is not self.references[-3][0]
+                    or self.hash_function is not self.references[-2][0]
+                    or self.canonical is not self.references[-1][0]):
+                return False
+            for fn, code, defaults, kwdefaults, bindings in self.references:
+                if (fn.__code__ is not code or fn.__defaults__ is not defaults
+                        or fn.__kwdefaults__ is not kwdefaults):
+                    return False
+                for name, value in bindings:
+                    if fn.__globals__.get(name, fn.__builtins__.get(name)) is not value:
+                        return False
+            return (self.legacy.inputs is self.aliases[0] and self.legacy._Files is self.aliases[1]
+                    and self.inputs.json is self.aliases[2] and self.legacy.sha256 is self.aliases[3])
         except (AttributeError, TypeError, ValueError, RecursionError):
             return False
 
