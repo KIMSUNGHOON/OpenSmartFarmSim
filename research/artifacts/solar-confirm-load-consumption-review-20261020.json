@@ -1,0 +1,328 @@
+{
+  "recorded_at": "2026-10-19T23:59:51.581778Z",
+  "native_CLI": {
+    "timestamp": "2026-10-19T23:47:00.000Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "d8194a9a09d710c097662dd0ed9459962dbb3cddcc47f45b70aa12b461b74647",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "proofs": {
+    "fault": {
+      "case": "focused-solar-confirm-load-obligations-v1",
+      "terminal_sha256": "412fe16d9317a584203bd3bdfc8ca839ecd9652bca263d26a0e5423909705870",
+      "log_sha256": "2b31419f2ece6e20205ba9013f6bd60edfb98bde90dd23355999e5ee4de219b9",
+      "source_pins_sha256": "a16a124cfd4cb4e2e88f16547a86041bc6a4730ca537f2e4c0663ba97700347c",
+      "wall_seconds": 64.59357410100347,
+      "combined_peak_RSS_bytes": 1045557248,
+      "single_PID_peak_RSS_bytes": 144003072,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_assets_originals_preserved": true,
+      "owned_cleanup_empty": true
+    },
+    "component": {
+      "case": "focused-solar-canonical-pair-component-v2",
+      "terminal_sha256": "b99956376250927908765a0389e895889725db74e2a7fa46ff24f18f47652c51",
+      "log_sha256": "6f155d60f765904cce37888dc250b6f2bc1c66ef5c55ea7ac819aff9e733d612",
+      "source_pins_sha256": "a16a124cfd4cb4e2e88f16547a86041bc6a4730ca537f2e4c0663ba97700347c",
+      "wall_seconds": 2.1404939799977,
+      "combined_peak_RSS_bytes": 896188416,
+      "single_PID_peak_RSS_bytes": 144003072,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_assets_originals_preserved": true,
+      "owned_cleanup_empty": true
+    }
+  },
+  "fault_raw_sha256": "12779dcf7cc1dd7842f0cbb2c25aaef0ce5f192a7f973b829626c91a2112ada7",
+  "fault": {
+    "actual_farm_runs": 0,
+    "all_transient_mutations_restored": true,
+    "application_source_changed": false,
+    "candidate_adopted": false,
+    "metadata_only_shortcut_rejected": true,
+    "new_solar_deployed": false,
+    "normal64_accepted": false,
+    "original_CASE6_input64_chunk1": true,
+    "read_write_mode_and_current_guards_preserved": true,
+    "rights_or_gate_approval": false,
+    "rows": [
+      {
+        "baseline_confirmation_restored": true,
+        "database_unchanged": true,
+        "fault": "transient_commit_bytes",
+        "numeric_and_CLI_calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outcome": "hold",
+        "path": "original",
+        "restored_before_late_progress": true
+      },
+      {
+        "baseline_confirmation_restored": true,
+        "database_unchanged": true,
+        "fault": "transient_commit_bytes",
+        "numeric_and_CLI_calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outcome": "same_checkpoint_accepted",
+        "path": "head_only",
+        "restored_before_late_progress": true
+      },
+      {
+        "baseline_confirmation_restored": true,
+        "database_unchanged": true,
+        "fault": "commit_decoder",
+        "numeric_and_CLI_calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outcome": "hold",
+        "path": "original",
+        "restored_before_late_progress": true
+      },
+      {
+        "baseline_confirmation_restored": true,
+        "database_unchanged": true,
+        "fault": "commit_decoder",
+        "numeric_and_CLI_calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outcome": "same_checkpoint_accepted",
+        "path": "head_only",
+        "restored_before_late_progress": true
+      },
+      {
+        "baseline_confirmation_restored": true,
+        "database_unchanged": true,
+        "fault": "load_method",
+        "numeric_and_CLI_calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outcome": "hold",
+        "path": "original",
+        "restored_before_late_progress": true
+      },
+      {
+        "baseline_confirmation_restored": true,
+        "database_unchanged": true,
+        "fault": "load_method",
+        "numeric_and_CLI_calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outcome": "same_checkpoint_accepted",
+        "path": "head_only",
+        "restored_before_late_progress": true
+      },
+      {
+        "baseline_confirmation_restored": true,
+        "database_unchanged": true,
+        "fault": "HEAD",
+        "numeric_and_CLI_calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outcome": "hold",
+        "path": "original",
+        "restored_before_late_progress": true
+      },
+      {
+        "baseline_confirmation_restored": true,
+        "database_unchanged": true,
+        "fault": "HEAD",
+        "numeric_and_CLI_calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outcome": "hold",
+        "path": "head_only",
+        "restored_before_late_progress": true
+      }
+    ],
+    "same_HEAD_check_insufficient_for_blob_codec_method": true,
+    "same_original_baseline_checkpoint_UTC": true
+  },
+  "database_cleanup": {
+    "roles": 0,
+    "schemas": 0
+  },
+  "database_cleanup_sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+  "component_raw_sha256": "e74fa8409a1473e1e88568d1c0af515b98df581c5485165201445d1ed2a40e83",
+  "component": {
+    "source_artifact_head_sha256": "ec3e876ab23b8f12644d75b475e2fd428112a790196f2a66f7ebdb18f5df0229",
+    "source_commit_count": 46,
+    "pairs_replayed": 46,
+    "iterations_per_pass": 6,
+    "rows": [
+      {
+        "mode": "baseline",
+        "wall_ns": 373902405,
+        "pair_calls": 276
+      },
+      {
+        "mode": "candidate",
+        "wall_ns": 205327943,
+        "pair_calls": 276
+      },
+      {
+        "mode": "candidate",
+        "wall_ns": 205652722,
+        "pair_calls": 276
+      },
+      {
+        "mode": "baseline",
+        "wall_ns": 377523075,
+        "pair_calls": 276
+      }
+    ],
+    "component_paired_reduction_pct": [
+      45.08515049535453,
+      45.525787529676165
+    ],
+    "component_mean_reduction_pct": 45.30653059568861,
+    "all_native_bytes_and_SHA_equal": true,
+    "unicode_signed_zero_and_scalar_boundaries": 3,
+    "mutating_encoder_counterexample": {
+      "source_SHA_equal": true,
+      "bound_payload_SHA_equal": false
+    },
+    "scope": "read-only original owned synthetic artifact; source canonical bytes reused only within one source/bound-payload pair; full file/model/HEAD/current and dispatch/ownership guard costs not measured; not a whole quantum comparison",
+    "full_codec_or_data_ownership_closure_accepted": false,
+    "product_adopted": false,
+    "normal64_accepted": false,
+    "new_solar_deployed": false,
+    "actual_farm_runs": 0,
+    "rights_or_gate_approval": false
+  },
+  "private_source_SHA256": {
+    "test_snapshot_obligations_v1.py": "5c2f329dcee3304e92f9c6c6e9dde56d67f7d80f1c2037f04b65c503ed595719",
+    "probe_canonical_pair_v2.py": "358b549e817c91f52e7f24115575d7fec8e4e9a9cbb76b87a2f9bbab8cb4880a"
+  },
+  "application_source_SHA256": {
+    "backend/app/crop_greenhouse_solar_execution_checkpoint.py": "6201b934429afe64a8bddcbe975c9c4b972de6d019958c0f18679cc4d482641a",
+    "backend/app/crop_greenhouse_solar_server_custody.py": "6a66682659e16c4274f718429bbca5728d63ba360a6954b1b346424ff3d572bb",
+    "backend/app/crop_greenhouse_solar_storage.py": "065ff9f9706bed285f19b82e67277123947715af285cc6438a77fed3c7e30d6d"
+  },
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "head_only_snapshot_rejected": true,
+  "fresh_full_snapshot_validation_retained": true,
+  "canonical_pair_full_ownership_or_dispatch_closure_accepted": false,
+  "whole_quantum_cost_trial_performed": false,
+  "candidate_adopted": false,
+  "application_source_changed": false,
+  "source82_rerun": false,
+  "new_CI_dispatched": false,
+  "normal64_accepted": false,
+  "new_solar_deployed": false,
+  "actual_farm_runs": 0,
+  "rights_or_gate_approval": false,
+  "excluded_component_v1": {
+    "reason": "standalone probe cwd had no backend module path; failed before app import/timing",
+    "actual_child_exit": 1,
+    "terminal_sha256": "8fbc9050742fa9b0debfdbf0f853d676cf1b6116d2719f879d653081405f99f0",
+    "owned_cleanup_empty": true
+  }
+}
