@@ -20,7 +20,10 @@
 기록 변경만 수용했으며 원 v1 자료/수식을 보존했다.
 [불변 파일 저장103검사](../contracts/crop-greenhouse-co2-storage-v1.md)는 실제 writer/reader·fresh 조회 계산0·
 8재개 지점/HEAD 전후 SIGKILL·파일/권한 변조와129시점/128사건 원 페이지/응답 한도를 수용했다.
-원 모델/자료/5root를 보존했다. 다음은 입력 검토/권리 증거다.
+원 모델/자료/5root를 보존했다. [입력 증거167검사](../contracts/crop-greenhouse-co2-input-evidence-v1.md)는
+원10프로그램/초기 RHS·UTC·review/provenance와 issue 초기9성분 각1회/verify·fresh 계산0을 수용했다.
+최대512환경/128사건/512출력·850,867 source/1,038,337 서명bytes는 원1MiB/2MiB 안이다.
+다음은 현재 농장 결속→서명 custody→DB/API/같은 UTC3D다.
 새 저장/API/3D와 실제 품종/농장·관문은 후속이며 기공 단위는 별도 hold다.
 필요한 계산 근거·권리를 대사했으며 UI 용량을 이 계산 개발의 선행으로 추가하지 않는다.
 기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.

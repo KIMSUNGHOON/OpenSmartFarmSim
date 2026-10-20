@@ -1,5 +1,7 @@
 # OpenSmartFarmSim 제품 명세
 
+**현재 — 2026-10-21 KST:** [CO₂·일사 입력 증거](../contracts/crop-greenhouse-co2-input-evidence-v1.md)를167집중 검사로 수용했다. 원10프로그램/초기 RHS·UTC를 보존했고 issue의 실제 초기9성분 각1회·verify/fresh 계산0, 현재 review/권리/QC/단위·변조/철회 거부를 확인했다. 최대512환경/128사건/512출력의 원본850,867/서명1,038,337bytes는 원1MiB/2MiB 안이며 원 자료/5서비스를 보존했다. 다음은 현재 농장 결속→서명 custody→DB/API/같은 UTC3D다. 합성 소프트웨어 범위이며 새 CO₂ 모델 사용자 배포·전체 작기/자원/경제/독립 자료·G0–G4는 미완료다. 전체 goal은 active, 완료일은 미정이다.
+
 **API 요청별 실제 관측 완료 — 2026-10-20 KST:** [CI39369990827·24요청/서버 구간 대사](../research/solar-api-request-cost-observation-20261020.md)에서 원360초 미완료·마지막 confirm27/64, 성공 prefix/samples의 current6·원천912·약14–16초를 확인했다. observer11/두 Python판과 원 actor/hash·종료/정리는 수용했으며 정상64는 미수용이다. 다음은 [query의 한 현재 검사 안 등록 scope 후보](../contracts/solar-query-current-registration-scope-v1.md)다. 제품 app261·기존 두 UI 유지·새 Solar/실제 자료·관문/최종 UI와 전체 날짜는 미완료/미정·goal active다.
 
 아래 날짜별 기록은 당시 상태다.
@@ -735,8 +737,9 @@ CO₂ 경계의 개발은 [원문/단위 정책](../research/crop-co2-stomatal-s
 원 수치/순서·재개를 유지하며128사건을 원8MiB 안에 결속했다. v1 증거/원 상태를 새 판본으로 덮어쓰지 않는다.
 [불변 저장103검사](../contracts/crop-greenhouse-co2-storage-v1.md)는10개 프로그램×3예산의 실제 파일/원량/UTC와
 fresh 조회 계산0·중간 재개·HEAD 전후 SIGKILL·파일/권한 변조 거부를 수용했다.
-다음은 입력 검토/권리 증거→농장 결속·서명 이력이며
-전체 작기·UTC/continuation·새 저장/3D는 후속이다.
+[입력 증거167검사](../contracts/crop-greenhouse-co2-input-evidence-v1.md)로 현재 review/provenance·단위/QC/권리와
+원1MiB source/2MiB 서명·fresh 계산0을 수용했다. 다음은 농장 결속·서명 custody→DB/API/같은 UTC3D다.
+전체 작기·109상태 사용자3D와 실제 자료/관문은 후속이다.
 기공 단위 해석의 별도 hold나
 기관 목록/U1 용량을 앞의 gas/net/mass 자식의 개발 선행으로 추가하지 않는다.
 최종 제품의 해당 용량·현재 권리·결과/3D 수용은 계속 필요하다. 잔여 공수는 [현재 계획](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)을 따른다.

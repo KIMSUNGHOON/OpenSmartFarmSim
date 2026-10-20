@@ -2232,12 +2232,24 @@
         수용: 실제 writer/finalize/reader·fresh 조회의 수치/context/restore0; 중간 재개와 HEAD 직전/직후
         소유 SIGKILL·미게시 orphan 보존·변조/혼합/symlink/FIFO/원2MiB 페이지/용량·5root/자료/정리.
         파일 저장 뒤 입력 증거/농장 결속→서명 custody→DB/API/3D로 연결한다. 합성 저장은 농장/G0–G4 승인이 아니다.
-      - [ ] **`co2-input-evidence`** — 다음 작은 자식; 선행: 위 파일/UTC/v2 journal과 기존 Solar 입력 증거 계약.
+      - [x] **`co2-input-evidence`** — [계약/수용](../contracts/crop-greenhouse-co2-input-evidence-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-input-evidence-20261021.json):167검사·원10프로그램,
+        issue9성분 각1회·verify/fresh0·실제 완료/hold 파일 일치·현재 review/권리/QC/단위와 변조/철회 거부를 수용했다.
+        최대512환경/128사건/512출력·48변수,850,867 source/1,038,337 서명bytes는 원1MiB/2MiB 안이다.
+        선행: 위 파일/UTC/v2 journal과 기존 Solar 입력 증거 계약.
         핵심3파일: 새 evidence/집중 pytest/계약. 원 forcing program/CO₂ 상태·프로필/초기 RHS/UTC와
         현재 review·provenance/단위/QC/시각/권리를 별도 HMAC 판본에 결속한다. 원 source/evidence 한도와
         변수 coverage의 실제 크기를 먼저 재고 초과는 보류한다. 수용: issue 실제 초기 평가1·verify/fresh의
         context/UTC/수치/restore0; 변조/잘못된 선언/늦은 철회·파일/원 자원 한도·5root/자료/정리.
         합성 내부 선언의 소프트웨어 검증이며 외부 자료/G0/농장 승인이 아니다. 이후 농장 결속·서명 custody다.
+      - [ ] **`co2-farm-binding`** — 다음 작은 자식; 선행: 위 입력 증거와 기존 등록 농장/명시 결과 권한.
+        [기존 Solar 결속 계약](../contracts/crop-greenhouse-solar-farm-binding-v1.md)의 등록·현재 권리 검사를
+        새 CO₂ evidence/rights/binding type과109상태/44장부 identity에 결속한다. 핵심3파일: 새 binding/집중 pytest/계약.
+        실제 SCRAM prepare/current/read/write·fresh 동일 bytes, 원 microsecond UTC/재배·점유 구간,
+        원 SourceRecord와 선언 각각의 available_at<=decision_at·provenance/hash·crop/batch/zone/면적을 확인한다.
+        현재 scope/권리/review/등록·늦은 source/DB/선언 변경·구 판본 혼합은 거부하며 request/result 각128KiB를 유지한다.
+        수치/context/UTC 생성·restore/CLI·새 Run/결과 row0, 원5root/자료·512MiB/PID/합1GiB/FD와
+        소유 PG/schema/role/passfile 정리가 수용 기준이다. 외부 실제 권리/농장·G0–G4는 별도다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

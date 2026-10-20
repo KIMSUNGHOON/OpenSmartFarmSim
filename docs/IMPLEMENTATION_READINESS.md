@@ -20,7 +20,10 @@
 최대128사건6.65/6.66MB는 원8MiB 안이며 시간 연결의 계산0·원 자료/5root·정리를 확인했다.
 [불변 파일 저장103검사](../contracts/crop-greenhouse-co2-storage-v1.md)는10프로그램×3예산의 실제 파일/
 fresh 조회 계산0·8재개 지점/HEAD 전후 실제 SIGKILL·최대 페이지/응답·새 계층의 열린 FD 메타데이터 보강과
-원 자료/5root 보존을 수용했다. 다음은 입력 검토/권리 증거→농장 결속/서명 이력→DB/API/3D다.
+원 자료/5root 보존을 수용했다. [입력 증거167검사](../contracts/crop-greenhouse-co2-input-evidence-v1.md)로
+원10프로그램/초기 RHS·UTC/변수 coverage·현재 review/권리/QC와 issue1/verify·fresh0을 수용했다.
+최대512환경/128사건/512출력은 원1MiB source/2MiB evidence 안이며5root/자료/정리를 보존했다.
+다음은 현재 농장 결속→서명 custody→DB/API/같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
 전체 작기/109상태 저장3D는 아직 미수용이다.
 기공 단위 P03은 hold이며 개발 순서와 분리한다.
 [잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지161–308집중시간의

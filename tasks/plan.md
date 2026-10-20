@@ -59,6 +59,10 @@ UTC/서명 custody·저장/실행/3D는 남아 있어 현 낮은 신뢰 공수/�
 10프로그램×3예산·fresh 읽기 계산0·8재개 지점/HEAD 전후 SIGKILL과 원2MiB 페이지/응답을 수용했다.
 새 계층만 현재 FD의 owner/mode/link/ACL·읽기 전후 메타데이터를 보강해 실제 mode 반례를 수정했다.
 이 파일 커널은 현재 입력/농장·서명/DB/API/3D나 전체 작기·자료 관문을 해제하지 않아 공수/계획 창은 유지한다.
+[입력 증거167검사](../contracts/crop-greenhouse-co2-input-evidence-v1.md)로9행의 입력 자식을 완료했다.
+원10프로그램/초기 RHS·UTC와 현재 review/provenance·권리/QC·매 구간 schema를 대사했다.
+실제 issue9성분 각1회·verify/fresh0과 최대512환경/128사건/512출력의 원1MiB/2MiB를 수용했다.
+농장/서명/DB/API/3D·전체 작기/자원/경제와 독립 자료는 남는다. 검사16.32초를 개발 공수로 환산하지 않는다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
 기존 디자인 변환 복구와 독립 검토/해제 확보, 추가 큰 수치/성능 재설계 없음이라는 가정이면 약5–9개발주다.
@@ -117,16 +121,26 @@ UTC110/프로그램38/재개122=270검사로 수용했다.13수치 진입점 금
 `co2-immutable-storage`는 [103검사](../contracts/crop-greenhouse-co2-storage-v1.md)로 실제 파일/원량·UTC를 수용했다.
 최대129시점/128사건의 페이지1,190,935/응답1,187,613bytes는 원2MiB 안이다.
 새103코드의 metadata 거부/FD 정리와5root/원 자료/원 storage/프로필 보존을 확인했다.
-다음 `co2-input-evidence`는 [기존 Solar 입력 증거](../contracts/crop-greenhouse-solar-input-evidence-v1.md)의
-현재 review/합성 provenance·권리/QC/시각/단위 검사를 새 forcing program·CO₂ 상태에 결속한다.
-먼저 원1MiB source/2MiB evidence와 변수 coverage의 실제 크기/경계를 재며 초과는 hold/별도 수정으로 기록한다.
-수용: 원 프로그램/프로필/source/초기 RHS/UTC·review ID와 별도 HMAC domain, 실제 issue 초기 평가1과
-verify/fresh의 context/UTC/수치/restore0, 변조/늦은 철회·원 파일/자원 한도·5root/자료/정리.
-핵심 새 evidence/집중 pytest/계약이며 실제 외부 권리/G0 승인이나 농장 검증을 선언하지 않는다.
-이후 농장 결속→서명 custody→DB/API/같은 UTC3D 순서다.
+`co2-input-evidence`는 [167검사/실제 서명 크기](../contracts/crop-greenhouse-co2-input-evidence-v1.md)로 수용했다.
+초기 반복 metadata는5,216,211 source/최소5,399,770 evidence bytes로 한도를 넘었다. 원 값을 유지하고
+동일 물리 변수의 시계열 설명만 묶었다. 모든 실제 구간 schema를 개별 검사하며 최대 distinct 입력은
+850,867 source/1,038,337 서명bytes·48변수다. 원한도/행·사건·출력 수를 줄이지 않았다.
+원 프로그램/프로필/source/초기 RHS/UTC·review ID와 별도 HMAC, 실제 issue 초기 평가1과
+verify/fresh의 context/UTC/수치/restore0, 변조/늦은 철회·5root/자료/정리를 대사했다.
+**다음 `co2-farm-binding`:** 선행은 위 입력 증거와 기존 등록 농장/명시 결과 권한이다.
+기존 [Solar 농장 결속](../contracts/crop-greenhouse-solar-farm-binding-v1.md)의 등록/권리 resolver를
+재사용하되 새 CO₂ source/rights/binding/verified type과109상태/44장부 identity로 구분한다.
+핵심3파일: 새 farm binding/집중 pytest/계약. 요청 경로는 서버가 공급하며 새 schema/role/service를 추가하지 않는다.
+수용: 실제 SCRAM prepare/current·fresh 동일 bytes, 원 microsecond UTC/재배·점유 기간과 각각의
+available_at<=decision_at·source/context/evidence/provenance/농장·품종/batch/zone/면적 일치;
+현재 scope/권리/review/등록·늦은 철회/DB·source·선언 변경 거부와 read/write 권한을 확인한다.
+prepare/current/fresh의 수치·context/UTC 생성·restore/CLI·새 작물 Run/결과 row는0이어야 한다.
+128KiB 결속 상한·FD/원5root/자료·512MiB/PID/합1GiB와 소유 PG/schema/role/passfile 정리를 확인한다.
+실제 외부 권리/G0 승인이나 농장 검증을 선언하지 않는다. 이후 서명 custody→DB/API/같은 UTC3D다.
 독립 농장 자료 확보는 병행하고 이 합성 파일 저장의 인위적인 개발 선행으로 추가하지 않는다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
-그 뒤 새 짧은 적분/관리·continuation/저장/3D를 별도 수용하며 기존 checkpoint를 덮어쓰지 않는다.
+이미 수용한 짧은 적분/관리·continuation/UTC/파일 저장은 유지한다. 후속 농장/서명·DB/API/3D는
+각각 별도 수용하며 기존 checkpoint를 덮어쓰지 않는다.
 원 단위 불일치의 기공 P03은 hold이며 gas/net/mass의 개발 선행으로 추가하지 않는다.
 작물/기후 순수 계산의 기존 의존성을 따르며 기관 목록/UI 용량을 이 연구의 선행으로 추가하지 않는다.
 원20개 용량의 후속 수정/계측 OFF 재검증은 남은 코드 작업이며 최종 U1/사용자 적용 전 필요하다.
