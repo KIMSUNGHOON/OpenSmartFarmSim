@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       verification_scope:
-        description: Focused CO2 projection evidence is separate from the full backend gate
+        description: Focused CO2 read evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection]
+        options: [all, co2-result-projection, co2-current-query]
   push:
     branches: [main]
   pull_request:
@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   backend_partitions:
-    if: github.event_name != 'workflow_dispatch' || inputs.verification_scope != 'co2-result-projection'
+    if: github.event_name != 'workflow_dispatch' || inputs.verification_scope == 'all'
     name: backend-partition-${{ matrix.partition }}
     runs-on: ubuntu-24.04
     timeout-minutes: 150
@@ -179,7 +179,7 @@ jobs:
 
   backend:
     needs: backend_partitions
-    if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.verification_scope != 'co2-result-projection') }}
+    if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.verification_scope == 'all') }}
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -204,8 +204,8 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && inputs.verification_scope == 'co2-result-projection'
-    name: Focused CO2 projection (separate from full backend gate)
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query')
+    name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -242,6 +242,7 @@ jobs:
       - name: Verify original CO2 projection and fresh registered-record readers
         env:
           OSSF_TEST_PG_DSN: host=/owned-fixture dbname=postgres user=ossf_login_admin
+          OSSF_CO2_VERIFICATION_SCOPE: ${{ inputs.verification_scope }}
         run: |
           export OSSF_TEST_PG_BIN="$RUNNER_TEMP/co2-projection-postgresql-16.15/install/bin"
           backend/.venv/bin/python -B research/co2_result_projection_hosted.py "$RUNNER_TEMP/co2-projection-evidence"
@@ -249,7 +250,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: co2-result-projection-${{ github.sha }}
+          name: ${{ inputs.verification_scope }}-${{ github.sha }}
           path: |
             ${{ runner.temp }}/co2-projection-evidence/tests.json
             ${{ runner.temp }}/co2-projection-evidence/resource.json
@@ -261,6 +262,16 @@ jobs:
             ${{ runner.temp }}/co2-projection-evidence/co2-projection-store-hold.json
             ${{ runner.temp }}/co2-projection-evidence/co2-projection-store-database-cleanup.json
             ${{ runner.temp }}/co2-projection-evidence/co2-projection-store-database-settings.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-fresh-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-fresh-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-fresh-failure.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-rights-projection.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-rights-serialization.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-tamper.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-edges.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-current-query-database-cleanup.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: error

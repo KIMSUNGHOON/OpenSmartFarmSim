@@ -2320,7 +2320,9 @@
           마지막1,073,930,240bytes는 미수용이다. 새 할당 원인/작은 수정 근거 전 같은 실행은 반복하지 않는다.
           현재 조회/HTTP/worker 개발과 병행하되 새 사용자 적용 전 실제 자원·원 값/시각·권리/정리를 수용한다.
       - [ ] **`co2-current-query`** — 개발 선행: 위 projection 기능/계약 수용; WSL 동시 용량은 사용자 적용 전 유지한다.
-        [새 계약](../contracts/crop-greenhouse-co2-current-query-v1.md)은 구현/시험 전이다.
+        [새 계약](../contracts/crop-greenhouse-co2-current-query-v1.md)의 구현을 추가했고
+        [사전 증거](../research/artifacts/crop-greenhouse-co2-current-query-preflight-20261021.json)의 기본5개·11개 수집을 통과했다.
+        실제 정상/보류·fresh 현재 DB/권한·늦은 철회/변조/경계 수용 전이며 체크를 유지한다.
         [기존 현재 조회](../contracts/crop-greenhouse-solar-current-query-v1.md)를 대조한다.
         같은 store/custody 읽기 세션에서 DB/HMAC/선택 HEAD·현재 권리를 투영 전후/직렬화 뒤 확인한다.
         실제 SCRAM/fresh 원 bytes·늦은 철회/변조·페이지 경계·조회 계산/SQL쓰기0·5root/WSL/정리를 수용한다.

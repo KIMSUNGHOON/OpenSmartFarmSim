@@ -1,6 +1,9 @@
 # CO₂·일사 저장 결과의 현재 권리 조회 v1
 
-Status: planned; implementation/tests pending.
+Status: implemented; actual SCRAM/fresh/late-change acceptance pending.
+[사전 증거](../research/artifacts/crop-greenhouse-co2-current-query-preflight-20261021.json)는
+잘못된 저장소5개 거부와 전체11개 수집·원5root/자료/자원·정리를 확인했다.
+실제 DB 정상/보류·fresh 현재 권한·철회/변조/경계 검증은 격리 CI에서 후속한다.
 개발 선행은 [공개 투영의 기능 수용](api-crop-greenhouse-co2-replay-v1.md)과
 [기존 서명 결과 저장소](crop-greenhouse-co2-result-store-v1.md)다.
 projection 부모의 WSL 동시 용량과 새 사용자 적용 조건은 그대로 남는다.

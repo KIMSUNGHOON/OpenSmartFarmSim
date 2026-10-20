@@ -1,0 +1,107 @@
+{
+  "schema_version": "co2-current-query-preflight-v1",
+  "recorded_at_utc": "2026-10-20T23:04:02.973579+00:00",
+  "status": "implementation_pending_actual_SCRAM_acceptance",
+  "native_CLI": {
+    "decision_id": "co2-current-query-preparation-20261021-v1",
+    "recorded_at": "2026-10-20T23:04:02.973156+00:00",
+    "native_CLI": {
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "raw_line_sha256": "48c748b1dc4031f0f2e1ef68c739f10a33d4db30bb72b5bbc8e9791a88aa2bb1",
+      "timestamp": "2026-10-20T21:27:59.686Z",
+      "recursive_CLI": false,
+      "subagents": false
+    },
+    "reference_file": "backend/app/crop_greenhouse_solar_current_query.py",
+    "reference_sha256": "71a083b933a9df2f130b8987b307dc2d58370c0b1b819955c09381a172987e2c",
+    "output": "The implementation is a family-specific adaptation of the existing SolarCurrentQuery, adding only the verified reader source_program argument to the CO2 projection. It preserves exact store/pointer/code binding, original bytes/recorded_at, one _read session and registration witness, before/after DB/HMAC checks, reader._check after serialization, scope exit and final authority validation. Existing production files, all numeric model/profile sources, grants and source rights semantics remain unchanged. Five local exact-store cases passed, eleven tests were collected without running DB fixtures. Actual normal/hold/fresh DB authorization, 60 early/late denials, DB lookup/page/HEAD tampering and bounds/busy are not accepted until the isolated hosted run passes. Keep the original600 seconds/512MiB/combined1GiB, preserve WSL hold and full CI gate.",
+    "output_sha256": "d9fa5308092476026f5b5c7073efc52b34da91fedcbd873560a1baf1857e8969",
+    "status": "implemented; local5 passed and11 collected; actual tests pending",
+    "CI": 39510460411,
+    "prior_CI": 39510460411
+  },
+  "source_SHA256": {
+    "backend/app/crop_greenhouse_co2_current_query.py": "144e2e4220f849ee71288ddd80da15bb0d9d2c3214fca2c2223468b6bf7a313a",
+    "backend/tests/test_crop_greenhouse_co2_current_query.py": "3f47cad68ec38b36b1bd6b9e0175b313a0928b6abf3d9bceb5768edfbcdd8d03",
+    "backend/tests/test_crop_greenhouse_co2_current_query_store.py": "9bbe18b152c1ce13f8dc8ff411feaa654c0196c6ccedc0dfda2e2ee0f56a6414",
+    "research/co2_result_projection_hosted.py": "23158db2f286238d43fdf497f50c571c2c60847df43823a9b447c7adc3b308a8",
+    ".github/workflows/backend-tests.yml": "3325972a1b2c52110d715ad7f991f1c3505e2fa01c7b5058b943709d4353dee8"
+  },
+  "local_pure_passed": 5,
+  "collected_test_count": 11,
+  "actual_SCRAM_tests_accepted": 0,
+  "fresh_current_DB_accepted": 0,
+  "trials": [
+    {
+      "case": "focused-co2-current-query-red-v1",
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 0.6042340610001702,
+      "combined_peak_RSS_bytes": 901939200,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "81ed1a0ce3e72591c5b8f7cf18c750746e94dce17e646b45c877799e1adbb0e0"
+    },
+    {
+      "case": "focused-co2-current-query-types-green-v1",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.373830217984505,
+      "combined_peak_RSS_bytes": 961187840,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "6abad1658387cd3a04620f2c53625edd73095251f681f43bec807a97b68ee2e7"
+    },
+    {
+      "case": "focused-co2-current-query-collection-v1",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.6626509509806056,
+      "combined_peak_RSS_bytes": 976941056,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "c828f8151e3c53569ffff0e96171ed3ba703862abfab0e3a33e4274fe72e72de"
+    }
+  ],
+  "next": "isolated hosted actual11/fresh2; no unchanged WSL DB repeat",
+  "new_CO2_deployed": false,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null
+}
