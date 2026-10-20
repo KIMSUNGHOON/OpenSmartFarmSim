@@ -501,4 +501,3 @@ def test_authority_and_runtime_module_identity_are_fixed(prepared,tmp_path,monke
         monkeypatch.setattr(model.rhs,'__file__',str(changed))
     else:setattr(server,field,lambda _:prepared[3] if field=='review_resolver' else 'changed')
     with pytest.raises(model.Co2InputEvidenceHold):verify(server,prepared,raw)
-

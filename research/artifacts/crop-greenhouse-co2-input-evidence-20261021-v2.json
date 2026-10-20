@@ -1,0 +1,194 @@
+{
+  "version": "crop-greenhouse-co2-input-evidence-acceptance-v2",
+  "recorded_at": "2026-10-20T19:51:46.613367+00:00",
+  "supersedes_current_source_pins_of": {
+    "path": "research/artifacts/crop-greenhouse-co2-input-evidence-20261021.json",
+    "sha256": "b54aeb743c414a3add74bf9baecc2991f7ddc3b2f4bbe7edab0b249a1ba3ef78",
+    "original_bytes_preserved": true
+  },
+  "reason": "Trim the test EOF blank line reported by git diff --check; no production code change. Revalidate all167 under exact final code/test/contract pins. Preserve original probe and acceptance evidence.",
+  "scope": "synthetic_co2_solar_input_math_validation_only",
+  "test_count": 167,
+  "original_programs": 10,
+  "issue_actual_initial_compositions_per_program": 1,
+  "issue_actual_components_each_once": [
+    "CO2_RHS",
+    "solar_RHS",
+    "crop_joint_RHS",
+    "ventilation",
+    "PAR",
+    "NIR",
+    "gas",
+    "net_exchange",
+    "air_mass"
+  ],
+  "verify_physical_context_time_restore_calls": 0,
+  "fresh_forbidden_entrypoints": 17,
+  "fresh_physical_context_time_restore_child_or_CLI_calls": 0,
+  "matched_native_context_future_schema_rejections": 6,
+  "actual_immutable_storage_statuses": [
+    "completed",
+    "hold"
+  ],
+  "actual_signed_maxima": [
+    {
+      "maximum_distinct": false,
+      "source_bytes": 832114,
+      "signed_evidence_bytes": 1019512,
+      "variables": 48,
+      "forcing": 512,
+      "events": 128,
+      "outputs": 512
+    },
+    {
+      "maximum_distinct": true,
+      "source_bytes": 850867,
+      "signed_evidence_bytes": 1038337,
+      "variables": 48,
+      "forcing": 512,
+      "events": 128,
+      "outputs": 512
+    }
+  ],
+  "original_source_cap_bytes": 1048576,
+  "original_evidence_cap_bytes": 2097152,
+  "native_CLI_review": {
+    "decision_id": "co2-input-evidence-20261021-v1",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "native_turn_context": {
+      "timestamp": "2026-10-20T19:30:19.978Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "event_line_sha256": "1dd43ba94f35e722a83745b1ba78a2ce4a1c56baccfd30fb2a71c9a659b1e045"
+    },
+    "session_creation_metadata": {
+      "source": "vscode",
+      "cli_version": "0.157.1",
+      "model_provider": "openai"
+    },
+    "creation_version_not_current_binary_measurement": true,
+    "no_recursive_CLI": true
+  },
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_input_evidence.py": "de3988f138fb1e6f10721978c1fa6c49e38ae656d68ca0938d97bc5ee1eae581",
+    "backend/tests/test_crop_greenhouse_co2_input_evidence.py": "320dcf15b8b081da4160d25d48d3a76ecd7556dabf46180bdb305789d3bed002",
+    "contracts/crop-greenhouse-co2-input-evidence-v1.md": "f305e7755bd0c0e40526c3279ab828a0c166538694c177d9ed9d2734d688d518",
+    "backend/app/crop_greenhouse_co2_storage.py": "6eb0b7a1474da307c75d175b8cb2c9988d12924c017d3b9b860027fad0e14f19",
+    "backend/app/crop_greenhouse_co2_time.py": "e59960eeee0c36512a3c83913ce0bdc47695960152b20b4b68e110e4f97f499e",
+    "backend/app/crop_greenhouse_co2_continuation.py": "cf48f58eaa78b18f3a54e0ef42c039b92aed84030d583e13b48c0b89123f429b",
+    "backend/app/crop_greenhouse_co2_program.py": "4cc5ec905ea6e80f713b8fbb9e335a780bc83f75f9aa04b4baf61996db8978a6",
+    "backend/app/crop_greenhouse_co2_joint.py": "5f157d7034ee6156cd7372f68b594336d09c461649ea1b676afc2d9abb7ab12f",
+    "backend/app/crop_greenhouse_solar_input_evidence.py": "2c105a74ffd67313867a7f05da992d741d66cb748dd48543bd57783a7a70a145",
+    "backend/app/crop_cycle_server_custody.py": "1b999cb6af59da487f204b1d3dd9e8bc4edf1112147a0d71ff05276aeb751a0f",
+    "backend/app/provenance.py": "8b616d1ca21233b39f9b69e8dbec475e0483bc8d8b38baa18c99c4bfdcd93b0f",
+    "fixtures/crop-greenhouse-co2-program-reference-cases-v1.json": "da09f6ff833d5c079b9bc48a2e06494fbec1fd123884881c2db146df60b69269",
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+  },
+  "tested_contract_sha256": "f305e7755bd0c0e40526c3279ab828a0c166538694c177d9ed9d2734d688d518",
+  "GREEN": {
+    "test_count": 167,
+    "pytest_seconds": 16.37,
+    "guard": {
+      "actual_child_exit": 0,
+      "wall_seconds": 17.032580905011855,
+      "combined_peak_RSS_bytes": 765341696,
+      "single_PID_peak_RSS_bytes": 145960960,
+      "RSS_samples": 66,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "feb7d547184b429bbe0b311fd8bae8c5f16c4d8015a36be61850601ea0b24a5f",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "review": {
+    "correctness": "Original raw/program/initial/context/UTC and exact series coverage; native matching malformed future contexts reject; coherent re-signed mismatches reject. Future state-dependent domain failure remains calculation hold, not packet approval.",
+    "readability": "Existing narrow evidence authority pattern; explicit quantity maps and separate schema normalizer.",
+    "architecture": "Additive CO2 evidence module; old models/profiles/evidence/storage/helpers unchanged; no new framework.",
+    "security": "Separate HMAC domain; current review and six private nofollow/single-link files read twice; source rights/QC/time/vintage coverage required; bounded canonical JSON and sanitized errors.",
+    "performance": "Actual maximum repeated and distinct inputs fit unchanged 1MiB/2MiB caps, 17.03s focused wall with protected roots inside original RSS limits.",
+    "verdict": "accepted for owned synthetic software evidence only; no main merge or deployment"
+  },
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "reported_at": "2026-10-20T19:49:36.333602Z",
+    "source_sha256": "3c175debbccabf28b4959f5309971f7257a85c9244e1ab0b8c8384935ea83b82",
+    "retained_ventilation_frozen_source_preserved": true,
+    "files": 2173,
+    "current_HTML_matches_frozen_entry_both_ports": true,
+    "browser_DOM_rerun": false,
+    "guard": {
+      "actual_child_exit": 0,
+      "wall_seconds": 0.3384793949953746,
+      "combined_peak_RSS_bytes": 585707520,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 1,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "a4a86131bd2aaf56305596d9928960b4b216e75c5bf0e8e372c03e3dc9be580c",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "next_child": "co2-farm-binding",
+  "not_accepted": [
+    "actual external source rights or G0",
+    "local independent cultivar/farm G2",
+    "future crop/economic G3a or paired ranking G3b",
+    "G4 operations",
+    "whole crop-cycle or production/resource/economic integration",
+    "new CO2 signed custody/DB/API/3D or user deployment",
+    "full CI/browser/DB/field validation in this increment"
+  ],
+  "goal_status": "active",
+  "full_product_completion": null
+}

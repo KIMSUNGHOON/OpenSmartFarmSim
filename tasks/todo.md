@@ -2233,7 +2233,7 @@
         소유 SIGKILL·미게시 orphan 보존·변조/혼합/symlink/FIFO/원2MiB 페이지/용량·5root/자료/정리.
         파일 저장 뒤 입력 증거/농장 결속→서명 custody→DB/API/3D로 연결한다. 합성 저장은 농장/G0–G4 승인이 아니다.
       - [x] **`co2-input-evidence`** — [계약/수용](../contracts/crop-greenhouse-co2-input-evidence-v1.md)/
-        [기계 증거](../research/artifacts/crop-greenhouse-co2-input-evidence-20261021.json):167검사·원10프로그램,
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-input-evidence-20261021-v2.json):167검사·원10프로그램,
         issue9성분 각1회·verify/fresh0·실제 완료/hold 파일 일치·현재 review/권리/QC/단위와 변조/철회 거부를 수용했다.
         최대512환경/128사건/512출력·48변수,850,867 source/1,038,337 서명bytes는 원1MiB/2MiB 안이다.
         선행: 위 파일/UTC/v2 journal과 기존 Solar 입력 증거 계약.

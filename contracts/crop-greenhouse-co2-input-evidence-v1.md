@@ -83,10 +83,10 @@ truth, real cultivar applicability, production/economic prediction or ranking.
 
 ## Observed acceptance
 
-[Machine evidence](../research/artifacts/crop-greenhouse-co2-input-evidence-20261021.json)
+[Machine evidence](../research/artifacts/crop-greenhouse-co2-input-evidence-20261021-v2.json)
 records the tested contract hash, native CLI review and exact source/test pins.
 RED was the absent new module. Initial22, then153, then final167 checks passed;
-the last run took16.32s pytest/17.0272s guarded wall with combined765,235,200bytes,
+that acceptance run took16.32s pytest/17.0272s guarded wall with combined765,235,200bytes,
 single151,080,960bytes,FD4→4 and original2148 entries/five roots/frozen previews
 preserved. All owned processes/PG/temp directories/passfiles were cleaned.
 
@@ -106,3 +106,7 @@ The larger literal-metadata probe and unsigned lower bounds above are preserved
 as separate observations. No equations/profile values or program codec changed.
 No DB/API/browser/new model deployment or actual rights/gate approval was tested
 here. Next is current farm binding, then signed custody/DB/API/same UTC3D.
+
+The v2 evidence record references the immutable first acceptance and a final
+same-code/test check after trimming the test file trailing blank line. The final
+record supplies exact current source/test/contract pins and guarded measurements.
