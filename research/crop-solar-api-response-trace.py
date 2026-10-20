@@ -17,9 +17,9 @@ _apiobs_codes = frozenset({'invalid_request', 'solar_prefix_hold',
     'solar_prefix_selection_conflict', 'solar_prefix_unavailable', 'forbidden',
     'not_found', 'unauthorized', 'solar_execution_hold', 'solar_execution_unavailable'})
 _apiobs_state = {'diagnostic_only':True, 'normal_execution_accepted':False,
-    'schema_version':'solar-api-response-cost-v2',
+    'schema_version':'solar-api-response-cost-v3',
     'time_scope':'inclusive nanoseconds; observer overhead included; nested times not additive',
-    'server_scope':'protected synchronous execution/prefix body only; client CPU is not server CPU',
+    'server_scope':'protected synchronous execution/prefix body with nested projection breakdown; parent includes child; client CPU is not server CPU',
     'clocks':{name:{'implementation':_apiobs_time.get_clock_info(name).implementation[:96],
         'resolution_seconds':_apiobs_time.get_clock_info(name).resolution}
         for name in ('monotonic','thread_time')},
@@ -27,9 +27,10 @@ _apiobs_state = {'diagnostic_only':True, 'normal_execution_accepted':False,
     'dropped_responses':0, 'dropped_server_operations':0, 'dropped_exceptions':0,
     'dropped_active_operations':0, 'dropped_counters':0}
 _apiobs_lock = _apiobs_threading.Lock()
-_apiobs_clients, _apiobs_servers = {}, {}
+_apiobs_clients, _apiobs_servers, _apiobs_children = {}, {}, {}
 _apiobs_roots = {('api_crop_greenhouse_solar_execution_http.py','checked'):'execution',
-    ('api_crop_greenhouse_solar_prefix_routes.py','read'):'prefix'}
+    ('api_crop_greenhouse_solar_prefix_routes.py','read'):'prefix',
+    ('crop_greenhouse_solar_prefix.py','_after_projection'):'prefix_projection'}
 _apiobs_counters = {('crop_greenhouse_solar_farm_binding.py','current'):'current_calls',
     ('crop_greenhouse_solar_storage.py','_load'):'storage_loads',
     ('market_source_store.py','_select_with_job'):'source_selects'}
@@ -37,7 +38,8 @@ _apiobs_counters = {('crop_greenhouse_solar_farm_binding.py','current'):'current
 
 def _apiobs_save():
     _apiobs_state['active_client_requests'] = [v['record'] for v in _apiobs_clients.values()]
-    _apiobs_state['active_server_operations'] = [v['record'] for v in _apiobs_servers.values()]
+    _apiobs_state['active_server_operations'] = [v['record'] for v in
+        (*_apiobs_servers.values(), *_apiobs_children.values())]
     _apiobs_state['last_saved_monotonic_ns'] = _apiobs_time.monotonic_ns()
     raw = _apiobs_json.dumps(_apiobs_state, separators=(',', ':'), allow_nan=False).encode()
     while len(raw) > 64*1024:
@@ -76,7 +78,7 @@ def _apiobs_route(frame):
 
 
 def _apiobs_begin(record):
-    if len(_apiobs_clients) + len(_apiobs_servers) >= 16:
+    if len(_apiobs_clients) + len(_apiobs_servers) + len(_apiobs_children) >= 16:
         _apiobs_state['dropped_active_operations'] += 1
         _apiobs_save()
         return None
@@ -97,6 +99,24 @@ def _apiobs_end(active, cpu_key):
 def _apiobs_count(record, key):
     if record[key] < 65536: record[key] += 1
     else: _apiobs_state['dropped_counters'] += 1
+
+
+def _apiobs_operation(label, frame, parent=None):
+    record = {'operation':label, 'SQL_calls':0, 'SQL_wall_ns':0,
+        'SQL_thread_CPU_ns':0, 'current_calls':0, 'storage_loads':0,
+        'source_selects':0, 'exception_events':0,
+        'projection_calls':0, 'projection_spans_dropped':0}
+    if parent is not None:
+        record.update(parent_operation=parent['record']['operation'],
+            parent_started_monotonic_ns=parent['record']['started_monotonic_ns'])
+    active = _apiobs_begin(record)
+    if active is not None:
+        active.update(frame=frame, SQL={})
+    return active
+
+
+def _apiobs_targets(thread):
+    return [v for v in (_apiobs_servers.get(thread), _apiobs_children.get(thread)) if v is not None]
 
 
 def _apiobs_trace(frame, event, arg):
@@ -125,16 +145,22 @@ def _apiobs_trace(frame, event, arg):
                 _apiobs_clients[key] = active
                 _apiobs_save()
             elif root and thread not in _apiobs_servers:
-                active = _apiobs_begin({'operation':root, 'SQL_calls':0, 'SQL_wall_ns':0,
-                    'SQL_thread_CPU_ns':0, 'current_calls':0, 'storage_loads':0,
-                    'source_selects':0, 'exception_events':0})
+                active = _apiobs_operation(root, key)
                 if active is None: return None
-                active.update(frame=key, SQL={})
                 _apiobs_servers[thread] = active
                 _apiobs_save()
+            elif (root == 'prefix_projection' and thread not in _apiobs_children
+                    and _apiobs_servers[thread]['record']['operation'] != root):
+                parent = _apiobs_servers[thread]
+                _apiobs_count(parent['record'], 'projection_calls')
+                active = _apiobs_operation(root, key, parent)
+                if active is None:
+                    _apiobs_count(parent['record'], 'projection_spans_dropped')
+                else:
+                    _apiobs_children[thread] = active
+                _apiobs_save()
             else:
-                active = _apiobs_servers.get(thread)
-                if active is not None:
+                for active in _apiobs_targets(thread):
                     if counter: _apiobs_count(active['record'],counter)
                     if sql:
                         _apiobs_count(active['record'],'SQL_calls')
@@ -144,10 +170,10 @@ def _apiobs_trace(frame, event, arg):
                         else: _apiobs_state['dropped_active_operations'] += 1
         return _apiobs_trace if response or root or sql or filename in _apiobs_modules else None
     with _apiobs_lock:
-        active = _apiobs_servers.get(thread)
         if event == 'exception':
-            if active is not None and active['frame'] == key:
-                _apiobs_count(active['record'],'exception_events')
+            for active in _apiobs_targets(thread):
+                if active['frame'] == key:
+                    _apiobs_count(active['record'],'exception_events')
             if filename in _apiobs_modules:
                 kind, _, trace = arg
                 _apiobs_append('exceptions', {'exception_type':kind.__name__[:96],
@@ -155,12 +181,13 @@ def _apiobs_trace(frame, event, arg):
                         'line':v.lineno, 'function':v.name[:96]}
                         for v in _apiobs_tb.extract_tb(trace)[-16:]]}, 16)
         elif event == 'return':
-            if sql and active is not None:
-                started = active['SQL'].pop(key,None)
-                if started is not None and started[2]:
-                    cpu = _apiobs_time.thread_time_ns();now = _apiobs_time.monotonic_ns()
-                    active['record']['SQL_wall_ns'] += now-started[0]
-                    active['record']['SQL_thread_CPU_ns'] += cpu-started[1]
+            if sql:
+                for active in _apiobs_targets(thread):
+                    started = active['SQL'].pop(key,None)
+                    if started is not None and started[2]:
+                        cpu = _apiobs_time.thread_time_ns();now = _apiobs_time.monotonic_ns()
+                        active['record']['SQL_wall_ns'] += now-started[0]
+                        active['record']['SQL_thread_CPU_ns'] += cpu-started[1]
             elif response:
                 observed = _apiobs_clients.pop(key,None)
                 if observed is not None:
@@ -177,11 +204,14 @@ def _apiobs_trace(frame, event, arg):
                             if type(prefix) is str and prefix in ('none','closed','accepted'):
                                 item['prefix_status'] = prefix
                     _apiobs_append('responses',item,32)
-            elif active is not None and active['frame'] == key:
-                del _apiobs_servers[thread]
-                item = _apiobs_end(active,'thread_CPU_ns')
-                item['SQL_unfinished_calls'] = len(active['SQL'])
-                _apiobs_append('server_operations',item,32)
+            else:
+                for scopes in (_apiobs_children, _apiobs_servers):
+                    active = scopes.get(thread)
+                    if active is not None and active['frame'] == key:
+                        del scopes[thread]
+                        item = _apiobs_end(active,'thread_CPU_ns')
+                        item['SQL_unfinished_calls'] = len(active['SQL'])
+                        _apiobs_append('server_operations',item,32)
     return _apiobs_trace
 
 

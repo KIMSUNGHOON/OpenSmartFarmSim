@@ -1,0 +1,71 @@
+{
+  "G0_G4": "not_assessed",
+  "Python_versions": [
+    "3.12.3",
+    "3.12.13"
+  ],
+  "active_total_limit": 16,
+  "actor_reconstruction": {
+    "API_header_sha256": "d378889d49e45cf661285b84b45114c17b447c1420da2e0d82d248cddcfa8e47",
+    "app261_unchanged": true,
+    "detail": "worker-api",
+    "instrumented_API_sha256": "34c40d6e7b6029079fea6616dbe642de3b798b2d0eab265fa046749164dcc76b",
+    "instrumented_worker_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8",
+    "normal64_accepted": false,
+    "original_API_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+    "original_actor_bodies_and_assertions_byte_equal_after_header_removal": true,
+    "original_worker_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+    "worker_header_sha256": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373"
+  },
+  "actual_diagnostic_observation_accepted": false,
+  "actual_farm_Runs": 0,
+  "backend_app_files": 261,
+  "backend_app_tree_SHA256": "591eff7de6b721a8708d0fc30604feb8f9b5898bfedf6b2ea3e860fe8e576211",
+  "counts_not_added_across_versions": true,
+  "exceptions_limit": 16,
+  "native_context_reference_SHA256": "0f6f1ce0b0ac9908847c6fcba249c6e1400415a725d9eb2a50fdefd8ce721541",
+  "nested_operation": "prefix_projection",
+  "new_Solar_deployed": false,
+  "normal64_accepted": false,
+  "observer_schema_version": "solar-api-response-cost-v3",
+  "original_baseline_parent_includes_projection": true,
+  "parent_and_child_times_not_additive": true,
+  "proof": [
+    {
+      "case": "focused-api-projection-trace-green-v1",
+      "combined_peak_RSS_bytes": 948146176,
+      "log_SHA256": "f620e85a6c2b4fb48caff85c07bcf06d42cb2000a83b3250ed3c83601ac9165a",
+      "single_PID_peak_RSS_bytes": 145444864,
+      "source_pins_SHA256": "a46bb15a773e145e6a7f621d4c9e5389a9272db2c605342196dd210429e1b16a",
+      "terminal_SHA256": "94dfa9f93a5fb53c8c535dd5d3efd2d62645f1856becd5454137594f2c35114d",
+      "wall_seconds": 1.7969788870104821
+    },
+    {
+      "case": "focused-api-projection-trace-locked-v1",
+      "combined_peak_RSS_bytes": 940118016,
+      "log_SHA256": "332cbd024eeb28ef76a56257fdd77563a636d38c93344a272c59454dcc6dd677",
+      "single_PID_peak_RSS_bytes": 145444864,
+      "source_pins_SHA256": "a46bb15a773e145e6a7f621d4c9e5389a9272db2c605342196dd210429e1b16a",
+      "terminal_SHA256": "6912518f2656c8e3903ba318a84d53dab32a7de81a3dfa44bc8ef2806cddae45",
+      "wall_seconds": 1.725718551009777
+    },
+    {
+      "case": "focused-api-projection-trace-actors-v1",
+      "combined_peak_RSS_bytes": 958906368,
+      "log_SHA256": "50468f4426bdee0c786cba0d1f0ee03a9433323b1d54ee7f13f40404366f0d43",
+      "single_PID_peak_RSS_bytes": 145444864,
+      "source_pins_SHA256": "a46bb15a773e145e6a7f621d4c9e5389a9272db2c605342196dd210429e1b16a",
+      "terminal_SHA256": "54be7e1ce5cd44e1c59d3e4b3ae11660ddc725e64de3070097093dae5b21694b",
+      "wall_seconds": 1.504130665998673
+    }
+  ],
+  "responses_limit": 32,
+  "schema_version": "solar-api-projection-diagnostic-implementation-v1",
+  "server_record_total_limit": 32,
+  "source_SHA256": {
+    "backend/tests/test_solar_api_response_trace.py": "fb7811b761a48f31069e1ece36c06049c7df1e4ec91751749bc2d9d5a3e04232",
+    "research/crop-solar-api-response-trace.py": "d378889d49e45cf661285b84b45114c17b447c1420da2e0d82d248cddcfa8e47"
+  },
+  "total_journal_max_bytes": 65536,
+  "unique_tests": 17
+}

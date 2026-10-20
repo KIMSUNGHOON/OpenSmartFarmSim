@@ -257,3 +257,157 @@ request_http()
     assert len(value['active_client_requests']) == len(value['active_server_operations']) == 1
     assert all('finished_monotonic_ns' not in row and 'status' not in row
                for row in value['active_client_requests'] + value['active_server_operations'])
+
+
+PROJECTION_FUNCTIONS = SERVER_FUNCTIONS + r'''
+projection=controlled('app.crop_greenhouse_solar_prefix',
+ '/owned/app/crop_greenhouse_solar_prefix.py',
+ "def _after_projection(action):return action()\n")['_after_projection']
+'''
+
+
+def test_nested_projection_preserves_parent_counts_and_original_return(tmp_path):
+    body = PROJECTION_FUNCTIONS + r'''
+seen=[]
+def action():
+ seen.append('child');current();source();execute('controlled_secret_never_export')
+ return 17
+def reading():
+ seen.append('parent');current();source();execute('controlled_secret_never_export')
+ return projection(action)
+assert prefix(reading)==17 and seen==['parent','child']
+'''
+    result = subprocess.run(command(tmp_path, body), capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    value = read(tmp_path)
+    assert len(value['server_operations']) == 2
+    assert value['schema_version'] == 'solar-api-response-cost-v3'
+    child, parent = value['server_operations']
+    assert child['operation'] == 'prefix_projection' and parent['operation'] == 'prefix'
+    assert child['parent_operation'] == 'prefix'
+    assert child['parent_started_monotonic_ns'] == parent['started_monotonic_ns']
+    assert parent['projection_calls'] == 1 and parent['projection_spans_dropped'] == 0
+    for key in ('SQL_calls', 'current_calls', 'source_selects'):
+        assert child[key] == 1 and parent[key] == 2
+    assert child['storage_loads'] == parent['storage_loads'] == 0
+    assert 0 < child['SQL_wall_ns'] <= child['wall_ns'] <= parent['wall_ns']
+    assert 0 <= child['thread_CPU_ns'] <= parent['thread_CPU_ns']
+    assert value['active_server_operations'] == []
+
+
+def test_projection_exception_and_reused_thread_close_both_lifetimes(tmp_path):
+    body = PROJECTION_FUNCTIONS + r'''
+def failed():
+ current();execute('controlled_secret_never_export')
+ raise ValueError('controlled_secret_never_export')
+try:prefix(lambda:projection(failed))
+except ValueError:pass
+prefix(lambda:projection(lambda:execute('controlled_secret_never_export')))
+projection(lambda:execute('controlled_secret_never_export'))
+'''
+    result = subprocess.run(command(tmp_path, body), capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    rows = read(tmp_path)['server_operations']
+    assert [r['operation'] for r in rows] == [
+        'prefix_projection', 'prefix', 'prefix_projection', 'prefix', 'prefix_projection']
+    assert [r['SQL_calls'] for r in rows] == [1, 1, 1, 1, 1]
+    assert all(r['exception_events'] >= 1 for r in rows[:2])
+    assert all(r['exception_events'] == 0 for r in rows[2:])
+    assert rows[-1].get('parent_operation') is None
+    assert read(tmp_path)['active_server_operations'] == []
+
+
+def test_projection_response_correlation_exposes_window_exclusions(tmp_path):
+    body = PROJECTION_FUNCTIONS + r'''
+from concurrent.futures import ThreadPoolExecutor
+with ThreadPoolExecutor(max_workers=1) as executor:
+ def request_http(method,path,body=None):
+  executor.submit(lambda:prefix(lambda:projection(lambda:execute('controlled_secret_never_export')))).result(2)
+  return 200,{'prefix_status':'accepted','private':'controlled_secret_never_export'}
+ for _ in range(40):request_http('GET','/v1/jobs/controlled_secret_never_export/crop-greenhouse-solar-execution/prefix')
+'''
+    result = subprocess.run(command(tmp_path, body), capture_output=True, timeout=10)
+    assert result.returncode == 0, result.stderr.decode()
+    value = read(tmp_path)
+    assert len(value['responses']) == len(value['server_operations']) == 32
+    assert value['dropped_responses'] == 8 and value['dropped_server_operations'] == 48
+    parents = [r for r in value['server_operations'] if r['operation'] == 'prefix']
+    children = [r for r in value['server_operations'] if r['operation'] == 'prefix_projection']
+    assert len(parents) == len(children) == 16
+    matched = 0
+    for response in value['responses']:
+        matches = [p for p in parents if response['started_monotonic_ns'] <=
+                   p['started_monotonic_ns'] <= p['finished_monotonic_ns'] <= response['finished_monotonic_ns']]
+        if not matches:
+            continue
+        assert len(matches) == 1
+        parent = matches[0]
+        child, = [c for c in children if c['parent_operation'] == parent['operation']
+                  and c['parent_started_monotonic_ns'] == parent['started_monotonic_ns']]
+        assert parent['started_monotonic_ns'] <= child['started_monotonic_ns'] <= child['finished_monotonic_ns'] <= parent['finished_monotonic_ns']
+        matched += 1
+    assert matched == 16 and len(value['responses'])-matched == 16
+
+
+def test_projection_child_shares_existing_active_limit(tmp_path):
+    body = PROJECTION_FUNCTIONS + r'''
+def action():
+ current();execute('controlled_secret_never_export')
+ Path(__file__).with_name('during.json').write_bytes(Path(__file__).with_name('api-response-diagnostics.private.json').read_bytes())
+def request_http(n):
+ if n:return request_http(n-1)
+ prefix(lambda:projection(action));return 200,{}
+request_http(14)
+'''
+    result = subprocess.run(command(tmp_path, body), capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    during = json.loads((tmp_path/'during.json').read_bytes())
+    assert len(during['active_client_requests'])+len(during['active_server_operations']) == 16
+    value = read(tmp_path)
+    assert value['dropped_active_operations'] == 1
+    parent, = value['server_operations']
+    assert parent['operation'] == 'prefix' and parent['current_calls'] == parent['SQL_calls'] == 1
+    assert parent['projection_calls'] == parent['projection_spans_dropped'] == 1
+    assert value['active_client_requests'] == value['active_server_operations'] == []
+
+
+def test_interrupted_projection_preserves_parent_and_child_as_incomplete(tmp_path):
+    body = PROJECTION_FUNCTIONS + r'''
+import os
+def request_http():prefix(lambda:projection(lambda:os._exit(0)))
+request_http()
+'''
+    result = subprocess.run(command(tmp_path, body), capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    value = read(tmp_path)
+    assert value['responses'] == value['server_operations'] == []
+    assert len(value['active_client_requests']) == 1
+    assert [r['operation'] for r in value['active_server_operations']] == ['prefix', 'prefix_projection']
+    assert all('finished_monotonic_ns' not in r and 'status' not in r for r in value['active_server_operations'])
+
+
+def test_concurrent_projection_children_keep_their_own_parent(tmp_path):
+    body = PROJECTION_FUNCTIONS + r'''
+import threading
+barrier=threading.Barrier(2)
+def work(n):
+ def action():
+  barrier.wait(2)
+  for _ in range(n):current();source();execute('controlled_secret_never_export')
+ prefix(lambda:projection(action))
+threads=[threading.Thread(target=work,args=(n,)) for n in (1,2)]
+for thread in threads:thread.start()
+for thread in threads:thread.join(3)
+assert not any(thread.is_alive() for thread in threads)
+'''
+    result = subprocess.run(command(tmp_path, body), capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    value = read(tmp_path)
+    rows = value['server_operations']
+    parents = [r for r in rows if r['operation'] == 'prefix']
+    children = [r for r in rows if r['operation'] == 'prefix_projection']
+    assert len(parents) == len(children) == 2
+    for parent in parents:
+        child, = [c for c in children if c['parent_started_monotonic_ns'] == parent['started_monotonic_ns']]
+        assert child['SQL_calls'] == parent['SQL_calls'] == child['current_calls'] == parent['current_calls']
+    assert value['active_server_operations'] == []

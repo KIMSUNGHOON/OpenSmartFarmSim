@@ -58,3 +58,35 @@ Instrumentation costs are included in this diagnostic and must be reported.
 
 Design judgment is made in the current native Codex CLI `gpt-6.1-sol`/`xhigh`;
 no recursive CLI or additional agent is needed.
+
+## v3 nested projection attribution
+
+Current source inspection corrects the earlier wording: prefix route `read`
+calls `public.read_prefix`, which invokes `_after_projection` before returning.
+The existing prefix root already includes that guard's time and counters; it
+lacks a separate nested breakdown. Do not describe the existing total as missing
+this work or add the nested time to its parent.
+
+The next observer adds a fixed `prefix_projection` operation for the actual
+`SolarExecutionPrefixQuery._after_projection` frame. When nested, it retains the
+existing outer root and independently measures the child, identifying its parent
+by the fixed operation label and parent's monotonic start. Counters/outer SQL
+durations remain inclusive in both records. Other nested roots stay ignored.
+A standalone projection frame is an ordinary root. No product frame or callable
+is replaced.
+
+The combined active client/root/child limit stays16, all server records share
+the existing32 window and total64KiB atomic bound. Parent records count observed
+projection calls and dropped child spans. Exception/reused-thread cleanup and
+interrupted spans preserve their real lifetimes. No frame/thread identifiers,
+arguments, raw paths, body, SQL text, identity or credentials are exported.
+Schema `solar-api-response-cost-v3` explicitly declares nested inclusive timing.
+
+Controlled verification covers child/parent inclusive counts and unchanged
+returns, exception cleanup, same-thread reuse and concurrent threads, active/byte/
+record bounds, incomplete spans and response/parent/child correlation when
+retention excludes older operations. Missing/ambiguous/window-excluded records
+are reported, not invented. Run the focused observer checks on both supported
+Python patch versions before one actual opt-in diagnostic. Original actor bodies,
+application/input/calculation budgets/RSS stay unchanged; the added header is
+diagnostic and cannot accept normal64 or replace the prior valid ABBA trial.
