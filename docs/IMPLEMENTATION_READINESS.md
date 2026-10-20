@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 수용/보류 — 2026-10-20 KST:** [마지막 저장 생장·수확 범위](../research/catalog-full-period-final-range-20261020.md)를 현재 sourcea3103a9의 웹1,864/248·같은 빌드의 실제13GET/3장면·끝2행/원 행 hash·한도/보존/정리로 수용했다. 다음은 원3대상 디자인/기존 판본 검색 범위다. 최신 backend 구판 CODE·동시 API 재시작/권리 RSS hold·U1 사용자 적용·새 Solar/실제 자료/관문과 전체 날짜는 미완료/미정이다.
+**현재 수용/보류 — 2026-10-20 KST:** [목록 개발 기록 접기](../research/catalog-development-disclosure-20261020.md)는 source265c63a의 웹1,864/250·동일 빌드 native3상태/키보드2조건·합907,010,048bytes/5root·자료 보존으로 수용했다. 공개 metadata UI 시험이며 실제 API/DB/WebGL은 쓰지 않았다. 원3대상 디자인의 변환은 외부 동시 한도 오류로 미완료다. 현재 목록 kind에는 기존 기관/구획/startup이 없음을 대사했고 기관v1부터 작은 전체 연결로 진행한다. 새 목록 UI/버튼·Solar 미배포·구판 CODE/동시 재시작 RSS·U1/자료·관문/전체 날짜 미정은 유지한다.
 
 **현재 준비 — 2026-10-20 KST:** [fresh JSON 후보의28검사·opaque 반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 비용 trial 없이 미채택했다. 제품 app261/591eff7d는 유지한다. 다음 [기존 저장 결과 목록의 실제 연결 준비](../research/crop-result-catalog-native-readiness-20261020.md)는 원21건 dump/hash·현재10파일·pg_restore 목록을 확인했으며 DB/브라우저/U1 수용은 남았다. 이 경로는 새 Solar normal64와 독립이다. 새 Solar 정상46/64 미완료·정상→hold→HTTP취소→계산 중WebGL→WSL와 실제 자료/관문/전체 완료일 미정·goal active는 유지한다.
 

@@ -1,5 +1,11 @@
 # 첫 구현 작업 목록
 
+- [x] **`product-ui-result-catalog-development-disclosure`** — [접근 동작과 별도 디자인 보류](../research/catalog-development-disclosure-20261020.md).
+  목록 첫 화면의 농장 선택·Enter/Space 개발 기록 접근·선택/행/요청 수 보존·직접 조회 복귀를 확인한다.
+  source265c63a의 웹 단위1,864/브라우저250·타입/build/audit와 같은 minified native3상태/키보드2조건을 통과했다.
+  실제10.711초·합907,010,048bytes·5root/원본/FD/소유 정리를 확인했다. 실제 API/DB/WebGL을 쓰지 않은 공개 metadata UI 시험이다.
+  원 세 디자인·실제 DB/재시작/권리와 U1 전체·사용자 배포를 이 자식으로 수용하지 않는다.
+
 - [x] **`product-ui-result-catalog-native-late-farm-response`** — [실제 정상 본문의 늦은 전달2건](../research/catalog-native-late-response-20261020.md).
   취소/계정 변경 뒤에도 실제200 원 본문이 도착했으나 이전 농장/결과·생장/수확을 복원하지 않았다.
   실제12GET/원 WebGL·수확3행·5root/원본/상한/정리를 확인했다. API/브라우저 동시 재시작·권리와 U1 전체는 별도다.
@@ -414,6 +420,12 @@
   - [ ] **`product-ui-result-catalog-native`** — [현재 제품 빌드의 실제 저장 reader 경로](../research/catalog-stored-replay-current-browser-20261020.md)는 GET24응답/6장면·수확3행·reload/401 제거·복구·원1GiB/5root/정리로 수용했다. 같은 source의 웹1,864/246도 통과했다. [API-only 재시작/권리20조회](../research/catalog-owned-api-lifecycle-20261020.md)와 [늦은 농장 목록200 실제 전달2건](../research/catalog-native-late-response-20261020.md)은 별도 수용했다. [현재 a3103a9의 마지막 생장/수확 범위](../research/catalog-full-period-final-range-20261020.md)는 웹1,864/248·실제13GET/3장면·끝2행/원 hash로 수용했다. API/브라우저 동시 재시작/철회는 RSS hold이며 최신 backend 구판 CODE·기존3대상 디자인/다른 저장 모델·U1 사용자 적용은 남는다. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
+  - [ ] **`product-ui-result-catalog-legacy-families`** — [현재 source의 세 판본 대조](../research/catalog-development-disclosure-20261020.md#남은-범위).
+    기관v1→구획v2→startupv3 순서로 각 보호 metadata/페이지·닫힌 SDK·기존 재생 전달을 작은 묶음으로 연결한다.
+    기존 표/`recorded_at`/직접 조회는 있으나 현재 목록 kind와 선택 union에는 없다. 선행은 해당 저장소의
+    현재 권리/HMAC·지원 reader와 실제 원 결과 확보다. 원 ID/농장/UTC·페이지/빈 목록·철회/늦은 응답·
+    원 payload/DB/서명 불변·조회 계산0과 고정 WSL 한도를 실제 API/브라우저로 통과한 판본만 체크한다.
+    현재 source 정적 대조만으로 세 판본이나 U1을 수용하지 않는다.
 - [ ] **`product-ui-region-input` (U2)** — 선행: 기존 조사/수집/검토·농장 작성 API; U1과 병행 가능.
   예정: `web/src/ProjectSetup.tsx`, `web/src/ResearchEvidence.tsx`, `web/src/App.tsx`,
   `web/e2e/project-setup.spec.ts`, 별도 계약. 한 번에 만드는 화면은 더 작은 부분으로 나눈다.
