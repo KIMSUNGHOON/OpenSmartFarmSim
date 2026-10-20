@@ -1,0 +1,53 @@
+{
+  "version": "organ-reader-code-boundary-v1",
+  "recorded_at": "2026-10-20T14:19:43.525088+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-20T11:39:08.896Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_SHA256": "bb8d7c4a3054921f5370418f7b73345bfe514530277af9aece0a3785cafca32c",
+    "recursive_CLI": false
+  },
+  "recursive_CLI": false,
+  "source_hashes": {
+    "backend/app/crop_result_store.py": {
+      "current": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+      "frozen": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+      "same_bytes": true
+    },
+    "backend/app/crop_growth_integration.py": {
+      "current": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+      "frozen": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+      "same_bytes": true
+    },
+    "backend/app/crop_growth_rates.py": {
+      "current": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+      "frozen": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+      "same_bytes": true
+    },
+    "backend/app/runtime_roles.py": {
+      "current": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+      "frozen": "be1dc60254bbe2238610ef52712a5bf76340d6ce0a5a2256072c90d85112c63f",
+      "same_bytes": false
+    }
+  },
+  "protected_before_hosted": {
+    "recorded_at": "2026-10-20T14:19:43.525088+00:00",
+    "protected_root_count": 5,
+    "all_live": true,
+    "protected_forest_RSS_bytes": 542113792,
+    "interventions": 0
+  },
+  "conclusions": {
+    "v1_storage_rates_integrator_bytes_equal": true,
+    "role_source_bytes_differ": true,
+    "cycle_role_CODE_mismatch_proves_organ_incompatibility": false,
+    "historical_organ_current_reader_runtime_compatibility_proved": false,
+    "no_hash_allowlist_or_packet_signature_rewrite": true,
+    "hosted_new_synthetic_producer_integration_can_start": true
+  },
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "WSL_capacity_accepted": false,
+  "U1_accepted": false
+}

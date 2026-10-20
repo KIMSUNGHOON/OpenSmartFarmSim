@@ -1,0 +1,218 @@
+{
+  "version": "organ-native-integration-progress-v1",
+  "recorded_at": "2026-10-20T14:41:12.337637+00:00",
+  "accepted": false,
+  "native_API_DB_browser_integration_accepted": false,
+  "first_CI": {
+    "receipt": {
+      "source_commit": "c410ba48f1b1904e8189cca145309b157b862687",
+      "run": 39437814720,
+      "web_job": 118679407662,
+      "web_conclusion": "success",
+      "native_job": 118685592790,
+      "native_conclusion": "failure",
+      "workflow_conclusion": "failure",
+      "artifact_id": 12274605126,
+      "artifact_digest": "sha256:602825c3bfbcb5b3b8c3686c05d14c724f4a215fecba791be091e1f69f52b61a",
+      "ZIP_SHA256": "602825c3bfbcb5b3b8c3686c05d14c724f4a215fecba791be091e1f69f52b61a",
+      "files": {
+        "solar-tested-build/build-provenance.json": "3857cd801866284e6ea1203841b1554e8821a2e42142b349a6e7b90f660619a3",
+        "organ-native-evidence/organ-mobile-last.private.png": "07fa1f3d233ca27adcfb5b5cf45df55afc178a029dea5fcda1525dc0e2f7aa8a",
+        "organ-native-evidence/native-failure-summary.json": "8fac43fdbf1c8650ad452e07b50cda0b444226e8aca2d7e15d4c3fcf278cebf4",
+        "organ-native-evidence/organ-desktop-last.private.png": "58bac1871b74dc14eb295c86420e36e28585f16820a5ea222e68fa2b97e493b0",
+        "organ-native-evidence/resource-organ.json": "be675a1e3410d8656bf5d7accae3f2d8489dbd5492a1d564cc61cbb00f3b4c5a",
+        "organ-native-evidence/organ-desktop-first.private.png": "990aaa806869b2d4e9aed0615f742615d04bf4ef4b44892aa7f42c0511047aed"
+      },
+      "retrieved_at": "2026-10-20T14:35:09.480610+00:00",
+      "WSL_capacity_accepted": false,
+      "U1_accepted": false,
+      "deployed": false
+    },
+    "web": {
+      "run": 39437814720,
+      "job": 118679407662,
+      "source_commit": "c410ba48f1b1904e8189cca145309b157b862687",
+      "conclusion": "success",
+      "unit_files": 36,
+      "unit_passed": 1886,
+      "browser_passed": 256,
+      "log_SHA256": "625a951fe4e51edbdac58cb64b0ab2a36f412bad8296e346a4549d4bd4a78815",
+      "typecheck_build_audit_passed": true
+    },
+    "native_resource": {
+      "FD_before_after": [
+        6,
+        6
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 607,
+      "U1_accepted": false,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 697909248,
+      "hosted_only": true,
+      "owned_non_zombie_remaining": [],
+      "owned_temp_or_credentials_remaining": [],
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 358187008,
+      "source_SHA256": {
+        "backend/tests/web_crop_organ_catalog_smoke.py": "9443d12f29c7400a0a8968a9c1891319ab846298db2092e0033e02a1905bd4df",
+        "research/crop_organ_catalog_hosted.py": "5be811f88ebeb2e9c1c65093b58c18b1ace64b796e17a798c823eba097d808b0",
+        "web/e2e/real-organ-catalog-smoke.mjs": "b122ec6624320a764e0cfa89b04f2664ae57c6cd29c870eea361154448808888"
+      },
+      "source_preserved": true,
+      "wall_seconds": 153.70256613599997
+    },
+    "native_failure": {
+      "error_lines": [
+        "E           subprocess.TimeoutExpired: Command '['node', '--max-old-space-size=128', '--max-semi-space-size=1', 'e2e/real-organ-catalog-smoke.mjs', 'https://127.0.0.1:43983', '/home/runner/work/_temp/organ-native-evidence']' timed out after 120 seconds",
+        "FAILED tests/web_crop_organ_catalog_smoke.py::[redacted-id][login_scope0] - subprocess.TimeoutExpired: Command '['node', '--max-old-space-size=128', '--max-semi-space-size=1', 'e2e/real-organ-catalog-smoke.mjs', 'https://127.0.0.1:43983', '/home/runner/work/_temp/organ-native-evidence']' timed out after 120 seconds"
+      ],
+      "private_log_SHA256": "8ab6565e7b1bebf8596e1a07e19ae69989c140766ba72f6476f2bcc1b6ddded7"
+    },
+    "phase_observation": "Python reached communicate(timeout=120) after its two expected intermediate protocol messages; final browser report not received/recorded",
+    "exact_browser_blocking_operation": "not observed; phase receipts were absent in first source"
+  },
+  "followup": {
+    "source_commit": "88d766ed70383501f3acf7e98c4a75373a4578c0",
+    "run": 39441263299,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39441263299",
+    "status_at_recording": "web (all) in progress / Browser acceptance",
+    "changed": "30s browser action/navigation limits; bounded network drain; phase receipt; keep stdin open until final report, then 15s exit within original 120s tail budget",
+    "backend_and_UI_product_source_changed": false,
+    "native_accepted": false,
+    "dispatched_once": true,
+    "web_job": 118691427638,
+    "observed_at": "2026-10-20T14:43:12.574899+00:00"
+  },
+  "source_boundary": "research/organ-reader-code-boundary-20261020.md",
+  "WSL_capacity_accepted": false,
+  "historical_row_compatibility_accepted": false,
+  "U1_accepted": false,
+  "deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_goal_completion_date": null,
+  "local_guards": {
+    "focused-organ-live-native-collection-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.8926808400137816,
+      "combined_peak_RSS_bytes": 688173056,
+      "single_PID_peak_RSS_bytes": 117870592,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "5bbdc812a01412a37a022fe7c3f82e3e2cfb72e623e1fa5c81d79438a746fdde"
+    },
+    "focused-organ-live-native-evidence-download-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 3.767559339001309,
+      "combined_peak_RSS_bytes": 621289472,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "301f4a993ff373920046d82eceb6d03dba58e6677d3c18aed92ea9470fe32d93"
+    },
+    "focused-organ-live-CI-status-publish-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.345796853012871,
+      "combined_peak_RSS_bytes": 577851392,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "51592fc6e1c83cfdbaee6dd16b5b9f163979767b671880de90e956f9b340f264"
+    },
+    "focused-organ-live-followup-status-publish-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.34291177699924447,
+      "combined_peak_RSS_bytes": 586317824,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "acd9d0c863ce5989c05f3944a8a5c3f80fb56ff872bc7745089c902d9186bddc"
+    }
+  },
+  "published_status": {
+    "observations": [
+      {
+        "HTTP": [
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5173,
+            "status": 200
+          },
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5174,
+            "status": 200
+          }
+        ],
+        "UI_code_changed": false,
+        "browser_rerun": false,
+        "reported_at": "2026-10-20T14:41:43.922503Z",
+        "source_sha256": "bedea44b3bf9542e831d60e3e5098985b9896b53d9ad5ec564d574a802171763"
+      },
+      {
+        "retained_ventilation_frozen_source_preserved": true,
+        "files": 2173
+      },
+      {
+        "current_HTML_matches_frozen_entry_both_ports": true,
+        "browser_DOM_rerun": false
+      }
+    ],
+    "new_UI_code_activated": false,
+    "DOM_rerun": false
+  }
+}

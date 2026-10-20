@@ -15,6 +15,8 @@
     목록→원6시점/표/WebGL·재접속·현재 권리/계정·numeric hold와 원 row/선택한 DB counts·조회 계산/쓰기0,
     원30초·512MiB/PID/합1GiB/600초/.25초·소유 정리를 확인한다. hosted 자식이며 원5root의 WSL 동시 용량,
     역사적 row의 지원 reader/CODE·원 디자인/사용자 적용과 기관 family/U1 전체는 완료하지 않는다.
+    [첫 실행/보완 기록](../research/organ-native-integration-progress-20261020.md): 웹1,886/256 통과·native 종료 대기120초 실패,
+    자원 한도/소유 정리 보존. source88d766e는 동작30초/단계 기록·최종 protocol을 보완했고 CI39441263299의 실제 결과를 기다린다.
 
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
   고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·
