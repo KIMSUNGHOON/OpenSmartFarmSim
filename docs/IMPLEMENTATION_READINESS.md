@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**일정/용량 후속 — 2026-10-21 KST:** [큰 정상 결과1개 WSL 사전 검사](../research/organ-catalog-capacity-preflight-20261021.md)는 합산 RSS1,095,081,984bytes로 미수용이다. 보호5root/원 자료와 종료 뒤 소유 PG/임시/자격증명0을 확인했다.20개/packet 크기/HTTPS는 미검증이며 다음은 같은 상한의 hosted1개→수용 시20개다. 전체 완료일은 미정이고1–3집중시간은 이번 검사/결과 보고의 범위다.
+
 **현재 — 2026-10-21 KST:** [기관 목록의 hosted 실제 통합](../research/organ-native-integration-20261021.md)은 웹1,886/256·같은 minified 빌드의 실제19GET/10장면·성공17본문/SDK 소비·권리/계정/숫자 보류·원 row/DB/서명·조회 계산/쓰기0·native 종료0/자원/정리로 수용했다. 새 synthetic2결과 범위다. 다음은 원30초/64KiB의 실제20결과/큰 packet 목록 용량이며 WSL5root 동시 용량·역사적 reader/CODE·원 디자인/다른 판본/U1·사용자 적용은 남는다. 생산/자원/경제·실제 자료/G0–G4와 전체 완료일은 미완료/미정이다.
 
 **현재 준비 — 2026-10-20 KST:** [fresh JSON 후보의28검사·opaque 반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 비용 trial 없이 미채택했다. 제품 app261/591eff7d는 유지한다. 다음 [기존 저장 결과 목록의 실제 연결 준비](../research/crop-result-catalog-native-readiness-20261020.md)는 원21건 dump/hash·현재10파일·pg_restore 목록을 확인했으며 DB/브라우저/U1 수용은 남았다. 이 경로는 새 Solar normal64와 독립이다. 새 Solar 정상46/64 미완료·정상→hold→HTTP취소→계산 중WebGL→WSL와 실제 자료/관문/전체 완료일 미정·goal active는 유지한다.

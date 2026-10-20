@@ -1,0 +1,113 @@
+{
+  "HTTPS_observations": [],
+  "base_commit": "4a296019650358691b94938946668e902eed061f",
+  "claims": {
+    "G0_G4": "not_assessed",
+    "U1": false,
+    "WSL_capacity": false,
+    "new_UI_deployed": false,
+    "overall_goal_complete": false
+  },
+  "guard": {
+    "G0_G4": "not_assessed",
+    "RSS_samples": 63,
+    "actual_child_exit": -15,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 1095081984,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining_count_at_terminal": 4,
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": "RSS_limit",
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 323657728,
+    "source_count": 2729,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining_count_at_terminal": 1,
+    "wall_seconds": 17.23508282500552
+  },
+  "internal_interrupted_statement_observed": false,
+  "limits": {
+    "combined_RSS_bytes": 1073741824,
+    "metadata_bytes": 65536,
+    "per_PID_RSS_bytes": 536870912,
+    "request_seconds": 30,
+    "wall_seconds": 600
+  },
+  "normal_producer_completion_receipt": false,
+  "packet_size_observed": null,
+  "post_cleanup": {
+    "checked_at": "2026-10-20T15:43:41.817992+00:00",
+    "credential_files_remaining": [],
+    "initial_terminal_preserved": true,
+    "owned_PostgreSQL_live": false,
+    "owned_controller_live": false,
+    "owned_temp_remaining": [],
+    "protected_roots_live": true,
+    "removal_mechanism_not_observed": true,
+    "removed_by_this_recheck": [],
+    "terminal_SHA256": "ca7db8bf2054daa7721215e11962b36c1e2f47fa6fb2472da5c031ab667d8afa",
+    "terminal_initial_passfiles_count": 4
+  },
+  "preflight_accepted": false,
+  "private_terminal_SHA256": "ca7db8bf2054daa7721215e11962b36c1e2f47fa6fb2472da5c031ab667d8afa",
+  "progress_file_present": false,
+  "scope": "WSL owned one-result large organ producer capacity preflight only",
+  "source_SHA256": {
+    "backend/tests/crop_organ_catalog_capacity_smoke.py": "5e4b4df8ed61db2b0c3420687c31afbe09e6e6ec2fb6a252071bf6c86e3fb65e",
+    "contracts/crop-organ-catalog-capacity-v1.md": "cbf8b57c979dd0200b0a1f3b81d9c9cdf9b9c0fee4a01871f676172c661e98c6"
+  },
+  "status_publication": {
+    "both_HTML_unchanged": true,
+    "final_attempt": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 570445824,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_live": true,
+      "reason": null,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 0.33982209698297083
+    },
+    "initial_attempt": "rejected by unchanged 240-character estimate_reason schema; not published",
+    "observed": {
+      "HTTP": [
+        {
+          "bytes_equal": true,
+          "cache_control": "no-store",
+          "port": 5173,
+          "status": 200
+        },
+        {
+          "bytes_equal": true,
+          "cache_control": "no-store",
+          "port": 5174,
+          "status": 200
+        }
+      ],
+      "UI_code_changed": false,
+      "browser_rerun": false,
+      "reported_at": "2026-10-20T15:44:54.563174Z",
+      "source_sha256": "fdc6917fa46d973dac1e9239c53a32abb81eba6979806bbab092384ed4d75b16"
+    },
+    "ventilation_frozen_files_preserved": 2173
+  },
+  "twenty_results_tested": false
+}

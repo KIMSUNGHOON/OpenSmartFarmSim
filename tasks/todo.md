@@ -24,12 +24,17 @@
     native의10화면 관측 뒤 SDK가 읽지 않는 오류 본문 관측2개가 남아 미수용이다. 성공 원 body/실제 SDK 소비와
     거부 헤더·장면 제거를 구분한 source92c6456/CI39444301162를 추적한다. 원 한도·최종 DB/쓰기 대사 조건은 유지한다.
   - [ ] **`organ-catalog-20-large-HTTPS-capacity`** — 선행: 기관 서버/API·위 hosted 실제 통합.
+    [사전1결과→실제20결과 계약](../contracts/crop-organ-catalog-capacity-v1.md)과
+    [이번 실행/보고의1–3집중시간 추정 범위](plan.md#현재-다음-실행--2026-10-21)를 따른다.
     기존 정상 producer로20개의 합성 원 결과를 만들고 각 packet/합계 bytes와 시점 수를 기록한다.
     실제 SCRAM/TLS/Bearer 목록 limit20·cursor/원 ID와 metadata64KiB·완료 응답30초,
     원 payload/hash/서명·현재 권리/거부와 조회 put/integrate/RHS/SQL 쓰기0을 대사한다.
     큰 packet도 조작한 결과/재서명으로 대신하지 않고 정상 producer로 생성한다. 원5root/자료와
     512MiB/PID·합1GiB/600초/.25초·소유 정리를 유지하며 검증한 크기와 미검증 상한을 구분한다.
     실제20건/큰 packet의 완료 증거 전에는 용량/U1을 수용하지 않는다.
+    [첫 사전 검사](../research/organ-catalog-capacity-preflight-20261021.md)는17.235083초·합1,095,081,984bytes의
+    WSL RSS 보류이며20개/크기/HTTPS는 미검증이다. 원5root/자료와 종료 뒤 소유 PG/임시/자격증명0을 확인했다.
+    같은 WSL 실행을 반복하지 않고 hosted 정상1개 사전 검사→원 상한 수용 시20개로 이어간다.
 
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
   고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·
