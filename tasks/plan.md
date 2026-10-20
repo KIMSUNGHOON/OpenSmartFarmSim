@@ -1,6 +1,6 @@
 # 구현 순서
 
-기존 사용자 경로는 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)으로 만료 전에 보존했다. 실제 만료에 따른 유지 작업이며 핵심 순서 수용을 대신하지 않는다. 다음 준비 시각은2026-10-20T21:40Z 이전이고 현재45의 참조 비교/원 비용 평가를 마쳤고 46의 남은 비용 관측을 마쳤고 다음은47의 사전 조회 표현이며 아래 수용 범위를 따른다.
+기존 사용자 경로는 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)으로 만료 전에 보존했다. 실제 만료에 따른 유지 작업이며 핵심 순서 수용을 대신하지 않는다. 다음 준비 시각은2026-10-20T21:40Z 이전이고 현재47의 사전 조회 평가를 마쳤으며 다음은48의 조립 관측 경계 검토다. 아래 수용 범위를 따른다.
 
 ## capture Pending HTTP 로컬 수용·다음 독립 정상 — 2026-10-19 KST
 
@@ -83,9 +83,10 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 44d — 평가 완료·성능 미수용 | [원 전체 ABBA1/후속 profile1](../research/solar-json-combined-guarded-cost-20261020.md) | 원 값/UTC/current15/SQL9,929·정리 보존. 평균−40.461906%/양짝 악화로 후보 미채택·제품 유지다. |
 | 45 — 의미 수용·비용 미수용 | [최종173/두 Python판·원 실제 비용](../research/solar-json-current-state-reference-guard-20261020.md) | 원 oracle/감시/관측·파일/현재/SQL·수치/UTC·자원/정리 보존. 원 ABBA 평균−2.252640%/양짝 악화로 제품 미적용·원64 미수용이다. |
 | 46 — 원 실제 구간 관측 완료 | [전체 구간 profile1](../research/solar-json-residual-whole-profile-20261020.md) | 원42/후보43·current15/SQL9,929/원 bytes·UTC·상한/정리 보존. JSON current9,032회의 반복 사전 조회를 다음 최소 경계로 정했다. 계측 시간은 성능 수용이 아니다. |
-| 47 — 다음 사전 조회 표현 | `crop-solar-json-guard-dictionary-lookup` | 원 승인/관측/모든 현재 binding을 유지하고 조회 반복만 줄인다. 원 stamp/특수 모듈 키·기존173/두 Python판·실제 IO/권리 뒤 새 source 원 ABBA2%/양짝 개선이 수용 기준이다. |
+| 47 — 검증 수용·비용 미수용 | [최종176/원 실제 비용](../research/solar-json-dictionary-lookup-20261020.md) | 특수 모듈 키 원 stamp/fallback·None/sentinel·두 Python/원46/current1·수치/UTC/SQL/정리 보존. 원 ABBA 평균−5.952327%/양짝 악화로 제품 미적용이다. |
+| 48 — 다음 조립 관측 경계 검토 | `crop-solar-json-assembly-observation-boundaries` | 추가 구문 검사와 실제 외부 호출/자료 노출을 대조한다. 구현 전 늦은/자기 복원 callback·원 오류/소유 수명의 동등성 계약·반례가 필요하다. 권리/현재/HEAD/proof cache·원 actor/입력/상한 변경은 허용하지 않는다. |
 
-위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md)은 당시의 지연된 API 관측이다. source8b5afe5의 [최종41/64 실패](../research/solar-current-guard-native-normal-20261020.md)를 확인했고, 현재24도 원64 미완료이며 25의 관측2건을 마쳤고 26/27의 반복 load 후보는 실제 비용 기준 미달로 미채택이며 28의 다중 결과는 원 오류 순서 반례로 제외했고29의 cursor 후보도 비용 악화로 미채택이다. 30의 worker 전진/독립 확인82를 로컬 수용했으며 31의 변경 source도 원 정상44/64로 미완료이며 32의 현재 늦은 묶음1검사를 마쳤고 33의 인코딩 경계 검토/관측을 마쳤고 34의 현재 동시 진단과35의 같은 load 비용 미채택을 기록했고 36의 decoder/canonical 기본 경계·비용 적격을 기록했고 37의 최종 guard 비용/초기 상태 반례로 후보를 미채택했고 38의 조건부 권한 matrix를 실제 snapshot 반례로 제외했고 39의 bound-array 후보는 실제 guard 비용 악화로 제외했고 40의 원 matrix 계획은 spill/조인 확대를 확인하지 못했고 41의 driver 호출자별 경과를 확인했고42의 native mask는 실제 비용 미달로 제외했다. 43의 실제 반례/구성요소를 확인했다. 44a의 연구 핵심56/두 Python판을 확인했다. 44b의 실제 연결 의미도 수용했다. 44c의 연구 조립 의미도 수용했다. 44d 원 ABBA는 실제 비용 악화로 미채택했다. 45의 같은 감시 항목/원 oracle·최종173 의미 검증을 수용했으나 원 비용 평균−2.252640%로 제품 미적용이다. 다음은46의 실제 전체 구간 남은 비용 분리이며 원64는 미수용이다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
+위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md)은 당시의 지연된 API 관측이다. source8b5afe5의 [최종41/64 실패](../research/solar-current-guard-native-normal-20261020.md)를 확인했고, 현재24도 원64 미완료이며 25의 관측2건을 마쳤고 26/27의 반복 load 후보는 실제 비용 기준 미달로 미채택이며 28의 다중 결과는 원 오류 순서 반례로 제외했고29의 cursor 후보도 비용 악화로 미채택이다. 30의 worker 전진/독립 확인82를 로컬 수용했으며 31의 변경 source도 원 정상44/64로 미완료이며 32의 현재 늦은 묶음1검사를 마쳤고 33의 인코딩 경계 검토/관측을 마쳤고 34의 현재 동시 진단과35의 같은 load 비용 미채택을 기록했고 36의 decoder/canonical 기본 경계·비용 적격을 기록했고 37의 최종 guard 비용/초기 상태 반례로 후보를 미채택했고 38의 조건부 권한 matrix를 실제 snapshot 반례로 제외했고 39의 bound-array 후보는 실제 guard 비용 악화로 제외했고 40의 원 matrix 계획은 spill/조인 확대를 확인하지 못했고 41의 driver 호출자별 경과를 확인했고42의 native mask는 실제 비용 미달로 제외했다. 43의 실제 반례/구성요소를 확인했다. 44a의 연구 핵심56/두 Python판을 확인했다. 44b의 실제 연결 의미도 수용했다. 44c의 연구 조립 의미도 수용했다. 44d 원 ABBA는 실제 비용 악화로 미채택했다. 45의 같은 감시 항목/원 oracle·최종173 의미 검증을 수용했으나 원 비용 평균−2.252640%로 제품 미적용이다. 46의 실제 전체 구간 관측과47의 사전 조회를 평가했으나 비용 미수용이다. 다음은48의 조립 관측 경계 대조이며 원64는 미수용이다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.

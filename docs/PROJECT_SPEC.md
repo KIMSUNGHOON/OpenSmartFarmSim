@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 JSON 참조 비교 — 2026-10-20 KST:** [최종173검사/두 Python판·원 저장46/실제 현재1·원 ABBA1](../research/solar-json-current-state-reference-guard-20261020.md)에서 의미 검증은 통과했으나 후보가 평균2.252640% 느려 제품 미적용이다. 원 값/UTC·current15/SQL9,929·감시 항목/관측 위치·상한/정리를 보존했다. 다음은 실제 전체 구간의 남은 비용 분리다. app261개/두 UI를 유지하며 원 정상64/새 일사 배포·실제 농장/관문·최종 UI/전체 날짜는 미완료/미정·goal active다.
+**현재 JSON 사전 조회 평가 — 2026-10-20 KST:** [최종176검사/두 Python판·원 저장46/실제 현재1·원 ABBA1](../research/solar-json-dictionary-lookup-20261020.md)에서 검증은 통과했으나 후보가 평균5.952327% 느려 제품 미적용이다. 특수 모듈 키의 원 검사/fallback을 수정했고 원 값/UTC·current15/SQL9,929·관측/감시·상한/정리를 보존했다. 다음은 조립 검사와 외부 호출/자료 노출 지점의 대조다. app261개/두 UI 유지·원64/새 일사·실제 농장/관문·최종 UI/전체 날짜 미완료/미정·goal active다.
 
 **현재 권한 matrix 평가 미채택 — 2026-10-20 KST:** [실제 오류 순서1·snapshot 반례1](../research/solar-role-matrix-conditional-review-20261020.md)을 확인했다. CASE 결합은 해당 첫 오류는 보존했으나 동시 변경에서 원 경로의 hold와 후보 정상 값이 달라 미채택·비용 trial 없음이다. 제품 app은 유지한다. 기존 두 UI의 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)과 원 조회를 확인했다. 다음은 원 SQL/statement 순서를 유지하는 bound-array 표현 검토다. [원 계측 OFF CI의44/64 미완료](../research/solar-worker-checkpoint-advance-native-normal-20261020.md)·같은 app82의 로컬 범위와 정상→hold→취소→계산 중WebGL→WSL 순서를 유지한다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 

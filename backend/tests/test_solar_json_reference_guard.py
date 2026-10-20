@@ -223,3 +223,45 @@ def test_helper_reference_capture_cannot_learn_change_after_initial_stamp(monkey
         with model.OwnedJSONScope() as scope:
             assert hits == [True]
             assert not scope.policy.approved and not scope.policy.current()
+
+
+@pytest.mark.parametrize('kind', ['object', 'str_subclass'])
+def test_unusual_module_key_preserves_original_stamp_rejection(monkeypatch, kind):
+    class Key:
+        def __hash__(self):
+            return hash('INFINITY')
+        def __eq__(self, other):
+            return other == 'INFINITY'
+        def startswith(self, prefix):
+            return 'INFINITY'.startswith(prefix)
+        def __lt__(self, other):
+            raise TypeError('foreign key ordering')
+    class StringKey(str):
+        def __lt__(self, other):
+            raise TypeError('foreign key ordering')
+    key = Key() if kind == 'object' else StringKey('INFINITY')
+    table = vars(json.encoder)
+    original = table['INFINITY']
+    with monkeypatch.context() as altered:
+        altered.delitem(table, 'INFINITY')
+        altered.setitem(table, key, original)
+        with pytest.raises(TypeError):
+            model._live_stamp()
+        assert not model.native_json_current()
+        with model.OwnedJSONScope() as scope:
+            token = scope.decode(b'{"v":1}')
+            assert not scope.policy.approved and not scope.owns(token)
+            assert scope.materialise(token) == {'v': 1}
+    assert model.native_json_current()
+
+
+def test_helper_global_lookup_preserves_missing_none_and_sentinel(monkeypatch):
+    with model.OwnedJSONScope() as scope:
+        policy = scope.policy
+        assert policy.approved and policy.current()
+        for value, expected in ((builtins.len, True), (None, False), (model._MISSING, False)):
+            with monkeypatch.context() as altered:
+                altered.setattr(artifact.inputs, 'len', value, raising=False)
+                assert (policy.stamp() == policy.baseline) is expected
+                assert policy.current() is expected
+        assert policy.current()

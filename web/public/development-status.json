@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "현재 참조 비교173검사와 원 파일/DB 검증은 통과했지만 실제 계산 구간에서 평균2.25% 느려 제품 적용을 보류했습니다. 다음은 남은 실제 비용 분리입니다. 원 정상64·계산 중3D/적용·독립 농장/경제 자료가 남아 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-20T02:25:55.588438Z",
+  "estimate_reason": "현재 비교176검사와 원 파일/DB 검증은 통과했지만 실제 계산 구간에서 평균5.95% 느려 제품 적용을 보류했습니다. 다음은 조립 검사와 외부 호출·자료 노출 지점의 대조입니다. 원 정상64·계산 중3D/적용·독립 농장/경제 자료가 남아 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-20T02:53:40.011203Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-20T02:25:55.588438Z",
+  "reported_at": "2026-10-20T02:53:40.011203Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,7 +24,7 @@
       "state": "completed"
     },
     {
-      "evidence": "최종173검사를 두 Python판에서 통과했고 원 저장46/실제 현재·권리1을 확인했습니다. 원 ABBA에서 평균2.25% 느려 미채택입니다. 원 값/UTC·current15/SQL9,929·감시/관측·정리는 보존했습니다. 제품 미적용·원64/새 일사 배포는 미완료입니다.",
+      "evidence": "실제 구간 profile1 뒤 사전 조회 후보176검사를 두 Python판에서 통과했습니다. 원 저장46·현재/권리1·원 값/UTC·current15/SQL9,929를 보존했으나 원 ABBA 평균5.95% 느려 미채택입니다. 다음은 조립 관측 경계 대조입니다. 원64/새 일사 배포는 미완료입니다.",
       "id": "execution_3d",
       "state": "next"
     },

@@ -163,7 +163,7 @@ class _JSONReferences:
         for module in _JSON_MODULES:
             fields = {n: v for n, v in sorted(vars(module).items())
                       if not n.startswith('__') and n not in _IGNORE}
-            self.modules.append((vars(module), fields))
+            self.modules.append((vars(module), {n: (v,) for n, v in fields.items()}))
             parts.append((id(module), tuple((n, id(v)) for n, v in fields.items())))
             for value in fields.values():
                 container(value)
@@ -203,10 +203,15 @@ class _JSONReferences:
         for table, expected in self.modules:
             count = 0
             for name, value in table.items():
-                if not name.startswith('__') and name not in _IGNORE:
-                    if name not in expected or expected[name] is not value:
+                if type(name) is not str:
+                    return _live_stamp() == self.stamp
+                entry = expected.get(name)
+                if entry is not None:
+                    if entry[0] is not value:
                         return False
                     count += 1
+                elif not name.startswith('__') and name not in _IGNORE:
+                    return False
             if count != len(expected):
                 return False
         for cls, entries in self.classes:
@@ -384,8 +389,12 @@ class _LegacyPolicy:
                 if (fn.__code__ is not code or fn.__defaults__ is not defaults
                         or fn.__kwdefaults__ is not kwdefaults):
                     return False
+                namespace, fallback = fn.__globals__, fn.__builtins__
                 for name, value in bindings:
-                    if fn.__globals__.get(name, fn.__builtins__.get(name)) is not value:
+                    actual = namespace.get(name, _MISSING)
+                    if actual is _MISSING and name not in namespace:
+                        actual = fallback.get(name)
+                    if actual is not value:
                         return False
             return (self.legacy.inputs is self.aliases[0] and self.legacy._Files is self.aliases[1]
                     and self.inputs.json is self.aliases[2] and self.legacy.sha256 is self.aliases[3])

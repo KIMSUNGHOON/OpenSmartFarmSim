@@ -11,7 +11,7 @@ from app import crop_greenhouse_solar_storage as storage
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE_PATH = ROOT/'research/solar-local-json-ownership.py'
-CORE_SHA256 = '53619749e2845a30bf48ad95c5f20b4acad5e3cea2bf71cdff690c7564e1cd6c'
+CORE_SHA256 = 'f9d9e309ee8a1501df4e38debbb96f44c136dff920166b10ff509916bed24d31'
 STORAGE_SHA256 = '065ff9f9706bed285f19b82e67277123947715af285cc6438a77fed3c7e30d6d'
 CORE_NAME = 'app._research_local_json_ownership'
 if sha256(CORE_PATH.read_bytes()).hexdigest() != CORE_SHA256:
