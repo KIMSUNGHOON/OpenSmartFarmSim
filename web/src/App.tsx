@@ -129,6 +129,12 @@ export default function App() {
     finally {inFlight.current=false;if (epoch===generation.current) setBusy(false);}
   }
   const canReset=!intent || !!job || !!error?.status && error.status<500;
+  const developmentStatus=<>
+    <h2>제품 개발과 배포 상태</h2>
+    <DevelopmentStatus/>
+    <p>접속 설정: {api?'설정됨 · 현재 권한은 조회할 때 확인':'미설정 · 아래에서 접근 토큰을 입력하세요'}.</p>
+    {view!=='crop-execution'&&<button className="button" onClick={()=>setView('crop-execution')}>계산 진행 상태 열기</button>}
+  </>;
   return <div className={'app-shell'+(view==='crop-replay'?' crop-shell':'')}>
     <a className="skip-link" href="#main">본문으로 이동</a>
     <aside className="sidebar" id="viewport-1-a-nav">
@@ -158,10 +164,10 @@ export default function App() {
           <strong>{view==='crop-execution'?'선택한 작업 · 확정 계산값':view==='crop-replay'?'저장된 작물 탄소 계산':view==='economic' ? '저장 원장 · 사용자 가정' : view==='authored' ? '등록된 농장 · 작업 상태' : view==='assessment' ? '완료 계산 · 판단 보류' : view==='authored-financial' ? '같은 Run · 조건부 경제' : '온실 한 구역 · 두 시간'}</strong><span>실제 관측·미래 예측·작물 추천이 아닙니다.</span></div>
       </header>
       <section className="panel development-status" aria-label="제품 개발과 배포 상태">
-        <h2>제품 개발과 배포 상태</h2>
-        <DevelopmentStatus/>
-        <p>접속 설정: {api?'설정됨 · 현재 권한은 조회할 때 확인':'미설정 · 아래에서 접근 토큰을 입력하세요'}.</p>
-        {view!=='crop-execution'&&<button className="button" onClick={()=>setView('crop-execution')}>계산 진행 상태 열기</button>}
+        {view==='crop-replay'&&cropCatalog?<details>
+          <summary>제품 개발과 배포 상태 · 펼쳐 보기</summary>
+          {developmentStatus}
+        </details>:developmentStatus}
       </section>
       <details className="connection" open={!api}><summary>내부 시험 연결</summary>
         <p>운영자가 발급한 접근 토큰을 입력하세요. 토큰은 저장하지 않으며, 페이지를 새로 열면 다시 연결해야 합니다.</p>

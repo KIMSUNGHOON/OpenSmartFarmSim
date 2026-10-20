@@ -56,6 +56,26 @@ async function selected(page:Page){
 const pageErrors=new WeakMap<Page,string[]>();
 test.beforeEach(({page})=>{const errors:string[]=[];pageErrors.set(page,errors);page.on('pageerror',e=>errors.push(e.message));});
 test.afterEach(({page})=>expect(pageErrors.get(page)).toEqual([]));
+for(const viewport of [{width:1536,height:1024},{width:620,height:1024}]){
+  test(`keeps farm selection in the initial ${viewport.width}px viewport and development evidence keyboard accessible`,async({page})=>{
+    await page.setViewportSize(viewport);const api=await mocked(page);await connected(page);const panel=await selected(page);
+    await page.getByText('내부 시험 연결',{exact:true}).click();
+    await page.evaluate(()=>window.scrollTo(0,0));
+    await expect(panel.getByRole('heading',{name:'농장 선택',exact:true})).toBeInViewport();
+    const status=page.getByRole('region',{name:'제품 개발과 배포 상태',exact:true});
+    const summary=status.locator('summary'),evidence=status.getByRole('heading',{name:'제품 개발과 배포 상태',exact:true});
+    await expect(summary).toBeVisible();await expect(evidence).toBeHidden();
+    const before=api.calls.length;
+    await summary.focus();await page.keyboard.press('Enter');await expect(evidence).toBeVisible();
+    await expect(status.getByText(/전체 제품은 자원 사용·생산량·경제 통합과 독립 농장 검증이 남아 있습니다/)).toBeVisible();
+    await summary.focus();await page.keyboard.press('Space');await expect(evidence).toBeHidden();
+    await expect(panel.getByLabel('등록된 농장 판본',{exact:true})).toHaveValue(job.job_id);
+    await expect(panel.getByLabel('등록된 작물과 재배 기간')).toHaveValue(growth.farm.crop_id);
+    await expect(panel.locator('tbody tr')).toHaveCount(10);expect(api.calls.length).toBe(before);
+    await page.getByRole('button',{name:'결과 ID로 직접 조회',exact:true}).click();
+    await expect(status.locator('summary')).toHaveCount(0);await expect(evidence).toBeVisible();
+  });
+}
 test('reads exact current farm and crop metadata and keyset pages without manual result IDs',async({page})=>{
   const api=await mocked(page);await connected(page);const panel=await selected(page);
   await expect(panel.getByText(/실시간 계산 미연동/)).toBeVisible();
