@@ -723,7 +723,9 @@ CO₂ 경계의 개발은 [원문/단위 정책](../research/crop-co2-stomatal-s
 [공기 질량RHS30](../contracts/crop-co2-air-mass-v1.md)는 순수 소프트웨어 범위로 수용했다.
 [같은 stage의 질량/T/P·vapor→ppm과 Solar/작물/net/공기 RHS 조립](../contracts/crop-greenhouse-co2-joint-v1.md)은
 독립1,635미분/9수지·실제9성분 각1회와37검사로 순간 소프트웨어 수용했다.
-다음은 새109상태 짧은 적분·독립 궤적/수렴이며 관리/continuation·새 저장/3D는 후속이다.
+[새109상태 짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md)는 독립1,256수치/96수렴/17수지와
+실제 중간 고갈 보류로32초 합성 범위를 수용했다. 다음은 관리 전이와 forcing/event program이며
+전체 작기·UTC/continuation·새 저장/3D는 후속이다.
 기공 단위 해석의 별도 hold나
 기관 목록/U1 용량을 앞의 gas/net/mass 자식의 개발 선행으로 추가하지 않는다.
 최종 제품의 해당 용량·현재 권리·결과/3D 수용은 계속 필요하다. 잔여 공수는 [현재 계획](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)을 따른다.

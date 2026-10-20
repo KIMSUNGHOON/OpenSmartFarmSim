@@ -2172,7 +2172,10 @@
         상태·원 열/물 장부 보존·독립 CO₂ 참조/낮밤/고갈·단위·원 프로필 불변;
         (3)기존 checkpoint/API/두 UI/5root/자료·자원/정리 보존. 원 normal64/U1은 순수 RHS 개발의 선행이 아니다.
         확인: 실제 기존 Solar 참조/독립 Decimal CO₂ 비교와 집중 pytest. 새 짧은 적분/관리/continuation·저장/3D는 후속.
-      - [ ] **`co2-joint-short-integration`** — 다음 작은 자식; 선행: 위109상태 RHS 수용.
+      - [x] **`co2-joint-short-integration`** — [계약](../contracts/crop-greenhouse-co2-integration-v1.md)/
+        [25검사](../research/artifacts/crop-greenhouse-co2-integration-20261021.json):8개32초 궤적의 독립1,256수치와
+        96수렴 비율·17수지·매16step의65실제 평가/현재 ppm·고갈 보류/마지막 확정·정확 fixture 재생을 수용했다.
+        원 모델/프로필/5root/자료/자원·정리를 보존했다. 선행: 위109상태 RHS 수용.
         핵심5파일: `backend/app/crop_greenhouse_co2_integration.py`, 대응 집중 pytest/계약,
         `research/crop-greenhouse-co2-integration-reference.py`, `fixtures/crop-greenhouse-co2-integration-reference-cases-v1.json`.
         수용: (1)상수 외부 forcing의 모든 실제 RK trial에서 현재 CO₂/T/vapor→ppm·Solar/작물/net/mass를
@@ -2181,6 +2184,14 @@
         (3)판본/입출력 hash·명시 예산/원 프로필/기존 결과·5root/자원/소유 정리.
         확인: 독립 reference/fixture 재현과 집중 pytest. 사건/전체 작기·UTC/continuation·저장/API/3D와
         실제 품종/농장·관문은 후속이며 기존 Solar checkpoint/reader를 새 상태로 덮어쓰지 않는다.
+      - [ ] **`co2-managed-transition`** — 다음 작은 자식; 선행: CO₂ stage와 기존 관리/용량 정책.
+        핵심3파일: 새 `backend/app/crop_greenhouse_co2_management.py`, 대응 집중 pytest와 계약.
+        기존 관리의 검토된 제거/분수·잎 용량 primitive를 재사용하되 실제 CO₂/Solar RHS로 전후를 검증한다.
+        수용: (1)명시 잎/줄기·과실 제거 후109상태의 공기 CO₂/수증기/기온·현재 ppm 보존과
+        C/N/잎 열용량·열 반출·44/30 탄소 대응; (2)변경 LAI의 Solar/PAR/NIR 재평가·독립 참조·
+        과다/빈 수관/혼합 origin·실패 시 관리 전 확정 상태 보존; (3)새 판본/hash·원 데이터/모델·5root/자원/정리.
+        확인: 집중 pytest·독립 제거/용량/탄소 수치와 실제 전후 CO₂ 모델 대사. 기존 fixed-ppm 관리 RHS를
+        새 모델의 실제 후 상태로 재사용하지 않는다. forcing 구간/사건 program·UTC/재개/저장/3D는 후속이다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

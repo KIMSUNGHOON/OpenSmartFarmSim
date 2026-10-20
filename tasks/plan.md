@@ -16,7 +16,7 @@
 | 순서 / 기존 작업 | 남은 작은 기능·수용 단위 | 남은 집중시간 추정 |
 | --- | --- | --- |
 | 1 CO₂ gas — 완료 | [명시 T/P·wet/dry scalar/독립35검사](../contracts/crop-co2-gas-v1.md) 수용 | 0 |
-| 2 CO₂ net/mass | [net52](../contracts/crop-co2-net-exchange-v1.md)/[질량RHS30](../contracts/crop-co2-air-mass-v1.md)/[현재 stage37](../contracts/crop-greenhouse-co2-joint-v1.md) 수용 →109상태 짧은 적분/독립 궤적 | 6–10 |
+| 2 CO₂ net/mass — 완료 | [net52](../contracts/crop-co2-net-exchange-v1.md)/[질량RHS30](../contracts/crop-co2-air-mass-v1.md)/[stage37](../contracts/crop-greenhouse-co2-joint-v1.md)/[짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md) 수용 | 0 |
 | 3 기공 | 원 단위 판본 결정 → scalar 참조 → 같은 stage 입력 연결/수지; 결정 전 hold | 8–16 |
 | 4 시설/일사 실행 | 명시 시설 환기 경계 → 남은 normal64 비용 원인 수정 → 정상/hold/취소/계산 중3D | 12–24 |
 | 5 `crop-climate-coupling` | CO₂ 포함 공동 적분 → 관리/분할복원 → 필요한 긴 forcing/전체 작기 수지·용량 | 12–24 |
@@ -31,14 +31,15 @@
 | 14 U4 | 생산/자원/경제의 같은 결과 선택 → 표/그래프/3D 일치 → 보류/모바일/WebGL 대체 | 8–16 |
 | 15 기존 Compose·`end-to-end-g1` | 실제3단계 CLI/운영 입력 결속 → 독립 검토·해제 → 실제 stack 접수/계산/경제/Assessment hold | 20–36 |
 | 16 U5·통합 검증 | ID 수동 전달 없는 전체 경로 → fresh/restart/철회/취소 → WSL 부하/정리 → 사용 안내 | 12–24 |
-| **M1 현재 잔여 합계** | 합성 계약을 실제 CLI/DB/브라우저까지 잇는 개발 범위 | **167–318** |
+| **M1 현재 잔여 합계** | 합성 계약을 실제 CLI/DB/브라우저까지 잇는 개발 범위 | **161–308** |
 
 첫 견적179–340에서 gas 행의 예상8–14를 완료로 제외했다. 이 차이는 실제8–14시간을 썼다는 뜻이 아니다.
 이 단순 scalar의 짧은 검사 시간을 동적 모델/통합의 구현 속도로 외삽하지 않는다.
 이어2행의 net/mass 순수 자식(계획 배정4–8)을 수용해 현재167–318로 갱신했다.
 2행은 당초 같은 stage 조립과 짧은 적분을 묶었다. 원 전체 작기·저장/실행 수용은5/9행에 별도다.
-같은 stage는37검사/독립1,635미분으로 수용했다. 새109상태/CO₂ 누적 장부의 궤적·수렴·중간 실패는
-아직 없으므로2행의 잔여6–10과 아래 낮은 신뢰 계획 창을 보수적으로 유지한다.
+같은 stage37에 이어 새109상태/44장부 짧은 적분을25검사·독립1,256수치/96수렴/17수지와
+실제 중간 고갈 보류로 수용해2행을 완료하고161–308로 갱신했다. 검증은8개32초 합성 궤적이다.
+관리/forcing program·전체 작기/continuation·저장/실행은5/9행이며 아래 낮은 신뢰 계획 창은 유지한다.
 통합의 불확실성이 해소되지 않아 아래5–9개발주 조건부 계획 창은 유지한다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
@@ -58,7 +59,7 @@
 | `service-economics`, `g4-operations` | 실측 호출/청구 원가·용량 → 배포/복원/격리 → 운영 증거·공개 경로 검증 | 16–32 |
 | **추가 소프트웨어 합계** | M1과 중복 계산하지 않음 | **72–142** |
 
-M1+M2의 현재 산술 합은239–460집중시간이나, M2는 필요한 실제 입력·권리/독립 기간·운영 계정/비용 증거가
+M1+M2의 현재 산술 합은233–450집중시간이나, M2는 필요한 실제 입력·권리/독립 기간·운영 계정/비용 증거가
 확보된 뒤의 낮은 신뢰 견적이다. 자료 접근 협의/동의·실제 측정/미래 작기·대응 후보 시험·외부 승인 대기시간은
 포함하지 않는다. [현재 확보 기록](../research/crop-independent-data-status.json)의 동의/수신/예약 작기는 모두0,
 `earliest_validation_cycle=null`이다. 따라서 **검증된 실제 생산/미래 수익·추천/운영까지 전체 goal 완료일은 미정**이다.
@@ -82,8 +83,11 @@ P01의 [명시 기압/온도·wet/dry 순수 변환](../contracts/crop-co2-gas-v
 원 모델/프로필·자원·자료 보존 범위로 수용했다. 실제 현재 joint의 낮/밤 crop→net→air 전달을 확인했다.
 [같은 stage37](../contracts/crop-greenhouse-co2-joint-v1.md)은 기존 Solar 순간 RHS를 재사용해
 현재 CO₂ 질량/T/P·vapor→ppm→실제 crop/net/공기 질량 피드백을 수용했다.
-다음 `co2-joint-short-integration`은 별도109상태/모델로 모든 실제 RK trial의 이 피드백과 누적 장부를
-독립 궤적/수렴·중간 실패에 대사한다. 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
+[짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md)는 모든 실제 RK trial의 현재 ppm과
+109상태/44장부를 독립32초 궤적·96수렴·중간 실패에 대사해 수용했다.
+다음 `co2-managed-transition`은 검토된 관리 primitive와 실제 CO₂/Solar 전후 RHS를 묶고
+공기 CO₂/ppm·제거 탄소/용량/열 보존을 검증한다. 이후 forcing/event program→continuation→저장/3D다.
+독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 그 뒤 새 짧은 적분/관리·continuation/저장/3D를 별도 수용하며 기존 checkpoint를 덮어쓰지 않는다.
 원 단위 불일치의 기공 P03은 hold이며 gas/net/mass의 개발 선행으로 추가하지 않는다.
 작물/기후 순수 계산의 기존 의존성을 따르며 기관 목록/UI 용량을 이 연구의 선행으로 추가하지 않는다.
