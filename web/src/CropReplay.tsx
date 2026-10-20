@@ -98,7 +98,7 @@ export default function CropReplayView(props:{api:Api|null;initialSelection?:Cro
       <LegacyCropReplay {...props}/>}</>;
 }
 
-function LegacyCropReplay({api,initialSelection,autoLoadInitialSelection=false}:{api:Api|null;
+export function LegacyCropReplay({api,initialSelection,autoLoadInitialSelection=false}:{api:Api|null;
   initialSelection?:CropLookup;autoLoadInitialSelection?:boolean}){
   const [lookup,setLookup]=useState<CropLookup>(initialSelection??EMPTY),[loaded,setLoaded]=useState<{api:Api;data:CropReplay}|null>(null);
   const [busy,setBusy]=useState(false),[error,setError]=useState<ApiError|null>(null),[index,setIndex]=useState(0);

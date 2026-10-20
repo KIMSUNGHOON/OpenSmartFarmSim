@@ -55,3 +55,16 @@
 OpenAPI snapshot·기존 두 kind·기관의 닫힌 cursor/응답·개인 오류 비공개·ASGI/실제 SCRAM의
 원 결과 대사와 실제 HTTPS의 원 응답 bytes/hash·권리 철회를 확인한다.
 브라우저·최신 CODE의 기존 보존 판본과 사용자 적용은 후속이다.
+
+## SDK와 목록 선택 자식
+
+실제 HTTPS metadata 7응답은 원 bytes/hash/길이로 시험 fixture에 고정한다. 수치 재생 응답의
+decoded 값은 별도 software fixture로 표시하고, 브라우저 mock을 실제 API/DB 검증으로 제시하지 않는다.
+SDK의 kind와 cursor는 `organ_v1`/`crop-result-v1`만 명시적으로 추가하며 기존 두 kind·30초/64KiB·
+GET 1회/취소·원 UTC 소수 정밀도·닫힌 farm/응답/개수 상한을 유지한다.
+
+같은 목록 화면에서 이전 생장 연구를 선택하면 원 result_id와 farm4를 기존 기관 재생에 자동 전달한다.
+수확 부모 조회나 계산-cycle API로 바꾸지 않는다. 같은 선택 객체는 유지하고, 종류/페이지/농장 변경·
+현재 실패·취소·계정 교체/화면 이탈은 이전 재생을 제거한다. 늦은 성공/실패는 복원하지 않는다.
+키보드·좁은 폭, 원 metadata/선택/같은 UTC·원 수치·3D/표와 기존 두 kind의 회귀를 확인한다.
+원 디자인 대조·실제 공동 API/DB/보존 판본·다수/큰 packet·사용자 적용 전에는 전체 family/U1을 수용하지 않는다.

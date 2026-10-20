@@ -3,7 +3,7 @@ import type {CropFarm} from './cropReplay';
 
 export const CROP_CATALOG_VERSION='crop-research-result-catalog-v1';
 export const CROP_CATALOG_MAX_BYTES=65_536;
-export type CropCatalogKind='calculation_cycle_v1'|'harvest_v1';
+export type CropCatalogKind='calculation_cycle_v1'|'harvest_v1'|'organ_v1';
 export type CropCatalogCursor=Readonly<{recorded_at:string;result_id:string}>;
 export type CropCatalogQuery=Readonly<{kind:CropCatalogKind;farm:Readonly<CropFarm>;
   limit?:number;before?:CropCatalogCursor|null}>;
@@ -17,7 +17,7 @@ export type HarvestCatalogItem=Readonly<{result_id:string;recorded_at:string;cal
 type Base=Readonly<{version:typeof CROP_CATALOG_VERSION;scope:'stored_research_metadata_only';
   farm:Readonly<CropFarm>;next_cursor:CropCatalogCursor|null;
   selection_validation_required:true;rights_or_gate_approval:false}>;
-export type GrowthCatalogPage=Base&Readonly<{kind:'calculation_cycle_v1';items:readonly GrowthCatalogItem[]}>;
+export type GrowthCatalogPage=Base&Readonly<{kind:'calculation_cycle_v1'|'organ_v1';items:readonly GrowthCatalogItem[]}>;
 export type HarvestCatalogPage=Base&Readonly<{kind:'harvest_v1';items:readonly HarvestCatalogItem[]}>;
 export type CropCatalogPage=GrowthCatalogPage|HarvestCatalogPage;
 type Request=(path:string,method?:string,body?:unknown,expected?:number,maxBytes?:number,
@@ -31,7 +31,7 @@ function utc(value:unknown):value is string{return date(value)&&value.endsWith('
 function stamp(value:unknown):value is string{return utc(value)&&/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{6}Z$/.test(value);}
 function instant(value:string){return value.slice(0,19)+'.'+(value[19]==='.'?value.slice(20,-1):'').padEnd(6,'0')+'Z';}
 function resultID(value:unknown,kind:CropCatalogKind):value is string{
-  const prefix=kind==='calculation_cycle_v1'?'crop-cycle-verified-result-v1:':'crop-harvest-registered-result-v1:';
+  const prefix=kind==='organ_v1'?'crop-result-v1:':kind==='calculation_cycle_v1'?'crop-cycle-verified-result-v1:':'crop-harvest-registered-result-v1:';
   return typeof value==='string'&&value.startsWith(prefix)&&digest(value.slice(prefix.length));
 }
 function farm(value:unknown):CropFarm{
@@ -46,14 +46,14 @@ function cursor(value:unknown,kind:CropCatalogKind):CropCatalogCursor{
 }
 function query(value:unknown):ResolvedQuery{
   need(object(value)&&Object.keys(value).every(k=>['kind','farm','limit','before'].includes(k)));
-  need(member(value.kind,['calculation_cycle_v1','harvest_v1'] as const));
+  need(member(value.kind,['calculation_cycle_v1','harvest_v1','organ_v1'] as const));
   const limit=Object.hasOwn(value,'limit')?value.limit:10;need(integer(limit,20)&&limit>=1);
   const before=Object.hasOwn(value,'before')&&value.before!==null?cursor(value.before,value.kind):null;
   return {kind:value.kind,farm:farm(value.farm),limit,before};
 }
-function growth(value:unknown):GrowthCatalogItem{
+function growth(value:unknown,kind:GrowthCatalogPage['kind']):GrowthCatalogItem{
   const v=shape(value,'result_id recorded_at calculation_status claim_scope study_id revision period sample_count event_count');
-  need(resultID(v.result_id,'calculation_cycle_v1')&&stamp(v.recorded_at)&&
+  need(resultID(v.result_id,kind)&&stamp(v.recorded_at)&&
     member(v.calculation_status,['completed','hold'] as const)&&v.claim_scope==='synthetic_crop_math_only'&&
     name(v.study_id)&&name(v.revision)&&integer(v.sample_count,131072)&&integer(v.event_count,131072));
   const p=shape(v.period,'start end');need(utc(p.start)&&utc(p.end)&&instant(p.start)<instant(p.end));
@@ -91,9 +91,9 @@ export function decodeCropCatalogPage(value:unknown,requested:CropCatalogQuery):
   need(Array.isArray(v.items)&&v.items.length<=20);
   const base:Omit<Base,'next_cursor'>={version:CROP_CATALOG_VERSION,scope:'stored_research_metadata_only',
     farm:selected,selection_validation_required:true as const,rights_or_gate_approval:false as const};
-  return expected.kind==='calculation_cycle_v1'?
-    {...base,kind:expected.kind,...page(v.items.map(growth),v.next_cursor,expected)}:
-    {...base,kind:expected.kind,...page(v.items.map(harvest),v.next_cursor,expected)};
+  if(expected.kind==='harvest_v1')return {...base,kind:expected.kind,...page(v.items.map(harvest),v.next_cursor,expected)};
+  const kind=expected.kind;
+  return {...base,kind,...page(v.items.map(row=>growth(row,kind)),v.next_cursor,expected)};
 }
 
 function canceled(signal?:AbortSignal){if(signal?.aborted)throw new ApiError('request_canceled');}

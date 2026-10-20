@@ -81,7 +81,7 @@ export function createCropResultPicker(api:CropResultPickerApi|null,changed:(sta
       return results(crop,state.kind,0,null,[null]);
     },
     setKind(kind:CropCatalogKind){
-      need(!disposed&&(kind==='calculation_cycle_v1'||kind==='harvest_v1'));
+      need(!disposed&&(kind==='calculation_cycle_v1'||kind==='harvest_v1'||kind==='organ_v1'));
       need(state.work!=='farms'&&state.work!=='crops');
       if(kind===state.kind)return Promise.resolve();
       if(state.crop)return results(state.crop,kind,0,null,[null]);
@@ -103,7 +103,7 @@ export function createCropResultPicker(api:CropResultPickerApi|null,changed:(sta
       need(!disposed&&state.phase==='ready'&&state.page);
       if(state.selection?.result_id===resultId)return;
       const page=state.page;let selection:StoredCropSelection;
-      if(page.kind==='calculation_cycle_v1'){
+      if(page.kind!=='harvest_v1'){
         const item=page.items.find(row=>row.result_id===resultId);need(item);
         selection={kind:page.kind,farm:{...page.farm},result_id:item.result_id};
       }else{

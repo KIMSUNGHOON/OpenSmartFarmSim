@@ -1,0 +1,721 @@
+{
+  "version": "organ-catalog-recorded-HTTPS-v1",
+  "scope": "owned synthetic contract fixture only; no real farm claims",
+  "source_backend_commit": "78b86fa1ad1fcc2f5c575b5c960f9749a106d251",
+  "source_evidence_SHA256": "f4202d3380243220cfd6ff6394b24b8b1717b1b986d9324f98807cba28dea7ea",
+  "actual_TLS_SCRAM_Bearer": true,
+  "actual_HTTPS_body_checks": [
+    {
+      "label": "unauthenticated",
+      "status": 401,
+      "bytes": 72,
+      "body_SHA256": "229598df10066d3767750c6c30c29a808879ae9116213edcb781f0985c91252c",
+      "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+    },
+    {
+      "label": "scope_denied",
+      "status": 403,
+      "bytes": 65,
+      "body_SHA256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+      "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+    },
+    {
+      "label": "foreign_farm",
+      "status": 422,
+      "bytes": 91,
+      "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+      "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+    },
+    {
+      "label": "organ",
+      "status": 200,
+      "bytes": 721,
+      "body_SHA256": "1e5982a5affbe27a6db2bb033d3dd5dba3b581acc02c61ab7347176b8d386d40",
+      "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+    },
+    {
+      "label": "farm_crops",
+      "status": 200,
+      "bytes": 585,
+      "body_SHA256": "b9c214e45eec33eba4d6e81017a60465bb0b1c9aab8326d18688c52dddd260fd",
+      "path": "/v1/crop-research-result-catalog/farm-crops?scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30"
+    },
+    {
+      "label": "withdrawn",
+      "status": 422,
+      "bytes": 91,
+      "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+      "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+    },
+    {
+      "label": "restored",
+      "status": 200,
+      "bytes": 721,
+      "body_SHA256": "1e5982a5affbe27a6db2bb033d3dd5dba3b581acc02c61ab7347176b8d386d40",
+      "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+    }
+  ],
+  "bodies_raw_utf8": {
+    "unauthenticated": "{\"error\":{\"code\":\"unauthenticated\",\"message\":\"Authentication required\"}}",
+    "scope_denied": "{\"error\":{\"code\":\"forbidden\",\"message\":\"Resource access denied\"}}",
+    "foreign_farm": "{\"error\":{\"code\":\"crop_catalog_hold\",\"message\":\"Stored crop catalog evidence unavailable\"}}",
+    "organ": "{\"farm\":{\"crop_id\":\"crop-1\",\"registration_sha256\":\"2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30\",\"scenario_id\":\"farm-1\",\"scenario_revision\":\"r1\"},\"items\":[{\"calculation_status\":\"completed\",\"claim_scope\":\"synthetic_crop_math_only\",\"event_count\":2,\"period\":{\"end\":\"2026-10-01T00:05:00Z\",\"start\":\"2026-10-01T00:00:00Z\"},\"recorded_at\":\"2026-10-20T12:59:21.903264Z\",\"result_id\":\"crop-result-v1:ba59e10f940880f097b91227ae73869e03fadf05cd2e4b8ca3e7ae4aa470f2a9\",\"revision\":\"r1\",\"sample_count\":6,\"study_id\":\"study-1\"}],\"kind\":\"organ_v1\",\"next_cursor\":null,\"rights_or_gate_approval\":false,\"scope\":\"stored_research_metadata_only\",\"selection_validation_required\":true,\"version\":\"crop-research-result-catalog-v1\"}",
+    "farm_crops": "{\"farm\":{\"registration_sha256\":\"2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30\",\"scenario_id\":\"farm-1\",\"scenario_revision\":\"r1\"},\"items\":[{\"batch_id\":\"batch-1\",\"crop_id\":\"crop-1\",\"evidence_level\":\"assumed\",\"occupancy\":{\"end\":\"2026-10-25T00:00:00.000000Z\",\"start\":\"2026-10-01T00:00:00.000000Z\"},\"origin\":\"user\",\"profile_status\":\"unavailable\",\"species\":\"synthetic-species-intent\",\"variety\":\"unspecified-user-intent\"}],\"rights_or_gate_approval\":false,\"scope\":\"registered_user_inputs_only\",\"selection_validation_required\":true,\"version\":\"crop-research-farm-selection-v1\"}",
+    "withdrawn": "{\"error\":{\"code\":\"crop_catalog_hold\",\"message\":\"Stored crop catalog evidence unavailable\"}}",
+    "restored": "{\"farm\":{\"crop_id\":\"crop-1\",\"registration_sha256\":\"2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30\",\"scenario_id\":\"farm-1\",\"scenario_revision\":\"r1\"},\"items\":[{\"calculation_status\":\"completed\",\"claim_scope\":\"synthetic_crop_math_only\",\"event_count\":2,\"period\":{\"end\":\"2026-10-01T00:05:00Z\",\"start\":\"2026-10-01T00:00:00Z\"},\"recorded_at\":\"2026-10-20T12:59:21.903264Z\",\"result_id\":\"crop-result-v1:ba59e10f940880f097b91227ae73869e03fadf05cd2e4b8ca3e7ae4aa470f2a9\",\"revision\":\"r1\",\"sample_count\":6,\"study_id\":\"study-1\"}],\"kind\":\"organ_v1\",\"next_cursor\":null,\"rights_or_gate_approval\":false,\"scope\":\"stored_research_metadata_only\",\"selection_validation_required\":true,\"version\":\"crop-research-result-catalog-v1\"}"
+  },
+  "replay_value": {
+    "result_id": "crop-result-v1:ba59e10f940880f097b91227ae73869e03fadf05cd2e4b8ca3e7ae4aa470f2a9",
+    "recorded_at": "2026-10-20T12:59:21.903264Z",
+    "study_id": "study-1",
+    "revision": "r1",
+    "farm": {
+      "scenario_id": "farm-1",
+      "scenario_revision": "r1",
+      "registration_sha256": "2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30",
+      "crop_id": "crop-1"
+    },
+    "batch_id": "batch-1",
+    "zone_id": "zone-1",
+    "farm_sha256": "c0da1ad5c1cfa146916e969fb0faf55c3eba41ca70fd4ad1bc8eabbfa3b62318",
+    "source_binding_sha256": "ecdefd38f044b41515540c3ea905f7e39646f55d4568832f8beb21d82b7767f0",
+    "storage_status": "stored_unpublished_research",
+    "claim_scope": "synthetic_crop_math_only",
+    "scope": "software_research_only",
+    "gates": "not_assessed",
+    "normalization": "per_m2_floor",
+    "profile_applicability": "unvalidated_for_registered_crop",
+    "temporal_provenance": "synthetic_research_program",
+    "start_utc": "2026-10-01T00:00:00Z",
+    "end_utc": "2026-10-01T00:05:00Z",
+    "status": "completed",
+    "steps": 30,
+    "planned_steps": 30,
+    "manifest": {
+      "integrator_version": "crop-rk4-research-v1",
+      "rate_model_version": "vanthoor-greenlight-carbon-rates-v1",
+      "domain_policy": "vanthoor-bounded-photosynthesis-v1",
+      "profile_id": "vanthoor-greenlight-reference-rates-v1",
+      "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+      "code_sha256": {
+        "integrator": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+        "rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858"
+      },
+      "storage_code_sha256": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+      "input_sha256": "36bde9d426d97945bd25bf5d1c17c9a1273dc6f0f614d4fa31edf67b230d490a",
+      "raw_program_sha256": "8eb55f00420fc75047e7f474834e8fdb3e0c9e4f5e493a1ec9d3ccce5b8f3d86",
+      "result_sha256": "74f1daeed78510562eeca0727186378216e9130dc69dd5104d9efc0f80e25157",
+      "payload_sha256": "a949dffb9eca34b34bd4a735534635347cb3196041cb73f492c22f60df152ab0",
+      "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "solver": {
+        "method": "rk4-fixed-v1",
+        "max_step_seconds": 10,
+        "max_steps": 10000,
+        "roundoff_rule": "64-ulp-per-operation-v1"
+      },
+      "time_rule": "UTC_POSIX_whole_seconds_v1",
+      "python_version": "3.12.3",
+      "convergence": "not_evaluated_for_this_program",
+      "temperature_sum_method": "analytic_piecewise_constant_fraction_v1"
+    },
+    "samples": [
+      {
+        "at": "2026-10-01T00:00:00Z",
+        "state": {
+          "buffer": {
+            "value": 20000.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4368.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1560.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 312.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.5,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.0,
+            "unit": "degC_day"
+          }
+        },
+        "lai": {
+          "value": 0.1161888,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "cumulative": {
+          "photosynthesis": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          }
+        },
+        "carbon_residual": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "carbon_residual_budget": {
+          "value": 2.3283064365386963e-10,
+          "unit": "mg_CH2O/m2_floor"
+        }
+      },
+      {
+        "at": "2026-10-01T00:01:00Z",
+        "state": {
+          "buffer": {
+            "value": 19989.47189805538,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4373.735066806805,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1564.509110835354,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 312.09808531697723,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.499652898313144,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.013888888888888888,
+            "unit": "degC_day"
+          }
+        },
+        "lai": {
+          "value": 0.11634135277706101,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "cumulative": {
+          "photosynthesis": {
+            "value": 2.89957719984378,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 3.0071385347210544,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.06660327479150845,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem_root": {
+            "value": 0.010084807152487297,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.0015895686605226138,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          }
+        },
+        "carbon_residual": {
+          "value": -1.4653276422110784e-12,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "carbon_residual_budget": {
+          "value": 1.6298145055770874e-09,
+          "unit": "mg_CH2O/m2_floor"
+        }
+      },
+      {
+        "at": "2026-10-01T00:02:00Z",
+        "state": {
+          "buffer": {
+            "value": 19978.95520399632,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4379.46996211711,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1569.0181260424274,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 312.19630320862177,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.499306037585452,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.027777777777777776,
+            "unit": "degC_day"
+          }
+        },
+        "lai": {
+          "value": 0.11649390099231513,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "cumulative": {
+          "photosynthesis": {
+            "value": 5.810534738154382,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 6.014268960979349,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.13329233526678616,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem_root": {
+            "value": 0.020198478371309628,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.003179599060250177,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          }
+        },
+        "carbon_residual": {
+          "value": 2.845882383917253e-12,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "carbon_residual_budget": {
+          "value": 3.026798367500305e-09,
+          "unit": "mg_CH2O/m2_floor"
+        }
+      },
+      {
+        "at": "2026-10-01T00:03:00Z",
+        "state": {
+          "buffer": {
+            "value": 19967.551337954807,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4284.604942982472,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1573.5272453109808,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 312.2945433628674,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.50104202777077,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.04375,
+            "unit": "degC_day"
+          }
+        },
+        "lai": {
+          "value": 0.11397049148333374,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "cumulative": {
+          "photosynthesis": {
+            "value": 7.834742684323699,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 9.021493695068772,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.2000674269477034,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem_root": {
+            "value": 0.030341744776683135,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.004770206407359913,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 100.6,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          }
+        },
+        "carbon_residual": {
+          "value": 3.086046175548862e-12,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "carbon_residual_budget": {
+          "value": 4.6566128730773926e-09,
+          "unit": "mg_CH2O/m2_floor"
+        }
+      },
+      {
+        "at": "2026-10-01T00:04:00Z",
+        "state": {
+          "buffer": {
+            "value": 19956.09544367603,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4289.741790096504,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1578.036668051777,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 312.39294515178443,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.502776812825843,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.059722222222222225,
+            "unit": "degC_day"
+          }
+        },
+        "lai": {
+          "value": 0.11410713161656699,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "cumulative": {
+          "photosynthesis": {
+            "value": 9.808111018586018,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 12.02898238848316,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.2654048037715507,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem_root": {
+            "value": 0.0405153442257092,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.00636150601317159,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 101.19999999999996,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          }
+        },
+        "carbon_residual": {
+          "value": 2.1878800854358005e-12,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "carbon_residual_budget": {
+          "value": 6.05359673500061e-09,
+          "unit": "mg_CH2O/m2_floor"
+        }
+      },
+      {
+        "at": "2026-10-01T00:05:00Z",
+        "state": {
+          "buffer": {
+            "value": 19942.66628681699,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4295.47846984229,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1582.5459948642695,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 289.4914262646866,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.500345173345035,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.07152777777777777,
+            "unit": "degC_day"
+          }
+        },
+        "lai": {
+          "value": 0.11425972729780491,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "cumulative": {
+          "photosynthesis": {
+            "value": 9.808111018586018,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 15.0364463367365,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.33082345622610865,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem_root": {
+            "value": 0.0507178103629542,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.00794562702594541,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 101.19999999999996,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_fruit": {
+            "value": 23.0,
+            "unit": "mg_CH2O/m2_floor"
+          }
+        },
+        "carbon_residual": {
+          "value": 2.98853997104942e-12,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "carbon_residual_budget": {
+          "value": 7.683411240577698e-09,
+          "unit": "mg_CH2O/m2_floor"
+        }
+      }
+    ],
+    "events": [
+      {
+        "at": "2026-10-01T00:03:00Z",
+        "removals": {
+          "leaf": {
+            "value": 100.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          }
+        },
+        "before": {
+          "buffer": {
+            "value": 19967.551337954807,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4384.604942982472,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1573.5272453109808,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 312.2945433628674,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.50104202777077,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.04375,
+            "unit": "degC_day"
+          }
+        },
+        "after": {
+          "buffer": {
+            "value": 19967.551337954807,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4284.604942982472,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1573.5272453109808,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 312.2945433628674,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.50104202777077,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.04375,
+            "unit": "degC_day"
+          }
+        }
+      },
+      {
+        "at": "2026-10-01T00:05:00Z",
+        "removals": {
+          "leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 20.0,
+            "unit": "mg_CH2O/m2_floor"
+          }
+        },
+        "before": {
+          "buffer": {
+            "value": 19942.66628681699,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4295.47846984229,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1582.5459948642695,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 309.4914262646866,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.500345173345035,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.07152777777777777,
+            "unit": "degC_day"
+          }
+        },
+        "after": {
+          "buffer": {
+            "value": 19942.66628681699,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4295.47846984229,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1582.5459948642695,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 289.4914262646866,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.500345173345035,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0.07152777777777777,
+            "unit": "degC_day"
+          }
+        }
+      }
+    ],
+    "hold": null
+  },
+  "replay_value_origin": "decoded actual HTTPS response retained as a software replay fixture; not a raw response capture",
+  "replay_captured_response_SHA256": "93cf2151f628d11691085f9f04e99d72dd08d13eb3e7b19a5dbc68ba006bc658",
+  "replay_captured_response_bytes": 11354,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "browser_API_mock_is_not_live_API_or_DB": true
+}

@@ -10,6 +10,8 @@ const catalog=JSON.parse(readFileSync(new URL('../e2e/crop-result-catalog-record
 const crops=JSON.parse(readFileSync(new URL('../e2e/crop-farm-selection-recorded-responses.json',import.meta.url),'utf8'));
 const source=JSON.parse(catalog.bodies_raw_utf8.growth_max);
 const records=[...source.items,...JSON.parse(catalog.bodies_raw_utf8.growth_tail).items];
+const organFixture=JSON.parse(readFileSync(new URL('../e2e/organ-catalog-recorded-responses.json',import.meta.url),'utf8'));
+const organPage=JSON.parse(organFixture.bodies_raw_utf8.organ);
 const farm:AuthoredFarmSummary={scenario_id:source.farm.scenario_id,scenario_revision:source.farm.scenario_revision,
   scenario_sha256:source.farm.registration_sha256,farm_sha256:'a'.repeat(64),numeric_input_sha256:'b'.repeat(64),
   rights_sha256:'c'.repeat(64),registration_status:'registered_unpublished_inputs',intent_job:{
@@ -44,7 +46,36 @@ function gate(){
   return {promise,release,enter,entered};
 }
 
+async function organReady(){
+  const c=setup();
+  // Only the authored-farm envelope is synthetic; organ metadata and farm-crops bytes are unchanged.
+  const selectedFarm={...farm,scenario_id:organPage.farm.scenario_id,scenario_revision:organPage.farm.scenario_revision,
+    scenario_sha256:organPage.farm.registration_sha256,farm_sha256:organFixture.replay_value.farm_sha256};
+  c.api.authoredFarmCatalog.mockResolvedValue({items:[selectedFarm],next_cursor:null});
+  c.api.authoredFarm.mockResolvedValue(selectedFarm);
+  c.api.cropFarmSelection.mockImplementation(async ref=>decodeCropFarmSelection(JSON.parse(organFixture.bodies_raw_utf8.farm_crops),ref));
+  c.api.cropResultCatalog.mockImplementation(async q=>decodeCropCatalogPage(organPage,q));
+  await c.picker.refreshFarms();await c.picker.chooseFarm(selectedFarm.intent_job.job_id);
+  await c.picker.setKind('organ_v1');await c.picker.chooseCrop(organPage.farm.crop_id);return c;
+}
+
 describe('stored crop result picker',()=>{
+  it('organ catalogue copies the original ID and farm with no harvest parent and keeps equivalent selection stable',async()=>{
+    const c=await organReady(),id=organPage.items[0].result_id;c.picker.select(id);
+    const selected=c.picker.snapshot().selection;
+    expect(selected).toEqual({kind:'organ_v1',farm:organPage.farm,result_id:id});
+    c.picker.select(id);await c.picker.setKind('organ_v1');expect(c.picker.snapshot().selection).toBe(selected);
+    expect(c.api.cropResultCatalog).toHaveBeenCalledTimes(1);
+    const work=c.picker.setKind('calculation_cycle_v1');expect(c.picker.snapshot().selection).toBeNull();
+    await work;expect(c.picker.snapshot().phase).toBe('error');expect(c.picker.snapshot().page).toBeNull();
+  });
+  it('organ catalogue ignores a late success after cancellation and clears selected replay',async()=>{
+    const c=await organReady(),g=gate();c.picker.select(organPage.items[0].result_id);
+    c.api.cropResultCatalog.mockImplementationOnce(async q=>{g.enter();await g.promise;return decodeCropCatalogPage(organPage,q);});
+    const work=c.picker.refreshResults();await g.entered;c.picker.cancel();g.release();await work;
+    expect(c.picker.snapshot().selection).toBeNull();expect(c.picker.snapshot().page).toBeNull();
+    expect(c.picker.snapshot().phase).toBe('idle');
+  });
   it('starts without a request and rechecks a listed immutable registration before crop lookup',async()=>{
     const c=setup();expect(c.api.authoredFarmCatalog).not.toHaveBeenCalled();await registered(c);
     expect(c.api.authoredFarm).toHaveBeenCalledWith(farm.scenario_id,farm.scenario_revision);

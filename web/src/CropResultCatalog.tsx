@@ -67,6 +67,7 @@ export default function CropResultCatalog({api,onCreateFarm}:{api:Api|null;onCre
     <fieldset className="catalog-kinds"><legend>저장 결과 종류</legend>
       <button disabled={disabled} aria-pressed={state.kind==='calculation_cycle_v1'} onClick={()=>act(p=>p.setKind('calculation_cycle_v1'))}>생장 계산</button>
       <button disabled={disabled} aria-pressed={state.kind==='harvest_v1'} onClick={()=>act(p=>p.setKind('harvest_v1'))}>수확 배정</button>
+      <button disabled={disabled} aria-pressed={state.kind==='organ_v1'} onClick={()=>act(p=>p.setKind('organ_v1'))}>이전 생장 연구</button>
     </fieldset>
     <section className="catalog-results" aria-labelledby="crop-catalog-heading">
       <div className="catalog-list-heading"><h2 id="crop-catalog-heading">저장된 연구 결과 목록</h2>
@@ -79,10 +80,10 @@ export default function CropResultCatalog({api,onCreateFarm}:{api:Api|null;onCre
           <button className="button secondary" onClick={()=>farmSelect.current?.focus()}>선택 조건 변경</button></div>
       </div>}
       {page&&page.items.length>0&&<div className="catalog-table-scroll" tabIndex={0} role="region" aria-label="저장 결과 표, 좁은 화면에서는 가로로 이동">
-        <table><caption>{page.kind==='calculation_cycle_v1'?'생장 계산':'수확 배정'} · 현재 페이지 {page.items.length}건</caption>
+        <table><caption>{page.kind==='organ_v1'?'이전 생장 연구':page.kind==='calculation_cycle_v1'?'생장 계산':'수확 배정'} · 현재 페이지 {page.items.length}건</caption>
           <thead><tr><th scope="col">저장 시각 (UTC)</th><th scope="col">기간 / 연결</th><th scope="col">계산 상태</th>
-            <th scope="col">{page.kind==='calculation_cycle_v1'?'저장 시점 수':'배정 행 수'}</th><th scope="col">열기</th></tr></thead>
-          <tbody>{page.kind==='calculation_cycle_v1'?page.items.map(item=><tr key={item.result_id} aria-selected={state.selection?.result_id===item.result_id}>
+            <th scope="col">{page.kind!=='harvest_v1'?'저장 시점 수':'배정 행 수'}</th><th scope="col">열기</th></tr></thead>
+          <tbody>{page.kind!=='harvest_v1'?page.items.map(item=><tr key={item.result_id} aria-selected={state.selection?.result_id===item.result_id}>
             <td><time dateTime={item.recorded_at}>{utc(item.recorded_at)}</time></td>
             <td>{utc(item.period.start)}<br/>→ {utc(item.period.end)}</td>
             <td><span className={'catalog-status '+item.calculation_status}>{item.calculation_status==='completed'?'계산 완료':'계산 보류'}</span></td>
