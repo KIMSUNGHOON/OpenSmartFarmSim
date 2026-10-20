@@ -17,6 +17,9 @@
     역사적 row의 지원 reader/CODE·원 디자인/사용자 적용과 기관 family/U1 전체는 완료하지 않는다.
     [첫 실행/보완 기록](../research/organ-native-integration-progress-20261020.md): 웹1,886/256 통과·native 종료 대기120초 실패,
     자원 한도/소유 정리 보존. source88d766e는 동작30초/단계 기록·최종 protocol을 보완했고 CI39441263299의 실제 결과를 기다린다.
+    [두 번째 실패/관측 범위 수정](../research/organ-native-observer-recovery-20261021.md): 웹1,886/256은 통과했다.
+    native의10화면 관측 뒤 SDK가 읽지 않는 오류 본문 관측2개가 남아 미수용이다. 성공 원 body/실제 SDK 소비와
+    거부 헤더·장면 제거를 구분한 source92c6456/CI39444301162를 추적한다. 원 한도·최종 DB/쓰기 대사 조건은 유지한다.
 
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
   고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·

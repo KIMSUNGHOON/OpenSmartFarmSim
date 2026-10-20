@@ -44,6 +44,8 @@ HTML/진행 JSON의200으로 보호 API의 정상 동작을 대신하지 않는�
    새 synthetic 시험 row의 실제 통합과 역사적 원 row 채택·WSL5root 동시 용량/사용자 적용은 따로 기록한다.
    [첫 hosted 실행과 보완](../research/organ-native-integration-progress-20261020.md)은 웹1,886/256 통과 뒤
    native 최종 protocol/종료 대기120초로 미수용이다. 같은 한도/소유 정리를 보존했고 단계 기록·동작 제한을 보완한 CI39441263299를 추적한다.
+   [후속 관측](../research/organ-native-observer-recovery-20261021.md)에서10화면/17성공 body 뒤 오류 본문 관측2개의 대기를 확인했다.
+   SDK가 소비한 성공 원 body와 거부 헤더를 명시적으로 구분한 source92c6456/CI39444301162가 현재 실행이다.
    기존 30초 요청 제한의 실제20건/큰 packet·보존 CODE·minified App/원 UTC3D/권리와 사용자 적용이 남는다.
    [개발 기록 접근 동작](../research/catalog-development-disclosure-20261020.md)은
    웹1,864/250·동일 minified native3상태/키보드2조건·합907,010,048bytes/5root 보존으로 수용했다.
