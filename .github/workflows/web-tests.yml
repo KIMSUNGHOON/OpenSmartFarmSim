@@ -11,6 +11,11 @@ on:
         description: Also check live organ catalogue, SCRAM, HTTPS and WebGL (hosted only; full browser suite required)
         type: boolean
         default: false
+      organ_capacity:
+        description: Only normal large organ producer and metadata HTTPS capacity (hosted only)
+        type: choice
+        default: none
+        options: [none, '1', '20']
       unpaused_solar:
         description: Check only independent normal Solar API and worker execution (no WSL capacity claim)
         type: boolean
@@ -49,7 +54,7 @@ permissions:
 jobs:
   web:
     name: web (${{ inputs.browser_suite || 'all' }})
-    if: github.event_name != 'workflow_dispatch' || !inputs.unpaused_solar || inputs.native_solar || inputs.native_organ
+    if: github.event_name != 'workflow_dispatch' || (inputs.organ_capacity != '1' && inputs.organ_capacity != '20' && (!inputs.unpaused_solar || inputs.native_solar || inputs.native_organ))
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     defaults:
@@ -104,11 +109,15 @@ jobs:
           if-no-files-found: error
 
   unpaused_solar:
-    name: ${{ inputs.solar_query_scope_cost && 'Solar query scope evaluation (no normal acceptance)' || inputs.solar_worker_diagnostics && 'Solar worker progress diagnostic (no acceptance)' || 'independent normal Solar execution' }}
-    if: github.event_name == 'workflow_dispatch' && inputs.unpaused_solar
+    name: ${{ (inputs.organ_capacity == '1' || inputs.organ_capacity == '20') && 'organ catalogue large packet capacity' || inputs.solar_query_scope_cost && 'Solar query scope evaluation (no normal acceptance)' || inputs.solar_worker_diagnostics && 'Solar worker progress diagnostic (no acceptance)' || 'independent normal Solar execution' }}
+    if: github.event_name == 'workflow_dispatch' && (inputs.unpaused_solar || inputs.organ_capacity == '1' || inputs.organ_capacity == '20')
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
+      OSSF_ORGAN_CAPACITY: ${{ inputs.organ_capacity || 'none' }}
+      OSSF_UNPAUSED_SOLAR: ${{ inputs.unpaused_solar && '1' || '0' }}
+      OSSF_NATIVE_SOLAR: ${{ inputs.native_solar && '1' || '0' }}
+      OSSF_NATIVE_ORGAN: ${{ inputs.native_organ && '1' || '0' }}
       OSSF_SOLAR_TRACE_WORKER: ${{ inputs.solar_worker_diagnostics && '1' || '0' }}
       OSSF_SOLAR_DIAGNOSTIC_DETAIL: ${{ inputs.solar_worker_diagnostics_detail || 'phases' }}
       OSSF_SOLAR_QUERY_SCOPE_COST: ${{ inputs.solar_query_scope_cost && '1' || '0' }}
@@ -153,16 +162,24 @@ jobs:
           "$pg_task_root/install/bin/postgres" --version | grep -Fx 'postgres (PostgreSQL) 16.15'
       - name: Selected Solar execution or query cost evaluation
         run: |
+          set -euo pipefail
           export OSSF_TEST_PG_BIN="$RUNNER_TEMP/solar-unpaused-postgresql-16.15/install/bin"
           export OSSF_TEST_PG_DSN='host=/owned-fixture dbname=postgres user=ossf_login_admin'
-          if [ "$OSSF_SOLAR_QUERY_SCOPE_COST" = '1' ]; then
+          if [ "$OSSF_ORGAN_CAPACITY" != 'none' ]; then
+            test "$OSSF_UNPAUSED_SOLAR" = '0'
+            test "$OSSF_NATIVE_SOLAR" = '0'
+            test "$OSSF_NATIVE_ORGAN" = '0'
+            test "$OSSF_SOLAR_QUERY_SCOPE_COST" = '0'
+            test "$OSSF_SOLAR_TRACE_WORKER" = '0'
+            backend/.venv/bin/python -B research/crop_organ_catalog_hosted.py "$RUNNER_TEMP/organ-capacity-evidence" --capacity "$OSSF_ORGAN_CAPACITY"
+          elif [ "$OSSF_SOLAR_QUERY_SCOPE_COST" = '1' ]; then
             test "$OSSF_SOLAR_TRACE_WORKER" = '0'
             backend/.venv/bin/python -B research/solar_query_scope_hosted.py "$RUNNER_TEMP/solar-unpaused-evidence/query-scope"
           else
             backend/.venv/bin/python -B backend/tests/crop_greenhouse_solar_unpaused_smoke.py supervise "$RUNNER_TEMP/solar-unpaused-evidence"
           fi
       - name: Store curated normal execution evidence
-        if: always()
+        if: always() && inputs.organ_capacity != '1' && inputs.organ_capacity != '20'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ${{ inputs.solar_query_scope_cost && 'solar-query-scope-cost' || 'solar-unpaused-normal' }}-${{ github.sha }}
@@ -189,6 +206,18 @@ jobs:
             ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-query/summary.json
             ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-prefix/database-cleanup.json
             ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-prefix/summary.json
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Store curated organ capacity evidence
+        if: always() && (inputs.organ_capacity == '1' || inputs.organ_capacity == '20')
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: organ-capacity-${{ inputs.organ_capacity }}-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/organ-capacity-evidence/organ-capacity-*.private.json
+            ${{ runner.temp }}/organ-capacity-evidence/resource-organ.json
+            ${{ runner.temp }}/organ-capacity-evidence/native-failure-summary.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: ignore

@@ -24,3 +24,11 @@
 핵심 시험은 `backend/tests/crop_organ_catalog_capacity_smoke.py`다.
 사전1결과와 full20결과는 서로 다른 소유 DB/시험으로 대사하며 원5분6시점 fixture는 유지한다.
 `organ-catalog-20-large-HTTPS-capacity`는 full20의 실제 완료·불변성·거부/복원·정리 증거 뒤에만 체크한다.
+
+WSL의 첫 사전 검사는 합산 RSS 보류다. 다음 실행은 기존 hosted 실행기의
+`--capacity 1`과, 그 사전 수용 뒤 `--capacity 20`이다.
+Web tests의 닫힌 `organ_capacity` 입력만 선택하고 Solar/브라우저 실행을 함께 요청하지 않는다.
+같은 PG16.15/잠금 Python·백엔드 설치와 기존 소유 자원/종료 감독을 재사용한다.
+생성 시작/반환/검사 완료의 진행 metadata와 최종 JSON만 artifact로 보존하며
+원 payload·계정/DSN/passfile/TLS private key나 private log는 업로드하지 않는다.
+hosted 성공은 보호5root를 포함한 WSL 동시 용량을 해제하지 않는다.

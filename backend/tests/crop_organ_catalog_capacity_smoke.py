@@ -79,11 +79,22 @@ def exercise(setup,tls,tmp_path,monkeypatch,total):
     body=load_request(original)
     records=[]
     preparation=time.monotonic()
+    def progress(phase,**extra):
+        value={'phase':phase,'completed':len(records),'target':total,
+            'preparation_seconds':time.monotonic()-preparation,'records':records,**extra}
+        target=evidence/('organ-capacity-'+str(total)+'-progress.private.json')
+        temporary=target.with_suffix('.tmp')
+        with temporary.open('w') as stream:
+            os.fchmod(stream.fileno(),0o600)
+            json.dump(value,stream,indent=2)
+        os.replace(temporary,target)
     for index in range(total):
         request=deepcopy(body)
         request['study_id']='capacity-'+str(index).zfill(2)
         started=time.monotonic()
+        progress('normal_producer_put',active_index=index)
         record=put(store,request)
+        progress('normal_producer_returned',active_index=index,packet_bytes=len(record['payload_raw']))
         packet=json.loads(record['payload_raw'])
         assert packet['result']['status']=='completed','normal load producer returned a numeric hold'
         assert len(packet['result']['samples'])==3601
@@ -95,13 +106,7 @@ def exercise(setup,tls,tmp_path,monkeypatch,total):
             'planned_steps':packet['result']['planned_steps'],'producer_seconds':time.monotonic()-started,
             'row_fingerprint':fingerprint(store,record['result_id'])})
         del packet,record
-        progress={'phase':'normal_producer_preparation','completed':len(records),'target':total,
-            'preparation_seconds':time.monotonic()-preparation,'records':records}
-        target=evidence/('organ-capacity-'+str(total)+'-progress.private.json')
-        temporary=target.with_suffix('.tmp')
-        temporary.write_text(json.dumps(progress,indent=2))
-        temporary.chmod(0o600)
-        os.replace(temporary,target)
+        progress('normal_producer_preparation')
     preparation_seconds=time.monotonic()-preparation
     jobs,replay=store.jobs,store.farms.replay
     research,holds=replay.owned_research,replay.thermal.holds

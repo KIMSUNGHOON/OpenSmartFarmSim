@@ -21,8 +21,9 @@ def save(path, value):
         json.dump(value,stream,sort_keys=True,indent=2)
 
 
-def supervise(directory):
+def supervise(directory, capacity=None):
     assert os.environ.get('GITHUB_ACTIONS')=='true','hosted only; preserve protected WSL services'
+    assert capacity in (None,1,20),'closed capacity case required'
     evidence=Path(directory).resolve()
     evidence.mkdir(mode=0o700)
     spec=importlib.util.spec_from_file_location('organ_scope',ROOT/'research/owned-research-process-scope.py')
@@ -39,15 +40,24 @@ def supervise(directory):
     owned_tmp.mkdir(mode=0o700)
     env=dict(os.environ,OSSF_ORGAN_NATIVE_EVIDENCE=str(evidence),TMPDIR=str(owned_tmp),
         OSSF_TEST_PG_SHARED_BUFFERS_MIB='1')
-    pins={name:sha256((ROOT/name).read_bytes()).hexdigest() for name in (
+    targets=['tests/web_crop_organ_catalog_smoke.py']
+    source_names=(
         'backend/tests/web_crop_organ_catalog_smoke.py','web/e2e/real-organ-catalog-smoke.mjs',
         'web/e2e/observe-api-body.mjs',
-        'research/crop_organ_catalog_hosted.py')}
+        'research/crop_organ_catalog_hosted.py')
+    if capacity is not None:
+        env['OSSF_JOINT_PREFIX_RUNTIME_EVIDENCE']=str(evidence)
+        case=('test_normal_large_producer_size_and_single_metadata_preflight' if capacity==1 else
+            'test_twenty_normal_large_signed_results_actual_HTTPS_capacity')
+        targets=['tests/crop_organ_catalog_capacity_smoke.py::'+case]
+        source_names=('backend/tests/crop_organ_catalog_capacity_smoke.py',
+            'contracts/crop-organ-catalog-capacity-v1.md','research/crop_organ_catalog_hosted.py')
+    pins={name:sha256((ROOT/name).read_bytes()).hexdigest() for name in source_names}
     try:
         with (evidence/'case.private.log').open('xb') as log:
             os.fchmod(log.fileno(),0o600)
             process=subprocess.Popen([sys.executable,'-B','-m','pytest',
-                'tests/web_crop_organ_catalog_smoke.py','-q','-rf','--maxfail=1',
+                *targets,'-q','-rf','--maxfail=1',
                 '--basetemp',str(evidence/'pytest')],cwd=ROOT/'backend',env=env,
                 stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT)
             while process.poll() is None:
@@ -95,6 +105,7 @@ def supervise(directory):
         'owned_non_zombie_remaining':remaining,'FD_before_after':[before,after],
         'owned_temp_or_credentials_remaining':temporary_remaining,
         'source_preserved':unchanged,'source_SHA256':pins,'hosted_only':True,
+        'capacity_result_count':capacity,
         'WSL_capacity_accepted':False,'actual_crop_Runs':0,'G0_G4':'not_assessed','U1_accepted':False}
     save(evidence/'resource-organ.json',result)
     if process is not None and process.returncode:
@@ -104,6 +115,15 @@ def supervise(directory):
         save(evidence/'native-failure-summary.json',{'error_lines':errors,
             'private_log_SHA256':sha256((evidence/'case.private.log').read_bytes()).hexdigest()})
     assert process is not None and process.returncode==0 and reason is None and not remaining and not temporary_remaining and before==after and unchanged,result
+    if capacity is not None:
+        native=json.loads((evidence/('organ-capacity-'+str(capacity)+'.private.json')).read_bytes())
+        assert native['accepted'] and native['record_count']==capacity and native['HTTPS_server_joined']
+        assert all(n==0 for n in native['query_calls'].values())
+        print(json.dumps({'accepted_hosted_organ_capacity_child':capacity,
+            'packet_bytes_sum':native['packet_bytes_sum'],'responses':len(native['observations']),
+            'combined_peak_RSS_bytes':combined,'WSL_capacity_accepted':False,
+            'actual_crop_Runs':0,'G0_G4':'not_assessed'}))
+        return
     native=json.loads((evidence/'native-organ.json').read_bytes())
     assert native['actual_API_DB_browser'] and not native['mock_API_used']
     assert native['HTTPS_server_joined'] and all(n==0 for n in native['query_calls'].values())
@@ -113,4 +133,5 @@ def supervise(directory):
 
 
 if __name__=='__main__':
-    supervise(sys.argv[1])
+    assert len(sys.argv)==2 or (len(sys.argv)==4 and sys.argv[2]=='--capacity' and sys.argv[3] in ('1','20'))
+    supervise(sys.argv[1],None if len(sys.argv)==2 else int(sys.argv[3]))
