@@ -1,0 +1,660 @@
+{
+  "G0_G4": "not_assessed",
+  "U1_accepted": false,
+  "WSL_capacity_accepted": false,
+  "WSL_download_guard": {
+    "RSS_samples": 11,
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 642281472,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 113844224,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 2.9629300940141547
+  },
+  "failure": {
+    "error_lines": [
+      "E               TimeoutError: The read operation timed out",
+      "FAILED tests/[redacted-id].py::[redacted-id][login_scope0] - TimeoutError: The read operation timed out"
+    ],
+    "private_log_SHA256": "65e17832f4792d1c2944758c390a7ea2f645b75ce6f0c7f2a77ca79464cb706b"
+  },
+  "new_UI_deployed": false,
+  "normal_capacity_accepted": false,
+  "receipt": {
+    "U1_accepted": false,
+    "WSL_capacity_accepted": false,
+    "ZIP_SHA256": "c518e8ab65cd37cf04221f81db89420b176e7246fc37c4d91ed9b97d1df64f5c",
+    "artifact_digest": "sha256:c518e8ab65cd37cf04221f81db89420b176e7246fc37c4d91ed9b97d1df64f5c",
+    "artifact_id": 12280951999,
+    "deployed": false,
+    "files": {
+      "native-failure-summary.json": "5a264a0278fc999bc00a7d440468d7942ba00129cdf1fbd40d0f94f799444daa",
+      "organ-capacity-20-phases.private.json": "70af886bbebdd7e941527d260eaabd468f46952f702d25efc3937098f9f221fa",
+      "organ-capacity-20-progress.private.json": "490ec5ce8985649ffa40f368c6d72f6bd9857e89f8c8a558c181b147f8c7c43c",
+      "organ-capacity-20.private.json": "86f9c6977d51643a3525cbd3c7c0a5ad43abeafef009c64d9ab26219612d7cc0",
+      "resource-organ.json": "7818906865e7ee163be7398ffa8e12d78ed3f01522316e0736605864e5f17e40"
+    },
+    "job": 118741935480,
+    "job_conclusion": "failure",
+    "other_jobs_skipped": true,
+    "result_count": 20,
+    "retrieved_at": "2026-10-20T16:20:42.912939+00:00",
+    "run": 39455715905,
+    "source_commit": "0b3086b21df1628032222c602225aa552aed323c",
+    "workflow_conclusion": "failure"
+  },
+  "resource": {
+    "FD_before_after": [
+      6,
+      6
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 597,
+    "U1_accepted": false,
+    "WSL_capacity_accepted": false,
+    "actual_child_exit": 1,
+    "actual_crop_Runs": 0,
+    "capacity_diagnostic_only": true,
+    "capacity_result_count": 20,
+    "combined_peak_RSS_bytes": 592900096,
+    "hosted_only": true,
+    "owned_non_zombie_remaining": [],
+    "owned_temp_or_credentials_remaining": [],
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 319631360,
+    "source_SHA256": {
+      "backend/tests/crop_organ_catalog_capacity_smoke.py": "f288ad7ed45f9f7e57e7a45e17cdb9c335646286b2387a1346c60caea8dbb597",
+      "contracts/crop-organ-catalog-capacity-v1.md": "8972163affefe6f0ef8103b43e5398056395f5e2d33d1d1b6c4667462707e1fc",
+      "research/crop_organ_catalog_hosted.py": "67fdf34762054bd7309affedba66d14ea7ee0f1a2d3ab573b0ca59f77b90743e"
+    },
+    "source_preserved": true,
+    "wall_seconds": 152.72806717
+  },
+  "result": {
+    "G0_G4": "not_assessed",
+    "HTTPS_server_joined": true,
+    "U1_accepted": false,
+    "WSL_browser_capacity_accepted": false,
+    "accepted": false,
+    "actual_TLS_SCRAM_Bearer": true,
+    "actual_crop_Runs": 0,
+    "browser_performed": false,
+    "diagnostic_only": true,
+    "metadata_max_bytes": 65536,
+    "observations": [
+      {
+        "error_type": "TimeoutError",
+        "expected_status": 200,
+        "full_response_seconds": 30.017164183000034,
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=5bb9311a38ae8f85066bab21dfcc7593a7d1eb1595a5be3e6b966209a7f15ff0&crop_id=crop-1&limit=20",
+        "since_diagnostic_start_seconds": 0.47428878299996313
+      }
+    ],
+    "output_interval_seconds": 1,
+    "packet_bytes_sum": 89488180,
+    "period_seconds": 3600,
+    "preparation_seconds": 95.45258599599998,
+    "program_SHA256": "229419a5729c66d4f5b61a47a87a0a1841a68a02a2d352f13cc19177a3440ab7",
+    "query_calls": {
+      "RHS": 0,
+      "SQL_writes": 0,
+      "integrate": 0,
+      "put": 0
+    },
+    "record_count": 20,
+    "records": [
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "b28216f1b3c8d8db6e66560005af92de77b0812c4e6b13839ce8a3c1b5336d04",
+        "planned_steps": 3600,
+        "producer_seconds": 4.675561127000009,
+        "recorded_at": "2026-10-20T16:17:35.631615Z",
+        "result_id": "crop-result-v1:3328c1860d076e99bd0d73fafafd185623f09f299a4fb9313ecbde954075684a",
+        "row_fingerprint": "e82304a082b2b26b7200aebfc3f0c44a2e12305c95d3be5936a1f55fcfff6a84",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "c3c4428e8337582d5bb8f3ce8f4273bef2b4dcc838fc264c2c194904ebdddc5f",
+        "planned_steps": 3600,
+        "producer_seconds": 4.701705243000021,
+        "recorded_at": "2026-10-20T16:17:40.427247Z",
+        "result_id": "crop-result-v1:97c63323b30ac3f664c6f9019986c2ac897115857f3f2b702641cd8573232978",
+        "row_fingerprint": "d35ea981e1fdbb2755bef4e7b881b066694d76cc4f83da17e3998c22ed3747cc",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "cee447a61cbabd52d904aafbeab8fd5c7d0d4883638c84bf1f2b7e1f9b89cadc",
+        "planned_steps": 3600,
+        "producer_seconds": 4.755634498999996,
+        "recorded_at": "2026-10-20T16:17:45.164769Z",
+        "result_id": "crop-result-v1:e38be67ea53568c7eda85b82cbdd5d8e8d3a798560c351f6dc0fff72ae64d887",
+        "row_fingerprint": "85aa944381afb87be9307480a002c5362984d7fdf9b2bbb9b99ebcb0bf1f8d73",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "1b7d263a3982c7c6649efb4132ab2cd914fe3c8f87d5b00a4ec31963751aacbd",
+        "planned_steps": 3600,
+        "producer_seconds": 4.628932579000008,
+        "recorded_at": "2026-10-20T16:17:49.972076Z",
+        "result_id": "crop-result-v1:9fbc938206389ade6e96049feef51465f0fb7ad8516ddf9dc59b0ad2bbe77dc4",
+        "row_fingerprint": "4410d108d51f10085e81e4087032d0abe1a5b52d283c15e004f04c99661b0a4f",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "1c0da536a026fbcac90484e4e0cb24b25ef0a8ab7261f018115b02b6d9d63eb5",
+        "planned_steps": 3600,
+        "producer_seconds": 4.689095100999992,
+        "recorded_at": "2026-10-20T16:17:54.731305Z",
+        "result_id": "crop-result-v1:8127db2214e7be5ad3d070d7b25dab1284d15725d00d673138f421d5ca78e562",
+        "row_fingerprint": "dd2b38eb70bd2052fa43386feb93856a3bb5db8442675e80f1515411cf80a379",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "39d0623a197ffe95b84d5ae489392897b40ecead00de665208c5ba256493f5c2",
+        "planned_steps": 3600,
+        "producer_seconds": 4.716007561999987,
+        "recorded_at": "2026-10-20T16:17:59.520648Z",
+        "result_id": "crop-result-v1:17ff60debbd2365c2b2c244f2e212328e184be4e5272e8814018cd162adb7791",
+        "row_fingerprint": "ae4bd492c2bcc018c270186619e4b9f065e8b97dd9fef3d69edec17b404a7f8d",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "510368e8cb24085d0016a0ce642486b8148ac8234a45e3d6385f761c35ab568f",
+        "planned_steps": 3600,
+        "producer_seconds": 4.715057395000002,
+        "recorded_at": "2026-10-20T16:18:04.230822Z",
+        "result_id": "crop-result-v1:5937ebbf4eea2236e0470843148a842c840e234bdff0401c8e89e83ffc5f1aec",
+        "row_fingerprint": "6fd9a094c984b521a2d31ae9fad366200ad45740d43b85100fc133a05dbad5ef",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "60505961ff4539ba55e119721d248741a98cd0191830741712232ec6d61285bc",
+        "planned_steps": 3600,
+        "producer_seconds": 4.702634219000004,
+        "recorded_at": "2026-10-20T16:18:09.037335Z",
+        "result_id": "crop-result-v1:7d32511f17f7e0588a67897791d18575213cb374ce5cc0cb00cf544f50f90405",
+        "row_fingerprint": "45f5075154df167e796dec799b88713866ddd652fbd42af7fe0f9b54c383cdf6",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "5481f8532c9f730829a69e9661d87ea00875a05e73f9c934d2031e7f8db4ce05",
+        "planned_steps": 3600,
+        "producer_seconds": 4.719157494000001,
+        "recorded_at": "2026-10-20T16:18:13.870613Z",
+        "result_id": "crop-result-v1:8b8666fcc63c11c59820f95f5fd0028c322ec564aaf31d7a96f044108f8c1d73",
+        "row_fingerprint": "152938adac90cf42ed0287a611389f3c40d424a0d47d5415ee5951f07ebd6fc3",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "a898158f02099164f6640638d0159872d648f65a425edef994f5ba024d380e67",
+        "planned_steps": 3600,
+        "producer_seconds": 4.640872143999985,
+        "recorded_at": "2026-10-20T16:18:18.599825Z",
+        "result_id": "crop-result-v1:01b4ca0ddd1ab0778a655b3f505a663532646bacdcdf06b6303d78a8585eca16",
+        "row_fingerprint": "89202401fe0c06aafaf27b8dd1d59b4f1733e91b202265217eee2f0d46049813",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "110e165daffde0389fac7aad7aa23c6bff47cf99a42bdf64f5619e32fe5352b4",
+        "planned_steps": 3600,
+        "producer_seconds": 4.718901597000013,
+        "recorded_at": "2026-10-20T16:18:23.380703Z",
+        "result_id": "crop-result-v1:79f06e21dd56c10832af6f198d5bae060ed8a640b8e2aa1449ab7de24e4f1b3e",
+        "row_fingerprint": "a2809d4ff2ec2e8cc2388718346c60c919205f054dfa9186c8e2d6f971859449",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "e9aa89ceeede9574d5f8b8a1fa7a35f3b88626bd53474f6b46fe1984543ec7ca",
+        "planned_steps": 3600,
+        "producer_seconds": 4.716367632999976,
+        "recorded_at": "2026-10-20T16:18:28.202972Z",
+        "result_id": "crop-result-v1:769ab5e6ab12696f748f83d07127aa64546164ef9f1772388636b114cf606eb1",
+        "row_fingerprint": "7ca45a4ac604abf18b9e48019359996b8778cb911dbb87af3a51b53890b8505d",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "d4d663a94bb6244436032cae952d6f7d2a9ed9b8ac2e212a3cb8dd321ad8080c",
+        "planned_steps": 3600,
+        "producer_seconds": 4.752449103999993,
+        "recorded_at": "2026-10-20T16:18:33.019963Z",
+        "result_id": "crop-result-v1:9b48009d1016134cefaccfe6b4be84d0ef903b2a76e93c169fbd3f9d375823e3",
+        "row_fingerprint": "975b28ec2da0886091e3ca1cc9cbbc4d234e0c91dd931675b42eb27a6612969e",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "7a105653d47e8470058ee97635e985e378253eb876f5c1e9836bc68ac878cc63",
+        "planned_steps": 3600,
+        "producer_seconds": 4.735244747999985,
+        "recorded_at": "2026-10-20T16:18:37.734374Z",
+        "result_id": "crop-result-v1:c078d27bd72ae25a9fe9249d3471418725150b92f6f7036968d4acc10b9ebd09",
+        "row_fingerprint": "3a5e98be445484bce9df841c2498b648112f889e3fed32c5fc466052f689c8b8",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "b156790bb49b085097494b3e6ee451de31793ce5bc4594d97678536ff8f42441",
+        "planned_steps": 3600,
+        "producer_seconds": 4.650099737999994,
+        "recorded_at": "2026-10-20T16:18:42.566640Z",
+        "result_id": "crop-result-v1:f2274616d802ad26db5ff2c5ac414bc6f93e43438d07c0f7fc54a806658e5cd1",
+        "row_fingerprint": "b0ec654cc015875433e8771c964653bc22aad88d5c6064ca29b534e322386b3e",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "2246746f00c675caaf2d853a82648fb57b8bfd85ec7332ba6c2a07bece29f0f8",
+        "planned_steps": 3600,
+        "producer_seconds": 4.7094056870000145,
+        "recorded_at": "2026-10-20T16:18:47.268126Z",
+        "result_id": "crop-result-v1:94ee207b2df2986d0dbff28fc0178f70812fd031248a08969c7422a070e5b1bc",
+        "row_fingerprint": "6307046789ec9115dcf60ac8efb992b989f5b8299bddc4d4a7a1bb335c236377",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "9e29d5847b749ffa99cdec6eaefea88a4c0bc209899eececc40e0fe1a18aad49",
+        "planned_steps": 3600,
+        "producer_seconds": 4.649039399000003,
+        "recorded_at": "2026-10-20T16:18:52.062947Z",
+        "result_id": "crop-result-v1:3fcd40c6f6b529105bea24bc7a82027e36d6367bb46b225a152b616138231635",
+        "row_fingerprint": "3fc1d70a8c951234eafbb962fd8c303e585c3294fbe9c43e8b8bebac4cbdc888",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "50814a8f4e81e29d9a3ed0bf7b22752bfebd7a48c64bc7e01ace9f22b300cd06",
+        "planned_steps": 3600,
+        "producer_seconds": 4.702006771000015,
+        "recorded_at": "2026-10-20T16:18:56.865408Z",
+        "result_id": "crop-result-v1:129de40594c51de3646b5d756fd7d4e2f8b7335f864e084bbb75396c7432dfd0",
+        "row_fingerprint": "d7a25dc159164a83661a78f83d43317e5d1eb6d7ba6682daabcbf75445a1b75e",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "35fba6bd04a45d880752963a349669529426bd10e81292d2647557c3c277cec3",
+        "planned_steps": 3600,
+        "producer_seconds": 4.723557737999954,
+        "recorded_at": "2026-10-20T16:19:01.579083Z",
+        "result_id": "crop-result-v1:49558cb3652bdd4c76d10bdef1d2702f530e05315729aaf2d109cd18fac1ae7b",
+        "row_fingerprint": "020b1389fc89d10520037ebf2d5f4c264abd81d34a3afdec6f3e964ff58424b4",
+        "samples": 3601,
+        "steps": 3600
+      },
+      {
+        "packet_bytes": 4474409,
+        "payload_SHA256": "1b8626ee77445f289bd9d295e29c39abc0c65594c42f731d333f6eacddb06da0",
+        "planned_steps": 3600,
+        "producer_seconds": 4.6025679649999915,
+        "recorded_at": "2026-10-20T16:19:06.355969Z",
+        "result_id": "crop-result-v1:a45c82a3ef11d68abe9364ed83131ad4549a239b200d164001354e5572cdab07",
+        "row_fingerprint": "1ac0f1944ede701cf9c9ed7d6cf24c18a2a62ae1b42bce7369b7c80e3085a57c",
+        "samples": 3601,
+        "steps": 3600
+      }
+    ],
+    "request_deadline_seconds": 30,
+    "samples_per_result": 3601,
+    "scope": "owned synthetic organ metadata capacity only"
+  },
+  "sample": {
+    "all_sample_items_ended_before_client_timeout": true,
+    "client_deadline_since_diagnostic_start_seconds": 30.491452965999997,
+    "end_item": 19,
+    "exclusive_sum_matches_get_inclusive": true,
+    "first_snapshot": {
+      "call": 1,
+      "method": "_item",
+      "nested_snapshot": {
+        "CropResultStore._checked": {
+          "calls": 1,
+          "completed": 1,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.287998964,
+          "exclusive_wall_seconds": 0.28820521899996265,
+          "inclusive_thread_CPU_seconds": 0.571583997,
+          "inclusive_wall_seconds": 0.7824712249999948
+        },
+        "CropResultStore._current": {
+          "calls": 2,
+          "completed": 2,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.0013365830000000023,
+          "exclusive_wall_seconds": 0.0013417910000725897,
+          "inclusive_thread_CPU_seconds": 0.4617263669999999,
+          "inclusive_wall_seconds": 0.8787379870000223
+        },
+        "CropResultStore._find": {
+          "calls": 1,
+          "completed": 1,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.02090631200000001,
+          "exclusive_wall_seconds": 0.04927662899996221,
+          "inclusive_thread_CPU_seconds": 0.02090631200000001,
+          "inclusive_wall_seconds": 0.04927662899996221
+        },
+        "CropResultStore._references": {
+          "calls": 2,
+          "completed": 2,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.01881382299999984,
+          "exclusive_wall_seconds": 0.04801551199994947,
+          "inclusive_thread_CPU_seconds": 0.4603897839999999,
+          "inclusive_wall_seconds": 0.8773961959999497
+        },
+        "CropResultStore._request": {
+          "calls": 1,
+          "completed": 1,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.007316487999999954,
+          "exclusive_wall_seconds": 0.007387117999996917,
+          "inclusive_thread_CPU_seconds": 0.007316487999999954,
+          "inclusive_wall_seconds": 0.007387117999996917
+        },
+        "CropResultStore.get": {
+          "calls": 1,
+          "completed": 1,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.06563298500000014,
+          "exclusive_wall_seconds": 0.06563747600006309,
+          "inclusive_thread_CPU_seconds": 0.8435811160000001,
+          "inclusive_wall_seconds": 1.2892444290000071
+        },
+        "FarmAuthoringService.read_registration": {
+          "calls": 3,
+          "completed": 3,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.613201077,
+          "exclusive_wall_seconds": 1.1928517690000149,
+          "inclusive_thread_CPU_seconds": 0.613201077,
+          "inclusive_wall_seconds": 1.1928517690000149
+        }
+      },
+      "phase": "end",
+      "since_start_seconds": 3.7284256739999933,
+      "wall_seconds": 1.4436669820000247
+    },
+    "inclusive_timings_overlap": true,
+    "item_calls": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "item_wall_seconds_sum": 25.989627143999996,
+    "last_snapshot": {
+      "call": 19,
+      "method": "_item",
+      "nested_snapshot": {
+        "CropResultStore._checked": {
+          "calls": 19,
+          "completed": 19,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 6.018577709000004,
+          "exclusive_wall_seconds": 6.024187685999948,
+          "inclusive_thread_CPU_seconds": 9.656006253999998,
+          "inclusive_wall_seconds": 13.662013080000008
+        },
+        "CropResultStore._current": {
+          "calls": 38,
+          "completed": 38,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.02437349500000069,
+          "exclusive_wall_seconds": 0.024548397000216937,
+          "inclusive_thread_CPU_seconds": 7.469495756000002,
+          "inclusive_wall_seconds": 15.498999684000182
+        },
+        "CropResultStore._find": {
+          "calls": 19,
+          "completed": 19,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.396699288000005,
+          "exclusive_wall_seconds": 0.953989712000066,
+          "inclusive_thread_CPU_seconds": 0.396699288000005,
+          "inclusive_wall_seconds": 0.953989712000066
+        },
+        "CropResultStore._references": {
+          "calls": 38,
+          "completed": 38,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.3464513889999998,
+          "exclusive_wall_seconds": 0.9133966659998123,
+          "inclusive_thread_CPU_seconds": 7.445122261000002,
+          "inclusive_wall_seconds": 15.474451286999965
+        },
+        "CropResultStore._request": {
+          "calls": 19,
+          "completed": 19,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 0.14027032099999703,
+          "exclusive_wall_seconds": 0.14053172899997435,
+          "inclusive_thread_CPU_seconds": 0.14027032099999703,
+          "inclusive_wall_seconds": 0.14053172899997435
+        },
+        "CropResultStore.get": {
+          "calls": 19,
+          "completed": 19,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 1.2609810549999938,
+          "exclusive_wall_seconds": 1.263238285999762,
+          "inclusive_thread_CPU_seconds": 15.286024129000003,
+          "inclusive_wall_seconds": 23.880947096999932
+        },
+        "FarmAuthoringService.read_registration": {
+          "calls": 39,
+          "completed": 39,
+          "errors": 0,
+          "exclusive_thread_CPU_seconds": 7.270295988000002,
+          "exclusive_wall_seconds": 14.924525706000168,
+          "inclusive_thread_CPU_seconds": 7.270295988000002,
+          "inclusive_wall_seconds": 14.924525706000168
+        }
+      },
+      "phase": "end",
+      "since_start_seconds": 29.891726371000004,
+      "wall_seconds": 1.501571191000039
+    },
+    "nested_delta": {
+      "CropResultStore._checked": {
+        "calls": 18,
+        "completed": 18,
+        "errors": 0,
+        "exclusive_thread_CPU_seconds": 5.730578745000004,
+        "exclusive_wall_seconds": 5.735982466999985,
+        "inclusive_thread_CPU_seconds": 9.084422256999998,
+        "inclusive_wall_seconds": 12.879541855000014
+      },
+      "CropResultStore._current": {
+        "calls": 36,
+        "completed": 36,
+        "errors": 0,
+        "exclusive_thread_CPU_seconds": 0.023036912000000687,
+        "exclusive_wall_seconds": 0.023206606000144347,
+        "inclusive_thread_CPU_seconds": 7.007769389000003,
+        "inclusive_wall_seconds": 14.62026169700016
+      },
+      "CropResultStore._find": {
+        "calls": 18,
+        "completed": 18,
+        "errors": 0,
+        "exclusive_thread_CPU_seconds": 0.37579297600000494,
+        "exclusive_wall_seconds": 0.9047130830001038,
+        "inclusive_thread_CPU_seconds": 0.37579297600000494,
+        "inclusive_wall_seconds": 0.9047130830001038
+      },
+      "CropResultStore._references": {
+        "calls": 36,
+        "completed": 36,
+        "errors": 0,
+        "exclusive_thread_CPU_seconds": 0.32763756599999994,
+        "exclusive_wall_seconds": 0.8653811539998628,
+        "inclusive_thread_CPU_seconds": 6.984732477000001,
+        "inclusive_wall_seconds": 14.597055091000016
+      },
+      "CropResultStore._request": {
+        "calls": 18,
+        "completed": 18,
+        "errors": 0,
+        "exclusive_thread_CPU_seconds": 0.13295383299999708,
+        "exclusive_wall_seconds": 0.13314461099997743,
+        "inclusive_thread_CPU_seconds": 0.13295383299999708,
+        "inclusive_wall_seconds": 0.13314461099997743
+      },
+      "CropResultStore.get": {
+        "calls": 18,
+        "completed": 18,
+        "errors": 0,
+        "exclusive_thread_CPU_seconds": 1.1953480699999937,
+        "exclusive_wall_seconds": 1.1976008099996989,
+        "inclusive_thread_CPU_seconds": 14.442443013000004,
+        "inclusive_wall_seconds": 22.591702667999925
+      },
+      "FarmAuthoringService.read_registration": {
+        "calls": 36,
+        "completed": 36,
+        "errors": 0,
+        "exclusive_thread_CPU_seconds": 6.6570949110000015,
+        "exclusive_wall_seconds": 13.731673937000153,
+        "inclusive_thread_CPU_seconds": 6.6570949110000015,
+        "inclusive_wall_seconds": 13.731673937000153
+      }
+    },
+    "not_whole_request_percentage": true,
+    "start_after_item": 1
+  },
+  "scope": "same original normal20 producer and reader; nested-cost diagnostic only",
+  "whole_journal_SHA256": "70af886bbebdd7e941527d260eaabd468f46952f702d25efc3937098f9f221fa",
+  "whole_nested_calls": {
+    "CropResultStore._checked": {
+      "calls": 27,
+      "completed": 27,
+      "errors": 1,
+      "exclusive_thread_CPU_seconds": 8.606663826000014,
+      "exclusive_wall_seconds": 8.61792254099987,
+      "inclusive_thread_CPU_seconds": 13.556597743000001,
+      "inclusive_wall_seconds": 19.07175282300011
+    },
+    "CropResultStore._current": {
+      "calls": 53,
+      "completed": 53,
+      "errors": 1,
+      "exclusive_thread_CPU_seconds": 0.03366402099998739,
+      "exclusive_wall_seconds": 0.03403448100027617,
+      "inclusive_thread_CPU_seconds": 10.208551484999989,
+      "inclusive_wall_seconds": 21.23148407400032
+    },
+    "CropResultStore._find": {
+      "calls": 27,
+      "completed": 27,
+      "errors": 0,
+      "exclusive_thread_CPU_seconds": 0.5684526670000069,
+      "exclusive_wall_seconds": 1.365572309000072,
+      "inclusive_thread_CPU_seconds": 0.5684526670000069,
+      "inclusive_wall_seconds": 1.365572309000072
+    },
+    "CropResultStore._references": {
+      "calls": 52,
+      "completed": 52,
+      "errors": 0,
+      "exclusive_thread_CPU_seconds": 0.4771888770000045,
+      "exclusive_wall_seconds": 1.2519442600000161,
+      "inclusive_thread_CPU_seconds": 10.174887464000001,
+      "inclusive_wall_seconds": 21.197449593000044
+    },
+    "CropResultStore._request": {
+      "calls": 27,
+      "completed": 27,
+      "errors": 0,
+      "exclusive_thread_CPU_seconds": 0.20095277199999517,
+      "exclusive_wall_seconds": 0.2024843530000453,
+      "inclusive_thread_CPU_seconds": 0.20095277199999517,
+      "inclusive_wall_seconds": 0.2024843530000453
+    },
+    "CropResultStore.get": {
+      "calls": 27,
+      "completed": 27,
+      "errors": 1,
+      "exclusive_thread_CPU_seconds": 1.7371183689999927,
+      "exclusive_wall_seconds": 1.740181513999687,
+      "inclusive_thread_CPU_seconds": 21.321739119,
+      "inclusive_wall_seconds": 33.157644790999996
+    },
+    "FarmAuthoringService.read_registration": {
+      "calls": 54,
+      "completed": 54,
+      "errors": 0,
+      "exclusive_thread_CPU_seconds": 10.042381103999993,
+      "exclusive_wall_seconds": 20.678162686000064,
+      "inclusive_thread_CPU_seconds": 10.042381103999993,
+      "inclusive_wall_seconds": 20.678162686000064
+    }
+  },
+  "whole_outer_calls": {
+    "_item": 27,
+    "_registration": 2,
+    "_rows": 1
+  }
+}

@@ -29,6 +29,22 @@
 원 metadata/payload hash를 대사한다. 권리·계정·등록·record 변경은 페이지 전체 보류/거부이며
 조용히 항목을 빼거나 이전 승인을 재사용하지 않는다. 뒤에 추가된 새 row는 기존 항목을 바꾸지 않는다.
 
+### 현재 용량 수정 후보
+
+실제20개/큰 packet의30초 실패와 하위 비용 관측을 근거로,
+각 초기/전/후 항목 검사 안에서 기존 `FarmAuthoringService.registration_read_scope`를 사용한다.
+항목의 `store.get`·HMAC/모델/프로필·현재 program 권리 검사는 그대로 수행한다.
+같은 농장의 재구성만 해당 검사 동안 재사용하고 기존 scope의 fresh 원천/권한/등록 대사를 매번 수행한다.
+서로 다른 검사 단계 사이에는 재구성 결과를 공유하지 않는다.
+호출자가 이미 scope를 열었다면 기존 scope의 동일 인자/현재 검사 규칙을 따른다.
+중첩 scope를 새로 열거나 현재 권리를 cache하지 않는다. 예외에서도 scope를 닫는다.
+집중 반례/회귀와 계측 OFF 실제20개·원30초/자원/불변성 수용 전에는 후보 상태다.
+수정 전후의 부분 비용은 같은 정상 small3결과에서 baseline/candidate/candidate/baseline 순서로 비교한다.
+baseline은 추가한 inspection scope만 no-op으로 돌려 기존 `get`/현재 검증 순서를 유지한다.
+같은 metadata/원 row·조회 계산/SQL 쓰기0과 각18회 program 권리를 대사하고,
+두 짝 모두 감소·평균5% 이상일 때만 이 부분 비용을 수용한다.
+직접 reader의 small3 비교는 HTTP/큰 packet/20개·운영 용량 증거가 아니다.
+
 ## 수용 순서
 
 1. 서버 자식: 닫힌 필터/cursor·동률·빈/hold·bytes·늦은 변경·오류 비공개 단위 검사,

@@ -1,5 +1,7 @@
 """Bounded discovery of organ metadata; real signed rows have a separate check."""
 from copy import deepcopy
+from contextlib import contextmanager
+from contextvars import ContextVar
 from datetime import datetime, timedelta, timezone
 from types import SimpleNamespace
 
@@ -33,7 +35,14 @@ def memory_catalog(count=3):
         return deepcopy(state['registration'])
     def get(tenant,result_id,farm):
         registration(tenant,farm);state['reads'].append(result_id);return deepcopy(records.get(result_id))
-    service.store=SimpleNamespace(get=get)
+    slot=ContextVar('memory_catalog_registration',default=None)
+    @contextmanager
+    def read_scope(*args):
+        token=slot.set(object())
+        try:yield
+        finally:slot.reset(token)
+    service.store=SimpleNamespace(get=get,farms=SimpleNamespace(
+        _registration_read=slot,registration_read_scope=read_scope))
     service._registration=registration
     service._rows=lambda tenant,farm,limit,before:deepcopy(rows)
     return service,rows,records,state

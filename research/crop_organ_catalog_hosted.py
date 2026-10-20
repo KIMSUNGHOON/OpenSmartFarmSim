@@ -53,7 +53,10 @@ def supervise(directory, capacity=None, diagnostic=False):
             'test_twenty_normal_large_signed_results_actual_HTTPS_capacity')
         targets=['tests/crop_organ_catalog_capacity_smoke.py::'+case]
         source_names=('backend/tests/crop_organ_catalog_capacity_smoke.py',
-            'contracts/crop-organ-catalog-capacity-v1.md','research/crop_organ_catalog_hosted.py')
+            'contracts/crop-organ-catalog-capacity-v1.md','research/crop_organ_catalog_hosted.py',
+            'backend/app/crop_organ_result_catalog.py','backend/app/crop_result_store.py',
+            'backend/app/farm_authoring_storage.py','backend/app/farm_registration_read_scope.py',
+            'backend/app/runtime_connection_scope.py')
     pins={name:sha256((ROOT/name).read_bytes()).hexdigest() for name in source_names}
     try:
         with (evidence/'case.private.log').open('xb') as log:

@@ -114,6 +114,16 @@ class OrganCropResultCatalog:
         return item,record['payload_sha256']
 
     @contextmanager
+    def _inspection_scope(self,tenant,farm):
+        farms=self.store.farms
+        if farms._registration_read.get() is not None:
+            yield
+        else:
+            with farms.registration_read_scope(tenant,farm['scenario_id'],farm['scenario_revision'],
+                    farm['registration_sha256']):
+                yield
+
+    @contextmanager
     def open(self,tenant,kind,farm_ref,*,limit=10,before=None):
         try:
             _request(kind,farm_ref,limit,before)
@@ -126,8 +136,9 @@ class OrganCropResultCatalog:
                   and (before is None or all(k<(before['recorded_at'],before['result_id']) for k in keys)))
             def inspect():
                 items=[]
-                for row in rows:
-                    items.append(self._item(tenant,farm,row))
+                with self._inspection_scope(tenant,farm):
+                    for row in rows:
+                        items.append(self._item(tenant,farm,row))
                 return items
             snapshots=inspect()
             items=[item for item,_ in snapshots]
