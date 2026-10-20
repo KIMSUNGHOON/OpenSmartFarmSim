@@ -10,11 +10,13 @@
 - 기존 `createApi` request의 동일 origin/Bearer·no-store·redirect 거부·AbortSignal을 사용한다.
   한 호출은 GET1회이며 자동 페이지 이동/재시도·prefetch·계산/게시를 하지 않는다.
   30초·64KiB를 유지한다. 이미 취소된 호출은 전송하지 않고 늦은 응답도 취소로 거부한다.
-- 닫힌 `{kind,farm,limit?,before?}`를 검사한다. 두 kind, farm4필드, limit1–20/기본10,
+- 닫힌 `{kind,farm,limit?,before?}`를 검사한다. `calculation_cycle_v1`/`harvest_v1`/`organ_v1`, farm4필드, limit1–20/기본10,
   UTC6자리 소수·kind별 원 ID cursor를 받는다. 호출 시 요청을 복사해 응답 전의 외부 변경과 분리한다.
-- 응답의 version/scope/kind/farm·두 판본의 항목 전체·개수/상태/claim scope·불리언을 검사한다.
+- 응답의 version/scope/kind/farm·세 판본의 항목 전체·개수/상태/claim scope·불리언을 검사한다.
   알 수 없는 필드, 다른 판본/농장/등록/작물, 비정수 개수, 잘못된 ID/UTC/period를 거부한다.
   생장/수확 DTO는 서버의 각 개수 상한을 유지한다.
+  `organ_v1`의 원 `crop-result-v1:` ID와 생장 metadata는
+  [기관 목록 계약](crop-organ-result-catalog-v1.md)을 따르며 계산 작기 ID로 바꾸지 않는다.
 - 정규 UTC 저장 시각 문자열 전체와 ID를 비교해 DESC/중복·요청 cursor 경계를 검사한다.
   JS Date의 밀리초로 cursor를 줄이지 않는다. period의 소수 초도 정확히 비교한다.
   next_cursor는 null 또는 가득 찬 페이지의 마지막 항목과 같아야 한다.

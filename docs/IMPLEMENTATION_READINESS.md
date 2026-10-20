@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 수용/보류 — 2026-10-20 KST:** [기관 v1 metadata/보호 API](../research/organ-catalog-server-api-20261020.md)를 고유295회귀·실제 SCRAM3결과/표준 HTTPS 새7응답·원 row/put/integrate/RHS0·5root/자료/상한/정리로 수용했다. 기존 store/URL/5스키마는 유지한다. 정상 HTTPS 목록1결과이며20건/큰 packet·보존 CODE·SDK/실제 App3D·원 디자인 외부 한도·기관 family/U1/사용자 적용은 남는다. 전체 hosted CI/웹 브라우저·새 코드 배포·생산/경제·실제 자료/관문/전체 날짜는 미수용/미정이다.
+**현재 — 2026-10-20 KST:** [기관 v1 SDK/선택→기존 재생 소프트웨어 자식](../research/organ-catalog-web-20261020.md)은 웹1,886/256·같은 minified WSL native7관측/실제 WebGL·320/390px·현재 거부 시 제거·5root/자료/상한/정리로 수용했다. 이 검사는 실제 API/DB를 사용하지 않았다. 다음은 지원 reader/보존 CODE·동시 RSS hold를 대조한 실제 원 저장 API/DB→현재 App 연결이다. 실제20건/큰 packet·원 디자인·기관 family/U1/사용자 적용, 생산/자원/경제·독립 자료/G0–G4와 전체 완료일은 미완료/미정이다.
 
 **현재 준비 — 2026-10-20 KST:** [fresh JSON 후보의28검사·opaque 반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 비용 trial 없이 미채택했다. 제품 app261/591eff7d는 유지한다. 다음 [기존 저장 결과 목록의 실제 연결 준비](../research/crop-result-catalog-native-readiness-20261020.md)는 원21건 dump/hash·현재10파일·pg_restore 목록을 확인했으며 DB/브라우저/U1 수용은 남았다. 이 경로는 새 Solar normal64와 독립이다. 새 Solar 정상46/64 미완료·정상→hold→HTTP취소→계산 중WebGL→WSL와 실제 자료/관문/전체 완료일 미정·goal active는 유지한다.
 

@@ -1,0 +1,817 @@
+{
+  "version": "organ-catalog-web-software-acceptance-v1",
+  "recorded_at": "2026-10-20T13:56:07.887429+00:00",
+  "source_commit": "8386a89a1b94ad0f2bed090b425303c65969a6d5",
+  "native_model_evidence": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "native_CLI_session": true,
+    "recursive_CLI_invocations": 0
+  },
+  "scope": "recorded-response SDK/picker/original organ replay software connection; native minified WebGL; not live API/DB integration",
+  "task_accepted": true,
+  "actual_API_DB_browser_integration_accepted": false,
+  "legacy_family_accepted": false,
+  "U1_accepted": false,
+  "frontend_deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "fixture": {
+    "path": "web/e2e/organ-catalog-recorded-responses.json",
+    "SHA256": "09dcc25e65aaa6226cb34b3cde9b364adf934e45d619a327ab2714f663bbc355",
+    "source_backend_commit": "78b86fa1ad1fcc2f5c575b5c960f9749a106d251",
+    "actual_backend_evidence_SHA256": "f4202d3380243220cfd6ff6394b24b8b1717b1b986d9324f98807cba28dea7ea",
+    "raw_HTTPS_bodies": [
+      {
+        "label": "unauthenticated",
+        "status": 401,
+        "bytes": 72,
+        "body_SHA256": "229598df10066d3767750c6c30c29a808879ae9116213edcb781f0985c91252c",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+      },
+      {
+        "label": "scope_denied",
+        "status": 403,
+        "bytes": 65,
+        "body_SHA256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+      },
+      {
+        "label": "foreign_farm",
+        "status": 422,
+        "bytes": 91,
+        "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+      },
+      {
+        "label": "organ",
+        "status": 200,
+        "bytes": 721,
+        "body_SHA256": "1e5982a5affbe27a6db2bb033d3dd5dba3b581acc02c61ab7347176b8d386d40",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+      },
+      {
+        "label": "farm_crops",
+        "status": 200,
+        "bytes": 585,
+        "body_SHA256": "b9c214e45eec33eba4d6e81017a60465bb0b1c9aab8326d18688c52dddd260fd",
+        "path": "/v1/crop-research-result-catalog/farm-crops?scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30"
+      },
+      {
+        "label": "withdrawn",
+        "status": 422,
+        "bytes": 91,
+        "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+      },
+      {
+        "label": "restored",
+        "status": 200,
+        "bytes": 721,
+        "body_SHA256": "1e5982a5affbe27a6db2bb033d3dd5dba3b581acc02c61ab7347176b8d386d40",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=2f3c513f34a163238a52bc80d0795787065e2959d6e883b1d785c653dce29d30&crop_id=crop-1"
+      }
+    ],
+    "replay_value_origin": "decoded actual HTTPS response retained as a software replay fixture; not a raw response capture",
+    "replay_is_not_raw_wire_bytes": true,
+    "authored_farm_envelopes_are_synthetic": true,
+    "rights_denial_in_browser_is_software_fulfillment": true
+  },
+  "focused_unit": {
+    "SDK_new": 20,
+    "picker_new": 2,
+    "combined_passed": 136
+  },
+  "first_CI": {
+    "run": 39430443395,
+    "source_commit": "4d04c4d981410e26009fbd33f46e74fce4878649",
+    "conclusion": "failure",
+    "unit_passed": 1886,
+    "browser_passed": 210,
+    "browser_failed": 1,
+    "browser_not_run": 45,
+    "cause": "test attempted lookup button inside collapsed details after successful load",
+    "fix": "expand native summary before lookup; production code and 30-second timeout unchanged"
+  },
+  "native_failure_history": {
+    "v1": "private actor incorrectly required an aria-label instead of the actual wrapping label",
+    "v2": "measured immediate 320px width before existing chart ResizeObserver completed",
+    "diagnostic_v1": {
+      "document_width": 363,
+      "old_chart_width": 336,
+      "actual_new_parent_width": 266
+    },
+    "v4": "waits for existing chart ResizeObserver to match real container then retains same 320px assertion; product/build unchanged"
+  },
+  "web_CI": {
+    "run": 39432287995,
+    "job": 118660136180,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39432287995",
+    "source_commit": "8386a89a1b94ad0f2bed090b425303c65969a6d5",
+    "conclusion": "success",
+    "unit_files_passed": 36,
+    "unit_passed": 1886,
+    "browser_passed": 256,
+    "browser_wall": "10.7m",
+    "typecheck": true,
+    "production_build": true,
+    "audit_high": true,
+    "native_Solar_job_ran": false,
+    "full_backend_CI_ran": false,
+    "log_SHA256": "01a0d73922ab9ad0b90119ba9bd2b7c3ea774055b9aa5aae52e380b63bbced96",
+    "observed_at": "2026-10-20T13:52:37.718194+00:00"
+  },
+  "build": {
+    "actual_API_or_browser_test_performed": false,
+    "archive_SHA256": "3f0a285a454c40b45264404d541bcc080a3b25de3e5b08c65fba56628fa9c7f3",
+    "archive_checked": true,
+    "artifact_digest": "sha256:3f0a285a454c40b45264404d541bcc080a3b25de3e5b08c65fba56628fa9c7f3",
+    "artifact_id": 12269571432,
+    "browser_suite": "all",
+    "build_commit": "8386a89a1b94ad0f2bed090b425303c65969a6d5",
+    "deployed": false,
+    "files": 184,
+    "production_minified_build": true,
+    "retrieved_at": "2026-10-20T13:52:30.717225+00:00",
+    "run_attempt": 1,
+    "source_pin_count": 147,
+    "web_job_id": 118660136180,
+    "web_run_id": 39432287995
+  },
+  "product_and_test_SHA256": {
+    "web/src/cropResultCatalog.ts": "a65685334ce73e326cefe1562a9d84e9e29427860a18931869c51e4059179551",
+    "web/src/cropResultPicker.ts": "897c3ccb8b52c956189c747cc83473e139a6322407d2388c0b0471f3071fb06d",
+    "web/src/SelectedCropReplay.tsx": "2cb0768f64370109be469d270f76b19490118a369945f088d19944c750836fbb",
+    "web/src/CropReplay.tsx": "1209a028db41a26afa41c0bada6891d2d64e5efe90a86fa4853a62e46273b8e7",
+    "web/src/CropResultCatalog.tsx": "bc26bfd703ab772d23432df48efac99f95355c60728225f226baa515e919d8fa",
+    "web/src/organCatalog.test.ts": "cfc72e01ddf25a6da24c8d29e4c98fda9974a07d95b35355a653ba5dd3c75337",
+    "web/src/cropResultPicker.test.ts": "ca2b656bdfb944cd2155572939b8e110bfb84c1c99cd1c3791ec68150f9a3063",
+    "web/e2e/organ-catalog.spec.ts": "c1ff5d0b5ae159897409ffc0a4c8499bdcc42b3fd0fb6f656339525c41c179ef",
+    "web/e2e/organ-catalog-recorded-responses.json": "09dcc25e65aaa6226cb34b3cde9b364adf934e45d619a327ab2714f663bbc355"
+  },
+  "native_browser": {
+    "software_fixture_only": true,
+    "actual_API_or_DB_used": false,
+    "actual_WebGL": true,
+    "source_fixture_SHA256": "09dcc25e65aaa6226cb34b3cde9b364adf934e45d619a327ab2714f663bbc355",
+    "frames": [
+      {
+        "label": "desktop-first",
+        "index": 0,
+        "at": "2026-10-01T00:00:00Z",
+        "carbon_values": 4,
+        "LAI": 0.1161888,
+        "sample_SHA256": "43371638d955d414a4264151f663323659438e04c58b33b55f324691991fd37d",
+        "same_original_values_in_canvas_readout_table": true,
+        "WebGL": true
+      },
+      {
+        "label": "desktop-1",
+        "index": 1,
+        "at": "2026-10-01T00:01:00Z",
+        "carbon_values": 4,
+        "LAI": 0.11634135277706101,
+        "sample_SHA256": "a5340d697d10580a55e324d302bf07380449710c8e539125ba0d96a1434735dc",
+        "same_original_values_in_canvas_readout_table": true,
+        "WebGL": true
+      },
+      {
+        "label": "desktop-2",
+        "index": 2,
+        "at": "2026-10-01T00:02:00Z",
+        "carbon_values": 4,
+        "LAI": 0.11649390099231513,
+        "sample_SHA256": "9f43a23749a457a1891c88e7f1b7a07d81397dae6b7cd4b6a6f02b84e99db791",
+        "same_original_values_in_canvas_readout_table": true,
+        "WebGL": true
+      },
+      {
+        "label": "desktop-3",
+        "index": 3,
+        "at": "2026-10-01T00:03:00Z",
+        "carbon_values": 4,
+        "LAI": 0.11397049148333374,
+        "sample_SHA256": "cd131ef1adbce8e72cf023a1ac8fc19fe2acd82721739f10f34c8a4347a2d688",
+        "same_original_values_in_canvas_readout_table": true,
+        "WebGL": true
+      },
+      {
+        "label": "desktop-4",
+        "index": 4,
+        "at": "2026-10-01T00:04:00Z",
+        "carbon_values": 4,
+        "LAI": 0.11410713161656699,
+        "sample_SHA256": "ca54e17c054e1d373bfe7d126ddbcad4e5c2a73bcd444addd780e7b433444d29",
+        "same_original_values_in_canvas_readout_table": true,
+        "WebGL": true
+      },
+      {
+        "label": "desktop-5",
+        "index": 5,
+        "at": "2026-10-01T00:05:00Z",
+        "carbon_values": 4,
+        "LAI": 0.11425972729780491,
+        "sample_SHA256": "e5886de5a886eeaa6499d08547bb5d2dd2a6b747a8029ea179c8cd1acee718b3",
+        "same_original_values_in_canvas_readout_table": true,
+        "WebGL": true
+      },
+      {
+        "label": "mobile-last",
+        "index": 5,
+        "at": "2026-10-01T00:05:00Z",
+        "carbon_values": 4,
+        "LAI": 0.11425972729780491,
+        "sample_SHA256": "e5886de5a886eeaa6499d08547bb5d2dd2a6b747a8029ea179c8cd1acee718b3",
+        "same_original_values_in_canvas_readout_table": true,
+        "WebGL": true
+      }
+    ],
+    "screenshots": [
+      {
+        "name": "desktop-first",
+        "PNG_SHA256": "060e061a93ad855f84c3729b0647324c2794b377984cab37a4d18508b3bb0c2d"
+      },
+      {
+        "name": "desktop-last",
+        "PNG_SHA256": "f20fe2df9ff304a566bdd96859f59048446f742bf4e25752810de8cf1959305c"
+      },
+      {
+        "name": "mobile-last",
+        "PNG_SHA256": "6127bd97a552555c8f4a932f09fdb1c9539c410a309b0851484ac9ba0e392af4"
+      }
+    ],
+    "viewportChecks": [
+      {
+        "width": 390,
+        "document_width": 390
+      },
+      {
+        "width": 320,
+        "document_width": 320
+      }
+    ],
+    "requests": [
+      {
+        "path": "/v1/farm-authored-inputs/catalog",
+        "kind": null,
+        "method": "GET",
+        "status": 200,
+        "bytes": 700,
+        "body_SHA256": "02be686ce96dea6d722fca6b2300de21850d7da01d996d6401989d86c3485c60",
+        "source": "owned software fixture fulfillment; no live API or database"
+      },
+      {
+        "path": "/v1/farm-authored-inputs",
+        "kind": null,
+        "method": "GET",
+        "status": 200,
+        "bytes": 669,
+        "body_SHA256": "cbf08635608c629e9b896c223234d1a3248bf7a1cb1943c6b61e3ed16aa01697",
+        "source": "owned software fixture fulfillment; no live API or database"
+      },
+      {
+        "path": "/v1/crop-research-result-catalog/farm-crops",
+        "kind": null,
+        "method": "GET",
+        "status": 200,
+        "bytes": 585,
+        "body_SHA256": "b9c214e45eec33eba4d6e81017a60465bb0b1c9aab8326d18688c52dddd260fd",
+        "source": "owned software fixture fulfillment; no live API or database"
+      },
+      {
+        "path": "/v1/crop-research-result-catalog",
+        "kind": "organ_v1",
+        "method": "GET",
+        "status": 200,
+        "bytes": 721,
+        "body_SHA256": "1e5982a5affbe27a6db2bb033d3dd5dba3b581acc02c61ab7347176b8d386d40",
+        "source": "owned software fixture fulfillment; no live API or database"
+      },
+      {
+        "path": "/v1/crop-research-results/crop-result-v1%3Aba59e10f940880f097b91227ae73869e03fadf05cd2e4b8ca3e7ae4aa470f2a9",
+        "kind": null,
+        "method": "GET",
+        "status": 200,
+        "bytes": 11290,
+        "body_SHA256": "55fab1a6dd3afb177b8d4aca3c782878f290502c3ceb8c2fee5896634ba2b2f2",
+        "source": "owned software fixture fulfillment; no live API or database"
+      },
+      {
+        "path": "/v1/crop-research-results/crop-result-v1%3Aba59e10f940880f097b91227ae73869e03fadf05cd2e4b8ca3e7ae4aa470f2a9",
+        "kind": null,
+        "method": "GET",
+        "status": 422,
+        "bytes": 91,
+        "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+        "source": "owned software fixture fulfillment; no live API or database"
+      }
+    ],
+    "errors": [],
+    "current_denial_cleared_scene": true,
+    "U1_accepted": false,
+    "legacy_family_accepted": false,
+    "current_frontend_deployed": false,
+    "DPR": 0.5
+  },
+  "native_owner": {
+    "completed": true,
+    "error_type": null,
+    "nginx_exit": 0,
+    "nginx_signal": null,
+    "wall_seconds": 8.206082396,
+    "source_and_assets_preserved": true,
+    "mutable_status_feed_preserved": true,
+    "live_backend_modified_or_restarted": false,
+    "no_database_created": true,
+    "current_frontend_deployed": false,
+    "Python_waiter_removed": true,
+    "owned_nginx_master_process": false
+  },
+  "public_screenshots": [
+    {
+      "path": "research/artifacts/organ-catalog-desktop-first-20261020.png",
+      "SHA256": "060e061a93ad855f84c3729b0647324c2794b377984cab37a4d18508b3bb0c2d",
+      "synthetic_software_fixture": true,
+      "actual_WebGL": true,
+      "DPR": 0.5
+    },
+    {
+      "path": "research/artifacts/organ-catalog-desktop-last-20261020.png",
+      "SHA256": "f20fe2df9ff304a566bdd96859f59048446f742bf4e25752810de8cf1959305c",
+      "synthetic_software_fixture": true,
+      "actual_WebGL": true,
+      "DPR": 0.5
+    },
+    {
+      "path": "research/artifacts/organ-catalog-mobile-last-20261020.png",
+      "SHA256": "6127bd97a552555c8f4a932f09fdb1c9539c410a309b0851484ac9ba0e392af4",
+      "synthetic_software_fixture": true,
+      "actual_WebGL": true,
+      "DPR": 0.5
+    }
+  ],
+  "fixed_limits": {
+    "single_PID_RSS_bytes": 536870912,
+    "combined_RSS_bytes": 1073741824,
+    "sample_interval_seconds": 0.25,
+    "controller_wall_seconds": 600,
+    "request_timeout_seconds": 30,
+    "healthy_protected_service_interventions": 0
+  },
+  "guards": {
+    "focused-organ-catalog-SDK-red-v1": {
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 1.6232985189999454,
+      "single_PID_peak_RSS_bytes": 242147328,
+      "combined_peak_RSS_bytes": 809947136,
+      "RSS_samples": 6,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "d8bca55cbd6111fc9736768af12a796abf16fceec3d75b6b184d21237f0e0494",
+      "log_SHA256": "cc361d889897b29dfcecb90b53e84a54c7b9f66e0d969e9672453fbec665873f"
+    },
+    "focused-organ-catalog-SDK-green-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.6239993989875074,
+      "single_PID_peak_RSS_bytes": 237928448,
+      "combined_peak_RSS_bytes": 805584896,
+      "RSS_samples": 6,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "4a910ffb6c07704a2ec59ff6b5e39e3f95ecbee0e813eb839b42b3580cc2522d",
+      "log_SHA256": "25d580e0fd8794847165dc4fe6d60d7d89b58398b27ce2dd8a0ffb5ed737041f"
+    },
+    "focused-organ-catalog-picker-red-v1": {
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 1.1162290329812095,
+      "single_PID_peak_RSS_bytes": 190156800,
+      "combined_peak_RSS_bytes": 757936128,
+      "RSS_samples": 4,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "37a923febfbd2fc4a1116cff8656a0471fe2569c98508c6f15214801189a928e",
+      "log_SHA256": "b8e02996fac688308b7d58d7b75f72fa56ef9f5a60629d3c9736536aa577a054"
+    },
+    "focused-organ-catalog-picker-SDK-green-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.8861975949839689,
+      "single_PID_peak_RSS_bytes": 245886976,
+      "combined_peak_RSS_bytes": 813969408,
+      "RSS_samples": 7,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "59118a844bf00312b38f144f786d21c2e490831ce9e0874b782af2b99da055fd",
+      "log_SHA256": "42cecc352e3c5ab480a00d02e506e23f9df6b29b101bad65b98e8b8799f3c9ba"
+    },
+    "focused-organ-catalog-web-typecheck-v1": {
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 3.942243425990455,
+      "single_PID_peak_RSS_bytes": 336404480,
+      "combined_peak_RSS_bytes": 906604544,
+      "RSS_samples": 15,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "17675a823f01a5b7993e9563c6411a8181e066954fe55c757b1cd9a13eca422f",
+      "log_SHA256": "e188063f23bb2b6b36310a31556835ba868ca89b50d56138b36494bd837cfee8"
+    },
+    "focused-organ-catalog-web-typecheck-v2": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 4.202753269986715,
+      "single_PID_peak_RSS_bytes": 334774272,
+      "combined_peak_RSS_bytes": 902692864,
+      "RSS_samples": 16,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "3ce1d23fbe35f40e9bf842fa15256c2caf5d784c59e6bed866af8fdb3393f707",
+      "log_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "focused-organ-design-original-resume-v1": {
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 6.2706456919841,
+      "single_PID_peak_RSS_bytes": 119631872,
+      "combined_peak_RSS_bytes": 692092928,
+      "RSS_samples": 24,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "5f5d7f9416108fae8bc71cd50ed4b60ce11de7f3679b8670edbb4976ef227b61",
+      "log_SHA256": "ed961a5d99c6affcd18fc7967f2c1c445cf66cba9216814f7357b7d70a2500d2"
+    },
+    "focused-organ-web-tested-build-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 14.294526710000355,
+      "single_PID_peak_RSS_bytes": 114368512,
+      "combined_peak_RSS_bytes": 635342848,
+      "RSS_samples": 55,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "020f35fbdc611f9bc5d1e28abd59bcd64d75f4691415da6a090b1975ed8865e9",
+      "log_SHA256": "63917708f2b2996716b768e8301dfefa8251b9241a85d25571e9fb75a25b2466"
+    },
+    "focused-organ-catalog-web-native-v1": {
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 6.077142237016233,
+      "single_PID_peak_RSS_bytes": 383787008,
+      "combined_peak_RSS_bytes": 1012813824,
+      "RSS_samples": 23,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "36548a53d28f680f99ee3317ec72833f83216b50143b7e3774648f46240691e5",
+      "log_SHA256": "bffc750dc2f51695ddfe211e977bafd7815dd42c3593fdcf99666d02e658ef9f"
+    },
+    "focused-organ-catalog-web-native-v2": {
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 7.105494480987545,
+      "single_PID_peak_RSS_bytes": 400457728,
+      "combined_peak_RSS_bytes": 1028952064,
+      "RSS_samples": 27,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "61154f2e6ace0fe130b7c48dacf1115975bbf24944b969d27025dff141cb42b4",
+      "log_SHA256": "e331b8739c957719ceb87ae11d60c550173cc79e5055eb891c565b3367eaeb81"
+    },
+    "focused-organ-catalog-web-overflow-diagnostic-v1": {
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 8.67969927599188,
+      "single_PID_peak_RSS_bytes": 388120576,
+      "combined_peak_RSS_bytes": 1016336384,
+      "RSS_samples": 33,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "05548958493ffe67779807526369dd7c57ae5d301093445b2dae8f510ae191be",
+      "log_SHA256": "cb6b8133154146dccf7fce7bbe1329ba65f42e90bb73d8cee2f91de328a65813"
+    },
+    "focused-organ-catalog-web-native-v4": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 11.49055537302047,
+      "single_PID_peak_RSS_bytes": 389836800,
+      "combined_peak_RSS_bytes": 1018347520,
+      "RSS_samples": 44,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "33f294d1602b5e31eaf328467452a970967e45b49f2a2358fff14fbfb2828ada",
+      "log_SHA256": "48b29baf2b611694a7c82f8349ac9d23a358b6346513f2b3f1e6373bde89bb05"
+    },
+    "focused-organ-catalog-web-status-publish-v1": {
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 0.3645450949843507,
+      "single_PID_peak_RSS_bytes": 114368512,
+      "combined_peak_RSS_bytes": 574476288,
+      "RSS_samples": 1,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "b8bca3e76b3ff45c17343f888ecb339bc546060c15e9467342a38b1cac8be81e",
+      "log_SHA256": "9c6cc5159089556987e4b7fccc09cfb4ea879e17df2a5e2602285184e98eac05"
+    },
+    "focused-organ-catalog-web-status-publish-v2": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.34642032999545336,
+      "single_PID_peak_RSS_bytes": 114368512,
+      "combined_peak_RSS_bytes": 575688704,
+      "RSS_samples": 1,
+      "sample_interval_seconds": 0.25,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "terminal_SHA256": "8062aa3dc2202a9882ddf79d843c7a34e48deb8721453494f8b957ba4818630b",
+      "log_SHA256": "334a393593e3ed2fed8b4e6cca9a9f5543043af2d73d1005172657e081c93912"
+    }
+  },
+  "design_hold": {
+    "original_targets_preserved": true,
+    "kit_version": "0.2.65",
+    "same_key_resume_this_turn": 1,
+    "error": "Too many conversions are already in progress",
+    "new_purchase_recorded": false,
+    "original_three_target_comparison_accepted": false
+  },
+  "schedule": {
+    "current_software_child_remaining_focused_hours_at_CI_wait": [
+      1,
+      3
+    ],
+    "conditional_on": "no further CI/native failures; includes CI/native/evidence only",
+    "actual_API_DB_integration_user_activation_and_full_goal_excluded": true,
+    "full_goal_completion_date": null
+  },
+  "holds": [
+    "Actual original stored-row API/DB plus current minified App/WebGL integration",
+    "Actual 20-item/large-packet catalogue under existing 30-second request limit",
+    "Preserved legacy CODE support in latest backend",
+    "Coupled v2/startup v3 catalogue and selection",
+    "Original desktop-loaded/desktop-empty/mobile-loaded target conversion/comparison",
+    "Concurrent owned API/PG/browser restart and rights acceptance within original resource caps",
+    "User activation; U1-U5 and production/resource/economic end-to-end integration",
+    "Actual CLI three-stage G1; rights-checked real data and independent farm validation; G0-G4"
+  ],
+  "published_status": {
+    "first_attempt": "schema rejected estimate_reason longer than existing 240-character limit; nothing published",
+    "final_observations": [
+      {
+        "HTTP": [
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5173,
+            "status": 200
+          },
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5174,
+            "status": 200
+          }
+        ],
+        "UI_code_changed": false,
+        "browser_rerun": false,
+        "reported_at": "2026-10-20T13:58:40.394366Z",
+        "source_sha256": "7220c4703d6777197da91788837bfff86eceddac504e5287c566402d4520b3ed"
+      },
+      {
+        "retained_ventilation_frozen_source_preserved": true,
+        "files": 2173
+      },
+      {
+        "current_HTML_matches_frozen_entry_both_ports": true,
+        "browser_DOM_rerun": false
+      }
+    ],
+    "UI_source_activation": false,
+    "new_browser_DOM_run": false
+  }
+}

@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 사용자 경로 — 2026-10-20 KST:** [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md)을 고유295회귀·실제 SCRAM3결과와 표준 HTTPS7응답·원 row/RHS0·5root/자료/상한/정리로 수용했다. 기존 URL/5개 스키마·store 원 bytes를 유지했다. 다음은 닫힌 SDK→picker/기존 기관 재생 전달이며20건/큰 packet·보존 CODE·minified App/3D·원 디자인/기관 family·U1/사용자 적용은 남는다. 새 코드/목록/버튼·Solar 미배포·실제 자료/관문과 전체 완료일 미정을 유지한다.
+**현재 사용자 경로 — 2026-10-20 KST:** [기관 v1 SDK/선택→기존 저장3D 소프트웨어 자식](../research/organ-catalog-web-20261020.md)을 관련136·전체 웹1,886/256·같은 minified native 원6시점/모바일·현재 거부 시 제거·320/390px·원5root/자료/상한/정리로 수용했다. 실제 WebGL이지만 기록 metadata/파싱된 재생 fixture를 전달했으며 실제 API/DB 공동 연결은 다음 단계다. 지원 reader/보존 CODE·20건/큰 packet·원 디자인/기관 family/U1/사용자 적용은 남는다. 새 UI/Solar 미배포·실제 자료/관문·전체 제품 완료일 미정과 active goal을 유지한다.
 
 **다음 사용자 경로 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했다. 다음은 [기존 저장 결과 목록→선택→같은 UTC3D/수확의 실제 연결](../research/crop-result-catalog-native-readiness-20261020.md)이며 U1의 기존 API/SDK/저장 재생을 재사용한다. 원21건 seed/hash와 현재10파일 준비만 확인했고 전체166일/실제 DB·브라우저/U1은 미수용이다. 새 Solar normal64·후속 계산 중3D·WSL/최종 제품·G0–G4/완료일은 계속 미완료/미정이다.
 

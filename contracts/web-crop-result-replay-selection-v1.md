@@ -8,11 +8,16 @@ U1 화면의 선행 자식이다. 선행은 현재 등록 작물/결과 목록 A
 ## 계약과 다음 한 단계 수용
 
 - 선택은 닫힌 kind/farm4/result_id와 수확의 parent_result_id다. 현재 SDK가 반환한 metadata에서
-  복사한 불변 선택만 전달한다. 생장은 verified 생장 ID, 수확은 등록 수확 ID와 verified 부모를 요구한다.
+  복사한 불변 선택만 전달한다. 계산 작기는 verified 생장 ID, 기관 v1은 원 `crop-result-v1:` ID,
+  수확은 등록 수확 ID와 verified 부모를 요구한다.
   invalid/null 선택 또는 미연결 api는 이전 3D/수확을 제거하며 잘못된 선택을 전송하지 않는다.
 - `SelectedCropReplay`는 선택 farm/부모/ID 전체를 key로 기존 calculation-cycle 화면을 연다.
   별도 판본 dropdown이나 수동 ID 복사 없이 같은 farm4의 생장 summary/sample을 현재 query로 읽는다.
   기존 운영자 수동 조회 경로와 공개 DTO·원 수치/UTC는 유지한다.
+- `organ_v1`은 같은 원 result_id/farm4를 기존 `LegacyCropReplay`에 전달해 원 기관 조회를 한 번 수행한다.
+  계산 작기나 수확 부모로 변환하지 않는다. 현재 권리 실패와 선택/계정 변경 때 장면·표를 제거하며
+  늦은 원 응답이 이전 선택을 되살리지 않는다. 기록 metadata/파싱된 재생 fixture로 한 브라우저 검사는
+  소프트웨어 연결 범위이며 실제 API/DB 공동 연결·기존 저장 판본 전체 수용과 구분한다.
 - 수확 선택은 같은 부모의 생장 조회 뒤 원 수확 ID를 기존 HarvestReplay에 전달해
   summary→bounded page를 한 번 읽는다. 기존 source/hash/farm/UTC 결속 검사를 유지하며
   summary의 부모/farm/source hash가 다르면 page 요청 전에 거부한다.

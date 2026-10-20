@@ -1,5 +1,16 @@
 # 첫 구현 작업 목록
 
+- [x] **`product-ui-result-catalog-organ-web-software`** — [기관 SDK/선택→원 저장 재생의 소프트웨어 자식](../research/organ-catalog-web-20261020.md).
+  닫힌3kind·원 ID/farm·관련136검사, 전체 웹36파일/1,886단위·Chromium256·타입/build/audit와
+  같은 minified native7관측/실제 WebGL·320/390px·현재 거부 시 제거·원5root/자료/상한/정리를 확인했다.
+  기록 metadata/파싱된 재생 fixture를 쓴 시험이며 실제 API/DB 공동 연결·원 디자인/기관 family/U1·사용자 배포는 미수용이다.
+
+- [ ] **`product-ui-result-catalog-organ-native-integration`** — 선행: 위 소프트웨어 자식과 기관 서버/API;
+  착수 시 지원 reader/보존 CODE와 기존 동시 자원 hold를 대조한다. 현재 minified App을 실제 원 저장 API/DB에
+  연결해 farm→crop→organ 선택·원 ID/UTC/탄소/LAI·표/실제 WebGL, 현재 권리 철회/제거·복구를 확인한다.
+  mock 응답 없이 실제 GET trace/원 row·payload/hash/서명 불변·조회 계산/쓰기0·원 요청/RSS 상한·5root/정리를 증거로 남긴다.
+  기존20건/큰 packet 목록 용량·원 디자인·다른 저장 판본·전체 U1과 사용자 적용은 각각 별도 수용한다.
+
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
   고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·
   put/integrate/RHS0·원5root/자료/상한/정리를 확인했다. 정상 HTTPS 목록1결과 범위이며 20건/큰 packet과
@@ -427,12 +438,13 @@
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
   - [ ] **`product-ui-result-catalog-legacy-families`** — [현재 source의 세 판본 대조](../research/catalog-development-disclosure-20261020.md#남은-범위).
     기관v1→구획v2→startupv3 순서로 각 보호 metadata/페이지·닫힌 SDK·기존 재생 전달을 작은 묶음으로 연결한다.
-    기존 표/`recorded_at`/직접 조회는 있으나 현재 목록 kind와 선택 union에는 없다. 선행은 해당 저장소의
+    기존 표/`recorded_at`/직접 조회가 있으며 기관v1은 현재 목록/선택까지 소프트웨어 연결했다. 구획v2/startupv3는 남는다. 선행은 해당 저장소의
     현재 권리/HMAC·지원 reader와 실제 원 결과 확보다. 원 ID/농장/UTC·페이지/빈 목록·철회/늦은 응답·
     원 payload/DB/서명 불변·조회 계산0과 고정 WSL 한도를 실제 API/브라우저로 통과한 판본만 체크한다.
     현재 source 정적 대조만으로 세 판본이나 U1을 수용하지 않는다.
     [기관 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md)은 고유295회귀와 실제7응답으로 수용했다.
-    다음은 닫힌 SDK→picker/기존 기관 재생 전달이다. 기존 30초 제한에서 실제20건/큰 packet과
+    [기관 SDK/재생 소프트웨어 자식](../research/organ-catalog-web-20261020.md)은 웹1,886/256·minified native로 수용했다.
+    다음은 모의 응답 없는 원 저장 API/DB·현재 App 연결이다. 기존 30초 제한에서 실제20건/큰 packet과
     보존 CODE·minified App/3D·원 디자인/사용자 적용을 통과하기 전 기관 family 체크는 유지한다.
 - [ ] **`product-ui-region-input` (U2)** — 선행: 기존 조사/수집/검토·농장 작성 API; U1과 병행 가능.
   예정: `web/src/ProjectSetup.tsx`, `web/src/ResearchEvidence.tsx`, `web/src/App.tsx`,

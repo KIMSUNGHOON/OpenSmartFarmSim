@@ -2,6 +2,15 @@
 
 ## 현재 다음 실행 — 2026-10-20
 
+**전체 goal 일정 재확인 — 2026-10-20:** 전체 완료일은 아직 산정할 수 없다.
+`organ_v1` SDK→선택→기존 재생의 소프트웨어 연결 검증/정리를 CI 대기 때
+추가 실패가 없으면1–3집중시간으로 추정했다. 현재 [이 소프트웨어 자식](../research/organ-catalog-web-20261020.md)은
+웹1,886/256·같은 minified native 원6시점/모바일·거부 시 제거/보존/정리로 수용했다.
+해당 추정에 실제 API/DB 공동 연결·원 저장 판본 전체·사용자 적용과 전체 제품 완료는 포함하지 않았다.
+전체 일정 재산정에는 남은 U1 실제 통합, U2–U5와 생산/자원/경제 연결의 세부 작업량,
+자료 이용권·독립 농장 자료 접근/검증 기간의 확보 상태가 필요하다.
+과거 몇 시간 추정이나 UI 단독 최초 추정으로 이 외부 의존성까지 완료된다고 약속하지 않는다.
+
 [기존 3D 조회 TLS 수명 수정](../research/legacy-preview-TLS-lifetime-repair-20261020.md)은
 실제502/expired 오류를 근거로 수행했다. 28검사/두 Python과 실제8+8 원 응답·5역할 복구를 확인했다.
 HTML/진행 JSON의200으로 보호 API의 정상 동작을 대신하지 않는다. 다음 공통 유지보수 준비는
@@ -22,15 +31,18 @@ HTML/진행 JSON의200으로 보호 API의 정상 동작을 대신하지 않는�
    재시작/권리 브라우저는 같은 원 ID/UTC·생장/수확 동시 제거·복구,
    요청 수/원 DB·서명 불변과 종료/정리가 별도 수용 조건이다.
    원5root/512MiB·합1GiB/600초를 유지하며 건강한 서비스를 시험 때문에 재시작하지 않는다.
-2. **다음 작은 작업 — 기관 SDK→기존 재생 연결:** [기관 서버/보호 API](../research/organ-catalog-server-api-20261020.md)는
+2. **다음 작은 작업 — 기관의 실제 원 저장 API/DB→현재 App 연결:** [기관 서버/보호 API](../research/organ-catalog-server-api-20261020.md)는
    고유295회귀·실제 SCRAM3결과/표준 HTTPS 새7응답·원 row/RHS0·5root/자료/상한/정리로 수용했다.
-   현재 backend 목록은 기관 `organ_v1`을 추가했고 SDK/선택은 기존 두 kind만 지원한다.
-   원 HTTPS metadata→닫힌 SDK→picker/원 ID·farm의 기존 기관 재생으로 연결한다.
+   [닫힌 SDK→picker/기존 기관 재생](../research/organ-catalog-web-20261020.md)은
+   원 HTTPS metadata7본문·집중136·전체 웹1,886/256과 같은 minified native7관측으로 수용했다.
+   실제 WebGL·320/390px·현재 거부 시 제거를 확인했으나 수치 전송은 소프트웨어 fixture이며 실제 API/DB를 쓰지 않았다.
+   다음은 지원 reader/CODE와 기존 동시 RSS hold를 선행 대조하고, 현재 App을 실제 원 저장 API/DB에 연결해
+   원 ID/농장/UTC·값/현재 권리·소유 정리를 대사하는 별도 자식이다. 모의 응답으로 이 조건을 대체하지 않는다.
    기존 30초 요청 제한의 실제20건/큰 packet·보존 CODE·minified App/원 UTC3D/권리와 사용자 적용이 남는다.
    [개발 기록 접근 동작](../research/catalog-development-disclosure-20261020.md)은
    웹1,864/250·동일 minified native3상태/키보드2조건·합907,010,048bytes/5root 보존으로 수용했다.
    공개 metadata UI 시험이며 실제 API/DB/WebGL 검증은 아니다. 원 desktop-loaded/desktop-empty/mobile-loaded
-   target은 보존했고 실제 improve 캡처 뒤 변환이 외부 동시 한도로 실패했다. 같은 key 재개2회도 실패해
+   target은 보존했고 실제 improve 캡처 뒤 변환이 외부 동시 한도로 실패했다. 같은 key 재개3회도 실패해
    변환/plan·원 디자인 대조는 보류이며 화면 후보/미배포를 유지한다. 복구 시 같은 kit/key로 이어간다.
    기관의 원 ID/농장/UTC·현재 권리/페이지/늦은 응답·원 payload 불변·자원 기준을 먼저 검증하고 구획/startup으로 확장한다.
    이어 지원 reader 판본/최신 backend 구판 CODE,
