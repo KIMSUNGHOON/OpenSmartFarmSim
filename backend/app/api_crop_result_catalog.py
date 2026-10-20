@@ -20,7 +20,8 @@ PATH = '/v1/crop-research-result-catalog'
 SELECTION_PATH = PATH+'/farm-crops'
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
 MAX_RESPONSE_BYTES = 64 * 1024
-Kind = Literal['calculation_cycle_v1', 'harvest_v1']
+Kind = Literal['calculation_cycle_v1', 'harvest_v1', 'organ_v1']
+OrganID = Annotated[str, Field(strict=True, pattern=r'^crop-result-v1:[0-9a-f]{64}$')]
 STAMP_PATTERN = r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}Z$'
 RecordedAt = Annotated[UtcStamp, Field(pattern=STAMP_PATTERN)]
 AnyResultID = ParentID | HarvestID
@@ -68,6 +69,10 @@ class HarvestItem(_Public):
     row_count: Annotated[int, Field(strict=True, ge=0, le=262144)]
 
 
+class OrganItem(GrowthItem):
+    result_id: OrganID
+
+
 class GrowthCursor(_Public):
     recorded_at: RecordedAt
     result_id: ParentID
@@ -76,6 +81,11 @@ class GrowthCursor(_Public):
 class HarvestCursor(_Public):
     recorded_at: RecordedAt
     result_id: HarvestID
+
+
+class OrganCursor(_Public):
+    recorded_at: RecordedAt
+    result_id: OrganID
 
 
 class CatalogBase(_Public):
@@ -98,7 +108,13 @@ class HarvestCatalog(CatalogBase):
     next_cursor: HarvestCursor | None
 
 
-CatalogPage = Annotated[GrowthCatalog | HarvestCatalog, Field(discriminator='kind')]
+class OrganCatalog(CatalogBase):
+    kind: Literal['organ_v1']
+    items: Annotated[list[OrganItem], Field(max_length=20)]
+    next_cursor: OrganCursor | None
+
+
+CatalogPage = Annotated[GrowthCatalog | HarvestCatalog | OrganCatalog, Field(discriminator='kind')]
 _PAGE = TypeAdapter(CatalogPage)
 _STAMP = TypeAdapter(RecordedAt)
 
@@ -182,12 +198,13 @@ def _selection_response(service, tenant, farm):
 
 
 def install_catalog_routes(app, *, jobs, farms, calculation_query, harvest_query,
-                           principal_provider, authorized_tenant, error, access):
-    service = None
+                           principal_provider, authorized_tenant, error, access, organ_store=None):
+    service = organ_service = None
     if not all(callable(fn) for fn in (principal_provider, authorized_tenant, error, access)):
         raise ValueError('trusted crop catalog required')
-    if calculation_query is not None:
+    if calculation_query is not None or organ_store is not None:
         from . import crop_result_catalog as catalog
+    if calculation_query is not None:
         try:
             if type(calculation_query) is not catalog.calculation.CalculationCurrentCycleQuery:
                 raise ValueError()
@@ -199,10 +216,25 @@ def install_catalog_routes(app, *, jobs, farms, calculation_query, harvest_query
             service = catalog.CropResultCatalog(calculation_query, harvest_query)
         except Exception:
             raise ValueError('trusted crop catalog required') from None
+    if organ_store is not None:
+        from . import crop_organ_result_catalog as organ
+        try:
+            if (type(organ_store) is not organ.storage.CropResultStore or organ_store.jobs is not jobs
+                    or farms is None or organ_store.farms is not farms
+                    or jobs.principal_provider is not principal_provider):
+                raise ValueError()
+            organ_service = organ.OrganCropResultCatalog(organ_store)
+        except Exception:
+            raise ValueError('trusted crop organ catalog required') from None
     headers = {} if service is None else {'Cache-Control': 'no-store', 'X-OSSF-Crop-Catalog-Version': catalog.VERSION,
         'X-OSSF-Crop-Catalog-Code-SHA256': catalog.CODE_SHA256,
         'X-OSSF-Crop-Catalog-Projection-SHA256': CODE_SHA256}
-    selection_headers = {} if service is None else {**headers,
+    organ_headers = {} if organ_service is None else {'Cache-Control': 'no-store',
+        'X-OSSF-Crop-Catalog-Version': catalog.VERSION,
+        'X-OSSF-Crop-Catalog-Code-SHA256': organ.CODE_SHA256,
+        'X-OSSF-Crop-Catalog-Projection-SHA256': CODE_SHA256}
+    selection_service = service if service is not None else organ_service
+    selection_headers = {} if selection_service is None else {**(headers if service is not None else organ_headers),
         'X-OSSF-Crop-Farm-Selection-Version': catalog.SELECTION_VERSION}
 
     @app.get(SELECTION_PATH, response_model=FarmSelection, operation_id='getCropResearchFarmSelection',
@@ -221,12 +253,12 @@ def install_catalog_routes(app, *, jobs, farms, calculation_query, harvest_query
         async for chunk in request.stream():
             if chunk:
                 return error(422, 'invalid_request', 'Invalid request')
-        if service is None:
+        if selection_service is None:
             return error(503, 'crop_catalog_unavailable', 'Stored crop catalog unavailable')
         farm = {'scenario_id': scenario_id, 'scenario_revision': scenario_revision,
                 'registration_sha256': registration_sha256}
         try:
-            raw = await run_in_threadpool(_selection_response, service, tenant, farm)
+            raw = await run_in_threadpool(_selection_response, selection_service, tenant, farm)
             current, denied = authorized_tenant(*READ_SCOPES)
             if denied is not None:
                 return denied
@@ -267,24 +299,25 @@ def install_catalog_routes(app, *, jobs, farms, calculation_query, harvest_query
         before = None
         try:
             if before_recorded_at is not None:
+                identity = OrganID if kind == 'organ_v1' else ParentID if kind == 'calculation_cycle_v1' else HarvestID
                 before = {'recorded_at': datetime.fromisoformat(_STAMP.validate_python(before_recorded_at)),
-                          'result_id': TypeAdapter(ParentID if kind == 'calculation_cycle_v1' else HarvestID
-                              ).validate_python(before_result_id)}
+                          'result_id': TypeAdapter(identity).validate_python(before_result_id)}
         except Exception:
             return error(422, 'invalid_request', 'Invalid request')
         async for chunk in request.stream():
             if chunk:
                 return error(422, 'invalid_request', 'Invalid request')
-        if service is None or kind == 'harvest_v1' and service.harvest is None:
+        selected_service = organ_service if kind == 'organ_v1' else service
+        if selected_service is None or kind == 'harvest_v1' and service.harvest is None:
             return error(503, 'crop_catalog_unavailable', 'Stored crop catalog unavailable')
         try:
-            raw = await run_in_threadpool(_response, service, tenant, kind, farm, limit, before)
+            raw = await run_in_threadpool(_response, selected_service, tenant, kind, farm, limit, before)
             current, denied = authorized_tenant(*READ_SCOPES)
             if denied is not None:
                 return denied
             if current != tenant:
                 return error(403, 'forbidden', 'Resource access denied')
-            return Response(raw, media_type='application/json', headers=headers)
+            return Response(raw, media_type='application/json', headers=organ_headers if kind == 'organ_v1' else headers)
         except PermissionError:
             return error(403, 'forbidden', 'Resource access denied')
         except (catalog.CropResultCatalogHold, CatalogProjectionHold):

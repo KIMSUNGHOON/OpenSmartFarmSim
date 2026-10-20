@@ -9682,6 +9682,160 @@
         "title": "OpeningLot",
         "type": "object"
       },
+      "OrganCatalog": {
+        "additionalProperties": false,
+        "properties": {
+          "farm": {
+            "$ref": "#/components/schemas/Farm"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/OrganItem"
+            },
+            "maxItems": 20,
+            "title": "Items",
+            "type": "array"
+          },
+          "kind": {
+            "const": "organ_v1",
+            "title": "Kind",
+            "type": "string"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OrganCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "scope": {
+            "const": "stored_research_metadata_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "selection_validation_required": {
+            "const": true,
+            "title": "Selection Validation Required",
+            "type": "boolean"
+          },
+          "version": {
+            "const": "crop-research-result-catalog-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "scope",
+          "farm",
+          "selection_validation_required",
+          "rights_or_gate_approval",
+          "kind",
+          "items",
+          "next_cursor"
+        ],
+        "title": "OrganCatalog",
+        "type": "object"
+      },
+      "OrganCursor": {
+        "additionalProperties": false,
+        "properties": {
+          "recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "result_id": {
+            "pattern": "^crop-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recorded_at",
+          "result_id"
+        ],
+        "title": "OrganCursor",
+        "type": "object"
+      },
+      "OrganItem": {
+        "additionalProperties": false,
+        "properties": {
+          "calculation_status": {
+            "enum": [
+              "completed",
+              "hold"
+            ],
+            "title": "Calculation Status",
+            "type": "string"
+          },
+          "claim_scope": {
+            "const": "synthetic_crop_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "event_count": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Event Count",
+            "type": "integer"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "result_id": {
+            "pattern": "^crop-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Revision",
+            "type": "string"
+          },
+          "sample_count": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Sample Count",
+            "type": "integer"
+          },
+          "study_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Study Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "result_id",
+          "recorded_at",
+          "calculation_status",
+          "claim_scope",
+          "study_id",
+          "revision",
+          "period",
+          "sample_count",
+          "event_count"
+        ],
+        "title": "OrganItem",
+        "type": "object"
+      },
       "OwnedEconomicRecordSourceRead": {
         "additionalProperties": false,
         "properties": {
@@ -23439,7 +23593,8 @@
             "schema": {
               "enum": [
                 "calculation_cycle_v1",
-                "harvest_v1"
+                "harvest_v1",
+                "organ_v1"
               ],
               "title": "Kind",
               "type": "string"
@@ -23544,7 +23699,8 @@
                   "discriminator": {
                     "mapping": {
                       "calculation_cycle_v1": "#/components/schemas/GrowthCatalog",
-                      "harvest_v1": "#/components/schemas/HarvestCatalog"
+                      "harvest_v1": "#/components/schemas/HarvestCatalog",
+                      "organ_v1": "#/components/schemas/OrganCatalog"
                     },
                     "propertyName": "kind"
                   },
@@ -23554,6 +23710,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/HarvestCatalog"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OrganCatalog"
                     }
                   ],
                   "title": "Response Listcropresearchresults"

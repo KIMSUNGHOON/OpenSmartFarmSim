@@ -330,6 +330,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             error=_error, access=_access)
     install_catalog_routes(app, jobs=job_store, farms=farm_authoring_service,
         calculation_query=crop_cycle_calculation_current_query, harvest_query=crop_harvest_current_query,
+        organ_store=crop_result_store,
         principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
 
     @app.get('/v1/source-history', response_model=SourceHistoryPage,

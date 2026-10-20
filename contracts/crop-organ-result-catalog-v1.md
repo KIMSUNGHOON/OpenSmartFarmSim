@@ -43,3 +43,14 @@
 
 합성 fixture/새로운 소유 시험 결과는 소프트웨어 검증이다. 기존 보존 판본의 최신 CODE 호환성과
 실제 독립 농장 자료·생산/경제·G0–G4·원 디자인·사용자 적용의 남은 조건은 별도다.
+
+## 보호 API 자식
+
+기존 `GET /v1/crop-research-result-catalog`에 kind `organ_v1`과 원 ID cursor를 추가한다.
+다른 두 kind의 응답과 미구성/인증/오류 의미는 유지한다. 기관 store는 기존 `create_app`의
+`crop_result_store`에서 명시적으로 전달하며 jobs·farms·principal이 다른 조립은 거부한다.
+기관만 구성된 조립도 기존 `/farm-crops`의 동일한 등록 작물 응답을 제공한다.
+단위 없는 metadata와 전체 typed JSON 직렬화는 현재 검증 context 안에서 끝낸다.
+권리/계정의 늦은 변경은 준비된 bytes를 내보내지 않는다. 현재 kind의 reader가 없으면 인증 후 503이다.
+OpenAPI snapshot·기존 두 kind·기관의 닫힌 cursor/응답·개인 오류 비공개·ASGI/실제 SCRAM의
+원 결과 대사를 검증한다. 실제 HTTPS/브라우저·최신 CODE의 기존 보존 판본과 사용자 적용은 후속이다.

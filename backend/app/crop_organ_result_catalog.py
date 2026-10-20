@@ -9,7 +9,8 @@ import re
 from psycopg import sql
 
 from . import crop_result_store as storage
-from .crop_result_catalog import VERSION, MAX_LIMIT, MAX_PAGE_BYTES, CropResultCatalogHold, _need, _time
+from .crop_result_catalog import (VERSION, SELECTION_VERSION, MAX_CROPS, MAX_LIMIT,
+    MAX_PAGE_BYTES, CropResultCatalogHold, _need, _time)
 from .thermal_run_store import _canonical, _document
 
 KIND='organ_v1'
@@ -52,9 +53,33 @@ class OrganCropResultCatalog:
         _need(registration['scenario_sha256']==farm['registration_sha256']
               and registration['farm'].scenario_id==farm['scenario_id']
               and registration['farm'].scenario_revision==farm['scenario_revision']
-              and any(c.crop_id==farm['crop_id'] for c in registration['farm'].crops))
+              and ('crop_id' not in farm or any(c.crop_id==farm['crop_id'] for c in registration['farm'].crops)))
         self.store._guard(tenant)
         return registration
+
+    @contextmanager
+    def open_farm_selection(self,tenant,farm_ref):
+        try:
+            _need(type(farm_ref) is dict and set(farm_ref)=={'scenario_id','scenario_revision','registration_sha256'})
+            _need(all(storage._name(farm_ref[k]) for k in ('scenario_id','scenario_revision'))
+                  and type(farm_ref['registration_sha256']) is str and storage.DIGEST.fullmatch(farm_ref['registration_sha256']))
+            farm=deepcopy(farm_ref);registration=deepcopy(self._registration(tenant,farm))
+            crops=registration['farm'].crops
+            _need(len(crops)<=MAX_CROPS and len({c.crop_id for c in crops})==len(crops))
+            items=[{'crop_id':c.crop_id,'batch_id':c.batch_id,'species':c.species,'variety':c.variety,
+                'occupancy':{'start':_time(c.occupancy.start),'end':_time(c.occupancy.end)},
+                'profile_status':c.profile_status,'origin':c.provenance.origin,
+                'evidence_level':c.provenance.evidence_level} for c in sorted(crops,key=lambda c:c.crop_id)]
+            page={'version':SELECTION_VERSION,'scope':'registered_user_inputs_only','farm':farm,
+                'items':items,'selection_validation_required':True,'rights_or_gate_approval':False}
+            _need(len(_canonical(page))<=MAX_PAGE_BYTES)
+            _need(self._registration(tenant,farm)==registration)
+            yield deepcopy(page)
+            _need(self._registration(tenant,farm)==registration)
+        except PermissionError:
+            raise
+        except Exception:
+            raise CropResultCatalogHold('stored organ farm selection unavailable') from None
 
     def _rows(self,tenant,farm,limit,before):
         args=[tenant,farm['scenario_id'],farm['scenario_revision'],farm['registration_sha256'],farm['crop_id']]

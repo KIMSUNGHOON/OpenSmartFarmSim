@@ -244,7 +244,9 @@ def test_standard_runtime_https_same_saved_result_current_rights_and_cleanup(cro
     with pytest.raises(ValueError,match='^API runtime dependencies rejected$'):
         replace(deps,crop_result_store_factory=True)
     before=count(store); path=target(record,body); timings=[]; responses=[]
+    original_row=store._find('tenant-1',result_id=record['result_id'])
     monkeypatch.setattr('app.crop_result_store.integrate_crop',lambda **_:pytest.fail('GET reintegrated'))
+    monkeypatch.setattr('app.crop_growth_integration.rates.calculate_rates',lambda **_:pytest.fail('GET evaluated crop RHS'))
     server=runtime.service.server(); thread=threading.Thread(target=server.run,daemon=True);thread.start()
     try:
         deadline=time.monotonic()+15
@@ -257,8 +259,10 @@ def test_standard_runtime_https_same_saved_result_current_rights_and_cleanup(cro
             try:
                 started=time.monotonic()
                 headers={} if bearer is None else {'Authorization':'Bearer '+tokens[bearer].decode()}
-                conn.request('GET',where,headers=headers); response=conn.getresponse(); value=json.loads(response.read())
-                timings.append(time.monotonic()-started); responses.append({'status':response.status,'value':value})
+                conn.request('GET',where,headers=headers); response=conn.getresponse(); response_raw=response.read(); value=json.loads(response_raw)
+                timings.append(time.monotonic()-started); responses.append({'status':response.status,'value':value,
+                    'path':where,'bytes':len(response_raw),'body_SHA256':sha256(response_raw).hexdigest(),
+                    **({'body_raw_utf8':response_raw.decode()} if where.startswith('/v1/crop-research-result-catalog') else {})})
                 assert response.getheader('cache-control')=='no-store'
                 return response.status,value
             finally:conn.close()
@@ -268,9 +272,25 @@ def test_standard_runtime_https_same_saved_result_current_rights_and_cleanup(cro
         assert call()==call()==(200,expected)
         assert call(target(record,body,crop_id='foreign-crop'))[0]==422
         assert call(path+'&tenant_id=spoofed')[0]==422
+        organ_path='/v1/crop-research-result-catalog?'+urlencode({'kind':'organ_v1',**body['farm']})
+        assert call(organ_path,bearer=None)[0]==401
+        assert call(organ_path,bearer='denied')[0]==403
+        assert call(organ_path,bearer='foreign')[0]==422
+        organ_status,organ_page=call(organ_path)
+        assert organ_status==200 and organ_page['kind']=='organ_v1' and len(organ_page['items'])==1
+        item=organ_page['items'][0]
+        assert item['result_id']==record['result_id'] and item['sample_count']==len(expected['samples'])
+        assert item['period']=={'start':expected['start_utc'],'end':expected['end_utc']}
+        assert organ_page['selection_validation_required'] is True and organ_page['rights_or_gate_approval'] is False
+        selection_path='/v1/crop-research-result-catalog/farm-crops?'+urlencode(
+            {k:v for k,v in body['farm'].items() if k!='crop_id'})
+        selection_status,organ_selection=call(selection_path)
+        assert selection_status==200 and any(c['crop_id']==body['farm']['crop_id'] for c in organ_selection['items'])
         rights.allowed=False
         assert call()[0]==422
+        assert call(organ_path)[0]==422
         rights.allowed=True
+        assert call(organ_path)==(200,organ_page)
         with monkeypatch.context() as patch:
             patch.setattr(runtime.farm_scenarios.candidates._source._source,'get_input_rights',lambda *_:None)
             assert call()[0]==422
@@ -279,10 +299,16 @@ def test_standard_runtime_https_same_saved_result_current_rights_and_cleanup(cro
             assert conn.pgconn.used_password
             assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(jobs._table('thermal_g1_runs'))).fetchone()['n']==0
         assert count(store)==before and current_principal() is None
+        assert store._find('tenant-1',result_id=record['result_id'])==original_row
         assert max(timings)<30
         evidence={'scope':'synthetic_crop_math_only','result_id':record['result_id'],
-            'actual_tls_scram':True,'responses':responses,'full_response_seconds':timings,'timeout_seconds':30}
+            'actual_tls_scram':True,'responses':responses,'full_response_seconds':timings,'timeout_seconds':30,
+            'organ_metadata':organ_page,'organ_crop_selection':organ_selection,'original_row_unchanged':True,
+            'put_integrate_or_RHS_during_reads':0,'G0_G4':'not_assessed','browser_performed':False}
     finally:
         server.should_exit=True; thread.join(timeout=15); assert not thread.is_alive()
     evidence['https_server_joined']=True
     Path('/tmp/ossf-crop-api-https-evidence-20261004.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
+    if os.environ.get('OSSF_JOINT_PREFIX_RUNTIME_EVIDENCE'):
+        (Path(os.environ['OSSF_JOINT_PREFIX_RUNTIME_EVIDENCE'])/'organ-catalog-https.private.json').write_text(
+            json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')

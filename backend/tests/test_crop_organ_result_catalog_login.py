@@ -5,12 +5,14 @@ from hashlib import sha256
 import json
 import os
 from pathlib import Path
+from urllib.parse import urlencode
 
 import pytest
 
 from app.crop_organ_result_catalog import OrganCropResultCatalog, CropResultCatalogHold
 from app.crop_result_store import CropResultStore
 from test_crop_result_store import (crop_setup,authoring,farm_setup,login_scope,login_database,put,count)
+from test_api_crop_replay import app_for,get as api_get
 
 pytestmark=pytest.mark.parametrize('login_scope',[{'market_calculation':True,
     'market_source_storage':True,'thermal_scenario_storage':True,
@@ -56,12 +58,28 @@ def test_organ_signed_rows_keyset_current_rights_and_unchanged_custody(crop_setu
         with service.open('tenant-1','organ_v1',body['farm']):principal['scopes'].remove('crop_result_read')
     principal['scopes'].add('crop_result_read')
     with service.open('tenant-1','organ_v1',body['farm'],limit=2) as restored:assert restored==first
+    app=app_for(store)
+    params={'kind':'organ_v1',**body['farm'],'limit':2}
+    path='/v1/crop-research-result-catalog?'+urlencode(params)
+    assert api_get(app,path)==(200,first)
+    farm_ref={k:v for k,v in body['farm'].items() if k!='crop_id'}
+    with service.open_farm_selection('tenant-1',farm_ref) as selection:
+        assert api_get(app,'/v1/crop-research-result-catalog/farm-crops?'+urlencode(farm_ref))==(200,selection)
+    replay_path='/v1/crop-research-results/'+items[0]['result_id']+'?'+urlencode(body['farm'])
+    replay_status,replay=api_get(app,replay_path)
+    assert replay_status==200 and replay['result_id']==items[0]['result_id']
+    assert len(replay['samples'])==items[0]['sample_count']
+    rights.allowed=False
+    assert api_get(app,path)[0]==422
+    rights.allowed=True
+    assert api_get(app,path)==(200,first)
     assert count(store)==before and calls==[]
     assert {k:store._find('tenant-1',result_id=k) for k in snapshots}==snapshots
     evidence={'scope':'normal synthetic producer / SCRAM metadata only','items':items,
         'first_count':2,'tail_count':1,'rights_entry_and_exit_denied':True,'scope_exit_denied':True,
         'original_rows_and_payloads_unchanged':True,'put_integrate_or_RHS_calls':0,
         'record_SHA256':{k:sha256(v['payload_raw']).hexdigest() for k,v in snapshots.items()},
-        'actual_crop_Runs':0,'G0_G4':'not_assessed','API_or_browser_performed':False}
+        'actual_crop_Runs':0,'G0_G4':'not_assessed','owned_ASGI_with_actual_SCRAM':True,
+        'API_statuses':[200,200,200,422,200],'HTTPS_or_browser_performed':False}
     root=os.environ.get('OSSF_JOINT_PREFIX_RUNTIME_EVIDENCE')
     if root:(Path(root)/'organ-catalog-login.private.json').write_text(json.dumps(evidence,sort_keys=True)+'\n')
