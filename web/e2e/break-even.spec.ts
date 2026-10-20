@@ -153,7 +153,13 @@ for(const lost of ['trial','plan','verification'] as const)test(`break-even lost
     await page.setViewportSize({width,height:900});await page.evaluate(()=>document.fonts.ready);
     for(const size of ['16px','32px']) {
       await page.addStyleTag({content:':root{font-size:'+size+'}'});
-      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      const layout=await page.evaluate(()=>({viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,
+        overflow:[...document.querySelectorAll('body *')].map(element=>{
+          const rect=element.getBoundingClientRect(),style=getComputedStyle(element);
+          return {tag:element.tagName,classes:element.className,left:rect.left,right:rect.right,
+            width:rect.width,minWidth:style.minWidth,overflowX:style.overflowX};
+        }).filter(element=>element.width>0&&element.right>innerWidth+.5).slice(0,30)}));
+      expect(layout.documentWidth,JSON.stringify({width,size,...layout})).toBeLessThanOrEqual(layout.viewport);
       const table=area.getByRole('region',{name:'손익분기 시험 표 가로 스크롤'});await table.evaluate(element=>{element.scrollLeft=0;});
       if(await table.evaluate(element=>element.scrollWidth>element.clientWidth)) {
         await table.scrollIntoViewIfNeeded();await expect(table).toBeInViewport();
