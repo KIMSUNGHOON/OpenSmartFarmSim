@@ -7,7 +7,7 @@ on:
         description: Focused CO2 read evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection, co2-current-query, co2-http]
+        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime]
   push:
     branches: [main]
   pull_request:
@@ -204,7 +204,7 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http')
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime')
     name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -239,7 +239,7 @@ jobs:
           make -j2
           make install
           "$co2_pg_root/install/bin/postgres" --version | grep -Fx 'postgres (PostgreSQL) 16.15'
-      - name: Verify original CO2 projection and fresh registered-record readers
+      - name: Verify selected CO2 reads and their regression scope
         env:
           OSSF_TEST_PG_DSN: host=/owned-fixture dbname=postgres user=ossf_login_admin
           OSSF_CO2_VERIFICATION_SCOPE: ${{ inputs.verification_scope }}
@@ -284,6 +284,14 @@ jobs:
             ${{ runner.temp }}/co2-projection-evidence/legacy-solar/import-api.json
             ${{ runner.temp }}/co2-projection-evidence/legacy-solar/import-api_crop_greenhouse_solar_route.json
             ${{ runner.temp }}/co2-projection-evidence/legacy-solar/import-operator_config.json
+            ${{ runner.temp }}/co2-projection-evidence/legacy-solar/native-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/legacy-solar/native-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/legacy-solar/database-cleanup-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/legacy-solar/database-cleanup-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-roles-policy.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-roles-operator-compatibility.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-roles-runtime-default.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-roles-database-cleanup.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: error

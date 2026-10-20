@@ -1,6 +1,8 @@
 # CO₂ 결과 조회의 명시 runtime v1
 
-Status: planned; implementation/tests pending.
+Status: implemented; local control77 passed, focused native acceptance pending.
+[사전 증거](../research/artifacts/crop-greenhouse-co2-runtime-preflight-20261021.json)는 전체177개 수집과
+원 자료/두 UI/5root·자원·정리를 확인했다. 새 CO₂/기존 Solar의 실제 SCRAM/TLS4를 후속 검증한다.
 선행은 [보호 HTTP 기능 수용](api-crop-greenhouse-co2-route-v1.md)이다.
 [기존 Solar runtime](crop-greenhouse-solar-runtime-v1.md)의 보호 설정/동일 객체 조립을 대조한다.
 기본 operator 자동 활성화·worker/prefix/3D·공통 WSL 용량/사용자 적용은 별도 조건이다.
@@ -12,12 +14,14 @@ Status: planned; implementation/tests pending.
 최상위는 원 읽기 설정 필드만 받고 policy의 crop_greenhouse_co2_result_storage를 필수 exact bool로 받는다.
 중복 JSON/비유한 값/unknown 필드·경로/모드/소유/ACL·크기와 trusted factory reference를 먼저 검사한다.
 읽은 config/DSN/키/cert의 bytes·메타데이터를 factory 전후/전체 조립 뒤 재검사한다.
+새 loader에서 같은 bytes로 다시 쓴 파일도 inode/시각 메타데이터로 거부하며 기존 helper는 유지한다.
 
 기존 ApiRuntimeConfig의 암묵적 CO₂ True 거부를 보존하기 위해 서버의 별도 kw-only
 crop_greenhouse_co2_read(defaultFalse) 동의와 policy flag를 정확히 맞춘다.
 이 동의는 새 loader가 판본에 따라 생성하며 JSON 최상위의 새 임의 flag로 받지 않는다.
 누락/default 상태의 기존 직접 생성자는 policy True를 계속 거부해야 한다.
 두 flag의 비bool/불일치, True일 때 cycle/farm 선행·두 factory 누락/혼합을 I/O 전에 거부한다.
+farm 선행은 thermal/source storage와 owned fixture/context 구성이다. 현재 실제 farm 객체 결속은 조립 때 다시 확인한다.
 
 ## 객체와 권한
 

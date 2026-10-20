@@ -61,10 +61,13 @@ class ApiRuntimeConfig:
     crop_greenhouse_ventilation_prefix: bool = field(default=False, kw_only=True)
     crop_greenhouse_solar_execution: bool = field(default=False, kw_only=True)
     crop_greenhouse_solar_prefix: bool = field(default=False, kw_only=True)
+    crop_greenhouse_co2_read: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         if (type(self.policy) is not RuntimeLoginPolicy or not self.policy.break_even_calculation or
-                self.policy.crop_greenhouse_co2_result_storage is not False or
+                type(self.crop_greenhouse_co2_read) is not bool or
+                type(self.policy.crop_greenhouse_co2_result_storage) is not bool or
+                self.crop_greenhouse_co2_read != self.policy.crop_greenhouse_co2_result_storage or
                 type(self.policy.crop_greenhouse_solar_result_storage) is not bool or
                 type(self.dsn) is not str or not self.dsn or
                 any(not isinstance(path, Path) or not path.is_absolute() or '..' in path.parts
@@ -119,6 +122,8 @@ class ApiRuntimeDependencies:
     crop_greenhouse_ventilation_current_query_factory: object = field(default=None, repr=False)
     crop_greenhouse_solar_result_store_factory: object = field(default=None, repr=False)
     crop_greenhouse_solar_current_query_factory: object = field(default=None, repr=False)
+    crop_greenhouse_co2_result_store_factory: object = field(default=None, repr=False)
+    crop_greenhouse_co2_current_query_factory: object = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
@@ -141,6 +146,8 @@ class ApiRuntimeDependencies:
                 (self.crop_greenhouse_ventilation_current_query_factory is not None and not callable(self.crop_greenhouse_ventilation_current_query_factory)) or
                 (self.crop_greenhouse_solar_result_store_factory is not None and not callable(self.crop_greenhouse_solar_result_store_factory)) or
                 (self.crop_greenhouse_solar_current_query_factory is not None and not callable(self.crop_greenhouse_solar_current_query_factory)) or
+                (self.crop_greenhouse_co2_result_store_factory is not None and not callable(self.crop_greenhouse_co2_result_store_factory)) or
+                (self.crop_greenhouse_co2_current_query_factory is not None and not callable(self.crop_greenhouse_co2_current_query_factory)) or
                 (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
                 (self.owned_research_contexts is not None and
                     (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
@@ -175,6 +182,8 @@ class ApiRuntime:
     ventilation_crop_query: object = field(repr=False)
     solar_crop_results: object = field(repr=False)
     solar_crop_query: object = field(repr=False)
+    co2_crop_results: object = field(repr=False)
+    co2_crop_query: object = field(repr=False)
     solar_execution_admission: object = field(repr=False)
     solar_execution_checkpoints: object = field(repr=False)
     solar_execution_query: object = field(repr=False)
@@ -227,6 +236,15 @@ class ApiRuntime:
                     config.policy.crop_greenhouse_solar_result_storage !=
                     (dependencies.crop_greenhouse_solar_current_query_factory is not None) or
                     (config.policy.crop_greenhouse_solar_result_storage and not config.policy.crop_cycle_result_storage)):
+                raise ValueError()
+            if (config.crop_greenhouse_co2_read !=
+                    (dependencies.crop_greenhouse_co2_result_store_factory is not None) or
+                    config.crop_greenhouse_co2_read !=
+                    (dependencies.crop_greenhouse_co2_current_query_factory is not None) or
+                    (config.crop_greenhouse_co2_read and
+                     (not config.policy.crop_cycle_result_storage or
+                      not config.policy.thermal_scenario_storage or not config.policy.market_source_storage or
+                      dependencies.owned_fixture_registry is None or dependencies.owned_research_contexts is None))):
                 raise ValueError()
             authored_option = (config.authored_run_gate_key is not None or
                 dependencies.authored_run_store_factory is not None)
@@ -424,6 +442,32 @@ class ApiRuntime:
                         solar_crop_query.store is not solar_crop_results):
                     raise ValueError()
                 solar_crop_query._binding()
+            co2_crop_results = None
+            co2_crop_query = None
+            if dependencies.crop_greenhouse_co2_result_store_factory is not None:
+                from .crop_greenhouse_co2_result_store import Co2ResultStore
+                from .crop_greenhouse_co2_current_query import Co2CurrentQuery
+                if farm_authoring is None:
+                    raise ValueError()
+                co2_crop_results = dependencies.crop_greenhouse_co2_result_store_factory(
+                    farm_authoring_service=farm_authoring)
+                if (type(co2_crop_results) is not Co2ResultStore or
+                        co2_crop_results.jobs is not jobs or
+                        co2_crop_results.server.binding.farms is not farm_authoring or
+                        co2_crop_results.server.binding.jobs is not jobs or
+                        jobs.principal_provider is not current_principal):
+                    raise ValueError()
+                co2_crop_results._binding()
+                keys = (co2_crop_results.integrity_key, co2_crop_results.server.integrity_key,
+                        co2_crop_results.server.binding.input_authority.integrity_key)
+                if len(set(keys)) != 3:
+                    raise ValueError()
+                co2_crop_query = dependencies.crop_greenhouse_co2_current_query_factory(
+                    result_store=co2_crop_results)
+                if (type(co2_crop_query) is not Co2CurrentQuery or
+                        co2_crop_query.store is not co2_crop_results):
+                    raise ValueError()
+                co2_crop_query._binding()
             solar_execution_admission = None
             solar_execution_checkpoints = None
             solar_execution_query = None
@@ -550,6 +594,8 @@ class ApiRuntime:
                 crop_greenhouse_ventilation_current_query=ventilation_crop_query,
                 crop_greenhouse_solar_result_store=solar_crop_results,
                 crop_greenhouse_solar_current_query=solar_crop_query,
+                crop_greenhouse_co2_result_store=co2_crop_results,
+                crop_greenhouse_co2_current_query=co2_crop_query,
                 crop_greenhouse_solar_execution_service=solar_execution_admission,
                 crop_greenhouse_solar_execution_query=solar_execution_query,
                 crop_greenhouse_solar_prefix_query=solar_prefix_query,
@@ -577,6 +623,7 @@ class ApiRuntime:
                 ('joint_crop_results', joint_crop_results), ('joint_crop_query', joint_crop_query),
                 ('ventilation_crop_results', ventilation_crop_results), ('ventilation_crop_query', ventilation_crop_query),
                 ('solar_crop_results', solar_crop_results), ('solar_crop_query', solar_crop_query),
+                ('co2_crop_results', co2_crop_results), ('co2_crop_query', co2_crop_query),
                 ('solar_execution_admission', solar_execution_admission),
                 ('solar_execution_checkpoints', solar_execution_checkpoints),
                 ('solar_execution_query', solar_execution_query),

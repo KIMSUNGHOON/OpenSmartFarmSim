@@ -1,0 +1,131 @@
+{
+  "schema_version": "co2-read-runtime-preflight-v1",
+  "recorded_at": "2026-10-20T23:57:58.817702+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-20T23:45:52.311Z",
+    "raw_line_sha256": "3c243295394d7522dc8d6d0d36a0d231aaf15b76cd27577ddaa8e91cc0d4439f",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "source_sha256": {
+    "backend/app/api_runtime.py": "4f441c6a08466099318b0201f7c4e53c30b9ff92126a248dad87ce0d7acf818e",
+    "backend/app/crop_greenhouse_co2_operator_config.py": "dd7411a4d1977ee082cbc1111d5d2a720f009795417d1b2162298cccf25f14ed",
+    "backend/tests/test_crop_greenhouse_co2_runtime.py": "b51fdc941e354e40865607fffa9f9d26b6aba55370889469731ff1c3893f09b9",
+    "backend/tests/test_crop_greenhouse_co2_runtime_native.py": "533cfd2597cf59bf6f574068668e2cd47b0748781baa9a025485c411814cf291",
+    "research/co2_result_projection_hosted.py": "9a6a846032390ad4e638057b8935b3b09e86e07d9d7ca0af2c29097333f75cca"
+  },
+  "guard_receipts": {
+    "focused-co2-runtime-control-red-v1": {
+      "terminal_sha256": "1e7306339f0d07664d24871a8a9681e818ce42011eca77094e93e2e80e322228",
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 0.6019325219967868,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 909934592,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-co2-runtime-control-green-v1": {
+      "terminal_sha256": "b932a2005a39caf1ba839d4df946526ed386c468ffeabb23acba08cea91799c7",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.401391755003715,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 998514688,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-co2-runtime-final-control-green-v2": {
+      "terminal_sha256": "84b1261e6e7f59086ce4cacf09610d63fe8b8de9808bc78d63e64f3a145f927f",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.4067088769807015,
+      "single_PID_peak_RSS_bytes": 145682432,
+      "combined_peak_RSS_bytes": 1007988736,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-co2-runtime-full-collection-v1": {
+      "terminal_sha256": "9c02f665fc24267492ddf832a272699b57b435158f5c629bcabefc77935d9a44",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.406292023981223,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 981868544,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    }
+  },
+  "final_local_control": {
+    "passed": 77,
+    "fresh_import_deferred_to_hosted": 2,
+    "actual_DB_TLS": "not_run_locally"
+  },
+  "full_collection": {
+    "tests/test_api_runtime.py": 31,
+    "tests/test_crop_greenhouse_co2_result_roles.py": 3,
+    "tests/test_crop_greenhouse_co2_runtime.py": 79,
+    "tests/test_crop_greenhouse_co2_runtime_native.py": 2,
+    "tests/test_crop_greenhouse_solar_runtime.py": 60,
+    "tests/test_crop_greenhouse_solar_runtime_native.py": 2
+  },
+  "actual_native_required": {
+    "new_CO2": 2,
+    "existing_Solar": 2
+  },
+  "native_script_AST_sha256": "4f6995ec7b0caed8c73042d094ba93bda2a8e6032f75ca712702f987678cf302",
+  "review_output": "The new read loader follows the reviewed separate version and explicit exact-bool read opt-in, defaultFalse pairing with the CO2 storage policy. Shared runtime appends only two defaultNone trusted factories and exposes exact same Co2 store/query/jobs/farms/current_principal with code/role audits and distinct keys. Farm/cycle prerequisites and flag/factory mismatches reject before JobStore I/O. Original operators and protected-file helpers are unchanged. The new loader rechecks validated bytes plus stable inode/metadata, including identical-byte rewrites, before trusted import and after factory/assembly.77 local control tests pass and177 focused tests collect; native4 require actual new CO2 and old Solar SCRAM/verified TLS normal+hold, nine misassemblies, original bytes/UTC, late authority and cancel/send-failure cleanup. Synthetic only; do not adopt functional runtime until hosted evidence reconciles. Original resource caps and full backend gate retained; WSL/parents/user deployment/worker/3D and G0-G4 stay held.",
+  "functional_runtime_accepted": false,
+  "shared_WSL_capacity_accepted": false,
+  "new_CO2_deployed": false,
+  "full_backend_CI": "not_run",
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "review_output_sha256": "4184b9d24729e7e28f1f14bdb868b0478a30a11430d2cc414a72c70e11610fed"
+}

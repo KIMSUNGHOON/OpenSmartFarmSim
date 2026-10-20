@@ -2345,6 +2345,8 @@
           기존64경로398스키마와294코드 지문·조회17계측/SQL쓰기0·FD/DB/소유 정리를 대사했다.
           hosted 합433,242,112bytes이며 공통 WSL 용량/새 CO₂ 배포·전체 backend 관문을 해제하지 않는다.
       - [ ] **`co2-result-runtime`** — 선행: 위 보호 HTTP 기능 수용. [명시 읽기 runtime 계약](../contracts/crop-greenhouse-co2-runtime-v1.md).
+        [사전 증거](../research/artifacts/crop-greenhouse-co2-runtime-preflight-20261021.json)의 로컬77/전체177수집을 통과했다.
+        실제 새 CO₂/기존 Solar SCRAM/TLS4와 기존 config/loader·공통 runtime 회귀 전이며 기능 수용은 미완료다.
         새 보호 설정/읽기 동의·두 기본None factory와 exact 같은 graph·키/코드/현재 역할을 확인한다.
         기존 직접 config/loader의 암묵적 True 거부와 False/default·공통 runtime을 보존하고,
         실제 SCRAM/TLS 정상/보류 원3응답·늦은 철회/조회0·원 자료/자원/정리를 검증한다.
