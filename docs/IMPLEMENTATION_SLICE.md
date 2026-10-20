@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 사용자 경로 — 2026-10-20 KST:** [저장 목록→3D/수확](../research/catalog-stored-replay-current-browser-20261020.md), [별도 API 재시작·권리20조회](../research/catalog-owned-api-lifecycle-20261020.md), [실제 늦은 농장 목록200 전달2건 차단](../research/catalog-native-late-response-20261020.md)을 각 범위에서 수용했다. API/브라우저 동시 재시작·권리는 RSS hold이며 원5서비스/자료·두 UI를 보존했다. 다음은 마지막 저장 생장·수확 범위 UI 대사다. 새 목록 UI/새 Solar는 미배포이며 구판 CODE·U1 전체·작기/자원/경제·실제 자료/관문·완료일 미정을 유지한다.
+**현재 사용자 경로 — 2026-10-20 KST:** [현재 빌드의 끝 저장 시점·수확2행](../research/catalog-full-period-final-range-20261020.md)을 실제13GET/3장면·원 행 hash·5서비스/자료/원 RSS 한도와 수용했다. 마지막 수확 이동·키보드/권리2회귀와 웹1,864/248도 통과했다. 원3대상 디자인/기존 판본·구판 CODE와 동시 재시작/권리 RSS hold·U1 사용자 적용은 남는다. 새 목록 UI/버튼·Solar는 미배포이며 작기/자원/경제·실제 자료/관문·전체 완료일은 미정이다.
 
 **다음 사용자 경로 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했다. 다음은 [기존 저장 결과 목록→선택→같은 UTC3D/수확의 실제 연결](../research/crop-result-catalog-native-readiness-20261020.md)이며 U1의 기존 API/SDK/저장 재생을 재사용한다. 원21건 seed/hash와 현재10파일 준비만 확인했고 전체166일/실제 DB·브라우저/U1은 미수용이다. 새 Solar normal64·후속 계산 중3D·WSL/최종 제품·G0–G4/완료일은 계속 미완료/미정이다.
 

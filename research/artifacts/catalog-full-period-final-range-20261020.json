@@ -1,0 +1,646 @@
+{
+  "CI": {
+    "browser_tests": 248,
+    "conclusion": "success",
+    "independent_Solar_jobs": "skipped",
+    "job_id": 118596411413,
+    "log_SHA256": "5d2ef032943bbdc103055931b49a8bae970a78b563542ddc18f72876856d0e1c",
+    "metadata_SHA256": "18ed7b1db691f7216ec4874c42b2583c8ee9405559054ba337fa37fcc879f897",
+    "new_browser_regressions": 2,
+    "run_id": 39413382844,
+    "typecheck_build_audit": "passed",
+    "unit_files": 35,
+    "unit_tests": 1864
+  },
+  "G0_G4": "not_assessed",
+  "RED": {
+    "actual_failure": "stored harvest final-range button absent\n\n0 !== 1\n",
+    "guard": {
+      "RSS_samples": 186,
+      "actual_child_exit": 1,
+      "case": "focused-catalog-full-period-final-button-RED-v1",
+      "combined_peak_RSS_bytes": 1047179264,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 346677248,
+      "source_count": 2689,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_SHA256": "6627d377d3edc2855bebff384f9772d9b1496547f876142f374bcdeac7e25f57",
+      "wall_seconds": 48.47998553900106
+    },
+    "source_build_commit": "8ad6c24f6b3f13fbea15c0fd75f1511b593a304a"
+  },
+  "accepted_scope": "direct first/final saved growth and final harvest page navigation in original stored-reader; representative samples only; full U1 remains open",
+  "actual_farm_runs": 0,
+  "backend_restart_and_rights_browser": "separate RSS hold",
+  "browser_report": {
+    "U1_accepted": false,
+    "actual_WebGL": true,
+    "all_API_requests_GET": true,
+    "backend_restart_tested": false,
+    "browser_version": {
+      "jsVersion": "15.3.76.4",
+      "product": "HeadlessChrome/153.0.8010.12",
+      "protocolVersion": "1.3",
+      "revision": "@971a7443b0c9b0a9b2860529b33331b76077ec62",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+    },
+    "consoleErrors": [],
+    "current_backend_old_record_supported": false,
+    "current_frontend_deployed": false,
+    "design_three_state_review": false,
+    "errors": [],
+    "finalRows": [
+      {
+        "end_at": "2027-03-15T23:55:00Z",
+        "index": 47811,
+        "original_fresh_unit": "kg_FW/m2_floor",
+        "row_SHA256": "67bff597f608525c5a8b2ea3b2ed82daba1056fe4f71073618d88b008f1e3753",
+        "same_UTC_parent_matched": false
+      },
+      {
+        "end_at": "2027-03-16T00:00:00Z",
+        "index": 47812,
+        "original_fresh_unit": "kg_FW/m2_floor",
+        "row_SHA256": "47edf974c1007144e7abf61885809f5e16832dc8f6c88e06ff369e3a228e591a",
+        "same_UTC_parent_matched": true
+      }
+    ],
+    "final_harvest_same_UTC_parent_selected": true,
+    "first_UTC": "2026-10-01T00:00:00Z",
+    "full_period_navigation_complete": true,
+    "keyboard_last_range": true,
+    "last_UTC": "2027-03-16T00:00:00Z",
+    "last_harvest_offset": 47811,
+    "last_sample_index": 47808,
+    "network": [
+      {
+        "body_SHA256": "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+        "bytes": 743,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.getResponseBody original response bytes",
+        "status": 200,
+        "target": "/v1/farm-authored-inputs/catalog",
+        "transport": {
+          "event": "loadingFinished"
+        }
+      },
+      {
+        "body_SHA256": "2e9f93a4e2e2eceb4497e7ae3b84efedc52aff71d492a06062b4a37b31fbe288",
+        "bytes": 712,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/farm-authored-inputs?scenario_id=owned-harvest-parent-farm&scenario_revision=r1",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "c5b2ab0da5825e8846d6f6951a8d9597ec153aad8f73e0676b1d5e72a65764c7",
+        "bytes": 604,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.getResponseBody original response bytes",
+        "status": 200,
+        "target": "/v1/crop-research-result-catalog/farm-crops?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47",
+        "transport": {
+          "event": "loadingFinished"
+        }
+      },
+      {
+        "body_SHA256": "0202eef7495fb96341b9bd3cd5691d96136c9d059cd1e35f27c668218e1c9b86",
+        "bytes": 790,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-research-result-catalog?kind=calculation_cycle_v1&scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&limit=10",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "57fbf8cbd14ed35b0c288952ee35ce2d85af5c1d5551bdeecadc1fef8a284167",
+        "bytes": 768,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-research-result-catalog?kind=harvest_v1&scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&limit=10",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+        "bytes": 9628,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-cycle-calculation-research-results/crop-cycle-verified-result-v1%3Aa10f9bbc50e245958ecbaeff309b57b8d15b5d17e30d6111d18fa75d569e8444?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=summary",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "b351b693f04d57360c40c449c3f1874bb118f112220d559ce69070abc040cb0f",
+        "bytes": 65064,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-cycle-calculation-research-results/crop-cycle-verified-result-v1%3Aa10f9bbc50e245958ecbaeff309b57b8d15b5d17e30d6111d18fa75d569e8444?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=samples&offset=0&limit=7",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+        "bytes": 16519,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.getResponseBody original response bytes",
+        "status": 200,
+        "target": "/v1/crop-harvest-research-results/crop-harvest-registered-result-v1%3A797624fc715035d12c4869e7c4f437fa2bd9b96cc0d20e72b881f47c10735285?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=summary",
+        "transport": {
+          "event": "loadingFinished"
+        }
+      },
+      {
+        "body_SHA256": "6ae29254aa2475d9bd7c9d21b1afed475f83510a9e1484f589aafd780aaf60f5",
+        "bytes": 33836,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-harvest-research-results/crop-harvest-registered-result-v1%3A797624fc715035d12c4869e7c4f437fa2bd9b96cc0d20e72b881f47c10735285?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=records&offset=0&limit=3",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "b8eef69289f8477e25a5c2e47287da8a8e4e9c4dae0173a876bea223889a6e1a",
+        "bytes": 13839,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-cycle-calculation-research-results/crop-cycle-verified-result-v1%3Aa10f9bbc50e245958ecbaeff309b57b8d15b5d17e30d6111d18fa75d569e8444?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=samples&offset=47808&limit=7",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+        "bytes": 16519,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-harvest-research-results/crop-harvest-registered-result-v1%3A797624fc715035d12c4869e7c4f437fa2bd9b96cc0d20e72b881f47c10735285?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=summary",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "6ae29254aa2475d9bd7c9d21b1afed475f83510a9e1484f589aafd780aaf60f5",
+        "bytes": 33836,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-harvest-research-results/crop-harvest-registered-result-v1%3A797624fc715035d12c4869e7c4f437fa2bd9b96cc0d20e72b881f47c10735285?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=records&offset=0&limit=3",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "fbbc64322cdfda8c065830317f7cbb5714d287ab0ac4caca6b422b6dc088506d",
+        "bytes": 15463,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-harvest-research-results/crop-harvest-registered-result-v1%3A797624fc715035d12c4869e7c4f437fa2bd9b96cc0d20e72b881f47c10735285?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=records&offset=47811&limit=3",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      }
+    ],
+    "phases": [
+      {
+        "at": "2026-10-20T11:31:34.136Z",
+        "name": "browser_started"
+      },
+      {
+        "at": "2026-10-20T11:31:36.042Z",
+        "name": "connect_started"
+      },
+      {
+        "at": "2026-10-20T11:31:36.043Z",
+        "name": "connection_details_state",
+        "open": true
+      },
+      {
+        "at": "2026-10-20T11:31:36.044Z",
+        "name": "token_input_visible"
+      },
+      {
+        "at": "2026-10-20T11:31:36.144Z",
+        "name": "token_input_focused"
+      },
+      {
+        "at": "2026-10-20T11:31:36.153Z",
+        "name": "token_input_filled"
+      },
+      {
+        "at": "2026-10-20T11:31:36.231Z",
+        "name": "connection_submitted"
+      },
+      {
+        "at": "2026-10-20T11:31:36.232Z",
+        "name": "token_cleared"
+      },
+      {
+        "at": "2026-10-20T11:31:36.508Z",
+        "name": "growth_view_selected"
+      },
+      {
+        "at": "2026-10-20T11:31:36.583Z",
+        "name": "farm_list_started"
+      },
+      {
+        "at": "2026-10-20T11:31:37.231Z",
+        "name": "farm_list_ready"
+      },
+      {
+        "at": "2026-10-20T11:31:47.949Z",
+        "name": "first_wait"
+      },
+      {
+        "at": "2026-10-20T11:32:01.231Z",
+        "name": "first"
+      },
+      {
+        "at": "2026-10-20T11:32:21.945Z",
+        "name": "last_wait"
+      },
+      {
+        "at": "2026-10-20T11:32:29.031Z",
+        "name": "last"
+      },
+      {
+        "at": "2026-10-20T11:33:01.474Z",
+        "name": "last_harvest_parent_wait"
+      },
+      {
+        "at": "2026-10-20T11:33:01.478Z",
+        "name": "last_harvest_parent"
+      }
+    ],
+    "rights_withdrawal_in_browser_tested": false,
+    "scope": "current final-range minified UI / original live stored-reader / first and final stored growth sample and final harvest page; representative navigation only",
+    "source_harvest_count": 47813,
+    "source_sample_count": 47809,
+    "values": [
+      {
+        "CN_values": 100,
+        "at": "2026-10-01T00:00:00Z",
+        "label": "first",
+        "sample_SHA256": "c56be5dbfc2b0362a815b15f6f30ea80e9fec4be51d400d8484a00150be010b0"
+      },
+      {
+        "CN_values": 100,
+        "at": "2027-03-16T00:00:00Z",
+        "label": "last",
+        "sample_SHA256": "f38a9379683aca30e89fc6ae671b13fdb7f7477c70b77aa4a744344235c5ed4c"
+      },
+      {
+        "CN_values": 100,
+        "at": "2027-03-16T00:00:00Z",
+        "label": "last_harvest_parent",
+        "sample_SHA256": "f38a9379683aca30e89fc6ae671b13fdb7f7477c70b77aa4a744344235c5ed4c"
+      }
+    ],
+    "verified_final_harvest_rows": 2
+  },
+  "build": {
+    "actual_API_or_browser_test_performed": false,
+    "archive_SHA256": "24b6dbbcecdb191565c1f1b4b057afa5aaf541c1ffa8287c7b095689b29ab532",
+    "archive_checked": true,
+    "artifact_digest": "sha256:24b6dbbcecdb191565c1f1b4b057afa5aaf541c1ffa8287c7b095689b29ab532",
+    "artifact_id": 12260469641,
+    "browser_suite": "all",
+    "build_commit": "a3103a90a0397dc7454ce808c4f4742b371c84be",
+    "deployed": false,
+    "files": 184,
+    "production_minified_build": true,
+    "retrieved_at": "2026-10-20T11:24:55.974186+00:00",
+    "run_attempt": 1,
+    "source_pin_count": 146,
+    "web_job_id": 118596411413,
+    "web_run_id": 39413382844
+  },
+  "build_download_guard": {
+    "RSS_samples": 24,
+    "actual_child_exit": 0,
+    "case": "focused-catalog-final-range-tested-build-v1",
+    "combined_peak_RSS_bytes": 647106560,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 134684672,
+    "source_count": 2689,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "terminal_SHA256": "3746f4dd1836477e5bffc0d89d51782c8ef58d75baf003668dde6397765b457a",
+    "wall_seconds": 6.2974569799989695
+  },
+  "current_frontend_deployed": false,
+  "date": "2026-10-20",
+  "earlier_native_input_failure": {
+    "accepted": false,
+    "actual_failure": "DOM wait timeout: .harvest-replay data-offset",
+    "guard": {
+      "RSS_samples": 438,
+      "actual_child_exit": 1,
+      "case": "focused-catalog-full-period-final-range-native-v1",
+      "combined_peak_RSS_bytes": 1068466176,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 340885504,
+      "source_count": 2689,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_SHA256": "ac8f2edf395ea148a053a2dfdf475f48f5b9c87419da716e28cdb2a477091990",
+      "wall_seconds": 114.46373336900433
+    }
+  },
+  "feature_source_commit": "a3103a90a0397dc7454ce808c4f4742b371c84be",
+  "frozen_driver_SHA256": {
+    "catalog-cdp.mjs": "b34d4325b11c60c5f383b7a9b491a37e8ac550544aba8a1ea6b914397f22084a",
+    "cdp-pipe.mjs": "4b0baf480b32b4c79112671585f4d4c373a184948d3f521a78c6af6848123d2a",
+    "verify-final-original-row.py": "479127c9947487b6b47fb7821ce0bf8fdcff6d380e2ff8075b15b33e1eb02133"
+  },
+  "full_U1_accepted": false,
+  "full_product_completion": null,
+  "guard": {
+    "RSS_samples": 345,
+    "actual_child_exit": 0,
+    "case": "focused-catalog-full-period-final-range-native-v2",
+    "combined_peak_RSS_bytes": 1057628160,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 354701312,
+    "source_count": 2689,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "terminal_SHA256": "6bc8b9d4af7509b9aa6267b998ac0b3e7ab4ecc0505fd01bdea65b2a9b233c37",
+    "wall_seconds": 90.14570183100295
+  },
+  "immutable_last_row_verification": {
+    "actual_HTTP_body_SHA256": "fbbc64322cdfda8c065830317f7cbb5714d287ab0ac4caca6b422b6dc088506d",
+    "actual_last_row_SHA256": "acddfc00e4441ae79327a9c8f0805825428792f73235db6d68fefc5d1ac0ac03",
+    "new_model_or_claim_approved": false,
+    "original_last_row_SHA256": "acddfc00e4441ae79327a9c8f0805825428792f73235db6d68fefc5d1ac0ac03",
+    "original_last_row_index": 47812,
+    "original_manifest_SHA256": "3b1de5683fdd01024b95c1eb7a3ea335717eecff2c4f3f97f5c5e2eca1061752",
+    "same_original_row": true
+  },
+  "native": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_SHA256": "d2a92fc3a72be03aae55bf5613b82617c8ea2a859358300448863e617e2a35e9",
+    "recursive_CLI": false,
+    "timestamp": "2026-10-20T11:08:57.549Z"
+  },
+  "native_keyboard_diagnosis": {
+    "guard": {
+      "RSS_samples": 13,
+      "actual_child_exit": 0,
+      "case": "focused-catalog-final-range-keyboard-diagnosis-v1",
+      "combined_peak_RSS_bytes": 663977984,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 134815744,
+      "source_count": 2689,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_SHA256": "ec07b9849a722b3df91a067bbeb1e771047fb0d3f96f6c43b8784407d2fa74a4",
+      "wall_seconds": 3.427199821002432
+    },
+    "pinned_Playwright_core_SHA256": "549070af3acabb3efcc4f55bfe6210f9f7c2fcf633cf7eaa59bfe60719969171",
+    "protocol_primary_source": "https://github.com/ChromeDevTools/devtools-protocol/blob/master/pdl/domains/Input.pdl",
+    "result": {
+      "API_requests": 0,
+      "after": {
+        "clicks": 1,
+        "events": [
+          {
+            "key": "Enter",
+            "target": "after",
+            "trusted": true,
+            "type": "keydown"
+          },
+          {
+            "key": "Enter",
+            "target": "after",
+            "trusted": true,
+            "type": "keypress"
+          },
+          {
+            "key": null,
+            "target": "after",
+            "trusted": true,
+            "type": "click"
+          },
+          {
+            "key": "Enter",
+            "target": "after",
+            "trusted": true,
+            "type": "keyup"
+          }
+        ]
+      },
+      "before": {
+        "clicks": 0,
+        "events": [
+          {
+            "key": "Enter",
+            "target": "before",
+            "trusted": true,
+            "type": "keydown"
+          },
+          {
+            "key": "Enter",
+            "target": "before",
+            "trusted": true,
+            "type": "keyup"
+          }
+        ]
+      },
+      "product_code_changed": false,
+      "programmatic_click_used": false,
+      "scope": "owned blank button fixture; diagnosis of native keyboard transport only"
+    }
+  },
+  "owner_source_SHA256": "2cf320feb0958c1e5be6f1b013fd4478ec4b54f9b317e1bb8c4d7d6281d039a1",
+  "owner_terminal": {
+    "Python_waiter_removed": true,
+    "completed": true,
+    "current_frontend_deployed": false,
+    "error_type": null,
+    "live_backend_modified_or_restarted": false,
+    "mutable_status_feed_preserved": true,
+    "nginx_exit": 0,
+    "nginx_signal": null,
+    "no_database_created": true,
+    "original_final_row_hash_verified": true,
+    "owned_nginx_master_process": false,
+    "source_and_assets_preserved": true,
+    "wall_seconds": 86.99892161
+  },
+  "published_status": {
+    "HTML_entries_preserved": true,
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "browser_DOM_rerun": false,
+    "guard_terminal_SHA256": "be5f44de57d1fd79ca8246170579c34423a3495097705154dbaa2cdc8375291d",
+    "reported_at": "2026-10-20T11:36:19.808451Z",
+    "source_SHA256": "077c05e56729c671ea1620c296e1ada9b6f592383fcc3fbf1682b76f3c40d418",
+    "ventilation_frozen_source_files_preserved": 2173
+  },
+  "screenshots": {
+    "catalog-last-growth-20261020.png": {
+      "SHA256": "0710ae286cdaeff562b0b077d98fb621c4fe952a1da7e763a2bfb2aa15e0abea",
+      "device_scale_factor": 0.5,
+      "visual_inspection": true
+    },
+    "catalog-last-harvest-20261020.png": {
+      "SHA256": "fecf539232a9795096ac60912ea09081d6d93da14fb64d5d03131ddec496dd6e",
+      "device_scale_factor": 0.5,
+      "visual_inspection": true
+    }
+  }
+}

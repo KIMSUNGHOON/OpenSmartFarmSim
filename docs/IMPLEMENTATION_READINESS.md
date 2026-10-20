@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 수용/보류 — 2026-10-20 KST:** [현재 저장 reader 연결](../research/catalog-stored-replay-current-browser-20261020.md)에 이어 [별도 API 재시작·권리20조회](../research/catalog-owned-api-lifecycle-20261020.md)와 [실제 늦은 농장 목록200 전달2건 차단](../research/catalog-native-late-response-20261020.md)을 각각 수용했다. 별도 PG/API+브라우저 동시는 합1GiB 초과로 미수용이며 원5root/자료는 보존했다. 다음은 기존 reader의 마지막 생장 시점·수확 범위 UI 대사다. 최신 backend 구판 CODE·디자인/다른 모델·U1 사용자 적용·새 Solar/실제 자료/관문·전체 날짜는 미완료/미정이다.
+**현재 수용/보류 — 2026-10-20 KST:** [마지막 저장 생장·수확 범위](../research/catalog-full-period-final-range-20261020.md)를 현재 sourcea3103a9의 웹1,864/248·같은 빌드의 실제13GET/3장면·끝2행/원 행 hash·한도/보존/정리로 수용했다. 다음은 원3대상 디자인/기존 판본 검색 범위다. 최신 backend 구판 CODE·동시 API 재시작/권리 RSS hold·U1 사용자 적용·새 Solar/실제 자료/관문과 전체 날짜는 미완료/미정이다.
 
 **현재 준비 — 2026-10-20 KST:** [fresh JSON 후보의28검사·opaque 반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 비용 trial 없이 미채택했다. 제품 app261/591eff7d는 유지한다. 다음 [기존 저장 결과 목록의 실제 연결 준비](../research/crop-result-catalog-native-readiness-20261020.md)는 원21건 dump/hash·현재10파일·pg_restore 목록을 확인했으며 DB/브라우저/U1 수용은 남았다. 이 경로는 새 Solar normal64와 독립이다. 새 Solar 정상46/64 미완료·정상→hold→HTTP취소→계산 중WebGL→WSL와 실제 자료/관문/전체 완료일 미정·goal active는 유지한다.
 

@@ -12,19 +12,21 @@ HTML/진행 JSON의200으로 보호 API의 정상 동작을 대신하지 않는�
 원1GiB 안에서 수용했다. 기존 저장 판본 reader와 원5root/자료를 유지했다.
 최신 backend의 구판 runtime_roles CODE 지원·원3상태 디자인/다른 저장 모델·U1 전체는 미수용이다.
 
-1. **다음 작은 작업:** [소유 API 재시작·권리20조회](../research/catalog-owned-api-lifecycle-20261020.md)는
+1. **저장 결과 경로 수용:** [소유 API 재시작·권리20조회](../research/catalog-owned-api-lifecycle-20261020.md)는
    독립 복원 DB에서 원 bytes·DB/서명 불변과 종료/원5root·자원 보존으로 수용했다.
    [실제 농장 목록의 늦은200 전달2건](../research/catalog-native-late-response-20261020.md)은
    취소/계정 변경 뒤 이전 선택·생장/수확 미복원으로 수용했다.
    별도 PG/API+브라우저는 합1,114,865,664bytes로 중단돼 재시작/권리 동시 수용은 RSS hold다.
-   다음 독립 작업은 추가 API/DB 없이 원 저장 reader의 **마지막 생장 시점·수확 범위**를
-   현재 UI와 원 값/단위/UTC·ID/부모로 대사한다. 기존3상태 디자인/다른 모델도 뒤이어 판단한다.
+   [현재 a3103a9의 마지막 저장 생장·수확 범위](../research/catalog-full-period-final-range-20261020.md)는
+   웹1,864/248·동일 빌드의 실제13GET/3장면·끝2행/원 저장 행 hash와 보존/한도/정리로 수용했다.
    재시작/권리 브라우저는 같은 원 ID/UTC·생장/수확 동시 제거·복구,
    요청 수/원 DB·서명 불변과 종료/정리가 별도 수용 조건이다.
    원5root/512MiB·합1GiB/600초를 유지하며 건강한 서비스를 시험 때문에 재시작하지 않는다.
-2. **기존 저장 결과 사용자 적용:** 지원 reader 판본/최신 backend 구판 CODE와 기존3상태 디자인·
-   다른 저장 모델/전체 기간·좁은 화면/키보드의 남은 증거를 대사해 U1을 판단한다.
-   이번6장면으로 이 부모를 대신하지 않는다. 새 Solar normal64가 이 경로의 선행은 아니다.
+2. **다음 작은 작업 — 원 디자인 대조:** 기존 desktop-loaded/desktop-empty/mobile-loaded의
+   원 승인 target·improve kit와 현재 렌더를 대사한다. 계약에 따른 이 증거가 없으면 화면 후보/미배포를 유지한다.
+   이어 기관/구획/startup의 기존 검색/선택 범위와 지원 reader 판본/최신 backend 구판 CODE,
+   재시작/권리의 RSS hold·좁은 화면/키보드·사용자 적용을 대사해 U1을 판단한다.
+   첫/끝 대표 시점 수용은 모든 시점/다른 판본 또는 U1 전체 수용이 아니다. 새 Solar normal64는 이 경로와 독립이다.
 
 3. **새 Solar 실행 경로:** 정상64→독립 hold→HTTP취소→계산 중WebGL→WSL 적용을 유지한다.
    원 정상46/64와 진단50/64는 다른 미수용 기록이며 같은 app의 원 정상 반복은 하지 않는다.
