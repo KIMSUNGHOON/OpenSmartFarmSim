@@ -1,0 +1,235 @@
+{
+  "schema_version": "solar-local-json-ownership-core-review-v1",
+  "recorded_at": "2026-10-20T00:47:47.610225Z",
+  "native_cli": {
+    "timestamp": "2026-10-20T00:32:54.437Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_sha256": "67d9ddc3792127e15aebdc6907aa12babe4e2946ad9dc0ff0cb1206bb60a2113"
+  },
+  "recursive_cli_calls": 0,
+  "subagents_started": 0,
+  "baseline_commit": "0259ca0bc4286a3b82c34cdb04142d5ab3dd0c33",
+  "research_source_SHA256": {
+    "research/solar-local-json-ownership.py": "f0a0f676b369f4bc2176c547a1b0409d3493f729505977fadec23f1ecf2f809d",
+    "backend/tests/test_local_json_ownership.py": "069d163939acab3a0e055b96324ac781c7edfecadcad9b6601db53dc8838489b"
+  },
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "backend_app_unchanged": true,
+  "production_call_sites": 0,
+  "research_core_tests": 56,
+  "proofs": {
+    "core": {
+      "case": "focused-local-json-ownership-two-reference-final-v1",
+      "terminal_sha256": "49e9cb1027a48413f350561589ec8b28c79e9b8a60258a98c88197f7c6d928f6",
+      "log_sha256": "068d62170fea25cec66d9dd1861198a9a5039b4343a5a2a3b013e59106388cc7",
+      "source_pins_sha256": "3b533564b941dfd8c812fda222ea0a25a37df5c4d26453c68ecbfa5a0eec8dc0",
+      "actual_child_exit": 0,
+      "wall_seconds": 1.1185844099964015,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 948166656,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "ventilation": {
+      "case": "focused-existing-ventilation-health-v1",
+      "terminal_sha256": "f0a5a7e5bc1bd6055ae963767755b0646289d1abd3c341e3cfc416da0e74e864",
+      "log_sha256": "5fe8806651a824029cb0f1c26394b8d98ec65371e501bb4212f5545cba543ae8",
+      "source_pins_sha256": "528c6ea8a7c6b2fc6520ee3ee82045f0190f7e8f9c3b6667c10342ba98bdfe3a",
+      "actual_child_exit": 0,
+      "wall_seconds": 64.02951472700806,
+      "single_PID_peak_RSS_bytes": 144003072,
+      "combined_peak_RSS_bytes": 960909312,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "legacy": {
+      "case": "focused-existing-legacy-health-v1",
+      "terminal_sha256": "3988247c57be864148967c4a6c0454a002656ebf3f808cb637ea6d6f431ac1fe",
+      "log_sha256": "ff3e6e8d99680acac3ec7e259cbbd1031470ddc2c3ab75f5bf7a4c32c64a82c5",
+      "source_pins_sha256": "528c6ea8a7c6b2fc6520ee3ee82045f0190f7e8f9c3b6667c10342ba98bdfe3a",
+      "actual_child_exit": 0,
+      "wall_seconds": 55.89302890798717,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 1019912192,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "joint": {
+      "case": "focused-existing-joint-health-v1",
+      "terminal_sha256": "629eb0f90b7d0775af2088b5066ed7d639bf4b6836e6b961dbd8523a2498c228",
+      "log_sha256": "c929d1f23e70ac06b92a436619502d359862f102dd04285a33c4dcecabfed2d5",
+      "source_pins_sha256": "528c6ea8a7c6b2fc6520ee3ee82045f0190f7e8f9c3b6667c10342ba98bdfe3a",
+      "actual_child_exit": 0,
+      "wall_seconds": 29.810045913007343,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 1057525760,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "locked_python_core": {
+      "case": "focused-local-json-ownership-locked-final-v1",
+      "terminal_sha256": "cb7124e062774b564d9c80a8afcec9c6597126fa969aae5ee1d42501f764bdd4",
+      "log_sha256": "7c9836d5f07efe16585ccb61a955a1a85ef668ad7b3113f65661aa9e78b6dc27",
+      "source_pins_sha256": "3b533564b941dfd8c812fda222ea0a25a37df5c4d26453c68ecbfa5a0eec8dc0",
+      "actual_child_exit": 0,
+      "wall_seconds": 1.1311734090122627,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 977289216,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    }
+  },
+  "verified_research_scope": [
+    "exact source/payload SHA and native Unicode/escaping/signed-zero encoding",
+    "opaque receipts, single transfer, detached materialised values, forged/foreign/closed/thread/task rejection",
+    "fresh file SHA/size/no-follow checks before commit reuse; parser called again after one transfer",
+    "initial/late helper binding and code changes use actual original fallback; pristine wrong-slot rejection",
+    "preimport foreign JSON codec is not learned; late codec/recursion/int-limit changes disable reuse",
+    "single retained/temporary native-buffer budget including reservation before encoding and optimized file read",
+    "cache eviction, reference-budget error and exception disposal"
+  ],
+  "core_acceptance_only": true,
+  "complete_load_pair_ownership_accepted": false,
+  "production_adapter_accepted": false,
+  "final_guard_whole_quantum_ABBA_performed": false,
+  "whole_performance_accepted": false,
+  "normal_64_accepted": false,
+  "new_Solar_deployed": false,
+  "existing_ventilation_authenticated_HTTP": 8,
+  "existing_ventilation_wire_matches": true,
+  "existing_ventilation_read_calculation_and_write_hooks_zero": true,
+  "private_health_output_SHA256": {
+    "ventilation-authenticated-after-v1.private.json": "6f38279194fc624bc88a2abb017705ce20d4812713b80a8ca915461b6e933cb4",
+    "joint-authenticated-after-v1.private.json": "cfcc022ac8cdbff7cb252edcbd5124231b4755823521cdc7671d236b8a637740"
+  },
+  "latest_CI": [
+    {
+      "conclusion": "failure",
+      "databaseId": 39328214424,
+      "headSha": "0a06b3913c7444ad0e308e2ed10af64cc473a0d7",
+      "status": "completed"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 39321398376,
+      "headSha": "6f0fa5be525796dab82b71c2f152bfbabf133613",
+      "status": "completed"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 39303668519,
+      "headSha": "aeb7a901e0860ffcacc2a0adf2469a6cb882e315",
+      "status": "completed"
+    }
+  ],
+  "CI_dispatched": false,
+  "full_backend_or_browser_suite_rerun": false,
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null,
+  "external_holds": [
+    "rights-checked real cultivar/facility/climate inputs",
+    "independent local crop/climate/resource measurements",
+    "future crop/economic and paired-candidate validation",
+    "actual market/tariff/sale/cost vintages"
+  ],
+  "next_task": "same-load adapter using immutable chain projection and single-use fresh commit; then owned page/source assembly before whole-quantum cost",
+  "research_unique_test_cases": 56,
+  "research_test_executions_two_interpreters": 112,
+  "native_canonical_json_references": [
+    {
+      "version": "Python 3.12.3",
+      "profile": "3905591a468ecd740179f8bb52231ec95a4f34296ee7bd4fb3f0fbd916f343a2",
+      "flags": [
+        "-I",
+        "-S",
+        "-B"
+      ],
+      "matches_approved": true,
+      "source_sha256": "f0a0f676b369f4bc2176c547a1b0409d3493f729505977fadec23f1ecf2f809d"
+    },
+    {
+      "version": "Python 3.12.13",
+      "profile": "b4840046d7f0bee639353d6f44225c8d77c0293bc6c9ad0a2d0f0777bcbb8f3a",
+      "flags": [
+        "-I",
+        "-S",
+        "-B"
+      ],
+      "matches_approved": true,
+      "source_sha256": "f0a0f676b369f4bc2176c547a1b0409d3493f729505977fadec23f1ecf2f809d"
+    }
+  ],
+  "isolated_reference_output_sha256": "25d2343a5fae604542952f517d405a1bab7c4d141f859ac55583f1277b52b0b8",
+  "locked_interpreter_package_source": "current locked backend venv site-packages; not a clean hosted installation or whole backend acceptance",
+  "native_reference_review": {
+    "old_assumption_all_patch_references_equal_rejected": true,
+    "decoder_difference": "four ASCII hex-digit regex and bound match default",
+    "scanner_difference": "ASCII-only numeric regex",
+    "encoder_difference": "constructor documentation includes bool",
+    "approved_only_after_isolated_reference_and_same_56_cases_both_interpreters": true,
+    "unknown_reference_default_fallback_unchanged": true
+  },
+  "primary_local_JSON_source_SHA256": {
+    "3.12.3": {
+      "__init__.py": "d5d41e2c29049515d295d81a6d40b4890fbec8d8482cfb401630f8ef2f77e4d5",
+      "decoder.py": "9f02654649816145bc76f8c210a5fe3ba1de142d4d97a1c93105732e747c285b",
+      "encoder.py": "af7bd40a0d0d0a3e726a9b4b3a2a543019f6ab97a340d0162a9c29ca9da97869",
+      "scanner.py": "8604d9d03786d0d509abb49e9f069337278ea988c244069ae8ca2c89acc2cb08"
+    },
+    "3.12.13": {
+      "__init__.py": "d5d41e2c29049515d295d81a6d40b4890fbec8d8482cfb401630f8ef2f77e4d5",
+      "decoder.py": "382cd02af6f7efede5a6d4abbcda1015e5c7a75794b0016022878f9cf32a24f6",
+      "encoder.py": "52bfb1b66029cc70fa3bd7fe11df9f2e03922d413407a341b387a22c987f24f8",
+      "scanner.py": "572958017eae8842eeddd0e3d18d3c56cc0a197348224915e1d87ce937841764"
+    }
+  },
+  "interim_results_not_summed_into_final_56": [
+    1,
+    41,
+    50,
+    53
+  ]
+}
