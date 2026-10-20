@@ -105,6 +105,8 @@ M1+M2의 현재 산술 합은233–450집중시간이나, M2는 필요한 실제
 
 ## 현재 다음 실행 — 2026-10-21
 
+기존 미리보기는 [인증/TLS 실제 갱신·복구](../research/frozen-preview-authentication-renewal-20261021.md)를 수용했다. 다음 준비는 2026-10-21T20:37:14.318934+00:00 이전이다. 실제 만료에 따른 유지 작업이며 현재 핵심 순서 `co2-result-projection`→`co2-current-query`→API/worker/같은 UTC3D를 유지한다.
+
 **다음 핵심 개발 — CO₂ 원문/단위 정책:** [등록 재구성 범위 수정](../research/organ-catalog-registration-scope-20261021.md)은
 같은 source163검사·small3 ABBA 평균38.694012% 감소를 수용했다.
 수정한 sourcee8e70a2의 원20개 CI39459278835는30.081630초로 실패해 용량은 미수용이다.
