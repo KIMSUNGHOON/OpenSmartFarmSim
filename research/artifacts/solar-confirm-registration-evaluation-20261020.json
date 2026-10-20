@@ -1,0 +1,850 @@
+{
+  "schema_version": "solar-confirm-registration-evaluation-v1",
+  "recorded_at": "2026-10-20T04:10:50.592485+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-20T03:56:41.623Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_sha256": "fad65e683ee3186da57e1d69b9fdc14e9bc454bfa14dc2c4a65ffc270cbc37ac"
+  },
+  "decision": "rejected: original whole-workload cost criterion failed; no production adoption",
+  "local_contract_boundary_tests": 1,
+  "cost_tests": 1,
+  "unique_tests": 2,
+  "valid_timing_trials": 1,
+  "timing_repeated_after_failure": false,
+  "cost_criterion": {
+    "candidate_source_sha256": "56b0d865e2a9ac7f386077b614335cf0b8b8ea059a9aa913e2875c217b0b16ca",
+    "application_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+    "order": [
+      "baseline",
+      "candidate",
+      "candidate",
+      "baseline"
+    ],
+    "steps": [
+      42,
+      43,
+      44,
+      45
+    ],
+    "mean_reduction_minimum_pct": 2,
+    "both_pairs_must_reduce_wall": true,
+    "one_valid_timing_trial_only": true,
+    "original_CASE6_steps64_output0to64_by8_chunk1": true,
+    "warmup_is_not_independent_normal_acceptance": true,
+    "fresh_full_loads_expected_per_quantum": 5,
+    "full_current_checks_expected": 15,
+    "ordered_source_selects_expected": 2280,
+    "baseline_reconstructions_expected": 4,
+    "candidate_reconstructions_expected": 3,
+    "candidate_confirm_reconstructions_expected": 1,
+    "normal64_not_satisfied_by_trial": true
+  },
+  "mean_wall_reduction_pct": 1.4049650143891839,
+  "paired_wall_reduction_pct": [
+    5.2036290977225494,
+    -2.6466823533522974
+  ],
+  "original_source_getter_count": 2280,
+  "original_full_current_checks": 15,
+  "original_fresh_storage_loads_per_quantum": 5,
+  "baseline_candidate_SQL": [
+    9929,
+    9704
+  ],
+  "baseline_candidate_role_audits": [
+    273,
+    258
+  ],
+  "SQL_delta": {
+    "app.runtime_roles._database": -15,
+    "app.runtime_roles.audit_runtime_roles": -135,
+    "app.runtime_roles._scope": -75
+  },
+  "proofs": {
+    "contract": {
+      "case": "focused-solar-confirm-registration-contract-v2",
+      "terminal_SHA256": "9a77261bcdc66d596d6c4713b2e16e846f0608560a9c4ca81f11e5948bf473ad",
+      "log_SHA256": "f5b19319ca8d971ec237936a1333615ee6685d16e8531cf8df3051048eaa15bb",
+      "source_pins_SHA256": "dee3416f26627f850832615c7af5e225ee91247f0671e921b3acd8e2717605a9",
+      "raw_evidence_SHA256": {
+        "checkpoint-consumer-observation.json": "770bbc39a57ea246d9c5936286894a59692f061fbd49e7e3093cfcb5286b101a",
+        "confirm-lifetime-extra-boundaries.json": "9018c3484b06482909427a5b0cbbd853d73b26ef99c82d7e1fb9bf020aaf325e"
+      },
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 291,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1050656768,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "f5b19319ca8d971ec237936a1333615ee6685d16e8531cf8df3051048eaa15bb",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 145444864,
+        "source_count": 2632,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 77.19474033400184
+      },
+      "evidence": {
+        "checkpoint-consumer-observation.json": {
+          "confirm_registration_reconstructions": 1,
+          "fresh_loads": [
+            {
+              "checkpoint_value_present": true,
+              "commit_count": 2,
+              "counts": {
+                "events": 1,
+                "samples": 1
+              },
+              "head_sha256": "16f1a72d70422bd6564763e0cec0ab661e80122d8c70dcc3fa341f492472253a",
+              "tuple_slots": 8
+            },
+            {
+              "checkpoint_value_present": true,
+              "commit_count": 2,
+              "counts": {
+                "events": 1,
+                "samples": 1
+              },
+              "head_sha256": "16f1a72d70422bd6564763e0cec0ab661e80122d8c70dcc3fa341f492472253a",
+              "tuple_slots": 8
+            },
+            {
+              "checkpoint_value_present": true,
+              "commit_count": 2,
+              "counts": {
+                "events": 1,
+                "samples": 1
+              },
+              "head_sha256": "16f1a72d70422bd6564763e0cec0ab661e80122d8c70dcc3fa341f492472253a",
+              "tuple_slots": 8
+            }
+          ],
+          "normal64_accepted": false,
+          "numerical_checkpoint_absent_from_packet": true,
+          "original_computed_through_utc": "2026-10-01T00:00:02.123456Z",
+          "packet_bytes": 1465,
+          "packet_fields": [
+            "G0_G4",
+            "artifact_sha256",
+            "checkpoint_code_sha256",
+            "computed_through_utc",
+            "context_sha256",
+            "counts",
+            "custody_code_sha256",
+            "custody_sequence",
+            "execution_code_sha256",
+            "farm_binding_sha256",
+            "head_sha256",
+            "header_sha256",
+            "input_sha256",
+            "intent_sha256",
+            "planned_steps",
+            "proof_sha256",
+            "provenance_sha256",
+            "publication_sequence",
+            "rights_or_gate_approval",
+            "scope",
+            "source_sha256",
+            "status",
+            "steps",
+            "time_binding_sha256",
+            "version"
+          ],
+          "production_changed": false,
+          "registration_owners_closed": true,
+          "restored_after_each": true,
+          "rights_or_gate_approval": false,
+          "same_HEAD_tampering": [
+            {
+              "checkpoint_events_unchanged": true,
+              "held": true,
+              "new_numerics": 0,
+              "phase": "snapshot",
+              "same_HEAD": true
+            },
+            {
+              "checkpoint_events_unchanged": true,
+              "held": true,
+              "new_numerics": 0,
+              "phase": "final_progress",
+              "same_HEAD": true
+            }
+          ],
+          "scope": "synthetic_software_diagnostic_only",
+          "separate_registration_owners": false,
+          "trace": [
+            "lease.unlocked",
+            "current.begin",
+            "current.end",
+            "progress.begin",
+            "session.load",
+            "storage.load",
+            "progress.end",
+            "history",
+            "snapshot.begin",
+            "session.load",
+            "storage.load",
+            "snapshot.end",
+            "descendant",
+            "lease.unlocked",
+            "current.begin",
+            "current.end",
+            "progress.begin",
+            "session.load",
+            "storage.load",
+            "progress.end",
+            "lease.locked",
+            "history"
+          ],
+          "transport_bytes": 36157
+        },
+        "confirm-lifetime-extra-boundaries.json": {
+          "extra_faults": [
+            {
+              "checkpoint_rollback": true,
+              "failure": "scope_exit",
+              "fresh_restored": true,
+              "numerics_during_confirm": 0,
+              "scope_closed": true
+            },
+            {
+              "checkpoint_rollback": true,
+              "failure": "late_physical",
+              "fresh_restored": true,
+              "numerics_during_confirm": 0,
+              "scope_closed": true
+            },
+            {
+              "checkpoint_rollback": true,
+              "failure": "late_economic",
+              "fresh_restored": true,
+              "numerics_during_confirm": 0,
+              "scope_closed": true
+            }
+          ],
+          "join_without_owner_rejected": true,
+          "ordinary_nested_rejected": true,
+          "product_adopted": false,
+          "proper_read_join_observed": true,
+          "strict_invalid_options": 6,
+          "write_join_rejected": true,
+          "wrong_owner_rejected": true
+        }
+      },
+      "large_terminal_fields_retained_privately_under_full_terminal_SHA256": [
+        "RSS_peaks_by_identity",
+        "owned_postgres_processes_observed"
+      ]
+    },
+    "cost": {
+      "case": "focused-solar-confirm-registration-cost-v1",
+      "terminal_SHA256": "46f3ab5e1f3ce4911571710f452ebb49b3de6835150c67a50d4f8a0ba00fc2bb",
+      "log_SHA256": "f8e9123c7148ef7862c7863c9f4e1ab86685ce3e8cdc963594149454cf606821",
+      "source_pins_SHA256": "dee3416f26627f850832615c7af5e225ee91247f0671e921b3acd8e2717605a9",
+      "raw_evidence_SHA256": {
+        "confirm-registration-original-quantum-ABBA.json": "1c9efd88602e3b2c11bb3141a58ab6118977215cefadec6859513544a28a6fab"
+      },
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 610,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1060696064,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "f8e9123c7148ef7862c7863c9f4e1ab86685ce3e8cdc963594149454cf606821",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 145444864,
+        "source_count": 2632,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 160.24547785401228
+      },
+      "evidence": {
+        "confirm-registration-original-quantum-ABBA.json": {
+          "G0_G4": "not_assessed",
+          "actual_farm_Runs": 0,
+          "application_source_changed": false,
+          "cost_criterion_met": false,
+          "mean_reduction_pct": 1.4049650143891839,
+          "monitoring_removed": true,
+          "new_Solar_deployed": false,
+          "normal64_accepted": false,
+          "one_valid_timing_trial_only": true,
+          "ordered_current_source_selects_preserved": true,
+          "original_CASE6_input64_output0_to64_step8_chunk1": true,
+          "original_checkpoint_counts_UTC_preserved": true,
+          "original_current_and_fresh_load_order_preserved": true,
+          "paired_reduction_pct": [
+            5.2036290977225494,
+            -2.6466823533522974
+          ],
+          "product_adopted": false,
+          "rows": [
+            {
+              "SQL": {
+                "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+                "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+                "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+                "app.farm_authoring_storage._find": 60,
+                "app.job_store._event": 1,
+                "app.job_store._locked_job": 31,
+                "app.job_store._renew_in_transaction": 1,
+                "app.market_candidate_store._candidate_in_transaction": 120,
+                "app.market_candidate_store._checked_candidate": 60,
+                "app.market_candidate_store._input_in_transaction": 1020,
+                "app.market_candidate_store._shared_reader": 900,
+                "app.market_hold_store._report_row": 90,
+                "app.market_source_store._select_with_job": 2280,
+                "app.market_source_store.read_scope": 30,
+                "app.runtime_connection_scope._session": 360,
+                "app.runtime_login.verify_runtime_identity": 633,
+                "app.runtime_roles._database": 273,
+                "app.runtime_roles._scope": 1365,
+                "app.runtime_roles.audit_runtime_roles": 2457,
+                "app.thermal_run_store._decision_context_in_transaction": 210,
+                "app.thermal_run_store.get_snapshot": 30
+              },
+              "all_registration_owners_closed": true,
+              "checkpoint_sha256": "34a864b8af27a899bee9d0894ad87480369336e5b3c291424d42bb62871f3d53",
+              "fresh_load_order": [
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_storage",
+                  "_resume"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ]
+              ],
+              "full_current_calls": [
+                [
+                  "_current",
+                  "_before"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "_current",
+                  "confirm"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "_current",
+                  "confirm"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ]
+              ],
+              "mode": "baseline",
+              "ordered_source_select_count": 2280,
+              "ordered_source_selects_SHA256": "93daa63bcefb7e3dbc1be6f4a0c2043e6251fb334b80da0969d552e682fcc26e",
+              "original_UTC": "2026-10-01T00:01:24.123456Z",
+              "registration_reconstructions": 4,
+              "steps": 42,
+              "wall_ns": 9132414207
+            },
+            {
+              "SQL": {
+                "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+                "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+                "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+                "app.farm_authoring_storage._find": 60,
+                "app.job_store._event": 1,
+                "app.job_store._locked_job": 31,
+                "app.job_store._renew_in_transaction": 1,
+                "app.market_candidate_store._candidate_in_transaction": 120,
+                "app.market_candidate_store._checked_candidate": 60,
+                "app.market_candidate_store._input_in_transaction": 1020,
+                "app.market_candidate_store._shared_reader": 900,
+                "app.market_hold_store._report_row": 90,
+                "app.market_source_store._select_with_job": 2280,
+                "app.market_source_store.read_scope": 30,
+                "app.runtime_connection_scope._session": 360,
+                "app.runtime_login.verify_runtime_identity": 633,
+                "app.runtime_roles._database": 258,
+                "app.runtime_roles._scope": 1290,
+                "app.runtime_roles.audit_runtime_roles": 2322,
+                "app.thermal_run_store._decision_context_in_transaction": 210,
+                "app.thermal_run_store.get_snapshot": 30
+              },
+              "all_registration_owners_closed": true,
+              "checkpoint_sha256": "80c1071c343e5e4e706e7c3fb8f056ad7b473f61717aff7c60c03f87f96fd761",
+              "fresh_load_order": [
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_storage",
+                  "_resume"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ]
+              ],
+              "full_current_calls": [
+                [
+                  "_current",
+                  "_before"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "_current",
+                  "confirm"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "_current",
+                  "confirm"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ]
+              ],
+              "mode": "candidate",
+              "ordered_source_select_count": 2280,
+              "ordered_source_selects_SHA256": "93daa63bcefb7e3dbc1be6f4a0c2043e6251fb334b80da0969d552e682fcc26e",
+              "original_UTC": "2026-10-01T00:01:26.123456Z",
+              "registration_reconstructions": 3,
+              "steps": 43,
+              "wall_ns": 8657197244
+            },
+            {
+              "SQL": {
+                "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+                "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+                "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+                "app.farm_authoring_storage._find": 60,
+                "app.job_store._event": 1,
+                "app.job_store._locked_job": 31,
+                "app.job_store._renew_in_transaction": 1,
+                "app.market_candidate_store._candidate_in_transaction": 120,
+                "app.market_candidate_store._checked_candidate": 60,
+                "app.market_candidate_store._input_in_transaction": 1020,
+                "app.market_candidate_store._shared_reader": 900,
+                "app.market_hold_store._report_row": 90,
+                "app.market_source_store._select_with_job": 2280,
+                "app.market_source_store.read_scope": 30,
+                "app.runtime_connection_scope._session": 360,
+                "app.runtime_login.verify_runtime_identity": 633,
+                "app.runtime_roles._database": 258,
+                "app.runtime_roles._scope": 1290,
+                "app.runtime_roles.audit_runtime_roles": 2322,
+                "app.thermal_run_store._decision_context_in_transaction": 210,
+                "app.thermal_run_store.get_snapshot": 30
+              },
+              "all_registration_owners_closed": true,
+              "checkpoint_sha256": "b0bedd9c913e67ec7fdbc0759e3ef0a34da28d48a26a094b2b60c501a1ce9873",
+              "fresh_load_order": [
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_storage",
+                  "_resume"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ]
+              ],
+              "full_current_calls": [
+                [
+                  "_current",
+                  "_before"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "_current",
+                  "confirm"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "_current",
+                  "confirm"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ]
+              ],
+              "mode": "candidate",
+              "ordered_source_select_count": 2280,
+              "ordered_source_selects_SHA256": "93daa63bcefb7e3dbc1be6f4a0c2043e6251fb334b80da0969d552e682fcc26e",
+              "original_UTC": "2026-10-01T00:01:28.123456Z",
+              "registration_reconstructions": 3,
+              "steps": 44,
+              "wall_ns": 8788803786
+            },
+            {
+              "SQL": {
+                "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+                "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+                "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+                "app.farm_authoring_storage._find": 60,
+                "app.job_store._event": 1,
+                "app.job_store._locked_job": 31,
+                "app.job_store._renew_in_transaction": 1,
+                "app.market_candidate_store._candidate_in_transaction": 120,
+                "app.market_candidate_store._checked_candidate": 60,
+                "app.market_candidate_store._input_in_transaction": 1020,
+                "app.market_candidate_store._shared_reader": 900,
+                "app.market_hold_store._report_row": 90,
+                "app.market_source_store._select_with_job": 2280,
+                "app.market_source_store.read_scope": 30,
+                "app.runtime_connection_scope._session": 360,
+                "app.runtime_login.verify_runtime_identity": 633,
+                "app.runtime_roles._database": 273,
+                "app.runtime_roles._scope": 1365,
+                "app.runtime_roles.audit_runtime_roles": 2457,
+                "app.thermal_run_store._decision_context_in_transaction": 210,
+                "app.thermal_run_store.get_snapshot": 30
+              },
+              "all_registration_owners_closed": true,
+              "checkpoint_sha256": "e96dc537050a959b9ad2b30e2f1c10850643292b49b58940d07ac04dbff97cd3",
+              "fresh_load_order": [
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_storage",
+                  "_resume"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ],
+                [
+                  "app.crop_greenhouse_solar_server_custody",
+                  "_load"
+                ]
+              ],
+              "full_current_calls": [
+                [
+                  "_current",
+                  "_before"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "_current",
+                  "confirm"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "_current",
+                  "confirm"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ],
+                [
+                  "current",
+                  "_guard"
+                ]
+              ],
+              "mode": "baseline",
+              "ordered_source_select_count": 2280,
+              "ordered_source_selects_SHA256": "93daa63bcefb7e3dbc1be6f4a0c2043e6251fb334b80da0969d552e682fcc26e",
+              "original_UTC": "2026-10-01T00:01:30.123456Z",
+              "registration_reconstructions": 4,
+              "steps": 45,
+              "wall_ns": 8562189819
+            }
+          ]
+        }
+      },
+      "large_terminal_fields_retained_privately_under_full_terminal_SHA256": [
+        "RSS_peaks_by_identity",
+        "owned_postgres_processes_observed"
+      ]
+    }
+  },
+  "public_source_SHA256": {
+    "research/solar-confirm-registration-candidate.py": "56b0d865e2a9ac7f386077b614335cf0b8b8ea059a9aa913e2875c217b0b16ca"
+  },
+  "private_source_SHA256": {
+    "native.private.json": "623bb9f94c1fd47ee707253c4df64876f65c901a8cb42293ca7d1bcdb5532349",
+    "test-contract.py": "e82b06aad360e341020d3eac9d924f75508c9509b49a7e46f950b0a2eb93ba19",
+    "test-contract-v1.py": "3a9890b9f832747f799a003f8d7a02289b182a2ad651b8a8f829ee1e9f9bdce2",
+    "test-cost.py": "78d4d566f9e04f136d59e1da251102b4331ec0fb2e361e0a86faacc6f554c0fc",
+    "cost-criteria.private.json": "9d0ade9aea4c645cc86700af5fd12aebcdf537e05967bd115e377c7b480f2b01",
+    "cost-phase-journal.private.jsonl": "e393c11b7ac2557070104cb9e3098ef95b13593685ede44cf1fb78c4bbede7ee"
+  },
+  "excluded_preliminary_pilot": {
+    "case": "focused-solar-confirm-registration-contract-v1",
+    "passed": true,
+    "reason": "baseline separate-owner metadata constant was stale; corrected in v2 with additional strict/exit/rights boundaries",
+    "not_added_to_accepted_tests": true,
+    "terminal_SHA256": "d291fa599b321d36420476746c6cb21c89c24e53ed33b7f9ec69590d9fa0896e",
+    "log_SHA256": "c797d09647913f41b53b2f94442c49063988b69b29bcff5d6d8d9b57faba886c",
+    "raw_metadata_SHA256": "77c228076ffdb1b9d57c7ff3924abdd404c1020a850fd1e569af667e8bb964da",
+    "wall_seconds": 48.7053748479957,
+    "accepted_tests": 0
+  },
+  "not_run": [
+    "full new source/research/snapshot/grant/context/Task/thread/cancel/lease closure",
+    "full backend/browser CI",
+    "new normal64/liveWebGL/WSL activation",
+    "actual farm/economic validation"
+  ],
+  "application_files_changed": 0,
+  "backend_app_count": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "new_frameworks_or_data_adoption": 0,
+  "recursive_CLI_invocations": 0,
+  "subagents_spawned": 0,
+  "normal64_accepted": false,
+  "product_adopted": false,
+  "new_Solar_deployed": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null,
+  "next_task": "crop-solar-api-request-cost-diagnostics"
+}

@@ -1,7 +1,9 @@
 # Solar confirmation registration lifetime — v1 candidate
 
-Status: proposed from the [actual consumer observation](../research/solar-checkpoint-consumer-review-20261020.md).
-No production implementation or cost acceptance yet. Extends the existing
+Status: evaluated and rejected after the [single original-workload cost trial](../research/solar-confirm-registration-evaluation-20261020.md).
+Mean1.404965% reduction, with one pair2.646682% slower, failed the stated criterion.
+The source is retained for research reproduction; do not adopt this candidate.
+No production implementation or cost acceptance. Extends the existing
 [registration read scope](farm-registration-read-scope-v1.md) and
 [connection lifetime](farm-registration-connection-lifetime-v1.md).
 
