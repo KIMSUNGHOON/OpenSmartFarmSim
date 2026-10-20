@@ -38,7 +38,10 @@
     [hosted 실제 후속](../research/organ-catalog-hosted-capacity-20261021.md)은 정상1개4,474,409bytes/최대 HTTPS4.935101초를 수용했다.
     실제20개/합89,488,180bytes 생성 뒤 첫 목록30.010263초로 미수용이다. 소유 종료/정리는 확인했다.
     구간 계측 CI39453928777은 행 검색1.020332초·항목38회/38.431396초(클라이언트 timeout 뒤 작업 포함)를 확인했다.
-    다음은 항목 내부 immutable 검증/현재 참조 비용 구분→작은 수정/집중 회귀→계측 OFF 정상20개다.
+    [하위 비용/등록 재구성 범위 수정](../research/organ-catalog-registration-scope-20261021.md)은 같은 app163검사와
+    실제 small3 ABBA 평균38.694012% 감소·동일 metadata/원 row·각18회 program 권리와 조회 계산/쓰기0으로 부분 수용했다.
+    sourcee8e70a2의 계측 OFF 실제20개 CI39459278835는30.081630초로 미수용이다. 조회 계산/쓰기0과 자원/정리는 확인했으나
+    완료 목록/권리 복원·최종 row/DB 대사는 미수행이다. immutable 처리 경계 검토/작은 수정과 정상 재검증은 남은 코드 작업이다.
     마지막 row/DB 불변 대사는 이번 실패에서 미수행이며 계측을 정상 수용으로 쓰지 않는다.
 
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
@@ -2120,6 +2123,13 @@
 
     - [ ] **`crop-greenhouse-co2-stomatal`** — CO₂ 질량/ppm·압력/온도/부피·광합성 sink와 기공 closure.
       CH₂O/CO₂ 질량을 구분하고 원 sRsSlope 단위 불일치에 대한 검토된 정책·독립 참조를 요구한다.
+      - [ ] **`co2-stomatal-source-policy`** — 현재 다음 작은 연구 자식. 기존 수관/환기/PAR 계산 근거를 선행으로 하고
+        기관 목록/U1의 성능 수용이나 전체 운영 조립을 선행으로 추가하지 않는다.
+        예정2파일: `research/crop-co2-stomatal-source-policy-20261021.md`, `research/crop-co2-stomatal-source-register-20261021.json`.
+        수용: 원 CO₂/기공 식·상수의 정확한 source/pointer/버전/hash·단위/권리와 독립 참조를 대사한다.
+        질량↔ppm의 T/P/부피 기준과 CH₂O↔CO₂ net sink를 구분하고, sRsSlope 단위 충돌은 검토된 판본 정책 또는 hold로 기록한다.
+        채택/미채택·미확정의 근거와 다음 순수 계산 자식의 작은 의존성/수용 기준을 고정한다.
+        이 연구만으로 계수/G0·실제 품종/농장·예측/기공 closure를 승인하지 않는다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

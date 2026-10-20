@@ -1,5 +1,11 @@
 # 첫 구현 범위
 
+**현재 계산 우선순위 — 2026-10-21 KST:** [기관 등록 재구성 범위 수정](../research/organ-catalog-registration-scope-20261021.md)은
+163검사/같은 small3 비교 평균38.69% 감소로 부분 수용했다. 원20개/큰 packet의 정상 HTTPS는30.08초로 미수용이다.
+이 용량/최종 U1 조건을 남기고 다음 작은 작업은 CO₂ 질량수지/ppm·기공 식의 원문/단위 정책 검토다.
+필요한 계산 근거·권리를 대사해 순수 계산 자식을 정하며 UI 용량을 이 연구의 선행으로 추가하지 않는다.
+기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.
+
 **현재 사용자 경로 — 2026-10-21 KST:** [기관 목록→실제 SCRAM/HTTPS→원 저장3D hosted 자식](../research/organ-native-integration-20261021.md)을 웹1,886/256·실제19응답/10장면·성공17본문/SHA/SDK 소비·권리/계정/숫자 보류·원 row/DB/서명과 조회 계산/쓰기0·원 자원/정리로 수용했다. 정상 synthetic producer의2결과이며 실제 농장/역사적 row/WSL 동시 용량·사용자 적용/U1 전체는 미수용이다. 다음은20결과/큰 packet의 원30초 목록 용량이다. 새 UI/Solar 미배포·생산/자원/경제·실제 자료/관문·전체 완료일 미정과 active goal을 유지한다.
 
 **다음 사용자 경로 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했다. 다음은 [기존 저장 결과 목록→선택→같은 UTC3D/수확의 실제 연결](../research/crop-result-catalog-native-readiness-20261020.md)이며 U1의 기존 API/SDK/저장 재생을 재사용한다. 원21건 seed/hash와 현재10파일 준비만 확인했고 전체166일/실제 DB·브라우저/U1은 미수용이다. 새 Solar normal64·후속 계산 중3D·WSL/최종 제품·G0–G4/완료일은 계속 미완료/미정이다.
