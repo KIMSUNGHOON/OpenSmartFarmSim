@@ -2254,7 +2254,11 @@
         현재 scope/권리/review/등록·늦은 source/DB/선언 변경·구 판본 혼합은 거부하며 request/result 각128KiB를 유지한다.
         수치/context/UTC 생성·restore/CLI·새 Run/결과 row0, 원5root/자료·512MiB/PID/합1GiB/FD와
         소유 PG/schema/role/passfile 정리가 수용 기준이다. 외부 실제 권리/농장·G0–G4는 별도다.
-      - [ ] **`co2-server-custody`** — 다음 작은 자식; 선행: 위 농장 연결/입력 증거와 v2 continuation/UTC/파일 저장.
+      - [x] **`co2-server-custody`** — [계약/수용](../contracts/crop-greenhouse-co2-server-custody-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-server-custody-20261021.json):9개 수용 검사,
+        실제 SCRAM 정상/hold·원 행/UTC·fresh 재개·조회/terminal retry0와 실제 SIGKILL−9/−9의
+        선택 commit1/2·원 최종 상태를 확인했다. 최대512환경/128사건/512출력의 metadata 원한도와5root/정리를 수용했다.
+        선행: 위 농장 연결/입력 증거와 v2 continuation/UTC/파일 저장.
         [기존 Solar custody](../contracts/crop-greenhouse-solar-server-custody-v1.md)의 잠금/fsync/선택 HEAD를
         새 CO₂ class/version/intent·proof·identity HMAC domain으로 구분한다. 핵심3파일: 새 custody/집중 pytest/계약.
         원 forcing program과 verified full record·초기/endpoint/새 구간 호출을 대사하며 과거 재계산0을 확인한다.
@@ -2264,6 +2268,13 @@
         원 intent192KiB/proof8KiB/progress128KiB·최대 입력/파일 한도를 먼저 재며 초과를 보류한다.
         행/사건/출력 수·상한을 줄이지 않고 원5root/결과·512MiB/PID/합1GiB/FD·소유 PG/schema/role/passfile을 보존한다.
         이후 DB/API/worker/같은 UTC3D·사용자 수용이며 실제 자료/관문은 별도다.
+      - [ ] **`co2-result-schema`** — 다음 작은 자식; 선행: 위 custody/저장과 기존 jobs.
+        [Solar 결과 DB 계약](../contracts/crop-greenhouse-solar-result-schema-v1.md)을 새 CO₂ table/result/storage/
+        custody 판본으로 구분한다. 핵심4파일: 새 schema/집중 DB pytest/계약·실제 합성 progress fixture.
+        실제 SCRAM의 metadata/progress 원 bytea/SHA·각128KiB/모든 컬럼, 닫힌 JSON/중복 키·타입/정수 표기·
+        새 판본/원 microsecond UTC·고유 키/FK·불변/재설치 거부·설치 rollback을 확인한다.
+        기존 Solar 포함4결과 표/행 보존과 runtime4역할20작업 거부, 수치/context/restore/CLI0·5root/원 자료/
+        WSL/FD/소유 PG/schema/role/passfile 정리가 수용 기준이다. runtime grant/등록·현재 조회/API/배포는 후속이다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

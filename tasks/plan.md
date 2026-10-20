@@ -67,6 +67,9 @@ UTC/서명 custody·저장/실행/3D는 남아 있어 현 낮은 신뢰 공수/�
 [농장 연결 실제 SCRAM10그룹](../contracts/crop-greenhouse-co2-farm-binding-v1.md)으로9행의 현재 농장 자식도 완료했다.
 source/선언 가용 시각·원 등록/UTC·현재 권리와 fresh17진입점0·실제 DB 변조/철회·원128KiB를 수용했다.
 서명 이력/DB 결과/API/새3D와 전체 작기/자원/경제·자료 관문은 남아 기존 낮은 신뢰 공수/계획 창을 유지한다.
+[서명 이력9검사](../contracts/crop-greenhouse-co2-server-custody-v1.md)로9행의 custody 자식도 완료했다.
+실제 SCRAM 정상/hold·원 행/UTC·fresh 재개·읽기0·HEAD 전후 실제 SIGKILL−9/commit1·2 복구,
+최대 metadata/원한도·5root/원 자료/정리를 수용했다. DB/API/worker/새3D·전체 작기/자원/경제가 남는다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
 기존 디자인 변환 복구와 독립 검토/해제 확보, 추가 큰 수치/성능 재설계 없음이라는 가정이면 약5–9개발주다.
@@ -142,7 +145,8 @@ available_at<=decision_at·source/context/evidence/provenance/농장·품종/bat
 prepare/current/fresh의 수치·context/UTC 생성·restore/CLI·새 작물 Run/결과 row는0이어야 한다.
 128KiB 결속 상한·FD/원5root/자료·512MiB/PID/합1GiB와 소유 PG/schema/role/passfile 정리를 확인한다.
 실제 외부 권리/G0 승인이나 농장 검증을 선언하지 않는다.
-**다음 `co2-server-custody`:** 위 농장 연결/입력 증거와 CO₂ v2 continuation/UTC/파일 저장이 선행이다.
+`co2-server-custody`는 [9개 수용 검사](../contracts/crop-greenhouse-co2-server-custody-v1.md)를 통과했다.
+위 농장 연결/입력 증거와 CO₂ v2 continuation/UTC/파일 저장이 선행이다.
 [기존 Solar 서명 이력](../contracts/crop-greenhouse-solar-server-custody-v1.md)의 소유 잠금/fsync/서명 HEAD를
 재사용하되 CO₂ class/version/intent·proof·identity HMAC domain은 분리한다. 새 DB/role/service를 추가하지 않는다.
 핵심3파일: 새 custody/집중 pytest/계약. 최초 원 forcing program으로 공식 context/UTC를 만들고 전체
@@ -154,6 +158,15 @@ inspect/page/terminal retry는 context/UTC/수치/restore/CLI0·현재 권리/re
 storage 한도를 먼저 재고 초과는 hold/근거 있는 별도 수정으로 기록한다. 행/사건/출력 수나 상한을 줄여 통과시키지 않는다.
 원5root/결과·FD/512MiB/PID/합1GiB/600초와 소유 PG/schema/role/passfile 정리를 수용한다.
 이후 DB 결과 등록/현재 조회→API/worker→같은 UTC3D/사용자 정상·보류·취소이며 실제 자료/관문은 별도다.
+**다음 `co2-result-schema`:** 위 custody/저장과 기존 jobs가 선행이다.
+[Solar 결과 DB 계약](../contracts/crop-greenhouse-solar-result-schema-v1.md)의 닫힌 metadata/progress·원 bytes/
+SHA·정수/UTC·불변성 원칙을 새 `joint-co2-solar-result-v1`, CO₂ storage/custody 판본과
+`crop_greenhouse_co2_research_results`에 구분한다. 핵심4파일: 새 schema/집중 DB pytest/계약과
+현재 실제 합성 custody progress의 명시 fixture. 이 fixture는 서명/G0/농장 승인이 아니다.
+수용: 실제 SCRAM 설치·두 bytea의 원 bytes/모든 컬럼/각128KiB, 중복 키/숫자 표기/해시/새 판본/UTC·
+고유 키/FK·수정/재설치 거부와 설치 rollback, 기존 Solar 포함4결과 표/원 행·runtime4역할20작업 거부.
+schema 단계는 수치/context/복원/CLI0이며 기존5root/자료·원 WSL/FD/소유 PG/schema/role/passfile을 보존한다.
+설치는 provisioner 경계이며 runtime grant/서명 결과 등록·현재 조회·사용자 배포는 이후 별도 수용한다.
 독립 농장 자료 확보는 병행하고 이 합성 파일 저장의 인위적인 개발 선행으로 추가하지 않는다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 이미 수용한 짧은 적분/관리·continuation/UTC/파일 저장은 유지한다. 후속 농장/서명·DB/API/3D는

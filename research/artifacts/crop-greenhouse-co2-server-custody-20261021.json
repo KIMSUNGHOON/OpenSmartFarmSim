@@ -1,0 +1,718 @@
+{
+  "version": "crop-greenhouse-co2-server-custody-acceptance-v1",
+  "recorded_at": "2026-10-20T20:15:44.855825+00:00",
+  "scope": "synthetic_joint_co2_solar_math_only",
+  "unique_accepted_tests": 9,
+  "actual_test_executions": 10,
+  "coverage_note": "Maximum, normal, current/tamper/domain, crash/ack and strengthened hold run in separate guards. Earlier hold check is superseded by exact all-row/UTC comparison. Code/dependencies/contract unchanged across stages; added/strengthened unrelated tests change whole-file SHA, so each accepted test AST and all non-test helpers/globals are matched to the current test file. Python assertions remain active; edge/crash/hold use plain assertion diagnostics.",
+  "native_CLI_review": {
+    "decision_id": "co2-server-custody-20261021-v1",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "native_turn_context": {
+      "timestamp": "2026-10-20T20:02:12.376Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "event_line_sha256": "2387a2f8fef5acb2b888cad8917d9d277a36f30af383408b7019b33fc7df7334"
+    },
+    "session_creation_metadata": {
+      "source": "vscode",
+      "cli_version": "0.157.1",
+      "model_provider": "openai"
+    },
+    "creation_version_not_current_binary_measurement": true,
+    "no_recursive_CLI": true
+  },
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_server_custody.py": "9e0eb8a255aad9ff089b0222b62b870a601388e8d46b80f2df727d9a2a0e1d38",
+    "backend/tests/test_crop_greenhouse_co2_server_custody.py": "245cfbd02e61e109302c3906149f269fdd9f129b73496e8b769aeebf02144bee",
+    "contracts/crop-greenhouse-co2-server-custody-v1.md": "6969c9279ded00abeb989c15a14a4242309639b80a9b6bfab8370bf57ec326dc",
+    "backend/app/crop_greenhouse_co2_farm_binding.py": "c89ebab2908b531015b2bc19dd1f81911c6abbebb76adbe4ab0fae7b2c8ef1ff",
+    "backend/app/crop_greenhouse_co2_input_evidence.py": "de3988f138fb1e6f10721978c1fa6c49e38ae656d68ca0938d97bc5ee1eae581",
+    "backend/app/crop_greenhouse_co2_storage.py": "6eb0b7a1474da307c75d175b8cb2c9988d12924c017d3b9b860027fad0e14f19",
+    "backend/app/crop_greenhouse_co2_time.py": "e59960eeee0c36512a3c83913ce0bdc47695960152b20b4b68e110e4f97f499e",
+    "backend/app/crop_greenhouse_co2_continuation.py": "cf48f58eaa78b18f3a54e0ef42c039b92aed84030d583e13b48c0b89123f429b",
+    "backend/app/crop_greenhouse_co2_program.py": "4cc5ec905ea6e80f713b8fbb9e335a780bc83f75f9aa04b4baf61996db8978a6",
+    "backend/app/crop_greenhouse_co2_management.py": "bfc01cc5af5d73a26f25c646b531f7ff3d6de006adda245927a146d8d6cdbdb8",
+    "backend/app/crop_greenhouse_co2_joint.py": "5f157d7034ee6156cd7372f68b594336d09c461649ea1b676afc2d9abb7ab12f",
+    "backend/app/crop_greenhouse_solar_server_custody.py": "6a66682659e16c4274f718429bbca5728d63ba360a6954b1b346424ff3d572bb",
+    "backend/app/crop_cycle_server_custody.py": "1b999cb6af59da487f204b1d3dd9e8bc4edf1112147a0d71ff05276aeb751a0f",
+    "backend/tests/test_crop_greenhouse_co2_farm_binding.py": "2941634432d97043d0d05b985d1479a02f14f2db1396ab0957500dd3cc8655cd",
+    "fixtures/crop-greenhouse-co2-program-reference-cases-v1.json": "da09f6ff833d5c079b9bc48a2e06494fbec1fd123884881c2db146df60b69269",
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+  },
+  "tested_contract_sha256": "6969c9279ded00abeb989c15a14a4242309639b80a9b6bfab8370bf57ec326dc",
+  "RED": {
+    "result": "new module absent; collection error, not physical counterexample",
+    "guard": {
+      "actual_child_exit": 2,
+      "wall_seconds": 0.8498653800052125,
+      "combined_peak_RSS_bytes": 649715712,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 3,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "89c76f2ce3a9f285f3306fa6d41a9fbd419b0a25d5209a35a2cd81f771cd4165",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "GREEN_stages": [
+    {
+      "stage": "focused-co2-custody-maximum-v1",
+      "actual_test_executions": 1,
+      "accepted_test_functions": [
+        "test_maximum_distinct_input_signed_metadata_preserves_original_caps"
+      ],
+      "actual_test_file_sha256": "4f5288f90b1a16cdf76b481a8d44183ad6c410088e8697cb29d449bbe172dc7b",
+      "accepted_test_AST_sha256": {
+        "test_maximum_distinct_input_signed_metadata_preserves_original_caps": "adbaf01ce97bff36fc21e548f11be0a1a0caefd320bfe5ec8c6189aaec16e82f"
+      },
+      "common_non_test_helpers_and_globals_AST_sha256": "362c7f2918b1fc424562a62fd07bf5475a126c99b36c5c8771c35df0ef82bd4b",
+      "production_source_and_dependency_pins_match_current": true,
+      "pytest_seconds": 32.14,
+      "guard": {
+        "actual_child_exit": 0,
+        "wall_seconds": 33.18934294299106,
+        "combined_peak_RSS_bytes": 782475264,
+        "single_PID_peak_RSS_bytes": 152616960,
+        "RSS_samples": 126,
+        "sample_interval_seconds": 0.25,
+        "source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": [],
+        "frontend_status": 200,
+        "log_sha256": "ca95e42d53afdaba7dca4bc661cbbbc92420b8f65cdd69e3374eb65550d0f15f",
+        "reason": null,
+        "supervisor_error_type": null
+      }
+    },
+    {
+      "stage": "focused-co2-custody-normal-v1",
+      "actual_test_executions": 1,
+      "accepted_test_functions": [
+        "test_normal_actual_producer_and_fresh_resume_zero_read_calls"
+      ],
+      "actual_test_file_sha256": "aeda6ae1cb37456332b6da213b78d16f881be5ffaaaa6354e5372e3c95262537",
+      "accepted_test_AST_sha256": {
+        "test_normal_actual_producer_and_fresh_resume_zero_read_calls": "3e9957b801fcd417e3f54ba5f1f57830557ab2e9052d392a93d2df38cb1221b3"
+      },
+      "common_non_test_helpers_and_globals_AST_sha256": "362c7f2918b1fc424562a62fd07bf5475a126c99b36c5c8771c35df0ef82bd4b",
+      "production_source_and_dependency_pins_match_current": true,
+      "pytest_seconds": 39.37,
+      "guard": {
+        "actual_child_exit": 0,
+        "wall_seconds": 40.56559370801551,
+        "combined_peak_RSS_bytes": 855465984,
+        "single_PID_peak_RSS_bytes": 129544192,
+        "RSS_samples": 154,
+        "sample_interval_seconds": 0.25,
+        "source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": [],
+        "frontend_status": 200,
+        "log_sha256": "2ba2afabcc100c9a651e9c5cf7b28d5fc47d9fb68b3f7ba7c5b453f1b739559d",
+        "reason": null,
+        "supervisor_error_type": null
+      }
+    },
+    {
+      "stage": "focused-co2-custody-current-hold-v1",
+      "actual_test_executions": 4,
+      "accepted_test_functions": [
+        "test_current_rights_inputs_requests_and_locks",
+        "test_signed_files_tampering_and_late_publication_rejection",
+        "test_previous_authority_and_signing_domains_are_not_interchangeable"
+      ],
+      "actual_test_file_sha256": "aeda6ae1cb37456332b6da213b78d16f881be5ffaaaa6354e5372e3c95262537",
+      "accepted_test_AST_sha256": {
+        "test_current_rights_inputs_requests_and_locks": "6e819ce0115bd7c5de922dfee2cfef9c16d67ba8b70bc7a8d4061c618e235b36",
+        "test_signed_files_tampering_and_late_publication_rejection": "539eacf6455b6ab975a04859df1005b086f05349b8589994ac4f339e9b34b655",
+        "test_previous_authority_and_signing_domains_are_not_interchangeable": "cd54d21e2951631e87c7b28ee838671bb7acabf4d0884d6fd5905bf424c7f9aa"
+      },
+      "common_non_test_helpers_and_globals_AST_sha256": "362c7f2918b1fc424562a62fd07bf5475a126c99b36c5c8771c35df0ef82bd4b",
+      "production_source_and_dependency_pins_match_current": true,
+      "pytest_seconds": 99.35,
+      "guard": {
+        "actual_child_exit": 0,
+        "wall_seconds": 102.16118034499232,
+        "combined_peak_RSS_bytes": 761925632,
+        "single_PID_peak_RSS_bytes": 126529536,
+        "RSS_samples": 384,
+        "sample_interval_seconds": 0.25,
+        "source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": [],
+        "frontend_status": 200,
+        "log_sha256": "75596a7d96ebddbce5e05d9446feacdbbebea428ebcd8ce0016e49371230bb12",
+        "reason": null,
+        "supervisor_error_type": null
+      }
+    },
+    {
+      "stage": "focused-co2-custody-crash-ack-v1",
+      "actual_test_executions": 3,
+      "accepted_test_functions": [
+        "test_actual_sigkill_at_signed_head_publication_resumes_selected_prefix",
+        "test_checkpoint_only_ack_keeps_original_selected_progress_and_terminal_retry"
+      ],
+      "actual_test_file_sha256": "be0ad71cb3a89391294b7b3c29f1ee100f440d4568de12d80d1123ff4518994f",
+      "accepted_test_AST_sha256": {
+        "test_actual_sigkill_at_signed_head_publication_resumes_selected_prefix": "7af71d57d84231c99734bb30173cbf0531809b75dd5f8ba9695dd9357277ee79",
+        "test_checkpoint_only_ack_keeps_original_selected_progress_and_terminal_retry": "3fbe3ee69deb56ef1888b70e07a006b8ed2e35c1b0c79b52b8841d9dd640b2fc"
+      },
+      "common_non_test_helpers_and_globals_AST_sha256": "362c7f2918b1fc424562a62fd07bf5475a126c99b36c5c8771c35df0ef82bd4b",
+      "production_source_and_dependency_pins_match_current": true,
+      "pytest_seconds": 87.3,
+      "guard": {
+        "actual_child_exit": 0,
+        "wall_seconds": 89.45713680700283,
+        "combined_peak_RSS_bytes": 806912000,
+        "single_PID_peak_RSS_bytes": 125497344,
+        "RSS_samples": 338,
+        "sample_interval_seconds": 0.25,
+        "source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": [],
+        "frontend_status": 200,
+        "log_sha256": "811d8ddc7f4452a94656cdaaaceaee0634da1b9e44c901e24691aab77017509a",
+        "reason": null,
+        "supervisor_error_type": null
+      }
+    },
+    {
+      "stage": "focused-co2-custody-hold-rows-final-v1",
+      "actual_test_executions": 1,
+      "accepted_test_functions": [
+        "test_real_producer_hold_has_original_failed_time_without_trial_rows"
+      ],
+      "actual_test_file_sha256": "245cfbd02e61e109302c3906149f269fdd9f129b73496e8b769aeebf02144bee",
+      "accepted_test_AST_sha256": {
+        "test_real_producer_hold_has_original_failed_time_without_trial_rows": "8a5d7ac44d137ee229c16bf3b3f4391eaef8264f3d1bb650e27e59205eceefc9"
+      },
+      "common_non_test_helpers_and_globals_AST_sha256": "362c7f2918b1fc424562a62fd07bf5475a126c99b36c5c8771c35df0ef82bd4b",
+      "production_source_and_dependency_pins_match_current": true,
+      "pytest_seconds": 28.68,
+      "guard": {
+        "actual_child_exit": 0,
+        "wall_seconds": 29.882436765998136,
+        "combined_peak_RSS_bytes": 752545792,
+        "single_PID_peak_RSS_bytes": 125947904,
+        "RSS_samples": 113,
+        "sample_interval_seconds": 0.25,
+        "source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": [],
+        "frontend_status": 200,
+        "log_sha256": "43f414f98d8c73494e669f86480da6d448e4cee47aba0b3c32dd174ef6ce01f4",
+        "reason": null,
+        "supervisor_error_type": null
+      }
+    }
+  ],
+  "normal_and_fresh": {
+    "first_calls": {
+      "CLI": 0,
+      "CO2": 4,
+      "NIR": 4,
+      "PAR": 4,
+      "RHS": 4,
+      "advance": 1,
+      "air": 4,
+      "event": 1,
+      "gas": 4,
+      "net": 4,
+      "prepare_binding": 1,
+      "prepare_context": 1,
+      "restore": 0,
+      "solar": 4,
+      "start": 1,
+      "step": 0,
+      "ventilation": 4
+    },
+    "counts_before_after": [
+      [
+        88,
+        88,
+        0,
+        0
+      ],
+      [
+        88,
+        88,
+        0,
+        0
+      ]
+    ],
+    "proof_sequences": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "progress_bytes": 38513,
+    "original_checkpoint_sha256": "2021c1a1f95c2cd7006a83b9a96700ed9ba42012a73ee86a09d34d4bce8d88b6",
+    "fresh": {
+      "calls": {
+        "CLI": 0,
+        "CO2": 90,
+        "NIR": 90,
+        "PAR": 90,
+        "RHS": 90,
+        "advance": 1,
+        "air": 90,
+        "event": 2,
+        "gas": 90,
+        "net": 90,
+        "prepare_binding": 1,
+        "prepare_context": 1,
+        "restore": 1,
+        "solar": 90,
+        "start": 0,
+        "step": 16,
+        "ventilation": 90
+      },
+      "actual_scram": true,
+      "counts_unchanged": true,
+      "read_calls_zero": true,
+      "review_revocation_rejected": true,
+      "actual_exit": 0,
+      "fresh_exec": true
+    },
+    "final_counts": {
+      "events": 3,
+      "samples": 5
+    },
+    "all_normal_rows_and_UTC_equal_direct_producer": true
+  },
+  "hold": {
+    "status": "hold",
+    "steps": 16,
+    "counts": {
+      "events": 2,
+      "samples": 4
+    },
+    "confirmed_phase": "forcing-boundary",
+    "hold_UTC": "2026-10-01T00:00:32.123456Z",
+    "failed_trial_not_published": true,
+    "all_rows_and_UTC_equal_direct_producer": true,
+    "read_calls": {
+      "CLI": 0,
+      "CO2": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "advance": 0,
+      "air": 0,
+      "event": 0,
+      "gas": 0,
+      "net": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    }
+  },
+  "maximum_input_metadata_only": {
+    "bytes": {
+      "evidence": 1038344,
+      "intent": 36193,
+      "progress": 34294,
+      "proof": 780,
+      "source": 850874
+    },
+    "claim": "maximum original input/metadata and first event admission only; not full maximum trajectory",
+    "confirmed_steps": 0,
+    "counts_unchanged": true,
+    "events": 128,
+    "forcing": 512,
+    "outputs": 512,
+    "read_calls": {
+      "CLI": 0,
+      "CO2": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "advance": 0,
+      "air": 0,
+      "event": 0,
+      "gas": 0,
+      "net": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    }
+  },
+  "actual_owned_SIGKILL": [
+    {
+      "after_HEAD": false,
+      "actual_exit": -9,
+      "selected_commit_count": 1,
+      "selected_steps": 0,
+      "final_checkpoint_equals_direct": true,
+      "final_state_sha256": "448ee30e01b39d0cd450a31b5060ffd687ed00e72adcf0de42643d62c6f44e03",
+      "read_calls": {
+        "CLI": 0,
+        "CO2": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "air": 0,
+        "event": 0,
+        "gas": 0,
+        "net": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      }
+    },
+    {
+      "after_HEAD": true,
+      "actual_exit": -9,
+      "selected_commit_count": 2,
+      "selected_steps": 1,
+      "final_checkpoint_equals_direct": true,
+      "final_state_sha256": "448ee30e01b39d0cd450a31b5060ffd687ed00e72adcf0de42643d62c6f44e03",
+      "read_calls": {
+        "CLI": 0,
+        "CO2": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "air": 0,
+        "event": 0,
+        "gas": 0,
+        "net": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      }
+    }
+  ],
+  "other_checks": {
+    "rights": {
+      "counts_unchanged": true,
+      "foreign_tenant_rejected": true,
+      "invalid_budgets": 7,
+      "live_lock_pending": true,
+      "raw_rejections": 5,
+      "read_calls": {
+        "CLI": 0,
+        "CO2": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "air": 0,
+        "event": 0,
+        "gas": 0,
+        "net": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "request_conflicts": 4,
+      "revoked_rights_review_source_rejected": true,
+      "root_intent_limit_checked_before_mkdir": true,
+      "scopes": [
+        "farm_scenario_read",
+        "metadata",
+        "artifact",
+        "thermal_snapshot_read",
+        "decision_context_read",
+        "market_hold_context_read",
+        "market_source_read",
+        "market_candidate_read",
+        "crop_result_read"
+      ]
+    },
+    "tamper": {
+      "FD_before_after": [
+        6,
+        6
+      ],
+      "changed_files": [
+        "intent",
+        "proof",
+        "HEAD",
+        "commit",
+        "sample",
+        "intent-canonical-HMAC",
+        "proof-canonical-HMAC"
+      ],
+      "late_rights_withdrawal_rejected_before_HEAD": true,
+      "original_HEAD_preserved": true
+    },
+    "version-domains": {
+      "intent_identity_domain_distinct": true,
+      "old_HMAC_domains_rejected": 2,
+      "old_authority_rejected": true,
+      "read_calls": {
+        "CLI": 0,
+        "CO2": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "air": 0,
+        "event": 0,
+        "gas": 0,
+        "net": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      }
+    },
+    "checkpoint-only": {
+      "ack_is_None": true,
+      "counts_unchanged": true,
+      "final_checkpoint_matches": true,
+      "first_checkpoint_matches": true,
+      "invalid_budgets_rejected": 2,
+      "terminal_ack_and_read_calls": {
+        "CLI": 0,
+        "CO2": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "air": 0,
+        "event": 0,
+        "gas": 0,
+        "net": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      }
+    }
+  },
+  "scratch_cleanup_by_stage": {
+    "focused-co2-custody-maximum-v1": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "focused-co2-custody-normal-v1": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "focused-co2-custody-current-hold-v1": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "focused-co2-custody-crash-ack-v1": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "focused-co2-custody-hold-rows-final-v1": {
+      "roles": 0,
+      "schemas": 0
+    }
+  },
+  "physical_evaluation_accounting": {
+    "first_total_each_component": 4,
+    "first_context": 1,
+    "first_advance_endpoint_check": 1,
+    "first_event": 2,
+    "fresh_total_each_component": 90,
+    "fresh_context": 1,
+    "fresh_restore_endpoint": 1,
+    "fresh_advance_endpoint": 1,
+    "fresh_new_intervals": 80,
+    "fresh_new_events": 4,
+    "fresh_new_forcing_boundaries": 3,
+    "fresh_interval_steps": 16,
+    "fresh_events_applied": 2,
+    "past_interval_event_replay": 0,
+    "inspection_page_terminal_retry_physical_context_time_restore_CLI_calls": 0
+  },
+  "review": {
+    "correctness": "Actual selected normal/hold rows, complete state/ledgers/UTC/checkpoints and direct-call counts; exact fresh resume; real SIGKILL selects1/2; no past replay or read calculations.",
+    "architecture": "Port accepted Solar ownership boundary with distinct CO2 domains/types; reconstruct all original forcing program fields and compare complete verified record. No existing model/profile/service changes.",
+    "security": "Fixed authenticated farm authority and owned resolver/key; quota/lock/follow-link rules, repeated currentness fences and fsynced parent-linked HEAD signatures; late withdrawal leaves unselected bytes.",
+    "readability": "Existing small session/owner boundary; named original fields and existing helpers.",
+    "performance": "Original source/evidence/intent/proof/progress/storage caps retained; maximum input admission measured before remaining tests. Every guard below original512MiB/PID, combined1GiB and600s; no throughput or deployment claim.",
+    "verdict": "accepted synthetic software signed custody only; no main merge or deployment"
+  },
+  "next_child": "co2-result-schema",
+  "not_accepted": [
+    "full maximum trajectory in admission test",
+    "actual external rights/G0 or cultivar applicability",
+    "local/future/paired farm validation G2/G3a/G3b",
+    "power-loss/G4 deployment proof",
+    "new CO2 DB result registration/API/worker/3D or user deployment",
+    "whole crop-cycle/resource/economic integration",
+    "full CI/browser verification in this increment"
+  ],
+  "goal_status": "active",
+  "full_product_completion": null,
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "reported_at": "2026-10-20T20:17:54.540494Z",
+    "source_sha256": "131922ef420ffc560da8e4b00f606205f98558bb0d59019b9e191d94dfc4d2b2",
+    "retained_ventilation_frozen_source_preserved": true,
+    "files": 2173,
+    "current_HTML_matches_frozen_entry_both_ports": true,
+    "browser_DOM_rerun": false,
+    "guard": {
+      "actual_child_exit": 0,
+      "wall_seconds": 0.3367731260077562,
+      "combined_peak_RSS_bytes": 581697536,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 1,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "81d0e7f0d6269b2753b108601a9802f56e9d261c21f732f82eebd6e3664b780a",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "accepted_contract_sha256": "a35dabc09ac816794b5dec4949fb256ba13b5c24fbfe4724b4fda78d5488e1d0",
+  "contract_hash_note": "The source/tested-contract hashes identify the pending contract pinned during the actual test guards. The accepted-contract hash includes the status/results appended after the accepted tests."
+}

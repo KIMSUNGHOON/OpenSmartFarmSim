@@ -25,7 +25,9 @@ fresh 조회 계산0·8재개 지점/HEAD 전후 실제 SIGKILL·최대 페이�
 최대512환경/128사건/512출력은 원1MiB source/2MiB evidence 안이며5root/자료/정리를 보존했다.
 [농장 연결 실제 SCRAM10그룹](../contracts/crop-greenhouse-co2-farm-binding-v1.md)도 원 등록/provenance/UTC·현재 권리,
 fresh17진입점0·DB 변조/철회·source/선언1µs 경계와 최대 연결34,687bytes/원128KiB로 수용했다.
-원 자료/5root와 소유 PG/schema/role/passfile 정리를 보존했다. 다음은 서명 custody→DB/API/같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
+원 자료/5root와 소유 PG/schema/role/passfile 정리를 보존했다. [서명 이력9검사](../contracts/crop-greenhouse-co2-server-custody-v1.md)도 정상/보류의 원 상태/행/UTC·fresh 재개·
+조회 계산0·실제 HEAD 전후 SIGKILL−9/선택 commit1/2·최대 metadata 원한도로 수용했다.
+원 자료/5root/FD와 소유 정리를 보존했으며 다음은 CO₂ 결과 DB schema→권한/등록/조회→API/worker/같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
 전체 작기/109상태 저장3D는 아직 미수용이다.
 기공 단위 P03은 hold이며 개발 순서와 분리한다.
 [잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지161–308집중시간의
