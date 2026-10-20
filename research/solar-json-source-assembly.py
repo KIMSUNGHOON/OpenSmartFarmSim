@@ -1,4 +1,7 @@
-"""Unwired native page/source assembly; no existing mutable return is adopted."""
+"""Rejected assembly prototype; statement observations miss nested graph loans.
+
+Retained for solar-json-observation-boundaries-20261020.md reproduction.
+"""
 import ast
 import builtins
 from datetime import datetime, timedelta, timezone

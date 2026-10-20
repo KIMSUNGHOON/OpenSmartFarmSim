@@ -1,7 +1,7 @@
-"""Research candidate: linear JSON ownership for one artifact read operation.
+"""Rejected ownership prototype, retained for counterexample reproduction.
 
-This module is not wired into a worker. Native approval is an isolated-reference
-fingerprint; an unsupported codec uses the original artifact decoder.
+A self-restoring scanner can expose the decoded graph while these native-state
+checks pass. See solar-json-observation-boundaries-20261020.md before reuse.
 """
 from __future__ import annotations
 

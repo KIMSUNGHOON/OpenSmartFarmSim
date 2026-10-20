@@ -1,4 +1,7 @@
-"""Unwired research adapter for the two commit loops in the native Solar load."""
+"""Rejected research adapter; decoded ownership can fail after callee restoration.
+
+Retained for solar-json-observation-boundaries-20261020.md reproduction.
+"""
 import ast
 from hashlib import sha256
 import importlib.util
@@ -11,7 +14,7 @@ from app import crop_greenhouse_solar_storage as storage
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE_PATH = ROOT/'research/solar-local-json-ownership.py'
-CORE_SHA256 = 'f9d9e309ee8a1501df4e38debbb96f44c136dff920166b10ff509916bed24d31'
+CORE_SHA256 = 'd23deac16a0b8b1ca864e1935ccef4b0f9c371a42aa48496d55237aec7ae1b86'
 STORAGE_SHA256 = '065ff9f9706bed285f19b82e67277123947715af285cc6438a77fed3c7e30d6d'
 CORE_NAME = 'app._research_local_json_ownership'
 if sha256(CORE_PATH.read_bytes()).hexdigest() != CORE_SHA256:

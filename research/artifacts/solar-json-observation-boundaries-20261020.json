@@ -1,0 +1,668 @@
+{
+  "schema_version": "solar-json-observation-boundary-rejection-v1",
+  "recorded_at": "2026-10-20T03:35:26.210266Z",
+  "baseline_commit": "c35185702ff0850ff92fb2ef77338a369b3b698b",
+  "native_CLI": {
+    "timestamp": "2026-10-20T02:56:49.698Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_sha256": "6358db05b8e1e98596050277a958b96ddfbf961607b97f93c7dfed2214f8b216"
+  },
+  "recursive_CLI_calls": 0,
+  "subagents_started": 0,
+  "research_source_SHA256": {
+    "research/solar-local-json-ownership.py": "d23deac16a0b8b1ca864e1935ccef4b0f9c371a42aa48496d55237aec7ae1b86",
+    "research/solar-json-load-adapter.py": "01caff716b843bce470935700310e35de5060a531a39a06bed67b47c78bc5453",
+    "research/solar-json-source-assembly.py": "b5fa6a0a8a38ebd7d05f303e99013e56dafd9cb99a286fd82d93aaf8bdf48c09",
+    "research/solar-json-observation-counterexamples.py": "b74c244949bd417289def34a58c129768b8ce56cb844dbd16b8313a0f2b118e2"
+  },
+  "private_source_SHA256": {
+    "locked-boundaries.py": "ed40c96901140f6998972011f270332e3d36782f5f29c705190a7002a34405e2"
+  },
+  "runtime_bodies_unchanged_except_forensic_docstrings_and_dependency_pin": {
+    "research/solar-local-json-ownership.py": true,
+    "research/solar-json-load-adapter.py": true,
+    "research/solar-json-source-assembly.py": true
+  },
+  "proofs": {
+    "3.12.3": {
+      "case": "focused-solar-json-observation-public-native-v1",
+      "terminal_sha256": "1182d816235888fc755921b120b54881582bd5a9318e0cb984959998ac49454d",
+      "log_sha256": "0beb23056c6be9803838014c8d557ef119f6992cc04bfcdb09c5026c586d4887",
+      "source_pins_sha256": "9202f9591a862e10755a4a41c625a42728939695529a99ccd963c996394a5f6f",
+      "raw_evidence_SHA256": {
+        "nested-observe.json": "600f5f67c9b11347ca5e4253b790ef8c2dd8d2c46014fadbfa5ff0c1e6ad85dc",
+        "nested-mutation.json": "c6000ae9afd84a3ae2b7d02168a5d1df53215b45e7d6b4cac111b214899efd65",
+        "internal-scanner.json": "fb20ed6fd260f99e814f6cad0329dee4ecb9758948fbfa466535ffdc7627d06b"
+      },
+      "counterexamples": {
+        "nested-observe.json": {
+          "scope": "software-only observation counterexample; current candidate is not adopted",
+          "mutated_after_source_hash": false,
+          "results": [
+            {
+              "mode": "original",
+              "outcome": [
+                "value",
+                "f00aff0c1b5429554e0264f82514f370d7ba0e88e3c2e69162d0370f3da37130",
+                321426
+              ],
+              "captured_rows": 1,
+              "binding_restored": true,
+              "audit": {}
+            },
+            {
+              "mode": "candidate",
+              "outcome": [
+                "value",
+                "f00aff0c1b5429554e0264f82514f370d7ba0e88e3c2e69162d0370f3da37130",
+                321426
+              ],
+              "captured_rows": 1,
+              "binding_restored": true,
+              "audit": {
+                "whole_load_fallback": false,
+                "source_pairs": 6,
+                "fallback_pairs": 0,
+                "page_reads": 6,
+                "cache_hits": 6,
+                "fallbacks": 0,
+                "peak_raw_bytes": 434865,
+                "disposed": true,
+                "raw_bytes_after_close": 0,
+                "extra_source_encodes_for_ownership": 0
+              }
+            }
+          ],
+          "statement_guards_unchanged": true,
+          "methods_changed_only_storage_set_in_one_expression": true,
+          "graph_capture_through_actual_callback_argument": true,
+          "graph_access_through_stack": false,
+          "timing_trial": false,
+          "product_calls": 0,
+          "normal64_accepted": false,
+          "actual_farm_Runs": 0,
+          "G0_G4": "not_assessed"
+        },
+        "nested-mutation.json": {
+          "scope": "software-only observation counterexample; current candidate is not adopted",
+          "mutated_after_source_hash": true,
+          "results": [
+            {
+              "mode": "original",
+              "outcome": [
+                "error",
+                "app.crop_greenhouse_solar_storage",
+                "JointStorageHold",
+                "HASH_HOLD: exact bound result/context/scope"
+              ],
+              "captured_rows": 1,
+              "binding_restored": true,
+              "audit": {}
+            },
+            {
+              "mode": "candidate",
+              "outcome": [
+                "error",
+                "app.crop_greenhouse_solar_storage",
+                "JointStorageHold",
+                "COMMIT_HOLD: original prefix/cursor"
+              ],
+              "captured_rows": 1,
+              "binding_restored": true,
+              "audit": {
+                "whole_load_fallback": false,
+                "source_pairs": 1,
+                "fallback_pairs": 0,
+                "page_reads": 2,
+                "cache_hits": 1,
+                "fallbacks": 0,
+                "peak_raw_bytes": 434865,
+                "disposed": true,
+                "raw_bytes_after_close": 0,
+                "extra_source_encodes_for_ownership": 0
+              }
+            }
+          ],
+          "statement_guards_unchanged": true,
+          "methods_changed_only_storage_set_in_one_expression": true,
+          "graph_capture_through_actual_callback_argument": true,
+          "graph_access_through_stack": false,
+          "timing_trial": false,
+          "product_calls": 0,
+          "normal64_accepted": false,
+          "actual_farm_Runs": 0,
+          "G0_G4": "not_assessed"
+        },
+        "internal-scanner.json": {
+          "scope": "synthetic JSON software counterexample; no product cache",
+          "native_approval_before_and_after": true,
+          "factory_restored": true,
+          "capture_through_actual_scanner_return": true,
+          "graph_access_through_stack": false,
+          "unchanged_blob_SHA256": "b62260bbee43e74acbc756ce39b71fbcbd087890edd3ce609a638b0f18355d72",
+          "fresh_original_value_SHA256": "b62260bbee43e74acbc756ce39b71fbcbd087890edd3ce609a638b0f18355d72",
+          "cached_value_SHA256": "9ba9dae67b64e9792e370666f4adcab691c97859ffd92f4b5b239539a6db0286",
+          "cached_value_differs_from_fresh_read": true,
+          "cache_hits": 1,
+          "raw_bytes_budget_peak": 938,
+          "timing_trial": false,
+          "product_calls": 0,
+          "normal64_accepted": false,
+          "actual_farm_Runs": 0,
+          "G0_G4": "not_assessed",
+          "disposed": true
+        }
+      },
+      "guard": {
+        "wall_seconds": 2.402514622997842,
+        "combined_peak_RSS_bytes": 936353792,
+        "single_PID_peak_RSS_bytes": 145444864,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "protected_root_count": 5,
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": []
+      }
+    },
+    "3.12.13": {
+      "case": "focused-solar-json-observation-public-locked-v1",
+      "terminal_sha256": "53a68187ee9081f8077736cb3ab1a2dd21f45ed3cf12270e6e9308dee1fe01b0",
+      "log_sha256": "0baf09c1ff6d135801019bf46330b5f91f9ead50d8812ac33c518e3d5bde389c",
+      "source_pins_sha256": "9202f9591a862e10755a4a41c625a42728939695529a99ccd963c996394a5f6f",
+      "raw_evidence_SHA256": {
+        "nested-observe.json": "de25ad6ff76db387bcd00e684b889af36ff5da726c59646fbedd7416f4785fa6",
+        "nested-mutation.json": "f920e22f238b0355a4ef2faf288a6e114d191183568e86e972b90c847c2c4c49",
+        "internal-scanner.json": "fb20ed6fd260f99e814f6cad0329dee4ecb9758948fbfa466535ffdc7627d06b"
+      },
+      "counterexamples": {
+        "nested-observe.json": {
+          "scope": "software-only observation counterexample; current candidate is not adopted",
+          "mutated_after_source_hash": false,
+          "results": [
+            {
+              "mode": "original",
+              "outcome": [
+                "value",
+                "f1478decd2b843ba29f71d87a331a1075bf916b95d20b8a931ee82e9de721ac5",
+                321428
+              ],
+              "captured_rows": 1,
+              "binding_restored": true,
+              "audit": {}
+            },
+            {
+              "mode": "candidate",
+              "outcome": [
+                "value",
+                "f1478decd2b843ba29f71d87a331a1075bf916b95d20b8a931ee82e9de721ac5",
+                321428
+              ],
+              "captured_rows": 1,
+              "binding_restored": true,
+              "audit": {
+                "whole_load_fallback": false,
+                "source_pairs": 6,
+                "fallback_pairs": 0,
+                "page_reads": 6,
+                "cache_hits": 6,
+                "fallbacks": 0,
+                "peak_raw_bytes": 434873,
+                "disposed": true,
+                "raw_bytes_after_close": 0,
+                "extra_source_encodes_for_ownership": 0
+              }
+            }
+          ],
+          "statement_guards_unchanged": true,
+          "methods_changed_only_storage_set_in_one_expression": true,
+          "graph_capture_through_actual_callback_argument": true,
+          "graph_access_through_stack": false,
+          "timing_trial": false,
+          "product_calls": 0,
+          "normal64_accepted": false,
+          "actual_farm_Runs": 0,
+          "G0_G4": "not_assessed"
+        },
+        "nested-mutation.json": {
+          "scope": "software-only observation counterexample; current candidate is not adopted",
+          "mutated_after_source_hash": true,
+          "results": [
+            {
+              "mode": "original",
+              "outcome": [
+                "error",
+                "app.crop_greenhouse_solar_storage",
+                "JointStorageHold",
+                "HASH_HOLD: exact bound result/context/scope"
+              ],
+              "captured_rows": 1,
+              "binding_restored": true,
+              "audit": {}
+            },
+            {
+              "mode": "candidate",
+              "outcome": [
+                "error",
+                "app.crop_greenhouse_solar_storage",
+                "JointStorageHold",
+                "COMMIT_HOLD: original prefix/cursor"
+              ],
+              "captured_rows": 1,
+              "binding_restored": true,
+              "audit": {
+                "whole_load_fallback": false,
+                "source_pairs": 1,
+                "fallback_pairs": 0,
+                "page_reads": 2,
+                "cache_hits": 1,
+                "fallbacks": 0,
+                "peak_raw_bytes": 434873,
+                "disposed": true,
+                "raw_bytes_after_close": 0,
+                "extra_source_encodes_for_ownership": 0
+              }
+            }
+          ],
+          "statement_guards_unchanged": true,
+          "methods_changed_only_storage_set_in_one_expression": true,
+          "graph_capture_through_actual_callback_argument": true,
+          "graph_access_through_stack": false,
+          "timing_trial": false,
+          "product_calls": 0,
+          "normal64_accepted": false,
+          "actual_farm_Runs": 0,
+          "G0_G4": "not_assessed"
+        },
+        "internal-scanner.json": {
+          "scope": "synthetic JSON software counterexample; no product cache",
+          "native_approval_before_and_after": true,
+          "factory_restored": true,
+          "capture_through_actual_scanner_return": true,
+          "graph_access_through_stack": false,
+          "unchanged_blob_SHA256": "b62260bbee43e74acbc756ce39b71fbcbd087890edd3ce609a638b0f18355d72",
+          "fresh_original_value_SHA256": "b62260bbee43e74acbc756ce39b71fbcbd087890edd3ce609a638b0f18355d72",
+          "cached_value_SHA256": "9ba9dae67b64e9792e370666f4adcab691c97859ffd92f4b5b239539a6db0286",
+          "cached_value_differs_from_fresh_read": true,
+          "cache_hits": 1,
+          "raw_bytes_budget_peak": 938,
+          "timing_trial": false,
+          "product_calls": 0,
+          "normal64_accepted": false,
+          "actual_farm_Runs": 0,
+          "G0_G4": "not_assessed",
+          "disposed": true
+        }
+      },
+      "guard": {
+        "wall_seconds": 2.4248460509988945,
+        "combined_peak_RSS_bytes": 947675136,
+        "single_PID_peak_RSS_bytes": 145444864,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "protected_root_count": 5,
+        "original_source_entries": 2148,
+        "owned_non_zombie_remaining": []
+      }
+    }
+  },
+  "unique_counterexample_cases": 3,
+  "inventory": {
+    "schema_version": "solar-json-assembly-observation-inventory-v1",
+    "source_SHA256": {
+      "research/solar-json-source-assembly.py": "b5fa6a0a8a38ebd7d05f303e99013e56dafd9cb99a286fd82d93aaf8bdf48c09",
+      "backend/app/crop_greenhouse_solar_storage.py": "065ff9f9706bed285f19b82e67277123947715af285cc6438a77fed3c7e30d6d"
+    },
+    "counts": {
+      "records": {
+        "statement_guards": 14,
+        "headers_or_statements_without_direct_calls": 5
+      },
+      "prepare_commit": {
+        "statement_guards": 13,
+        "headers_or_statements_without_direct_calls": 5
+      }
+    },
+    "sites": [
+      {
+        "region": "records",
+        "line": 85,
+        "kind": "Expr",
+        "source": "_need(type(descriptors) is list and len(descriptors) <= LIMITS['pages_per_commit'], 'PAGE_HOLD: bounded descriptors')",
+        "direct_expression_calls": [
+          "_need",
+          "type",
+          "len"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "records",
+        "line": 86,
+        "kind": "Assign",
+        "source": "values = []",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "records",
+        "line": 86,
+        "kind": "Assign",
+        "source": "times = []",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "records",
+        "line": 87,
+        "kind": "For",
+        "source": "for d in descriptors:",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "records",
+        "line": 97,
+        "kind": "Expr",
+        "source": "_need(len(values) <= 128, 'PAGE_HOLD: bounded commit records')",
+        "direct_expression_calls": [
+          "_need",
+          "len"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "records",
+        "line": 98,
+        "kind": "Return",
+        "source": "return (values, times)",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "records",
+        "line": 88,
+        "kind": "Expr",
+        "source": "_need(type(d) is dict and set(d) == {'sha256', 'count', 'first_at', 'last_at'}, 'PAGE_HOLD: closed descriptor')",
+        "direct_expression_calls": [
+          "_need",
+          "type",
+          "set"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "records",
+        "line": 89,
+        "kind": "Assign",
+        "source": "rows, _ = self._blob(d['sha256'], LIMITS['page_bytes'])",
+        "direct_expression_calls": [
+          "self._blob"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "records",
+        "line": 90,
+        "kind": "Expr",
+        "source": "_need(type(rows) is list and type(d['count']) is int and (1 <= len(rows) == d['count'] <= LIMITS[kind + '_per_page']), 'PAGE_HOLD: bounded exact row count')",
+        "direct_expression_calls": [
+          "_need",
+          "type",
+          "type",
+          "len"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "records",
+        "line": 92,
+        "kind": "For",
+        "source": "for row in rows:",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "records",
+        "line": 96,
+        "kind": "Expr",
+        "source": "_need(rows[0]['time']['at'] == d['first_at'] and rows[-1]['time']['at'] == d['last_at'], 'PAGE_HOLD: page time bounds')",
+        "direct_expression_calls": [
+          "_need"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "records",
+        "line": 93,
+        "kind": "Expr",
+        "source": "_need(type(row) is dict and set(row) == {'value', 'time'} and (row['time'] == clock._point(manifest, row['value'], program)), 'PAGE_HOLD: original value/time pair')",
+        "direct_expression_calls": [
+          "_need",
+          "type",
+          "set",
+          "clock._point"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "records",
+        "line": 95,
+        "kind": "Expr",
+        "source": "values.append(row['value'])",
+        "direct_expression_calls": [
+          "values.append"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "records",
+        "line": 95,
+        "kind": "Expr",
+        "source": "times.append(row['time'])",
+        "direct_expression_calls": [
+          "times.append"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 161,
+        "kind": "Expr",
+        "source": "_need(cp is not None and commit['before_checkpoint_sha256'] == cp['sha256'] and (type(commit['pages']) is dict) and (set(commit['pages']) == set(index)) and (sum((len(v) for v in commit['pages'].values())) <= LIMITS['pages_per_commit']), 'COMMIT_HOLD: checkpoint/page identity')",
+        "direct_expression_calls": [
+          "_need",
+          "type",
+          "set",
+          "set",
+          "sum",
+          "len",
+          "commit['pages'].values"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 165,
+        "kind": "Assign",
+        "source": "source = dict(commit['source_meta'])",
+        "direct_expression_calls": [
+          "dict"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 165,
+        "kind": "Assign",
+        "source": "times = dict(commit['times_meta'])",
+        "direct_expression_calls": [
+          "dict"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 166,
+        "kind": "Expr",
+        "source": "_need(not {'samples', 'events'} & set(source) and (not {'samples', 'events'} & set(times)), 'COMMIT_HOLD: metadata excludes paged values')",
+        "direct_expression_calls": [
+          "_need",
+          "set",
+          "set"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 168,
+        "kind": "For",
+        "source": "for kind in index:",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "prepare_commit",
+        "line": 172,
+        "kind": "Expr",
+        "source": "_need(_hash(source) == commit['source_chunk_sha256'], 'HASH_HOLD: exact original chunk')",
+        "direct_expression_calls": [
+          "_need",
+          "_hash"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 173,
+        "kind": "Assign",
+        "source": "payload = {'version': clock.VERSION, 'binding_sha256': h['binding_sha256'], 'scope': 'software_research_only', 'G0_G4': 'not_assessed', 'source_chunk_sha256': commit['source_chunk_sha256'], 'before_checkpoint_sha256': cp['sha256'], 'source': source, 'times': times}",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "prepare_commit",
+        "line": 175,
+        "kind": "Expr",
+        "source": "_need(_hash(payload) == commit['result_sha256'] and source['context_sha256'] == h['context_sha256'] and (_canonical(source['manifest']) == _canonical(context['manifest'])) and (source['status'] in ('yielded', 'completed', 'hold')) and (source['scope'] == 'software_research_only') and (source['claim_scope'] == 'synthetic_joint_solar_ventilation_continuation_only') and (source['G0_G4'] == 'not_assessed'), 'HASH_HOLD: exact bound result/context/scope')",
+        "direct_expression_calls": [
+          "_need",
+          "_hash",
+          "_canonical",
+          "_canonical"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 1,
+        "kind": "Return",
+        "source": "return (source, times)",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "prepare_commit",
+        "line": 169,
+        "kind": "Assign",
+        "source": "source[kind], times[kind] = self._records(kind, commit['pages'][kind], manifest, program)",
+        "direct_expression_calls": [
+          "self._records"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 170,
+        "kind": "For",
+        "source": "for descriptor in commit['pages'][kind]:",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      },
+      {
+        "region": "prepare_commit",
+        "line": 171,
+        "kind": "Expr",
+        "source": "index[kind].append({'start': counts[kind], 'commit_sha256': digest, **descriptor})",
+        "direct_expression_calls": [
+          "index[kind].append"
+        ],
+        "contains_dynamic_call": true
+      },
+      {
+        "region": "prepare_commit",
+        "line": 171,
+        "kind": "AugAssign",
+        "source": "counts[kind] += descriptor['count']",
+        "direct_expression_calls": [],
+        "contains_dynamic_call": false
+      }
+    ],
+    "runtime_loop_counts_are_separate": true,
+    "native_call_identity_or_graph_nonexposure_not_proved_by_statement_guard": true,
+    "no_observation_removed": true,
+    "production_calls": 0
+  },
+  "inventory_raw_SHA256": "4300353e507419e206a43280773fd826047fd373c8dc6ec638f0f524a5ea1f19",
+  "adoption_decision": "rejected; JSON ownership reuse family retired from active implementation",
+  "ownership_semantics_accepted": false,
+  "native_state_checks_prove_nonexposure": false,
+  "previous176_tests_remain_historical_narrow_evidence": true,
+  "previous176_or_full_backend_browser_not_rerun": true,
+  "new_performance_trial": false,
+  "valid_ABBA_repeated": false,
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "production_call_sites": 0,
+  "new_CI_dispatched": false,
+  "normal64_accepted": false,
+  "new_Solar_deployed": false,
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null,
+  "next_task": "crop-solar-checkpoint-consumer-validation-boundary",
+  "checkpoint_packet_observation": {
+    "file": "backend/app/crop_greenhouse_solar_execution_checkpoint.py",
+    "SHA256": "6201b934429afe64a8bddcbe975c9c4b972de6d019958c0f18679cc4d482641a",
+    "fields": [
+      "version",
+      "scope",
+      "G0_G4",
+      "publication_sequence",
+      "input_sha256",
+      "head_sha256",
+      "proof_sha256",
+      "intent_sha256",
+      "farm_binding_sha256",
+      "source_sha256",
+      "context_sha256",
+      "time_binding_sha256",
+      "header_sha256",
+      "artifact_sha256",
+      "custody_code_sha256",
+      "execution_code_sha256",
+      "checkpoint_code_sha256",
+      "custody_sequence",
+      "status",
+      "steps",
+      "planned_steps",
+      "counts",
+      "computed_through_utc",
+      "provenance_sha256",
+      "rights_or_gate_approval"
+    ],
+    "contains_numerical_checkpoint_value": false,
+    "rights_or_gate_approval_is_False": true,
+    "observation_does_not_authorize_skipping_current_validation": true
+  },
+  "public_probe": "research/solar-json-observation-counterexamples.py",
+  "initial_setup_failure": {
+    "case": "focused-solar-json-observation-nested-v1",
+    "log_SHA256": "4b192adaf3d5829330f9f65c586d60e5bfbe8f2bb33dfb28f72b55f0924e5b18",
+    "reason": "invalid C_RETURN local-event mask before executing counterexample; excluded"
+  }
+}
