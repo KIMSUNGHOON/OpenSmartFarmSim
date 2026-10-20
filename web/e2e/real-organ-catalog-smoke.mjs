@@ -4,18 +4,20 @@ import {createHash} from 'node:crypto';
 import {createInterface} from 'node:readline';
 import {writeFile} from 'node:fs/promises';
 import {chromium,expect as assertions} from '@playwright/test';
+import {observeApiBodies} from './observe-api-body.mjs';
 
 const expect=assertions.configure({timeout:30_000});
 const reader=createInterface({input:process.stdin}),lines=reader[Symbol.asyncIterator]();
 async function next(){const line=await lines.next();assert(!line.done,'owned browser protocol ended');return JSON.parse(line.value);}
 const config=await next(),origin=process.argv[2],directory=process.argv[3];
 const clean=value=>Object.values(config.tokens).reduce((s,token)=>s.replaceAll(token,'[owned-token]'),String(value));
-const network=[],errors=[],frames=[],phases=[],pending=new Set(),started=new Map();
+const network=[],consumed=[],errors=[],frames=[],phases=[],pending=new Set(),started=new Map();
 const hash=raw=>createHash('sha256').update(raw).digest('hex');
 const browser=await chromium.launch({args:['--enable-unsafe-swiftshader','--single-process','--no-zygote']});
 const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1536,height:1024},deviceScaleFactor:.5});
 const page=await context.newPage();
 page.setDefaultTimeout(30_000);page.setDefaultNavigationTimeout(30_000);
+await observeApiBodies(page,row=>consumed.push(row));
 async function phase(name){
   phases.push({name,frames:frames.length,responses:network.length});
   await writeFile(directory+'/browser-progress.private.json',JSON.stringify({phases,frames,network,errors}),{mode:0o600});
@@ -28,12 +30,20 @@ page.on('response',response=>{
     assert(url.origin===origin,'unexpected API origin');
     const request=response.request();assert(request.method()==='GET','unexpected API mutation');
     assert(Object.values(config.tokens).some(token=>request.headers().authorization==='Bearer '+token),'unexpected owned account');
+    const row={path:url.pathname+url.search,method:'GET',status:response.status(),
+      header_seconds:(performance.now()-started.get(request))/1000,
+      cache_control:response.headers()['cache-control'],body_observed:false};
+    assert(row.cache_control==='no-store'&&row.header_seconds<30,'native header policy or deadline differs');
+    network.push(row);
+    if(!response.ok()){
+      assert(row.status===403||row.status===422,'unexpected native error status');
+      row.error_body='SDK rejects at headers without reading body';return;
+    }
     const raw=await response.body(),bodySeconds=(performance.now()-started.get(request))/1000;
     const limit=url.pathname.startsWith('/v1/crop-research-result-catalog')?65536:2*1024**2;
     assert(raw.length<=limit&&bodySeconds<30,'native response size or deadline exceeded');
     assert(response.headers()['cache-control']==='no-store','native cache policy differs');
-    network.push({path:url.pathname+url.search,method:'GET',status:response.status(),bytes:raw.length,
-      body_SHA256:hash(raw),body_seconds:bodySeconds,cache_control:'no-store'});
+    Object.assign(row,{body_observed:true,bytes:raw.length,body_SHA256:hash(raw),body_seconds:bodySeconds});
   })().catch(error=>errors.push(clean(error.message))).finally(()=>pending.delete(task));pending.add(task);
 });
 const send=stage=>console.log(JSON.stringify({stage}));
@@ -144,9 +154,15 @@ try{
   assert.deepEqual(errors,[]);
   assert(network.some(r=>r.status===403)&&network.some(r=>r.status===422),'missing real current denial');
   assert(network.length<64,'unexpected request repetition');
+  const complete=network.filter(r=>r.body_observed);
+  assert(complete.every(r=>r.status===200),'unexpected error-body consumption claim');
+  assert(consumed.every(r=>r.status===200&&r.cache==='no-store'&&r.body_seconds<30),'SDK body contract differs');
+  const tuples=rows=>rows.map(r=>[new URL(r.path,origin).pathname,r.method,r.status].join('|')).sort();
+  assert.deepEqual(tuples(consumed),tuples(complete),'SDK consumed-body coverage differs');
   assert(!network.some(r=>r.path.includes('cycle-calculation')||r.path.includes('harvest-research')),'organ selection used another model');
   const result={stage:'verified',scope:'live synthetic organ catalogue/API/DB/browser only',mock_API_used:false,
-    actual_WebGL:true,frames,network,errors,current_rights_scene_removed:true,rights_restored_original:true,
+    actual_WebGL:true,frames,network,consumed,errors,error_bodies_not_read_by_SDK:true,
+    current_rights_scene_removed:true,rights_restored_original:true,
     reconnect_same_original_result:true,account_denied_and_restored:true,numeric_hold_has_no_scene:true,
     widths:[1536,390,320],DPR:.5,U1_accepted:false,WSL_capacity_accepted:false,deployed:false};
   assert(!JSON.stringify(result).includes(config.tokens.owner)&&!JSON.stringify(result).includes(config.tokens.denied));

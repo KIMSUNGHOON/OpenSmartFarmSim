@@ -16,7 +16,10 @@
 - 1536×1024/390×844·320px, DPR0.5와 키보드 시점 이동을 확인한다.
   ResizeObserver가 실제 새 폭을 반영한 뒤 가로 넘침을 검사한다. 보간/임의 성장 애니메이션은 추가하지 않는다.
 - GET만 허용한다. 정상 원 row/payload/hash/서명·DB counts가 보존되고 조회 중 put/integrate/RHS·SQL 쓰기는0이다.
-  서버와 브라우저가 본 응답 status/원 body SHA256을 대사하고 기존30초/metadata64KiB·재생2MiB 한도를 유지한다.
+  모든 응답의 서버/브라우저 status를 대사한다. 성공 응답은 원 body SHA256과 SDK의 실제 끝까지 읽기를 확인한다.
+  SDK가 `!response.ok`에서 본문을 읽지 않고 거부하는403/422는 브라우저 헤더/현재 화면 제거로 검증한다.
+  해당 오류 본문의 bytes/hash는 upstream proxy에서만 관측하며 브라우저 본문 소비로 표시하지 않는다.
+  기존30초/metadata64KiB·재생2MiB 한도를 유지한다.
 - native child 전체를512MiB/PID·합1GiB/600초·0.25초 표본으로 감독한다.
   실제 종료·FD/소유 프로세스/PG/passfile/임시 정리를 확인하며 credential·개인 자료·원 제한 자료는 공개하지 않는다.
 

@@ -41,6 +41,7 @@ def supervise(directory):
         OSSF_TEST_PG_SHARED_BUFFERS_MIB='1')
     pins={name:sha256((ROOT/name).read_bytes()).hexdigest() for name in (
         'backend/tests/web_crop_organ_catalog_smoke.py','web/e2e/real-organ-catalog-smoke.mjs',
+        'web/e2e/observe-api-body.mjs',
         'research/crop_organ_catalog_hosted.py')}
     try:
         with (evidence/'case.private.log').open('xb') as log:

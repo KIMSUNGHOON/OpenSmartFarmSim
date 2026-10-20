@@ -258,9 +258,13 @@ def test_live_organ_catalogue_saved_frames_current_rights_and_account(crop_setup
         with jobs.connect() as conn:
             assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth']=='scram-sha-256'
             assert conn.execute('SHOW shared_buffers').fetchone()['shared_buffers']=='1MB'
-        server_rows = [(o['path'],o['status'],o['bytes'],o['body_SHA256']) for o in observations]
-        browser_rows = [(o['path'],o['status'],o['bytes'],o['body_SHA256']) for o in report['network']]
+        assert sorted((o['path'],o['status']) for o in observations)==sorted(
+            (o['path'],o['status']) for o in report['network'])
+        server_rows = [(o['path'],o['status'],o['bytes'],o['body_SHA256']) for o in observations if o['status']==200]
+        browser_rows = [(o['path'],o['status'],o['bytes'],o['body_SHA256']) for o in report['network'] if o['body_observed']]
         assert sorted(server_rows)==sorted(browser_rows)
+        assert all(o['status'] in (403,422) and not o['body_observed'] and 'body_SHA256' not in o
+            for o in report['network'] if o['status']!=200)
         assert any(o['status']==422 for o in observations) and any(o['status']==403 for o in observations)
         result = {'scope':'synthetic live organ catalogue/API/DB/browser software integration',
             'actual_TLS_SCRAM_Bearer':True,'actual_API_DB_browser':True,'mock_API_used':False,
@@ -268,6 +272,8 @@ def test_live_organ_catalogue_saved_frames_current_rights_and_account(crop_setup
             'row_count_before_after':[before,count(store)],'original_rows_payloads_signatures_unchanged':True,
             'selected_DB_counts_before_after':[before_counts,selected_counts()],
             'query_calls':calls,'actual_crop_Runs':0,'G0_G4':'not_assessed','WSL_capacity_accepted':False,
+            'all_response_statuses_matched':True,'successful_response_bodies_matched':True,
+            'denied_responses_browser_headers_only':True,
             'owned_postgres_shared_buffers':'1MB',
             'historical_preserved_row_compatibility_accepted':False,'U1_accepted':False,'deployed':False}
     finally:
