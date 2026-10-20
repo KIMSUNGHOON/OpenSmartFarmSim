@@ -1,0 +1,540 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_scope": "live original farm-catalog successful response delivered after cancel/account change; saved-reader browser only; full U1 remains open",
+  "actual_farm_runs": 0,
+  "backend_restart_browser_accepted": false,
+  "browser_report": {
+    "U1_accepted": false,
+    "actual_WebGL": true,
+    "all_API_requests_GET": true,
+    "backend_restart_tested": false,
+    "both_growth_and_harvest_cleared": true,
+    "browser_version": {
+      "jsVersion": "15.3.76.4",
+      "product": "HeadlessChrome/153.0.8010.12",
+      "protocolVersion": "1.3",
+      "revision": "@971a7443b0c9b0a9b2860529b33331b76077ec62",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+    },
+    "consoleErrors": [],
+    "current_backend_old_record_supported": false,
+    "current_frontend_deployed": false,
+    "delayed": [
+      {
+        "body_SHA256": "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+        "bytes": 743,
+        "fulfill_or_body_rewrite_used": false,
+        "label": "cancel_late_original",
+        "original_server_body": true,
+        "positive_body_delivered_after_invalidation": true,
+        "release": "continued original response",
+        "status": 200
+      },
+      {
+        "body_SHA256": "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+        "bytes": 743,
+        "fulfill_or_body_rewrite_used": false,
+        "label": "account_late_original",
+        "original_server_body": true,
+        "positive_body_delivered_after_invalidation": true,
+        "release": "continued original response",
+        "status": 200
+      }
+    ],
+    "design_three_state_review": false,
+    "errors": [],
+    "late_original_bodies_delivered_after_invalidation": 2,
+    "late_response_cancel_and_account_change": true,
+    "network": [
+      {
+        "body_SHA256": "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+        "bytes": 743,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.getResponseBody original response bytes",
+        "status": 200,
+        "target": "/v1/farm-authored-inputs/catalog",
+        "transport": {
+          "event": "loadingFinished"
+        }
+      },
+      {
+        "body_SHA256": "2e9f93a4e2e2eceb4497e7ae3b84efedc52aff71d492a06062b4a37b31fbe288",
+        "bytes": 712,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.getResponseBody original response bytes",
+        "status": 200,
+        "target": "/v1/farm-authored-inputs?scenario_id=owned-harvest-parent-farm&scenario_revision=r1",
+        "transport": {
+          "event": "loadingFinished"
+        }
+      },
+      {
+        "body_SHA256": "c5b2ab0da5825e8846d6f6951a8d9597ec153aad8f73e0676b1d5e72a65764c7",
+        "bytes": 604,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.getResponseBody original response bytes",
+        "status": 200,
+        "target": "/v1/crop-research-result-catalog/farm-crops?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47",
+        "transport": {
+          "event": "loadingFinished"
+        }
+      },
+      {
+        "body_SHA256": "0202eef7495fb96341b9bd3cd5691d96136c9d059cd1e35f27c668218e1c9b86",
+        "bytes": 790,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-research-result-catalog?kind=calculation_cycle_v1&scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&limit=10",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "57fbf8cbd14ed35b0c288952ee35ce2d85af5c1d5551bdeecadc1fef8a284167",
+        "bytes": 768,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-research-result-catalog?kind=harvest_v1&scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&limit=10",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+        "bytes": 9628,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-cycle-calculation-research-results/crop-cycle-verified-result-v1%3Aa10f9bbc50e245958ecbaeff309b57b8d15b5d17e30d6111d18fa75d569e8444?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=summary",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "b351b693f04d57360c40c449c3f1874bb118f112220d559ce69070abc040cb0f",
+        "bytes": 65064,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-cycle-calculation-research-results/crop-cycle-verified-result-v1%3Aa10f9bbc50e245958ecbaeff309b57b8d15b5d17e30d6111d18fa75d569e8444?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=samples&offset=0&limit=7",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+        "bytes": 16519,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-harvest-research-results/crop-harvest-registered-result-v1%3A797624fc715035d12c4869e7c4f437fa2bd9b96cc0d20e72b881f47c10735285?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=summary",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "6ae29254aa2475d9bd7c9d21b1afed475f83510a9e1484f589aafd780aaf60f5",
+        "bytes": 33836,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/crop-harvest-research-results/crop-harvest-registered-result-v1%3A797624fc715035d12c4869e7c4f437fa2bd9b96cc0d20e72b881f47c10735285?scenario_id=owned-harvest-parent-farm&scenario_revision=r1&registration_sha256=2f3bf544053c7006e37ad7ca757cc32b9f81461f53e5e1c9ac6949f8708afd47&crop_id=crop-1&view=records&offset=0&limit=3",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+        "bytes": 743,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/farm-authored-inputs/catalog",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+        "bytes": 743,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "Network.streamResourceContent original response bytes",
+        "status": 200,
+        "target": "/v1/farm-authored-inputs/catalog",
+        "transport": {
+          "canceled": true,
+          "error_text": "net::ERR_ABORTED",
+          "event": "loadingFailed",
+          "status_received": 200
+        }
+      },
+      {
+        "body_SHA256": null,
+        "bytes": null,
+        "cache": "no-store",
+        "method": "GET",
+        "observation": "actual error HTTP header; no numerical source adopted",
+        "status": 401,
+        "target": "/v1/farm-authored-inputs/catalog",
+        "transport": {
+          "event": "responseReceived"
+        }
+      }
+    ],
+    "phases": [
+      {
+        "at": "2026-10-20T11:02:37.646Z",
+        "name": "browser_started"
+      },
+      {
+        "at": "2026-10-20T11:02:39.536Z",
+        "name": "app_loaded"
+      },
+      {
+        "at": "2026-10-20T11:02:39.537Z",
+        "name": "connect_started"
+      },
+      {
+        "at": "2026-10-20T11:02:39.538Z",
+        "name": "connection_details_state",
+        "open": true
+      },
+      {
+        "at": "2026-10-20T11:02:39.540Z",
+        "name": "token_input_visible"
+      },
+      {
+        "at": "2026-10-20T11:02:39.622Z",
+        "name": "token_input_focused"
+      },
+      {
+        "at": "2026-10-20T11:02:39.629Z",
+        "name": "token_input_filled"
+      },
+      {
+        "at": "2026-10-20T11:02:39.701Z",
+        "name": "connection_submitted"
+      },
+      {
+        "at": "2026-10-20T11:02:39.703Z",
+        "name": "token_cleared"
+      },
+      {
+        "at": "2026-10-20T11:02:39.964Z",
+        "name": "growth_view_selected"
+      },
+      {
+        "at": "2026-10-20T11:02:40.038Z",
+        "name": "farm_list_started"
+      },
+      {
+        "at": "2026-10-20T11:02:40.616Z",
+        "name": "farm_list_ready"
+      },
+      {
+        "at": "2026-10-20T11:02:51.290Z",
+        "name": "baseline_wait"
+      },
+      {
+        "at": "2026-10-20T11:03:04.610Z",
+        "name": "baseline"
+      },
+      {
+        "at": "2026-10-20T11:03:25.291Z",
+        "name": "cancel_late_original_held"
+      },
+      {
+        "at": "2026-10-20T11:03:25.362Z",
+        "name": "late_original_after_cancel_not_restored"
+      },
+      {
+        "at": "2026-10-20T11:03:25.524Z",
+        "name": "account_late_original_held"
+      },
+      {
+        "at": "2026-10-20T11:03:25.526Z",
+        "name": "connect_started"
+      },
+      {
+        "at": "2026-10-20T11:03:25.527Z",
+        "name": "connection_details_state",
+        "open": false
+      },
+      {
+        "at": "2026-10-20T11:03:25.591Z",
+        "name": "token_input_visible"
+      },
+      {
+        "at": "2026-10-20T11:03:25.691Z",
+        "name": "token_input_focused"
+      },
+      {
+        "at": "2026-10-20T11:03:25.699Z",
+        "name": "token_input_filled"
+      },
+      {
+        "at": "2026-10-20T11:03:25.989Z",
+        "name": "connection_submitted"
+      },
+      {
+        "at": "2026-10-20T11:03:25.990Z",
+        "name": "token_cleared"
+      },
+      {
+        "at": "2026-10-20T11:03:26.431Z",
+        "name": "growth_view_selected"
+      },
+      {
+        "at": "2026-10-20T11:03:26.795Z",
+        "name": "late_original_after_account_change_not_restored"
+      }
+    ],
+    "rights_withdrawal_in_browser_tested": false,
+    "scope": "current minified UI / original live stored-reader API / original successful server response pause / native cancel and account change",
+    "values": [
+      {
+        "CN_values": 100,
+        "at": "2026-10-01T00:00:00Z",
+        "label": "baseline",
+        "sample_SHA256": "c56be5dbfc2b0362a815b15f6f30ea80e9fec4be51d400d8484a00150be010b0"
+      }
+    ],
+    "verified_harvest_rows_per_scene": 3
+  },
+  "build_commit": "8ad6c24f6b3f13fbea15c0fd75f1511b593a304a",
+  "current_frontend_deployed": false,
+  "date": "2026-10-20",
+  "earlier_bootstrap_path_failure": {
+    "RSS_samples": 1,
+    "actual_child_exit": 1,
+    "case": "focused-catalog-native-late-response-v1",
+    "combined_peak_RSS_bytes": 542093312,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 134029312,
+    "source_count": 2686,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "terminal_SHA256": "c3a8f2e9a2f15f57bf3fe6ae46dc29bdef0ee804668b260cc20ac6e0627d24b4",
+    "wall_seconds": 0.35229817900108173
+  },
+  "earlier_transport_cancel_only": {
+    "accepted_as_positive_response_delivery": false,
+    "guard": {
+      "RSS_samples": 225,
+      "actual_child_exit": 0,
+      "case": "focused-catalog-native-late-response-v2",
+      "combined_peak_RSS_bytes": 1066479616,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 359735296,
+      "source_count": 2686,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_SHA256": "58db8581ff2cc6c02d731ead54e67637194eb319aa11562e16c2f84b5a12f604",
+      "wall_seconds": 58.73624995999853
+    },
+    "response_releases": [
+      {
+        "body_SHA256": "57fbf8cbd14ed35b0c288952ee35ce2d85af5c1d5551bdeecadc1fef8a284167",
+        "bytes": 768,
+        "fulfill_or_body_rewrite_used": false,
+        "label": "cancel_late_original",
+        "original_server_body": true,
+        "release": "native continuation refused after client cancellation",
+        "release_error": "CDP Fetch.continueResponse failed code -32602",
+        "status": 200
+      },
+      {
+        "body_SHA256": "57fbf8cbd14ed35b0c288952ee35ce2d85af5c1d5551bdeecadc1fef8a284167",
+        "bytes": 768,
+        "fulfill_or_body_rewrite_used": false,
+        "label": "account_late_original",
+        "original_server_body": true,
+        "release": "native continuation refused after client cancellation",
+        "release_error": "CDP Fetch.continueResponse failed code -32602",
+        "status": 200
+      }
+    ]
+  },
+  "frozen_driver_SHA256": {
+    "catalog-cdp.mjs": "c5d1f5869017fcbe4a84e8b230c1acd773e7613ca1cc40f161c0fac467dcee2e",
+    "cdp-pipe.mjs": "4b0baf480b32b4c79112671585f4d4c373a184948d3f521a78c6af6848123d2a"
+  },
+  "full_U1_accepted": false,
+  "guard": {
+    "RSS_samples": 196,
+    "actual_child_exit": 0,
+    "case": "focused-catalog-native-late-response-v3",
+    "combined_peak_RSS_bytes": 1050243072,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 362582016,
+    "source_count": 2686,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "terminal_SHA256": "c07e4c7be835e089b3bd9334248aedb8f201a39cc69c088b87462dc039528acd",
+    "wall_seconds": 51.07035630699829
+  },
+  "independent_API_browser_attempt": {
+    "DB_counts_unchanged_proof": false,
+    "accepted": false,
+    "browser_last_phase": "farm_list_ready",
+    "guard": {
+      "RSS_samples": 44,
+      "actual_child_exit": 1,
+      "case": "focused-catalog-owned-API-browser-lifecycle-v1",
+      "combined_peak_RSS_bytes": 1114865664,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 300425216,
+      "source_count": 2686,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_SHA256": "bb2cc6ba21ab77da773c8c0bde19f883348581445d63463a0249d9d2eda58807",
+      "wall_seconds": 15.043123807990924
+    },
+    "owned_cleanup_SHA256": "9c1ec895c5c57ac63f5ed99598fa1caa0f7a7540d28f5c28b5cecfc521aea55d"
+  },
+  "mutable_status_feed_SHA256": "62276837cd4eba968d06c541ab01472fc97ad0cfb2c5909c6991a06136cdcdba",
+  "native": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_SHA256": "5b3b89fcd9d08bb92f985b2b68e4f3860ca304415bf003d735ca10e3b227aa28",
+    "recursive_CLI": false,
+    "timestamp": "2026-10-20T10:49:06.090Z"
+  },
+  "next_independent_slice": "original full-period final saved sample and harvest range in current UI; API restart/rights browser remains separate RSS hold",
+  "owned_terminal": {
+    "Python_waiter_removed": true,
+    "completed": true,
+    "current_frontend_deployed": false,
+    "error_type": null,
+    "live_backend_modified_or_restarted": false,
+    "mutable_status_feed_preserved": true,
+    "nginx_exit": 0,
+    "nginx_signal": null,
+    "no_database_created": true,
+    "owned_nginx_master_process": false,
+    "source_and_assets_preserved": true,
+    "wall_seconds": 47.70363706
+  },
+  "owner_source_SHA256": "5b71f4c9e8543da6c7accaf2a8fa6b7a447992f387cd7c09a3b06afc11bc359a",
+  "published_status": {
+    "HTML_entries_preserved": true,
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "browser_DOM_rerun": false,
+    "guard_terminal_SHA256": "ace5347e11cf016a0979fcfe726737d3209d9a44f1bc180ea174f2c10d5ae208",
+    "reported_at": "2026-10-20T11:07:04.400856Z",
+    "source_SHA256": "63356e28287ada0ee702aded176e1d6d9b4b96e86d80605086d772affc31300e",
+    "ventilation_frozen_source_files_preserved": 2173
+  },
+  "rights_withdrawal_browser_accepted": false
+}

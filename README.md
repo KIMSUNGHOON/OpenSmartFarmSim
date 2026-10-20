@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 작업 — 2026-10-20 KST:** [현재 제품 빌드의 실제 저장 목록→3D/수확 연결](research/catalog-stored-replay-current-browser-20261020.md)을 수용했다. 웹 단위1,864/브라우저246·프로덕션 빌드와 실제 GET24응답/6장면·수확3행·재접속/401 제거·복구를 확인했다. 원5서비스/자료와 합1GiB 한도를 지켰다. 새 목록 UI는 미배포이며 API 재시작/철회·구판 CODE·U1 전체·새 Solar/관문·전체 날짜는 미완료/미정이다.
+**현재 작업 — 2026-10-20 KST:** [현재 빌드의 실제 저장 목록→3D/수확](research/catalog-stored-replay-current-browser-20261020.md), [별도 API 재시작·권리20조회](research/catalog-owned-api-lifecycle-20261020.md), [농장 목록의 실제 늦은200 전달2건 차단](research/catalog-native-late-response-20261020.md)을 각 범위에서 수용했다. 원5서비스/자료·합1GiB를 보존했다. 별도 PG/API+브라우저 동시는 RSS hold이며 새 목록 UI/새 Solar는 미배포다. 다음은 마지막 생장 시점·수확 범위의 실제 UI 대사다. U1 전체·작기/자원/경제·실제 자료/관문·전체 날짜는 미완료/미정이다.
 
 **현재 작업 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했고 제품 app261은 유지했다. 다음은 새 Solar normal64와 독립인 [기존 저장 결과 목록→3D 선택의 실제 연결 수용](research/crop-result-catalog-native-readiness-20261020.md)이다. 준비된21건의 원 dump/hash·현재10파일은 대사했으며 실제 DB/브라우저/U1은 미수용이다. 새 Solar 정상46/64 미완료·후속 hold/취소/계산 중3D/WSL·전체 UI/관문/완료일 미정과 goal active를 유지한다.
 

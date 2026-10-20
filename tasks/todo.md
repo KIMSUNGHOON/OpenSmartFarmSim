@@ -1,5 +1,16 @@
 # 첫 구현 작업 목록
 
+- [x] **`product-ui-result-catalog-native-late-farm-response`** — [실제 정상 본문의 늦은 전달2건](../research/catalog-native-late-response-20261020.md).
+  취소/계정 변경 뒤에도 실제200 원 본문이 도착했으나 이전 농장/결과·생장/수확을 복원하지 않았다.
+  실제12GET/원 WebGL·수확3행·5root/원본/상한/정리를 확인했다. API/브라우저 동시 재시작·권리와 U1 전체는 별도다.
+
+- [ ] **`product-ui-result-catalog-full-period-native`** — 선행: 현재 minified 목록→원 저장 reader의 실제 연결.
+  같은 농장/작기·원 결과를 현재 UI에서 선택하고 마지막 저장 시점으로 이동해 서버가 반환한 마지막 index/UTC,
+  C/N100개·단위·LAI·WebGL/표를 대사한다. 마지막 수확 범위도 원 행 index/UTC·질량/단위·부모 연결과 대사한다.
+  저장 범위 밖 시점/임의 보간·재계산을 추가하지 않는다. 추가 API/DB 없이 원5root/자료·키/두 UI와
+  기존512MiB/PID·합1GiB/600초/소유 정리를 통과한다. 실패하면 체크하지 않고 실제 hold를 기록한다.
+  실제 품종/생산 예측이나 U1 전체·동시 재시작/권리 수용을 뜻하지 않는다.
+
 - [x] **`product-ui-result-catalog-owned-api-lifecycle`** — [독립 복원 PG의 실제 API 재시작·권리20조회](../research/catalog-owned-api-lifecycle-20261020.md).
   200×15/422×5·원 bytes/DB/서명 불변·listener 폐쇄/다른 PID·계산/게시0·5root/원본/상한/정리를 확인했다.
   브라우저의 권리/재시작·늦은 응답과 전체 U1·사용자 적용은 미수용이다.
@@ -398,7 +409,7 @@
     Chromium140개(예정30개 포함)·타입/1,028단위·빌드/audit 통과다. 원3상태 improve/렌더 대조와
     당시 실제 공동 DB/재시작·WSL 브라우저 자원/정리·화면 배포는 남아 있었다. 현재 범위는 아래2026-10-20 실제 연결 기록을 따른다.
   - **2026-10-20 현재 실제 연결:** [같은 제품 빌드/저장 판본 reader의6장면·24응답](../research/catalog-stored-replay-current-browser-20261020.md)을 원1GiB와5서비스/자료 보존으로 수용했다. 웹1,864/246·빌드/보안도 통과했다. 아래 native 부모는 재시작/철회·구판 CODE·기존 디자인/다른 저장 모델·배포가 남아 열어 둔다.
-  - [ ] **`product-ui-result-catalog-native`** — [현재 제품 빌드의 실제 저장 reader 경로](../research/catalog-stored-replay-current-browser-20261020.md)는 GET24응답/6장면·수확3행·reload/401 제거·복구·원1GiB/5root/정리로 수용했다. 같은 source의 웹1,864/246도 통과했다. 실제 API 재시작/철회·늦은 응답, 최신 backend 구판 CODE·기존3상태 디자인/다른 저장 모델·U1 사용자 적용은 계속 남는다. 실제 별도 DB/API/빌드 App에서
+  - [ ] **`product-ui-result-catalog-native`** — [현재 제품 빌드의 실제 저장 reader 경로](../research/catalog-stored-replay-current-browser-20261020.md)는 GET24응답/6장면·수확3행·reload/401 제거·복구·원1GiB/5root/정리로 수용했다. 같은 source의 웹1,864/246도 통과했다. [API-only 재시작/권리20조회](../research/catalog-owned-api-lifecycle-20261020.md)와 [늦은 농장 목록200 실제 전달2건](../research/catalog-native-late-response-20261020.md)은 별도 수용했다. API/브라우저 동시 재시작/철회는 RSS hold이며 마지막 생장/수확 범위·최신 backend 구판 CODE·기존3상태 디자인/다른 저장 모델·U1 사용자 적용은 남는다. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
 - [ ] **`product-ui-region-input` (U2)** — 선행: 기존 조사/수집/검토·농장 작성 API; U1과 병행 가능.
