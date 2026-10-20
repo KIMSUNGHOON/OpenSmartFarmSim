@@ -1,0 +1,141 @@
+{
+  "G0_G4": "not_assessed",
+  "actor_diagnostics": [
+    {
+      "api_proof_present": false,
+      "client_proof_present": false,
+      "exit_code": -15,
+      "log": {
+        "exception_types": [],
+        "locations": []
+      },
+      "role": "api",
+      "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+      "worker_proof_present": false
+    },
+    {
+      "api_proof_present": false,
+      "client_proof_present": false,
+      "exit_code": -15,
+      "log": {
+        "exception_types": [],
+        "locations": []
+      },
+      "role": "worker",
+      "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+      "worker_proof_present": false
+    }
+  ],
+  "actor_hashes_verified": true,
+  "actual_farm_Runs": 0,
+  "application_source_SHA256": "591eff7de6b721a8708d0fc30604feb8f9b5898bfedf6b2ea3e860fe8e576211",
+  "archive_downloaded_once": true,
+  "artifact": {
+    "digest": "sha256:4e9e179abf2296e79a4512dccfc7cb4b7b5f129dba726fc7ed206300625ae02a",
+    "id": 12244461407,
+    "name": "solar-unpaused-normal-939571e0b720142a48112490a4700994b35e7556",
+    "size_in_bytes": 3286
+  },
+  "conclusion": "failure",
+  "curation": {
+    "case": "focused-solar-query-scope-normal-curation-v1",
+    "observation_SHA256": "1c03d514d283f1211e6fa00ea2bc39d44c2a2935b1dd8f5efb2c40a5ad840b3f",
+    "terminal_SHA256": "71d5f1622d1d62000a9cd6c09f516aeadc31974a1471d42c5b42bb49bb93ab6f",
+    "verifier_SHA256": "65068af9d48d343f4a4b6f8c30071a4e92412c97e98ba2a3eb7fa9706be95937"
+  },
+  "database_cleanup": null,
+  "failure": {
+    "exception_type": "AssertionError",
+    "known_stage": "owned calculation timed out or failed",
+    "locations": [
+      {
+        "file": "crop_greenhouse_solar_unpaused_smoke.py",
+        "function": "exercise",
+        "line": 133
+      },
+      {
+        "file": "crop-greenhouse-solar-unpaused-probe.py",
+        "function": "exercise",
+        "line": 210
+      }
+    ],
+    "original_normal_accepted": false
+  },
+  "files": [
+    "actor-diagnostics.json",
+    "failure-checkpoint-diagnostics.json",
+    "failure.json",
+    "resource.json"
+  ],
+  "head_sha": "939571e0b720142a48112490a4700994b35e7556",
+  "job_conclusion": "failure",
+  "job_id": 118479233404,
+  "new_Solar_deployed": false,
+  "normal64_accepted": false,
+  "normal_proof": null,
+  "observed_at": "2026-10-20T06:06:24.312042+00:00",
+  "original_actor_input_limits_unchanged": true,
+  "raw_file_SHA256": {
+    "actor-diagnostics.json": "c7be673c60fa87d7b5944f9255e76ab0085f36af846fde199d8b45f2f0c3f257",
+    "failure-checkpoint-diagnostics.json": "1d7658c0c494823473ac8b96a24583765e813a1c1f74f5f3401327f6e1773496",
+    "failure.json": "caeef10a9162d92609cde8d7f0459a8b7e469119a2d13e2ea63663f3c9bd6d3e",
+    "resource.json": "a860be80f830b9f53cd7cff7104f5f0b90c4e1af029b8643221bc6275efdeee3"
+  },
+  "resource": {
+    "FD_before_after": [
+      7,
+      7
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 1429,
+    "WSL_capacity_accepted": false,
+    "actual_child_exit": 1,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 368205824,
+    "hosted_only": true,
+    "local_protected_roots_present": false,
+    "owned_non_zombie_remaining": [],
+    "reason": null,
+    "rights_or_gate_approval": false,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 129089536,
+    "temporary_entries_remaining": 0,
+    "wall_seconds": 381.768920248
+  },
+  "run_attempt": 1,
+  "run_id": 39377630664,
+  "same_source_normal_rerun": false,
+  "status": "completed",
+  "stopped_metadata_diagnostic_only": {
+    "actors_stopped_before_collection": true,
+    "application_query_sha256": "3752c9c467f197d4430dab256531d68917821c838b2832a1d38a2f4cd8e6b2cb",
+    "diagnostic_only": true,
+    "metadata": {
+      "G0_G4": "not_assessed",
+      "checkpoint_payload_sha256": "3374cdbc81541a77a6a8358dad3de20a06caa0ab6c1f52a413ddb91f6419333f",
+      "checkpoint_recorded_at": "2026-10-20T06:05:47.525550+00:00",
+      "evidence_kind": "stored_owned_fixture_metadata_only",
+      "job": {
+        "attempt": 1,
+        "state": "simulating"
+      },
+      "normal_execution_accepted": false,
+      "observed_at": "2026-10-20T06:05:51.420770+00:00",
+      "owned_cluster_identity_verified": true,
+      "rights_or_gate_approval": false,
+      "stored_checkpoint": {
+        "computed_through_utc": "2026-10-01T00:01:32.123456Z",
+        "planned_steps": 64,
+        "publication_sequence": 47,
+        "status": "yielded",
+        "steps": 46
+      },
+      "transaction_isolation": "repeatable read",
+      "transaction_read_only": true
+    },
+    "normal_execution_accepted": false,
+    "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+    "run_id": "39377630664",
+    "source_commit": "939571e0b720142a48112490a4700994b35e7556"
+  }
+}

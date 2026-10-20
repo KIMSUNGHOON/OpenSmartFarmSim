@@ -1,5 +1,9 @@
 # 구현 준비 현황
 
+**제품 조회 수정 수용·원 정상 미완료 — 2026-10-20 KST:** [제품29회귀/실제 한 번 HTTPS 비교](../research/solar-query-current-registration-scope-evaluation-20261020.md#final-product-regression-acceptance)는 수용했다. [후속 원 CI39377630664](../research/solar-query-current-registration-scope-native-normal-20261020.md)는 원360초 미완료·종료 뒤 저장 metadata46/64·정상/DB count proof 없음이다. 다음은 기존 진단에서 별도 계측하지 않은 prefix `_after_projection`의 현재 검사 비용 관측이며 같은 source의 정상/비용 반복은 하지 않는다. 새 Solar/실제 자료·G0–G4·계산 중3D·WSL/최종 UI와 전체 날짜는 미완료/미정·goal active다.
+
+**Query 등록 범위 제품 수용 — 2026-10-20 KST:** [실제 HTTPS 비교와 같은 제품29회귀](../research/solar-query-current-registration-scope-evaluation-20261020.md#final-product-regression-acceptance)를 수용했다. 한 번 비교의 평균20.558366%·원 값/UTC/현재 조회와 제품 권한/취소/원 시각·DB/정리를 확인했다. 다음은 source939571e의 원 계측OFF 정상64 CI39377630664이며 아직 미수용이다. 새 Solar 배포/실제 자료·G0–G4·최종 UI와 전체 날짜는 미완료/미정·goal active다.
+
 **API 요청별 실제 관측 완료 — 2026-10-20 KST:** [CI39369990827·24요청/서버 구간 대사](../research/solar-api-request-cost-observation-20261020.md)에서 원360초 미완료·마지막 confirm27/64, 성공 prefix/samples의 current6·원천912·약14–16초를 확인했다. observer11/두 Python판과 원 actor/hash·종료/정리는 수용했으며 정상64는 미수용이다. 다음은 [query의 한 현재 검사 안 등록 scope 후보](../contracts/solar-query-current-registration-scope-v1.md)다. 제품 app261·기존 두 UI 유지·새 Solar/실제 자료·관문/최종 UI와 전체 날짜는 미완료/미정·goal active다.
 
 아래 날짜별 기록은 당시 상태다.

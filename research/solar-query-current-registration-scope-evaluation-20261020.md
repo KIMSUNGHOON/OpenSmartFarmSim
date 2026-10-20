@@ -1,6 +1,6 @@
 # Query registration scope candidate — local evidence and hosted evaluation
 
-Status: isolated functional/HTTPS candidate accepted; final product regressions pending.
+Status: isolated cost/functional candidate and same-product29 regressions accepted. Normal64 remains unaccepted.
 [Contract](../contracts/solar-query-current-registration-scope-v1.md) · [machine evidence](artifacts/solar-query-current-registration-scope-local-20261020.json).
 
 ## Local verification
@@ -104,3 +104,47 @@ evaluated candidate. Candidate-cost mode requires the original application tree,
 so the changed product cannot accidentally repeat the original cost experiment.
 The valid cost trial remains CI39374833479; it is never replaced by this regression
 run. Same-source product acceptance and original normal64 remain pending.
+
+## Final product regression acceptance
+
+[CI39376592502](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39376592502),
+source939571e/attempt1/job118476003711, completed successfully. The
+[product machine evidence](artifacts/solar-query-current-registration-scope-product-20261020.json)
+reconciles exact source/evaluation hashes and application tree591eff7d…; actual
+product29 cases passed with0 skipped: pair11/query16/prefix2. All three modules
+reported schema/role0. The controller preserved application sources, finished
+in350.050068seconds, peak PID128,061,440bytes/total209,670,144bytes, FD7→7 and
+owned/temp remainder0. Cost execution was explicitlyFalse.
+
+The actual `_current` function AST equals the tested cost candidate. All260 other
+production Python files match the baseline; no numerical, UTC, public schema,
+worker or original actor change was adopted. The single pair scope closes before
+the original final guard; existing owners retain their original argument/identity
+checks. Same-source closed schema, original counts/UTC/heartbeat/new attempt,
+current/late rights and source drift, pending/lock release, dependency drift and
+prefix cancel/late registration regressions passed. This supports the narrow
+software change; the local interrupted case remains an excluded RSS observation.
+
+Native review accepts task52's product code scope. The next changed-source
+[original normal run39377630664](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39377630664)
+was dispatched once on939571e with cost/diagnostics disabled. It remains
+unaccepted pending terminal64/start1/CLI0/attempt1/success1, advancing prefixes,
+original values/UTC, actor/DB/FD/resource proof. A preflight hash comparison
+incorrectly compared literal actor fragments with generated full scripts; the
+shell still submitted the one authorized run. The unchanged original prototype
+bytes were independently verified, and the failed preflight is preserved in the
+private dispatch record. Terminal full-script actor hashes still require
+reconciliation. No second dispatch or modified actor/input/limit was substituted.
+
+Next dependencies retain normal→independent hold→HTTP cancel→live WebGL→WSL
+capacity/user activation. New Solar is not deployed; real farm runs0, independent
+production/economic/market data and G0–G4/whole UI/full completion remain open.
+
+## Original normal outcome
+
+[The original normal run](solar-query-current-registration-scope-native-normal-20261020.md)
+completed/failure: original360seconds not met, stopped READ ONLY metadata46/64,
+no normal/DB count proof. Original actors/hashes and resource cleanup were checked.
+Product task52 stays software-accepted; normal64 and all following activation
+gates stay open. Next is attribution of the separately unmeasured projection
+check, not a repeated normal run or cost trial.

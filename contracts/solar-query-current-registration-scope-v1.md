@@ -1,7 +1,7 @@
 # Solar query current-registration scope — v1 candidate
 
 Status: proposed from the [actual API request observation](../research/solar-api-request-cost-observation-20261020.md).
-Isolated cost/functional evaluation passed; production verification is pending. Reuses the existing
+Isolated cost/functional and same-product29 regressions accepted. Original normal64 remains required. Reuses the existing
 [registration read scope](farm-registration-read-scope-v1.md),
 [connection lifetime](farm-registration-connection-lifetime-v1.md) and accepted
 checkpoint `_current` ownership pattern.
@@ -83,3 +83,8 @@ product/candidate function AST, and never invokes the valid cost experiment.
 Candidate-cost mode requires the original application tree. Product local20
 passed, while the next UTC/heartbeat case was interrupted by the original RSS
 limit and remains unaccepted; hosted regression evidence is still required.
+
+[Final product evidence](../research/artifacts/solar-query-current-registration-scope-product-20261020.json)
+accepts the29 actual-product cases and their source/DB/resource cleanup scope.
+The change is accepted as software; original normal64, deployment and claim gates
+remain separate. The earlier product-local RSS-interrupted case is not counted.
