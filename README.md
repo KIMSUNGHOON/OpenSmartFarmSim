@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**현재 공개 응답 기능 — 2026-10-21 KST:** [CO₂ 투영 기능 검증](research/api-crop-greenhouse-co2-replay-20261021.md)의 hosted39검사·실제 등록 원문의 fresh2를 수용했습니다. 원 상태/단위/UTC·forcing 기준과 조회 계산/쓰기0·소유 정리를 확인했습니다. WSL 동시 등록 용량은 보류여서 부모 작업은 미완료입니다. 다음은 같은 세션의 현재 권리 조회→HTTP/worker→같은 UTC3D이며 새 CO₂ 사용자 배포·전체 작기/자원/경제·실제 자료/관문은 남습니다.
+
 **현재 — 2026-10-21 KST:** [CO₂ 서명 결과 DB 등록·현재 조회](contracts/crop-greenhouse-co2-result-store-v1.md)을 실제 SCRAM18검사로 수용했다. 서버의 원 completed/hold·같은 요청 재시도·최초 기록 시각과 별도 프로세스의 원문/페이지/UTC를 보존했다. 조회/동일 재시도의 수치17진입점·CLI·SQL쓰기0, 현재/늦은 권리 철회·충돌/롤백·호출자 거래와 기존5표/행·5서비스/정리를 확인했다. 한 묶음17/18의600초 종료는 미수용으로 보존했고 같은18개를9+9로 나눠 수용했다. 다음은 닫힌 공개 응답/현재 조회→보호 API/worker→같은 UTC3D다. 새 CO₂ 사용자 배포·전체 작기/자원/경제·실제 농장/G0–G4와 전체 완료일은 미완료/미정이며 goal active다.
 
 기존 두 미리보기는 [인증·TLS 갱신/복구](research/frozen-preview-authentication-renewal-20261021.md)를 검증했습니다. 현재 인증 종료는 2026-10-22 06:37 KST이며 새 CO₂ 모델의 사용자 배포는 후속입니다.

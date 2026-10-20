@@ -2303,16 +2303,25 @@
         fresh get/page/summary의 원 bytes/최초 recorded_at·전체 행/UTC/checkpoint 동일성, 계산/context/restore/CLI0,
         원128KiB metadata/progress·2MiB 응답/페이지·5root/WSL/소유 정리를 통과해야 수용한다.
         API/worker/같은 UTC3D는 그다음이며 실제 작물/경제 예측·관문 승인을 뜻하지 않는다.
-      - [ ] **`co2-result-projection`** — 다음 작은 자식; 선행: 위 store와 원 CO₂ manifest/상태·장부/UTC.
+      - [ ] **`co2-result-projection`** — 기능 자식 수용/WSL 동시 용량 미완료; 선행: 위 store와 원 CO₂ manifest/상태·장부/UTC.
         [새 계약](../contracts/api-crop-greenhouse-co2-replay-v1.md)/[사전 증거](../research/artifacts/api-crop-greenhouse-co2-replay-preflight-20261021.json):
-        순수37/fresh 템플릿 응답은 통과했으나 실제 SCRAM/WSL 합산 RSS는 미수용이다.
+        순수37/fresh 템플릿 응답은 통과했으나 로컬 실제 SCRAM/WSL 합산 RSS는 미수용이다.
         원17계산·CLI/SQL0·원109상태/44장부/17수지·사건10수지와 forcing cursor별 wet/dry를 보존한다.
         서버 내부 원 program SHA를 대사하고 v2에 없는 after_rhs/Solar 사건 진단은 재생성하지 않는다.
-        다음은 별도 hosted39/실제 등록 fresh2이며 전체 backend/WSL 동시 용량 수용과 구분한다.
+        [기능 수용](../research/api-crop-greenhouse-co2-replay-20261021.md)의 hosted39/실제 등록 fresh2는 통과했다.
+        전체 backend/WSL 동시 용량 수용과 구분하며 부모 체크는 유지한다.
         [기존 Solar 공개 투영](../contracts/api-crop-greenhouse-solar-replay-v1.md)을 현재 CO₂ 판본으로 구분한다.
         닫힌 summary/samples/events DTO에 원109상태·44연속/6사건/17수지·단위/UTC/정상·보류를 보존한다.
         원 행/체크포인트 대사와 구 family/누락·잘못된 타입/단위/한도·승인 혼합 거부,2MiB와 계산/CLI0을 확인한다.
-      - [ ] **`co2-current-query`** — 선행: 위 projection; [기존 현재 조회](../contracts/crop-greenhouse-solar-current-query-v1.md)를 대조한다.
+        - [x] **`co2-projection-functional`** — [증거](../research/artifacts/api-crop-greenhouse-co2-replay-20261021.json):
+          source d7167c2/CI39510460411의39검사·실제 정상/보류 원3응답과 fresh2의 SHA/UTC/단위·계산/SQL0,
+          282코드 지문·FD/DB/소유 정리를 대사했다. hosted 합228,556,800bytes이며 WSL 수용은 아니다.
+        - [ ] **`co2-projection-WSL-capacity`** — 원5root/자료·512MiB/PID/합1GiB와 원 실제 등록/조회 조건을 유지한다.
+          마지막1,073,930,240bytes는 미수용이다. 새 할당 원인/작은 수정 근거 전 같은 실행은 반복하지 않는다.
+          현재 조회/HTTP/worker 개발과 병행하되 새 사용자 적용 전 실제 자원·원 값/시각·권리/정리를 수용한다.
+      - [ ] **`co2-current-query`** — 개발 선행: 위 projection 기능/계약 수용; WSL 동시 용량은 사용자 적용 전 유지한다.
+        [새 계약](../contracts/crop-greenhouse-co2-current-query-v1.md)은 구현/시험 전이다.
+        [기존 현재 조회](../contracts/crop-greenhouse-solar-current-query-v1.md)를 대조한다.
         같은 store/custody 읽기 세션에서 DB/HMAC/선택 HEAD·현재 권리를 투영 전후/직렬화 뒤 확인한다.
         실제 SCRAM/fresh 원 bytes·늦은 철회/변조·페이지 경계·조회 계산/SQL쓰기0·5root/WSL/정리를 수용한다.
         이후 보호 HTTP/명시 runtime→worker/prefix→같은 UTC3D이며 새 framework/관문 승격을 추가하지 않는다.

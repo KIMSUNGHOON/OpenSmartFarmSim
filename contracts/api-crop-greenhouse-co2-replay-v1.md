@@ -1,12 +1,16 @@
 # CO₂·일사 공동 결과의 공개 응답 v1
 
-Status: implementation pending. 선행은 [서명 결과 저장소](crop-greenhouse-co2-result-store-v1.md)와
+Status: functional child accepted; overall WSL capacity acceptance pending.
+[기능 검증/남은 조건](../research/api-crop-greenhouse-co2-replay-20261021.md)과
+[기계 증거](../research/artifacts/api-crop-greenhouse-co2-replay-20261021.json)를 따른다.
+실제 hosted39검사·등록 원문의 fresh2는 수용했으며 WSL 동시 등록 용량은 미수용이다.
+선행은 [서명 결과 저장소](crop-greenhouse-co2-result-store-v1.md)와
 현재 CO₂ continuation/checkpoint/journal v2·UTC·불변 artifact다.
 [기존 Solar 투영](api-crop-greenhouse-solar-replay-v1.md)의 닫힌 타입/개인정보/페이지 원칙을 대조한다.
 
 [사전 검증](../research/artifacts/api-crop-greenhouse-co2-replay-preflight-20261021.json)은 순수37검사와
 별도 프로세스의 템플릿 응답 SHA/조회 계산·CLI·SQL0을 확인했다. 실제 SCRAM 연결은 WSL 합산 RSS
-상한으로 미수용이다. 격리된 hosted39검사/실제 등록 원문의 fresh2를 준비했으며 전체 backend CI와 별도다.
+상한으로 미수용이다. 격리된 hosted39검사/실제 등록 원문의 fresh2를 수용했으며 전체 backend CI와 별도다.
 새 시험 DB의 work_mem64kB/jitoff 실제 적용도 확인한다. 원5서비스/자료와 자원 상한은 유지한다.
 
 `project_co2_result(record, terminal, *, source_program, view='summary', page=None, limit=None)`은
@@ -58,3 +62,6 @@ fixture template는 기존 실제 SCRAM 소프트웨어 결과에서 캡처한 �
 원 자료/기존 서비스·FD·WSL/시험 소유 PG/schema/role/passfile 정리를 확인한 뒤에만 수용한다.
 그 뒤 같은 세션의 current query→보호 HTTP/runtime→worker/prefix→같은 UTC3D로 진행한다.
 실제 품종/작기·생산/수익 예측·추천·G0–G4는 [제품 명세](../docs/PROJECT_SPEC.md)를 따른다.
+
+기능/계약 수용 뒤 current query 개발을 시작할 수 있다. 원 WSL 동시 용량 조건은 부모에 남기고
+새 사용자 적용 전에 검증한다. hosted 결과로 이 조건을 해제하지 않는다.
