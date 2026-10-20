@@ -138,6 +138,7 @@
 - [ ] **`crop-solar-query-registration-native-normal`** — [원 실행 결과](../research/solar-query-current-registration-scope-native-normal-20261020.md): source939571e·CI39377630664 completed/failure, 원360초 미완료·종료 뒤 READ ONLY metadata46/64·정상/DB count proof 없음. actor/hash·상한/소유 정리를 대사했다. 같은 source의 정상 반복/조건 변경으로 대체하지 않는다. 원 정상 수용 뒤에만 hold→HTTP취소→계산 중WebGL→WSL 사용자 적용이다.
 - [x] **`crop-solar-projection-current-cost-diagnostics`** — 선행: 위 실제 정상 실패와 [22 current 호출/계측 경계 대조](../research/solar-query-current-registration-scope-native-normal-20261020.md#next-measured-question). 기존 prefix 총시간에 이미 포함된 `_after_projection`의 중첩 비용을 별도 계측한다. [로컬17검사/두 Python·원 actor 복원](../research/solar-api-projection-cost-implementation-20261020.md)을 수용했고 client/부모/자식/worker의 실제 시간·카운터/누락 대사는 남았다. 원 actor 본문/제품 app/input/360/600/RSS와 bounded·dropped·미완료/비공개 조건을 유지한다. 추가 진단은 정상 수용이나 비용 ABBA 재실행이 아니며 다음 제품 후보를 정할 근거만 만든다. [실제 관측](../research/solar-api-projection-cost-observation-20261020.md)에서19 외부/13 중첩 쌍·누락13/상한 drop·부모 포함33.2–39.7%·worker50/64와 원 actor/제품/정리를 대사했다. 정상 수용은 아니다.
 - [x] **`crop-solar-fresh-input-json-pairs-evaluation`** — [최종28검사/두 Python·opaque 반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)을 대사했다. 기본24 입력과 fresh decoder/소유권1은 일치했으나 mapping/iterator/key callback3종이 달라 후보 미채택·비용 trial0·제품 app261 유지다. 원 정상46/64 미완료·새 Solar/3D/관문 수용은 아니다.
+- [x] **`crop-preview-certificate-credential-lifetime`** — [실제 expired TLS/502 수정](../research/legacy-preview-TLS-lifetime-repair-20261020.md). 기존2시간 기본과 별도로 미리보기는 계정 수명+120초를 발급한다. 최종28검사/두 Python·실제 생장/수확8·환기8·동일 토큰/원 결과·기존 두 HTML·5역할 복구를 확인했다. joint2root는 그대로며 실제 만료 유지보수만 수행했다. 자동 갱신/장기 운영/G4 수용은 아니다.
 - **이전 독립 CI 이력** — 아래 대기·실패 기록은 당시 상태이며 현재 load 검토의 실행 대기가 아니다.
   - [대기 관측](../research/solar-current-guard-independent-queue-20261020.md): CI39280701330/source8b5afe5 한 번 접수·계측 OFF. 2026-10-19T16:00:12.624737Z에 queued/실행기 미배정/steps0이며 GitHub Actions 처리 지연 공지가 있다. 동일 실행의 실제 종료/큐레이션 artifact 검증 전 체크하지 않는다.
   - [후속 실제 실패](../research/solar-current-guard-native-normal-20261020.md): 같은 실행은 원360초/64 미완료·종료 뒤 저장41/64·actor−15/−15, 정상/DB count proof 없음이다. 앞선 큐 관측을 실제 미기동 확정으로 사용하지 않는다. 단계 차이를 성능 개선율로 환산하지 않는다.
@@ -388,7 +389,7 @@
     후속 [웹37895265205/58adcdd](../research/crop-ui-web-hosted-regression-20261009.md)는 같은 웹 tree의
     Chromium140개(예정30개 포함)·타입/1,028단위·빌드/audit 통과다. 원3상태 improve/렌더 대조와
     현재 실제 공동 DB/재시작·WSL 브라우저 자원/정리·화면 배포는 남아 있어 체크하지 않는다.
-  - **2026-10-20 현재 연결 준비:** [원21건 dump/현재10파일](../research/crop-result-catalog-native-readiness-20261020.md)의 해시·pg_restore 목록/보호·정리를 확인했다. 새 Solar normal64와 독립으로 다음 실제 DB/API/브라우저 수용을 진행한다. 작은 seed를 전체166일 수용으로 확대하지 않으며 디자인/재시작/권리/WSL와 아래 U1 체크는 유지한다.
+  - **2026-10-20 현재 실제 연결:** [저장 판본 API10응답/현재 개발 빌드](../research/crop-result-catalog-native-connection-20261020.md)를 확인했다. 최신 backend의 구판 CODE 거부는 유지한다. 실제502의 [TLS 수명 결함](../research/legacy-preview-TLS-lifetime-repair-20261020.md)을 수정하고 원 조회8+8을 복구했다. 이후 새 목록 브라우저는 app-loaded 전에 합1GiB로 중단돼 U1은 미수용이다. 다음은 실행기/감독의 실제 메모리 분리·축소이며 기존 source/수치/권리/브라우저 조건·한도/5root·디자인/재시작 수용을 유지한다.
   - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.

@@ -209,7 +209,8 @@ def serving(service):
         need(drained and not thread.is_alive())
 
 
-def certificate(backup, directory):
+def certificate(backup, directory, *, validity=timedelta(hours=2)):
+    need(type(validity) is timedelta and timedelta() < validity <= timedelta(days=1, minutes=2))
     import ipaddress
     from cryptography import x509
     from cryptography.hazmat.primitives import hashes, serialization
@@ -219,7 +220,7 @@ def certificate(backup, directory):
     name = x509.Name([x509.NameAttribute(NameOID.COMMON_NAME, 'Owned harvest loopback only')])
     value = (x509.CertificateBuilder().subject_name(name).issuer_name(name).public_key(key.public_key())
         .serial_number(x509.random_serial_number()).not_valid_before(now - timedelta(minutes=1))
-        .not_valid_after(now + timedelta(hours=2)).add_extension(x509.SubjectAlternativeName([
+        .not_valid_after(now + validity).add_extension(x509.SubjectAlternativeName([
             x509.IPAddress(ipaddress.ip_address('127.0.0.1')), x509.DNSName('localhost')]), False).sign(key, hashes.SHA256()))
     cert = directory / 'api-cert.pem'; secret = directory / 'api-key.pem'
     backup.write(cert, value.public_bytes(serialization.Encoding.PEM))

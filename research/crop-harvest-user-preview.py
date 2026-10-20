@@ -43,7 +43,8 @@ def run(args):
     assets = view.asset_inventory(Path(args.asset_source)/'web/dist'); assert assets and 'index.html' in assets
     backup.write(directory/'original-files.private.json', backup.canonical(original_files))
     backup.write(directory/'web-pins.private.json', backup.canonical({'sources': sources, 'assets': assets}))
-    cert, key = cost.certificate(backup, directory)
+    cert, key = cost.certificate(backup, directory,
+        validity=timedelta(seconds=args.ttl_seconds, minutes=2))
     tokens = {n: secrets.token_urlsafe(40).encode() for n in ('owner', 'denied', 'foreign')}
     access = {'token': tokens['owner'].decode(), 'tokens': {n:t.decode() for n,t in tokens.items()},
         'crop': {'result_id': parent['original_record']['result_id'], **parent['farm']},

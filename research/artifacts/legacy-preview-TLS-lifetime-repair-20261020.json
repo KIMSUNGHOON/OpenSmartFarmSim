@@ -1,0 +1,250 @@
+{
+  "schema_version": "legacy-preview-TLS-lifetime-repair-v1",
+  "recorded_at": "2026-10-20T08:42:53.973731+00:00",
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_SHA256": "368672b6f3478473c850da211ca91c7489d769c2b1349d5ca9546f389658ea8a",
+    "recursive_CLI": false,
+    "timestamp": "2026-10-20T07:47:18.604Z"
+  },
+  "actual_error": {
+    "upstream_status": 502,
+    "Nginx_verify_error": 10,
+    "old_TLS_not_after": "2026-10-20T00:43:09Z",
+    "old_reported_auth_expiry": "2026-10-20T22:43:18.087628Z",
+    "diagnostic_body_SHA256": "bf08e49c5df7703e129c133fd8ea7ebe3a51cbb09d99f074c74389abe29b406f",
+    "diagnostic_Nginx_log_SHA256": "1da52624a3e23a2701725b927c4ce9771f0de0806e65aacbbad924a55a788830"
+  },
+  "source_fix": {
+    "certificate_validity_parameter_bounded_seconds_max": 86520,
+    "short_transport_default_validity_seconds": 7200,
+    "preview_validity": "credential lifetime +120seconds",
+    "source_SHA256": {
+      "research/crop-harvest-api-cost.py": "89024ae7e8d13a79fee50b57fb9299f1e53210a71564223f9c19edeaacbaeb77",
+      "research/crop-harvest-user-preview.py": "7189bc768289201aa7a827f4bc040e083ed62e6cf027b77601f943cc94817f6b",
+      "backend/tests/test_crop_harvest_api_cost.py": "e4b13074e16d7eebfaa3e5932c6be76f51e5d3306521e67d7d4bd52e173672bb"
+    }
+  },
+  "unique_final_tests": 28,
+  "new_regression_cases": 7,
+  "RED": {
+    "case": "focused-legacy-TLS-lifetime-red-v1",
+    "terminal_SHA256": "85d1823e5873d62119baa4377d34e7db23bec8cfccb8a345de3084e1e64d0fe0",
+    "log_SHA256": "aaa35c0681fbb9aff71b4f550b94699104fb3b9420af1b076da25c44ad799d96",
+    "source_pins_SHA256": "e786af02efe038f9010471340e8db080e40f8e1bb5b2b03d5e8214bb56a99456",
+    "actual_child_exit": 1,
+    "reason": null,
+    "wall_seconds": 2.683699864996015,
+    "single_PID_peak_RSS_bytes": 123121664,
+    "combined_peak_RSS_bytes": 500768768,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "original_source_entries": 2148,
+    "protected_root_count": 5,
+    "protected_live": true,
+    "source_preserved": true,
+    "original_sources_preserved": true,
+    "both_frozen_UI_sources_assets_preserved": true,
+    "owned_process_PG_passfile_temp_remainder": 0
+  },
+  "final_tests": [
+    {
+      "case": "focused-legacy-TLS-lifetime-green-v1",
+      "terminal_SHA256": "4ea3e8e1a330eeaaa06e5db9600f29ea0210cf65ada15d1a16b0ea9dadead818",
+      "log_SHA256": "838eb4a5bc1bdbcef4f3274b76bfd3cfbcf7ef2cd5a594d05547b08277df4a28",
+      "source_pins_SHA256": "44a87c252c7fae0509053be8e8af649a7c100e9b0ebc6a986eeb656621e494b7",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 7.5983754149929155,
+      "single_PID_peak_RSS_bytes": 154062848,
+      "combined_peak_RSS_bytes": 617377792,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    },
+    {
+      "case": "focused-legacy-TLS-lifetime-locked-v2",
+      "terminal_SHA256": "c30e564b3970c5f676a10a3e7c1da4c1715f2ca906272716de926d394b96de29",
+      "log_SHA256": "9d7b9f126ef9889b2f1b4eae48ed2a994c4be8d5e69606ee0e2a0f7546d4eb65",
+      "source_pins_SHA256": "44a87c252c7fae0509053be8e8af649a7c100e9b0ebc6a986eeb656621e494b7",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 7.0918730220000725,
+      "single_PID_peak_RSS_bytes": 152752128,
+      "combined_peak_RSS_bytes": 910987264,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    }
+  ],
+  "test_runtimes": [
+    "CPython3.12.3",
+    "CPython3.12.13"
+  ],
+  "initial_locked_runner_dependency_failure_excluded": {
+    "case": "focused-legacy-TLS-lifetime-locked-v1",
+    "reason": "child did not inherit venv site-packages; psycopg absent",
+    "failed": 1,
+    "passed": 15,
+    "resolution": "private runner exports exact installed site directory; assertions unchanged"
+  },
+  "maintenance": {
+    "wall_seconds": 57.360809916994185,
+    "single_PID_peak_RSS_bytes": 124391424,
+    "combined_peak_RSS_bytes": 626937856,
+    "RSS_samples": 235,
+    "certificate_validity_seconds": 86460,
+    "credential_lifetime_seconds": 86340,
+    "same_token_keys_models_results_HTML": true
+  },
+  "maintenance_observation_SHA256": "324474797be8566e0b82060d5ef9262022c25fa92e77018bb4c31194417f96c8",
+  "boot_start_pidfd_verified_graceful_maintenance": true,
+  "joint_controller_and_PG_unchanged": true,
+  "legacy_controller_PG_and_dependent_ventilation_replaced": true,
+  "five_current_protected_roots": [
+    {
+      "boot_id": "7f22cf8d-dc33-4802-b782-57c18fbfcd2a",
+      "pid": 1695246,
+      "start_ticks": 12005161
+    },
+    {
+      "boot_id": "7f22cf8d-dc33-4802-b782-57c18fbfcd2a",
+      "pid": 1695309,
+      "start_ticks": 12005662
+    },
+    {
+      "boot_id": "7f22cf8d-dc33-4802-b782-57c18fbfcd2a",
+      "pid": 1294391,
+      "start_ticks": 8497413
+    },
+    {
+      "boot_id": "7f22cf8d-dc33-4802-b782-57c18fbfcd2a",
+      "pid": 1294400,
+      "start_ticks": 8497586
+    },
+    {
+      "boot_id": "7f22cf8d-dc33-4802-b782-57c18fbfcd2a",
+      "pid": 1695336,
+      "start_ticks": 12005809
+    }
+  ],
+  "certificate_verification_disabled": false,
+  "new_TLS_dates": {
+    "not_before": "2026-10-20T08:27:19+00:00",
+    "not_after": "2026-10-21T08:29:19+00:00"
+  },
+  "next_common_maintenance_before": "2026-10-20T21:40:00Z",
+  "legacy_authenticated_HTTP": {
+    "responses": 8,
+    "statuses": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      403,
+      404
+    ],
+    "original_growth_harvest": true,
+    "source_SHA256": "7ca1fe5e836aaf5dda41aba36ff2e1f758420a42d4439c6099e8dfa6906a4aea",
+    "service_FD_before_after": [
+      8,
+      8
+    ],
+    "guarded_math_publication_calls": 0,
+    "guard": {
+      "case": "focused-legacy-TLS-authenticated-after-v1",
+      "terminal_SHA256": "ef8a7fa320cfd562e8937a084fc27672bbb9bfa44f21c5367dbfc8d86801b345",
+      "log_SHA256": "ff3e6e8d99680acac3ec7e259cbbd1031470ddc2c3ab75f5bf7a4c32c64a82c5",
+      "source_pins_SHA256": "44a87c252c7fae0509053be8e8af649a7c100e9b0ebc6a986eeb656621e494b7",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 56.64757581699814,
+      "single_PID_peak_RSS_bytes": 144207872,
+      "combined_peak_RSS_bytes": 802881536,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    }
+  },
+  "ventilation_authenticated_HTTP": {
+    "responses": 8,
+    "statuses": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "same_original_normal_hold_bytes": true,
+    "query_numerics_writes_zero": true,
+    "source_SHA256": "f51bf41020027e6e8a4c4545bede713352085239231cdbf1c2abbeaaac26e8f5",
+    "service_FD_before_after": [
+      8,
+      8
+    ],
+    "frozen_source_files": 2173,
+    "guard": {
+      "case": "focused-ventilation-after-legacy-TLS-v1",
+      "terminal_SHA256": "c1e223f28f599ed9d887505421518b1703908f1e6f11472964bb1c31064f10ab",
+      "log_SHA256": "5fe8806651a824029cb0f1c26394b8d98ec65371e501bb4212f5545cba543ae8",
+      "source_pins_SHA256": "44a87c252c7fae0509053be8e8af649a7c100e9b0ebc6a986eeb656621e494b7",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 50.56672534201061,
+      "single_PID_peak_RSS_bytes": 144207872,
+      "combined_peak_RSS_bytes": 754466816,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    }
+  },
+  "backend_app_files": 261,
+  "backend_app_SHA256": "591eff7de6b721a8708d0fc30604feb8f9b5898bfedf6b2ea3e860fe8e576211",
+  "new_Solar_deployed": false,
+  "normal64_accepted": false,
+  "U1_accepted": false,
+  "full_backend_or_browser_CI": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "goal_active": true
+}

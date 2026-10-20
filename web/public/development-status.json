@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "fresh JSON 후보는28검사에서 opaque 반례3종으로 미채택했습니다. 기존 저장 결과 목록→3D 선택은 새 Solar 정상64와 독립으로 검증합니다. 원21건 dump/hash·현재10파일 준비만 확인했고 실제 DB/브라우저/U1은 남았습니다. 새 Solar 정상46/64·계산 중3D/WSL·최종 UI/독립 자료가 남아 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-20T07:44:11.979466Z",
+  "estimate_reason": "기존 3D 조회의 TLS 인증서가 계정보다 먼저 만료되는 결함을 수정했습니다. 28검사/두 Python과 생장·수확8/환기8 조회를 통과했습니다. 저장 판본 목록 API10응답·현재 화면 빌드도 확인했습니다. 새 목록3D는 합1GiB로 미수용이며 최신 backend의 구판 읽기·최종 UI/독립 자료가 남아 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-20T08:47:46.036448Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-20T07:44:11.979466Z",
+  "reported_at": "2026-10-20T08:47:46.036448Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,12 +24,12 @@
       "state": "completed"
     },
     {
-      "evidence": "fresh JSON28검사/두 Python·반례3종으로 후보를 미채택했습니다. 다음은 기존 저장 목록→같은 결과3D/수확의 실제 연결입니다. 원21건 seed/hash·현재10파일 준비만 확인했고 실제 DB/브라우저/U1은 미수용입니다. 새 Solar 정상46/64/진단50/64는 별도 미수용이며 정상64→hold→취소→계산 중WebGL→WSL 순서를 유지합니다.",
+      "evidence": "TLS 수명 수정28검사/두 Python·실제 원 조회8+8로 기존 화면을 복구했습니다. 저장 판본 목록 API10응답/현재 화면 개발 빌드를 확인했습니다. 최신 backend 구판 CODE 지원과 새 목록3D는 미수용입니다. TLS 복구 뒤 browser_started에서 합1GiB로 중단됐습니다. 다음은 실행기/감독 메모리 분리이며 Solar 정상46/64/후속3D·배포는 남았습니다.",
       "id": "execution_3d",
       "state": "next"
     },
     {
-      "evidence": "WSL 재기동 뒤 기존5173/5174와 인증된 생장/수확8응답·joint입력3/저장9시점·환기8응답을 복구했습니다. 기존 환기만 적용 상태입니다. 새 Solar·독립 joint 감독/G4·실제 품종/외부 검증·최종 통합 UI와 전체 완료일은 미완료/미정입니다.",
+      "evidence": "기존5173/5174 보호 조회를 새 TLS로 복구하고 같은 토큰·모델·원 결과/HTML·5역할을 대사했습니다. 기존 환기만 적용 상태입니다. 새 목록 UI/Solar·독립 농장/경제·전체 제품은 미완료입니다. 다음 공통 유지보수 준비는10월20일21:40Z 이전입니다.",
       "id": "activation",
       "state": "pending"
     }

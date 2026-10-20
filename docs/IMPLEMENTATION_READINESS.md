@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**현재 수용/보류 — 2026-10-20 KST:** [TLS 수명 수정](../research/legacy-preview-TLS-lifetime-repair-20261020.md)의28검사/두 Python·실제 원 조회8+8과5역할 복구를 확인했다. [저장 판본 목록 API10응답/화면 개발 빌드](../research/crop-result-catalog-native-connection-20261020.md)는 수용했으나 현재 backend는 구판 runtime_roles CODE를 거부하며 새 목록3D도 전체1GiB 한도로 미수용이다. 다음은 원5역할/한도를 유지한 실행기·감독 메모리 분리다. 새 Solar/전체 UI·G0–G4·전체 날짜는 계속 미완료/미정이다.
+
 **현재 준비 — 2026-10-20 KST:** [fresh JSON 후보의28검사·opaque 반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 비용 trial 없이 미채택했다. 제품 app261/591eff7d는 유지한다. 다음 [기존 저장 결과 목록의 실제 연결 준비](../research/crop-result-catalog-native-readiness-20261020.md)는 원21건 dump/hash·현재10파일·pg_restore 목록을 확인했으며 DB/브라우저/U1 수용은 남았다. 이 경로는 새 Solar normal64와 독립이다. 새 Solar 정상46/64 미완료·정상→hold→HTTP취소→계산 중WebGL→WSL와 실제 자료/관문/전체 완료일 미정·goal active는 유지한다.
 
 **중첩 projection 비용 관측 수용 — 2026-10-20 KST:** [17검사·실제19 외부/13 중첩 쌍](../research/solar-api-projection-cost-observation-20261020.md)을 대사했다. 직렬화 뒤 검사는 기존 prefix 총량에 이미 포함되며 matched parent wall의33.2–39.7%였다. client13개는 보존 창 밖으로 미대사다. 진단 worker 마지막 confirm50/64는 원 정상46/64와 비교한 처리량/정상 수용이 아니다. 다음은 cache 없는 fresh 입력 JSON 중복 검사 반복문의 연구 전용 평가다. 제품 app261/새 Solar 미배포·계산 중3D/WSL·실제 자료/관문/최종 UI와 전체 날짜 미완료/미정·goal active다.

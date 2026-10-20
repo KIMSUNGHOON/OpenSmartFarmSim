@@ -31,6 +31,27 @@ def write(path, raw):
     with os.fdopen(fd, 'wb') as stream: stream.write(raw)
 
 
+def test_preview_certificate_covers_the_whole_credential_window(tmp_path):
+    from cryptography import x509
+    credential_lifetime = timedelta(days=1)
+    before = datetime.now(timezone.utc)
+    cert, _ = cost.certificate(SimpleNamespace(write=write), tmp_path,
+                               validity=credential_lifetime + timedelta(minutes=2))
+    value = x509.load_pem_x509_certificate(cert.read_bytes())
+    # Runtime construction mints the grants after creating the certificate.
+    expires = before + timedelta(seconds=30) + credential_lifetime
+    assert value.not_valid_after_utc > expires
+    assert value.not_valid_before_utc <= before
+
+
+@pytest.mark.parametrize('validity', [None, True, 86400, timedelta(),
+                                   timedelta(seconds=-1), timedelta(days=1, minutes=3)])
+def test_invalid_preview_certificate_validity_creates_no_key(tmp_path, validity):
+    with pytest.raises(ValueError, match='harvest_api_cost_rejected'):
+        cost.certificate(SimpleNamespace(write=write), tmp_path, validity=validity)
+    assert list(tmp_path.iterdir()) == []
+
+
 @pytest.fixture
 def transport(tmp_path):
     cert, key = cost.certificate(SimpleNamespace(write=write), tmp_path)

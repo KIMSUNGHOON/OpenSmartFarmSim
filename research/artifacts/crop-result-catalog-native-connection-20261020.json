@@ -1,0 +1,379 @@
+{
+  "schema_version": "crop-result-catalog-native-connection-v1",
+  "recorded_at": "2026-10-20T08:42:53.985437+00:00",
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_SHA256": "368672b6f3478473c850da211ca91c7489d769c2b1349d5ca9546f389658ea8a",
+    "recursive_CLI": false,
+    "timestamp": "2026-10-20T07:47:18.604Z"
+  },
+  "source_commit_before_work": "f6d4ba83da64582baf978d9b79b1e594a6617169",
+  "application_SHA256": "591eff7de6b721a8708d0fc30604feb8f9b5898bfedf6b2ea3e860fe8e576211",
+  "original_reader_API": {
+    "scope": "stored-version code-pinned reader; not latest backend support",
+    "observations": [
+      {
+        "body_SHA256": "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+        "bytes": 743,
+        "path": "/v1/farm-authored-inputs/catalog",
+        "seconds": 0.044555435990332626,
+        "status": 200
+      },
+      {
+        "body_SHA256": "2e9f93a4e2e2eceb4497e7ae3b84efedc52aff71d492a06062b4a37b31fbe288",
+        "bytes": 712,
+        "path": "/v1/farm-authored-inputs",
+        "seconds": 0.4711786070110975,
+        "status": 200
+      },
+      {
+        "body_SHA256": "c5b2ab0da5825e8846d6f6951a8d9597ec153aad8f73e0676b1d5e72a65764c7",
+        "bytes": 604,
+        "path": "/v1/crop-research-result-catalog/farm-crops",
+        "seconds": 1.4293397509900387,
+        "status": 200
+      },
+      {
+        "body_SHA256": "0202eef7495fb96341b9bd3cd5691d96136c9d059cd1e35f27c668218e1c9b86",
+        "bytes": 790,
+        "path": "/v1/crop-research-result-catalog",
+        "seconds": 4.4128871010034345,
+        "status": 200
+      },
+      {
+        "body_SHA256": "57fbf8cbd14ed35b0c288952ee35ce2d85af5c1d5551bdeecadc1fef8a284167",
+        "bytes": 768,
+        "path": "/v1/crop-research-result-catalog",
+        "seconds": 4.563608533004299,
+        "status": 200
+      },
+      {
+        "body_SHA256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+        "bytes": 65,
+        "path": "/v1/crop-research-result-catalog",
+        "seconds": 0.005057650996604934,
+        "status": 403
+      },
+      {
+        "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+        "bytes": 91,
+        "path": "/v1/crop-research-result-catalog",
+        "seconds": 0.04037328599952161,
+        "status": 422
+      },
+      {
+        "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+        "bytes": 91,
+        "path": "/v1/crop-research-result-catalog",
+        "seconds": 3.765763932999107,
+        "status": 422
+      },
+      {
+        "body_SHA256": "4cdaacff94db38da969749a472a1749fb7be56199404755b8c9a2d1951828b85",
+        "bytes": 91,
+        "path": "/v1/crop-research-result-catalog",
+        "seconds": 1.1614753850008128,
+        "status": 422
+      },
+      {
+        "body_SHA256": "0202eef7495fb96341b9bd3cd5691d96136c9d059cd1e35f27c668218e1c9b86",
+        "bytes": 790,
+        "path": "/v1/crop-research-result-catalog",
+        "seconds": 4.433008665000671,
+        "status": 200
+      }
+    ],
+    "source_rows": {
+      "events": 5,
+      "growth_results": 1,
+      "harvest_results": 1,
+      "harvest_rows": 47813,
+      "samples": 47809
+    },
+    "metadata_calculation_value_read_publication_proof_calls": 0,
+    "late_rights_422_and_restore": true,
+    "original_record_and_DB_counts_unchanged": true,
+    "source_manifest_SHA256": "3b1de5683fdd01024b95c1eb7a3ea335717eecff2c4f3f97f5c5e2eca1061752",
+    "raw_observation_SHA256": "8040ca9634a12e3f80659b99249d1feb607fb61ff5553f3c59d22b0469b2ca75",
+    "guard": {
+      "case": "focused-catalog-original-full-api-v6",
+      "terminal_SHA256": "c4bb9a27ab6775f9006a21b8a034d25671d4592bd97fb7cac195e052d18cd357",
+      "log_SHA256": "4fd480616445836d9af3201fd5bbb8e36eee70a67643daed37a11b22ca99a4cc",
+      "source_pins_SHA256": "215f858895425e36f3756f679b06ca8594f51c6afd0d5003701b01c608b6650a",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 28.46956931099703,
+      "single_PID_peak_RSS_bytes": 137560064,
+      "combined_peak_RSS_bytes": 671309824,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    }
+  },
+  "latest_backend_old_record_supported": false,
+  "code_version_boundary": {
+    "current_backend_runtime_roles_SHA256": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+    "decoder_checks_bypassed": false,
+    "latest_backend_old_record_supported": false,
+    "original_source_root": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/source",
+    "stored_runtime_roles_SHA256": "be1dc60254bbe2238610ef52712a5bf76340d6ce0a5a2256072c90d85112c63f",
+    "stored_signature_or_packet_changed": false
+  },
+  "current_backend_hold_diagnostic": {
+    "case": "focused-catalog-current-full-api-v4",
+    "terminal_SHA256": "03608179493be41adc7bd2e19c1cb3ab0816d3bc118d49377d705afe72a2cbaa",
+    "log_SHA256": "af5ae1498ea26b79f1ca566aabd2ca11a83d68e3df2bddea83fdc7cec4364916",
+    "source_pins_SHA256": "215f858895425e36f3756f679b06ca8594f51c6afd0d5003701b01c608b6650a",
+    "actual_child_exit": 1,
+    "reason": null,
+    "wall_seconds": 8.629130711997277,
+    "single_PID_peak_RSS_bytes": 132829184,
+    "combined_peak_RSS_bytes": 633102336,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "original_source_entries": 2148,
+    "protected_root_count": 5,
+    "protected_live": true,
+    "source_preserved": true,
+    "original_sources_preserved": true,
+    "both_frozen_UI_sources_assets_preserved": true,
+    "owned_process_PG_passfile_temp_remainder": 0
+  },
+  "earlier_preflight_failures": [
+    "small historic manifest: three changed harvest reader files",
+    "full manifest: direct current checker rejected original absolute dependency namespace; original exact-source validator subsequently used",
+    "original writer snapshot omitted later API harness; accepted deployed read snapshot used instead"
+  ],
+  "build": {
+    "initial_failure": {
+      "case": "focused-catalog-current-web-build-v1",
+      "terminal_SHA256": "a39f253cdcd89b017286fbf25d83a1708300035c28e76bdacee30cad0718cf7a",
+      "log_SHA256": "98b75892d2eba120479860196f2d1ff106d0470b0c517e4fcb36db29db943b97",
+      "source_pins_SHA256": "215f858895425e36f3756f679b06ca8594f51c6afd0d5003701b01c608b6650a",
+      "actual_child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 1.169438879005611,
+      "single_PID_peak_RSS_bytes": 543940608,
+      "combined_peak_RSS_bytes": 971956224,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    },
+    "accepted_development_build": {
+      "case": "focused-catalog-current-web-build-v2",
+      "terminal_SHA256": "8801f276659df05b2d8af0935803ec96d24ad55070a2cb5d5a2940bf84dba7b5",
+      "log_SHA256": "89a42d8d5deb160f42ecda0de6d74d662ad8cb950354116d0fa975853522f14b",
+      "source_pins_SHA256": "215f858895425e36f3756f679b06ca8594f51c6afd0d5003701b01c608b6650a",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.8970053689990891,
+      "single_PID_peak_RSS_bytes": 483971072,
+      "combined_peak_RSS_bytes": 901263360,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    },
+    "source_pins_SHA256": "ed4f320568e25c9402318443a37ff7624a79bfca1a4f7c513ecd6a3dd79452f2",
+    "minify": false,
+    "cssMinify": false,
+    "compressed_size_reporting": false,
+    "production_minified_build_accepted": false,
+    "configuration": "same product source; production has no active plugins; private build omits serve/test/demo fixture config imports,128MiB heap and one CPU"
+  },
+  "browser": {
+    "accepted": false,
+    "new_UI_deployed": false,
+    "before_TLS_repair": [
+      {
+        "case": "focused-catalog-current-web-original-live-v1",
+        "terminal_SHA256": "7b205e7d19fcc01189b13688096d6120b4d8b59ea7dddf59a40d5278729da4f8",
+        "log_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source_pins_SHA256": "215f858895425e36f3756f679b06ca8594f51c6afd0d5003701b01c608b6650a",
+        "actual_child_exit": -15,
+        "reason": "RSS_limit",
+        "wall_seconds": 49.58874281299359,
+        "single_PID_peak_RSS_bytes": 546480128,
+        "combined_peak_RSS_bytes": 1123065856,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "protected_root_count": 5,
+        "protected_live": true,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "both_frozen_UI_sources_assets_preserved": true,
+        "owned_process_PG_passfile_temp_remainder": 0
+      },
+      {
+        "case": "focused-catalog-current-web-original-live-v2",
+        "terminal_SHA256": "35227584ca939609393c1360e3563680cbf2f9e32175d0d35e9334a8cceef7ea",
+        "log_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source_pins_SHA256": "215f858895425e36f3756f679b06ca8594f51c6afd0d5003701b01c608b6650a",
+        "actual_child_exit": -15,
+        "reason": "RSS_limit",
+        "wall_seconds": 48.024638048998895,
+        "single_PID_peak_RSS_bytes": 556707840,
+        "combined_peak_RSS_bytes": 1142710272,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_source_entries": 2148,
+        "protected_root_count": 5,
+        "protected_live": true,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "both_frozen_UI_sources_assets_preserved": true,
+        "owned_process_PG_passfile_temp_remainder": 0
+      }
+    ],
+    "diagnostic_initial_DOM": {
+      "case": "focused-catalog-current-web-initial-dom-v3",
+      "terminal_SHA256": "cbae67254e91f8a367c922898a2ecaa1c9e24f03f509d25a7b11ddd4ae049154",
+      "log_SHA256": "3dde6ecb0208b1f13e5e0ff38eb0fd0fa967dd2f1557093e0cda24c8779637bc",
+      "source_pins_SHA256": "215f858895425e36f3756f679b06ca8594f51c6afd0d5003701b01c608b6650a",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 5.068148079997627,
+      "single_PID_peak_RSS_bytes": 299003904,
+      "combined_peak_RSS_bytes": 880717824,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    },
+    "diagnostic_API502_expired_TLS": {
+      "case": "focused-catalog-current-web-response-v5",
+      "terminal_SHA256": "8973adde3787e9ebe1027aca4dbd0dd526302f3f1772491f87372e1bf0218ddd",
+      "log_SHA256": "ff1377c271a1c73355649946425621fbf2385159ab5594aec61a2bd6d795920c",
+      "source_pins_SHA256": "215f858895425e36f3756f679b06ca8594f51c6afd0d5003701b01c608b6650a",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 8.980695210004342,
+      "single_PID_peak_RSS_bytes": 330432512,
+      "combined_peak_RSS_bytes": 925585408,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    },
+    "pre_TLS_last_phase": "farm_list_started",
+    "no_3D_or_harvest_acceptance_proof": true,
+    "after_TLS_repair": {
+      "case": "focused-catalog-current-web-original-live-v6",
+      "terminal_SHA256": "012f17c75c0978cc567e6f44c3a0bf9b3c29bc36cb8a446ecd2f95791240ac06",
+      "log_SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_pins_SHA256": "44a87c252c7fae0509053be8e8af649a7c100e9b0ebc6a986eeb656621e494b7",
+      "actual_child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 3.2090027639933396,
+      "single_PID_peak_RSS_bytes": 270643200,
+      "combined_peak_RSS_bytes": 1083510784,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    },
+    "post_TLS_last_phase": "browser_started",
+    "post_TLS_reason": "aggregate1GiB guard before application-loaded observation; no request or scene proof",
+    "limits_unchanged": {
+      "single_PID_bytes": 536870912,
+      "total_bytes": 1073741824,
+      "wall_seconds": 600,
+      "sample_interval_seconds": 0.25
+    }
+  },
+  "owned_clone_cleanup": {
+    "raw_receipt_SHA256": "46b6232949cc2b5a5ef4b3cd1b18cb71ff03c01ddf3f2d1418e8eea9ee269a44",
+    "removed_data_bytes": 167873614,
+    "PG_directories_removed": 4,
+    "copied_passfiles_keys_removed": 16,
+    "remaining_clone_PG_directories": 0,
+    "remaining_clone_passfiles": 0,
+    "original_or_active_credentials_touched": false,
+    "guard": {
+      "case": "focused-catalog-stopped-clone-cleanup-v1",
+      "terminal_SHA256": "53513a9edf12e393fb7c2933af70edbde23ca43ff84882b82ddbcb84ba69ae4a",
+      "log_SHA256": "b83165f347f660756f2213c350e12f33b9dba5a168eb069df2ef1f59205ca7b7",
+      "source_pins_SHA256": "44a87c252c7fae0509053be8e8af649a7c100e9b0ebc6a986eeb656621e494b7",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.6122989440045785,
+      "single_PID_peak_RSS_bytes": 143290368,
+      "combined_peak_RSS_bytes": 675459072,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "both_frozen_UI_sources_assets_preserved": true,
+      "owned_process_PG_passfile_temp_remainder": 0
+    }
+  },
+  "remaining": [
+    "profile and reduce browser driver/supervisor owned allocation with all5 protected roles retained; no healthy-root stop or cap increase",
+    "real catalogue->original UTC/CN/harvest, reload/restart/account/rights and design3-state review",
+    "explicit supported stored-reader version boundary; latest backend still rejects old runtime_roles hash",
+    "full U1 and final UI/end-to-end G1/external agricultural/economic/market gates"
+  ],
+  "new_Solar_deployed": false,
+  "normal64_accepted": false,
+  "U1_accepted": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "goal_active": true
+}
