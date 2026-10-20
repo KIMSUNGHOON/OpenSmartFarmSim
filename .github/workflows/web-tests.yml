@@ -15,6 +15,10 @@ on:
         description: Observe worker exceptions and progress timings; this cannot accept normal execution
         type: boolean
         default: false
+      solar_query_scope_cost:
+        description: With unpaused_solar, evaluate the query registration scope candidate only (no normal acceptance)
+        type: boolean
+        default: false
       solar_worker_diagnostics_detail:
         description: Diagnostic detail only; worker observes exceptions/outcome without farm phase journals
         type: choice
@@ -91,13 +95,14 @@ jobs:
           if-no-files-found: error
 
   unpaused_solar:
-    name: ${{ inputs.solar_worker_diagnostics && 'Solar worker progress diagnostic (no acceptance)' || 'independent normal Solar execution' }}
+    name: ${{ inputs.solar_query_scope_cost && 'Solar query scope cost (no acceptance)' || inputs.solar_worker_diagnostics && 'Solar worker progress diagnostic (no acceptance)' || 'independent normal Solar execution' }}
     if: github.event_name == 'workflow_dispatch' && inputs.unpaused_solar
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       OSSF_SOLAR_TRACE_WORKER: ${{ inputs.solar_worker_diagnostics && '1' || '0' }}
       OSSF_SOLAR_DIAGNOSTIC_DETAIL: ${{ inputs.solar_worker_diagnostics_detail || 'phases' }}
+      OSSF_SOLAR_QUERY_SCOPE_COST: ${{ inputs.solar_query_scope_cost && '1' || '0' }}
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONMALLOC: malloc
       MALLOC_ARENA_MAX: '2'
@@ -136,16 +141,21 @@ jobs:
           make -j2
           make install
           "$pg_task_root/install/bin/postgres" --version | grep -Fx 'postgres (PostgreSQL) 16.15'
-      - name: Original independent unpaused normal execution
+      - name: Selected Solar execution or query cost evaluation
         run: |
           export OSSF_TEST_PG_BIN="$RUNNER_TEMP/solar-unpaused-postgresql-16.15/install/bin"
           export OSSF_TEST_PG_DSN='host=/owned-fixture dbname=postgres user=ossf_login_admin'
-          backend/.venv/bin/python -B backend/tests/crop_greenhouse_solar_unpaused_smoke.py supervise "$RUNNER_TEMP/solar-unpaused-evidence"
+          if [ "$OSSF_SOLAR_QUERY_SCOPE_COST" = '1' ]; then
+            test "$OSSF_SOLAR_TRACE_WORKER" = '0'
+            backend/.venv/bin/python -B research/solar_query_scope_hosted.py "$RUNNER_TEMP/solar-unpaused-evidence/query-scope"
+          else
+            backend/.venv/bin/python -B backend/tests/crop_greenhouse_solar_unpaused_smoke.py supervise "$RUNNER_TEMP/solar-unpaused-evidence"
+          fi
       - name: Store curated normal execution evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: solar-unpaused-normal-${{ github.sha }}
+          name: ${{ inputs.solar_query_scope_cost && 'solar-query-scope-cost' || 'solar-unpaused-normal' }}-${{ github.sha }}
           path: |
             ${{ runner.temp }}/solar-unpaused-evidence/normal.json
             ${{ runner.temp }}/solar-unpaused-evidence/database-cleanup.json
@@ -156,6 +166,12 @@ jobs:
             ${{ runner.temp }}/solar-unpaused-evidence/worker-progress-diagnostics.json
             ${{ runner.temp }}/solar-unpaused-evidence/api-response-diagnostics.json
             ${{ runner.temp }}/solar-unpaused-evidence/failure-checkpoint-diagnostics.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/resource.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/provenance.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/failure.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/functional/*.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/cost/*.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/cost/cost-journal.jsonl
           retention-days: 3
           compression-level: 0
           if-no-files-found: ignore

@@ -59,3 +59,20 @@ lease/cancel/HEAD/proof/file/UTC check and response fence remains.
 
 Native Codex CLI `gpt-6.1-sol`/`xhigh` owns this design judgment. Product claim
 gates and source/parameter rights follow the authoritative specification.
+
+## Evaluation environment
+
+The local private candidate passed all11 focused cases in separate owned
+processes with the original five protected roots live. The combined HTTPS
+comparison reached its first baseline sequence, then the original1GiB limit
+stopped it; no sequence completed and no valid cost trial exists.
+
+`web-tests.yml` can select the research-only candidate evaluation with
+`unpaused_solar=true`, `solar_query_scope_cost=true`, and worker diagnostics off.
+It reuses the existing pinned hosted PostgreSQL/Python job. Its owned controller
+keeps the512MiB single-PID/1GiB total and600second wall limits, runs the11
+functional cases before one original/candidate/candidate/original HTTPS trial,
+and exports only curated diagnostic evidence. It changes no application source,
+original normal actor or acceptance threshold. A passing diagnostic still does
+not accept normal64, WSL capacity, product adoption, new Solar deployment or any
+claim gate. Preserve a valid failed cost result without selecting another trial.

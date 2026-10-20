@@ -1,0 +1,25 @@
+{
+  "candidate_SHA256": "234771f9df88da3855758e1c570b5f052a5d1debb8220a07df47ef8fce2be025",
+  "order": [
+    "baseline",
+    "candidate",
+    "candidate",
+    "baseline"
+  ],
+  "both_pairs_must_reduce_wall": true,
+  "mean_reduction_minimum_pct": 2,
+  "one_valid_timing_trial_only": true,
+  "program": "original CASE6/64, output0to64/8, chunk1",
+  "fixed_yielded_step": 27,
+  "actual_SCRAM_and_TLS": true,
+  "handler_sequence": [
+    "progress",
+    "prefix",
+    "samples"
+  ],
+  "only_volatile_response_paths": [
+    "/observed_at on each response"
+  ],
+  "same_model_values_counts_UTC_selector": true,
+  "all_fresh_current_source_and_storage_reads_preserved": true
+}
