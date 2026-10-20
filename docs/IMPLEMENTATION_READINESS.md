@@ -4,8 +4,10 @@
 163검사·동일 small3 비교 평균38.69% 감소로 부분 수용했다. 수정 코드의 원20개/89.49MB 목록은30.08초로 미수용이다.
 용량/U1·WSL/사용자 적용은 남긴다. [CO₂ 원문/단위 연구](../research/crop-co2-stomatal-source-policy-20261021.md)와
 [명시 T/P·wet/dry scalar](../contracts/crop-co2-gas-v1.md)의 독립35검사·원 자료/5root 보존을 수용했다.
-다음은 기존 CH₂O rate→CO₂ net sink, 그 뒤 질량 RHS다. 기공 단위 P03은 hold이며 개발 순서와 분리한다.
-[잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지171–326집중시간의
+[net sink52](../contracts/crop-co2-net-exchange-v1.md)와 [고정 체적 질량RHS30](../contracts/crop-co2-air-mass-v1.md)도
+실제 joint 낮/밤 전달·원 모델/자료/자원 보존으로 수용했다. 다음은 같은 stage CO₂/Solar/작물 조립이다.
+기공 단위 P03은 hold이며 개발 순서와 분리한다.
+[잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지167–318집중시간의
 낮은 신뢰 견적이다. 실제 검증/공개 운영 포함 전체 완료일은 미정이며 계수/예측·관문 승인은 아니다.
 
 **hosted 용량 후속 — 2026-10-21 KST:** [정상1개4,474,409bytes/최대 HTTPS4.935101초](../research/organ-catalog-hosted-capacity-20261021.md)는 수용했다. 실제20개/합89,488,180bytes 생성 뒤 목록30.010263초로 미수용이다. 구간 계측은 행 검색1.020332초·관측 항목38회/38.431396초를 확인했다. 다음은 항목 내부 immutable 검증/현재 참조 비용 구분이다. 원 한도/정리를 유지했고20개·U1/WSL/사용자 적용·제품 완료일은 미수용/미정이다.

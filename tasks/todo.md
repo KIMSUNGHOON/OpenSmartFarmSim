@@ -2153,10 +2153,21 @@
         핵심3파일: 별도 net flux 모듈/집중 pytest/계약. 원 CH₂O 광합성−생장호흡−유지호흡을
         원44/30 규약의 signed mg_CO2/m2_floor/s로 변환한다. 독립 몰수/야간 음수·수확 제거 제외·
         이중 보상점 차감0과 기존 rate bytes/계수 불변을 검증한다. scalar 기공/기관 목록 용량은 선행이 아니다.
-      - [ ] **`co2-air-mass-balance-kernel`** — 선행: gas/net 자식과 기존 환기량/구획 근거.
+      - [x] **`co2-air-mass-balance-kernel`** — [계약](../contracts/crop-co2-air-mass-v1.md)/
+        [최종30검사](../research/artifacts/crop-co2-air-mass-20261021.json): 독립 총질량/체적8참조·
+        환기 해석 해/수렴·실제 joint 낮/밤→net→공기 상쇄와0/단위/고갈/표현 한계·원5root/자료/정리를 수용했다.
+        선행: gas/net 자식과 기존 환기량/구획 근거.
         핵심3파일: 별도 floor-area 질량 RHS/집중 pytest/계약. 명시 V/A와 signed source/sink·
         고정 부피의 무유속 보존/해석적 well-mixed 교환·공기/작물 전달 상쇄와 틀린 단위/상태 혼합을 검증한다.
         가변 부피/전체 건조공기 압력 solver·추측 시설 계수는 이 자식의 수용 범위가 아니다.
+      - [ ] **`co2-crop-climate-stage`** — 다음 작은 자식; 선행: 위 gas/net/mass, 기존 Solar 순간 RHS 수용.
+        핵심3파일: 새 `backend/app/crop_greenhouse_co2_joint.py`/집중 pytest/별도 계약.
+        기존 `crop_greenhouse_solar_joint.py`를 재사용하되 별도 상태/모델 판본에서 CO₂ 질량을 둔다.
+        수용: (1)같은 stage의 m/h·Ta·명시 P·wet/dry/필요 수증기압→ppm으로 crop forcing을 유도하고
+        외부 고정 ppm과 혼합하지 않음; (2)실제 Solar/작물/net/질량 RHS 한 번씩·같은 환기량/UTC 없는 순간
+        상태·원 열/물 장부 보존·독립 CO₂ 참조/낮밤/고갈·단위·원 프로필 불변;
+        (3)기존 checkpoint/API/두 UI/5root/자료·자원/정리 보존. 원 normal64/U1은 순수 RHS 개발의 선행이 아니다.
+        확인: 실제 기존 Solar 참조/독립 Decimal CO₂ 비교와 집중 pytest. 새 짧은 적분/관리/continuation·저장/3D는 후속.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

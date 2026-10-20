@@ -4,7 +4,9 @@
 163검사/같은 small3 비교 평균38.69% 감소로 부분 수용했다. 원20개/큰 packet의 정상 HTTPS는30.08초로 미수용이다.
 이 용량/최종 U1 조건을 남긴다. [CO₂ 원문 검토](../research/crop-co2-stomatal-source-policy-20261021.md)와
 [명시 T/P·wet/dry 변환](../contracts/crop-co2-gas-v1.md)을 독립35검사로 수용했다.
-다음 작은 작업은 CH₂O→CO₂ net sink, 그 뒤 공기 질량 RHS다. 기공 단위는 별도 hold다.
+[net sink52](../contracts/crop-co2-net-exchange-v1.md)/[공기 질량RHS30](../contracts/crop-co2-air-mass-v1.md)을
+낮/밤 실제 joint 전달·독립 수치/해석 해와 원 자료/자원 보존으로 수용했다.
+다음 작은 작업은 같은 stage의 CO₂ 질량/T/P→ppm과 기존 Solar/작물 조립이다. 기공 단위는 별도 hold다.
 필요한 계산 근거·권리를 대사했으며 UI 용량을 이 계산 개발의 선행으로 추가하지 않는다.
 기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.
 

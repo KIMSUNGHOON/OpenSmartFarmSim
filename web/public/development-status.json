@@ -1,15 +1,15 @@
 {
-  "estimate_reason": "CO₂ 원문 검토와 명시 온도·압력/wet·dry 변환35검사를 수용했습니다. 다음은 CH₂O→CO₂ net sink입니다. 합성 통합 계산·3D·경제·실제 CLI G1의 잔여 초기 견적은171–326집중시간(주40시간 가정5–9주)입니다. 기공/용량/UI·독립 검증은 남아 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-20T17:19:17.308965Z",
+  "estimate_reason": "CO₂ 순흡수/배출52검사와 고정 체적 공기 질량RHS30검사를 수용했습니다. 실제 joint 낮/밤 전달을 확인했습니다. 다음은 같은 stage의 CO₂ 질량/T/P→ppm·Solar/작물 조립입니다. 새 동적 적분/3D는 후속입니다. 합성 통합 잔여 초기 견적167–318집중시간이며 독립 검증 포함 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-20T17:36:32.859297Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-20T17:19:17.308965Z",
+  "reported_at": "2026-10-20T17:36:32.859297Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
-      "evidence": "기존 일사 합성 상태108/장부·단위/UTC의106검사 수용을 유지합니다. CO₂ 원문13/hash·37pointer와 명시 T/P·wet/dry scalar의 독립35검사를 수용했습니다. 동적 CO₂ net sink/질량수지·기공·실제 품종/농장 검증은 다음입니다.",
+      "evidence": "기존 일사 합성 상태108/장부·단위/UTC 수용을 유지합니다. CO₂ gas35에 이어 기관/구획/startup 순흡수52와 공기 질량RHS30을 수용했습니다. 낮/밤 실제 전달·독립 총질량/체적·환기 해석 해를 확인했습니다. CO₂ 동적 피드백/실제 품종 검증은 남았습니다.",
       "id": "growth",
       "state": "completed"
     },
@@ -24,12 +24,12 @@
       "state": "completed"
     },
     {
-      "evidence": "기관 실제 API/DB/저장 WebGL19GET/10장면 수용을 유지합니다. 원20개 목록/U1·WSL/사용자 적용은 남았습니다. 다음 핵심 개발은 통과한 CO₂ 변환35 뒤의 CH₂O→CO₂ net sink와 공기 질량수지입니다.",
+      "evidence": "기관 실제 API/DB/저장 WebGL19GET/10장면 수용은 유지합니다. 원20개 목록/U1·WSL/사용자 적용은 남았습니다. CO₂ net52·질량RHS30은 순간 계산이며 새 동적3D는 후속입니다. 다음은 같은 stage의 Solar/작물/CO₂ 조립입니다.",
       "id": "execution_3d",
       "state": "next"
     },
     {
-      "evidence": "기존5173/5174·HTML/자료·5서비스/환기 적용을 유지합니다. 새 기관 UI/Solar·CO₂ 결합은 미배포입니다. 최종 UI·물/양분/구매 에너지·경제·실제 CLI/독립 자료 검증이 남습니다.171–326집중시간은 합성 통합의 초기 견적이며 전체 완료일은 미정입니다.",
+      "evidence": "기존5173/5174·HTML/자료·5서비스/환기 적용을 유지합니다. 새 기관 UI/Solar·CO₂ 동적 결합은 미배포입니다. 최종 UI·물/양분/구매 에너지·경제·실제 CLI/독립 검증이 남습니다. 합성 통합 초기 견적167–318집중시간·전체 완료일 미정입니다.",
       "id": "activation",
       "state": "pending"
     }
