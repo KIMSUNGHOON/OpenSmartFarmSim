@@ -1,8 +1,9 @@
 # CO₂·일사 저장 결과의 보호 HTTP v1
 
-Status: implemented; focused native SCRAM/TLS and complete acceptance pending.
-[사전 증거](../research/artifacts/crop-greenhouse-co2-http-preflight-20261021.json)는 로컬 제어65검사와
-전체215개 수집·원5root/자료/자원·정리를 확인했다. 실제 전송/기존 회귀를 격리 CI에서 후속한다.
+Status: functional HTTP accepted; shared WSL capacity and user activation pending.
+[기능 수용](../research/crop-greenhouse-co2-http-20261021.md)은 source f8620cb/CI39516513080의
+215검사·실제 SCRAM/검증 TLS 정상·보류 원3응답·늦은 철회12·취소/전송 실패와 기존 계약/정리를 확인했다.
+[사전 증거](../research/artifacts/crop-greenhouse-co2-http-preflight-20261021.json)의 원 한도를 유지했다.
 선행은 [현재 권리 조회](crop-greenhouse-co2-current-query-v1.md)의 기능 수용이다.
 [기존 Solar 보호 조회](api-crop-greenhouse-solar-route-v1.md)의 요청/전송/명시 조립 계약을 대조한다.
 WSL 동시 용량과 기본 operator/runtime 활성화는 별도 미완료 조건이다.

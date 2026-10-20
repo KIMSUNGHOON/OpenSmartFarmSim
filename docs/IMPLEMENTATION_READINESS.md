@@ -38,7 +38,9 @@ fresh17진입점0·DB 변조/철회·source/선언1µs 경계와 최대 연결34
 원 값/단위/UTC·forcing 기준·계산/쓰기0과 정리를 확인했으나 WSL 합산 RSS는 보류이며 부모는 미완료다.
 [현재 권리 조회 기능](../research/crop-greenhouse-co2-current-query-20261021.md)의11검사/fresh 현재 DB2도 수용했다.
 원 응답/UTC·초기/늦은 철회60·변조10·조회17계측/SQL쓰기0·정리를 확인했으며 공통 WSL 용량/부모는 남는다.
-다음은 보호 HTTP/명시 runtime→worker→같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
+[보호 HTTP 기능](../research/crop-greenhouse-co2-http-20261021.md)의 집중215검사·실제 SCRAM/검증 TLS 정상/보류도 수용했다.
+원3응답/UTC·늦은 철회12·취소/전송 실패·기존64경로398스키마/294지문·조회17계측/SQL쓰기0·정리를 대사했다.
+공통 WSL 용량/부모·새 사용자 적용은 남는다. 다음은 명시 runtime→worker/prefix→같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
 전체 작기/109상태 저장3D는 아직 미수용이다.
 기공 단위 P03은 hold이며 개발 순서와 분리한다.
 [잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지161–308집중시간의

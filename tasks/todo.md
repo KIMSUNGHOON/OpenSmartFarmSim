@@ -2334,10 +2334,21 @@
           hosted 합278,224,896bytes이며 공통 WSL 용량/새 사용자 적용 조건은 해제하지 않는다.
       - [ ] **`co2-result-http`** — 선행: 위 현재 조회의 기능 수용. [보호 HTTP 계약](../contracts/api-crop-greenhouse-co2-route-v1.md).
         [사전 검증](../research/artifacts/crop-greenhouse-co2-http-preflight-20261021.json)의 로컬65/전체215수집·
-        기존64경로398스키마 보존/새65경로477스키마를 확인했다. 실제 SCRAM/TLS·전체 회귀 전이다.
+        기존64경로398스키마 보존/새65경로477스키마를 확인했다.
+        [기능 수용](../research/crop-greenhouse-co2-http-20261021.md)의 집중215검사·실제 SCRAM/TLS2를 통과했다.
+        공통 `co2-projection-WSL-capacity`/사용자 적용은 남아 부모 체크를 유지한다.
         exact query/store/같은 jobs·farm·principal과 원 UTF-8 bytes, 닫힌 query/body·전후 인증/권한·오류/취소를 확인한다.
         실제 SCRAM/TLS 정상·보류3응답/늦은 철회·계산/쓰기0, 기존 OpenAPI/경로와 원 자료/자원·정리를 수용한다.
         새 True/operator 자동 활성화·WSL 용량/사용자 배포를 이 검사로 완료하지 않는다.
+        - [x] **`co2-http-functional`** — [증거](../research/artifacts/crop-greenhouse-co2-http-20261021.json):
+          source f8620cb/CI39516513080의215검사·정상/보류 각 원3응답/UTC·늦은 철회12·cancel/send-failure,
+          기존64경로398스키마와294코드 지문·조회17계측/SQL쓰기0·FD/DB/소유 정리를 대사했다.
+          hosted 합433,242,112bytes이며 공통 WSL 용량/새 CO₂ 배포·전체 backend 관문을 해제하지 않는다.
+      - [ ] **`co2-result-runtime`** — 선행: 위 보호 HTTP 기능 수용. [명시 읽기 runtime 계약](../contracts/crop-greenhouse-co2-runtime-v1.md).
+        새 보호 설정/읽기 동의·두 기본None factory와 exact 같은 graph·키/코드/현재 역할을 확인한다.
+        기존 직접 config/loader의 암묵적 True 거부와 False/default·공통 runtime을 보존하고,
+        실제 SCRAM/TLS 정상/보류 원3응답·늦은 철회/조회0·원 자료/자원/정리를 검증한다.
+        worker/prefix/같은 UTC3D와 공통 WSL 동시 용량/사용자 적용은 후속이다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

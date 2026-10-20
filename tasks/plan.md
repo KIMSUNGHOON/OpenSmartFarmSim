@@ -202,7 +202,13 @@ hosted 합278,224,896bytes이며 공통 WSL 동시 용량/두 부모/사용자 �
 같은 WSL 장애를 별도 공수로 중복 계산하지 않고 기능 수용 뒤 보호 HTTP 개발을 시작한다.
 [그다음 보호 HTTP](../contracts/api-crop-greenhouse-co2-route-v1.md)는 현재 조회 기능 수용 뒤
 명시 route/store/query 조립·전후 권한·원 bytes/TLS·오류/취소와 기존 OpenAPI/경로 보존을 작은 자식으로 확인한다.
+[source f8620cb/CI39516513080의 기능 수용](../research/crop-greenhouse-co2-http-20261021.md)은 집중215검사·
+실제 SCRAM/검증 TLS 정상·보류 원3응답·철회12/취소·기존64경로398스키마/294지문·조회0/정리를 확인했다.
+hosted 합433,242,112bytes이며 공통 WSL 용량/HTTP 부모와 새 사용자 적용은 미완료다.
 기본 operator/runtime True와 worker/prefix·사용자3D/WSL 용량을 별도 유지한다.
+[명시 읽기 runtime 계약](../contracts/crop-greenhouse-co2-runtime-v1.md)은 기존 직접 config/loader의
+암묵적 CO₂ True 거부를 보존하는 별도 판본/서버 읽기 동의와 같은 두 factory/graph·키/역할 검증을 계획한다.
+보호 HTTP 기능 수용 뒤 시작하며 원 파일 helper를 바꾸거나 계산/등록/worker를 자동 시작하지 않는다.
 원 artifact의 검증된 program SHA와 forcing_step_index가 wet/dry metadata의 선행이며 HTTP 입력으로 받지 않는다.
 닫힌 summary/samples/events에서 원109상태·44연속/6사건/17수지·단위/UTC/hold를 보존하고 구 판본/타입·단위/한도 혼합을 거부한다.
 같은 현재 읽기 세션과 직렬화 뒤 권리/DB/HEAD 재확인, 실제 SCRAM/fresh 원 응답·조회 계산/쓰기0·5root/자원/정리를 수용한다.

@@ -1,0 +1,371 @@
+{
+  "schema_version": "co2-http-functional-evidence-v1",
+  "recorded_at_utc": "2026-10-20T23:50:05.186453+00:00",
+  "implementation_commit": "d2a5de3f7626bfa2211a31dcbaf2cb3f23be5892",
+  "tested_commit": "f8620cb720d18862f58a1bba55c805de42d3332c",
+  "native_CLI_reconciliation": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-20T23:45:52.311Z",
+    "raw_line_sha256": "3c243295394d7522dc8d6d0d36a0d231aaf15b76cd27577ddaa8e91cc0d4439f",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "native_CLI_implementation_preparation": {
+    "decision_id": "co2-protected-route-preparation-20261021-v1",
+    "recorded_at": "2026-10-20T23:08:20.209576+00:00",
+    "native_CLI": {
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "raw_line_sha256": "48c748b1dc4031f0f2e1ef68c739f10a33d4db30bb72b5bbc8e9791a88aa2bb1",
+      "timestamp": "2026-10-20T21:27:59.686Z",
+      "recursive_CLI": false,
+      "subagents": false
+    },
+    "reference_files": {
+      "backend/app/api_crop_greenhouse_solar_route.py": "ea0e6fe15d229a96be26955461affcc6bedd40d1d8502e6951ffadcaa2356355",
+      "contracts/api-crop-greenhouse-solar-route-v1.md": "997734056bacfe0f8389b57360a9abdbd72ad7e430bb37037a826dccbbb0aba4"
+    },
+    "output": "Next protected HTTP follows the existing Solar route: GET /v1/crop-greenhouse-co2-research-results/{result_id}, exact new ID family and four closed farm-selector parameters; summary forbids offset/limit, samples64/events8 and canonical integers; no body or caller source_program/basis. Require the exact Co2 store/query and same jobs/farms/principal provider, with both None producing authorized503, mismatches rejected at assembly. Check credential/tenant/scopes before/after exactly one threadpool current-query read; return only original validated bytes/no-store/version+code headers, closed401/403/404/422/503 errors, disconnect/cancel cleanup and no numeric kernel/CLI/write side effects. Add the one explicit create_app boundary and generated OpenAPI inventory without changing old routes or enabling the default operator. Real SCRAM+verified-loopback-TLS normal/hold, late rights changes, cancellation and old OpenAPI/import compatibility are required. No WSL/production/3D gate is released by this preparation.",
+    "output_sha256": "645babb8c39a8d59f3ebf045f4d392ddbe7be760e41f37718589427c61516742",
+    "status": "preparation_only; preceding current-query11 actual CI live",
+    "CI": 39512608538
+  },
+  "hosted_CI": {
+    "run_id": 39516513080,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39516513080",
+    "conclusion": "success",
+    "scope": "focused215; full_backend_not_run"
+  },
+  "curated_artifact_sha256": {
+    "http/database-cleanup-completed.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+    "http/database-cleanup-hold.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+    "http/import-api.json": "eba61267c00d817d66c2e61fc62defd5ecbf6086b529c69d2acabae1b141d07d",
+    "http/import-api_crop_greenhouse_co2_route.json": "629ba592994ff9d06e31c525088879062f6a08646c3ba165eb05f7a7dbccb4e9",
+    "http/import-operator_config.json": "106fe49d05d595f085bc3471c4ec5ee4212e9ffc077e0003a03fb29117cee4fb",
+    "http/native-completed.json": "675c17e68a6f78545ceb03d7bea5185434865c138faf83a26c4c9779b93e24b3",
+    "http/native-hold.json": "c8a1b1328976a057ab1fc54154317b1a1821b74ebe913ef6d8a139a51ac50465",
+    "http/openapi.json": "d7b5cfedf0509eef9c5b9bd54fb0236539ea19a9e7d0b8c4f994cb848b1e756a",
+    "legacy-solar/import-api.json": "eba61267c00d817d66c2e61fc62defd5ecbf6086b529c69d2acabae1b141d07d",
+    "legacy-solar/import-api_crop_greenhouse_solar_route.json": "1ed5bdbd2997f9d0e9d079b90c3c92672bd2834db92812ed6cfadd3b6c65f9ec",
+    "legacy-solar/import-operator_config.json": "106fe49d05d595f085bc3471c4ec5ee4212e9ffc077e0003a03fb29117cee4fb",
+    "legacy-solar/openapi.json": "336128910e99e09b1256d9a160786a20ec609ff7bb256b43eb05a39dea95eac9",
+    "provenance.json": "7562a226120caa094614eba61028adb309a74e9c3117045a4163ec8feb351389",
+    "resource.json": "d485efdc9e99a7813cec1064b2085a4f9b7014f2333fb3f6a9b341d740466ca5",
+    "tests.json": "4ebec0192f34ed26e33ad81a0538928c8f0535949a72ea1e4ba59894f29ded9e"
+  },
+  "hosted_records": {
+    "http/database-cleanup-completed.json": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "http/database-cleanup-hold.json": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "http/import-api.json": {
+      "FD": 5,
+      "database_or_socket_connections": 0,
+      "first": "app.api",
+      "query_loaded": false
+    },
+    "http/import-api_crop_greenhouse_co2_route.json": {
+      "FD": 5,
+      "database_or_socket_connections": 0,
+      "first": "app.api_crop_greenhouse_co2_route",
+      "query_loaded": false
+    },
+    "http/import-operator_config.json": {
+      "FD": 5,
+      "database_or_socket_connections": 0,
+      "first": "app.operator_config",
+      "query_loaded": false
+    },
+    "http/native-completed.json": {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "G0_G4": "not_assessed",
+      "PID": 13830,
+      "actual_crop_Runs": 0,
+      "actual_scram": true,
+      "calls": {
+        "CLI": 0,
+        "CO2": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "SQL_writes": 0,
+        "advance": 0,
+        "air": 0,
+        "event": 0,
+        "gas": 0,
+        "net": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "counts_unchanged": true,
+      "original_response_bytes_equal": true,
+      "original_values_units_UTC": true,
+      "replies": {
+        "events": {
+          "bytes": 84095,
+          "seconds": 2.5004234859999883,
+          "sha256": "a9efb830919917e09989375714a0d28b4a87c31033200ea9f881c9bfe3717d30"
+        },
+        "samples": {
+          "bytes": 99408,
+          "seconds": 2.5964818280000372,
+          "sha256": "0ae9a0f95d5c8d71ae32fbb4e6eb66b2ccd2246dbf72ec97cb4002fd5051515a"
+        },
+        "summary": {
+          "bytes": 33993,
+          "seconds": 2.4593468350000194,
+          "sha256": "4eede795a8734bffd1315240bf38b32efe53f055c993174d1b6eb1af46fd3e9f"
+        }
+      },
+      "rights_or_gate_approval": false,
+      "status": "completed",
+      "transports_released": [
+        "cancel",
+        "send-failure"
+      ],
+      "verified_TLS": true,
+      "withdrawals_withheld": [
+        "input-rights:summary",
+        "input-rights:samples",
+        "input-rights:events",
+        "review:summary",
+        "review:samples",
+        "review:events",
+        "farm-source:summary",
+        "farm-source:samples",
+        "farm-source:events",
+        "credential:summary",
+        "credential:samples",
+        "credential:events"
+      ]
+    },
+    "http/native-hold.json": {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "G0_G4": "not_assessed",
+      "PID": 14490,
+      "actual_crop_Runs": 0,
+      "actual_scram": true,
+      "calls": {
+        "CLI": 0,
+        "CO2": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "SQL_writes": 0,
+        "advance": 0,
+        "air": 0,
+        "event": 0,
+        "gas": 0,
+        "net": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "counts_unchanged": true,
+      "original_response_bytes_equal": true,
+      "original_values_units_UTC": true,
+      "replies": {
+        "events": {
+          "bytes": 57973,
+          "seconds": 2.4110008910000147,
+          "sha256": "db45d25a5cc8c7c75b11c24172f465e2b6ea86a9928362e6f98a3ca13fbf445c"
+        },
+        "samples": {
+          "bytes": 81198,
+          "seconds": 2.4026788900000042,
+          "sha256": "0addb51f1f36f9fdff0966444c504ce8bcedc2482717260ffb595e9cb57e9014"
+        },
+        "summary": {
+          "bytes": 34171,
+          "seconds": 2.515677265000022,
+          "sha256": "e8784c4181f8aed53d38087c14ebc3501566407b1b30eaff8f23ffd995d2fe94"
+        }
+      },
+      "rights_or_gate_approval": false,
+      "status": "hold",
+      "transports_released": [],
+      "verified_TLS": true,
+      "withdrawals_withheld": []
+    },
+    "http/openapi.json": {
+      "closed_joint_response": true,
+      "existing_operations_equal": true,
+      "existing_schema_count_preserved": 398,
+      "paths": 65,
+      "schemas": 477
+    },
+    "legacy-solar/import-api.json": {
+      "FD": 5,
+      "database_or_socket_connections": 0,
+      "first": "app.api",
+      "query_loaded": false
+    },
+    "legacy-solar/import-api_crop_greenhouse_solar_route.json": {
+      "FD": 5,
+      "database_or_socket_connections": 0,
+      "first": "app.api_crop_greenhouse_solar_route",
+      "query_loaded": false
+    },
+    "legacy-solar/import-operator_config.json": {
+      "FD": 5,
+      "database_or_socket_connections": 0,
+      "first": "app.operator_config",
+      "query_loaded": false
+    },
+    "legacy-solar/openapi.json": {
+      "closed_joint_response": true,
+      "existing_operations_equal": true,
+      "paths": 65,
+      "schemas": 477
+    },
+    "resource.json": {
+      "FD_before_after": [
+        6,
+        6
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1380,
+      "WSL_capacity_accepted": false,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 433242112,
+      "hosted_only": true,
+      "mode": "co2-http",
+      "new_CO2_deployed": false,
+      "owned_non_zombie_remaining": [],
+      "passfiles_before_cleanup": 0,
+      "phase_exits": {
+        "tests": 0
+      },
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 210288640,
+      "source_preserved": true,
+      "temporary_entries_before_cleanup": 0,
+      "wall_seconds": 349.663600139
+    },
+    "tests.json": {
+      "actual_SCRAM": 2,
+      "mode": "co2-http",
+      "passed": 215,
+      "pure": 213,
+      "pytest_log_sha256": "66e490df00c0904a56c5fe8fc4f876ba3e553f4c4fabd38828cb015cd349fd99",
+      "skipped": 0
+    }
+  },
+  "source_reconciliation": {
+    "selected_files": 294,
+    "all_current_bytes_equal_tested": true,
+    "manifest_artifact": "provenance.json",
+    "manifest_sha256": "7562a226120caa094614eba61028adb309a74e9c3117045a4163ec8feb351389",
+    "baseline64paths398schemas_preserved": true,
+    "new65paths477schemas": true
+  },
+  "first_CI_failure_and_test_only_repair": "research/artifacts/crop-greenhouse-co2-http-scope-fix-20261021.json",
+  "acceptance": {
+    "functional_HTTP": true,
+    "parent": false,
+    "shared_WSL_capacity": false,
+    "new_CO2_user_deployed": false,
+    "runtime_worker_prefix_new_3D": false,
+    "full_backend_CI": "not_run",
+    "new_browser_DOM_WebGL": "not_run",
+    "actual_crop_Runs": 0,
+    "G0_G4": "not_assessed",
+    "full_product_completion": null
+  },
+  "next_runtime_review": {
+    "decision_id": "co2-read-runtime-preparation-20261021-v1",
+    "recorded_at": "2026-10-20T23:35:29.757784+00:00",
+    "native_CLI": {
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "raw_line_sha256": "48c748b1dc4031f0f2e1ef68c739f10a33d4db30bb72b5bbc8e9791a88aa2bb1",
+      "timestamp": "2026-10-20T21:27:59.686Z",
+      "recursive_CLI": false,
+      "subagents": false
+    },
+    "reference_files": {
+      "backend/app/api_runtime.py": "4e15d72666d068034094cd0251cd999c7217ec5a686919849ae68480d5eb5b3f",
+      "backend/app/crop_greenhouse_solar_operator_config.py": "31331ad6d7b4e8101977b0a4fc776a39000a44d1843249d0d8682d600fce2125",
+      "contracts/crop-greenhouse-solar-runtime-v1.md": "d35856521bf0187b39af7c62175472c4f417e6351e17a444902eaf2d3b8146a6"
+    },
+    "output": "Next explicit read runtime should use a separate operator-greenhouse-co2-api-config-v1 loader with the existing protected-file helpers, unchanged old operator files and their early True rejection. Preserve ApiRuntimeConfig(policy.CO2=True) rejection when callers omit a new explicit kw-only read opt-in. Pair an exact-bool crop_greenhouse_co2_read opt-in (defaultFalse) with the storage policy flag; True requires cycle/farm prerequisites and two trusted Co2 store/query factories, False requires neither. Add only defaultNone dependency factories and exposed co2 result/query objects to shared ApiRuntime, with exact class/shared jobs/farms/current_principal/query.store, current role/code audits and distinct input/custody/result keys. Validate flag/factory consistency before DB/FS I/O; recheck private config/DSN/key/cert bytes+metadata before/after trusted factory and final assembly. Factories supply existing roots/keys; no automatic credentials, grants, schema install, numerical calculation, registration or worker start. Prove actual SCRAM/verified TLS normal+hold and late rights, and all old loader/direct-config/factory default contexts before accepting. WSL/user activation/worker/prefix/3D remain separate. This is a reviewable planned boundary; implementation may refine the shape only with explicit compatibility evidence.",
+    "output_sha256": "af241bc76270c71010a8b407c4af6db05b271ccb2bd6a97ec2854a1d587fa4d2",
+    "status": "planned; preceding HTTP215 actual CI live; no config/runtime activation"
+  },
+  "review_output": "The same215 focused tests passed without weakening expected403, test cases, original payloads or resource caps. Reconciled15 curated artifacts,294 current source pins, actual SCRAM and verified TLS normal/hold original3-view bytes/units/UTC,12 late rights/credential denials, cancel and send-failure cleanup, existing64 paths/398 schemas and new65/477, zero17 tracked kernel/context/restore/UTC/CLI entries and SQL writes. Preserve original farm/economic input revalidation. First CI failure and test-only valid-request repair remain immutable. Hosted functional acceptance permits explicit runtime development, but does not accept shared WSL capacity, parent tasks, user deployment, worker/3D, actual data or G0-G4.",
+  "review_output_sha256": "572f7ac66dc629ee5524bf066e67dbab352b1cf630f0abf1d61e6d1e3b99f722",
+  "development_status_publication": {
+    "terminal_sha256": "fdee8a96947c0a374022b0908840b6b590cbbce89b601c5c8f86b620768a3c54",
+    "receipts": [
+      {
+        "HTTP": [
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5173,
+            "status": 200
+          },
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5174,
+            "status": 200
+          }
+        ],
+        "UI_code_changed": false,
+        "browser_rerun": false,
+        "reported_at": "2026-10-20T23:50:05.186453Z",
+        "source_sha256": "875ebf72697cc9c130c8d5e52281f2bd427185b7af319fc10e1781e8e17f5d02"
+      },
+      {
+        "retained_ventilation_frozen_source_preserved": true,
+        "files": 2173
+      },
+      {
+        "current_HTML_matches_frozen_entry_both_ports": true,
+        "browser_DOM_rerun": false
+      }
+    ],
+    "guard": {
+      "reason": null,
+      "actual_child_exit": 0,
+      "wall_seconds": 0.3446727480040863,
+      "combined_peak_RSS_bytes": 871809024,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    }
+  }
+}
