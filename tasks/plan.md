@@ -22,13 +22,17 @@ HTML/진행 JSON의200으로 보호 API의 정상 동작을 대신하지 않는�
    재시작/권리 브라우저는 같은 원 ID/UTC·생장/수확 동시 제거·복구,
    요청 수/원 DB·서명 불변과 종료/정리가 별도 수용 조건이다.
    원5root/512MiB·합1GiB/600초를 유지하며 건강한 서비스를 시험 때문에 재시작하지 않는다.
-2. **다음 작은 작업 — 기존 기관 판본 목록 연결:** [개발 기록 접근 동작](../research/catalog-development-disclosure-20261020.md)은
+2. **다음 작은 작업 — 기관 SDK→기존 재생 연결:** [기관 서버/보호 API](../research/organ-catalog-server-api-20261020.md)는
+   고유295회귀·실제 SCRAM3결과/표준 HTTPS 새7응답·원 row/RHS0·5root/자료/상한/정리로 수용했다.
+   현재 backend 목록은 기관 `organ_v1`을 추가했고 SDK/선택은 기존 두 kind만 지원한다.
+   원 HTTPS metadata→닫힌 SDK→picker/원 ID·farm의 기존 기관 재생으로 연결한다.
+   기존 30초 요청 제한의 실제20건/큰 packet·보존 CODE·minified App/원 UTC3D/권리와 사용자 적용이 남는다.
+   [개발 기록 접근 동작](../research/catalog-development-disclosure-20261020.md)은
    웹1,864/250·동일 minified native3상태/키보드2조건·합907,010,048bytes/5root 보존으로 수용했다.
    공개 metadata UI 시험이며 실제 API/DB/WebGL 검증은 아니다. 원 desktop-loaded/desktop-empty/mobile-loaded
    target은 보존했고 실제 improve 캡처 뒤 변환이 외부 동시 한도로 실패했다. 같은 key 재개2회도 실패해
    변환/plan·원 디자인 대조는 보류이며 화면 후보/미배포를 유지한다. 복구 시 같은 kit/key로 이어간다.
-   현재 metadata/SDK/선택에는 두 kind만 있다. 기존 기관v1 metadata→닫힌 SDK→기존 재생 전달을
-   원 ID/농장/UTC·현재 권리/페이지/늦은 응답·원 payload 불변·자원 기준으로 먼저 검증하고 구획/startup으로 확장한다.
+   기관의 원 ID/농장/UTC·현재 권리/페이지/늦은 응답·원 payload 불변·자원 기준을 먼저 검증하고 구획/startup으로 확장한다.
    이어 지원 reader 판본/최신 backend 구판 CODE,
    재시작/권리의 RSS hold·좁은 화면/키보드·사용자 적용을 대사해 U1을 판단한다.
    첫/끝 대표 시점 수용은 모든 시점/다른 판본 또는 U1 전체 수용이 아니다. 새 Solar normal64는 이 경로와 독립이다.

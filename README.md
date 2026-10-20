@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 작업 — 2026-10-20 KST:** [목록의 개발 기록 접기](research/catalog-development-disclosure-20261020.md)를 수용했다. 웹1,864/250·같은 minified native3상태/키보드2조건·합907,010,048bytes와5서비스/자료 보존을 확인했다. 농장 선택은 첫 viewport에 들어오며 결과 표는 아래에 있다. 원 디자인 변환은 외부 동시 한도 보류다. 다음은 기존 기관v1 목록→재생 연결이며 구획/startup을 순차 대사한다. 새 목록 UI/버튼·Solar 미배포·동시 재시작 RSS/구판 CODE·U1 전체/생산·경제/실제 자료·관문과 전체 완료일 미정·goal active를 유지한다.
+**현재 작업 — 2026-10-20 KST:** [기존 기관 v1 목록 서버/보호 API](research/organ-catalog-server-api-20261020.md)를 수용했다. 고유295회귀·실제 SCRAM3결과/2+1페이지와 표준 TLS/SCRAM/Bearer의 새 목록/작물 선택7응답·원 row/계산0·5서비스/자료/상한/정리를 확인했다. 다음은 닫힌 SDK→picker/기존 기관 재생 연결이다. HTTPS 정상1결과 범위이며 20건/큰 packet·보존 CODE/실제 App3D·원 디자인 외부 한도와 U1/사용자 적용은 남는다. 새 코드·목록/버튼·Solar 미배포·작물/자원/경제·독립 자료/관문과 전체 완료일 미정·goal active를 유지한다.
 
 **현재 작업 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했고 제품 app261은 유지했다. 다음은 새 Solar normal64와 독립인 [기존 저장 결과 목록→3D 선택의 실제 연결 수용](research/crop-result-catalog-native-readiness-20261020.md)이다. 준비된21건의 원 dump/hash·현재10파일은 대사했으며 실제 DB/브라우저/U1은 미수용이다. 새 Solar 정상46/64 미완료·후속 hold/취소/계산 중3D/WSL·전체 UI/관문/완료일 미정과 goal active를 유지한다.
 

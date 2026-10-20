@@ -53,4 +53,5 @@
 단위 없는 metadata와 전체 typed JSON 직렬화는 현재 검증 context 안에서 끝낸다.
 권리/계정의 늦은 변경은 준비된 bytes를 내보내지 않는다. 현재 kind의 reader가 없으면 인증 후 503이다.
 OpenAPI snapshot·기존 두 kind·기관의 닫힌 cursor/응답·개인 오류 비공개·ASGI/실제 SCRAM의
-원 결과 대사를 검증한다. 실제 HTTPS/브라우저·최신 CODE의 기존 보존 판본과 사용자 적용은 후속이다.
+원 결과 대사와 실제 HTTPS의 원 응답 bytes/hash·권리 철회를 확인한다.
+브라우저·최신 CODE의 기존 보존 판본과 사용자 적용은 후속이다.

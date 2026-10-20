@@ -1,5 +1,10 @@
 # 첫 구현 작업 목록
 
+- [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
+  고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·
+  put/integrate/RHS0·원5root/자료/상한/정리를 확인했다. 정상 HTTPS 목록1결과 범위이며 20건/큰 packet과
+  기존 보존 CODE·SDK/선택/실제3D·기관 family/U1/사용자 적용은 남는다. 전체 hosted CI/브라우저는 미실행이다.
+
 - [x] **`product-ui-result-catalog-development-disclosure`** — [접근 동작과 별도 디자인 보류](../research/catalog-development-disclosure-20261020.md).
   목록 첫 화면의 농장 선택·Enter/Space 개발 기록 접근·선택/행/요청 수 보존·직접 조회 복귀를 확인한다.
   source265c63a의 웹 단위1,864/브라우저250·타입/build/audit와 같은 minified native3상태/키보드2조건을 통과했다.
@@ -426,6 +431,9 @@
     현재 권리/HMAC·지원 reader와 실제 원 결과 확보다. 원 ID/농장/UTC·페이지/빈 목록·철회/늦은 응답·
     원 payload/DB/서명 불변·조회 계산0과 고정 WSL 한도를 실제 API/브라우저로 통과한 판본만 체크한다.
     현재 source 정적 대조만으로 세 판본이나 U1을 수용하지 않는다.
+    [기관 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md)은 고유295회귀와 실제7응답으로 수용했다.
+    다음은 닫힌 SDK→picker/기존 기관 재생 전달이다. 기존 30초 제한에서 실제20건/큰 packet과
+    보존 CODE·minified App/3D·원 디자인/사용자 적용을 통과하기 전 기관 family 체크는 유지한다.
 - [ ] **`product-ui-region-input` (U2)** — 선행: 기존 조사/수집/검토·농장 작성 API; U1과 병행 가능.
   예정: `web/src/ProjectSetup.tsx`, `web/src/ResearchEvidence.tsx`, `web/src/App.tsx`,
   `web/e2e/project-setup.spec.ts`, 별도 계약. 한 번에 만드는 화면은 더 작은 부분으로 나눈다.
