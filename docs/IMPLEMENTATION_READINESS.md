@@ -5,7 +5,9 @@
 용량/U1·WSL/사용자 적용은 남긴다. [CO₂ 원문/단위 연구](../research/crop-co2-stomatal-source-policy-20261021.md)와
 [명시 T/P·wet/dry scalar](../contracts/crop-co2-gas-v1.md)의 독립35검사·원 자료/5root 보존을 수용했다.
 [net sink52](../contracts/crop-co2-net-exchange-v1.md)와 [고정 체적 질량RHS30](../contracts/crop-co2-air-mass-v1.md)도
-실제 joint 낮/밤 전달·원 모델/자료/자원 보존으로 수용했다. 다음은 같은 stage CO₂/Solar/작물 조립이다.
+실제 joint 낮/밤 전달·원 모델/자료/자원 보존으로 수용했다.
+[현재 CO₂/Solar/작물 stage37](../contracts/crop-greenhouse-co2-joint-v1.md)도 독립1,635미분/9수지와
+실제9성분 각1회로 수용했다. 다음은 별도109상태 짧은 적분·독립 궤적/수렴이며 저장/3D는 후속이다.
 기공 단위 P03은 hold이며 개발 순서와 분리한다.
 [잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지167–318집중시간의
 낮은 신뢰 견적이다. 실제 검증/공개 운영 포함 전체 완료일은 미정이며 계수/예측·관문 승인은 아니다.

@@ -16,7 +16,7 @@
 | 순서 / 기존 작업 | 남은 작은 기능·수용 단위 | 남은 집중시간 추정 |
 | --- | --- | --- |
 | 1 CO₂ gas — 완료 | [명시 T/P·wet/dry scalar/독립35검사](../contracts/crop-co2-gas-v1.md) 수용 | 0 |
-| 2 CO₂ net/mass | [net52](../contracts/crop-co2-net-exchange-v1.md)/[질량RHS30](../contracts/crop-co2-air-mass-v1.md) 수용 → 같은 stage 결합 → 짧은 적분 | 6–10 |
+| 2 CO₂ net/mass | [net52](../contracts/crop-co2-net-exchange-v1.md)/[질량RHS30](../contracts/crop-co2-air-mass-v1.md)/[현재 stage37](../contracts/crop-greenhouse-co2-joint-v1.md) 수용 →109상태 짧은 적분/독립 궤적 | 6–10 |
 | 3 기공 | 원 단위 판본 결정 → scalar 참조 → 같은 stage 입력 연결/수지; 결정 전 hold | 8–16 |
 | 4 시설/일사 실행 | 명시 시설 환기 경계 → 남은 normal64 비용 원인 수정 → 정상/hold/취소/계산 중3D | 12–24 |
 | 5 `crop-climate-coupling` | CO₂ 포함 공동 적분 → 관리/분할복원 → 필요한 긴 forcing/전체 작기 수지·용량 | 12–24 |
@@ -36,7 +36,9 @@
 첫 견적179–340에서 gas 행의 예상8–14를 완료로 제외했다. 이 차이는 실제8–14시간을 썼다는 뜻이 아니다.
 이 단순 scalar의 짧은 검사 시간을 동적 모델/통합의 구현 속도로 외삽하지 않는다.
 이어2행의 net/mass 순수 자식(계획 배정4–8)을 수용해 현재167–318로 갱신했다.
-현재 남은6–10은 같은 stage 조립과 짧은 적분이며 원 전체 작기·저장/실행 수용은5/9행에 별도다.
+2행은 당초 같은 stage 조립과 짧은 적분을 묶었다. 원 전체 작기·저장/실행 수용은5/9행에 별도다.
+같은 stage는37검사/독립1,635미분으로 수용했다. 새109상태/CO₂ 누적 장부의 궤적·수렴·중간 실패는
+아직 없으므로2행의 잔여6–10과 아래 낮은 신뢰 계획 창을 보수적으로 유지한다.
 통합의 불확실성이 해소되지 않아 아래5–9개발주 조건부 계획 창은 유지한다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
@@ -78,8 +80,10 @@ M1+M2의 현재 산술 합은239–460집중시간이나, M2는 필요한 실제
 P01의 [명시 기압/온도·wet/dry 순수 변환](../contracts/crop-co2-gas-v1.md)을35검사/원 자원·보존 범위로 수용했다.
 [net sink52](../contracts/crop-co2-net-exchange-v1.md)와 [고정 체적 질량RHS30](../contracts/crop-co2-air-mass-v1.md)을
 원 모델/프로필·자원·자료 보존 범위로 수용했다. 실제 현재 joint의 낮/밤 crop→net→air 전달을 확인했다.
-다음 `co2-crop-climate-stage`는 기존 Solar 순간 RHS를 재사용해 같은 stage의 CO₂ 질량/T/P에서
-ppm을 유도하고 crop/net/공기 질량 피드백을 묶는다. 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
+[같은 stage37](../contracts/crop-greenhouse-co2-joint-v1.md)은 기존 Solar 순간 RHS를 재사용해
+현재 CO₂ 질량/T/P·vapor→ppm→실제 crop/net/공기 질량 피드백을 수용했다.
+다음 `co2-joint-short-integration`은 별도109상태/모델로 모든 실제 RK trial의 이 피드백과 누적 장부를
+독립 궤적/수렴·중간 실패에 대사한다. 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 그 뒤 새 짧은 적분/관리·continuation/저장/3D를 별도 수용하며 기존 checkpoint를 덮어쓰지 않는다.
 원 단위 불일치의 기공 P03은 hold이며 gas/net/mass의 개발 선행으로 추가하지 않는다.
 작물/기후 순수 계산의 기존 의존성을 따르며 기관 목록/UI 용량을 이 연구의 선행으로 추가하지 않는다.

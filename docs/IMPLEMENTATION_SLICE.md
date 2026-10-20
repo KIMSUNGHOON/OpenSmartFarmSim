@@ -6,7 +6,9 @@
 [명시 T/P·wet/dry 변환](../contracts/crop-co2-gas-v1.md)을 독립35검사로 수용했다.
 [net sink52](../contracts/crop-co2-net-exchange-v1.md)/[공기 질량RHS30](../contracts/crop-co2-air-mass-v1.md)을
 낮/밤 실제 joint 전달·독립 수치/해석 해와 원 자료/자원 보존으로 수용했다.
-다음 작은 작업은 같은 stage의 CO₂ 질량/T/P→ppm과 기존 Solar/작물 조립이다. 기공 단위는 별도 hold다.
+[현재 CO₂ 질량/T/P·vapor→ppm과 Solar/작물 stage37](../contracts/crop-greenhouse-co2-joint-v1.md)을
+독립1,635미분/9수지·실제9성분 각1회로 수용했다. 다음은 별도109상태 짧은 적분/독립 궤적·수렴이다.
+새 저장/API/3D와 실제 품종/농장·관문은 후속이며 기공 단위는 별도 hold다.
 필요한 계산 근거·권리를 대사했으며 UI 용량을 이 계산 개발의 선행으로 추가하지 않는다.
 기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.
 

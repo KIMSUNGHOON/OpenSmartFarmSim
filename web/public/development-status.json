@@ -1,15 +1,15 @@
 {
-  "estimate_reason": "CO₂ 순흡수/배출52검사와 고정 체적 공기 질량RHS30검사를 수용했습니다. 실제 joint 낮/밤 전달을 확인했습니다. 다음은 같은 stage의 CO₂ 질량/T/P→ppm·Solar/작물 조립입니다. 새 동적 적분/3D는 후속입니다. 합성 통합 잔여 초기 견적167–318집중시간이며 독립 검증 포함 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-20T17:36:32.859297Z",
+  "estimate_reason": "CO₂ 질량/T/P·수증기→ppm→실제 Solar/작물/net/공기 피드백을37검사·독립1,635상태 미분/9수지로 수용했습니다. 현재는 한 시점109상태 계산입니다. 다음은 짧은 공동 적분·독립 궤적/수렴입니다. 새 CO₂ 저장3D·자원/경제/최종 UI·독립 검증은 남아 전체 완료일은 미정입니다. 합성 통합 초기 견적167–318집중시간을 유지합니다.",
+  "estimate_reviewed_at": "2026-10-20T17:51:11.338530Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-20T17:36:32.859297Z",
+  "reported_at": "2026-10-20T17:51:11.338530Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
-      "evidence": "기존 일사 합성 상태108/장부·단위/UTC 수용을 유지합니다. CO₂ gas35에 이어 기관/구획/startup 순흡수52와 공기 질량RHS30을 수용했습니다. 낮/밤 실제 전달·독립 총질량/체적·환기 해석 해를 확인했습니다. CO₂ 동적 피드백/실제 품종 검증은 남았습니다.",
+      "evidence": "기존 gas35/net52/mass30을 유지합니다. 현재 CO₂ 질량·공기 T/P·수증기→ppm→Solar/작물/공기37검사와 독립1,635미분·9수지/실제9성분 각1회를 확인했습니다. 한 시점109상태 범위이며 짧은 동적 적분/실제 품종 검증은 다음입니다.",
       "id": "growth",
       "state": "completed"
     },
@@ -24,12 +24,12 @@
       "state": "completed"
     },
     {
-      "evidence": "기관 실제 API/DB/저장 WebGL19GET/10장면 수용은 유지합니다. 원20개 목록/U1·WSL/사용자 적용은 남았습니다. CO₂ net52·질량RHS30은 순간 계산이며 새 동적3D는 후속입니다. 다음은 같은 stage의 Solar/작물/CO₂ 조립입니다.",
+      "evidence": "기존 기관 실제 API/DB/저장 WebGL19GET/10장면 수용을 유지합니다. CO₂ 현재 stage37은 순간 계산이며 새 동적 적분/저장3D는 후속입니다. 원20개 목록/U1·WSL/사용자 적용은 남았습니다. 다음은109상태 짧은 적분·독립 궤적/수렴입니다.",
       "id": "execution_3d",
       "state": "next"
     },
     {
-      "evidence": "기존5173/5174·HTML/자료·5서비스/환기 적용을 유지합니다. 새 기관 UI/Solar·CO₂ 동적 결합은 미배포입니다. 최종 UI·물/양분/구매 에너지·경제·실제 CLI/독립 검증이 남습니다. 합성 통합 초기 견적167–318집중시간·전체 완료일 미정입니다.",
+      "evidence": "기존5173/5174·HTML/자료·5서비스/환기 적용을 유지합니다. 새 기관 UI/Solar·CO₂ 동적 결합은 미배포입니다. 새 적분/저장3D·최종 UI·물/양분/구매 에너지·경제·실제 CLI/독립 검증이 남습니다. 합성 통합 초기167–318집중시간·전체 완료일 미정입니다.",
       "id": "activation",
       "state": "pending"
     }

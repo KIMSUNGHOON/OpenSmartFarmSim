@@ -2160,7 +2160,11 @@
         핵심3파일: 별도 floor-area 질량 RHS/집중 pytest/계약. 명시 V/A와 signed source/sink·
         고정 부피의 무유속 보존/해석적 well-mixed 교환·공기/작물 전달 상쇄와 틀린 단위/상태 혼합을 검증한다.
         가변 부피/전체 건조공기 압력 solver·추측 시설 계수는 이 자식의 수용 범위가 아니다.
-      - [ ] **`co2-crop-climate-stage`** — 다음 작은 자식; 선행: 위 gas/net/mass, 기존 Solar 순간 RHS 수용.
+      - [x] **`co2-crop-climate-stage`** — [계약](../contracts/crop-greenhouse-co2-joint-v1.md)/
+        [최종37검사](../research/artifacts/crop-greenhouse-co2-joint-20261021.json):7개 Solar×wet/dry와 비영 제거의
+        독립1,635상태 미분·기체 진단/9수지·실제9성분 각1회/동일 vapor·환기/실제 startup 전달을 확인했다.
+        원 모델/프로필·5root/자료/자원/정리를 보존했다. 순간109상태 범위다.
+        선행: 위 gas/net/mass, 기존 Solar 순간 RHS 수용.
         핵심3파일: 새 `backend/app/crop_greenhouse_co2_joint.py`/집중 pytest/별도 계약.
         기존 `crop_greenhouse_solar_joint.py`를 재사용하되 별도 상태/모델 판본에서 CO₂ 질량을 둔다.
         수용: (1)같은 stage의 m/h·Ta·명시 P·wet/dry/필요 수증기압→ppm으로 crop forcing을 유도하고
@@ -2168,6 +2172,15 @@
         상태·원 열/물 장부 보존·독립 CO₂ 참조/낮밤/고갈·단위·원 프로필 불변;
         (3)기존 checkpoint/API/두 UI/5root/자료·자원/정리 보존. 원 normal64/U1은 순수 RHS 개발의 선행이 아니다.
         확인: 실제 기존 Solar 참조/독립 Decimal CO₂ 비교와 집중 pytest. 새 짧은 적분/관리/continuation·저장/3D는 후속.
+      - [ ] **`co2-joint-short-integration`** — 다음 작은 자식; 선행: 위109상태 RHS 수용.
+        핵심5파일: `backend/app/crop_greenhouse_co2_integration.py`, 대응 집중 pytest/계약,
+        `research/crop-greenhouse-co2-integration-reference.py`, `fixtures/crop-greenhouse-co2-integration-reference-cases-v1.json`.
+        수용: (1)상수 외부 forcing의 모든 실제 RK trial에서 현재 CO₂/T/vapor→ppm·Solar/작물/net/mass를
+        재평가하고109상태와 기존 열/물/탄소·CO₂ 누적 장부를 진행; (2)app-free Decimal 궤적/수렴·
+        낮밤/양·역 환기/주입·제거·wet/dry·고갈/중간 trial 실패의 마지막 확정 sample/원 수지;
+        (3)판본/입출력 hash·명시 예산/원 프로필/기존 결과·5root/자원/소유 정리.
+        확인: 독립 reference/fixture 재현과 집중 pytest. 사건/전체 작기·UTC/continuation·저장/API/3D와
+        실제 품종/농장·관문은 후속이며 기존 Solar checkpoint/reader를 새 상태로 덮어쓰지 않는다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
