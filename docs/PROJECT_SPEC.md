@@ -730,7 +730,10 @@ CO₂ 경계의 개발은 [원문/단위 정책](../research/crop-co2-stomatal-s
 [환경/관리 program37검사](../contracts/crop-greenhouse-co2-program-v1.md)는 명시 외기 구간·경계 전환 뒤 관리 순서를
 독립10개32초/8,556수치·96수렴/17전역 수지·최대512환경/512출력·128사건에 대사했다.
 [중간 재개122검사](../contracts/crop-greenhouse-co2-continuation-v1.md)는10개 프로그램×5예산과
-8개 fresh 복원의 과거 계산0·원 상태/장부/최종 checkpoint bytes를 대사했다. 다음은 UTC 결속이며
+8개 fresh 복원의 과거 계산0·원 상태/장부/최종 checkpoint bytes를 대사했다.
+[UTC 연결과 journal v2의270검사](../contracts/crop-greenhouse-co2-time-v1.md)는 시각 연결 중 계산0과
+원 수치/순서·재개를 유지하며128사건을 원8MiB 안에 결속했다. v1 증거/원 상태를 새 판본으로 덮어쓰지 않는다.
+다음은 불변 저장→입력/농장 결속·서명 이력이며
 전체 작기·UTC/continuation·새 저장/3D는 후속이다.
 기공 단위 해석의 별도 hold나
 기관 목록/U1 용량을 앞의 gas/net/mass 자식의 개발 선행으로 추가하지 않는다.

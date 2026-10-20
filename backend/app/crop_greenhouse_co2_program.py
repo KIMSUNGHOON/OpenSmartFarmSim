@@ -8,18 +8,24 @@ from . import crop_climate_joint_boundary as previous
 from . import crop_greenhouse_co2_integration as stage
 from . import crop_greenhouse_co2_management as management
 
-VERSION = "joint-co2-solar-forcing-management-program-research-v1"
+VERSION = "joint-co2-solar-forcing-management-program-research-v2"
+JOURNAL_SCHEMA = "joint-co2-solar-event-journal-v2"
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
 EVENT_UNITS = previous.EVENT_UNITS
 BOUNDARIES = ("solar", "ventilation", "co2")
 POLICY = {"forcing": "piecewise_constant_old_interval_then_new_boundary",
           "events": "new_forcing_then_atomic_removal_then_selected_output",
           "scenario": "fixed_geometry_profiles_and_uncomposed_internal_sources",
-          "carbon": "44_over_30_event_carbohydrate_removed_once_not_emission"}
+          "carbon": "44_over_30_event_carbohydrate_removed_once_not_emission",
+          "journal": "v2_retain_audit_and_post_calculation_identity_exclude_transient_after_rhs"}
 
 
 class ProgramHold(previous.BoundaryHold):
     """Keep only confirmed boundaries and the committed journal after failure."""
+
+
+def _journal_management(applied):
+    return {k: v for k, v in applied.items() if k != "after_rhs"}
 
 
 def _forcing(rows, count, origin):
@@ -148,7 +154,7 @@ def integrate_events(*, scenario, forcing_program, events, output_steps, step_se
                 confirmed = _snapshot(index, dt, diagnostic, active, totals, event_totals,
                     event_count, residuals, budgets, "boundary-after-event")
                 journal.append({"step_index": index, "elapsed_seconds": index*dt,
-                    "forcing_step_index": active["step_index"], "management": applied})
+                    "forcing_step_index": active["step_index"], "management": _journal_management(applied)})
             if index in requested:
                 samples.append(confirmed)
     except errors as exc:
@@ -182,5 +188,6 @@ def integrate_events(*, scenario, forcing_program, events, output_steps, step_se
         "source_sha256": {**initial["source_sha256"], "solar": initial["solar_rhs"]["source_sha256"]},
         "notice_sha256": initial["solar_rhs"]["notice_sha256"], "state_schema_version": stage.rhs.STATE_SCHEMA,
         "ledger_schema_version": "joint-solar-co2-ledgers-v1", "event_schema_version": "joint-co2-solar-event-ledgers-v1",
+        "journal_schema_version": JOURNAL_SCHEMA,
         "scope": "software_research_only", "claim_scope": "synthetic_joint_co2_solar_forcing_management_only",
         "G0_G4": "not_assessed"}

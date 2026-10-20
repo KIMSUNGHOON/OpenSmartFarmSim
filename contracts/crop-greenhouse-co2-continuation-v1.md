@@ -5,6 +5,12 @@ Status: research software accepted by122 focused tests on2026-10-21 KST. New fro
 [Solar transport limits](crop-greenhouse-solar-continuation-v1.md). They remain
 incompatible with old108-state checkpoints; no equations/profiles are changed.
 
+Current transport revision: [journal v2](crop-greenhouse-co2-event-journal-v2.md)
+uses continuation/checkpoint-v2 and preserves all122 continuation tests in the
+[combined270 proof](../research/artifacts/crop-greenhouse-co2-time-20261021.json).
+Original v1 evidence below is retained. New context/prefix identities bind the
+smaller committed journal; there is no silent v1 checkpoint conversion.
+
 `prepare_context` takes exactly the new program arguments. One actual initial
 CO₂/Solar RHS normalizes the seed and first forcing row. The immutable program
 retains all remaining explicit forcing rows; their state-dependent checks occur

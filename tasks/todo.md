@@ -2213,12 +2213,22 @@
         수용: 단일 대 여러 chunk의 상태/장부/사건/출력 정확 일치, fresh 복원 시 과거 재적분0;
         경계와 사건 전후/실패 prefix·잘못된 체크포인트/판본 혼합 hold·원 결과/5root/자원/정리.
         UTC/custody·DB/API/3D·전체 작기/실제 품종/관문은 별도다.
-      - [ ] **`co2-utc-binding`** — 다음 작은 자식; 선행: 위 재개 수용과 기존 Solar UTC 계약.
+      - [x] **`co2-utc-binding`** — [계약/수용](../contracts/crop-greenhouse-co2-time-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-time-20261021.json):UTC110/프로그램38/재개122=270검사,
+        13수치 진입점 호출0·30프로그램/예산·11실패 시각·fresh 연결·원 자료/5root/정리를 확인했다.
+        원8MiB 초과를 journal/checkpoint v2로 수정해 최대128사건6.65/6.66MB를 수용했고 수치/원 v1 증거는 보존했다.
+        선행: 위 재개 수용과 기존 Solar UTC 계약.
         핵심3파일: 새 time 모듈/집중 pytest/계약. 명시 offset·마이크로초 origin과 정수 step_index를
         새 context/checkpoint·sample/event/last_confirmed/hold에 결속한다. 절대시각을 작물식에 넣지 않는다.
         수용: UTC/KST·기간/날짜 경계·환경/관리 전후·실패 prefix/순서와 원 숫자/bytes·digest 보존;
         잘못된 정밀도/offset/지점/변조 거부와 실제 RHS/적분/관리/restore 호출0·원 모델/5root/자료/정리.
         custody·저장/API/3D/전체 작기·관문은 후속 수용이다.
+      - [ ] **`co2-immutable-storage`** — 다음 작은 자식; 선행: 위 UTC/v2 journal과 기존 Solar 파일 저장 계약.
+        핵심3파일: 새 storage/집중 pytest/계약. 기존 secure files/fsync/content-addressed page·atomic HEAD를
+        재사용해 원109상태/44연속·6사건/17수지·UTC/체크포인트·source hash를 별도 typed artifact로 보존한다.
+        수용: 실제 writer/finalize/reader·fresh 조회의 수치/context/restore0; 중간 재개와 HEAD 직전/직후
+        소유 SIGKILL·미게시 orphan 보존·변조/혼합/symlink/FIFO/원2MiB 페이지/용량·5root/자료/정리.
+        파일 저장 뒤 입력 증거/농장 결속→서명 custody→DB/API/3D로 연결한다. 합성 저장은 농장/G0–G4 승인이 아니다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

@@ -9,8 +9,8 @@ from pathlib import Path
 from . import crop_climate_joint_continuation as transport
 from . import crop_greenhouse_co2_program as driver
 
-VERSION = "joint-co2-solar-continuation-research-v1"
-CHECKPOINT_VERSION = "joint-co2-solar-checkpoint-v1"
+VERSION = "joint-co2-solar-continuation-research-v2"
+CHECKPOINT_VERSION = "joint-co2-solar-checkpoint-v2"
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
 MAX_CONTEXT_BYTES = 2*1024**2
 MAX_CHECKPOINT_BYTES = 65536
@@ -40,6 +40,7 @@ def _identity(profiles):
         "co2_solar_policy_sha256": {m.__name__.rsplit('.', 1)[-1]: _hash(m.POLICY) for m in modules if hasattr(m, 'POLICY')},
         "state_schema": rhs.STATE_SCHEMA, "ledger_schema": "joint-solar-co2-ledgers-v1",
         "event_schema": "joint-co2-solar-event-ledgers-v1", "balance_count": 17,
+        "journal_schema": driver.JOURNAL_SCHEMA,
         "source_sha256": {"gas": rhs.gas.SOURCE_SHA256, "net": rhs.net.SOURCE_SHA256,
             "air_mass": rhs.air.SOURCE_SHA256, "PAR": solar.par.radiation.SOURCE_SHA256,
             "NIR": solar.nir.SOURCE_SHA256, "exchange": profiles[-1].source_sha256},
@@ -295,7 +296,7 @@ def advance_chunk(context, checkpoint, boundary_budget):
                 confirmed = driver._snapshot(index, dt, diagnostic, active, t, e, count,
                     residuals, budgets, "boundary-after-event")
                 row = {"step_index": index, "elapsed_seconds": index*dt,
-                       "forcing_step_index": active["step_index"], "management": applied}
+                       "forcing_step_index": active["step_index"], "management": driver._journal_management(applied)}
                 journal.append(row); payload["event_prefix_sha256"] = _prefix(payload["event_prefix_sha256"], row)
             if index in outputs:
                 samples.append(confirmed)

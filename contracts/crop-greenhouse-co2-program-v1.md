@@ -4,6 +4,13 @@ Status: research software accepted by37 focused tests on2026-10-21 KST. Uses the
 [atomic management](crop-greenhouse-co2-management-v1.md) and existing
 [Solar grid limits/order](crop-greenhouse-solar-program-v1.md).
 
+Current transport revision: [journal v2](crop-greenhouse-co2-event-journal-v2.md)
+uses program research-v2 with the same math/limits and38 program regression tests
+inside the [combined270 proof](../research/artifacts/crop-greenhouse-co2-time-20261021.json).
+The original v1 acceptance below remains historical evidence. Only transient
+after_rhs is omitted from committed event records; retained after calculation
+identity and raw states/ledgers are unchanged.
+
 `integrate_events(scenario, forcing_program, events, output_steps, step_seconds,
 step_count, four profiles)` runs explicit piecewise constant outdoor boundaries.
 Each closed forcing row has `step_index, solar, ventilation, co2`; the three

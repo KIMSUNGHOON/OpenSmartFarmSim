@@ -131,6 +131,16 @@ def test_output_selection_replay_and_identity(model,profiles,results):
     for key in ('last_confirmed','integrated_transfers','event_totals','events'):assert a[key]==b[key]
 
 
+def test_version2_journal_keeps_post_rhs_identity_without_transient_payload(results):
+    r=results['weather-multiple']
+    assert r['model_version']=='joint-co2-solar-forcing-management-program-research-v2'
+    assert r['journal_schema_version']=='joint-co2-solar-event-journal-v2'
+    for row in r['events']:
+        m=row['management'];assert 'after_rhs' not in m
+        assert m['after_calculation_sha256']==m['after']['calculation_sha256']
+        assert m['before_calculation_sha256']==m['before']['calculation_sha256']
+
+
 @pytest.mark.parametrize('failure',['initial','forcing','event','step-balance','event-balance','interval'])
 def test_failures_preserve_detached_confirmed_prefix(model,profiles,monkeypatch,failure):
     c=deepcopy(BY_ID['weather-multiple']);p=dict(profiles)
