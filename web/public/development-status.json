@@ -1,15 +1,15 @@
 {
-  "estimate_reason": "CO₂/Solar/작물109상태·44장부의 짧은 공동 적분을25검사·8개32초·독립1,256수치/96수렴/17수지로 수용했습니다. 현재 ppm은 매 trial 갱신하며 고갈은 마지막 확정까지만 남깁니다. 다음은 관리 전이→program/continuation→저장3D입니다. 합성 통합 초기 견적161–308집중시간·실제 검증 포함 전체 완료일 미정입니다.",
-  "estimate_reviewed_at": "2026-10-20T18:07:04.266792Z",
+  "estimate_reason": "CO₂/Solar109상태 관리 전이를35검사로 수용했습니다. 9제거×wet/dry·10수지와 독립16초→사건→16초를 확인했습니다. 다음은 forcing/event program→continuation→저장3D입니다. 합성 통합161–308집중시간의 낮은 신뢰 계획을 유지하며 실제 농장 검증 포함 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-20T18:22:35.743474Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-20T18:07:04.266792Z",
+  "reported_at": "2026-10-20T18:22:35.743474Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
-      "evidence": "기존 CO₂ 순간stage37을 유지합니다. 짧은 적분25검사·109상태/44장부·8개32초의 독립1,256수치/96수렴/17수지를 확인했습니다. 실제 현재 ppm 평가65회/16step·고갈/마지막 확정 보존을 검증했습니다. 전체 작기/실제 품종 검증은 남습니다.",
+      "evidence": "기존 짧은 적분25검사를 유지합니다. 관리 전이35검사로9제거×wet/dry·109상태/10수지·실제 감소 LAI/PAR/NIR·13거부와 독립16초→사건→16초를 확인했습니다. 순간 사건/합성 계산 범위이며 전체 작기/실제 품종 검증은 남습니다.",
       "id": "growth",
       "state": "completed"
     },
@@ -24,12 +24,12 @@
       "state": "completed"
     },
     {
-      "evidence": "기존 기관 API/DB/저장 WebGL19GET/10장면 수용을 유지합니다. 새 CO₂ 짧은32초 적분은 수용했으며 관리/program·새 저장3D는 후속입니다. 원20개 목록/U1·WSL/사용자 적용은 남았습니다. 다음은109상태 관리 전이입니다.",
+      "evidence": "기존 기관 API/DB/저장 WebGL19GET/10장면 수용을 유지합니다. 새 CO₂ 관리35검사는 수용했으나 자동 program/continuation·새 저장3D는 후속입니다. 원20개 목록/U1·WSL/사용자 적용은 남았습니다. 다음은 forcing/event program입니다.",
       "id": "execution_3d",
       "state": "next"
     },
     {
-      "evidence": "기존5173/5174·HTML/자료·5서비스/환기 적용을 유지합니다. 새 기관 UI/Solar·CO₂ 모델은 미배포입니다. 관리/program/continuation·새 저장3D·최종 UI·물/양분/구매 에너지·경제·실제 CLI/독립 검증이 남습니다. 합성 통합 초기161–308집중시간·전체 완료일 미정입니다.",
+      "evidence": "기존5173/5174·HTML/자료·5서비스/환기 적용을 유지합니다. 새 기관 UI/Solar·CO₂ 모델은 미배포입니다. program/continuation·새 저장3D·최종 UI·물/양분/구매 에너지·경제·실제 CLI/독립 검증이 남습니다. 합성 통합161–308집중시간의 낮은 신뢰 계획·전체 완료일 미정을 유지합니다.",
       "id": "activation",
       "state": "pending"
     }

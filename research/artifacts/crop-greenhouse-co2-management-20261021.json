@@ -1,0 +1,174 @@
+{
+  "version": "crop-greenhouse-co2-management-acceptance-v1",
+  "recorded_at": "2026-10-20T18:21:35.549972+00:00",
+  "model_version": "joint-co2-solar-management-research-v1",
+  "state_schema": "crop-solar-co2-stage-state-v1",
+  "test_count": 35,
+  "independent_event_cases": 9,
+  "gas_bases": [
+    "wet",
+    "dry"
+  ],
+  "post_event_state_count": 109,
+  "event_balance_count": 10,
+  "invalid_cases": 13,
+  "manual_composition": {
+    "before_seconds": 16,
+    "event_count": 1,
+    "after_seconds": 16,
+    "state_values": 109,
+    "integrated_transfer_values": 44,
+    "oracle": "app-free Decimal80 CO2/Solar trajectory with original exact removal; not scheduled runtime or custody"
+  },
+  "actual_rhs_calls_per_event": 2,
+  "reference_policy": "original immutable removal9 plus explicit independent gas; no new adopted data",
+  "native_CLI_review": {
+    "decision_id": "co2-managed-transition-20261021-v1",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "native_turn_context": {
+      "timestamp": "2026-10-20T18:09:44.750Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "event_line_sha256": "ac23c3937384c7beecc356d155a40562d271433c8eef5c57f6dfb61d0577c2cd"
+    },
+    "session_creation_metadata": {
+      "source": "vscode",
+      "cli_version": "0.157.1",
+      "model_provider": "openai"
+    },
+    "creation_version_not_current_binary_measurement": true,
+    "no_recursive_CLI": true
+  },
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_management.py": "bfc01cc5af5d73a26f25c646b531f7ff3d6de006adda245927a146d8d6cdbdb8",
+    "backend/tests/test_crop_greenhouse_co2_management.py": "5681635a886c89bc5a460b63c5a0293b87d81d7428dc5e2a88175d8613700373",
+    "contracts/crop-greenhouse-co2-management-v1.md": "78b0a638184f300ee4f0c14cb4d533073b4c0fa91bac3e44b4046f0b4dc5c514",
+    "backend/app/crop_greenhouse_co2_joint.py": "5f157d7034ee6156cd7372f68b594336d09c461649ea1b676afc2d9abb7ab12f",
+    "backend/app/crop_greenhouse_co2_integration.py": "4774ca49e6c26cd64b7810d1d38b775fcda1a3302cd8f39b7122bf6faae6a2d9",
+    "backend/app/crop_climate_joint_management.py": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+    "research/crop-climate-joint-management-reference.py": "7982b0af6adc72a894255db06e7b4b3db2088a4fe58c84830a87b37235ed0fa4",
+    "fixtures/crop-climate-joint-management-reference-cases-v1.json": "74f3aa4e9f75acc83a60c2c8bfecd3aadfc7a4359685b3e4e2ab45c6f93eb747",
+    "research/crop-greenhouse-co2-integration-reference.py": "6f592d4cecc4c7e1048fae05d9b6b7bb92fb16787210fcd4caeb85315274714e",
+    "fixtures/crop-greenhouse-co2-integration-reference-cases-v1.json": "f52f2ecf9bbf5d10f1c7b5573c4db0985dd67945be15fdebb2dcb3424b7061b3"
+  },
+  "RED": {
+    "result": "module absent, not numerical counterexample",
+    "terminal": {
+      "actual_child_exit": 1,
+      "wall_seconds": 0.6016993539815303,
+      "combined_peak_RSS_bytes": 621932544,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 2,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "c4b473a7d88dc6162d70161e9b1aecc0e2ab554b80019027f40bbf6bbb8d0d0a",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "first_full_run": {
+    "result": "20 passed then test metadata KeyError; corrected absent generator field to explicit immutable generator pin; production code and oracle unchanged",
+    "terminal": {
+      "actual_child_exit": 1,
+      "wall_seconds": 1.114305743976729,
+      "combined_peak_RSS_bytes": 625274880,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 4,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "99e01998810230e14cac9d37dbc88e1428e2dc2d6d973af3c357ffb007b098f5",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "GREEN": {
+    "result": "35 passed in1.58s",
+    "tested_contract_sha256": "395e19ea08d3f366186a46ea73f5b961ccafce6b4df8bcb2dba56ac834b71c95",
+    "terminal": {
+      "actual_child_exit": 0,
+      "wall_seconds": 1.8851592070132028,
+      "combined_peak_RSS_bytes": 627908608,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 7,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "448ca3dd71521f35301d435e12b8a85f2f7305f8842ee0f9f86ad6dade8cd608",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "original_tracked_backend_and_profiles_changed": false,
+  "not_run": [
+    "automatic forcing/event program",
+    "UTC/continuation/runtime checkpoint",
+    "full crop cycle",
+    "saved109-state result/API/3D",
+    "whole-product CI/browser/DB",
+    "actual farm/forecast/ranking/deployment"
+  ],
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "next_child": "co2-forcing-event-program",
+  "development_status_publication": {
+    "reported_at": "2026-10-20T18:22:35.743474Z",
+    "sha256": "18c483852e0478715e238239845c2fd487878c1e3738c75ecffbc07beffd5111",
+    "both_ports_HTTP_200_same_bytes_no_store": true,
+    "frozen_HTML_both_preserved": true,
+    "ventilation_frozen_source_files_preserved": 2173,
+    "guard_wall_seconds": 0.3399688089848496,
+    "guard_combined_RSS_bytes": 578088960,
+    "browser_DOM_rerun": false,
+    "new_CO2_model_deployed": false
+  }
+}

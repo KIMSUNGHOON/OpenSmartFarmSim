@@ -19,7 +19,7 @@
 | 2 CO₂ net/mass — 완료 | [net52](../contracts/crop-co2-net-exchange-v1.md)/[질량RHS30](../contracts/crop-co2-air-mass-v1.md)/[stage37](../contracts/crop-greenhouse-co2-joint-v1.md)/[짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md) 수용 | 0 |
 | 3 기공 | 원 단위 판본 결정 → scalar 참조 → 같은 stage 입력 연결/수지; 결정 전 hold | 8–16 |
 | 4 시설/일사 실행 | 명시 시설 환기 경계 → 남은 normal64 비용 원인 수정 → 정상/hold/취소/계산 중3D | 12–24 |
-| 5 `crop-climate-coupling` | CO₂ 포함 공동 적분 → 관리/분할복원 → 필요한 긴 forcing/전체 작기 수지·용량 | 12–24 |
+| 5 `crop-climate-coupling` | CO₂ 짧은 적분/관리 수용 뒤 forcing/event program → 분할복원 → 필요한 긴 forcing/전체 작기 수지·용량 | 12–24 |
 | 6 과실/수확 부모 잔여 | 기존 구획/startup/수확 개발 경계 대사 → 미충족 전체 작기/변환·출처 hold 연결 | 8–16 |
 | 7 `crop-water-nutrient` | 배지/급배액 근거 → 물 재고 → 성분/재순환 → 사건/적분 → 수지·결측 hold | 15–28 |
 | 8 `crop-energy-purchases` | 명시 장비/COP·효율 → 전력/연료/보조설비 → 공급열·CO₂ 분리 → 계량 단위/hold | 8–16 |
@@ -41,6 +41,10 @@
 실제 중간 고갈 보류로 수용해2행을 완료하고161–308로 갱신했다. 검증은8개32초 합성 궤적이다.
 관리/forcing program·전체 작기/continuation·저장/실행은5/9행이며 아래 낮은 신뢰 계획 창은 유지한다.
 통합의 불확실성이 해소되지 않아 아래5–9개발주 조건부 계획 창은 유지한다.
+
+[관리 전이35검사](../contracts/crop-greenhouse-co2-management-v1.md)는5행의 순간 사건 자식을 완료했다.
+9제거×wet/dry·109상태/10수지와 독립16초→사건→16초를 수용했으나 자동 program/재개는 남는다.
+이 자식의 검사1.58초를 공수로 환산하거나 남은 통합 공수에서 임의 차감하지 않고161–308 범위를 유지한다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
 기존 디자인 변환 복구와 독립 검토/해제 확보, 추가 큰 수치/성능 재설계 없음이라는 가정이면 약5–9개발주다.
@@ -85,8 +89,13 @@ P01의 [명시 기압/온도·wet/dry 순수 변환](../contracts/crop-co2-gas-v
 현재 CO₂ 질량/T/P·vapor→ppm→실제 crop/net/공기 질량 피드백을 수용했다.
 [짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md)는 모든 실제 RK trial의 현재 ppm과
 109상태/44장부를 독립32초 궤적·96수렴·중간 실패에 대사해 수용했다.
-다음 `co2-managed-transition`은 검토된 관리 primitive와 실제 CO₂/Solar 전후 RHS를 묶고
-공기 CO₂/ppm·제거 탄소/용량/열 보존을 검증한다. 이후 forcing/event program→continuation→저장/3D다.
+`co2-managed-transition`은 검토된 관리 primitive와 실제 CO₂/Solar 전후 RHS를 묶어35검사로 수용했다.
+9제거×wet/dry·109상태/10수지·13거부와 독립16초→사건→16초를 확인했다.
+다음 `co2-forcing-event-program`은 기존 Solar program의 명시 격자/사건 순서에 새109상태 계산을 연결한다.
+수용: 구간 경계의 wet/dry/외부 CO₂·일사/환기 입력과 같은 시각 관리 순서·전역 제거/연속 장부를
+독립 수치로 대사하고, 중간 실패는 마지막 확정 시각/상태를 보존한다. 원 코드/자료/5root/자원도 보존한다.
+핵심은 새 program/집중 pytest/계약이며 UTC/영속 checkpoint·저장/API/3D 수용은 후속으로 분리한다.
+이후 continuation→저장/3D다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 그 뒤 새 짧은 적분/관리·continuation/저장/3D를 별도 수용하며 기존 checkpoint를 덮어쓰지 않는다.
 원 단위 불일치의 기공 P03은 hold이며 gas/net/mass의 개발 선행으로 추가하지 않는다.

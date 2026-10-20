@@ -8,7 +8,10 @@
 실제 joint 낮/밤 전달·원 모델/자료/자원 보존으로 수용했다.
 [현재 CO₂/Solar/작물 stage37](../contracts/crop-greenhouse-co2-joint-v1.md)도 독립1,635미분/9수지와
 실제9성분 각1회로 수용했다. [109상태 짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md)도
-독립1,256수치/96수렴/17수지와 중간 고갈 보류로 수용했다. 다음은 관리 전이→program/continuation→저장/3D다.
+독립1,256수치/96수렴/17수지와 중간 고갈 보류로 수용했다.
+[109상태 관리 전이35검사](../contracts/crop-greenhouse-co2-management-v1.md)도9제거×wet/dry·10수지·
+실제 감소 LAI/PAR/NIR·독립16초→사건→16초와 원 자료/5root/자원 보존으로 수용했다.
+다음은 forcing/event program→continuation→저장/3D다. 전체 작기/109상태 저장3D는 아직 미수용이다.
 기공 단위 P03은 hold이며 개발 순서와 분리한다.
 [잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지161–308집중시간의
 낮은 신뢰 견적이다. 실제 검증/공개 운영 포함 전체 완료일은 미정이며 계수/예측·관문 승인은 아니다.

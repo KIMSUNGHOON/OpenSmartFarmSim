@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-21 KST:** [CO₂·일사·작물의 짧은 공동 적분](contracts/crop-greenhouse-co2-integration-v1.md)을25검사·8개32초/독립1,256수치·96수렴/17수지로 수용했다. 매 trial 현재 CO₂/T/vapor→ppm을 재평가하며 고갈 시 마지막 확정 상태를 보존했다. 기존 모델/프로필/자료/5서비스를 보존했다. 다음은 관리 사건의109상태 전이, 그 뒤 forcing program·continuation·저장/3D다. 전체 작기/새 CO₂ 저장3D·기공 단위/원20개 용량/U1·WSL·새 UI/Solar 배포는 미완료다. [잔여 공수](tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)는 합성 통합/실제 CLI G1까지161–308집중시간의 낮은 신뢰 견적이다. 실제 농장/예측·추천/운영 포함 전체 완료일은 미정·goal active다.
+**현재 — 2026-10-21 KST:** [CO₂·일사·작물의 짧은 공동 적분](contracts/crop-greenhouse-co2-integration-v1.md)25검사에 이어 [관리 사건의109상태 전이](contracts/crop-greenhouse-co2-management-v1.md)를35검사로 수용했다. 잎/줄기/과실 제거·10수지·정확 공기 CO₂/ppm 보존과 독립16초→사건→16초 계산을 확인했다. 기존 모델/프로필/자료/5서비스를 보존했다. 다음은 forcing/event program→continuation→저장/3D다. 전체 작기/새 CO₂ 저장3D·기공 단위/원20개 용량/U1·WSL·새 UI/Solar 배포는 미완료다. [잔여 공수](tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)는 합성 통합/실제 CLI G1까지161–308집중시간의 낮은 신뢰 계획 범위를 유지한다. 실제 농장/예측·추천/운영 포함 전체 완료일은 미정·goal active다.
 
 **일정 재확인 — 2026-10-21 KST:** 전체 goal 완료일은 미정이다. [현재 용량 사전 검사](research/organ-catalog-capacity-preflight-20261021.md)는 WSL 합산 RSS 한도로 미수용이며20개/HTTPS·크기 증거는 없다. 보호5root/원 자료를 보존했다. 같은 실행은 반복하지 않고 hosted 정상1개→수용 시20개로 진행한다. 이번1–3집중시간 추정은 검사 결과 보고의 범위이며 생산/자원/경제·최종 UI/실제 CLI 종단 간·독립 농장 검증까지의 제품 완료 예상이 아니다.
 

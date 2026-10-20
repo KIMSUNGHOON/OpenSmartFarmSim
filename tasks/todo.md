@@ -2184,7 +2184,10 @@
         (3)판본/입출력 hash·명시 예산/원 프로필/기존 결과·5root/자원/소유 정리.
         확인: 독립 reference/fixture 재현과 집중 pytest. 사건/전체 작기·UTC/continuation·저장/API/3D와
         실제 품종/농장·관문은 후속이며 기존 Solar checkpoint/reader를 새 상태로 덮어쓰지 않는다.
-      - [ ] **`co2-managed-transition`** — 다음 작은 자식; 선행: CO₂ stage와 기존 관리/용량 정책.
+      - [x] **`co2-managed-transition`** — [계약/수용](../contracts/crop-greenhouse-co2-management-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-management-20261021.json):35검사·9제거×wet/dry의
+        109상태/10수지·13거부·실제 두 CO₂/Solar RHS/감소 LAI·독립16초→사건→16초를 확인했다.
+        원 모델/프로필/5root/2,148자료/자원·소유 정리를 보존했다. 선행: CO₂ stage와 기존 관리/용량 정책.
         핵심3파일: 새 `backend/app/crop_greenhouse_co2_management.py`, 대응 집중 pytest와 계약.
         기존 관리의 검토된 제거/분수·잎 용량 primitive를 재사용하되 실제 CO₂/Solar RHS로 전후를 검증한다.
         수용: (1)명시 잎/줄기·과실 제거 후109상태의 공기 CO₂/수증기/기온·현재 ppm 보존과
@@ -2192,6 +2195,12 @@
         과다/빈 수관/혼합 origin·실패 시 관리 전 확정 상태 보존; (3)새 판본/hash·원 데이터/모델·5root/자원/정리.
         확인: 집중 pytest·독립 제거/용량/탄소 수치와 실제 전후 CO₂ 모델 대사. 기존 fixed-ppm 관리 RHS를
         새 모델의 실제 후 상태로 재사용하지 않는다. forcing 구간/사건 program·UTC/재개/저장/3D는 후속이다.
+      - [ ] **`co2-forcing-event-program`** — 다음 작은 자식; 선행: 위 짧은 적분/관리 전이와 기존 Solar program 계약.
+        핵심3파일: 새109상태 program 모듈/집중 pytest/계약. 명시 격자·구간 forcing/사건 순서를 보존해
+        실제 CO₂/Solar 계산을 연결하고 연속44장부와 관리 제거·전역 수지를 분리해 대사한다.
+        수용: 구간 경계·wet/dry/외부 CO₂/낮밤/환기와 같은 시각 관리 순서·독립 수치/실제 평가;
+        잘못된 program/중간 고갈·실패 시 마지막 확정 시각/상태·입력 불변과 원5root/자료/자원/정리.
+        확인: 집중 pytest·app-free 참조 구성. UTC/영속 checkpoint/전체 작기·저장/API/3D/관문은 후속이다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

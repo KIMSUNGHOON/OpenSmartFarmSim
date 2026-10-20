@@ -724,7 +724,9 @@ CO₂ 경계의 개발은 [원문/단위 정책](../research/crop-co2-stomatal-s
 [같은 stage의 질량/T/P·vapor→ppm과 Solar/작물/net/공기 RHS 조립](../contracts/crop-greenhouse-co2-joint-v1.md)은
 독립1,635미분/9수지·실제9성분 각1회와37검사로 순간 소프트웨어 수용했다.
 [새109상태 짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md)는 독립1,256수치/96수렴/17수지와
-실제 중간 고갈 보류로32초 합성 범위를 수용했다. 다음은 관리 전이와 forcing/event program이며
+실제 중간 고갈 보류로32초 합성 범위를 수용했다.
+[관리 전이35검사](../contracts/crop-greenhouse-co2-management-v1.md)는9제거×wet/dry·109상태/10수지와
+실제 감소 LAI의 광 흡수·공기 CO₂/ppm 보존·독립16초→사건→16초를 확인했다. 다음은 forcing/event program이며
 전체 작기·UTC/continuation·새 저장/3D는 후속이다.
 기공 단위 해석의 별도 hold나
 기관 목록/U1 용량을 앞의 gas/net/mass 자식의 개발 선행으로 추가하지 않는다.
