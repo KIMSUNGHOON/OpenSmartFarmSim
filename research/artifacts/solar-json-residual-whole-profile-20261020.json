@@ -1,0 +1,3721 @@
+{
+  "schema_version": "solar-json-residual-whole-profile-v1",
+  "recorded_at": "2026-10-20T02:37:43.947303Z",
+  "baseline_commit": "9a8230324871375309f97549e8f462bf9b529374",
+  "native_CLI": {
+    "timestamp": "2026-10-20T02:28:33.689Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_sha256": "6708fcbfe89ec52e9a175e5e9b1e85aaedcb350b03b0c271e7e866dc150040bb"
+  },
+  "recursive_CLI_calls": 0,
+  "subagents_started": 0,
+  "research_source_SHA256": {
+    "research/solar-local-json-ownership.py": "53619749e2845a30bf48ad95c5f20b4acad5e3cea2bf71cdff690c7564e1cd6c",
+    "research/solar-json-load-adapter.py": "e4abbc110febd0ef13b5f0c4e4a8fecaf3063e5ff10b60be70824a8849998ba1",
+    "research/solar-json-source-assembly.py": "78f5aa927cb87e540878b872396a38184768d95ddfc2cf06b814497a4c7fb918",
+    "backend/tests/test_solar_json_reference_guard.py": "e7810ec61cd2ffe3252a79f550bb497c23f199b76723d100223bc3d8d32710bb",
+    "backend/tests/test_local_json_ownership.py": "069d163939acab3a0e055b96324ac781c7edfecadcad9b6601db53dc8838489b",
+    "backend/tests/test_solar_json_load_adapter.py": "3a2c19da1322d08d0aeffad4fb8c6f1561914c0ebbe6db4670ca4e16db9f8e7d",
+    "backend/tests/test_solar_json_source_assembly.py": "e3d8a82528d168f20ddbac76f3d85fadabce1eb9b19d18b6aa10f122b5e6234f"
+  },
+  "private_source_SHA256": {
+    "test-profile.py": "d9dade69338bce1e95c5752c2d64bd9dd3bce31616226d5bcc8e5a400dc6258b"
+  },
+  "proof": {
+    "case": "focused-solar-json-residual-whole-profile-v1",
+    "terminal_SHA256": "e5e6e4b7b4104b9c80e69094ad39ff2cd9e7c3f13167424dfa2be3237a2df2c3",
+    "log_SHA256": "a3692956b34a7b68cb79265ebeb6d8f29f376ca382a096a2f4cb56760a700f5a",
+    "source_pins_SHA256": "5246ea1f6da20084823fdb0ecbbfb298cee4c90a58ea7d3ca1c9ee41cde6b6a4",
+    "raw_profile_SHA256": "392c9c401023c907685b8689cd2f17d050eea88a9ee63efe0366476ec6ffa526",
+    "database_cleanup_SHA256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+  },
+  "terminal": {
+    "actual_child_exit": 0,
+    "wall_seconds": 156.24623934600095,
+    "combined_peak_RSS_bytes": 1060970496,
+    "single_PID_peak_RSS_bytes": 145444864,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "protected_root_count": 5,
+    "original_source_entries": 2148,
+    "owned_non_zombie_remaining": []
+  },
+  "profile": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "application_source_changed": false,
+    "methods_changed_only_scoped_storage_loader": true,
+    "monitoring_removed": true,
+    "nested_cumulative_times_not_additive": true,
+    "new_Solar_deployed": false,
+    "no_cross_load_or_current_data_reuse": true,
+    "normal64_accepted": false,
+    "original_CASE6_input64_output0_to64_step8_chunk1": true,
+    "original_bytes_counts_UTC_equal": true,
+    "original_current_SQL_counts_equal": true,
+    "product_adopted": false,
+    "rows": [
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 60,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 31,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 120,
+          "app.market_candidate_store._checked_candidate": 60,
+          "app.market_candidate_store._input_in_transaction": 1020,
+          "app.market_candidate_store._shared_reader": 900,
+          "app.market_hold_store._report_row": 90,
+          "app.market_source_store._select_with_job": 2280,
+          "app.market_source_store.read_scope": 30,
+          "app.runtime_connection_scope._session": 360,
+          "app.runtime_login.verify_runtime_identity": 633,
+          "app.runtime_roles._database": 273,
+          "app.runtime_roles._scope": 1365,
+          "app.runtime_roles.audit_runtime_roles": 2457,
+          "app.thermal_run_store._decision_context_in_transaction": 210,
+          "app.thermal_run_store.get_snapshot": 30
+        },
+        "checkpoint_sha256": "34a864b8af27a899bee9d0894ad87480369336e5b3c291424d42bb62871f3d53",
+        "current_checks": [
+          [
+            "_current",
+            "_before"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "_current",
+            "confirm"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "_current",
+            "confirm"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ]
+        ],
+        "focused": [
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "current",
+                  "line": 339
+                },
+                "pstats_tuple": [
+                  12,
+                  12,
+                  0.000605776,
+                  7.985608235000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_execution_checkpoint.py",
+                  "function": "_current",
+                  "line": 132
+                },
+                "pstats_tuple": [
+                  3,
+                  3,
+                  0.00016398,
+                  2.437892585
+                ]
+              }
+            ],
+            "calls": 15,
+            "cumulative_seconds": 10.423500820000001,
+            "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+            "function": "current",
+            "line": 151,
+            "own_seconds": 0.000769756,
+            "primitive_calls": 15
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_guard",
+                  "line": 129
+                },
+                "pstats_tuple": [
+                  12,
+                  12,
+                  0.00014498400000000002,
+                  8.040385714000001
+                ]
+              }
+            ],
+            "calls": 12,
+            "cumulative_seconds": 8.040385714000001,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "current",
+            "line": 339,
+            "own_seconds": 0.00014498400000000002,
+            "primitive_calls": 12
+          },
+          {
+            "callers": [],
+            "calls": 1,
+            "cumulative_seconds": 6.205973092000001,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_advance_for_checkpoint",
+            "line": 378,
+            "own_seconds": 0.0009052180000000001,
+            "primitive_calls": 1
+          },
+          {
+            "callers": [],
+            "calls": 1,
+            "cumulative_seconds": 5.765737345000001,
+            "file": "backend/app/crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 92,
+            "own_seconds": 0.00019771,
+            "primitive_calls": 1
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_load",
+                  "line": 195
+                },
+                "pstats_tuple": [
+                  4,
+                  4,
+                  0.034308136,
+                  1.2637685440000002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_resume",
+                  "line": 234
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  0.006940590000000001,
+                  0.29813279800000003
+                ]
+              }
+            ],
+            "calls": 5,
+            "cumulative_seconds": 1.561901342,
+            "file": "backend/app/crop_greenhouse_solar_storage.py",
+            "function": "_load",
+            "line": 147,
+            "own_seconds": 0.041248726,
+            "primitive_calls": 5
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "progress",
+                  "line": 240
+                },
+                "pstats_tuple": [
+                  2,
+                  2,
+                  0.00014209500000000001,
+                  0.66757668
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_execution_checkpoint.py",
+                  "function": "_snapshot",
+                  "line": 169
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  9.531200000000001e-05,
+                  0.33910995600000005
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "advance",
+                  "line": 255
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  7.3761e-05,
+                  0.32771013200000004
+                ]
+              }
+            ],
+            "calls": 4,
+            "cumulative_seconds": 1.3343967680000002,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_load",
+            "line": 195,
+            "own_seconds": 0.000311168,
+            "primitive_calls": 4
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_climate_joint_continuation.py",
+                  "function": "_hash",
+                  "line": 32
+                },
+                "pstats_tuple": [
+                  1257,
+                  1257,
+                  0.0017557330000000002,
+                  0.553034448
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_input_evidence.py",
+                  "function": "verify",
+                  "line": 244
+                },
+                "pstats_tuple": [
+                  93,
+                  93,
+                  0.000319469,
+                  0.19217203600000002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_load",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  852,
+                  852,
+                  0.0010835410000000001,
+                  0.148565678
+                ]
+              }
+            ],
+            "calls": 8036,
+            "cumulative_seconds": 1.110890374,
+            "file": "backend/app/crop_climate_joint_continuation.py",
+            "function": "_canonical",
+            "line": 31,
+            "own_seconds": 0.008249031,
+            "primitive_calls": 8036
+          },
+          {
+            "callers": [],
+            "calls": 1,
+            "cumulative_seconds": 0.996666551,
+            "file": "backend/app/crop_greenhouse_solar_execution_worker.py",
+            "function": "_before",
+            "line": 70,
+            "own_seconds": 0.000265916,
+            "primitive_calls": 1
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_source_store.py",
+                  "function": "_read_in_transaction",
+                  "line": 292
+                },
+                "pstats_tuple": [
+                  2280,
+                  2280,
+                  0.040760518,
+                  0.968897851
+                ]
+              }
+            ],
+            "calls": 2280,
+            "cumulative_seconds": 0.968897851,
+            "file": "backend/app/market_source_store.py",
+            "function": "_select_with_job",
+            "line": 220,
+            "own_seconds": 0.040760518,
+            "primitive_calls": 2280
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_load",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  426,
+                  426,
+                  0.001483879,
+                  0.79776614
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_load_header",
+                  "line": 109
+                },
+                "pstats_tuple": [
+                  14,
+                  14,
+                  0.00045052700000000005,
+                  0.06508072000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_records",
+                  "line": 84
+                },
+                "pstats_tuple": [
+                  45,
+                  45,
+                  0.00122162,
+                  0.06459132100000001
+                ]
+              }
+            ],
+            "calls": 487,
+            "cumulative_seconds": 0.9312333030000001,
+            "file": "backend/app/crop_cycle_artifact.py",
+            "function": "_blob",
+            "line": 240,
+            "own_seconds": 0.0031638020000000003,
+            "primitive_calls": 487
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_blob",
+                  "line": 240
+                },
+                "pstats_tuple": [
+                  487,
+                  487,
+                  0.004559065,
+                  0.9279073320000001
+                ]
+              }
+            ],
+            "calls": 487,
+            "cumulative_seconds": 0.9279073320000001,
+            "file": "backend/app/crop_cycle_artifact.py",
+            "function": "_blob",
+            "line": 49,
+            "own_seconds": 0.004559065,
+            "primitive_calls": 487
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_json",
+                  "line": 39
+                },
+                "pstats_tuple": [
+                  494,
+                  494,
+                  0.001499296,
+                  0.5278045450000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_input_evidence.py",
+                  "function": "verify",
+                  "line": 244
+                },
+                "pstats_tuple": [
+                  31,
+                  31,
+                  0.000145544,
+                  0.156503052
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_checked",
+                  "line": 70
+                },
+                "pstats_tuple": [
+                  1306,
+                  1306,
+                  0.0018115870000000001,
+                  0.0336483
+                ]
+              }
+            ],
+            "calls": 1977,
+            "cumulative_seconds": 0.782428483,
+            "file": "backend/app/crop_cycle_input_stream.py",
+            "function": "_json",
+            "line": 45,
+            "own_seconds": 0.004020674,
+            "primitive_calls": 1977
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_load",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  639,
+                  639,
+                  0.0009620980000000001,
+                  0.412546966
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_input_evidence.py",
+                  "function": "_record_hashes",
+                  "line": 152
+                },
+                "pstats_tuple": [
+                  155,
+                  155,
+                  0.00019465200000000002,
+                  0.101355999
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_load_header",
+                  "line": 109
+                },
+                "pstats_tuple": [
+                  35,
+                  35,
+                  5.6908000000000005e-05,
+                  0.023524032
+                ]
+              }
+            ],
+            "calls": 1257,
+            "cumulative_seconds": 0.5743920180000001,
+            "file": "backend/app/crop_climate_joint_continuation.py",
+            "function": "_hash",
+            "line": 32,
+            "own_seconds": 0.001617502,
+            "primitive_calls": 1257
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_blob",
+                  "line": 49
+                },
+                "pstats_tuple": [
+                  487,
+                  487,
+                  0.0005353360000000001,
+                  0.528125466
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_head",
+                  "line": 100
+                },
+                "pstats_tuple": [
+                  7,
+                  7,
+                  1.0699e-05,
+                  0.00022511400000000003
+                ]
+              }
+            ],
+            "calls": 494,
+            "cumulative_seconds": 0.52835058,
+            "file": "backend/app/crop_cycle_artifact.py",
+            "function": "_json",
+            "line": 39,
+            "own_seconds": 0.000546035,
+            "primitive_calls": 494
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "validate_pinned_context",
+                  "line": 630
+                },
+                "pstats_tuple": [
+                  8,
+                  8,
+                  2.6081000000000003e-05,
+                  0.23719904100000003
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_input_rights",
+                  "line": 356
+                },
+                "pstats_tuple": [
+                  140,
+                  140,
+                  0.000278487,
+                  0.137992899
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_prepare",
+                  "line": 374
+                },
+                "pstats_tuple": [
+                  12,
+                  12,
+                  3.4137e-05,
+                  0.075402249
+                ]
+              }
+            ],
+            "calls": 180,
+            "cumulative_seconds": 0.515314139,
+            "file": "backend/app/market_scenario.py",
+            "function": "_load",
+            "line": 45,
+            "own_seconds": 0.000379532,
+            "primitive_calls": 180
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_blob",
+                  "line": 49
+                },
+                "pstats_tuple": [
+                  487,
+                  487,
+                  0.001278265,
+                  0.340276001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_publish_head",
+                  "line": 340
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  4.176e-06,
+                  2.7691000000000003e-05
+                ]
+              }
+            ],
+            "calls": 488,
+            "cumulative_seconds": 0.34030369200000005,
+            "file": "backend/app/crop_cycle_continuation.py",
+            "function": "_canonical",
+            "line": 29,
+            "own_seconds": 0.001282441,
+            "primitive_calls": 488
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_reference_bundle.py",
+                  "function": "fingerprint",
+                  "line": 26
+                },
+                "pstats_tuple": [
+                  2640,
+                  2640,
+                  0.004321215000000001,
+                  0.09985310500000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_canonical",
+                  "line": 35
+                },
+                "pstats_tuple": [
+                  960,
+                  960,
+                  0.0010894280000000001,
+                  0.016471961
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_parse",
+                  "line": 41
+                },
+                "pstats_tuple": [
+                  164,
+                  164,
+                  0.000148717,
+                  0.0067365260000000005
+                ]
+              }
+            ],
+            "calls": 4016,
+            "cumulative_seconds": 0.132019944,
+            "file": "backend/app/market_scenario.py",
+            "function": "_json",
+            "line": 28,
+            "own_seconds": 0.005981363,
+            "primitive_calls": 4016
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/runtime_roles.py",
+                  "function": "audit_runtime_roles",
+                  "line": 172
+                },
+                "pstats_tuple": [
+                  273,
+                  273,
+                  0.0037225020000000004,
+                  0.08881606800000001
+                ]
+              }
+            ],
+            "calls": 273,
+            "cumulative_seconds": 0.08881606800000001,
+            "file": "backend/app/runtime_roles.py",
+            "function": "_database",
+            "line": 121,
+            "own_seconds": 0.0037225020000000004,
+            "primitive_calls": 273
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_load",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  426,
+                  426,
+                  0.0012616320000000002,
+                  0.067453767
+                ]
+              }
+            ],
+            "calls": 426,
+            "cumulative_seconds": 0.067453767,
+            "file": "backend/app/crop_greenhouse_solar_storage.py",
+            "function": "_records",
+            "line": 84,
+            "own_seconds": 0.0012616320000000002,
+            "primitive_calls": 426
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_parse",
+                  "line": 52
+                },
+                "pstats_tuple": [
+                  780,
+                  780,
+                  0.001229829,
+                  0.031872563
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_check_record_identity",
+                  "line": 65
+                },
+                "pstats_tuple": [
+                  180,
+                  180,
+                  0.000268483,
+                  0.005489905000000001
+                ]
+              }
+            ],
+            "calls": 960,
+            "cumulative_seconds": 0.037362468,
+            "file": "backend/app/market_candidate_store.py",
+            "function": "_canonical",
+            "line": 35,
+            "own_seconds": 0.0014983120000000001,
+            "primitive_calls": 960
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/thermal_run_store.py",
+                  "function": "_document",
+                  "line": 46
+                },
+                "pstats_tuple": [
+                  239,
+                  239,
+                  0.000608889,
+                  0.008128018
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+                  "function": "_input",
+                  "line": 87
+                },
+                "pstats_tuple": [
+                  30,
+                  30,
+                  8.6476e-05,
+                  0.007195938000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+                  "function": "_bind",
+                  "line": 132
+                },
+                "pstats_tuple": [
+                  15,
+                  15,
+                  3.3588000000000004e-05,
+                  0.006034107
+                ]
+              }
+            ],
+            "calls": 662,
+            "cumulative_seconds": 0.032068277,
+            "file": "backend/app/thermal_run_store.py",
+            "function": "_canonical",
+            "line": 32,
+            "own_seconds": 0.0015217680000000002,
+            "primitive_calls": 662
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_pins",
+                  "line": 56
+                },
+                "pstats_tuple": [
+                  423,
+                  423,
+                  0.000294978,
+                  0.006389121
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_head",
+                  "line": 83
+                },
+                "pstats_tuple": [
+                  1307,
+                  1307,
+                  0.000706405,
+                  0.002300578
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_selected",
+                  "line": 177
+                },
+                "pstats_tuple": [
+                  643,
+                  643,
+                  0.00036756800000000003,
+                  0.001557987
+                ]
+              }
+            ],
+            "calls": 3044,
+            "cumulative_seconds": 0.011791875,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_hash",
+            "line": 53,
+            "own_seconds": 0.00176066,
+            "primitive_calls": 3044
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/farm_inputs.py",
+                  "function": "coherent",
+                  "line": 222
+                },
+                "pstats_tuple": [
+                  1104,
+                  1104,
+                  0.0007050880000000001,
+                  0.008305008000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/farm_inputs.py",
+                  "function": "_records",
+                  "line": 188
+                },
+                "pstats_tuple": [
+                  6440,
+                  1932,
+                  0.0031829270000000003,
+                  0.007145655000000001
+                ]
+              }
+            ],
+            "calls": 7544,
+            "cumulative_seconds": 0.008305008000000001,
+            "file": "backend/app/farm_inputs.py",
+            "function": "_records",
+            "line": 188,
+            "own_seconds": 0.0038880150000000003,
+            "primitive_calls": 1104
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_hold_store.py",
+                  "function": "_verified",
+                  "line": 139
+                },
+                "pstats_tuple": [
+                  90,
+                  90,
+                  0.000245335,
+                  0.0034573140000000004
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_hold_store.py",
+                  "function": "_intent",
+                  "line": 133
+                },
+                "pstats_tuple": [
+                  90,
+                  90,
+                  0.000129013,
+                  0.0018413910000000002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_hold_store.py",
+                  "function": "_market_hold_report",
+                  "line": 242
+                },
+                "pstats_tuple": [
+                  90,
+                  90,
+                  8.4021e-05,
+                  0.001101682
+                ]
+              }
+            ],
+            "calls": 270,
+            "cumulative_seconds": 0.0064003870000000004,
+            "file": "backend/app/market_hold_store.py",
+            "function": "_canonical",
+            "line": 37,
+            "own_seconds": 0.00045836900000000003,
+            "primitive_calls": 270
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_input_rights",
+                  "line": 356
+                },
+                "pstats_tuple": [
+                  140,
+                  140,
+                  0.00023789600000000003,
+                  0.0028140910000000003
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_prepare",
+                  "line": 374
+                },
+                "pstats_tuple": [
+                  24,
+                  24,
+                  4.4611000000000004e-05,
+                  0.002454576
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "settlement_path_sha256",
+                  "line": 253
+                },
+                "pstats_tuple": [
+                  12,
+                  12,
+                  2.8081e-05,
+                  0.0010122970000000001
+                ]
+              }
+            ],
+            "calls": 180,
+            "cumulative_seconds": 0.006387379,
+            "file": "backend/app/market_scenario.py",
+            "function": "_hash",
+            "line": 37,
+            "own_seconds": 0.000316512,
+            "primitive_calls": 180
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_radiation_par_joint.py",
+                  "function": "evaluate_rhs",
+                  "line": 29
+                },
+                "pstats_tuple": [
+                  24,
+                  24,
+                  3.8369000000000005e-05,
+                  0.001887994
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_joint.py",
+                  "function": "evaluate_rhs",
+                  "line": 31
+                },
+                "pstats_tuple": [
+                  24,
+                  24,
+                  3.1689e-05,
+                  0.0018602890000000002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_climate_joint_rhs.py",
+                  "function": "evaluate_rhs",
+                  "line": 115
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  2.9826000000000002e-05,
+                  0.001832808
+                ]
+              }
+            ],
+            "calls": 64,
+            "cumulative_seconds": 0.005581091000000001,
+            "file": "backend/app/crop_climate_joint_rhs.py",
+            "function": "_hash",
+            "line": 100,
+            "own_seconds": 9.988400000000001e-05,
+            "primitive_calls": 64
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_fruit_cohorts.py",
+                  "function": "_demand",
+                  "line": 106
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  7.023500000000001e-05,
+                  0.0029851910000000003
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_fruit_cohorts.py",
+                  "function": "calculate_cohort_rates",
+                  "line": 133
+                },
+                "pstats_tuple": [
+                  8,
+                  8,
+                  2.2306000000000003e-05,
+                  0.001378482
+                ]
+              }
+            ],
+            "calls": 24,
+            "cumulative_seconds": 0.004363673,
+            "file": "backend/app/crop_fruit_cohorts.py",
+            "function": "_hash",
+            "line": 101,
+            "own_seconds": 9.254100000000001e-05,
+            "primitive_calls": 24
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_checked_input",
+                  "line": 403
+                },
+                "pstats_tuple": [
+                  660,
+                  660,
+                  0.000446424,
+                  0.001840211
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "<genexpr>",
+                  "line": 415
+                },
+                "pstats_tuple": [
+                  180,
+                  180,
+                  0.00013559500000000002,
+                  0.0010228960000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_check_record_identity",
+                  "line": 65
+                },
+                "pstats_tuple": [
+                  120,
+                  120,
+                  7.656e-05,
+                  0.000227721
+                ]
+              }
+            ],
+            "calls": 960,
+            "cumulative_seconds": 0.0030908280000000003,
+            "file": "backend/app/market_candidate_store.py",
+            "function": "_hash",
+            "line": 39,
+            "own_seconds": 0.0006585790000000001,
+            "primitive_calls": 960
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/cli_contracts.py",
+                  "function": "parse_stage_input",
+                  "line": 109
+                },
+                "pstats_tuple": [
+                  60,
+                  60,
+                  0.000281089,
+                  0.0025076440000000003
+                ]
+              }
+            ],
+            "calls": 60,
+            "cumulative_seconds": 0.0025076440000000003,
+            "file": "backend/app/cli_contracts.py",
+            "function": "_json",
+            "line": 57,
+            "own_seconds": 0.000281089,
+            "primitive_calls": 60
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/owned_research.py",
+                  "function": "prepare",
+                  "line": 58
+                },
+                "pstats_tuple": [
+                  30,
+                  30,
+                  7.4924e-05,
+                  0.0009649190000000001
+                ]
+              }
+            ],
+            "calls": 30,
+            "cumulative_seconds": 0.0009649190000000001,
+            "file": "backend/app/cli_contracts.py",
+            "function": "_canonical",
+            "line": 67,
+            "own_seconds": 7.4924e-05,
+            "primitive_calls": 30
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_radiation_nir.py",
+                  "function": "calculate_nir",
+                  "line": 79
+                },
+                "pstats_tuple": [
+                  24,
+                  24,
+                  3.9909e-05,
+                  0.000420799
+                ]
+              }
+            ],
+            "calls": 24,
+            "cumulative_seconds": 0.000420799,
+            "file": "backend/app/crop_greenhouse_radiation_nir.py",
+            "function": "_hash",
+            "line": 35,
+            "own_seconds": 3.9909e-05,
+            "primitive_calls": 24
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_ventilation.py",
+                  "function": "calculate_ventilation",
+                  "line": 77
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  2.4348e-05,
+                  0.000282368
+                ]
+              }
+            ],
+            "calls": 16,
+            "cumulative_seconds": 0.000282368,
+            "file": "backend/app/crop_greenhouse_ventilation.py",
+            "function": "_hash",
+            "line": 36,
+            "own_seconds": 2.4348e-05,
+            "primitive_calls": 16
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_canopy_energy_transport.py",
+                  "function": "_identity",
+                  "line": 128
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  2.5627e-05,
+                  0.000277834
+                ]
+              }
+            ],
+            "calls": 16,
+            "cumulative_seconds": 0.000277834,
+            "file": "backend/app/crop_canopy_energy_transport.py",
+            "function": "_hash",
+            "line": 70,
+            "own_seconds": 2.5627e-05,
+            "primitive_calls": 16
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_radiation_par.py",
+                  "function": "calculate_par",
+                  "line": 90
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  2.5288000000000003e-05,
+                  0.000275168
+                ]
+              }
+            ],
+            "calls": 16,
+            "cumulative_seconds": 0.000275168,
+            "file": "backend/app/crop_greenhouse_radiation_par.py",
+            "function": "_hash",
+            "line": 39,
+            "own_seconds": 2.5288000000000003e-05,
+            "primitive_calls": 16
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_integration.py",
+                  "function": "integrate",
+                  "line": 102
+                },
+                "pstats_tuple": [
+                  2,
+                  2,
+                  3.1600000000000002e-06,
+                  4.2089e-05
+                ]
+              }
+            ],
+            "calls": 2,
+            "cumulative_seconds": 4.2089e-05,
+            "file": "backend/app/crop_climate_joint_integration.py",
+            "function": "_hash",
+            "line": 33,
+            "own_seconds": 3.1600000000000002e-06,
+            "primitive_calls": 2
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_server_custody.py",
+                  "function": "_immutable",
+                  "line": 115
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  4.726e-06,
+                  1.7712000000000003e-05
+                ]
+              }
+            ],
+            "calls": 1,
+            "cumulative_seconds": 1.7712000000000003e-05,
+            "file": "backend/app/crop_cycle_server_custody.py",
+            "function": "_hash",
+            "line": 56,
+            "own_seconds": 4.726e-06,
+            "primitive_calls": 1
+          }
+        ],
+        "instrumented_wall_ns": 12968670440,
+        "mode": "baseline",
+        "original_UTC": "2026-10-01T00:01:24.123456Z",
+        "profile_function_count": 1218,
+        "profile_total_self_seconds": 12.967101842999996,
+        "scope_counters": [],
+        "steps": 42,
+        "top_cumulative": [
+          {
+            "calls": 15,
+            "cumulative_seconds": 10.423500820000001,
+            "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+            "function": "current",
+            "line": 151,
+            "own_seconds": 0.000769756,
+            "primitive_calls": 15
+          },
+          {
+            "calls": 15,
+            "cumulative_seconds": 10.422724030000001,
+            "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+            "function": "_bind",
+            "line": 132,
+            "own_seconds": 0.003888223,
+            "primitive_calls": 15
+          },
+          {
+            "calls": 30,
+            "cumulative_seconds": 9.35297811,
+            "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+            "function": "_registration",
+            "line": 112,
+            "own_seconds": 0.002455922,
+            "primitive_calls": 30
+          },
+          {
+            "calls": 30,
+            "cumulative_seconds": 8.737466341000001,
+            "file": "backend/app/farm_authoring_storage.py",
+            "function": "read_registration",
+            "line": 438,
+            "own_seconds": 0.000285407,
+            "primitive_calls": 30
+          },
+          {
+            "calls": 30,
+            "cumulative_seconds": 8.737159676000001,
+            "file": "backend/app/farm_registration_read_scope.py",
+            "function": "read",
+            "line": 136,
+            "own_seconds": 0.000973592,
+            "primitive_calls": 30
+          },
+          {
+            "calls": 12,
+            "cumulative_seconds": 8.305500985,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_guard",
+            "line": 129,
+            "own_seconds": 0.000503093,
+            "primitive_calls": 12
+          },
+          {
+            "calls": 12,
+            "cumulative_seconds": 8.040385714000001,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "current",
+            "line": 339,
+            "own_seconds": 0.00014498400000000002,
+            "primitive_calls": 12
+          },
+          {
+            "calls": 26,
+            "cumulative_seconds": 6.505552163000001,
+            "file": "backend/app/farm_registration_read_scope.py",
+            "function": "_current",
+            "line": 121,
+            "own_seconds": 0.0015887330000000002,
+            "primitive_calls": 26
+          },
+          {
+            "calls": 1,
+            "cumulative_seconds": 6.205973092000001,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_advance_for_checkpoint",
+            "line": 378,
+            "own_seconds": 0.0009052180000000001,
+            "primitive_calls": 1
+          },
+          {
+            "calls": 1,
+            "cumulative_seconds": 6.19108223,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "advance",
+            "line": 255,
+            "own_seconds": 0.001202219,
+            "primitive_calls": 1
+          },
+          {
+            "calls": 1,
+            "cumulative_seconds": 5.765737345000001,
+            "file": "backend/app/crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 92,
+            "own_seconds": 0.00019771,
+            "primitive_calls": 1
+          },
+          {
+            "calls": 1,
+            "cumulative_seconds": 5.765532724000001,
+            "file": "backend/app/crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 204,
+            "own_seconds": 0.003490931,
+            "primitive_calls": 1
+          }
+        ],
+        "top_self": [
+          {
+            "calls": 10478,
+            "cumulative_seconds": 4.846892725,
+            "file": "backend/.venv/lib/python3.12/site-packages/psycopg/connection.py",
+            "function": "wait",
+            "line": 479,
+            "own_seconds": 2.726862639,
+            "primitive_calls": 10478
+          },
+          {
+            "calls": 16390,
+            "cumulative_seconds": 1.644135487,
+            "file": "encoder.py",
+            "function": "iterencode",
+            "line": 205,
+            "own_seconds": 1.604858141,
+            "primitive_calls": 16390
+          },
+          {
+            "calls": 3946,
+            "cumulative_seconds": 0.824431651,
+            "file": "decoder.py",
+            "function": "raw_decode",
+            "line": 343,
+            "own_seconds": 0.48404150100000004,
+            "primitive_calls": 3946
+          },
+          {
+            "calls": 9312,
+            "cumulative_seconds": 0.392447818,
+            "file": "backend/.venv/lib/python3.12/site-packages/psycopg/_cursor_base.py",
+            "function": "_send_query_prepared",
+            "line": 583,
+            "own_seconds": 0.392447818,
+            "primitive_calls": 9312
+          },
+          {
+            "calls": 1623,
+            "cumulative_seconds": 0.533330663,
+            "file": "backend/.venv/lib/python3.12/site-packages/psycopg/_connection_info.py",
+            "function": "get_parameters",
+            "line": 78,
+            "own_seconds": 0.323585147,
+            "primitive_calls": 1623
+          },
+          {
+            "calls": 20251,
+            "cumulative_seconds": 1.0711883180000001,
+            "file": "backend/.venv/lib/python3.12/site-packages/psycopg/_cursor_base.py",
+            "function": "_maybe_prepare_gen",
+            "line": 275,
+            "own_seconds": 0.28604277,
+            "primitive_calls": 20251
+          },
+          {
+            "calls": 402983,
+            "cumulative_seconds": 0.33755697,
+            "file": "backend/app/crop_cycle_input_stream.py",
+            "function": "pairs",
+            "line": 46,
+            "own_seconds": 0.27291158200000004,
+            "primitive_calls": 402983
+          },
+          {
+            "calls": 1615054,
+            "cumulative_seconds": 0.26055066200000004,
+            "file": "~",
+            "function": "<built-in method builtins.isinstance>",
+            "line": 0,
+            "own_seconds": 0.237118973,
+            "primitive_calls": 1615054
+          },
+          {
+            "calls": 219778,
+            "cumulative_seconds": 0.48947660400000004,
+            "file": "copy.py",
+            "function": "deepcopy",
+            "line": 118,
+            "own_seconds": 0.22626853600000002,
+            "primitive_calls": 2632
+          },
+          {
+            "calls": 97618,
+            "cumulative_seconds": 0.46304890600000004,
+            "file": "backend/app/jobs.py",
+            "function": "_validate_input_fields",
+            "line": 37,
+            "own_seconds": 0.193715042,
+            "primitive_calls": 2426
+          },
+          {
+            "calls": 28172,
+            "cumulative_seconds": 0.17613741700000002,
+            "file": "~",
+            "function": "<built-in method _hashlib.openssl_sha256>",
+            "line": 0,
+            "own_seconds": 0.17613741700000002,
+            "primitive_calls": 28172
+          },
+          {
+            "calls": 228905,
+            "cumulative_seconds": 0.152837516,
+            "file": "~",
+            "function": "<method 'search' of 're.Pattern' objects>",
+            "line": 0,
+            "own_seconds": 0.152837516,
+            "primitive_calls": 228905
+          }
+        ]
+      },
+      {
+        "SQL": {
+          "app.crop_greenhouse_solar_execution_checkpoint._history": 2,
+          "app.crop_greenhouse_solar_execution_checkpoint._lease": 5,
+          "app.crop_greenhouse_solar_execution_checkpoint.confirm": 1,
+          "app.farm_authoring_storage._find": 60,
+          "app.job_store._event": 1,
+          "app.job_store._locked_job": 31,
+          "app.job_store._renew_in_transaction": 1,
+          "app.market_candidate_store._candidate_in_transaction": 120,
+          "app.market_candidate_store._checked_candidate": 60,
+          "app.market_candidate_store._input_in_transaction": 1020,
+          "app.market_candidate_store._shared_reader": 900,
+          "app.market_hold_store._report_row": 90,
+          "app.market_source_store._select_with_job": 2280,
+          "app.market_source_store.read_scope": 30,
+          "app.runtime_connection_scope._session": 360,
+          "app.runtime_login.verify_runtime_identity": 633,
+          "app.runtime_roles._database": 273,
+          "app.runtime_roles._scope": 1365,
+          "app.runtime_roles.audit_runtime_roles": 2457,
+          "app.thermal_run_store._decision_context_in_transaction": 210,
+          "app.thermal_run_store.get_snapshot": 30
+        },
+        "checkpoint_sha256": "80c1071c343e5e4e706e7c3fb8f056ad7b473f61717aff7c60c03f87f96fd761",
+        "current_checks": [
+          [
+            "_current",
+            "_before"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "_current",
+            "confirm"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "_current",
+            "confirm"
+          ],
+          [
+            "current",
+            "_guard"
+          ],
+          [
+            "current",
+            "_guard"
+          ]
+        ],
+        "focused": [
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "current",
+                  "line": 339
+                },
+                "pstats_tuple": [
+                  12,
+                  12,
+                  0.00059084,
+                  8.119914126000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_execution_checkpoint.py",
+                  "function": "_current",
+                  "line": 132
+                },
+                "pstats_tuple": [
+                  3,
+                  3,
+                  0.00014646,
+                  2.5111475970000003
+                ]
+              }
+            ],
+            "calls": 15,
+            "cumulative_seconds": 10.631061723,
+            "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+            "function": "current",
+            "line": 151,
+            "own_seconds": 0.0007373000000000001,
+            "primitive_calls": 15
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_guard",
+                  "line": 129
+                },
+                "pstats_tuple": [
+                  12,
+                  12,
+                  0.00015435200000000002,
+                  8.174328411000001
+                ]
+              }
+            ],
+            "calls": 12,
+            "cumulative_seconds": 8.174328411000001,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "current",
+            "line": 339,
+            "own_seconds": 0.00015435200000000002,
+            "primitive_calls": 12
+          },
+          {
+            "callers": [],
+            "calls": 1,
+            "cumulative_seconds": 7.099175627,
+            "file": "backend/app/crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 92,
+            "own_seconds": 0.00018328700000000002,
+            "primitive_calls": 1
+          },
+          {
+            "callers": [],
+            "calls": 1,
+            "cumulative_seconds": 7.022514304,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_advance_for_checkpoint",
+            "line": 378,
+            "own_seconds": 0.000977268,
+            "primitive_calls": 1
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "progress",
+                  "line": 240
+                },
+                "pstats_tuple": [
+                  2,
+                  2,
+                  0.000115482,
+                  1.446409858
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_execution_checkpoint.py",
+                  "function": "_snapshot",
+                  "line": 169
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  5.6258e-05,
+                  0.767609897
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "advance",
+                  "line": 255
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  6.8439e-05,
+                  0.7095704100000001
+                ]
+              }
+            ],
+            "calls": 4,
+            "cumulative_seconds": 2.9235901650000002,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_load",
+            "line": 195,
+            "own_seconds": 0.000240179,
+            "primitive_calls": 4
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research-solar-two-read-adapter",
+                  "function": "_load",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  218,
+                  218,
+                  0.001674359,
+                  2.181032789
+                ]
+              }
+            ],
+            "calls": 218,
+            "cumulative_seconds": 2.181032789,
+            "file": "research/solar-json-source-assembly.py",
+            "function": "process_commit",
+            "line": 244,
+            "own_seconds": 0.001674359,
+            "primitive_calls": 218
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_guard_assembly",
+                  "line": 180
+                },
+                "pstats_tuple": [
+                  6862,
+                  6862,
+                  0.005137445,
+                  1.3859439640000002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "_decode",
+                  "line": 554
+                },
+                "pstats_tuple": [
+                  662,
+                  662,
+                  0.0009321630000000001,
+                  0.149069367
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "_reader_native",
+                  "line": 659
+                },
+                "pstats_tuple": [
+                  631,
+                  631,
+                  0.000641906,
+                  0.13531019900000002
+                ]
+              }
+            ],
+            "calls": 9027,
+            "cumulative_seconds": 1.8521698000000002,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "_ready",
+            "line": 474,
+            "own_seconds": 0.007522353000000001,
+            "primitive_calls": 9027
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "_ready",
+                  "line": 474
+                },
+                "pstats_tuple": [
+                  9027,
+                  9027,
+                  0.276509618,
+                  1.821609086
+                ]
+              }
+            ],
+            "calls": 9027,
+            "cumulative_seconds": 1.821609086,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "current",
+            "line": 372,
+            "own_seconds": 0.276509618,
+            "primitive_calls": 9027
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research-solar-private-assembly",
+                  "function": "_records",
+                  "line": 84
+                },
+                "pstats_tuple": [
+                  2976,
+                  2976,
+                  0.0050468250000000004,
+                  0.689799617
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research-solar-private-assembly",
+                  "function": "prepare_commit",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  2924,
+                  2924,
+                  0.004909397,
+                  0.6851869070000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_records",
+                  "line": 201
+                },
+                "pstats_tuple": [
+                  436,
+                  436,
+                  0.000651891,
+                  0.101122555
+                ]
+              }
+            ],
+            "calls": 6862,
+            "cumulative_seconds": 1.6002696200000002,
+            "file": "research/solar-json-source-assembly.py",
+            "function": "_guard_assembly",
+            "line": 180,
+            "own_seconds": 0.011493789,
+            "primitive_calls": 6862
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "current",
+                  "line": 372
+                },
+                "pstats_tuple": [
+                  9027,
+                  9027,
+                  0.006251263,
+                  1.35086967
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "__init__",
+                  "line": 307
+                },
+                "pstats_tuple": [
+                  5,
+                  5,
+                  1.0855e-05,
+                  0.0009559810000000001
+                ]
+              }
+            ],
+            "calls": 9032,
+            "cumulative_seconds": 1.3518256510000002,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "native_json_current",
+            "line": 258,
+            "own_seconds": 0.0062621180000000005,
+            "primitive_calls": 9032
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "native_json_current",
+                  "line": 258
+                },
+                "pstats_tuple": [
+                  9032,
+                  9032,
+                  0.8086681790000001,
+                  1.345563533
+                ]
+              }
+            ],
+            "calls": 9032,
+            "cumulative_seconds": 1.345563533,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "current",
+            "line": 195,
+            "own_seconds": 0.8086681790000001,
+            "primitive_calls": 9032
+          },
+          {
+            "callers": [],
+            "calls": 1,
+            "cumulative_seconds": 1.0492233480000002,
+            "file": "backend/app/crop_greenhouse_solar_execution_worker.py",
+            "function": "_before",
+            "line": 70,
+            "own_seconds": 0.000270946,
+            "primitive_calls": 1
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_climate_joint_continuation.py",
+                  "function": "_hash",
+                  "line": 32
+                },
+                "pstats_tuple": [
+                  836,
+                  836,
+                  0.0013296940000000002,
+                  0.251642666
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_input_evidence.py",
+                  "function": "verify",
+                  "line": 244
+                },
+                "pstats_tuple": [
+                  93,
+                  93,
+                  0.00033315000000000005,
+                  0.20664568000000003
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "seal_source",
+                  "line": 591
+                },
+                "pstats_tuple": [
+                  218,
+                  218,
+                  0.000580869,
+                  0.18605129
+                ]
+              }
+            ],
+            "calls": 8411,
+            "cumulative_seconds": 1.034582848,
+            "file": "backend/app/crop_climate_joint_continuation.py",
+            "function": "_canonical",
+            "line": 31,
+            "own_seconds": 0.009358214,
+            "primitive_calls": 8411
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_source_store.py",
+                  "function": "_read_in_transaction",
+                  "line": 292
+                },
+                "pstats_tuple": [
+                  2280,
+                  2280,
+                  0.042516613,
+                  0.9851944760000001
+                ]
+              }
+            ],
+            "calls": 2280,
+            "cumulative_seconds": 0.9851944760000001,
+            "file": "backend/app/market_source_store.py",
+            "function": "_select_with_job",
+            "line": 220,
+            "own_seconds": 0.042516613,
+            "primitive_calls": 2280
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research-solar-private-assembly",
+                  "function": "prepare_commit",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  436,
+                  436,
+                  0.002976996,
+                  0.9328171890000001
+                ]
+              }
+            ],
+            "calls": 436,
+            "cumulative_seconds": 0.9328171890000001,
+            "file": "research/solar-json-source-assembly.py",
+            "function": "_records",
+            "line": 201,
+            "own_seconds": 0.002976996,
+            "primitive_calls": 436
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_records",
+                  "line": 201
+                },
+                "pstats_tuple": [
+                  436,
+                  436,
+                  0.0028477650000000004,
+                  0.805524864
+                ]
+              }
+            ],
+            "calls": 436,
+            "cumulative_seconds": 0.805524864,
+            "file": "research-solar-private-assembly",
+            "function": "_records",
+            "line": 84,
+            "own_seconds": 0.0028477650000000004,
+            "primitive_calls": 436
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_json",
+                  "line": 39
+                },
+                "pstats_tuple": [
+                  399,
+                  399,
+                  0.001289809,
+                  0.44091840000000004
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_input_evidence.py",
+                  "function": "verify",
+                  "line": 244
+                },
+                "pstats_tuple": [
+                  31,
+                  31,
+                  0.000175298,
+                  0.16483746900000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_checked",
+                  "line": 70
+                },
+                "pstats_tuple": [
+                  1336,
+                  1336,
+                  0.001921261,
+                  0.035594837000000004
+                ]
+              }
+            ],
+            "calls": 1912,
+            "cumulative_seconds": 0.707870899,
+            "file": "backend/app/crop_cycle_input_stream.py",
+            "function": "_json",
+            "line": 45,
+            "own_seconds": 0.003969126,
+            "primitive_calls": 1912
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "validate_pinned_context",
+                  "line": 630
+                },
+                "pstats_tuple": [
+                  8,
+                  8,
+                  2.7512e-05,
+                  0.252391378
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_input_rights",
+                  "line": 356
+                },
+                "pstats_tuple": [
+                  140,
+                  140,
+                  0.000270348,
+                  0.140673301
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_prepare",
+                  "line": 374
+                },
+                "pstats_tuple": [
+                  12,
+                  12,
+                  3.3071e-05,
+                  0.074365082
+                ]
+              }
+            ],
+            "calls": 180,
+            "cumulative_seconds": 0.5361541750000001,
+            "file": "backend/app/market_scenario.py",
+            "function": "_load",
+            "line": 45,
+            "own_seconds": 0.000378778,
+            "primitive_calls": 180
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "_decode",
+                  "line": 554
+                },
+                "pstats_tuple": [
+                  331,
+                  331,
+                  0.000359394,
+                  0.361226494
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_blob",
+                  "line": 49
+                },
+                "pstats_tuple": [
+                  61,
+                  61,
+                  8.6994e-05,
+                  0.079916505
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_head",
+                  "line": 100
+                },
+                "pstats_tuple": [
+                  7,
+                  7,
+                  1.075e-05,
+                  0.000232539
+                ]
+              }
+            ],
+            "calls": 399,
+            "cumulative_seconds": 0.441375538,
+            "file": "backend/app/crop_cycle_artifact.py",
+            "function": "_json",
+            "line": 39,
+            "own_seconds": 0.00045713800000000005,
+            "primitive_calls": 399
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research-solar-private-assembly",
+                  "function": "prepare_commit",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  218,
+                  218,
+                  0.0008730540000000001,
+                  0.35333379800000003
+                ]
+              }
+            ],
+            "calls": 218,
+            "cumulative_seconds": 0.35333379800000003,
+            "file": "research/solar-json-source-assembly.py",
+            "function": "_source_hash",
+            "line": 209,
+            "own_seconds": 0.0008730540000000001,
+            "primitive_calls": 218
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_source_hash",
+                  "line": 209
+                },
+                "pstats_tuple": [
+                  218,
+                  218,
+                  0.0027950930000000002,
+                  0.29889207900000003
+                ]
+              }
+            ],
+            "calls": 218,
+            "cumulative_seconds": 0.29889207900000003,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "seal_source",
+            "line": 591,
+            "own_seconds": 0.0027950930000000002,
+            "primitive_calls": 218
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "_decode",
+                  "line": 554
+                },
+                "pstats_tuple": [
+                  331,
+                  331,
+                  0.00079589,
+                  0.226085421
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_blob",
+                  "line": 49
+                },
+                "pstats_tuple": [
+                  61,
+                  61,
+                  0.00018416,
+                  0.047828815000000004
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_publish_head",
+                  "line": 340
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  2.916e-06,
+                  1.9196e-05
+                ]
+              }
+            ],
+            "calls": 393,
+            "cumulative_seconds": 0.27393343200000003,
+            "file": "backend/app/crop_cycle_continuation.py",
+            "function": "_canonical",
+            "line": 29,
+            "own_seconds": 0.000982966,
+            "primitive_calls": 393
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_input_evidence.py",
+                  "function": "_record_hashes",
+                  "line": 152
+                },
+                "pstats_tuple": [
+                  155,
+                  155,
+                  0.00019592100000000002,
+                  0.10730118500000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research-solar-two-read-adapter",
+                  "function": "_load",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  218,
+                  218,
+                  0.000575306,
+                  0.089687134
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_load_header",
+                  "line": 109
+                },
+                "pstats_tuple": [
+                  35,
+                  35,
+                  6.239300000000001e-05,
+                  0.024121413
+                ]
+              }
+            ],
+            "calls": 836,
+            "cumulative_seconds": 0.261175139,
+            "file": "backend/app/crop_climate_joint_continuation.py",
+            "function": "_hash",
+            "line": 32,
+            "own_seconds": 0.001278632,
+            "primitive_calls": 836
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research-solar-private-assembly",
+                  "function": "prepare_commit",
+                  "line": 147
+                },
+                "pstats_tuple": [
+                  218,
+                  218,
+                  0.002128865,
+                  0.176962675
+                ]
+              }
+            ],
+            "calls": 218,
+            "cumulative_seconds": 0.176962675,
+            "file": "research/solar-json-source-assembly.py",
+            "function": "_payload_hash",
+            "line": 225,
+            "own_seconds": 0.002128865,
+            "primitive_calls": 218
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_page",
+                  "line": 186
+                },
+                "pstats_tuple": [
+                  45,
+                  45,
+                  0.0013177430000000001,
+                  0.06988486000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_load_header",
+                  "line": 109
+                },
+                "pstats_tuple": [
+                  14,
+                  14,
+                  0.00048452900000000004,
+                  0.066545174
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_storage.py",
+                  "function": "_check",
+                  "line": 202
+                },
+                "pstats_tuple": [
+                  2,
+                  2,
+                  1.0137000000000001e-05,
+                  0.0037347810000000004
+                ]
+              }
+            ],
+            "calls": 61,
+            "cumulative_seconds": 0.140164815,
+            "file": "backend/app/crop_cycle_artifact.py",
+            "function": "_blob",
+            "line": 240,
+            "own_seconds": 0.001812409,
+            "primitive_calls": 61
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_artifact.py",
+                  "function": "_blob",
+                  "line": 240
+                },
+                "pstats_tuple": [
+                  61,
+                  61,
+                  0.000694078,
+                  0.138295738
+                ]
+              }
+            ],
+            "calls": 61,
+            "cumulative_seconds": 0.138295738,
+            "file": "backend/app/crop_cycle_artifact.py",
+            "function": "_blob",
+            "line": 49,
+            "own_seconds": 0.000694078,
+            "primitive_calls": 61
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_reference_bundle.py",
+                  "function": "fingerprint",
+                  "line": 26
+                },
+                "pstats_tuple": [
+                  2640,
+                  2640,
+                  0.004334077,
+                  0.099614136
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_canonical",
+                  "line": 35
+                },
+                "pstats_tuple": [
+                  960,
+                  960,
+                  0.00105049,
+                  0.016208452
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_parse",
+                  "line": 41
+                },
+                "pstats_tuple": [
+                  164,
+                  164,
+                  0.000151821,
+                  0.006507678
+                ]
+              }
+            ],
+            "calls": 4016,
+            "cumulative_seconds": 0.131315696,
+            "file": "backend/app/market_scenario.py",
+            "function": "_json",
+            "line": 28,
+            "own_seconds": 0.005959018,
+            "primitive_calls": 4016
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_guard_assembly",
+                  "line": 180
+                },
+                "pstats_tuple": [
+                  6862,
+                  6862,
+                  0.0069551330000000005,
+                  0.12407836700000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "chain",
+                  "line": 172
+                },
+                "pstats_tuple": [
+                  218,
+                  218,
+                  0.00028814300000000004,
+                  0.004289002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "load",
+                  "line": 259
+                },
+                "pstats_tuple": [
+                  5,
+                  5,
+                  7.813000000000001e-06,
+                  0.000162182
+                ]
+              }
+            ],
+            "calls": 7085,
+            "cumulative_seconds": 0.12852955100000002,
+            "file": "research/solar-json-source-assembly.py",
+            "function": "_builtins_current",
+            "line": 45,
+            "own_seconds": 0.0072510890000000005,
+            "primitive_calls": 7085
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_payload_hash",
+                  "line": 225
+                },
+                "pstats_tuple": [
+                  218,
+                  218,
+                  0.004021887,
+                  0.118024076
+                ]
+              }
+            ],
+            "calls": 218,
+            "cumulative_seconds": 0.118024076,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "bind_payload",
+            "line": 617,
+            "own_seconds": 0.004021887,
+            "primitive_calls": 218
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/runtime_roles.py",
+                  "function": "audit_runtime_roles",
+                  "line": 172
+                },
+                "pstats_tuple": [
+                  273,
+                  273,
+                  0.0037807350000000003,
+                  0.089441297
+                ]
+              }
+            ],
+            "calls": 273,
+            "cumulative_seconds": 0.089441297,
+            "file": "backend/app/runtime_roles.py",
+            "function": "_database",
+            "line": 121,
+            "own_seconds": 0.0037807350000000003,
+            "primitive_calls": 273
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_guard_assembly",
+                  "line": 180
+                },
+                "pstats_tuple": [
+                  6862,
+                  6862,
+                  0.026239094,
+                  0.053976989
+                ]
+              }
+            ],
+            "calls": 6862,
+            "cumulative_seconds": 0.053976989,
+            "file": "research/solar-json-source-assembly.py",
+            "function": "_clock_current",
+            "line": 50,
+            "own_seconds": 0.026239094,
+            "primitive_calls": 6862
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_parse",
+                  "line": 52
+                },
+                "pstats_tuple": [
+                  780,
+                  780,
+                  0.001249836,
+                  0.032757664
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_check_record_identity",
+                  "line": 65
+                },
+                "pstats_tuple": [
+                  180,
+                  180,
+                  0.00027155,
+                  0.005159482
+                ]
+              }
+            ],
+            "calls": 960,
+            "cumulative_seconds": 0.037917146000000006,
+            "file": "backend/app/market_candidate_store.py",
+            "function": "_canonical",
+            "line": 35,
+            "own_seconds": 0.001521386,
+            "primitive_calls": 960
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/thermal_run_store.py",
+                  "function": "_document",
+                  "line": 46
+                },
+                "pstats_tuple": [
+                  239,
+                  239,
+                  0.0005947950000000001,
+                  0.008442073000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+                  "function": "_input",
+                  "line": 87
+                },
+                "pstats_tuple": [
+                  30,
+                  30,
+                  8.9888e-05,
+                  0.007575685
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+                  "function": "_bind",
+                  "line": 132
+                },
+                "pstats_tuple": [
+                  15,
+                  15,
+                  3.0105e-05,
+                  0.006038743
+                ]
+              }
+            ],
+            "calls": 662,
+            "cumulative_seconds": 0.032669856000000004,
+            "file": "backend/app/thermal_run_store.py",
+            "function": "_canonical",
+            "line": 32,
+            "own_seconds": 0.001548478,
+            "primitive_calls": 662
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-local-json-ownership.py",
+                  "function": "<genexpr>",
+                  "line": 325
+                },
+                "pstats_tuple": [
+                  60,
+                  60,
+                  0.0008957310000000001,
+                  0.032475954
+                ]
+              }
+            ],
+            "calls": 60,
+            "cumulative_seconds": 0.032475954,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "_attested",
+            "line": 281,
+            "own_seconds": 0.0008957310000000001,
+            "primitive_calls": 60
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "_records",
+                  "line": 201
+                },
+                "pstats_tuple": [
+                  436,
+                  436,
+                  0.002208578,
+                  0.017911023
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "load",
+                  "line": 259
+                },
+                "pstats_tuple": [
+                  10,
+                  10,
+                  6.639700000000001e-05,
+                  0.000644012
+                ]
+              },
+              {
+                "caller": {
+                  "file": "research/solar-json-source-assembly.py",
+                  "function": "<genexpr>",
+                  "line": 265
+                },
+                "pstats_tuple": [
+                  10,
+                  10,
+                  5.1303e-05,
+                  0.000590179
+                ]
+              }
+            ],
+            "calls": 456,
+            "cumulative_seconds": 0.019145214,
+            "file": "research/solar-json-load-adapter.py",
+            "function": "_attested",
+            "line": 39,
+            "own_seconds": 0.002326278,
+            "primitive_calls": 456
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_pins",
+                  "line": 56
+                },
+                "pstats_tuple": [
+                  423,
+                  423,
+                  0.000298249,
+                  0.006423755000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_head",
+                  "line": 83
+                },
+                "pstats_tuple": [
+                  1337,
+                  1337,
+                  0.000736987,
+                  0.0023765270000000002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+                  "function": "_selected",
+                  "line": 177
+                },
+                "pstats_tuple": [
+                  658,
+                  658,
+                  0.00038350300000000004,
+                  0.0016967750000000002
+                ]
+              }
+            ],
+            "calls": 3104,
+            "cumulative_seconds": 0.012180168,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_hash",
+            "line": 53,
+            "own_seconds": 0.0018842140000000002,
+            "primitive_calls": 3104
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/farm_inputs.py",
+                  "function": "coherent",
+                  "line": 222
+                },
+                "pstats_tuple": [
+                  1104,
+                  1104,
+                  0.0007107690000000001,
+                  0.008303873
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/farm_inputs.py",
+                  "function": "_records",
+                  "line": 188
+                },
+                "pstats_tuple": [
+                  6440,
+                  1932,
+                  0.0031466360000000004,
+                  0.007152133000000001
+                ]
+              }
+            ],
+            "calls": 7544,
+            "cumulative_seconds": 0.008303873,
+            "file": "backend/app/farm_inputs.py",
+            "function": "_records",
+            "line": 188,
+            "own_seconds": 0.0038574050000000004,
+            "primitive_calls": 1104
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_hold_store.py",
+                  "function": "_verified",
+                  "line": 139
+                },
+                "pstats_tuple": [
+                  90,
+                  90,
+                  0.000234965,
+                  0.00343433
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_hold_store.py",
+                  "function": "_intent",
+                  "line": 133
+                },
+                "pstats_tuple": [
+                  90,
+                  90,
+                  0.000133368,
+                  0.0016260410000000002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_hold_store.py",
+                  "function": "_market_hold_report",
+                  "line": 242
+                },
+                "pstats_tuple": [
+                  90,
+                  90,
+                  8.4417e-05,
+                  0.001127182
+                ]
+              }
+            ],
+            "calls": 270,
+            "cumulative_seconds": 0.006187553,
+            "file": "backend/app/market_hold_store.py",
+            "function": "_canonical",
+            "line": 37,
+            "own_seconds": 0.00045275000000000003,
+            "primitive_calls": 270
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_input_rights",
+                  "line": 356
+                },
+                "pstats_tuple": [
+                  140,
+                  140,
+                  0.00024190300000000002,
+                  0.002842835
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "_prepare",
+                  "line": 374
+                },
+                "pstats_tuple": [
+                  24,
+                  24,
+                  4.6707000000000005e-05,
+                  0.0021209930000000003
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_scenario.py",
+                  "function": "settlement_path_sha256",
+                  "line": 253
+                },
+                "pstats_tuple": [
+                  12,
+                  12,
+                  4.0379e-05,
+                  0.001063174
+                ]
+              }
+            ],
+            "calls": 180,
+            "cumulative_seconds": 0.006149349,
+            "file": "backend/app/market_scenario.py",
+            "function": "_hash",
+            "line": 37,
+            "own_seconds": 0.00033608300000000004,
+            "primitive_calls": 180
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_climate_joint_rhs.py",
+                  "function": "evaluate_rhs",
+                  "line": 115
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  2.9710000000000002e-05,
+                  0.0018508160000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_joint.py",
+                  "function": "evaluate_rhs",
+                  "line": 31
+                },
+                "pstats_tuple": [
+                  24,
+                  24,
+                  3.0631e-05,
+                  0.0017883200000000001
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_radiation_par_joint.py",
+                  "function": "evaluate_rhs",
+                  "line": 29
+                },
+                "pstats_tuple": [
+                  24,
+                  24,
+                  3.2444e-05,
+                  0.001746621
+                ]
+              }
+            ],
+            "calls": 64,
+            "cumulative_seconds": 0.0053857570000000006,
+            "file": "backend/app/crop_climate_joint_rhs.py",
+            "function": "_hash",
+            "line": 100,
+            "own_seconds": 9.2785e-05,
+            "primitive_calls": 64
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_fruit_cohorts.py",
+                  "function": "_demand",
+                  "line": 106
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  5.4840000000000003e-05,
+                  0.003061624
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/crop_fruit_cohorts.py",
+                  "function": "calculate_cohort_rates",
+                  "line": 133
+                },
+                "pstats_tuple": [
+                  8,
+                  8,
+                  2.4931000000000002e-05,
+                  0.001691949
+                ]
+              }
+            ],
+            "calls": 24,
+            "cumulative_seconds": 0.0047535730000000005,
+            "file": "backend/app/crop_fruit_cohorts.py",
+            "function": "_hash",
+            "line": 101,
+            "own_seconds": 7.9771e-05,
+            "primitive_calls": 24
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_checked_input",
+                  "line": 403
+                },
+                "pstats_tuple": [
+                  660,
+                  660,
+                  0.00045867600000000004,
+                  0.002114922
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "<genexpr>",
+                  "line": 415
+                },
+                "pstats_tuple": [
+                  180,
+                  180,
+                  0.00015091100000000002,
+                  0.0011047090000000002
+                ]
+              },
+              {
+                "caller": {
+                  "file": "backend/app/market_candidate_store.py",
+                  "function": "_check_record_identity",
+                  "line": 65
+                },
+                "pstats_tuple": [
+                  120,
+                  120,
+                  8.2125e-05,
+                  0.00023353700000000002
+                ]
+              }
+            ],
+            "calls": 960,
+            "cumulative_seconds": 0.0034531680000000004,
+            "file": "backend/app/market_candidate_store.py",
+            "function": "_hash",
+            "line": 39,
+            "own_seconds": 0.000691712,
+            "primitive_calls": 960
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/cli_contracts.py",
+                  "function": "parse_stage_input",
+                  "line": 109
+                },
+                "pstats_tuple": [
+                  60,
+                  60,
+                  0.00026038900000000003,
+                  0.002418172
+                ]
+              }
+            ],
+            "calls": 60,
+            "cumulative_seconds": 0.002418172,
+            "file": "backend/app/cli_contracts.py",
+            "function": "_json",
+            "line": 57,
+            "own_seconds": 0.00026038900000000003,
+            "primitive_calls": 60
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/owned_research.py",
+                  "function": "prepare",
+                  "line": 58
+                },
+                "pstats_tuple": [
+                  30,
+                  30,
+                  7.7655e-05,
+                  0.000764482
+                ]
+              }
+            ],
+            "calls": 30,
+            "cumulative_seconds": 0.000764482,
+            "file": "backend/app/cli_contracts.py",
+            "function": "_canonical",
+            "line": 67,
+            "own_seconds": 7.7655e-05,
+            "primitive_calls": 30
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_ventilation.py",
+                  "function": "calculate_ventilation",
+                  "line": 77
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  3.1352e-05,
+                  0.000493777
+                ]
+              }
+            ],
+            "calls": 16,
+            "cumulative_seconds": 0.000493777,
+            "file": "backend/app/crop_greenhouse_ventilation.py",
+            "function": "_hash",
+            "line": 36,
+            "own_seconds": 3.1352e-05,
+            "primitive_calls": 16
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_radiation_nir.py",
+                  "function": "calculate_nir",
+                  "line": 79
+                },
+                "pstats_tuple": [
+                  24,
+                  24,
+                  4.343e-05,
+                  0.00039794300000000005
+                ]
+              }
+            ],
+            "calls": 24,
+            "cumulative_seconds": 0.00039794300000000005,
+            "file": "backend/app/crop_greenhouse_radiation_nir.py",
+            "function": "_hash",
+            "line": 35,
+            "own_seconds": 4.343e-05,
+            "primitive_calls": 24
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_radiation_par.py",
+                  "function": "calculate_par",
+                  "line": 90
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  2.4990000000000003e-05,
+                  0.00028379500000000004
+                ]
+              }
+            ],
+            "calls": 16,
+            "cumulative_seconds": 0.00028379500000000004,
+            "file": "backend/app/crop_greenhouse_radiation_par.py",
+            "function": "_hash",
+            "line": 39,
+            "own_seconds": 2.4990000000000003e-05,
+            "primitive_calls": 16
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_canopy_energy_transport.py",
+                  "function": "_identity",
+                  "line": 128
+                },
+                "pstats_tuple": [
+                  16,
+                  16,
+                  2.6984e-05,
+                  0.000275749
+                ]
+              }
+            ],
+            "calls": 16,
+            "cumulative_seconds": 0.000275749,
+            "file": "backend/app/crop_canopy_energy_transport.py",
+            "function": "_hash",
+            "line": 70,
+            "own_seconds": 2.6984e-05,
+            "primitive_calls": 16
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_greenhouse_solar_integration.py",
+                  "function": "integrate",
+                  "line": 102
+                },
+                "pstats_tuple": [
+                  2,
+                  2,
+                  3.463e-06,
+                  4.1323000000000004e-05
+                ]
+              }
+            ],
+            "calls": 2,
+            "cumulative_seconds": 4.1323000000000004e-05,
+            "file": "backend/app/crop_climate_joint_integration.py",
+            "function": "_hash",
+            "line": 33,
+            "own_seconds": 3.463e-06,
+            "primitive_calls": 2
+          },
+          {
+            "callers": [
+              {
+                "caller": {
+                  "file": "backend/app/crop_cycle_server_custody.py",
+                  "function": "_immutable",
+                  "line": 115
+                },
+                "pstats_tuple": [
+                  1,
+                  1,
+                  4.388e-06,
+                  1.8651e-05
+                ]
+              }
+            ],
+            "calls": 1,
+            "cumulative_seconds": 1.8651e-05,
+            "file": "backend/app/crop_cycle_server_custody.py",
+            "function": "_hash",
+            "line": 56,
+            "own_seconds": 4.388e-06,
+            "primitive_calls": 1
+          }
+        ],
+        "instrumented_wall_ns": 15171197479,
+        "mode": "candidate",
+        "original_UTC": "2026-10-01T00:01:26.123456Z",
+        "profile_function_count": 1307,
+        "profile_total_self_seconds": 15.167327278999984,
+        "scope_counters": [
+          {
+            "cache_hits": 21,
+            "disposed": true,
+            "fallback_pairs": 0,
+            "peak_raw_bytes": 1037131,
+            "raw_after_close": 0,
+            "source_pairs": 43
+          },
+          {
+            "cache_hits": 21,
+            "disposed": true,
+            "fallback_pairs": 0,
+            "peak_raw_bytes": 1037131,
+            "raw_after_close": 0,
+            "source_pairs": 43
+          },
+          {
+            "cache_hits": 21,
+            "disposed": true,
+            "fallback_pairs": 0,
+            "peak_raw_bytes": 1037131,
+            "raw_after_close": 0,
+            "source_pairs": 44
+          },
+          {
+            "cache_hits": 21,
+            "disposed": true,
+            "fallback_pairs": 0,
+            "peak_raw_bytes": 1037131,
+            "raw_after_close": 0,
+            "source_pairs": 44
+          },
+          {
+            "cache_hits": 21,
+            "disposed": true,
+            "fallback_pairs": 0,
+            "peak_raw_bytes": 1037131,
+            "raw_after_close": 0,
+            "source_pairs": 44
+          }
+        ],
+        "steps": 43,
+        "top_cumulative": [
+          {
+            "calls": 15,
+            "cumulative_seconds": 10.631061723,
+            "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+            "function": "current",
+            "line": 151,
+            "own_seconds": 0.0007373000000000001,
+            "primitive_calls": 15
+          },
+          {
+            "calls": 15,
+            "cumulative_seconds": 10.630317072,
+            "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+            "function": "_bind",
+            "line": 132,
+            "own_seconds": 0.00387504,
+            "primitive_calls": 15
+          },
+          {
+            "calls": 30,
+            "cumulative_seconds": 9.513391290000001,
+            "file": "backend/app/crop_greenhouse_solar_farm_binding.py",
+            "function": "_registration",
+            "line": 112,
+            "own_seconds": 0.0024233880000000003,
+            "primitive_calls": 30
+          },
+          {
+            "calls": 30,
+            "cumulative_seconds": 8.894120603000001,
+            "file": "backend/app/farm_authoring_storage.py",
+            "function": "read_registration",
+            "line": 438,
+            "own_seconds": 0.000323098,
+            "primitive_calls": 30
+          },
+          {
+            "calls": 30,
+            "cumulative_seconds": 8.893774663,
+            "file": "backend/app/farm_registration_read_scope.py",
+            "function": "read",
+            "line": 136,
+            "own_seconds": 0.001016853,
+            "primitive_calls": 30
+          },
+          {
+            "calls": 12,
+            "cumulative_seconds": 8.451087586,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_guard",
+            "line": 129,
+            "own_seconds": 0.0005077300000000001,
+            "primitive_calls": 12
+          },
+          {
+            "calls": 12,
+            "cumulative_seconds": 8.174328411000001,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "current",
+            "line": 339,
+            "own_seconds": 0.00015435200000000002,
+            "primitive_calls": 12
+          },
+          {
+            "calls": 1,
+            "cumulative_seconds": 7.099175627,
+            "file": "backend/app/crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 92,
+            "own_seconds": 0.00018328700000000002,
+            "primitive_calls": 1
+          },
+          {
+            "calls": 1,
+            "cumulative_seconds": 7.098984437,
+            "file": "backend/app/crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 204,
+            "own_seconds": 0.003911908,
+            "primitive_calls": 1
+          },
+          {
+            "calls": 1,
+            "cumulative_seconds": 7.022514304,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "_advance_for_checkpoint",
+            "line": 378,
+            "own_seconds": 0.000977268,
+            "primitive_calls": 1
+          },
+          {
+            "calls": 1,
+            "cumulative_seconds": 7.007635609,
+            "file": "backend/app/crop_greenhouse_solar_server_custody.py",
+            "function": "advance",
+            "line": 255,
+            "own_seconds": 0.0013373430000000002,
+            "primitive_calls": 1
+          },
+          {
+            "calls": 26,
+            "cumulative_seconds": 6.575098187,
+            "file": "backend/app/farm_registration_read_scope.py",
+            "function": "_current",
+            "line": 121,
+            "own_seconds": 0.001587875,
+            "primitive_calls": 26
+          }
+        ],
+        "top_self": [
+          {
+            "calls": 10478,
+            "cumulative_seconds": 4.916627588,
+            "file": "backend/.venv/lib/python3.12/site-packages/psycopg/connection.py",
+            "function": "wait",
+            "line": 479,
+            "own_seconds": 2.7276104240000003,
+            "primitive_calls": 10478
+          },
+          {
+            "calls": 16670,
+            "cumulative_seconds": 1.4968195130000002,
+            "file": "encoder.py",
+            "function": "iterencode",
+            "line": 205,
+            "own_seconds": 1.457857342,
+            "primitive_calls": 16670
+          },
+          {
+            "calls": 9032,
+            "cumulative_seconds": 1.345563533,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "current",
+            "line": 195,
+            "own_seconds": 0.8086681790000001,
+            "primitive_calls": 9032
+          },
+          {
+            "calls": 3734724,
+            "cumulative_seconds": 0.538355879,
+            "file": "~",
+            "function": "<method 'get' of 'dict' objects>",
+            "line": 0,
+            "own_seconds": 0.538355879,
+            "primitive_calls": 3734724
+          },
+          {
+            "calls": 3883,
+            "cumulative_seconds": 0.753305161,
+            "file": "decoder.py",
+            "function": "raw_decode",
+            "line": 343,
+            "own_seconds": 0.44103601800000003,
+            "primitive_calls": 3883
+          },
+          {
+            "calls": 9312,
+            "cumulative_seconds": 0.39358119300000005,
+            "file": "backend/.venv/lib/python3.12/site-packages/psycopg/_cursor_base.py",
+            "function": "_send_query_prepared",
+            "line": 583,
+            "own_seconds": 0.39358119300000005,
+            "primitive_calls": 9312
+          },
+          {
+            "calls": 1623,
+            "cumulative_seconds": 0.555904214,
+            "file": "backend/.venv/lib/python3.12/site-packages/psycopg/_connection_info.py",
+            "function": "get_parameters",
+            "line": 78,
+            "own_seconds": 0.337214049,
+            "primitive_calls": 1623
+          },
+          {
+            "calls": 20257,
+            "cumulative_seconds": 1.09622893,
+            "file": "backend/.venv/lib/python3.12/site-packages/psycopg/_cursor_base.py",
+            "function": "_maybe_prepare_gen",
+            "line": 275,
+            "own_seconds": 0.296653632,
+            "primitive_calls": 20257
+          },
+          {
+            "calls": 9027,
+            "cumulative_seconds": 1.821609086,
+            "file": "research/solar-local-json-ownership.py",
+            "function": "current",
+            "line": 372,
+            "own_seconds": 0.276509618,
+            "primitive_calls": 9027
+          },
+          {
+            "calls": 349493,
+            "cumulative_seconds": 0.30943818,
+            "file": "backend/app/crop_cycle_input_stream.py",
+            "function": "pairs",
+            "line": 46,
+            "own_seconds": 0.24318967200000002,
+            "primitive_calls": 349493
+          },
+          {
+            "calls": 1616113,
+            "cumulative_seconds": 0.261700621,
+            "file": "~",
+            "function": "<built-in method builtins.isinstance>",
+            "line": 0,
+            "own_seconds": 0.238395558,
+            "primitive_calls": 1616113
+          },
+          {
+            "calls": 219778,
+            "cumulative_seconds": 0.49602456800000005,
+            "file": "copy.py",
+            "function": "deepcopy",
+            "line": 118,
+            "own_seconds": 0.22897667300000002,
+            "primitive_calls": 2632
+          }
+        ]
+      }
+    ],
+    "scope": "instrumented original42 and candidate43 whole quanta; no performance acceptance or timing trial",
+    "timing_acceptance": false,
+    "valid_ABBA_repeated": false
+  },
+  "previous_contract173_not_rerun": true,
+  "backend_app_tree_SHA256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "backend_app_files": 261,
+  "product_call_sites": 0,
+  "new_CI_dispatched": false,
+  "normal64_accepted": false,
+  "new_Solar_deployed": false,
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null,
+  "next_task": "crop-solar-json-guard-dictionary-lookup",
+  "decision": "Retain observations and approval; reduce repeated dictionary lookups inside JSON reference and helper binding comparisons. Unusual module key types fall back to the original full stamp. Prove oracle equivalence and existing regressions before new-source whole cost."
+}
