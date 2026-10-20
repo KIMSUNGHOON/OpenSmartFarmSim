@@ -100,6 +100,27 @@ test('a current rights denial removes the harvest values and the parent 3D and t
   await expect(page.locator('[data-harvest-index]')).toHaveCount(0);await expect(page.locator('.coupled-viewer')).toHaveCount(0);
   await expect(page.getByRole('alert')).toContainText('권한');
 });
+test('the final harvest range opens directly by keyboard and retains original rows and bounds',async({page})=>{
+  const data=dataset(),api=await mock(page,data);await connect(page,data);await read(page,data);
+  const panel=page.locator('.harvest-replay'),last=panel.getByRole('button',{name:'마지막 수확 범위',exact:true});
+  await last.focus();await last.press('Enter');await expect(panel).toHaveAttribute('data-offset','3');
+  for(const [i,row] of data.last.page.records.entries()){
+    const tr=panel.locator(`[data-harvest-index="${3+i}"]`);
+    await expect(tr).toHaveAttribute('data-end-at',row.mass.removal.end_at);
+    await expect(tr.locator('[data-original-fresh]')).toHaveAttribute('data-raw-value',String(row.mass.fresh_matter.value));
+    await expect(tr.locator('[data-original-fresh]')).toHaveAttribute('data-unit',row.mass.fresh_matter.unit);
+  }
+  await expect(last).toBeDisabled();await expect(panel.getByRole('button',{name:'다음 수확 범위',exact:true})).toBeDisabled();
+  expect(api.calls).toEqual(['summary','records:0','records:3']);
+  await panel.getByRole('button',{name:'이전 수확 범위',exact:true}).click();await expect(panel).toHaveAttribute('data-offset','0');
+  await expect(last).toBeEnabled();
+});
+test('a current rights denial on the final range clears both harvest and parent quantities',async({page})=>{
+  const data=dataset(),api=await mock(page,data);await connect(page,data);await read(page,data);api.deny();
+  await page.getByRole('button',{name:'마지막 수확 범위',exact:true}).click();
+  await expect(page.locator('[data-harvest-index]')).toHaveCount(0);await expect(page.locator('.coupled-viewer')).toHaveCount(0);
+  await expect(page.getByRole('alert')).toContainText('권한');expect(api.calls).toEqual(['summary','records:0','records:3']);
+});
 test('an unrelated but valid source hash is refused and clears the parent',async({page})=>{
   const data=dataset();data.crop.reference.payload_sha256='1'.repeat(64);data.page.reference.payload_sha256='1'.repeat(64);
   await mock(page,data);await connect(page,data);await page.getByLabel('저장 수확 결과 ID').fill(data.summary.result_id);

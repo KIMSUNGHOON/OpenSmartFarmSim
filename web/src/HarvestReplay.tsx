@@ -68,6 +68,7 @@ export default function HarvestReplay(props:Props){
   function submit(event:FormEvent){event.preventDefault();load();}
   if(!api||!parent)return null;
   const busy=state?.phase==='loading',range=binding?.harvest_range;
+  const finalOffset=range?Math.max(0,Math.floor((range.total-1)/LIMIT)*LIMIT):0;
   return <section id="crop-harvest" className="panel harvest-replay" aria-label="저장 제거·배정" aria-busy={busy}
     data-phase={state?.phase??'idle'} data-selected-at={selectedAt??''} data-result-id={state?.summary?.result_id??''}
     data-offset={range?.offset??''} data-count={range?.count??0} data-total={range?.total??''}>
@@ -123,7 +124,9 @@ export default function HarvestReplay(props:Props){
         onClick={()=>load(Math.max(0,range.offset-LIMIT),state!.summary)}>이전 수확 범위</button>
         <button className="button secondary" onClick={()=>load()}>수확 권리 다시 조회</button>
         <button className="button primary" disabled={state!.page!.page.next_offset===null}
-          onClick={()=>{const offset=state!.page!.page.next_offset;if(offset!==null)load(offset,state!.summary);}}>다음 수확 범위</button></nav>
+          onClick={()=>{const offset=state!.page!.page.next_offset;if(offset!==null)load(offset,state!.summary);}}>다음 수확 범위</button>
+        <button className="button secondary" disabled={range.offset===finalOffset}
+          onClick={()=>load(finalOffset,state!.summary)}>마지막 수확 범위</button></nav>
       <p className="crop-caption">현재 범위의 정확히 같은 UTC만 기존 3D로 이동합니다. 이미 받은 화면의 권리를 계속 감시하는 기능은 아닙니다.</p>
       <details className="harvest-evidence"><summary>상세 정보 · 내부 ID / 원문 증거</summary><pre>{JSON.stringify({
         result_id:state!.summary!.result_id,farm:parent.farm,reference:state!.summary!.reference,
