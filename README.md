@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-21 KST:** [기관 목록의 등록 재구성 개선](research/organ-catalog-registration-scope-20261021.md)을 고유163검사·같은 small3 자료 평균38.69% 감소로 부분 수용했다. 수정 코드의 실제20개/89.49MB 목록은30.08초로 실패해 용량/U1·WSL/새 UI 적용은 미수용이다. 다음 핵심 개발은 CO₂ 질량수지/ppm·기공의 원문/단위 정책 검토다.20개 용량 후속은 별도 남은 코드 작업이며 생산/자원/경제·독립 자료/관문·전체 완료일은 미완료/미정·goal active다.
+**현재 — 2026-10-21 KST:** [CO₂ 원문/단위 검토](research/crop-co2-stomatal-source-policy-20261021.md)와 [명시 온도/압력·wet/dry 변환](contracts/crop-co2-gas-v1.md)을 독립35검사·원 서비스/자료 보존 범위로 수용했다. 다음은 CH₂O→CO₂ net sink와 공기 질량수지다. 기공 단위는 hold, 원20개 목록30.08초 실패/U1·WSL·새 UI/Solar 미배포는 유지한다. [잔여 공수](tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)는 합성 통합 계산/3D/조건부 경제·실제 CLI G1까지171–326집중시간의 낮은 신뢰 견적이다. 실제 농장/예측·추천/운영을 포함한 전체 완료일은 미정·goal active다.
 
 **일정 재확인 — 2026-10-21 KST:** 전체 goal 완료일은 미정이다. [현재 용량 사전 검사](research/organ-catalog-capacity-preflight-20261021.md)는 WSL 합산 RSS 한도로 미수용이며20개/HTTPS·크기 증거는 없다. 보호5root/원 자료를 보존했다. 같은 실행은 반복하지 않고 hosted 정상1개→수용 시20개로 진행한다. 이번1–3집중시간 추정은 검사 결과 보고의 범위이며 생산/자원/경제·최종 UI/실제 CLI 종단 간·독립 농장 검증까지의 제품 완료 예상이 아니다.
 

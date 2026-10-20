@@ -2134,7 +2134,11 @@
         질량↔ppm의 T/P/부피 기준과 CH₂O↔CO₂ net sink를 구분하고, sRsSlope 단위 충돌은 검토된 판본 정책 또는 hold로 기록한다.
         채택/미채택·미확정의 근거와 다음 순수 계산 자식의 작은 의존성/수용 기준을 고정한다.
         이 연구만으로 계수/G0·실제 품종/농장·예측/기공 closure를 승인하지 않는다.
-      - [ ] **`co2-gas-conversion-kernel`** — 다음 순수 계산 자식; 선행: 위 연구 P01.
+      - [x] **`co2-gas-conversion-kernel`** — [계약/수용](../contracts/crop-co2-gas-v1.md)과
+        [기계 증거](../research/artifacts/crop-co2-gas-20261021.json): 독립80자리 Decimal 몰수·
+        wet/dry/근접 수증기압·T/P/0·형/물리/표현 한계35검사, 사전 상대3e-15·절대0을 통과했다.
+        guard child0/0.594567초·합626,315,264bytes·원5root/2,148/두 UI·FD/소유 정리와 기존 계수/코드 불변을 확인했다.
+        선행: 위 연구 P01.
         핵심3파일: `backend/app/crop_co2_gas.py`, `backend/tests/test_crop_co2_gas.py`,
         `contracts/crop-co2-gas-v1.md`. source R/M·모델 판본과 명시 density(mg_CO2/m3)/ppm,
         T(degC)/P(Pa)/wet·dry·필요 수증기압을 고정하고 자동 기본 기압/센서 기준을 두지 않는다.
