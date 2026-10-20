@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+- [x] **`product-ui-development-status-wrap`** — [실제320px/32px의 상태 목록 문구 넘침 수정](../research/catalog-stored-replay-current-browser-20261020.md). 긴 상태 문구 회귀와 같은 source의 웹 단위1,864/브라우저246·타입/프로덕션 빌드/보안 기준 통과. 상태 목록과 사이드바 수정은 사용자 포트에 미배포이며 U1 전체는 별도다.
+
 - [x] **`product-ui-sidebar-viewport-navigation`** — [원 화면 밖 메뉴/수정·native2경로](../research/catalog-navigation-memory-evidence-20261020.md). 실제1024×768·390×844의 성장 메뉴 pointer 선택→입력 복귀/가로 넘침·개발 빌드·5root/원본/정리를 확인했다. 새 Playwright2회귀 파일은 로컬 미실행이며 전체 웹 CI·실제 목록→수확/권리·U1·사용자 배포는 별도다.
 
 - [x] **`preview-existing-authentication-renewal-20261020`** — [실제 만료 전 동일 입력 갱신](../research/frozen-preview-authentication-renewal-20261020.md). 같은 bearer/모델·키·결과/DB counts·두 frozen HTML, legacy8·joint입력3/저장9·환기8의 인증/원 bytes·UTC·조회 계산/쓰기0·TLS/FD/5root/원본/상한/정리를 확인했다. 새 Solar/과학 관문·전체 CI/새 browser 검증은 별도다.
@@ -382,7 +384,7 @@
     요청 중첩 반례의2개 동시 요청을1개로 수정했다. source1,571·기존 dist·보호4 identity/소유 정리를 보존했다.
     [원12ui 이미지/HTML](../research/product-ui-result-selector-design-preparation-20261009.md)의 빈 상태 PNG를 그대로 사용했다.
     새8개 브라우저 조건은 미실행이며 선행22개와 합쳐30개, 원3상태 improve/렌더 대조와 실제 공동 DB가 남아 있다.
-    전체 게시/보존·source 정리 뒤 자원을 확보해 검증한다. **코드는 현재 기동 빌드에 포함되지만 목록 선택 경로는 미수용이며 이 체크박스·상위 U1/U3는 미완료다.**
+    전체 게시/보존·source 정리 뒤 자원을 확보해 검증한다. **당시 코드는 기동 빌드에 포함됐으나 목록 선택 경로와 이 체크박스·상위 U1/U3는 미수용이었다.**
     후속 [hosted 실패 보완](../research/crop-ui-hosted-failure-fixes-20261009.md): 원30개 중22통과/8실패를 확인했다.
     컨테이너 타입은 같은 제외 조건 RED→GREEN, 현재 타입/집중211개·원69406 종료0이다.
     목록 접근성 이름·부모 summary 검사 순서를 수정했고 수정판 브라우저/이미지·원 디자인/실제 DB 수용은 남았다.
@@ -390,9 +392,9 @@
     원 PNG export·두 이미지·API/작업자/소비자/scope 검사를 통과했고 브라우저30개·원 디자인/실제 DB·상위 U1/U3는 남았다.
     후속 [웹37895265205/58adcdd](../research/crop-ui-web-hosted-regression-20261009.md)는 같은 웹 tree의
     Chromium140개(예정30개 포함)·타입/1,028단위·빌드/audit 통과다. 원3상태 improve/렌더 대조와
-    현재 실제 공동 DB/재시작·WSL 브라우저 자원/정리·화면 배포는 남아 있어 체크하지 않는다.
-  - **2026-10-20 현재 실제 연결:** [저장 판본 API10응답/현재 개발 빌드](../research/crop-result-catalog-native-connection-20261020.md)를 확인했다. 최신 backend의 구판 CODE 거부는 유지한다. 실제502의 [TLS 수명 결함](../research/legacy-preview-TLS-lifetime-repair-20261020.md)을 수정하고 원 조회8+8을 복구했다. 이후 새 목록 브라우저는 app-loaded 전에 합1GiB로 중단돼 U1은 미수용이다. 다음은 실행기/감독의 실제 메모리 분리·축소이며 기존 source/수치/권리/브라우저 조건·한도/5root·디자인/재시작 수용을 유지한다.
-  - [ ] **`product-ui-result-catalog-native`** — [현재 browser 관측/보류](../research/catalog-navigation-memory-evidence-20261020.md): sidebar2경로만 수용, 원 성장 두 시점 뒤 합1GiB로 전체 미수용이다. 선행 API/웹. 실제 별도 DB/API/빌드 App에서
+    당시 실제 공동 DB/재시작·WSL 브라우저 자원/정리·화면 배포는 남아 있었다. 현재 범위는 아래2026-10-20 실제 연결 기록을 따른다.
+  - **2026-10-20 현재 실제 연결:** [같은 제품 빌드/저장 판본 reader의6장면·24응답](../research/catalog-stored-replay-current-browser-20261020.md)을 원1GiB와5서비스/자료 보존으로 수용했다. 웹1,864/246·빌드/보안도 통과했다. 아래 native 부모는 재시작/철회·구판 CODE·기존 디자인/다른 저장 모델·배포가 남아 열어 둔다.
+  - [ ] **`product-ui-result-catalog-native`** — [현재 제품 빌드의 실제 저장 reader 경로](../research/catalog-stored-replay-current-browser-20261020.md)는 GET24응답/6장면·수확3행·reload/401 제거·복구·원1GiB/5root/정리로 수용했다. 같은 source의 웹1,864/246도 통과했다. 실제 API 재시작/철회·늦은 응답, 최신 backend 구판 CODE·기존3상태 디자인/다른 저장 모델·U1 사용자 적용은 계속 남는다. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
 - [ ] **`product-ui-region-input` (U2)** — 선행: 기존 조사/수집/검토·농장 작성 API; U1과 병행 가능.

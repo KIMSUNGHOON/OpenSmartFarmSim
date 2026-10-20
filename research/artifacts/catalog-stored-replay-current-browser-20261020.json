@@ -1,0 +1,359 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_scope": "saved-reader-version live path only; full U1 remains open",
+  "actual_farm_runs": 0,
+  "date": "2026-10-20",
+  "earlier_native_failures": [
+    {
+      "failure": "DOM wait timeout: old scene cleared",
+      "guard": {
+        "actual_child_exit": 1,
+        "case": "focused-catalog-current-production-live-CDP-v9",
+        "combined_peak_RSS_bytes": 997175296,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 358576128,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "terminal_SHA256": "7a4b9c7d7216d25a9fceb933fb130bae5b05d55497d6ea2fb213b72bf26d8bcc",
+        "wall_seconds": 133.82988836598815
+      },
+      "scene_count": 5
+    },
+    {
+      "failure": "CDP DOM.focus failed code -32000",
+      "guard": {
+        "actual_child_exit": 1,
+        "case": "focused-catalog-current-production-live-CDP-v10",
+        "combined_peak_RSS_bytes": 990126080,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 353910784,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "terminal_SHA256": "221c95a84e453d5f43cca54cf98d0efe1f34234139ea8529f469b505e58cf807",
+        "wall_seconds": 92.19210450600076
+      },
+      "scene_count": 5
+    },
+    {
+      "failure": "The expression evaluated to a falsy value:\n\n  assert(network.some(v=>v.status===401))\n",
+      "guard": {
+        "actual_child_exit": 1,
+        "case": "focused-catalog-current-production-live-CDP-v11",
+        "combined_peak_RSS_bytes": 997306368,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 378458112,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "terminal_SHA256": "403c7067fa9f5e6cf46958b53a7d174738941a518615bcdbf5e0e36af451c6a4",
+        "wall_seconds": 94.12529179999547
+      },
+      "scene_count": 5
+    }
+  ],
+  "failed_CI_evidence": [
+    {
+      "browser_failed": 1,
+      "browser_not_run": 224,
+      "browser_passed": 20,
+      "conclusion": "failure",
+      "run_id": 39400694633,
+      "source": "71064ad81867966d9c89a1c8ec072e4434a427fb"
+    },
+    {
+      "conclusion": "failure",
+      "finding": "320px/font32/document329; first bounding-box observation included locally clipped table/nav",
+      "log_SHA256": "6dbf3dc6735f527e5ae64cff1eb8a088059a6cab1c09298d7eb0cb72640ba392",
+      "run_id": 39401425965,
+      "source": "1f344bc2816db6f4d238380d30b5e051382d02d9"
+    },
+    {
+      "browser_failed": 1,
+      "browser_not_run": 5,
+      "browser_passed": 13,
+      "conclusion": "failure",
+      "finding": "unclipped development-status OL/LI textRight329",
+      "log_SHA256": "bd37cbe5089058d2a0bb95cced3fbcfeca092104ce5f07f3ad22fd13e8bfd745",
+      "run_id": 39401880783,
+      "source": "5470c09e755ce4f6fc08b3d544adc377e2815771",
+      "suite": "connection"
+    }
+  ],
+  "frontend_product_files_SHA256": {
+    "web/e2e/break-even.spec.ts": "73e0ed4c94e3c4e5a6820e52bccc8caade46a6ba7974be621ad66a9f72b37b8a",
+    "web/e2e/development-status.spec.ts": "f646436070509d4713ee29cdd042e84a1d2899d1e739f3cb2d7ae483520be810",
+    "web/e2e/navigation-viewport.spec.ts": "796351db0bf5fb85b9e32b4e161e8822148b389d0ded107313888a80c0abb846",
+    "web/src/App.css": "16c698ae6a3aa9adb54b8970d2d0af92cae90da55b522fd6ebee95efa5b33916",
+    "web/src/App.tsx": "111f3afa4dd0c6c8e27ade08c3a1da9f9594c269bf034a744163e849b725ee65"
+  },
+  "frontend_source_commit": "8ad6c24f6b3f13fbea15c0fd75f1511b593a304a",
+  "full_completion_date": null,
+  "live_reader_scope": "current tested frontend and supported original code-pinned full166day synthetic stored read API; latest backend historical CODE support remains held",
+  "native_context": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_SHA256": "1bcf36fc0f2d081bcaafa4268159fb6b9183865df6b7fb0e97dc0fd54b0e725a",
+    "recursive_CLI": false,
+    "timestamp": "2026-10-20T09:01:49.376Z"
+  },
+  "native_live": {
+    "DPR": 0.5,
+    "HTTP401_observation": "header status only; SDK does not consume denial body; no numeric data adopted; raw actor configured cache field is not independent header evidence",
+    "HTTP_response_count": 24,
+    "HTTP_status_counts": {
+      "200": 23,
+      "401": 1
+    },
+    "actual_WebGL": true,
+    "aggregate_cap_bytes": 1073741824,
+    "all_API_GET": true,
+    "auth_denial401_scene_cleared_and_restored": true,
+    "browser_errors": [],
+    "console_error_count": 0,
+    "controller_seconds": 600,
+    "desktop": [
+      1024,
+      768
+    ],
+    "frozen_driver_SHA256": {
+      "catalog-cdp.mjs": "0aa5eca07dd8ff10c4f8e2c1c0c0d686910148ec60f8c736e1b69e42fa342893",
+      "cdp-pipe.mjs": "4b0baf480b32b4c79112671585f4d4c373a184948d3f521a78c6af6848123d2a",
+      "native-owner.mjs": "95e191b42807369509821eea277dde9205824f46eda65bb011f53570774bf418"
+    },
+    "guard": {
+      "actual_child_exit": 0,
+      "case": "focused-catalog-current-production-live-CDP-v12",
+      "combined_peak_RSS_bytes": 1025470464,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 375050240,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_SHA256": "a05d345dcee45fcd9a46a6d78730e18b8f423ca32781356bde0087fc262cc588",
+      "wall_seconds": 118.11271565798961
+    },
+    "harvest_rows_verified": 3,
+    "images_SHA256": {
+      "catalog-stored-growth-desktop-20261020.png": "3dc008529809f92b231e5450cde7182cbdf70b229952454145e941496ffb4b30",
+      "catalog-stored-harvest-mobile-20261020.png": "177ea641e08fbdd0f0cc795398ecb5772d90b999729cd7bf845ad6ff6546655b"
+    },
+    "mobile": [
+      390,
+      844
+    ],
+    "owner_terminal_SHA256": "302cc9639c0952301bc606086ded7771cb6308a379ab9e89ec442c3ee9bd6729",
+    "poll_seconds": 0.25,
+    "positive_response_body_SHA256": [
+      "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+      "2e9f93a4e2e2eceb4497e7ae3b84efedc52aff71d492a06062b4a37b31fbe288",
+      "c5b2ab0da5825e8846d6f6951a8d9597ec153aad8f73e0676b1d5e72a65764c7",
+      "0202eef7495fb96341b9bd3cd5691d96136c9d059cd1e35f27c668218e1c9b86",
+      "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+      "b351b693f04d57360c40c449c3f1874bb118f112220d559ce69070abc040cb0f",
+      "57fbf8cbd14ed35b0c288952ee35ce2d85af5c1d5551bdeecadc1fef8a284167",
+      "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+      "b351b693f04d57360c40c449c3f1874bb118f112220d559ce69070abc040cb0f",
+      "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+      "6ae29254aa2475d9bd7c9d21b1afed475f83510a9e1484f589aafd780aaf60f5",
+      "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+      "2e9f93a4e2e2eceb4497e7ae3b84efedc52aff71d492a06062b4a37b31fbe288",
+      "c5b2ab0da5825e8846d6f6951a8d9597ec153aad8f73e0676b1d5e72a65764c7",
+      "0202eef7495fb96341b9bd3cd5691d96136c9d059cd1e35f27c668218e1c9b86",
+      "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+      "b351b693f04d57360c40c449c3f1874bb118f112220d559ce69070abc040cb0f",
+      "0e48b634d5aaff4726e76c1ed1e9780c656ab9556a51164b0862b13219e73be5",
+      "2e9f93a4e2e2eceb4497e7ae3b84efedc52aff71d492a06062b4a37b31fbe288",
+      "c5b2ab0da5825e8846d6f6951a8d9597ec153aad8f73e0676b1d5e72a65764c7",
+      "0202eef7495fb96341b9bd3cd5691d96136c9d059cd1e35f27c668218e1c9b86",
+      "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+      "b351b693f04d57360c40c449c3f1874bb118f112220d559ce69070abc040cb0f"
+    ],
+    "reload_same_result": true,
+    "report_SHA256": "866b476fee511553bfb6ce15700fc5e3df3cb7b6cfccb7bb15461f1cb3c3a4b9",
+    "scenes": [
+      {
+        "CN_values": 100,
+        "at": "2026-10-01T00:00:00Z",
+        "label": "growth_first",
+        "sample_SHA256": "c56be5dbfc2b0362a815b15f6f30ea80e9fec4be51d400d8484a00150be010b0"
+      },
+      {
+        "CN_values": 100,
+        "at": "2026-10-01T00:05:00Z",
+        "label": "growth_second",
+        "sample_SHA256": "0880cd01d51f5279f4251e1b2bc754da12a4acd21243e573a39dc1ce516f1b9f"
+      },
+      {
+        "CN_values": 100,
+        "at": "2026-10-01T00:00:00Z",
+        "label": "harvest_parent",
+        "sample_SHA256": "c56be5dbfc2b0362a815b15f6f30ea80e9fec4be51d400d8484a00150be010b0"
+      },
+      {
+        "CN_values": 100,
+        "at": "2026-10-01T00:00:00Z",
+        "label": "mobile_parent",
+        "sample_SHA256": "c56be5dbfc2b0362a815b15f6f30ea80e9fec4be51d400d8484a00150be010b0"
+      },
+      {
+        "CN_values": 100,
+        "at": "2026-10-01T00:00:00Z",
+        "label": "reload_reselected",
+        "sample_SHA256": "c56be5dbfc2b0362a815b15f6f30ea80e9fec4be51d400d8484a00150be010b0"
+      },
+      {
+        "CN_values": 100,
+        "at": "2026-10-01T00:00:00Z",
+        "label": "auth_restored",
+        "sample_SHA256": "c56be5dbfc2b0362a815b15f6f30ea80e9fec4be51d400d8484a00150be010b0"
+      }
+    ],
+    "single_PID_cap_bytes": 536870912,
+    "stored_growth_samples": 47809,
+    "stored_harvest_total_rows": 47813
+  },
+  "new_catalog_UI_deployed": false,
+  "new_solar_deployed": false,
+  "recursive_CLI": false,
+  "remaining_holds": [
+    "actual API restart/rights withdrawal/late-response lifecycle acceptance",
+    "existing three-state design comparison and other saved models/full-period acceptance",
+    "latest backend supported historical CODE reader",
+    "U2-U5/full real CLI G1 path",
+    "Solar changed-source original normal64/hold/HTTP cancel/live WebGL/WSL activation",
+    "actual source/farm/economic/market evidence and G0-G4"
+  ],
+  "schema_version": "catalog-stored-replay-current-browser-v1",
+  "status_publication": {
+    "UI_code_deployed": false,
+    "both_HTTP200_no_store_same_bytes": true,
+    "both_original_HTML_preserved": true,
+    "exit": 0,
+    "frozen_ventilation_source_files": 2173,
+    "mutable_feed_updated_after_tested_build": true,
+    "reported_at": "2026-10-20T10:12:25.655338Z",
+    "source_SHA256": "62276837cd4eba968d06c541ab01472fc97ad0cfb2c5909c6991a06136cdcdba",
+    "terminal_SHA256": "05f4695ce3e9ccfee27185765342d433331399adb2907e12db58f5ee4dac7dca",
+    "tested_dist_not_modified": true,
+    "wall_seconds": 0.853710516996216
+  },
+  "subagents": 0,
+  "tested_build": {
+    "actual_API_or_browser_test_performed": false,
+    "archive_SHA256": "402dba10906108885121669c028e2ca64352bb3673702d75345194fd9544b941",
+    "archive_checked": true,
+    "artifact_digest": "sha256:402dba10906108885121669c028e2ca64352bb3673702d75345194fd9544b941",
+    "artifact_id": 12255897635,
+    "browser_suite": "all",
+    "build_commit": "8ad6c24f6b3f13fbea15c0fd75f1511b593a304a",
+    "deployed": false,
+    "files": 184,
+    "production_minified_build": true,
+    "retrieved_at": "2026-10-20T09:51:32.053570+00:00",
+    "run_attempt": 1,
+    "source_pin_count": 146,
+    "web_job_id": 118559715828,
+    "web_run_id": 39402294371
+  },
+  "tested_build_fetch_guard": {
+    "actual_child_exit": 0,
+    "case": "focused-catalog-tested-minified-build-v1",
+    "combined_peak_RSS_bytes": 551641088,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 109789184,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "terminal_SHA256": "781554cccb4bcff571edf89ca01b4c78264926175112f0da77b1f5b42598bc45",
+    "wall_seconds": 7.634828711001319
+  },
+  "web_CI": {
+    "browser_tests": 246,
+    "conclusion": "success",
+    "job_id": 118559715828,
+    "log_SHA256": "8508795009fa1f00270220cfa4e6588583c73666bf653ea8eb04bf98eddc6d93",
+    "native_solar_job": "skipped",
+    "new_backend_CI": false,
+    "npm_audit_high_threshold": true,
+    "original_solar_normal_job": "skipped",
+    "production_build": true,
+    "run_id": 39402294371,
+    "source_commit": "8ad6c24f6b3f13fbea15c0fd75f1511b593a304a",
+    "typecheck": true,
+    "unit_files": 35,
+    "unit_tests": 1864,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39402294371"
+  }
+}

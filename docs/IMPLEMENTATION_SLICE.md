@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 사용자 경로 — 2026-10-20 KST:** [고정 sidebar 수정/desktop·mobile2경로](../research/catalog-navigation-memory-evidence-20261020.md)와 현재 개발 빌드를 수용했다. 실제 목록→같은 저장 생장3D 두 시점의 원값/UTC 단언은 관측했으나 수확 선택 뒤 합1GiB로 중단돼 전체 browser/U1은 미수용이다. 다음은 해당 API/PG/브라우저 동시 할당 분리다. 기존 두 UI/원 자료·구판 CODE 경계와 새 Solar/실제 자료·관문/전체 완료일 미정을 유지한다.
+**현재 사용자 경로 — 2026-10-20 KST:** [웹1,864/246·검증된 minified 빌드의 실제 목록→저장3D/수확](../research/catalog-stored-replay-current-browser-20261020.md)을 GET24응답·6장면·수확3행·reload/401 제거/복구와 원1GiB/5서비스 보존으로 수용했다. 실제 API 재시작/철회·구판 CODE와 U1 전체/사용자 배포는 남는다. 새 Solar/실제 자료·관문/전체 완료일 미정을 유지한다.
 
 **다음 사용자 경로 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했다. 다음은 [기존 저장 결과 목록→선택→같은 UTC3D/수확의 실제 연결](../research/crop-result-catalog-native-readiness-20261020.md)이며 U1의 기존 API/SDK/저장 재생을 재사용한다. 원21건 seed/hash와 현재10파일 준비만 확인했고 전체166일/실제 DB·브라우저/U1은 미수용이다. 새 Solar normal64·후속 계산 중3D·WSL/최종 제품·G0–G4/완료일은 계속 미완료/미정이다.
 

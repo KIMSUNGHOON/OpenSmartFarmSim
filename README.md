@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 작업 — 2026-10-20 KST:** [탐색 결함 수정/브라우저 메모리 검증](research/catalog-navigation-memory-evidence-20261020.md)에서 고정 sidebar의 성장 메뉴 접근을 수정하고 실제 데스크톱/모바일2경로·개발 빌드를 통과했다. 실제 저장 목록→생장3D 두 시점의 원 C/N·UTC 대조 구간은 관측했으나 전체 실행은 합1GiB로 중단됐다. 수확/재접속/권리·최신 backend 구판 읽기/U1·새 Solar/관문·전체 날짜는 미완료/미정이며 goal active다.
+**현재 작업 — 2026-10-20 KST:** [현재 제품 빌드의 실제 저장 목록→3D/수확 연결](research/catalog-stored-replay-current-browser-20261020.md)을 수용했다. 웹 단위1,864/브라우저246·프로덕션 빌드와 실제 GET24응답/6장면·수확3행·재접속/401 제거·복구를 확인했다. 원5서비스/자료와 합1GiB 한도를 지켰다. 새 목록 UI는 미배포이며 API 재시작/철회·구판 CODE·U1 전체·새 Solar/관문·전체 날짜는 미완료/미정이다.
 
 **현재 작업 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했고 제품 app261은 유지했다. 다음은 새 Solar normal64와 독립인 [기존 저장 결과 목록→3D 선택의 실제 연결 수용](research/crop-result-catalog-native-readiness-20261020.md)이다. 준비된21건의 원 dump/hash·현재10파일은 대사했으며 실제 DB/브라우저/U1은 미수용이다. 새 Solar 정상46/64 미완료·후속 hold/취소/계산 중3D/WSL·전체 UI/관문/완료일 미정과 goal active를 유지한다.
 
