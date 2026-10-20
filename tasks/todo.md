@@ -2322,11 +2322,20 @@
       - [ ] **`co2-current-query`** — 개발 선행: 위 projection 기능/계약 수용; WSL 동시 용량은 사용자 적용 전 유지한다.
         [새 계약](../contracts/crop-greenhouse-co2-current-query-v1.md)의 구현을 추가했고
         [사전 증거](../research/artifacts/crop-greenhouse-co2-current-query-preflight-20261021.json)의 기본5개·11개 수집을 통과했다.
-        실제 정상/보류·fresh 현재 DB/권한·늦은 철회/변조/경계 수용 전이며 체크를 유지한다.
+        [실제 기능 수용](../research/crop-greenhouse-co2-current-query-20261021.md)의11검사·fresh 현재 DB2를 통과했다.
+        공통 `co2-projection-WSL-capacity`가 남아 부모 체크는 유지하며 같은 용량 장애를 중복 공수로 세지 않는다.
         [기존 현재 조회](../contracts/crop-greenhouse-solar-current-query-v1.md)를 대조한다.
         같은 store/custody 읽기 세션에서 DB/HMAC/선택 HEAD·현재 권리를 투영 전후/직렬화 뒤 확인한다.
         실제 SCRAM/fresh 원 bytes·늦은 철회/변조·페이지 경계·조회 계산/SQL쓰기0·5root/WSL/정리를 수용한다.
         이후 보호 HTTP/명시 runtime→worker/prefix→같은 UTC3D이며 새 framework/관문 승격을 추가하지 않는다.
+        - [x] **`co2-current-query-functional`** — [증거](../research/artifacts/crop-greenhouse-co2-current-query-20261021.json):
+          source0394540/CI39512608538의11검사(기본5/실제6)·fresh 현재 DB2, 원3응답/시각·초기/늦은 철회60·
+          변조10·경계/잠금·조회17계측/SQL쓰기0·285코드 지문/기존278제품 파일·FD/DB/소유 정리를 대사했다.
+          hosted 합278,224,896bytes이며 공통 WSL 용량/새 사용자 적용 조건은 해제하지 않는다.
+      - [ ] **`co2-result-http`** — 선행: 위 현재 조회의 기능 수용. [보호 HTTP 계약](../contracts/api-crop-greenhouse-co2-route-v1.md).
+        exact query/store/같은 jobs·farm·principal과 원 UTF-8 bytes, 닫힌 query/body·전후 인증/권한·오류/취소를 확인한다.
+        실제 SCRAM/TLS 정상·보류3응답/늦은 철회·계산/쓰기0, 기존 OpenAPI/경로와 원 자료/자원·정리를 수용한다.
+        새 True/operator 자동 활성화·WSL 용량/사용자 배포를 이 검사로 완료하지 않는다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

@@ -195,7 +195,14 @@ schema 단계는 수치/context/복원/CLI0이며 기존5root/자료·원 WSL/FD
 기능/계약 수용으로 current query 개발을 시작한다. 같은 원 program은 서버 내부 읽기 세션에서만 전달하며
 현재 권리/DB/HEAD의 직렬화 후 검사·실제 정상/보류/fresh를 후속 수용한다.
 [다음 현재 조회 계약](../contracts/crop-greenhouse-co2-current-query-v1.md)에 원 read session·내부 program 전달,
-현재 권리/행·원 파일의 늦은 변조·fresh 실제 DB 재검증과 계산/쓰기0 수용 기준을 고정했다. 구현/시험은 후속이다.
+현재 권리/행·원 파일의 늦은 변조·fresh 실제 DB 재검증과 계산/쓰기0 수용 기준을 고정했다.
+[실제 source0394540/CI39512608538](../research/crop-greenhouse-co2-current-query-20261021.md)의11검사·fresh 현재 DB2와
+초기/늦은 철회60·변조10·원 bytes/UTC/최초 시각·조회17계측/SQL쓰기0·285코드 지문/정리를 수용했다.
+hosted 합278,224,896bytes이며 공통 WSL 동시 용량/두 부모/사용자 적용은 미완료다.
+같은 WSL 장애를 별도 공수로 중복 계산하지 않고 기능 수용 뒤 보호 HTTP 개발을 시작한다.
+[그다음 보호 HTTP](../contracts/api-crop-greenhouse-co2-route-v1.md)는 현재 조회 기능 수용 뒤
+명시 route/store/query 조립·전후 권한·원 bytes/TLS·오류/취소와 기존 OpenAPI/경로 보존을 작은 자식으로 확인한다.
+기본 operator/runtime True와 worker/prefix·사용자3D/WSL 용량을 별도 유지한다.
 원 artifact의 검증된 program SHA와 forcing_step_index가 wet/dry metadata의 선행이며 HTTP 입력으로 받지 않는다.
 닫힌 summary/samples/events에서 원109상태·44연속/6사건/17수지·단위/UTC/hold를 보존하고 구 판본/타입·단위/한도 혼합을 거부한다.
 같은 현재 읽기 세션과 직렬화 뒤 권리/DB/HEAD 재확인, 실제 SCRAM/fresh 원 응답·조회 계산/쓰기0·5root/자원/정리를 수용한다.
