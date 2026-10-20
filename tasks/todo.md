@@ -2268,13 +2268,24 @@
         원 intent192KiB/proof8KiB/progress128KiB·최대 입력/파일 한도를 먼저 재며 초과를 보류한다.
         행/사건/출력 수·상한을 줄이지 않고 원5root/결과·512MiB/PID/합1GiB/FD·소유 PG/schema/role/passfile을 보존한다.
         이후 DB/API/worker/같은 UTC3D·사용자 수용이며 실제 자료/관문은 별도다.
-      - [ ] **`co2-result-schema`** — 다음 작은 자식; 선행: 위 custody/저장과 기존 jobs.
+      - [x] **`co2-result-schema`** — [계약/수용](../contracts/crop-greenhouse-co2-result-schema-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-result-schema-20261021.json):실제 SCRAM8검사·두 원문 각128KiB/
+        41입력 컬럼/기록 시각·실제 합성 progress38,513bytes의 원본 왕복과 기존4표/행 보존,
+        기본4역할20작업/재해시한 구 Solar 경계 거부·17수치/CLI진입점0·원 자료/5root/정리를 수용했다.
+        선행: 위 custody/저장과 기존 jobs.
         [Solar 결과 DB 계약](../contracts/crop-greenhouse-solar-result-schema-v1.md)을 새 CO₂ table/result/storage/
         custody 판본으로 구분한다. 핵심4파일: 새 schema/집중 DB pytest/계약·실제 합성 progress fixture.
         실제 SCRAM의 metadata/progress 원 bytea/SHA·각128KiB/모든 컬럼, 닫힌 JSON/중복 키·타입/정수 표기·
         새 판본/원 microsecond UTC·고유 키/FK·불변/재설치 거부·설치 rollback을 확인한다.
         기존 Solar 포함4결과 표/행 보존과 runtime4역할20작업 거부, 수치/context/restore/CLI0·5root/원 자료/
         WSL/FD/소유 PG/schema/role/passfile 정리가 수용 기준이다. runtime grant/등록·현재 조회/API/배포는 후속이다.
+      - [ ] **`co2-result-roles`** — 다음 작은 부모; 선행: 위 schema.
+        [기존 Solar 권한](../contracts/crop-greenhouse-solar-result-roles-v1.md)과 현재 전체 operator/API 설정 경계를
+        먼저 대조해 작은 자식으로 구현한다. 새 exact bool/defaultFalse flag의 명시True authority SELECT/INSERT,
+        다른3역할/추가 DML·승격/PUBLIC/column/routine/grant-option 거부와 실제 SCRAM/기존 표·권한 보존을 확인한다.
+        기존 설정의 누락/False 호환과 True/다른 타입의 factory 이전 거부, 공통 code identity 변경에 따른
+        원 서명 판본 보존·현재 farm/custody fresh/원 checkpoint/UTC/조회0·원5root/WSL/소유 정리가 부모 수용 기준이다.
+        flag만으로 API를 활성화하지 않으며 이후 서명 등록/현재 조회→API/worker/같은 UTC3D다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

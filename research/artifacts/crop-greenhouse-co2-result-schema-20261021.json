@@ -1,0 +1,495 @@
+{
+  "version": "crop-greenhouse-co2-result-schema-acceptance-v1",
+  "recorded_at": "2026-10-20T20:29:33.138689+00:00",
+  "test_groups": 8,
+  "actual_SCRAM": true,
+  "scope": "synthetic_co2_SQL_software_contracts_only",
+  "schema_version": "joint-co2-solar-result-v1",
+  "table": "crop_greenhouse_co2_research_results",
+  "supplied_columns_verified": 41,
+  "DB_recorded_at_verified": true,
+  "payload_progress_exact_boundary_each_bytes": 131072,
+  "default_runtime_roles": 4,
+  "runtime_operations_denied": 20,
+  "physical_context_time_restore_CLI_forbidden_entrypoints": 17,
+  "physical_context_time_restore_CLI_calls": 0,
+  "new_actual_crop_Runs": 0,
+  "preserved_old_tables": [
+    "crop_cycle_research_results",
+    "crop_cycle_verified_research_results",
+    "crop_greenhouse_ventilation_research_results",
+    "crop_greenhouse_solar_research_results"
+  ],
+  "preserved_rows_per_case": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "preservation_cases": 7,
+  "capture": {
+    "fixture": "fixtures/synthetic-co2-solar-custody-progress-v1.json",
+    "sha256": "a324a21ff78ea2fe1f1b7b5fe65e1b34cbc9171a723b0aa7046367045aa553e6",
+    "bytes": 38513,
+    "source_private_evidence_sha256": "453c81ca2f72ccdf706af756074e6e03c3fa46e617d141b515a475ad76b093be",
+    "source_accepted_commit": "9e93cac42b5c4dff7ff557fcc734886bd67b4296",
+    "source_artifact_sha256": "d71c1e9496277e6ea461143737fa124e4a88edbace1576ed05410722228047ad",
+    "canonical_final_equals_fresh_progress": true,
+    "original_recorded_wire_length_matches": true,
+    "selected_HEAD_and_direct_checkpoint_match": true,
+    "selected_final_proof_sequence": 3,
+    "proof_list_order_is_not_selection_order": true,
+    "physical_context_time_restore_CLI_calls": 0,
+    "claim": "captured actual synthetic canonical progress for SQL raw-byte contracts; not signed farm registration or gate approval"
+  },
+  "native_CLI_review": {
+    "decision_id": "co2-result-schema-20261021-v1",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "native_turn_context": {
+      "timestamp": "2026-10-20T20:20:06.679Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "event_line_sha256": "ff36a158100e0225a1eaa62302998996e4ab35385751821bc35e86ca7e402c9c"
+    },
+    "session_creation_metadata": {
+      "source": "vscode",
+      "cli_version": "0.157.1",
+      "model_provider": "openai"
+    },
+    "creation_version_not_current_binary_measurement": true,
+    "no_recursive_CLI": true
+  },
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_result_schema.py": "e822a45ba4c0723c5e66a2ab3c779ea2f8b86d3f0cd34524ff77413f7bcb3d6a",
+    "backend/tests/test_crop_greenhouse_co2_result_schema.py": "82f1399f33af529f3f6266d16cd80effdd982ada39c8ca31e62ed15513e747a6",
+    "contracts/crop-greenhouse-co2-result-schema-v1.md": "af2c34483cc1dd0708ea0bfe01a6dca5b528be18e8946e4d121499c4914b2f6d",
+    "fixtures/synthetic-co2-solar-custody-progress-v1.json": "a324a21ff78ea2fe1f1b7b5fe65e1b34cbc9171a723b0aa7046367045aa553e6",
+    "backend/app/crop_greenhouse_co2_server_custody.py": "9e0eb8a255aad9ff089b0222b62b870a601388e8d46b80f2df727d9a2a0e1d38",
+    "backend/app/crop_greenhouse_co2_storage.py": "6eb0b7a1474da307c75d175b8cb2c9988d12924c017d3b9b860027fad0e14f19",
+    "backend/app/crop_greenhouse_solar_result_schema.py": "8da4a203cb1581fad4d9f616c476a13b7c67d2cfafcb95a350ede15a53b1674a",
+    "backend/tests/test_crop_greenhouse_solar_result_schema.py": "0c89df2a746b3344f39bee150b283b977f4fe1ad984215d6a3b1bd4beaade1d4",
+    "backend/app/crop_greenhouse_ventilation_result_schema.py": "57ad59cf275be4d3b29a2c0539eec7f5c1d5a7e76514a96cf2491dd5600c6185",
+    "backend/app/crop_cycle_calculation_result_schema.py": "92327d3a629337183f950b985484df9e00209ff551c4ebcfbdd978aa9cce060c",
+    "backend/app/runtime_roles.py": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+    "backend/tests/login_database.py": "fec68c80d14f757c45a7d78dc40085d8b1526050a7590bf3b697105c291cf24b"
+  },
+  "tested_contract_sha256": "af2c34483cc1dd0708ea0bfe01a6dca5b528be18e8946e4d121499c4914b2f6d",
+  "preparation_attempt": {
+    "result": "Capture preparation assumed proof-list order; no file/test was produced, then missing-test guard exit4. Select signed finalize proof by action/sequence; no values, model or prior evidence changed.",
+    "guard": {
+      "actual_child_exit": 4,
+      "wall_seconds": 0.5986512640083674,
+      "combined_peak_RSS_bytes": 590934016,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 2,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "2ec350f02f905df26472d86c217094c8e63d5bc263dffeb4fa9d624fc788e0c9",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "RED": {
+    "result": "new schema module absent; import collection error, not SQL/physics counterexample",
+    "guard": {
+      "actual_child_exit": 2,
+      "wall_seconds": 0.8568937040108722,
+      "combined_peak_RSS_bytes": 647946240,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 3,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "59c6ae88dfe09fab0609c61e87a53947743b79f0112a632654ad5198a3c8f4f9",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "first_GREEN": {
+    "test_groups": 7,
+    "guard": {
+      "actual_child_exit": 0,
+      "wall_seconds": 7.100051954010269,
+      "combined_peak_RSS_bytes": 747425792,
+      "single_PID_peak_RSS_bytes": 115703808,
+      "RSS_samples": 26,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "b0ce0d061a21278497b716fe1f97a904503cf9a94097ba3a1220ac1425c62199",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "GREEN": {
+    "test_groups": 8,
+    "pytest_seconds": 6.71,
+    "guard": {
+      "actual_child_exit": 0,
+      "wall_seconds": 7.610261047986569,
+      "combined_peak_RSS_bytes": 735764480,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 28,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "673973a3093c5235636d67feb08dfe97193f30dcee48a54c9d6599f1482ca0a6",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "owned_evidence": {
+    "co2-schema-bounds.json": {
+      "sha256": "e132ada64f6894dd497258fddfcba140ae2f7aa019e3f863955b82f43a8b7da2",
+      "result": {
+        "accepted_exact_upper_bounds": true,
+        "bad_payload_hash": 1,
+        "one_microsecond_over_horizon_rejected": true,
+        "raw_size_rejections": 2,
+        "rejected_columns": 114
+      }
+    },
+    "co2-schema-captured-progress.json": {
+      "sha256": "61e4489cab5b7e29569d7775390d51038a243970c9aac0cd1b6abfabb1b82a92",
+      "result": {
+        "all_original_progress_bytes_equal": true,
+        "not_signed_farm_registration_or_gate_approval": true,
+        "raw_bytes": 38513,
+        "raw_sha256": "a324a21ff78ea2fe1f1b7b5fe65e1b34cbc9171a723b0aa7046367045aa553e6",
+        "source": "accepted9e93cac/CO2 normal actual SCRAM synthetic32s canonical progress",
+        "units_state_ledgers_not_recomputed": true
+      }
+    },
+    "co2-schema-database-cleanup.json": {
+      "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+      "result": {
+        "roles": 0,
+        "schemas": 0
+      }
+    },
+    "co2-schema-identifiers.json": {
+      "sha256": "bf191a04436a8f18e6420f4e4c1273eb8905c0833d7771cf6d2ad9c51391101d",
+      "result": {
+        "rejected": 8
+      }
+    },
+    "co2-schema-identity.json": {
+      "sha256": "348d3b2e45670e4fe55132b482df8aef7d44c5b7b5be696c9cd2681bde99e65a",
+      "result": {
+        "duplicate_install_rejections": 1,
+        "foreign_key_rejections": 2,
+        "hold_zero_steps_accepted": true,
+        "immutable_rejections": 2,
+        "partial_install_rollback": true,
+        "unchanged_payload_sha256": "4ea4af6bcc53fcf707ae2b1bf6b7f0a9953e4298a09f295e0c54a8091ef1f119",
+        "unique_rejections": 3
+      }
+    },
+    "co2-schema-progress.json": {
+      "sha256": "90bf2e3169b637cbc6290754d05f83a1e030814f9c6171aca4a9db321062d100",
+      "result": {
+        "bad_progress_digest_rejected_even_with_matching_metadata": true,
+        "individual_progress_column_pins": 19,
+        "inserted_rows": 0,
+        "rehashed_progress_rejections": 74
+      }
+    },
+    "co2-schema-raw.json": {
+      "sha256": "4ae3d216296a394e38ced18c78ed7cf8ad88b1e2bf6e6028147cba35c2260142",
+      "result": {
+        "duplicate_top_and_nested": true,
+        "individual_column_pins": 34,
+        "inserted_rows": 0,
+        "rehashed_rejections": 95
+      }
+    },
+    "co2-schema-roundtrip.json": {
+      "sha256": "097e2ef4ad83d8a92c62385760c598d6696c3469dd228f63a52a8ca8e182c842",
+      "result": {
+        "actual_crop_Runs": 0,
+        "all_column_count": 41,
+        "end_utc": "2026-10-01T00:00:32.123456Z",
+        "equation_calls": 0,
+        "payload_sha256": "7a4833ee946792bcda244cb01b3f499cb9a6575656c1357d22be8893bfac1a5f",
+        "progress_raw_bytes": 131072,
+        "progress_sha256": "bdc1a2ea51063e7062d5b9c1b74fe776b42616fc95e6012fda5f21a083cf4742",
+        "raw_bytes": 131072,
+        "roles": 4,
+        "runtime_denials": 20,
+        "start_utc": "2026-10-01T00:00:00.123456Z"
+      }
+    },
+    "co2-schema-solar-family.json": {
+      "sha256": "03746a85d1b252cf66567f269e2a2c865054959dde888782d6208b14a3377f93",
+      "result": {
+        "inserted_rows": 0,
+        "old_values_from_independent_existing_solar_helpers": true,
+        "other_columns_and_pins_match_new_family": true,
+        "rehashed_old_family_fields_rejected": [
+          "metadata.schema_version",
+          "metadata.claim_scope",
+          "progress.version",
+          "progress.scope"
+        ]
+      }
+    },
+    "co2-schema-test_captured_actual_synthetic_custody_progress_bytes_roundtrip[login_scope0]-preservation.json": {
+      "sha256": "b20939fb02e29d9778bac32e95ea61f83f4c9d1058c15900ff250e1dc9abf215",
+      "result": {
+        "legacy_tables": [
+          "crop_cycle_research_results",
+          "crop_cycle_verified_research_results",
+          "crop_greenhouse_ventilation_research_results",
+          "crop_greenhouse_solar_research_results"
+        ],
+        "unchanged_rows": [
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "co2-schema-test_matching_raw_cannot_bypass_bounds_ids_sha_or_utc[login_scope0]-preservation.json": {
+      "sha256": "b20939fb02e29d9778bac32e95ea61f83f4c9d1058c15900ff250e1dc9abf215",
+      "result": {
+        "legacy_tables": [
+          "crop_cycle_research_results",
+          "crop_cycle_verified_research_results",
+          "crop_greenhouse_ventilation_research_results",
+          "crop_greenhouse_solar_research_results"
+        ],
+        "unchanged_rows": [
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "co2-schema-test_rehashed_closest_solar_family_cannot_enter_new_co2_table[login_scope0]-preservation.json": {
+      "sha256": "b20939fb02e29d9778bac32e95ea61f83f4c9d1058c15900ff250e1dc9abf215",
+      "result": {
+        "legacy_tables": [
+          "crop_cycle_research_results",
+          "crop_cycle_verified_research_results",
+          "crop_greenhouse_ventilation_research_results",
+          "crop_greenhouse_solar_research_results"
+        ],
+        "unchanged_rows": [
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "co2-schema-test_rehashed_progress_schema_types_and_all_relational_pins[login_scope0]-preservation.json": {
+      "sha256": "b20939fb02e29d9778bac32e95ea61f83f4c9d1058c15900ff250e1dc9abf215",
+      "result": {
+        "legacy_tables": [
+          "crop_cycle_research_results",
+          "crop_cycle_verified_research_results",
+          "crop_greenhouse_ventilation_research_results",
+          "crop_greenhouse_solar_research_results"
+        ],
+        "unchanged_rows": [
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "co2-schema-test_rehashed_raw_closed_shape_duplicates_types_and_every_pin[login_scope0]-preservation.json": {
+      "sha256": "b20939fb02e29d9778bac32e95ea61f83f4c9d1058c15900ff250e1dc9abf215",
+      "result": {
+        "legacy_tables": [
+          "crop_cycle_research_results",
+          "crop_cycle_verified_research_results",
+          "crop_greenhouse_ventilation_research_results",
+          "crop_greenhouse_solar_research_results"
+        ],
+        "unchanged_rows": [
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "co2-schema-test_scram_roundtrip_original_bytes_and_no_new_runtime_grants[login_scope0]-preservation.json": {
+      "sha256": "b20939fb02e29d9778bac32e95ea61f83f4c9d1058c15900ff250e1dc9abf215",
+      "result": {
+        "legacy_tables": [
+          "crop_cycle_research_results",
+          "crop_cycle_verified_research_results",
+          "crop_greenhouse_ventilation_research_results",
+          "crop_greenhouse_solar_research_results"
+        ],
+        "unchanged_rows": [
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "co2-schema-test_unique_intent_tenant_fk_hold_and_immutable_reinstall[login_scope0]-preservation.json": {
+      "sha256": "b20939fb02e29d9778bac32e95ea61f83f4c9d1058c15900ff250e1dc9abf215",
+      "result": {
+        "legacy_tables": [
+          "crop_cycle_research_results",
+          "crop_cycle_verified_research_results",
+          "crop_greenhouse_ventilation_research_results",
+          "crop_greenhouse_solar_research_results"
+        ],
+        "unchanged_rows": [
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  },
+  "review": {
+    "correctness": "Actual two original bytea and all41 input columns/DB timestamp; independently captured actual progress; bounded closed JSON, lexical integers, relation pins and calendar/horizon; closest existing Solar family rejected after rehashing.",
+    "architecture": "Provisioner-only new table/trigger/routine; old four tables/rows, roles, model and profiles unchanged. Signature/currentness and runtime grants remain future boundaries.",
+    "security": "SQL Identifier/Literal/parameters and validated schema name; PUBLIC revocations; exact raw hashes; actual4-role20-action denials; immutable updates/deletes and installation rollback. Fixture carries no current farm/gate approval.",
+    "readability": "Existing accepted schema helper pattern with explicit CO2 identities, no new generic layer.",
+    "performance": "Original128KiB each/step/count/horizon bounds preserved; seven legacy-row preservation fixtures; final focused wall7.61s, combined735,764,480bytes under original caps; no deployment throughput claim.",
+    "verdict": "accepted synthetic SQL software contract only; no main merge or deployment"
+  },
+  "next_child": "co2-result-roles",
+  "not_accepted": [
+    "cryptographic HMAC/content ID or current farm/source-rights verification by DB schema",
+    "actual source G0 or cultivar applicability/independent field G2/G3a/G3b",
+    "G4 operations or power-loss proof",
+    "new runtime grants or signed registration/current query/API/worker/3D deployment",
+    "whole crop-cycle/resource/economic integration",
+    "full CI or browser verification in this increment"
+  ],
+  "goal_status": "active",
+  "full_product_completion": null,
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "reported_at": "2026-10-20T20:31:59.232134Z",
+    "source_sha256": "4b41173ac64e1af685c6574244634f791577eeab281daf79925103bfbd7cc3e3",
+    "retained_ventilation_frozen_source_preserved": true,
+    "files": 2173,
+    "current_HTML_matches_frozen_entry_both_ports": true,
+    "browser_DOM_rerun": false,
+    "guard": {
+      "actual_child_exit": 0,
+      "wall_seconds": 0.34057263302383944,
+      "combined_peak_RSS_bytes": 579530752,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 1,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "6f1ff6c41f1037bd1980f1ce04d453820a2bc34b88c4dfab7188c74fbf8609f2",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "accepted_contract_sha256": "6d78f099e250a321f2c893e6da8aeb98927e4f73e5bfa997655125696690acf4",
+  "contract_hash_note": "Tested-contract/source pins identify the pending contract read during GREEN. Accepted-contract hash includes only the status/result documentation appended after verification."
+}

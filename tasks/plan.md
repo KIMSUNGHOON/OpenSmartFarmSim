@@ -70,6 +70,9 @@ source/선언 가용 시각·원 등록/UTC·현재 권리와 fresh17진입점0�
 [서명 이력9검사](../contracts/crop-greenhouse-co2-server-custody-v1.md)로9행의 custody 자식도 완료했다.
 실제 SCRAM 정상/hold·원 행/UTC·fresh 재개·읽기0·HEAD 전후 실제 SIGKILL−9/commit1·2 복구,
 최대 metadata/원한도·5root/원 자료/정리를 수용했다. DB/API/worker/새3D·전체 작기/자원/경제가 남는다.
+[결과 DB8검사](../contracts/crop-greenhouse-co2-result-schema-v1.md)로9행의 schema 자식도 완료했다.
+원 bytea 각128KiB/41입력 컬럼·실제 합성 progress와 기존4표/행, 기본4역할20작업 거부를 수용했다.
+명시 권한/등록·현재 조회/API/worker/새3D·전체 작기/자원/경제가 남아 현재 공수/조건부 계획 창은 유지한다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
 기존 디자인 변환 복구와 독립 검토/해제 확보, 추가 큰 수치/성능 재설계 없음이라는 가정이면 약5–9개발주다.
@@ -158,7 +161,8 @@ inspect/page/terminal retry는 context/UTC/수치/restore/CLI0·현재 권리/re
 storage 한도를 먼저 재고 초과는 hold/근거 있는 별도 수정으로 기록한다. 행/사건/출력 수나 상한을 줄여 통과시키지 않는다.
 원5root/결과·FD/512MiB/PID/합1GiB/600초와 소유 PG/schema/role/passfile 정리를 수용한다.
 이후 DB 결과 등록/현재 조회→API/worker→같은 UTC3D/사용자 정상·보류·취소이며 실제 자료/관문은 별도다.
-**다음 `co2-result-schema`:** 위 custody/저장과 기존 jobs가 선행이다.
+`co2-result-schema`는 [실제 SCRAM8검사](../contracts/crop-greenhouse-co2-result-schema-v1.md)로 수용했다.
+위 custody/저장과 기존 jobs가 선행이다.
 [Solar 결과 DB 계약](../contracts/crop-greenhouse-solar-result-schema-v1.md)의 닫힌 metadata/progress·원 bytes/
 SHA·정수/UTC·불변성 원칙을 새 `joint-co2-solar-result-v1`, CO₂ storage/custody 판본과
 `crop_greenhouse_co2_research_results`에 구분한다. 핵심4파일: 새 schema/집중 DB pytest/계약과
@@ -167,6 +171,15 @@ SHA·정수/UTC·불변성 원칙을 새 `joint-co2-solar-result-v1`, CO₂ stor
 고유 키/FK·수정/재설치 거부와 설치 rollback, 기존 Solar 포함4결과 표/원 행·runtime4역할20작업 거부.
 schema 단계는 수치/context/복원/CLI0이며 기존5root/자료·원 WSL/FD/소유 PG/schema/role/passfile을 보존한다.
 설치는 provisioner 경계이며 runtime grant/서명 결과 등록·현재 조회·사용자 배포는 이후 별도 수용한다.
+**다음 `co2-result-roles`:** 위 schema가 선행이며 [Solar 명시 권한 계약](../contracts/crop-greenhouse-solar-result-roles-v1.md)을 대조한다.
+현재 공통 role policy와 모든 기존 operator/API 설정의 flag/factory 경계를 먼저 열거한 뒤 작은 코드 자식으로 나눈다.
+새 `crop_greenhouse_co2_result_storage`는 keyword-only exact bool/defaultFalse이며 명시True일 때만 새 표의
+authority SELECT/INSERT를 허용한다. 다른3역할/추가 DML·승격/PUBLIC/column/routine/grant-option은 거부한다.
+실제 SCRAM 누락/False/True·필수 grant 철회/예상 밖 grant·미설치/재설치와 기존 표/행·권한 보존을 확인한다.
+기존 operator/API 설정은 누락/False 호환과 True/다른 타입의 dependency factory 이전 거부를 확인한다.
+공통 코드 변경은 새 서명 identity에 반영하고 원 signed input/farm/custody는 원 판본으로 보존한다.
+현재 코드의 농장/서명 이력 fresh 재개/원 checkpoint·UTC/조회 계산0과 WSL/5root/정리를 다시 확인해야 부모를 수용한다.
+이 flag만으로 새 API를 활성화하지 않는다. 이후 서명 등록/현재 조회→API/worker→같은 UTC3D다.
 독립 농장 자료 확보는 병행하고 이 합성 파일 저장의 인위적인 개발 선행으로 추가하지 않는다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 이미 수용한 짧은 적분/관리·continuation/UTC/파일 저장은 유지한다. 후속 농장/서명·DB/API/3D는

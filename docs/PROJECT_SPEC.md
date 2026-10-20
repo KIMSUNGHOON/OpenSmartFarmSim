@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-21 KST:** [CO₂·일사 서명 계산 이력](../contracts/crop-greenhouse-co2-server-custody-v1.md)을9개 검사로 수용했다. 실제 SCRAM 정상/보류의 원 상태·행/UTC와 fresh 재개·현재 철회를 대사했고 조회/완료 재호출의 계산0을 확인했다. HEAD 전후 실제 SIGKILL−9는 commit1/2에서 원 최종 상태로 재개했다. 최대512환경/128사건/512출력의 서명/진행 정보는 원한도 안이며 원 자료/5서비스를 보존했다. 다음은 CO₂ 결과 DB schema→명시 권한·등록/조회→API/worker→같은 UTC3D다. 합성 소프트웨어이며 새 CO₂ 사용자 배포·전체 작기/자원/경제/실제 농장 검증·G0–G4와 전체 완료일은 미완료/미정이다. goal active다.
+**현재 — 2026-10-21 KST:** [CO₂ 결과 DB 계약](../contracts/crop-greenhouse-co2-result-schema-v1.md)을 실제 SCRAM8검사로 수용했다. 두 원문 각128KiB·41입력 컬럼/기록 시각과 실제 합성 progress38,513bytes의 원본 왕복을 확인했다. 기존4결과 표/행을 보존했고 기본4역할20작업·재해시한 구 Solar 판본/변조를 거부했다. 수치/context/CLI17진입점0·원 자료/5서비스/정리를 보존했다. 다음은 명시 결과 권한·기존 설정 경계→서명 결과 등록/현재 조회→API/worker/같은 UTC3D다. 합성 SQL 계약이며 새 CO₂ 사용자 배포·전체 작기/자원/경제/실제 농장·G0–G4와 전체 완료일은 미완료/미정이다. goal active다.
 
 **API 요청별 실제 관측 완료 — 2026-10-20 KST:** [CI39369990827·24요청/서버 구간 대사](../research/solar-api-request-cost-observation-20261020.md)에서 원360초 미완료·마지막 confirm27/64, 성공 prefix/samples의 current6·원천912·약14–16초를 확인했다. observer11/두 Python판과 원 actor/hash·종료/정리는 수용했으며 정상64는 미수용이다. 다음은 [query의 한 현재 검사 안 등록 scope 후보](../contracts/solar-query-current-registration-scope-v1.md)다. 제품 app261·기존 두 UI 유지·새 Solar/실제 자료·관문/최종 UI와 전체 날짜는 미완료/미정·goal active다.
 
@@ -742,7 +742,9 @@ fresh 조회 계산0·중간 재개·HEAD 전후 SIGKILL·파일/권한 변조 �
 원 provenance/등록·UTC/현재 권리와 fresh17진입점0·DB 변경/1µs 경계·원128KiB로 수용했다.
 [서명 이력9검사](../contracts/crop-greenhouse-co2-server-custody-v1.md)도 실제 SCRAM 정상/보류의 모든 원 행/UTC·fresh 재개,
 조회 계산0·실제 HEAD 전후 SIGKILL−9의 commit1/2와 원 최종 상태 일치로 수용했다.
-다음은 CO₂ 결과 DB schema→명시 권한·등록/현재 조회→API/worker→같은 UTC3D다.
+[결과 DB8검사](../contracts/crop-greenhouse-co2-result-schema-v1.md)로 원 metadata/progress 각128KiB·모든 컬럼/UTC,
+실제 합성 progress 원 bytes·기존4표/행 보존과 기본4역할20작업 거부를 수용했다.
+다음은 명시 결과 권한/기존 설정 경계→서명 등록/현재 조회→API/worker/같은 UTC3D다.
 전체 작기·109상태 사용자3D와 실제 자료/관문은 후속이다.
 기공 단위 해석의 별도 hold나
 기관 목록/U1 용량을 앞의 gas/net/mass 자식의 개발 선행으로 추가하지 않는다.
