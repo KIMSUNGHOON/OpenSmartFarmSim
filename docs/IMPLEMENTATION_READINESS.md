@@ -30,7 +30,10 @@ fresh17진입점0·DB 변조/철회·source/선언1µs 경계와 최대 연결34
 원 자료/5root/FD와 소유 정리를 보존했으며 [결과 DB8검사](../contracts/crop-greenhouse-co2-result-schema-v1.md)로 각128KiB 원 bytea/컬럼·실제 합성 progress,
 기존4표/행 보존과 기본4역할20작업 거부·수치/CLI0을 수용했다. [명시 권한/설정 경계](../contracts/crop-greenhouse-co2-result-roles-v1.md)도 새9/공통363/현재 farm·custody fresh2=374검사로 수용했다.
 기본False·명시True authority SELECT/INSERT,12기존 설정 판본/기존 Solar True3맥락·원5표/행과
-현재 코드의 checkpoint/UTC·읽기 계산0·5root/원 자료/정리를 확인했다. 다음은 서명 결과 DB 등록/현재 조회→API/worker/같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
+현재 코드의 checkpoint/UTC·읽기 계산0·5root/원 자료/정리를 확인했다. [서명 결과 DB 등록/현재 조회](../contracts/crop-greenhouse-co2-result-store-v1.md)도 실제 SCRAM18검사로 수용했다.
+원 completed/hold·최초 기록/동일 재시도·fresh 원문/페이지/UTC·조회17수치/CLI/SQL쓰기0과
+현재/늦은 권리·충돌/rollback/호출자 거래·기존5표/행·5root/정리를 확인했다.
+원600초의17/18 미완료는 보존했고 같은18개를9+9로 나눴다. 다음은 닫힌 공개 응답/현재 조회→API/worker/같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
 전체 작기/109상태 저장3D는 아직 미수용이다.
 기공 단위 P03은 hold이며 개발 순서와 분리한다.
 [잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지161–308집중시간의

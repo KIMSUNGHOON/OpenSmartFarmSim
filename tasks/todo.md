@@ -2290,13 +2290,25 @@
         기존 설정의 누락/False 호환과 True/다른 타입의 factory 이전 거부, 공통 code identity 변경에 따른
         원 서명 판본 보존·현재 farm/custody fresh/원 checkpoint/UTC/조회0·원5root/WSL/소유 정리가 부모 수용 기준이다.
         flag만으로 API를 활성화하지 않으며 이후 서명 등록/현재 조회→API/worker/같은 UTC3D다.
-      - [ ] **`co2-result-store`** — 다음 작은 부모; 선행: 위 명시 권한과 현재 farm/custody.
+      - [x] **`co2-result-store`** — [계약/수용](../contracts/crop-greenhouse-co2-result-store-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-result-store-20261021.json): 실제 SCRAM18개를9+9로 분리 수용.
+        원 completed/hold·76,536/38,616bytes·fresh 원문/페이지/UTC/최초 기록·조회17수치/CLI/SQL쓰기0,
+        현재/늦은 철회·충돌/rollback/호출자 거래·기존5표/행·5root/소유 정리를 확인했다.
+        선행: 위 명시 권한과 현재 farm/custody.
         [기존 Solar 등록/조회](../contracts/crop-greenhouse-solar-result-store-v1.md)를 대조해 새 CO₂ table/ID/HMAC/lock domain을 구분한다.
         서버가 이미 저장한 completed/hold 원문만 등록하고 ready/yielded·다른 family/tenant/코드·서명/권리 혼합은 거부한다.
         실제 SCRAM 최초 등록/동일 재시도·충돌/잠금·현재/늦은 철회·거래 rollback/호출자 거래와 원5표/행 보존을 확인한다.
         fresh get/page/summary의 원 bytes/최초 recorded_at·전체 행/UTC/checkpoint 동일성, 계산/context/restore/CLI0,
         원128KiB metadata/progress·2MiB 응답/페이지·5root/WSL/소유 정리를 통과해야 수용한다.
         API/worker/같은 UTC3D는 그다음이며 실제 작물/경제 예측·관문 승인을 뜻하지 않는다.
+      - [ ] **`co2-result-projection`** — 다음 작은 자식; 선행: 위 store와 원 CO₂ manifest/상태·장부/UTC.
+        [기존 Solar 공개 투영](../contracts/api-crop-greenhouse-solar-replay-v1.md)을 현재 CO₂ 판본으로 구분한다.
+        닫힌 summary/samples/events DTO에 원109상태·44연속/6사건/17수지·단위/UTC/정상·보류를 보존한다.
+        원 행/체크포인트 대사와 구 family/누락·잘못된 타입/단위/한도·승인 혼합 거부,2MiB와 계산/CLI0을 확인한다.
+      - [ ] **`co2-current-query`** — 선행: 위 projection; [기존 현재 조회](../contracts/crop-greenhouse-solar-current-query-v1.md)를 대조한다.
+        같은 store/custody 읽기 세션에서 DB/HMAC/선택 HEAD·현재 권리를 투영 전후/직렬화 뒤 확인한다.
+        실제 SCRAM/fresh 원 bytes·늦은 철회/변조·페이지 경계·조회 계산/SQL쓰기0·5root/WSL/정리를 수용한다.
+        이후 보호 HTTP/명시 runtime→worker/prefix→같은 UTC3D이며 새 framework/관문 승격을 추가하지 않는다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

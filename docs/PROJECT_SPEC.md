@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-21 KST:** [CO₂ 결과 명시 권한·기존 설정 경계](../contracts/crop-greenhouse-co2-result-roles-v1.md)을 새9/공통363/현재 농장·custody fresh2=374검사로 수용했다. 명시True의 authority SELECT/INSERT만 허용하며 기본값은 False다. 기존12설정 판본과 Solar True3맥락은 새 활성화를 factory 전에 거부한다. 원5결과 표/행·서명 판본/5서비스를 보존했고 현재 코드의 원 checkpoint/UTC·조회 계산0을 재확인했다. 다음은 서명 결과 DB 등록·현재 조회→API/worker→같은 UTC3D다. 새 CO₂ 사용자 배포·전체 작기/자원/경제·실제 농장/G0–G4와 전체 완료일은 미완료/미정이며 goal active다.
+**현재 — 2026-10-21 KST:** [CO₂ 서명 결과 DB 등록·현재 조회](../contracts/crop-greenhouse-co2-result-store-v1.md)을 실제 SCRAM18검사로 수용했다. 서버의 원 completed/hold·같은 요청 재시도·최초 기록 시각과 별도 프로세스의 원문/페이지/UTC를 보존했다. 조회/동일 재시도의 수치17진입점·CLI·SQL쓰기0, 현재/늦은 권리 철회·충돌/롤백·호출자 거래와 기존5표/행·5서비스/정리를 확인했다. 한 묶음17/18의600초 종료는 미수용으로 보존했고 같은18개를9+9로 나눠 수용했다. 다음은 닫힌 공개 응답/현재 조회→보호 API/worker→같은 UTC3D다. 새 CO₂ 사용자 배포·전체 작기/자원/경제·실제 농장/G0–G4와 전체 완료일은 미완료/미정이며 goal active다.
 
 **API 요청별 실제 관측 완료 — 2026-10-20 KST:** [CI39369990827·24요청/서버 구간 대사](../research/solar-api-request-cost-observation-20261020.md)에서 원360초 미완료·마지막 confirm27/64, 성공 prefix/samples의 current6·원천912·약14–16초를 확인했다. observer11/두 Python판과 원 actor/hash·종료/정리는 수용했으며 정상64는 미수용이다. 다음은 [query의 한 현재 검사 안 등록 scope 후보](../contracts/solar-query-current-registration-scope-v1.md)다. 제품 app261·기존 두 UI 유지·새 Solar/실제 자료·관문/최종 UI와 전체 날짜는 미완료/미정·goal active다.
 

@@ -177,11 +177,14 @@ schema 단계는 수치/context/복원/CLI0이며 기존5root/자료·원 WSL/FD
 공통 검사의 owned DSN/spawn 준비 실패와 기존 가짜 passfile2개의 정리 오류는 기록하고 수정했다.
 원 선택363개·timeout/RSS를 유지했으며 원 signed epoch를 재서명하지 않았다.
 
-**다음 `co2-result-store`:** 위 권한·현재 farm/custody가 선행이다. 기존 [Solar 결과 등록/조회](../contracts/crop-greenhouse-solar-result-store-v1.md)의
-transaction·HMAC/ID/현재 권리 경계를 새 CO₂ family로 구분한다. 이미 저장된 completed/hold만 등록하고
-ready/yielded·다른 family/tenant/서명·현재 권리 철회를 거부한다. 실제 SCRAM 등록/동일 재시도·fresh 조회,
-원 bytes/최초 기록 시각/행·UTC/checkpoint·조회 계산0과 busy/충돌/rollback/호출자 거래·기존5표/행을 확인한다.
-원 metadata/progress 각128KiB·응답/페이지 한도·5root/자원/소유 정리를 유지한다. 이후 API/worker/같은 UTC3D다.
+**`co2-result-store` 수용:** [계약/증거](../contracts/crop-greenhouse-co2-result-store-v1.md)의 실제 SCRAM18개를9+9로 나눠 수용했다.
+원문/페이지/UTC·최초 기록/재시도·조회17수치/CLI/SQL쓰기0과 정상/hold·권리/충돌/rollback/호출자 거래·원5표/행을 확인했다.
+첫18개 묶음의17/18·600초 미완료/소유 정리 후속은 보존했고 원 코드/조건/상한은 유지했다.
+
+**다음 `co2-result-projection`→`co2-current-query`:** 위 store가 선행이다. [Solar DTO](../contracts/api-crop-greenhouse-solar-replay-v1.md)/[현재 조회](../contracts/crop-greenhouse-solar-current-query-v1.md)를 대조한다.
+닫힌 summary/samples/events에서 원109상태·44연속/6사건/17수지·단위/UTC/hold를 보존하고 구 판본/타입·단위/한도 혼합을 거부한다.
+같은 현재 읽기 세션과 직렬화 뒤 권리/DB/HEAD 재확인, 실제 SCRAM/fresh 원 응답·조회 계산/쓰기0·5root/자원/정리를 수용한다.
+이후 보호 HTTP/명시 runtime→worker/prefix→같은 UTC3D이며 전체 작기/자원/경제·독립 관문은 후속이다.
 독립 농장 자료 확보는 병행하고 이 합성 파일 저장의 인위적인 개발 선행으로 추가하지 않는다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 이미 수용한 짧은 적분/관리·continuation/UTC/파일 저장은 유지한다. 후속 농장/서명·DB/API/3D는
