@@ -1,5 +1,9 @@
 # 첫 구현 작업 목록
 
+- [x] **`product-ui-result-catalog-owned-api-lifecycle`** — [독립 복원 PG의 실제 API 재시작·권리20조회](../research/catalog-owned-api-lifecycle-20261020.md).
+  200×15/422×5·원 bytes/DB/서명 불변·listener 폐쇄/다른 PID·계산/게시0·5root/원본/상한/정리를 확인했다.
+  브라우저의 권리/재시작·늦은 응답과 전체 U1·사용자 적용은 미수용이다.
+
 - [x] **`product-ui-development-status-wrap`** — [실제320px/32px의 상태 목록 문구 넘침 수정](../research/catalog-stored-replay-current-browser-20261020.md). 긴 상태 문구 회귀와 같은 source의 웹 단위1,864/브라우저246·타입/프로덕션 빌드/보안 기준 통과. 상태 목록과 사이드바 수정은 사용자 포트에 미배포이며 U1 전체는 별도다.
 
 - [x] **`product-ui-sidebar-viewport-navigation`** — [원 화면 밖 메뉴/수정·native2경로](../research/catalog-navigation-memory-evidence-20261020.md). 실제1024×768·390×844의 성장 메뉴 pointer 선택→입력 복귀/가로 넘침·개발 빌드·5root/원본/정리를 확인했다. 새 Playwright2회귀 파일은 로컬 미실행이며 전체 웹 CI·실제 목록→수확/권리·U1·사용자 배포는 별도다.
