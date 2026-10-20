@@ -1,0 +1,111 @@
+{
+  "schema_version": "solar-fresh-input-json-pairs-evaluation-v1",
+  "recorded_at": "2026-10-20T07:39:44.561639+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "context_SHA256": "97671095e4c58b8f56d19c9a740ffee80440e9a27e967e10f224ba7978d4e211",
+    "context_output_reference_SHA256": "a55af0929b17a65c8af2d0ca37d3a0aa469cacb0b12a7e48f6eb033affcdd2ee",
+    "recursive_CLI": false,
+    "subagents": 0
+  },
+  "candidate_SHA256": "a269d53d73eaa34267f14c8f568bc7aad53e2ddefd99eb25beddb13982a207e5",
+  "tests_SHA256": "467136e8e0abcb9c881abc25da7f1346e1b6238881922f9dde1f43982d879eec",
+  "application_files": 261,
+  "application_SHA256": "591eff7de6b721a8708d0fc30604feb8f9b5898bfedf6b2ea3e860fe8e576211",
+  "decision": "rejected before cost trial: opaque decoder hook protocols are not equivalent",
+  "unique_tests": 28,
+  "standard_input_cases": 24,
+  "fresh_decoder_ownership_case": 1,
+  "opaque_counterexample_cases": 3,
+  "counterexamples": [
+    {
+      "name": "mapping protocol",
+      "baseline": "iteration yields a=1,b=2",
+      "candidate": "mapping keys/getitem yields a=999,b=999"
+    },
+    {
+      "name": "iterator protocol",
+      "baseline": "iterator pairs produce a=1",
+      "candidate": "TypeError because items has no len"
+    },
+    {
+      "name": "stateful string key callback",
+      "baseline": "second hash raises RuntimeError",
+      "candidate": "one hash returns a=1"
+    }
+  ],
+  "runs": [
+    {
+      "runtime": "CPython 3.12.3",
+      "case": "focused-solar-fresh-input-json-pairs-native-v2",
+      "unique_tests": 28,
+      "terminal_SHA256": "06f449412b4a1efc47e8875fe5da666e875b954f237d7e0f91df2454343906cf",
+      "log_SHA256": "3e06c6ae2581746db2b85ad74b996242b5ef23cf0ba470afe1b3786f52261cf9",
+      "source_pins_SHA256": "70a92f01da27009b50f78e781a9301f1be6bda419ee0e69d48df549ec2216da0",
+      "wall_seconds": 0.8744498269952601,
+      "single_PID_peak_RSS_bytes": 96878592,
+      "combined_peak_RSS_bytes": 485752832,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_live_roots": 5,
+      "frozen_UI_sources_and_assets_preserved": true,
+      "source_preserved": true,
+      "owned_PG_process_passfile_temp_remainder": 0
+    },
+    {
+      "runtime": "CPython 3.12.13",
+      "case": "focused-solar-fresh-input-json-pairs-locked-v1",
+      "unique_tests": 28,
+      "terminal_SHA256": "002708b1339c68544bb2f000c1d2c5ee25cbf84b355b6e12e7ac3cc8c62b308b",
+      "log_SHA256": "7008a4f9d0ee1d735dcab820e0a848dd1303a66514cbc619bb6446fd3f1d251b",
+      "source_pins_SHA256": "70a92f01da27009b50f78e781a9301f1be6bda419ee0e69d48df549ec2216da0",
+      "wall_seconds": 0.8924125679914141,
+      "single_PID_peak_RSS_bytes": 96878592,
+      "combined_peak_RSS_bytes": 496668672,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "protected_live_roots": 5,
+      "frozen_UI_sources_and_assets_preserved": true,
+      "source_preserved": true,
+      "owned_PG_process_passfile_temp_remainder": 0
+    }
+  ],
+  "timing_trials": 0,
+  "whole_worker_quantum_tested": false,
+  "production_adopted": false,
+  "production_changed": false,
+  "normal64_accepted": false,
+  "original_normal_last_stopped_metadata_steps": 46,
+  "diagnostic_last_confirmed_steps": 50,
+  "new_Solar_deployed": false,
+  "actual_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "no_JSON_value_cache_or_callee_ownership_tables": true,
+  "full_backend_browser_CI_run": false,
+  "new_DOM_WebGL_run": false,
+  "next_task": {
+    "name": "product-ui-result-catalog-native readiness",
+    "existing_dependency": "U1 farm registration/current rights + stored growth/harvest reads; no dependency on new Solar normal64",
+    "files_checked_SHA256": {
+      "backend/app/crop_result_catalog.py": "4b303255d4eed7d88bd888c690203ac5f306cf1b77c3e6e3514ccb92a4d4bc79",
+      "backend/app/api_crop_result_catalog.py": "faeaf89504e48cc40b4c95439ddd69e096a33afea933be45c5469626c1489def",
+      "web/src/App.tsx": "b4f223e93fc12d03c7afe2e15d7915717b0943834cc8dcc94e5e49704a697374",
+      "web/src/CropResultCatalog.tsx": "7bbe1d0368a48f7b48fc5b2d472491eb96d68ab480ca4a40f7e88b530718a410",
+      "web/src/SelectedCropReplay.tsx": "609b856f124d4f094dbc6a7784094f8a7878f0670e9bb4ed8108b7daaabcb3b4",
+      "web/src/CycleCropReplay.tsx": "3c23ab9b041c79833030501b25624dcb2a0267fd781e59de9d910547e4f3f3b5",
+      "web/src/HarvestReplay.tsx": "7dbcf37b7ea96fd80fe111b9e18a50802f26891e784c3e250b84a2cd464c14c7",
+      "backend/tests/crop_result_catalog_api_preserved_smoke.py": "9e58928befffd96d539491867c2204b8c5e4329a6d4d032ea559d8d0b25bec38",
+      "contracts/web-crop-result-replay-selection-v1.md": "3810a2dd1dbcce80fb5d367b70902ef8d39b733e828ac0b72cce0313397f72d4",
+      "contracts/web-crop-result-catalog-screen-v1.md": "58478bd4c17e324403a8d4bfe124f8b3051b88eee3cbbab5465dacec41f4c891"
+    },
+    "implementation_or_gate_acceptance": false,
+    "first_acceptance": "Pin current code and immutable clone inputs; verify real catalog API -> same stored growth/harvest selection under original WSL guard, without changing frozen services. Existing design review and browser/DB/restart criteria remain required."
+  }
+}

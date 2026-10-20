@@ -1,5 +1,24 @@
 # 구현 순서
 
+## 현재 다음 실행 — 2026-10-20
+
+[55의 fresh JSON 후보](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)는
+28검사/두 Python판에서 opaque 반례3종을 확인해 비용 trial 없이 미채택했다. 제품은 유지한다.
+다음은 기존 `product-ui-result-catalog-native`의 실제 연결 수용이다. 원21건 준비 dump/hash와
+현재10파일·pg_restore 목록을 [사전점검](../research/crop-result-catalog-native-readiness-20261020.md)했다.
+
+- **기존 저장 결과 사용자 경로:** 현재 farm/권리·목록 API/SDK·저장 생장/수확 재생이 선행이다.
+  별도 복원 DB/API/현재 App에서 목록 선택→원 ID/UTC/수치3D·수확을 확인하고 기존 디자인/
+  재접속·재시작/철회/계정·WSL 수용을 마친다. 새 Solar normal64가 이 작업의 선행은 아니다.
+- **새 Solar 실행 경로:** 정상64→독립 hold→HTTP취소→계산 중WebGL→WSL 적용 순서를 유지한다.
+  같은 app의 정상 재실행/조건 완화는 하지 않는다. 원 정상46/64와 진단50/64는 서로 다른 미수용 기록이다.
+- **최종 제품:** U1/U2와 U3/U4/U5·생산/자원/경제·실제 CLI 종단 간 G1과 자료별 G0–G4가 남는다.
+  독립 자료 확보는 병행하며, WSL의 실제 소유 fixture/브라우저 실행은 한 번에 하나로 유지한다.
+
+UI54–96집중시간은 최초 범위 추정이며 현재 잔여량으로 사용하지 않는다. 과거 조건부10월18–25일도
+현재 일정에서 제외한다. 다음 실제 연결 준비/검증 시간을 측정해 잔여 수용 작업량을 다시 산정한다.
+전체 완료일은 미정이다. 아래 날짜별 단계는 당시 수용 범위를 보존한다.
+
 기존 사용자 경로는 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)으로 만료 전에 보존했다. 실제 만료에 따른 유지 작업이며 핵심 순서 수용을 대신하지 않는다. 다음 준비 시각은2026-10-20T21:40Z 이전이고 48의 반례로 JSON 후보 평가를 미채택으로 종료했고49의 제품 소비/검증 관측을 완료했다. 50의 단일 실제 비용 기준 미달로 후보를 제외했고 51의 observer를 고유11검사/두 Python판과 원 actor 대조로 로컬 수용했다. 같은 새 header의 실제 관측24건을 대사했고 원27/64 실패는 유지한다. 다음은52의 query 현재 검사 안 등록 scope 후보다. 아래 수용 범위를 따른다.
 
 ## capture Pending HTTP 로컬 수용·다음 독립 정상 — 2026-10-19 KST
@@ -92,7 +111,8 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 52 — 다음 query 현재 검사 scope 후보 | [최소 계약](../contracts/solar-query-current-registration-scope-v1.md) / `crop-solar-query-current-registration-scope-candidate` | query 한 `_current`에서만 기존 registration scope를 소유해 재구성2→1을 평가한다. 실제 fresh source/권리/저장·원 selector/값/UTC·거부/정리와 실제 progress→prefix→samples ABBA 양짝 감소/평균2%를 요구한다. 50의 confirm scope는 재적용하지 않는다.  [로컬11검사·HTTPS RSS 보류/호스팅 평가 경계](../research/solar-query-current-registration-scope-evaluation-20261020.md). 유효 HTTPS 비용 trial1·평균20.558366% 감소/원 값·조회 보존. 제품 로컬20/RSS 제외와 CI39376592502의 같은 제품29회귀·DB/자원 정리를 대사해 코드 수용. 원 정상64 미수용. |
 | 53 — 변경 source 원 독립 정상 미완료 | [원 결과](../research/solar-query-current-registration-scope-native-normal-20261020.md) / `crop-solar-query-registration-native-normal` | source939571e·CI39377630664 실패. 원360초 미완료·종료 뒤 READ ONLY metadata46/64·정상/DB count proof 없음. 원 actor/hash·상한/정리는 확인했다. 같은 source의 정상 반복은 하지 않는다. |
 | 54 — 중첩 projection 실제 관측 수용 | [17검사/실제19·13쌍](../research/solar-api-projection-cost-observation-20261020.md) | 기존 prefix 총량에 포함된 직렬화 뒤 구간의33.2–39.7% wall을 분해했다. client13개는 보존 창 밖이라 미대사이며 drop/미완료·원 actor/app/상한/정리·worker50/64를 대사했다. 정상/새 배포 수용 아님이다. |
-| 55 — 다음 fresh JSON 중복 검사 평가 | 위 기록의 과거 worker profile/현재 component hash 대조 / `crop-solar-fresh-input-json-pairs-evaluation` | cache 없는 새 parse의 중복 키 검사를 연구 전용으로 비교한다. 표준/opaque decoder·원 오류/소유권/수치·UTC/신선한 조회와 원 quantum 비용이 선행이며 primitive 속도만으로 제품/정상/3D를 수용하지 않는다. |
+| 55 — 반례 확인·후보 미채택 | [fresh JSON28검사/두 Python](../research/solar-fresh-input-json-pairs-evaluation-20261020.md) | 기본24/fresh1은 일치했으나 opaque3종이 달라 비용 trial0·제품 유지다. 원 정상/새 Solar/3D 수용은 아니다. |
+| 다음 — 기존 U1 실제 연결 | [원21건 seed/현재10파일 준비](../research/crop-result-catalog-native-readiness-20261020.md) / `product-ui-result-catalog-native` | 기존 API/SDK/저장 재생이 선행이며 새 Solar normal64와 독립이다. 실제 DB/App 목록→같은 원 ID/UTC3D/수확·디자인/재시작/권리/WSL 검증 뒤 기존 U1 자식을 판단한다. |
 
 위18의 [CI39280701330 대기 관측](../research/solar-current-guard-independent-queue-20261020.md)은 당시의 지연된 API 관측이다. source8b5afe5의 [최종41/64 실패](../research/solar-current-guard-native-normal-20261020.md)를 확인했고, 현재24도 원64 미완료이며 25의 관측2건을 마쳤고 26/27의 반복 load 후보는 실제 비용 기준 미달로 미채택이며 28의 다중 결과는 원 오류 순서 반례로 제외했고29의 cursor 후보도 비용 악화로 미채택이다. 30의 worker 전진/독립 확인82를 로컬 수용했으며 31의 변경 source도 원 정상44/64로 미완료이며 32의 현재 늦은 묶음1검사를 마쳤고 33의 인코딩 경계 검토/관측을 마쳤고 34의 현재 동시 진단과35의 같은 load 비용 미채택을 기록했고 36의 decoder/canonical 기본 경계·비용 적격을 기록했고 37의 최종 guard 비용/초기 상태 반례로 후보를 미채택했고 38의 조건부 권한 matrix를 실제 snapshot 반례로 제외했고 39의 bound-array 후보는 실제 guard 비용 악화로 제외했고 40의 원 matrix 계획은 spill/조인 확대를 확인하지 못했고 41의 driver 호출자별 경과를 확인했고42의 native mask는 실제 비용 미달로 제외했다. 43의 실제 반례/구성요소를 확인했다. 44a의 연구 핵심56/두 Python판을 확인했다. 44b의 실제 연결 의미도 수용했다. 44c의 연구 조립 의미도 수용했다. 44d 원 ABBA는 실제 비용 악화로 미채택했다. 45의 같은 감시 항목/원 oracle·최종173 의미 검증을 수용했으나 원 비용 평균−2.252640%로 제품 미적용이다. 46의 실제 전체 구간 관측과47의 사전 조회를 평가했으나 비용 미수용이다. 48의 반례로 JSON 재사용 후보를 active 구현에서 제외했다. 49에서 실제 소비/검증·등록 재구성2회를 확인했다. 50의 등록 scope 후보를 실제 비용 미달로 제외했다. 다음은51의 API 요청별 비용 관측이며 원64는 미수용이다. 관문·후속 순서와 미정인 전체 완료일은 유지한다.
 
@@ -769,6 +789,8 @@ hosted921d Backend는 분할0 성공/1·2 진행/3·4·5 대기다. 새 push로 
 기존 `web-shell`/`web-replay`/`end-to-end-g1`을 완료 처리하지 않는다. 제품 범위는
 [명세 §5.4](../docs/PROJECT_SPEC.md#54-최종-제품-ui-통합), 작은 수용 단위는
 [작업 목록](todo.md#최종-제품-ui-통합-2026-10-09)에 둔다.
+
+**2026-10-20 일정 재검토:** 아래 작업량/10월18–25일은 최초 조건부 추정의 이력이다. 현재 잔여량/완료 약속으로 사용하지 않는다. U1의 실제 연결 수용은 새 Solar 정상 실행과 독립으로 진행하며 현재 준비/남은 검증은 [최신 기록](../research/crop-result-catalog-native-readiness-20261020.md)을 따른다.
 
 ### 구현 순서와 의존성
 

@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**현재 작업 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했고 제품 app261은 유지했다. 다음은 새 Solar normal64와 독립인 [기존 저장 결과 목록→3D 선택의 실제 연결 수용](research/crop-result-catalog-native-readiness-20261020.md)이다. 준비된21건의 원 dump/hash·현재10파일은 대사했으며 실제 DB/브라우저/U1은 미수용이다. 새 Solar 정상46/64 미완료·후속 hold/취소/계산 중3D/WSL·전체 UI/관문/완료일 미정과 goal active를 유지한다.
+
 **중첩 projection 비용 관측 수용 — 2026-10-20 KST:** [17검사·실제19 외부/13 중첩 쌍](research/solar-api-projection-cost-observation-20261020.md)을 대사했다. 직렬화 뒤 검사는 기존 prefix 총량에 이미 포함되며 matched parent wall의33.2–39.7%였다. client13개는 보존 창 밖으로 미대사다. 진단 worker 마지막 confirm50/64는 원 정상46/64와 비교한 처리량/정상 수용이 아니다. 다음은 cache 없는 fresh 입력 JSON 중복 검사 반복문의 연구 전용 평가다. 제품 app261/새 Solar 미배포·계산 중3D/WSL·실제 자료/관문/최종 UI와 전체 날짜 미완료/미정·goal active다.
 
 **제품 조회 수정 수용·원 정상 미완료 — 2026-10-20 KST:** [제품29회귀/실제 한 번 HTTPS 비교](research/solar-query-current-registration-scope-evaluation-20261020.md#final-product-regression-acceptance)는 수용했다. [후속 원 CI39377630664](research/solar-query-current-registration-scope-native-normal-20261020.md)는 원360초 미완료·종료 뒤 저장 metadata46/64·정상/DB count proof 없음이다. 다음은 기존 진단에서 별도 계측하지 않은 prefix `_after_projection`의 현재 검사 비용 관측이며 같은 source의 정상/비용 반복은 하지 않는다. 새 Solar/실제 자료·G0–G4·계산 중3D·WSL/최종 UI와 전체 날짜는 미완료/미정·goal active다.
