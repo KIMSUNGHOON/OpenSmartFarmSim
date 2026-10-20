@@ -10,7 +10,9 @@
 독립1,635미분/9수지·실제9성분 각1회로 수용했다. [짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md)를
 8개32초·독립1,256수치/96수렴/17수지와 실제 중간 고갈 보류로 수용했다.
 [관리 전이35검사](../contracts/crop-greenhouse-co2-management-v1.md)는9제거×wet/dry의109상태와10수지·
-실제 전후 Solar/CO₂ 및 독립16초→사건→16초를 대사했다. 다음은 forcing/event program과 continuation이다.
+실제 전후 Solar/CO₂ 및 독립16초→사건→16초를 대사했다.
+[환경/관리 program37검사](../contracts/crop-greenhouse-co2-program-v1.md)는 독립10개32초/8,556수치·96수렴/
+17전역 수지와512환경/512출력·128사건·실패 prefix/자원 보존을 수용했다. 다음은 continuation이다.
 새 저장/API/3D와 실제 품종/농장·관문은 후속이며 기공 단위는 별도 hold다.
 필요한 계산 근거·권리를 대사했으며 UI 용량을 이 계산 개발의 선행으로 추가하지 않는다.
 기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.

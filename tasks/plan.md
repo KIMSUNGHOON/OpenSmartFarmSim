@@ -19,7 +19,7 @@
 | 2 CO₂ net/mass — 완료 | [net52](../contracts/crop-co2-net-exchange-v1.md)/[질량RHS30](../contracts/crop-co2-air-mass-v1.md)/[stage37](../contracts/crop-greenhouse-co2-joint-v1.md)/[짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md) 수용 | 0 |
 | 3 기공 | 원 단위 판본 결정 → scalar 참조 → 같은 stage 입력 연결/수지; 결정 전 hold | 8–16 |
 | 4 시설/일사 실행 | 명시 시설 환기 경계 → 남은 normal64 비용 원인 수정 → 정상/hold/취소/계산 중3D | 12–24 |
-| 5 `crop-climate-coupling` | CO₂ 짧은 적분/관리 수용 뒤 forcing/event program → 분할복원 → 필요한 긴 forcing/전체 작기 수지·용량 | 12–24 |
+| 5 `crop-climate-coupling` | CO₂ 짧은 적분/관리·환경 program 수용 뒤 분할복원 → 필요한 긴 forcing/전체 작기 수지·용량 | 12–24 |
 | 6 과실/수확 부모 잔여 | 기존 구획/startup/수확 개발 경계 대사 → 미충족 전체 작기/변환·출처 hold 연결 | 8–16 |
 | 7 `crop-water-nutrient` | 배지/급배액 근거 → 물 재고 → 성분/재순환 → 사건/적분 → 수지·결측 hold | 15–28 |
 | 8 `crop-energy-purchases` | 명시 장비/COP·효율 → 전력/연료/보조설비 → 공급열·CO₂ 분리 → 계량 단위/hold | 8–16 |
@@ -45,6 +45,9 @@
 [관리 전이35검사](../contracts/crop-greenhouse-co2-management-v1.md)는5행의 순간 사건 자식을 완료했다.
 9제거×wet/dry·109상태/10수지와 독립16초→사건→16초를 수용했으나 자동 program/재개는 남는다.
 이 자식의 검사1.58초를 공수로 환산하거나 남은 통합 공수에서 임의 차감하지 않고161–308 범위를 유지한다.
+[환경/관리 program37검사](../contracts/crop-greenhouse-co2-program-v1.md)도5행의 구간/사건 자식을 완료했다.
+독립10개32초·96수렴/17수지와512환경/512출력·128사건 수용이며 전체 작기/영속 재개는 남는다.
+장기 수치/통합 불확실성은 해소되지 않아 현재 공수/조건부 달력 범위를 유지한다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
 기존 디자인 변환 복구와 독립 검토/해제 확보, 추가 큰 수치/성능 재설계 없음이라는 가정이면 약5–9개발주다.
@@ -91,11 +94,15 @@ P01의 [명시 기압/온도·wet/dry 순수 변환](../contracts/crop-co2-gas-v
 109상태/44장부를 독립32초 궤적·96수렴·중간 실패에 대사해 수용했다.
 `co2-managed-transition`은 검토된 관리 primitive와 실제 CO₂/Solar 전후 RHS를 묶어35검사로 수용했다.
 9제거×wet/dry·109상태/10수지·13거부와 독립16초→사건→16초를 확인했다.
-다음 `co2-forcing-event-program`은 기존 Solar program의 명시 격자/사건 순서에 새109상태 계산을 연결한다.
-수용: 구간 경계의 wet/dry/외부 CO₂·일사/환기 입력과 같은 시각 관리 순서·전역 제거/연속 장부를
-독립 수치로 대사하고, 중간 실패는 마지막 확정 시각/상태를 보존한다. 원 코드/자료/5root/자원도 보존한다.
-핵심은 새 program/집중 pytest/계약이며 UTC/영속 checkpoint·저장/API/3D 수용은 후속으로 분리한다.
-이후 continuation→저장/3D다.
+`co2-forcing-event-program`은 명시 격자·외기 구간/사건 순서와 새109상태 계산을37검사로 수용했다.
+독립10개32초/8,556수치·96수렴/17전역 수지와90실제 RHS/최대512환경·512출력·128사건,
+실제 고갈/6실패 prefix·13잘못된 일정/원 자료/5root/자원·정리를 대사했다.
+다음 `co2-joint-continuation`은 불변 context/checkpoint와 환경·사건·출력 cursor를 결속한다.
+수용: 한 번 실행과 여러 chunk의 원109상태/44연속·6사건 장부·동일 순서/identity,
+새 프로세스 복원 뒤 과거 적분0·처음/경계/사건 전후/최종·실패 prefix와 변조/판본 혼합 거부를 확인한다.
+기존 모델/프로필/결과·5root/자원/정리를 보존한다. 핵심 새 continuation/집중 pytest/계약이며
+UTC·서명 custody/저장/API/3D와 전체 작기/관문은 후속 수용이다.
+이후 UTC/저장/3D다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 그 뒤 새 짧은 적분/관리·continuation/저장/3D를 별도 수용하며 기존 checkpoint를 덮어쓰지 않는다.
 원 단위 불일치의 기공 P03은 hold이며 gas/net/mass의 개발 선행으로 추가하지 않는다.

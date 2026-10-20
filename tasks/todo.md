@@ -2195,12 +2195,21 @@
         과다/빈 수관/혼합 origin·실패 시 관리 전 확정 상태 보존; (3)새 판본/hash·원 데이터/모델·5root/자원/정리.
         확인: 집중 pytest·독립 제거/용량/탄소 수치와 실제 전후 CO₂ 모델 대사. 기존 fixed-ppm 관리 RHS를
         새 모델의 실제 후 상태로 재사용하지 않는다. forcing 구간/사건 program·UTC/재개/저장/3D는 후속이다.
-      - [ ] **`co2-forcing-event-program`** — 다음 작은 자식; 선행: 위 짧은 적분/관리 전이와 기존 Solar program 계약.
+      - [x] **`co2-forcing-event-program`** — [계약/수용](../contracts/crop-greenhouse-co2-program-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-program-20261021.json):37검사·독립10개32초/
+        8,556수치·96수렴/17전역 수지·90실제 RHS·512환경/512출력·128사건/원 자료·5root·정리를 확인했다.
+        선행: 위 짧은 적분/관리 전이와 기존 Solar program 계약.
         핵심3파일: 새109상태 program 모듈/집중 pytest/계약. 명시 격자·구간 forcing/사건 순서를 보존해
         실제 CO₂/Solar 계산을 연결하고 연속44장부와 관리 제거·전역 수지를 분리해 대사한다.
         수용: 구간 경계·wet/dry/외부 CO₂/낮밤/환기와 같은 시각 관리 순서·독립 수치/실제 평가;
         잘못된 program/중간 고갈·실패 시 마지막 확정 시각/상태·입력 불변과 원5root/자료/자원/정리.
         확인: 집중 pytest·app-free 참조 구성. UTC/영속 checkpoint/전체 작기·저장/API/3D/관문은 후속이다.
+      - [ ] **`co2-joint-continuation`** — 다음 작은 자식; 선행: 위 환경/관리 program 수용과 기존 continuation 계약.
+        핵심3파일: 새109상태 continuation/집중 pytest/계약. 불변 seed/환경 program·현재 상태와
+        44연속/6사건·17수지·환경/event/output cursor·code/profile/수치 identity를 결속한다.
+        수용: 단일 대 여러 chunk의 상태/장부/사건/출력 정확 일치, fresh 복원 시 과거 재적분0;
+        경계와 사건 전후/실패 prefix·잘못된 체크포인트/판본 혼합 hold·원 결과/5root/자원/정리.
+        UTC/custody·DB/API/3D·전체 작기/실제 품종/관문은 별도다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

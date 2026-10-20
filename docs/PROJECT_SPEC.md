@@ -726,7 +726,10 @@ CO₂ 경계의 개발은 [원문/단위 정책](../research/crop-co2-stomatal-s
 [새109상태 짧은 적분25](../contracts/crop-greenhouse-co2-integration-v1.md)는 독립1,256수치/96수렴/17수지와
 실제 중간 고갈 보류로32초 합성 범위를 수용했다.
 [관리 전이35검사](../contracts/crop-greenhouse-co2-management-v1.md)는9제거×wet/dry·109상태/10수지와
-실제 감소 LAI의 광 흡수·공기 CO₂/ppm 보존·독립16초→사건→16초를 확인했다. 다음은 forcing/event program이며
+실제 감소 LAI의 광 흡수·공기 CO₂/ppm 보존·독립16초→사건→16초를 확인했다.
+[환경/관리 program37검사](../contracts/crop-greenhouse-co2-program-v1.md)는 명시 외기 구간·경계 전환 뒤 관리 순서를
+독립10개32초/8,556수치·96수렴/17전역 수지·최대512환경/512출력·128사건에 대사했다.
+다음은 continuation이며
 전체 작기·UTC/continuation·새 저장/3D는 후속이다.
 기공 단위 해석의 별도 hold나
 기관 목록/U1 용량을 앞의 gas/net/mass 자식의 개발 선행으로 추가하지 않는다.
