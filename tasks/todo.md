@@ -37,7 +37,9 @@
     같은 WSL 실행을 반복하지 않고 hosted 정상1개 사전 검사→원 상한 수용 시20개로 이어간다.
     [hosted 실제 후속](../research/organ-catalog-hosted-capacity-20261021.md)은 정상1개4,474,409bytes/최대 HTTPS4.935101초를 수용했다.
     실제20개/합89,488,180bytes 생성 뒤 첫 목록30.010263초로 미수용이다. 소유 종료/정리는 확인했다.
-    다음은 원 호출의 구간 계측1회→작은 수정/집중 회귀→계측 OFF 정상20개다. 마지막 row/DB 불변 대사는 이번 실패에서 미수행이다.
+    구간 계측 CI39453928777은 행 검색1.020332초·항목38회/38.431396초(클라이언트 timeout 뒤 작업 포함)를 확인했다.
+    다음은 항목 내부 immutable 검증/현재 참조 비용 구분→작은 수정/집중 회귀→계측 OFF 정상20개다.
+    마지막 row/DB 불변 대사는 이번 실패에서 미수행이며 계측을 정상 수용으로 쓰지 않는다.
 
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
   고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·
