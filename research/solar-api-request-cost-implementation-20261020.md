@@ -35,3 +35,12 @@ frame/thread 식별자는 내부 수명 결속에만 사용하고 내보내지 �
 ## 실제 관측 접수
 
 [새 CI39369990827](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39369990827), 고정 source `7fda9ba96b68297832d5d313091d041689f4fd39`/attempt1·job118455456705를 한 번 접수했다. [접수/현재 단계 기록](artifacts/solar-api-request-cost-dispatch-20261020.json)의2026-10-20T04:35:04Z 관측에서 실제 API·worker 단계가 in_progress였다. 종료·실제 timing/counter·원 수치/UTC·artifact/자원/정리 대사 전이며51 부모와 원 정상 수용은 미완료다.
+
+## Later source-scope clarification
+
+[The nested projection review](solar-api-projection-cost-observation-20261020.md)
+clarifies the earlier phrase about serialization exclusion: prefix route `read`
+already includes `public.read_prefix` serialization and `_after_projection`.
+Outer ASGI/authorization/transport remains outside that root. The original v2
+raw evidence is unchanged; v3 adds a nested breakdown without adding child costs
+to their parents.

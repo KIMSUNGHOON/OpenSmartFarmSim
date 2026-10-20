@@ -59,3 +59,11 @@ Global goal remains active. Original normal39377630664's46/64 stopped metadata
 is still a nonacceptance. Independent hold/cancel/live WebGL/WSL activation,
 new Solar deployment, external farm/economic data and G0–G4 remain open.
 Whole backend/browser CI and new DOM/WebGL are not run in this step.
+
+## Actual observation completed
+
+[CI39380625672/source67bd392](solar-api-projection-cost-observation-20261020.md)
+provided19 outer/client and13 nested complete pairs within the bounded windows.
+The nested guard takes33.2–39.7% of matched parent wall; it was already part of
+the prefix total. Instrumented worker last-confirmed50/64 remains nonaccepted
+normal. Projection diagnostics task54 is complete in its stated diagnostic scope.

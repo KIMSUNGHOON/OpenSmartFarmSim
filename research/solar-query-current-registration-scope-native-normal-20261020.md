@@ -66,3 +66,12 @@ identity and2,173 ventilation source files. Both status fields describe the
 product29 acceptance and original46/64 nonacceptance; the old ventilation-only
 deployment remains explicit. No new UI code, DOM/WebGL or whole backend/browser
 CI was run. Goal stays active, with projection-cost diagnostics next.
+
+## Subsequent source interpretation correction
+
+[The nested observer investigation](solar-api-projection-cost-observation-20261020.md)
+confirms that the existing prefix route `read` wraps `public.read_prefix`, including
+serialization and `_after_projection`. That work was already included in the
+parent time. The missing part was a separate nested breakdown. Execution's root
+is the HTTP `checked` helper. The new diagnostic accepts only its own observations
+and does not change this original normal46/64 nonacceptance.
