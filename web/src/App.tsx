@@ -157,7 +157,7 @@ export default function App() {
         <div className="scope-summary" aria-label="입력 요약"><span className="badge">합성 자료 시험</span>
           <strong>{view==='crop-execution'?'선택한 작업 · 확정 계산값':view==='crop-replay'?'저장된 작물 탄소 계산':view==='economic' ? '저장 원장 · 사용자 가정' : view==='authored' ? '등록된 농장 · 작업 상태' : view==='assessment' ? '완료 계산 · 판단 보류' : view==='authored-financial' ? '같은 Run · 조건부 경제' : '온실 한 구역 · 두 시간'}</strong><span>실제 관측·미래 예측·작물 추천이 아닙니다.</span></div>
       </header>
-      <section className="panel" aria-label="제품 개발과 배포 상태">
+      <section className="panel development-status" aria-label="제품 개발과 배포 상태">
         <h2>제품 개발과 배포 상태</h2>
         <DevelopmentStatus/>
         <p>접속 설정: {api?'설정됨 · 현재 권한은 조회할 때 확인':'미설정 · 아래에서 접근 토큰을 입력하세요'}.</p>
