@@ -2123,13 +2123,33 @@
 
     - [ ] **`crop-greenhouse-co2-stomatal`** — CO₂ 질량/ppm·압력/온도/부피·광합성 sink와 기공 closure.
       CH₂O/CO₂ 질량을 구분하고 원 sRsSlope 단위 불일치에 대한 검토된 정책·독립 참조를 요구한다.
-      - [ ] **`co2-stomatal-source-policy`** — 현재 다음 작은 연구 자식. 기존 수관/환기/PAR 계산 근거를 선행으로 하고
+      - [x] **`co2-stomatal-source-policy`** — [원문/단위 정책](../research/crop-co2-stomatal-source-policy-20261021.md)과
+        [등록부](../research/crop-co2-stomatal-source-register-20261021.json): 실제 native gpt-6.1-sol/xhigh,
+        원문 영수증13/hash·정확한37pointer/12상수·기존 BSD notice·CH₂O net 항목을 대사했다.
+        T/P/질량/부피·wet/dry의 P01 순수 개발 경계를 수용했다. sRsSlope는 원 논문/구현도 같은 단위라 P03 hold다.
+        원 프로필/코드/Run 변경·농장 검증/관문 승인은0이다. 기존 수관/환기/PAR 계산 근거를 선행으로 하고
         기관 목록/U1의 성능 수용이나 전체 운영 조립을 선행으로 추가하지 않는다.
         예정2파일: `research/crop-co2-stomatal-source-policy-20261021.md`, `research/crop-co2-stomatal-source-register-20261021.json`.
         수용: 원 CO₂/기공 식·상수의 정확한 source/pointer/버전/hash·단위/권리와 독립 참조를 대사한다.
         질량↔ppm의 T/P/부피 기준과 CH₂O↔CO₂ net sink를 구분하고, sRsSlope 단위 충돌은 검토된 판본 정책 또는 hold로 기록한다.
         채택/미채택·미확정의 근거와 다음 순수 계산 자식의 작은 의존성/수용 기준을 고정한다.
         이 연구만으로 계수/G0·실제 품종/농장·예측/기공 closure를 승인하지 않는다.
+      - [ ] **`co2-gas-conversion-kernel`** — 다음 순수 계산 자식; 선행: 위 연구 P01.
+        핵심3파일: `backend/app/crop_co2_gas.py`, `backend/tests/test_crop_co2_gas.py`,
+        `contracts/crop-co2-gas-v1.md`. source R/M·모델 판본과 명시 density(mg_CO2/m3)/ppm,
+        T(degC)/P(Pa)/wet·dry·필요 수증기압을 고정하고 자동 기본 기압/센서 기준을 두지 않는다.
+        수용: (1) 독립 Decimal 몰수 참조·사전 오차 기준과 온도/기압·습기 희석/역변환;
+        (2)0·잘못된 형/비유한/물리 불가·부동소수 표현 한계 거부;
+        (3)기존 작물/기공/원 프로필/결과 불변·보호5root/원 자료/자원/정리.
+        확인: 해당 파일 집중 pytest·source/notice/hash 대조. 동적 질량수지/생장/Run/API/3D는 후속이다.
+      - [ ] **`co2-net-crop-sink-kernel`** — 선행: 위 연구 P02와 기존 crop rate identity/profile.
+        핵심3파일: 별도 net flux 모듈/집중 pytest/계약. 원 CH₂O 광합성−생장호흡−유지호흡을
+        원44/30 규약의 signed mg_CO2/m2_floor/s로 변환한다. 독립 몰수/야간 음수·수확 제거 제외·
+        이중 보상점 차감0과 기존 rate bytes/계수 불변을 검증한다. scalar 기공/기관 목록 용량은 선행이 아니다.
+      - [ ] **`co2-air-mass-balance-kernel`** — 선행: gas/net 자식과 기존 환기량/구획 근거.
+        핵심3파일: 별도 floor-area 질량 RHS/집중 pytest/계약. 명시 V/A와 signed source/sink·
+        고정 부피의 무유속 보존/해석적 well-mixed 교환·공기/작물 전달 상쇄와 틀린 단위/상태 혼합을 검증한다.
+        가변 부피/전체 건조공기 압력 solver·추측 시설 계수는 이 자식의 수용 범위가 아니다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

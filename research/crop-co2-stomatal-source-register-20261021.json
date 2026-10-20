@@ -1,0 +1,759 @@
+{
+  "version": "crop-co2-stomatal-source-review-v1",
+  "created_at": "2026-10-20T17:09:53.672756+00:00",
+  "decision_id": "co2-source-review-20261021-v1",
+  "status": "source-review accepted; scalar implementation pending; implicit stomatal substitution held",
+  "native_CLI_review": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "session_creation_metadata": {
+      "source": "vscode",
+      "cli_version": "0.157.1",
+      "model_provider": "openai"
+    },
+    "actual_turn_context": {
+      "timestamp": "2026-10-20T17:04:07.957Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim",
+      "event_line_sha256": "93294e4dddecc13266a8a355d8b45a0ec1b2df52e9307c28e28a1f8aaa76beb4"
+    },
+    "no_recursive_CLI": true,
+    "note": "Native current-session turn metadata audited; creation cli_version is not current binary version. No raw prompts or transcript included."
+  },
+  "reviewer": {
+    "agent": "/root",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "source_receipt_checks": {
+    "all_private_receipt_hashes_and_lengths_checked": 13,
+    "published_source_records": 11,
+    "formula_and_parameter_pointers_checked": 37,
+    "source_parameter_literals_checked": 12,
+    "license_notice_matches": true
+  },
+  "sources": [
+    {
+      "source_id": "chapter8.json",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/greenhouse_vanthoor_2011_chapter_8.json",
+      "product_id": "chapter8.json",
+      "revision": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T16:57:59.917455+00:00",
+      "bytes": 130649,
+      "raw_sha256": "c0fb7a025533f15b80cb6cd60aafdc19be9fe42df6b8183cf97b83fc086138b3",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "JSON",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "Retain original notice, conditions and disclaimer for software reuse; no patent grant or endorsement"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "chapter9.json",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/crop_vanthoor_2011_chapter_9_simplified.json",
+      "product_id": "chapter9.json",
+      "revision": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T16:58:00.169839+00:00",
+      "bytes": 26741,
+      "raw_sha256": "272a589edf0bb40d1a91b34e883f8e94b9adf747a576be4620c50296c03d7033",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "JSON",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "Retain original notice, conditions and disclaimer for software reuse; no patent grant or endorsement"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/LICENSE.txt",
+      "product_id": "LICENSE.txt",
+      "revision": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T16:58:00.419946+00:00",
+      "bytes": 1716,
+      "raw_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "selected source text",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "Retain original notice, conditions and disclaimer for software reuse; no patent grant or endorsement"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "thesis.pdf",
+      "source_url": "https://edepot.wur.nl/170301",
+      "product_id": "10.18174/170301",
+      "revision": "retrieved object hash; no provider revision ID established",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": "2011-06-17",
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T16:59:23.150343+00:00",
+      "bytes": 3423075,
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "PDF text; no pixel inspection",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "not adopted for original-content redistribution",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "No raw source redistribution adopted by this review; any later software reuse must respect its revision-specific license"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "legacy-setGlParams.m",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/createGreenLightModel/setGlParams.m",
+      "product_id": "legacy-setGlParams.m",
+      "revision": "4ec6018e0aad2775ad11085d34f3886a7b7dd052",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T16:59:01.521068+00:00",
+      "bytes": 41547,
+      "raw_sha256": "ca441384aa6953e5552dca8251152bc27226a1244a0012d8a0aa20245b32df50",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "selected source text",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "Apache-2.0 declaration at pinned legacy revision",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "No raw source redistribution adopted by this review; any later software reuse must respect its revision-specific license"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "legacy-setGlAux.m",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/createGreenLightModel/setGlAux.m",
+      "product_id": "legacy-setGlAux.m",
+      "revision": "4ec6018e0aad2775ad11085d34f3886a7b7dd052",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T16:59:01.514376+00:00",
+      "bytes": 66382,
+      "raw_sha256": "f0de8c59a8066711eab1c8ab91856ed9db8325bbd417f9723509f22d6b67285c",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "selected source text",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "Apache-2.0 declaration at pinned legacy revision",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "No raw source redistribution adopted by this review; any later software reuse must respect its revision-specific license"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "legacy-license.md",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/4ec6018e0aad2775ad11085d34f3886a7b7dd052/license.md",
+      "product_id": "legacy-license.md",
+      "revision": "4ec6018e0aad2775ad11085d34f3886a7b7dd052",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T16:59:01.512128+00:00",
+      "bytes": 584,
+      "raw_sha256": "52890b7d010114df474514c960a7b3b721387ddcf9fba13c1279103617097caa",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "selected source text",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "Apache-2.0 declaration at pinned legacy revision",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "No raw source redistribution adopted by this review; any later software reuse must respect its revision-specific license"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "legacy-co2dens2ppm.m",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/serviceFunctions/co2dens2ppm.m",
+      "product_id": "legacy-co2dens2ppm.m",
+      "revision": "4ec6018e0aad2775ad11085d34f3886a7b7dd052",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T17:00:37.772512+00:00",
+      "bytes": 869,
+      "raw_sha256": "0d77bd70e77b892af4a50913a5933d4b44850172361c4b5c53351678b530a10b",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "selected source text",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "Apache-2.0 declaration at pinned legacy revision",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "No raw source redistribution adopted by this review; any later software reuse must respect its revision-specific license"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "thesis-metadata.html",
+      "source_url": "https://research.wur.nl/en/publications/a-model-based-greenhouse-design-method/",
+      "product_id": "10.18174/170301",
+      "revision": "retrieved object hash; no provider revision ID established",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": "2011-06-17",
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T17:00:39.627549+00:00",
+      "bytes": 42242,
+      "raw_sha256": "c01cb783ddc88ff94e3c544aa076c12170f7f41afb2565d8b8d3eeee3051bfb3",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "selected source text",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "not adopted for original-content redistribution",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "No raw source redistribution adopted by this review; any later software reuse must respect its revision-specific license"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "nist-constants.txt",
+      "source_url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+      "product_id": "nist-constants.txt",
+      "revision": "2022 CODATA adjustment",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T17:06:17.139967+00:00",
+      "bytes": 40801,
+      "raw_sha256": "77fb90e66c40db3e6eb16630bc9c88e4c7c8beddbe5e71be406f2f26e3f67e67",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "selected source text",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "not adopted for original-content redistribution",
+        "use": "Reference constants only; no source-document redistribution rights decision needed for a factual scalar comparison",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "No raw source redistribution adopted by this review; any later software reuse must respect its revision-specific license"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    },
+    {
+      "source_id": "licor-CO2-basis.html",
+      "source_url": "https://www.licor.com/support/LI-8250/topics/deriving-the-flux-equation-co2.html",
+      "product_id": "licor-CO2-basis.html",
+      "revision": "retrieved object hash; no provider revision ID established",
+      "observed_at": null,
+      "published_at": null,
+      "publication_date": null,
+      "publication_hold": "Exact publication timestamp/timezone and historical first public availability not reconstructed",
+      "available_at": null,
+      "available_at_hold": "Not adopted as decision-vintage observational data",
+      "retrieved_at": "2026-10-20T17:06:17.894753+00:00",
+      "bytes": 86020,
+      "raw_sha256": "3f8ae014ac6ab0b0f9e045125f4df396a1da71d85b4d3ac6e7c6af008ef0a29f",
+      "units": "quantity-specific in formula records; document/license is not an observation",
+      "QC": {
+        "raw_hash_and_length": "pass",
+        "source_parse": "selected source text; embedded equation SVGs not visually inspected",
+        "empirical_accuracy": "not established"
+      },
+      "rights": {
+        "license": "not adopted for original-content redistribution",
+        "use": "Reference source review only; no observation/data adoption",
+        "display": "Paraphrased source findings and factual expressions; no raw literature/image/sensor records",
+        "redistribution": "No raw source redistribution adopted by this review; any later software reuse must respect its revision-specific license"
+      },
+      "reviewer": {
+        "agent": "/root",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-20T17:09:53.672756+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      }
+    }
+  ],
+  "formula_records": [
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/State equations/CO2 concentration states/co2Air",
+      "definition": "(1/capCo2Air) * (mcBlowAir + mcExtAir + mcPadAir - mcAirCan - mcAirTop - mcAirOut)",
+      "source_unit": "mg m**-3",
+      "source_reference": "Vanthoor 2011, Equation 8.12",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Capacities/capCo2Air",
+      "definition": "hAir",
+      "source_unit": "m",
+      "source_reference": "Vanthoor 2011, pg. 211",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/CO2 fluxes/airMc(f12, c1, c2)",
+      "definition": "abs(f12) * (c1 - c2)",
+      "source_unit": "mg m**-2 s**-1",
+      "source_reference": "Vanthoor 2011, pg. 216-217",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/CO2 fluxes/mcAirOut",
+      "definition": "airMc(fVentSide + fVentForced, co2Air, co2Out)",
+      "source_unit": "mg{CO2} m**-2 s**-1",
+      "source_reference": "Vanthoor 2011, pg. 216-217",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Crop/mcAirCan",
+      "definition": "0",
+      "source_unit": "mg{CO2} m**-2 s**-1",
+      "source_reference": "Assuming no crop",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Crop/co2InPpm",
+      "definition": "co2dens2ppm(tAir, (1e-6 * co2Air))",
+      "source_unit": "ppm",
+      "source_reference": "Conversion used in Katzin 2020, see line 884 in https://github.com/davkat1/GreenLight/blob/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/createGreenLightModel/setGlAux.m",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Crop/co2dens2ppm(temp, dens)",
+      "definition": "8.3144598e6* (temp + 273.15) * dens / (101325 * 44.01e-3)",
+      "source_unit": "ppm",
+      "source_reference": "Calculation based on ideal gas law pV=nRT, used in Katzin 2020, see https://github.com/davkat1/GreenLight/blob/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/serviceFunctions/co2dens2ppm.m",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/rS",
+      "definition": "rSMin * rfRCan * rfCo2 * rfVp",
+      "source_unit": "s m**-1",
+      "source_reference": "Vanthoor 2011, Equation 8.49",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/rfRCan",
+      "definition": "(rCan + cEvap1) / (rCan + cEvap2)",
+      "source_unit": "-",
+      "source_reference": "Vanthoor 2011, Equation 8.50",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/rfCo2",
+      "definition": "min(1.5, 1 + cEvap3 * (etaMgPpm * co2Air - 200)**2)",
+      "source_unit": "-",
+      "source_reference": "Vanthoor 2011, Equation 8.50, and note below \"Stanghellini limited the resistance factor for high CO2 levels to 1.5\"",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/rfVp",
+      "definition": "min(5.8, 1 + cEvap4 * (satVp(tCan) - vpAir)**2)",
+      "source_unit": "-",
+      "source_reference": "Vanthoor 2011, Equation 8.50, and note below \"Stanghellini limited [...] the resistance factor for large vapour pressure differences to 5.8\"",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/sRs",
+      "definition": "1 / (1 + exp(sRsSlope * (rCan - rCanSp)))",
+      "source_unit": "-",
+      "source_reference": "Vanthoor 2011, Equation 8.51",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/rCanSun",
+      "definition": "(1 - etaGlobAir) * (tauCovPar * etaGlobPar + tauCovNir * etaGlobNir)  * iGlob",
+      "source_unit": "W m**-2",
+      "source_reference": "Following Vanthoor 2011, Equation 8.28",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/rCan",
+      "definition": "rCanSun",
+      "source_unit": "W m**-2",
+      "source_reference": "Following Vanthoor 2011, Equation 8.28. Added for easier model extension",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/cEvap3",
+      "definition": "cEvap3Night * (1 - sRs) + cEvap3Day * sRs",
+      "source_unit": "ppm{CO2}**-2",
+      "source_reference": "Vanthoor 2011, Equation 8.52. Note that the unit there is incorrect. Also note that cEvap3Night there erroneously appears twice.",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Canopy transpiration/cEvap4",
+      "definition": "cEvap4Night * (1 - sRs) + cEvap4Day * sRs",
+      "source_unit": "Pa**-2",
+      "source_reference": "Vanthoor 2011, Equation 8.52. Note that the unit there is incorrect. Also note that cEvap3Night there erroneously appears twice.",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/rSMin",
+      "definition": "82",
+      "source_unit": "s m**-1",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/cEvap1",
+      "definition": "4.3",
+      "source_unit": "W m**-2",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/cEvap2",
+      "definition": "0.54",
+      "source_unit": "W m**-2",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/cEvap3Day",
+      "definition": "6.1e-7",
+      "source_unit": "ppm**-2",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/cEvap3Night",
+      "definition": "1.1e-11",
+      "source_unit": "ppm**-2",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/cEvap4Day",
+      "definition": "4.3e-6",
+      "source_unit": "Pa**-2",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/cEvap4Night",
+      "definition": "5.2e-6",
+      "source_unit": "Pa**-2",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/rCanSp",
+      "definition": "5",
+      "source_unit": "W m**-2",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/sRsSlope",
+      "definition": "-1",
+      "source_unit": "m W**-2",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/etaMgPpm",
+      "definition": "0.554",
+      "source_unit": "ppm mg**-1 m**3",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/etaGlobPar",
+      "definition": "0.5",
+      "source_unit": "-",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.1/etaGlobNir",
+      "definition": "0.5",
+      "source_unit": "-",
+      "source_reference": "Vanthoor 2011, Table 8.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Parameters/Table 8.2 (Netherlands)/Construction/etaGlobAir",
+      "definition": "0.1",
+      "source_unit": "-",
+      "source_reference": "Vanthoor 2011, Table 8.2 (Netherlands)",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter8.json",
+      "pointer": "/Vapour fluxes/satVp(temp)",
+      "definition": "610.78 * exp(17.2694 *temp / (temp + 238.3))",
+      "source_unit": "Pa",
+      "source_reference": "http://www.conservationphysics.org/atmcalc/atmoclc2.pdf",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter9.json",
+      "pointer": "/Model flows/Canopy photosynthesis/Net photosynthesis rate/mcAirCan",
+      "definition": "mCo2/ mCh2o * (mcAirBuf - mcBufAir - mcOrgAir)",
+      "source_unit": "mg{CO2} m**-2 s**-1",
+      "source_reference": "https://github.com/davkat1/GreenLight/blob/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/createGreenLightModel/setGlParams.m\r\n\r\nIt is assumed that for every mol of CH2O, a mol of CO2 is taken from the air, thus the conversion uses molar masses",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter9.json",
+      "pointer": "/Model flows/Canopy photosynthesis/Net photosynthesis rate/mcAirBuf",
+      "definition": "mCh2o * hAirBuf * (p - r)",
+      "source_unit": "mg{CH2O} m**-2 s**-1",
+      "source_reference": "Vanthoor 2011, Equation 9.10",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter9.json",
+      "pointer": "/Model flows/Growth and maintenance respiration/mcBufAir",
+      "definition": "cLeafG * mcBufLeaf + cStemG * mcBufStem + cFruitG * mcBufFruit",
+      "source_unit": "mg{CH2O} m**-2 s**-1",
+      "source_reference": "Vanthoor 2011, Equations 9.43-9.44",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter9.json",
+      "pointer": "/Model flows/Growth and maintenance respiration/mcOrgAir",
+      "definition": "mcLeafAir + mcStemAir + mcFruitAir",
+      "source_unit": "mg{CH2O} m**-2 s**-1",
+      "source_reference": "Vanthoor 2011, Equation 9.45",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter9.json",
+      "pointer": "/Model flows/Canopy photosynthesis/CO2 relationships in the photosynthetic tissue/co2Stom",
+      "definition": "etaCo2AirStom * co2InPpm",
+      "source_unit": "ppm",
+      "source_reference": "Vanthoor 2011, Equation 9.21. Note that the unit there is equivalent to ppm",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter9.json",
+      "pointer": "/Parameters/mCo2",
+      "definition": "44e-3",
+      "source_unit": "mg µmol**-1",
+      "source_reference": "https://github.com/davkat1/GreenLight/blob/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/createGreenLightModel/setGlParams.m",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    },
+    {
+      "source_id": "chapter9.json",
+      "pointer": "/Parameters/Table 9.1/mCh2o",
+      "definition": "30e-3",
+      "source_unit": "mg umol**-1",
+      "source_reference": "Vanthoor 2011, Table 9.1",
+      "review_status": "source transcription only; interpretation decisions are separate"
+    }
+  ],
+  "interpretations": {
+    "P01": {
+      "status": "accepted software-only development policy",
+      "version": "c8-pressure-explicit-ideal-mixture-v1",
+      "R_Pa_m3_per_mol_K": "8.3144598",
+      "M_CO2_kg_per_mol": "44.01e-3",
+      "temperature_offset_K": "273.15",
+      "basis": "explicit wet/total-air or dry/water-excluded; original source basis unspecified",
+      "pressure": "positive explicit Pa; no default101325",
+      "volume": "not required for density conversion; explicit V for total mass, h=V/A for floor-area mass",
+      "scope": "fixed input scalar ideal-mixture accounting; no empirical domain or dynamic total-air solver"
+    },
+    "P02": {
+      "status": "source mapping accepted; adapter not implemented",
+      "mCo2_mg_per_umol": "44e-3",
+      "mCh2o_mg_per_umol": "30e-3",
+      "net_CH2O": "photosynthesis - growth_respiration - sum(maintenance_respiration)",
+      "removals_are_not_air_respiration": true,
+      "molar_mass_conventions": "C8 converter44.01g/mol and C9 sink44g/mol remain explicitly distinct; no silent unification"
+    },
+    "P03": {
+      "status": "hold",
+      "source_sRsSlope_literal": "-1",
+      "source_unit": "m W**-2",
+      "equation_required_dimension": "m2/W",
+      "corrected_unit_author_corroboration": false,
+      "versioned_project_normalization_adopted": false,
+      "raw_source_unit_preserved": true,
+      "current_explicit_positive_resistance_interface_preserved": true
+    }
+  },
+  "retained_holds": [
+    "source wet/dry sensor basis and actual pressure unavailable",
+    "stomatal corrected unit and model interpretation not adopted",
+    "cultivar/facility parameters and independent farm observations not adopted",
+    "original20 catalogue capacity/U1/WSL/user activation remain required",
+    "source publication/available_at unknown where null"
+  ],
+  "G0_G4": "not_assessed",
+  "actual_crop_Runs": 0,
+  "parameter_profile_mutations": 0,
+  "kernel_implemented": false,
+  "next_child": "co2-gas-conversion-kernel",
+  "outputs": [
+    "research/crop-co2-stomatal-source-policy-20261021.md",
+    "research/crop-co2-stomatal-source-register-20261021.json"
+  ],
+  "policy_document_sha256": "9ac5e619bb3bb371e9be0452f8ef8b292ab8a3081ad506aa2cd01ec5097da77d"
+}
