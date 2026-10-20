@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "기존 3D 조회의 TLS 인증서가 계정보다 먼저 만료되는 결함을 수정했습니다. 28검사/두 Python과 생장·수확8/환기8 조회를 통과했습니다. 저장 판본 목록 API10응답·현재 화면 빌드도 확인했습니다. 새 목록3D는 합1GiB로 미수용이며 최신 backend의 구판 읽기·최종 UI/독립 자료가 남아 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-20T08:47:46.036448Z",
+  "estimate_reason": "고정 사이드바 때문에 성장 메뉴를 누를 수 없던 결함을 수정했습니다. 실제 데스크톱/모바일 탐색2경로와 개발 빌드는 통과했습니다. 실제 목록→저장 성장3D 두 시점의 원값/UTC 대조는 관측했으나 전체 검증은 합1GiB로 중단됐습니다. 수확·재접속/권리·최종 UI/독립 자료가 남아 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-20T09:24:57.302528Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-20T08:47:46.036448Z",
+  "reported_at": "2026-10-20T09:24:57.302528Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,12 +24,12 @@
       "state": "completed"
     },
     {
-      "evidence": "TLS 수명 수정28검사/두 Python·실제 원 조회8+8로 기존 화면을 복구했습니다. 저장 판본 목록 API10응답/현재 화면 개발 빌드를 확인했습니다. 최신 backend 구판 CODE 지원과 새 목록3D는 미수용입니다. TLS 복구 뒤 browser_started에서 합1GiB로 중단됐습니다. 다음은 실행기/감독 메모리 분리이며 Solar 정상46/64/후속3D·배포는 남았습니다.",
+      "evidence": "sidebar 높이 결함을 수정해 실제 desktop/mobile2경로·빌드를 통과했습니다. 실제 목록→같은 저장 성장3D 두 시점의 원100 C/N·UTC 단언 구간을 관측했습니다. 전체 browser는 수확 선택 구간 합1GiB로 미수용입니다. 다음은 API/PG/브라우저 동시 할당 분리입니다. U1·Solar 정상46/64/후속3D·배포는 남았습니다.",
       "id": "execution_3d",
       "state": "next"
     },
     {
-      "evidence": "기존5173/5174 보호 조회를 새 TLS로 복구하고 같은 토큰·모델·원 결과/HTML·5역할을 대사했습니다. 기존 환기만 적용 상태입니다. 새 목록 UI/Solar·독립 농장/경제·전체 제품은 미완료입니다. 다음 공통 유지보수 준비는10월20일21:40Z 이전입니다.",
+      "evidence": "기존5173/5174와 원 결과/HTML·5역할은 유지했습니다. 기존 환기만 적용 상태입니다. 새 sidebar/목록 UI와 Solar는 미배포이며 전체 UI·독립 농장/경제 검증은 미완료입니다. 다음 공통 유지보수 준비는10월20일21:40Z 이전입니다.",
       "id": "activation",
       "state": "pending"
     }

@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+- [x] **`product-ui-sidebar-viewport-navigation`** — [원 화면 밖 메뉴/수정·native2경로](../research/catalog-navigation-memory-evidence-20261020.md). 실제1024×768·390×844의 성장 메뉴 pointer 선택→입력 복귀/가로 넘침·개발 빌드·5root/원본/정리를 확인했다. 새 Playwright2회귀 파일은 로컬 미실행이며 전체 웹 CI·실제 목록→수확/권리·U1·사용자 배포는 별도다.
+
 - [x] **`preview-existing-authentication-renewal-20261020`** — [실제 만료 전 동일 입력 갱신](../research/frozen-preview-authentication-renewal-20261020.md). 같은 bearer/모델·키·결과/DB counts·두 frozen HTML, legacy8·joint입력3/저장9·환기8의 인증/원 bytes·UTC·조회 계산/쓰기0·TLS/FD/5root/원본/상한/정리를 확인했다. 새 Solar/과학 관문·전체 CI/새 browser 검증은 별도다.
 
 - [x] **`crop-solar-current-binding-cost`** — [실제 한 청크의 검증 반복](../research/crop-solar-current-binding-cost-20261018.md).
@@ -390,7 +392,7 @@
     Chromium140개(예정30개 포함)·타입/1,028단위·빌드/audit 통과다. 원3상태 improve/렌더 대조와
     현재 실제 공동 DB/재시작·WSL 브라우저 자원/정리·화면 배포는 남아 있어 체크하지 않는다.
   - **2026-10-20 현재 실제 연결:** [저장 판본 API10응답/현재 개발 빌드](../research/crop-result-catalog-native-connection-20261020.md)를 확인했다. 최신 backend의 구판 CODE 거부는 유지한다. 실제502의 [TLS 수명 결함](../research/legacy-preview-TLS-lifetime-repair-20261020.md)을 수정하고 원 조회8+8을 복구했다. 이후 새 목록 브라우저는 app-loaded 전에 합1GiB로 중단돼 U1은 미수용이다. 다음은 실행기/감독의 실제 메모리 분리·축소이며 기존 source/수치/권리/브라우저 조건·한도/5root·디자인/재시작 수용을 유지한다.
-  - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서
+  - [ ] **`product-ui-result-catalog-native`** — [현재 browser 관측/보류](../research/catalog-navigation-memory-evidence-20261020.md): sidebar2경로만 수용, 원 성장 두 시점 뒤 합1GiB로 전체 미수용이다. 선행 API/웹. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
 - [ ] **`product-ui-region-input` (U2)** — 선행: 기존 조사/수집/검토·농장 작성 API; U1과 병행 가능.

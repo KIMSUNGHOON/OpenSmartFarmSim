@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 사용자 경로 — 2026-10-20 KST:** [만료 TLS 결함 수정/실제8+8 원 조회](../research/legacy-preview-TLS-lifetime-repair-20261020.md)로 기존 두 화면의 보호 조회를 복구했다. [목록 연결](../research/crop-result-catalog-native-connection-20261020.md)은 저장 판본 API10응답/현재 화면 개발 빌드만 확인했다. 최신 backend의 구판 CODE 거부와 실제 목록→3D/수확의 WSL 합산 용량·기존 U1 조건은 미수용이다. 다음은 실행기/감독의 실제 메모리 분리이며 새 Solar/전체 제품·완료일과 관문 상태는 유지한다.
+**현재 사용자 경로 — 2026-10-20 KST:** [고정 sidebar 수정/desktop·mobile2경로](../research/catalog-navigation-memory-evidence-20261020.md)와 현재 개발 빌드를 수용했다. 실제 목록→같은 저장 생장3D 두 시점의 원값/UTC 단언은 관측했으나 수확 선택 뒤 합1GiB로 중단돼 전체 browser/U1은 미수용이다. 다음은 해당 API/PG/브라우저 동시 할당 분리다. 기존 두 UI/원 자료·구판 CODE 경계와 새 Solar/실제 자료·관문/전체 완료일 미정을 유지한다.
 
 **다음 사용자 경로 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](../research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했다. 다음은 [기존 저장 결과 목록→선택→같은 UTC3D/수확의 실제 연결](../research/crop-result-catalog-native-readiness-20261020.md)이며 U1의 기존 API/SDK/저장 재생을 재사용한다. 원21건 seed/hash와 현재10파일 준비만 확인했고 전체166일/실제 DB·브라우저/U1은 미수용이다. 새 Solar normal64·후속 계산 중3D·WSL/최종 제품·G0–G4/완료일은 계속 미완료/미정이다.
 
