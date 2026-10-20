@@ -20,6 +20,7 @@ import pytest
 from app.api_runtime import ApiRuntime
 from app.crop_result_store import CropResultStore, READ_SCOPES, MAX_PACKET_BYTES
 from app.crop_organ_result_catalog import OrganCropResultCatalog
+from app.farm_authoring_storage import FarmAuthoringService
 from app.http_identity import BearerGrant, BearerRegistry, token_digest
 from app.market_source_store import MarketSourceStore
 from app.thermal_run_store import _canonical
@@ -78,10 +79,14 @@ def fingerprint(store,result_id):
 def observe_catalogue(monkeypatch,evidence,total):
     """Measure existing methods without replacing any query or current-rights check."""
     started=time.monotonic()
-    journal={'diagnostic_only':True,'events':[],'calls':{}}
+    journal={'diagnostic_only':True,'events':[],'calls':{},'nested_methods':{},
+        'nested_timings_overlap':True,'CPU_clock':'time.thread_time'}
+    frames=threading.local()
     target=evidence/('organ-capacity-'+str(total)+'-phases.private.json')
     def write(event):
         assert len(journal['events'])<256
+        if event['method']=='_item' and event['phase']=='end':
+            event['nested_snapshot']=deepcopy(journal['nested_methods'])
         journal['events'].append(event)
         temporary=target.with_suffix('.tmp')
         with temporary.open('w') as stream:
@@ -110,6 +115,39 @@ def observe_catalogue(monkeypatch,evidence,total):
         return observed
     for name in ('_registration','_rows','_item'):
         monkeypatch.setattr(OrganCropResultCatalog,name,wrap(name,getattr(OrganCropResultCatalog,name)))
+    def track(label,method):
+        @wraps(method)
+        def observed(*args,**kwargs):
+            stat=journal['nested_methods'].setdefault(label,{'calls':0,'completed':0,'errors':0,
+                'inclusive_wall_seconds':0.,'exclusive_wall_seconds':0.,
+                'inclusive_thread_CPU_seconds':0.,'exclusive_thread_CPU_seconds':0.})
+            stat['calls']+=1
+            if not hasattr(frames,'stack'):frames.stack=[]
+            frame={'wall':time.monotonic(),'cpu':time.thread_time(),'child_wall':0.,'child_cpu':0.}
+            frames.stack.append(frame)
+            try:
+                return method(*args,**kwargs)
+            except Exception:
+                stat['errors']+=1
+                raise
+            finally:
+                elapsed=time.monotonic()-frame['wall']
+                cpu=time.thread_time()-frame['cpu']
+                assert frames.stack.pop() is frame
+                stat['completed']+=1
+                stat['inclusive_wall_seconds']+=elapsed
+                stat['inclusive_thread_CPU_seconds']+=cpu
+                stat['exclusive_wall_seconds']+=elapsed-frame['child_wall']
+                stat['exclusive_thread_CPU_seconds']+=cpu-frame['child_cpu']
+                if frames.stack:
+                    frames.stack[-1]['child_wall']+=elapsed
+                    frames.stack[-1]['child_cpu']+=cpu
+        return observed
+    for owner,names in ((CropResultStore,('get','_find','_checked','_request','_current','_references')),
+            (FarmAuthoringService,('read_registration',))):
+        for name in names:
+            monkeypatch.setattr(owner,name,track(owner.__name__+'.'+name,getattr(owner,name)))
+    return started
 
 
 def exercise(setup,tls,tmp_path,monkeypatch,total):
@@ -148,9 +186,10 @@ def exercise(setup,tls,tmp_path,monkeypatch,total):
         progress('normal_producer_preparation')
     preparation_seconds=time.monotonic()-preparation
     diagnostic=os.environ.get('OSSF_ORGAN_CAPACITY_DIAGNOSTIC')=='1'
+    diagnostic_started=None
     if diagnostic:
         assert total==20
-        observe_catalogue(monkeypatch,evidence,total)
+        diagnostic_started=observe_catalogue(monkeypatch,evidence,total)
     jobs,replay=store.jobs,store.farms.replay
     research,holds=replay.owned_research,replay.thermal.holds
     cert,key,_=tls
@@ -230,6 +269,8 @@ def exercise(setup,tls,tmp_path,monkeypatch,total):
             deadline=began+30
             conn=http.client.HTTPSConnection('127.0.0.1',port,context=trust,timeout=30)
             observation={'path':path,'expected_status':expected}
+            if diagnostic_started is not None:
+                observation['since_diagnostic_start_seconds']=began-diagnostic_started
             observations.append(observation)
             try:
                 conn.connect()

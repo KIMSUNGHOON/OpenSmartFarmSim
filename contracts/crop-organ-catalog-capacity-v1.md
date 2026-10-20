@@ -37,3 +37,7 @@ hosted 성공은 보호5root를 포함한 WSL 동시 용량을 해제하지 않�
 기존 `_registration`/`_rows`/`_item`의 호출 시작/끝과 시간·개수만 계측한다.
 원 producer·SQL·현재 검사·요청/자원 상한을 유지하고 원본/토큰을 기록하지 않는다.
 관측 오버헤드가 있으므로 계측 실행은 정상 용량 수용으로 쓰지 않는다.
+항목 내부의 다음 관측은 원 store의 get/find/checked/request/current/references와
+원 farm read_registration 호출을 그대로 수행하며 완료/오류 개수·wall/thread CPU를 집계한다.
+포함 시간은 중첩되므로 합산하지 않는다. 호출 스택에서 계측한 자식 시간을 뺀 exclusive 시간도 따로 기록한다.
+항목 완료 시의 집계 snapshot과 HTTP 시작 offset을 보존해 client timeout 전 관측과 그 뒤 작업을 구분한다.
