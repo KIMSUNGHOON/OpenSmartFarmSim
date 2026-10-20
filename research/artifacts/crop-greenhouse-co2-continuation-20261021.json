@@ -1,0 +1,166 @@
+{
+  "version": "crop-greenhouse-co2-continuation-acceptance-v1",
+  "recorded_at": "2026-10-20T18:44:33.168154+00:00",
+  "model_version": "joint-co2-solar-continuation-research-v1",
+  "checkpoint_version": "joint-co2-solar-checkpoint-v1",
+  "state_schema": "crop-solar-co2-stage-state-v1",
+  "test_count": 122,
+  "original_program_cases": 10,
+  "reference_duration_seconds": 32,
+  "chunk_budgets": [
+    1,
+    2,
+    3,
+    7,
+    128
+  ],
+  "exact_case_budget_pairs": 50,
+  "accepted_convergence_grids_preserved": 9,
+  "fresh_Python_restore_next_indices": [
+    0,
+    1,
+    4,
+    5,
+    8,
+    9,
+    16,
+    17
+  ],
+  "fresh_restore_no_historical_steps_events_or_forcing": true,
+  "fresh_actual_RHS_call_formula": "1 restore + chunks validation + 5 remaining_intervals + 2 remaining_events + remaining_noninitial_forcing_changes",
+  "standalone_restore_actual_current_RHS_calls": 1,
+  "state_count": 109,
+  "continuous_ledger_count": 44,
+  "event_total_count": 6,
+  "global_balance_count": 17,
+  "identity_mutations_rejected": 11,
+  "checkpoint_mutations_rejected": 20,
+  "invalid_budget_cases": 7,
+  "external_JSON_cases": 7,
+  "maximum_fixture": {
+    "forcing_rows": 512,
+    "selected_outputs": 512,
+    "events": 128,
+    "step_count": 512,
+    "duration_seconds": 32,
+    "chunks": 5,
+    "asserted_context_byte_limit": 2097152,
+    "asserted_checkpoint_byte_limit": 65536
+  },
+  "same_final_checkpoint_bytes_for_all_budgets": true,
+  "native_CLI_review": {
+    "decision_id": "co2-joint-continuation-20261021-v1",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "native_turn_context": {
+      "timestamp": "2026-10-20T18:35:40.558Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "event_line_sha256": "1fe61b7d43fa2709d83ec83fed36903b296a14f4526ec7add1b6b99a7fc628b5"
+    },
+    "session_creation_metadata": {
+      "source": "vscode",
+      "cli_version": "0.157.1",
+      "model_provider": "openai"
+    },
+    "creation_version_not_current_binary_measurement": true,
+    "no_recursive_CLI": true
+  },
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_continuation.py": "8d1af52f22c872e5391fe9bdaa7adefbd8996dc73ea91e0e7732f28880a84ee2",
+    "backend/tests/test_crop_greenhouse_co2_continuation.py": "46f28f5640c327ea45cd2891461d4cd86facc923d11e71befe70186b4711e35e",
+    "contracts/crop-greenhouse-co2-continuation-v1.md": "7d4d92f0686ffc8b9b0d5f069ba35e8fa4e811b6798caf5f396b00b5bbb49ae0",
+    "backend/app/crop_greenhouse_co2_program.py": "564364697d4e21b8dc949c01f91de1634c137ba43a552731d34ee80859447a0e",
+    "backend/app/crop_greenhouse_co2_integration.py": "4774ca49e6c26cd64b7810d1d38b775fcda1a3302cd8f39b7122bf6faae6a2d9",
+    "backend/app/crop_greenhouse_co2_management.py": "bfc01cc5af5d73a26f25c646b531f7ff3d6de006adda245927a146d8d6cdbdb8",
+    "backend/app/crop_climate_joint_continuation.py": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+    "fixtures/crop-greenhouse-co2-program-reference-cases-v1.json": "da09f6ff833d5c079b9bc48a2e06494fbec1fd123884881c2db146df60b69269"
+  },
+  "RED": {
+    "result": "module absent; not numerical counterexample",
+    "terminal": {
+      "actual_child_exit": 1,
+      "wall_seconds": 0.8537376730237156,
+      "combined_peak_RSS_bytes": 635518976,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 3,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "849b7d9f2cca79fdcdbf84cd3b36eaaa9643b074f933449403e1f73e0504f022",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "GREEN": {
+    "result": "122 passed in74.05s",
+    "tested_contract_sha256": "23fe5078e8dc118be0d83c5e775cdd284f6ab87585cdd955286f5ecbd0b65671",
+    "terminal": {
+      "actual_child_exit": 0,
+      "wall_seconds": 74.5807280529989,
+      "combined_peak_RSS_bytes": 802992128,
+      "single_PID_peak_RSS_bytes": 208478208,
+      "RSS_samples": 290,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "2d9e0e11371b878af3e7073543387f2894216967dc87655bbeb8418b26cd1fa7",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "original_program_models_profiles_results_changed": false,
+  "not_run": [
+    "UTC binding",
+    "signed custody/farm/current rights binding",
+    "full crop cycle",
+    "saved109-state result/API/3D",
+    "whole-product CI/browser/DB",
+    "actual farm/forecast/ranking/deployment"
+  ],
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "next_child": "co2-utc-binding",
+  "development_status_publication": {
+    "reported_at": "2026-10-20T18:45:38.366582Z",
+    "sha256": "bd50351921af8001baf84035fc703bec9130327c27151c48c107fdcbc05209b1",
+    "both_ports_HTTP_200_same_bytes_no_store": true,
+    "frozen_HTML_both_preserved": true,
+    "ventilation_frozen_source_files_preserved": 2173,
+    "guard_wall_seconds": 0.33798579999711365,
+    "guard_combined_RSS_bytes": 585043968,
+    "browser_DOM_rerun": false,
+    "new_CO2_model_deployed": false
+  }
+}

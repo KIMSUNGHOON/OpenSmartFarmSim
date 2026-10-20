@@ -12,7 +12,9 @@
 [관리 전이35검사](../contracts/crop-greenhouse-co2-management-v1.md)는9제거×wet/dry의109상태와10수지·
 실제 전후 Solar/CO₂ 및 독립16초→사건→16초를 대사했다.
 [환경/관리 program37검사](../contracts/crop-greenhouse-co2-program-v1.md)는 독립10개32초/8,556수치·96수렴/
-17전역 수지와512환경/512출력·128사건·실패 prefix/자원 보존을 수용했다. 다음은 continuation이다.
+17전역 수지와512환경/512출력·128사건·실패 prefix/자원 보존을 수용했다.
+[중간 재개122검사](../contracts/crop-greenhouse-co2-continuation-v1.md)는10프로그램×5예산의 상태/장부/
+최종 bytes 정확 일치와8개 fresh 복원의 과거 계산0·자원/원5root 보존을 확인했다. 다음은 UTC 결속이다.
 새 저장/API/3D와 실제 품종/농장·관문은 후속이며 기공 단위는 별도 hold다.
 필요한 계산 근거·권리를 대사했으며 UI 용량을 이 계산 개발의 선행으로 추가하지 않는다.
 기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.
