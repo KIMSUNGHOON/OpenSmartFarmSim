@@ -16,9 +16,14 @@ on:
         type: boolean
         default: false
       solar_query_scope_cost:
-        description: With unpaused_solar, evaluate the query registration scope candidate only (no normal acceptance)
+        description: With unpaused_solar, run only the selected query scope evaluation (no normal acceptance)
         type: boolean
         default: false
+      solar_query_scope_mode:
+        description: Candidate cost comparison or product regressions; product mode never repeats the cost trial
+        type: choice
+        default: candidate-cost
+        options: [candidate-cost, product-regression]
       solar_worker_diagnostics_detail:
         description: Diagnostic detail only; worker observes exceptions/outcome without farm phase journals
         type: choice
@@ -95,7 +100,7 @@ jobs:
           if-no-files-found: error
 
   unpaused_solar:
-    name: ${{ inputs.solar_query_scope_cost && 'Solar query scope cost (no acceptance)' || inputs.solar_worker_diagnostics && 'Solar worker progress diagnostic (no acceptance)' || 'independent normal Solar execution' }}
+    name: ${{ inputs.solar_query_scope_cost && 'Solar query scope evaluation (no normal acceptance)' || inputs.solar_worker_diagnostics && 'Solar worker progress diagnostic (no acceptance)' || 'independent normal Solar execution' }}
     if: github.event_name == 'workflow_dispatch' && inputs.unpaused_solar
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -103,6 +108,7 @@ jobs:
       OSSF_SOLAR_TRACE_WORKER: ${{ inputs.solar_worker_diagnostics && '1' || '0' }}
       OSSF_SOLAR_DIAGNOSTIC_DETAIL: ${{ inputs.solar_worker_diagnostics_detail || 'phases' }}
       OSSF_SOLAR_QUERY_SCOPE_COST: ${{ inputs.solar_query_scope_cost && '1' || '0' }}
+      OSSF_SOLAR_QUERY_SCOPE_MODE: ${{ inputs.solar_query_scope_mode || 'candidate-cost' }}
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONMALLOC: malloc
       MALLOC_ARENA_MAX: '2'
@@ -172,6 +178,13 @@ jobs:
             ${{ runner.temp }}/solar-unpaused-evidence/query-scope/functional/*.json
             ${{ runner.temp }}/solar-unpaused-evidence/query-scope/cost/*.json
             ${{ runner.temp }}/solar-unpaused-evidence/query-scope/cost/cost-journal.jsonl
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-pair/query-current-*.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-pair/database-cleanup.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-pair/summary.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-query/database-cleanup.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-query/summary.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-prefix/database-cleanup.json
+            ${{ runner.temp }}/solar-unpaused-evidence/query-scope/product-prefix/summary.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: ignore

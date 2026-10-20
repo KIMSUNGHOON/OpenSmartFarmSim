@@ -1,6 +1,6 @@
 # Query registration scope candidate — local evidence and hosted evaluation
 
-Status: private functional candidate verified; actual HTTPS cost remains unproven.
+Status: isolated functional/HTTPS candidate accepted; final product regressions pending.
 [Contract](../contracts/solar-query-current-registration-scope-v1.md) · [machine evidence](artifacts/solar-query-current-registration-scope-local-20261020.json).
 
 ## Local verification
@@ -21,7 +21,7 @@ the test harness; those failed runs are not counted. The module-wide run hit the
 RSS limit and is excluded. Collection confirmed the full parameterized IDs before
 the separate accepted runs.
 
-## HTTPS cost is still open
+## Local HTTPS interruption
 
 The original CASE6/64, output0..64/8, chunk1 preparation reached the selected
 yielded27 checkpoint. During the first baseline HTTPS sequence the local guard
@@ -56,3 +56,51 @@ G0–G4 remain incomplete. No final completion date is established.
 Native Codex CLI gpt-6.1-sol/xhigh performed this design/review in the existing
 session; context/output hashes are recorded privately and linked by the machine
 evidence. No recursive CLI or agent was launched.
+
+## Hosted result and product verification in progress
+
+[CI39374833479](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39374833479),
+source bd34870/attempt1/job118470536214, completed successfully.
+[Curated machine evidence](artifacts/solar-query-current-registration-scope-hosted-20261020.json)
+passed source/run/job/artifact digest and fresh-read/response/cleanup reconciliation.
+The single valid trial reduced wall time by20.820873%/20.293176% (weighted20.558366%).
+ABBA sequences took19.649952/15.558660/15.503935/19.451202seconds. Each preserved
+3,344 fresh sources in the same order,22 full-current calls and7 storage loads.
+Registration reconstructions34→18, physical connections202→26, SQL20,618→17,402
+and role audits826→586 match the inherited per-pair scope; no ACL result cache was
+added. Only each response's root observation timestamp was normalized. Every
+other value/count/model UTC, selected27 prefix, original checkpoint and DB digest
+remained equal. Numerical/CLI/data SQL mutations on GET were0.
+
+The hosted controller finished in285.249836seconds, peak PID155,516,928bytes/
+total233,709,568bytes, FD7→7, owned/temp remainder0 and unchanged application source.
+The two phases passed11 functional cases and1 cost comparison on Python3.12.13.
+Local curation preserved all5 roots/originals/two UIs with no remainder. This
+proves the isolated candidate, not normal64 throughput or WSL combined capacity.
+
+The product `_current` now has an AST identical to the evaluated candidate. Its
+paired scope closes before the original final guard. Same-product verification
+is pending: the11 new ownership/late-change cases plus original count/UTC/heartbeat/
+new-attempt, source/rights/serialization, pending/lock/binding/projection and
+prefix cancellation/late-registration regressions (29 collected cases total).
+No product acceptance checkbox or new deployment has been granted yet.
+
+## Product local20 and hosted regression selection
+
+The changed product passed all11 new scope cases and9 pure closed-schema cases
+in separate guarded processes. The next original count/UTC/heartbeat/new-attempt
+case hit the original1GiB total limit after45.894001seconds at1,075,912,704bytes.
+It is not accepted; this is a resource interruption, not a failed numerical or
+rights assertion. [Local evidence](artifacts/solar-query-current-registration-scope-product-local-20261020.json)
+preserves the20 passes and excluded interrupted case. Every protected root,
+original source and old UI remained live/preserved; owned process/PG remainder0.
+
+The hosted job now also selects `solar_query_scope_mode=product-regression` with
+the same two enabling booleans. It executes only the actual product's29 cases in
+three independently cleaned modules (11 pair,16 query,2 prefix) under the same
+600seconds/512MiB/1GiB limits. It does not install the private candidate or invoke
+the cost test. Product mode first compares the actual function AST with the
+evaluated candidate. Candidate-cost mode requires the original application tree,
+so the changed product cannot accidentally repeat the original cost experiment.
+The valid cost trial remains CI39374833479; it is never replaced by this regression
+run. Same-source product acceptance and original normal64 remain pending.

@@ -1,0 +1,187 @@
+{
+  "DB_unchanged": true,
+  "G0_G4": "not_assessed",
+  "GET_data_SQL_writes_numerics_CLI": 0,
+  "all_other_public_fields_values_counts_modelUTC_equal": true,
+  "archive_downloaded_once": true,
+  "artifact": {
+    "archive_download_url": "https://api.github.com/repos/KIMSUNGHOON/OpenSmartFarmSim/actions/artifacts/12243212452/zip",
+    "created_at": "2026-10-20T05:33:03Z",
+    "digest": "sha256:e99f79e2847a9bfb60d51076e99da333fb47b1dbc799154d0f6807ae0c470d60",
+    "expired": false,
+    "expires_at": "2026-10-23T05:33:02Z",
+    "id": 12243212452,
+    "name": "solar-query-scope-cost-bd34870ad95c0a8eb4516417dda6fa736c1f609f",
+    "node_id": "MDg6QXJ0aWZhY3QxMjI0MzIxMjQ1Mg==",
+    "size_in_bytes": 23606,
+    "updated_at": "2026-10-20T05:33:03Z",
+    "url": "https://api.github.com/repos/KIMSUNGHOON/OpenSmartFarmSim/actions/artifacts/12243212452",
+    "workflow_run": {
+      "head_branch": "ci/solar-unpaused-normal-20261017",
+      "head_repository_id": 1389928741,
+      "head_sha": "bd34870ad95c0a8eb4516417dda6fa736c1f609f",
+      "id": 39374833479,
+      "repository_id": 1389928741
+    }
+  },
+  "computed_through_utc": "2026-10-01T00:00:54.123456Z",
+  "conclusion": "success",
+  "cost_criterion_met": true,
+  "curation": {
+    "case": "focused-solar-query-scope-hosted-curation-v1",
+    "observation_SHA256": "030c2f2e1804769fefbb8f9c8e0a033a4f0d1e6ff3eb2d3751ae7bafd823acb0",
+    "terminal_SHA256": "5fdbb889d34f952e0341625b4ad58cbf8380ce123164c35b1819968e26890fdc",
+    "verifier_SHA256": "ea086745c53b1a617d83f744b86d8f626125be6d35348d0dbfeda5bbccf1c6e0"
+  },
+  "functional_cases_accepted": 11,
+  "head_sha": "bd34870ad95c0a8eb4516417dda6fa736c1f609f",
+  "job_conclusion": "success",
+  "job_id": 118470536214,
+  "mean_reduction_pct": 20.5583657304388,
+  "new_Solar_deployed": false,
+  "normal64_accepted": false,
+  "normal64_and_WSL_capacity_not_accepted": true,
+  "original_checkpoint_SHA256": "0373d1432d52512efbdd98d42269c99de0d03b2439b14a0bf43ad2520fe85206",
+  "paired_reduction_pct": [
+    20.82087315745899,
+    20.293176038426004
+  ],
+  "product_adopted": false,
+  "raw_file_SHA256": {
+    "cost/cost-journal.jsonl": "9392238aa34111b4c11c96994bba8c29f0497228fece8bb5cd3bd33ec257e772",
+    "cost/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+    "cost/query-current-scope-actual-HTTPS-ABBA.json": "2d2f4291a774af26166d8642b6ef1a259b27ea4fe66eafbf176a98287231324a",
+    "functional/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+    "functional/query-current-late-copied_context.json": "e580cbedb65c0cf3fb355ea054aa53d5c944ab35a6b99dfaf57374b4f8a6fa73",
+    "functional/query-current-late-grant.json": "e580cbedb65c0cf3fb355ea054aa53d5c944ab35a6b99dfaf57374b4f8a6fa73",
+    "functional/query-current-late-principal.json": "e580cbedb65c0cf3fb355ea054aa53d5c944ab35a6b99dfaf57374b4f8a6fa73",
+    "functional/query-current-late-read_error.json": "e580cbedb65c0cf3fb355ea054aa53d5c944ab35a6b99dfaf57374b4f8a6fa73",
+    "functional/query-current-late-research.json": "e580cbedb65c0cf3fb355ea054aa53d5c944ab35a6b99dfaf57374b4f8a6fa73",
+    "functional/query-current-late-scope.json": "e580cbedb65c0cf3fb355ea054aa53d5c944ab35a6b99dfaf57374b4f8a6fa73",
+    "functional/query-current-late-snapshot.json": "e580cbedb65c0cf3fb355ea054aa53d5c944ab35a6b99dfaf57374b4f8a6fa73",
+    "functional/query-current-late-source.json": "e580cbedb65c0cf3fb355ea054aa53d5c944ab35a6b99dfaf57374b4f8a6fa73",
+    "functional/query-current-pair-false.json": "e1c2716d35ae2f14cda2606e18bfafc746854374c3598f4a62b1791fee745a15",
+    "functional/query-current-pair-true.json": "2c2d43647303c5a0ad875607fe6aacdc5e5c4184b02ca2d68d76584cb3523c9d",
+    "provenance.json": "65bd9d0e57ef1793d8ac21c396d4c4a903663be5fda3e49b085f2ff94534c994",
+    "resource.json": "b43d28093c25befee9b54c1220cb4b9d7c9bf5c35842825daa5a39752bbf386b"
+  },
+  "resource": {
+    "FD_before_after": [
+      7,
+      7
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 1098,
+    "WSL_capacity_accepted": false,
+    "application_source_preserved": true,
+    "combined_peak_RSS_bytes": 233709568,
+    "hosted_only": true,
+    "new_Solar_deployed": false,
+    "normal64_accepted": false,
+    "owned_non_zombie_remaining": [],
+    "phase_exits": {
+      "cost": 0,
+      "functional": 0
+    },
+    "product_adopted": false,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 155516928,
+    "temporary_entries_before_cleanup": 0,
+    "wall_seconds": 285.24983562299997
+  },
+  "rows": [
+    {
+      "SQL_calls": 20618,
+      "fresh_storage_load_calls": 7,
+      "fresh_storage_load_order_SHA256": "a6d48d16e51608084a9b7ddd16286eb307110a5913b760b331fda5a96a965823",
+      "full_current_calls": 22,
+      "full_current_order_SHA256": "976b477ff3966e546a64cfc5817b320bbe706c1d91c5eb11e22e6c6a29085b82",
+      "metrics": {
+        "physical_connections": 202,
+        "registration_reconstructions": 34,
+        "role_audits": 826
+      },
+      "mode": "baseline",
+      "ordered_sources_SHA256": "21ac400552dd97a45e1581b61799f8b0416e9587a85617125acc9be401e032f9",
+      "source_count": 3344,
+      "stable_response_SHA256": {
+        "prefix": "a5f9083ed819ce080aeb762aca0add63d78f151452dcc450da4e97dddc60500e",
+        "progress": "56ff1c8b37e7d5f3b4d72b10543752e4f2a9497d049bd080c35d7a058150b48c",
+        "samples": "75e8e5fe8cd73d625ff6c136eb8e2e0abd673d265a98b803e9a53cf50b64d6ae"
+      },
+      "wall_ns": 19649951705
+    },
+    {
+      "SQL_calls": 17402,
+      "fresh_storage_load_calls": 7,
+      "fresh_storage_load_order_SHA256": "a6d48d16e51608084a9b7ddd16286eb307110a5913b760b331fda5a96a965823",
+      "full_current_calls": 22,
+      "full_current_order_SHA256": "976b477ff3966e546a64cfc5817b320bbe706c1d91c5eb11e22e6c6a29085b82",
+      "metrics": {
+        "physical_connections": 26,
+        "registration_reconstructions": 18,
+        "role_audits": 586
+      },
+      "mode": "candidate",
+      "ordered_sources_SHA256": "21ac400552dd97a45e1581b61799f8b0416e9587a85617125acc9be401e032f9",
+      "source_count": 3344,
+      "stable_response_SHA256": {
+        "prefix": "a5f9083ed819ce080aeb762aca0add63d78f151452dcc450da4e97dddc60500e",
+        "progress": "56ff1c8b37e7d5f3b4d72b10543752e4f2a9497d049bd080c35d7a058150b48c",
+        "samples": "75e8e5fe8cd73d625ff6c136eb8e2e0abd673d265a98b803e9a53cf50b64d6ae"
+      },
+      "wall_ns": 15558660185
+    },
+    {
+      "SQL_calls": 17402,
+      "fresh_storage_load_calls": 7,
+      "fresh_storage_load_order_SHA256": "a6d48d16e51608084a9b7ddd16286eb307110a5913b760b331fda5a96a965823",
+      "full_current_calls": 22,
+      "full_current_order_SHA256": "976b477ff3966e546a64cfc5817b320bbe706c1d91c5eb11e22e6c6a29085b82",
+      "metrics": {
+        "physical_connections": 26,
+        "registration_reconstructions": 18,
+        "role_audits": 586
+      },
+      "mode": "candidate",
+      "ordered_sources_SHA256": "21ac400552dd97a45e1581b61799f8b0416e9587a85617125acc9be401e032f9",
+      "source_count": 3344,
+      "stable_response_SHA256": {
+        "prefix": "a5f9083ed819ce080aeb762aca0add63d78f151452dcc450da4e97dddc60500e",
+        "progress": "56ff1c8b37e7d5f3b4d72b10543752e4f2a9497d049bd080c35d7a058150b48c",
+        "samples": "75e8e5fe8cd73d625ff6c136eb8e2e0abd673d265a98b803e9a53cf50b64d6ae"
+      },
+      "wall_ns": 15503935323
+    },
+    {
+      "SQL_calls": 20618,
+      "fresh_storage_load_calls": 7,
+      "fresh_storage_load_order_SHA256": "a6d48d16e51608084a9b7ddd16286eb307110a5913b760b331fda5a96a965823",
+      "full_current_calls": 22,
+      "full_current_order_SHA256": "976b477ff3966e546a64cfc5817b320bbe706c1d91c5eb11e22e6c6a29085b82",
+      "metrics": {
+        "physical_connections": 202,
+        "registration_reconstructions": 34,
+        "role_audits": 826
+      },
+      "mode": "baseline",
+      "ordered_sources_SHA256": "21ac400552dd97a45e1581b61799f8b0416e9587a85617125acc9be401e032f9",
+      "source_count": 3344,
+      "stable_response_SHA256": {
+        "prefix": "a5f9083ed819ce080aeb762aca0add63d78f151452dcc450da4e97dddc60500e",
+        "progress": "56ff1c8b37e7d5f3b4d72b10543752e4f2a9497d049bd080c35d7a058150b48c",
+        "samples": "75e8e5fe8cd73d625ff6c136eb8e2e0abd673d265a98b803e9a53cf50b64d6ae"
+      },
+      "wall_ns": 19451201983
+    }
+  ],
+  "run_attempt": 1,
+  "run_id": 39374833479,
+  "same_selected_yielded_step": 27,
+  "status": "completed",
+  "valid_cost_trial": true,
+  "volatile_fields": [
+    "/observed_at (root of each of progress,prefix,samples)"
+  ]
+}

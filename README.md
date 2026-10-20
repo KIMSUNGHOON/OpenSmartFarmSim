@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**조회 범위 후보의 실제 HTTPS 비용 수용 — 2026-10-20 KST:** [한 번의 호스팅 비교](research/solar-query-current-registration-scope-evaluation-20261020.md#hosted-result-and-product-verification-in-progress)에서 양짝20.820873%/20.293176%·평균20.558366% 감소와 원 값/UTC·3,344 fresh source·22 current/7 storage 순서를 확인했다. 제품 한 함수에 같은 AST를 적용했고 로컬20검사를 통과했다. 다음 UTC/heartbeat 회귀는 원 RSS 한도로 미수용이며 비용 재실행 없는 호스팅29 제품 회귀를 준비했다. 정상64→hold/취소→계산 중WebGL→WSL 적용·새 Solar/실제 자료·관문·최종 UI와 전체 날짜는 미완료/미정·goal active다.
+
 **API 요청별 실제 관측 완료 — 2026-10-20 KST:** [CI39369990827·24요청/서버 구간 대사](research/solar-api-request-cost-observation-20261020.md)에서 원360초 미완료·마지막 confirm27/64, 성공 prefix/samples의 current6·원천912·약14–16초를 확인했다. observer11/두 Python판과 원 actor/hash·종료/정리는 수용했으며 정상64는 미수용이다. 다음은 [query의 한 현재 검사 안 등록 scope 후보](contracts/solar-query-current-registration-scope-v1.md)다. 제품 app261·기존 두 UI 유지·새 Solar/실제 자료·관문/최종 UI와 전체 날짜는 미완료/미정·goal active다.
 
 아래 날짜별 기록은 당시 상태다.

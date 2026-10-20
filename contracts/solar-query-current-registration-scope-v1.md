@@ -1,7 +1,7 @@
 # Solar query current-registration scope — v1 candidate
 
 Status: proposed from the [actual API request observation](../research/solar-api-request-cost-observation-20261020.md).
-No production implementation or cost acceptance. Reuses the existing
+Isolated cost/functional evaluation passed; production verification is pending. Reuses the existing
 [registration read scope](farm-registration-read-scope-v1.md),
 [connection lifetime](farm-registration-connection-lifetime-v1.md) and accepted
 checkpoint `_current` ownership pattern.
@@ -76,3 +76,10 @@ and exports only curated diagnostic evidence. It changes no application source,
 original normal actor or acceptance threshold. A passing diagnostic still does
 not accept normal64, WSL capacity, product adoption, new Solar deployment or any
 claim gate. Preserve a valid failed cost result without selecting another trial.
+
+For final product regressions, select `solar_query_scope_mode=product-regression`.
+This mode runs29 actual-product cases (11 pair/16 query/2 prefix), checks the
+product/candidate function AST, and never invokes the valid cost experiment.
+Candidate-cost mode requires the original application tree. Product local20
+passed, while the next UTC/heartbeat case was interrupted by the original RSS
+limit and remains unaccepted; hosted regression evidence is still required.

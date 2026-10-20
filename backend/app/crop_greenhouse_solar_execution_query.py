@@ -1,6 +1,6 @@
 """Read confirmed joint job progress without calculating or accepting checkpoints."""
 from copy import deepcopy
-from contextlib import contextmanager, ExitStack
+from contextlib import contextmanager, ExitStack, nullcontext
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
@@ -93,7 +93,12 @@ class SolarExecutionQuery:
     def _current(self, tenant, value, raw, binding_raw):
         self._guard(tenant)
         directory, evidence = self.checkpoints.admission._resolve(tenant, value['request'])
-        self.server.binding.current(tenant, raw, directory, evidence, binding_raw, write=False)
+        farms = self.server.binding.farms
+        ref = value['request']['farm']
+        scope = (farms.registration_read_scope(tenant, ref['scenario_id'], ref['scenario_revision'],
+            ref['registration_sha256']) if farms._registration_read.get() is None else nullcontext())
+        with scope:
+            self.server.binding.current(tenant, raw, directory, evidence, binding_raw, write=False)
         self._guard(tenant)
 
     def _bundle(self, conn, tenant, job_id):
