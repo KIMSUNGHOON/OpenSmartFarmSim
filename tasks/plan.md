@@ -1,6 +1,6 @@
 # 구현 순서
 
-## 현재 다음 실행 — 2026-10-20
+## 현재 다음 실행 — 2026-10-21
 
 **전체 goal 일정 재확인 — 2026-10-20:** 전체 완료일은 아직 산정할 수 없다.
 `organ_v1` SDK→선택→기존 재생의 소프트웨어 연결 검증/정리를 CI 대기 때
@@ -31,7 +31,7 @@ HTML/진행 JSON의200으로 보호 API의 정상 동작을 대신하지 않는�
    재시작/권리 브라우저는 같은 원 ID/UTC·생장/수확 동시 제거·복구,
    요청 수/원 DB·서명 불변과 종료/정리가 별도 수용 조건이다.
    원5root/512MiB·합1GiB/600초를 유지하며 건강한 서비스를 시험 때문에 재시작하지 않는다.
-2. **다음 작은 작업 — 기관의 실제 원 저장 API/DB→현재 App 연결:** [기관 서버/보호 API](../research/organ-catalog-server-api-20261020.md)는
+2. **다음 작은 작업 — 기관20결과/큰 packet의 실제 HTTPS 목록 용량:** [기관 서버/보호 API](../research/organ-catalog-server-api-20261020.md)는
    고유295회귀·실제 SCRAM3결과/표준 HTTPS 새7응답·원 row/RHS0·5root/자료/상한/정리로 수용했다.
    [닫힌 SDK→picker/기존 기관 재생](../research/organ-catalog-web-20261020.md)은
    원 HTTPS metadata7본문·집중136·전체 웹1,886/256과 같은 minified native7관측으로 수용했다.
@@ -46,6 +46,11 @@ HTML/진행 JSON의200으로 보호 API의 정상 동작을 대신하지 않는�
    native 최종 protocol/종료 대기120초로 미수용이다. 같은 한도/소유 정리를 보존했고 단계 기록·동작 제한을 보완한 CI39441263299를 추적한다.
    [후속 관측](../research/organ-native-observer-recovery-20261021.md)에서10화면/17성공 body 뒤 오류 본문 관측2개의 대기를 확인했다.
    SDK가 소비한 성공 원 body와 거부 헤더를 명시적으로 구분한 source92c6456/CI39444301162가 현재 실행이다.
+   **최종 hosted 수용:** [같은 실행의 실제19응답/10장면](../research/organ-native-integration-20261021.md)은
+   성공17본문/SHA/실제 SDK 소비·권리/계정·numeric hold·원 row/DB/서명·조회 계산/쓰기0과
+   native0/57.591821초·합707,407,872bytes·소유 정리로 수용했다. 위 두 실패는 이력이다.
+   다음은 같은 정상 producer의20개/큰 packet 크기를 기록하고 원30초/64KiB/자원/권리와 불변성을
+   실제 HTTPS로 대사하는 작은 용량 자식이다. 검증한 크기를 미검증64MiB 상한이나 WSL 동시 WebGL 수용으로 확대하지 않는다.
    기존 30초 요청 제한의 실제20건/큰 packet·보존 CODE·minified App/원 UTC3D/권리와 사용자 적용이 남는다.
    [개발 기록 접근 동작](../research/catalog-development-disclosure-20261020.md)은
    웹1,864/250·동일 minified native3상태/키보드2조건·합907,010,048bytes/5root 보존으로 수용했다.

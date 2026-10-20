@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 작업 — 2026-10-21 KST:** [기관 native 관측기 보완](research/organ-native-observer-recovery-20261021.md)을 진행했다. 두 번째 CI는 웹1,886/256 통과·실제10화면 관측 뒤 SDK가 읽지 않는 오류 본문 관측2개의 대기로 실패했다. 제품 코드는 유지했고 성공 원 body/실제 SDK 소비와 거부 헤더를 구분한 source92c6456/CI39444301162를 추적 중이다. 최종 실제 통합은 미수용이다. 새 UI/Solar 미배포·WSL 동시 용량/역사적 row·원 디자인/기관 family/U1과 생산/자원/경제·독립 자료/관문·전체 완료일은 미완료/미정, goal active다.
+**현재 작업 — 2026-10-21 KST:** [기관 v1 목록의 실제 API/DB/저장3D hosted 통합](research/organ-native-integration-20261021.md)을 수용했다. 웹1,886/256·같은 minified 빌드의 실제 GET19/10장면·성공17본문/SHA/SDK 소비·권리/계정/숫자 보류·원 row/DB/서명과 조회 계산/쓰기0·자원/정리를 확인했다. 실제 농장 검증은 아니다. 다음은 원30초의20결과/큰 packet 목록 용량이다. 새 UI/Solar 미배포·WSL 동시 용량/역사적 row·원 디자인/다른 판본/전체 U1과 생산/자원/경제·독립 자료/관문·전체 완료일은 미완료/미정, goal active다.
 
 **현재 작업 — 2026-10-20 KST:** [fresh JSON 후보28검사/반례3종](research/solar-fresh-input-json-pairs-evaluation-20261020.md)으로 후보를 미채택했고 제품 app261은 유지했다. 다음은 새 Solar normal64와 독립인 [기존 저장 결과 목록→3D 선택의 실제 연결 수용](research/crop-result-catalog-native-readiness-20261020.md)이다. 준비된21건의 원 dump/hash·현재10파일은 대사했으며 실제 DB/브라우저/U1은 미수용이다. 새 Solar 정상46/64 미완료·후속 hold/취소/계산 중3D/WSL·전체 UI/관문/완료일 미정과 goal active를 유지한다.
 

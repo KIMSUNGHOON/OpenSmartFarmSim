@@ -10,16 +10,26 @@
   연결해 farm→crop→organ 선택·원 ID/UTC/탄소/LAI·표/실제 WebGL, 현재 권리 철회/제거·복구를 확인한다.
   mock 응답 없이 실제 GET trace/원 row·payload/hash/서명 불변·조회 계산/쓰기0·원 요청/RSS 상한·5root/정리를 증거로 남긴다.
   기존20건/큰 packet 목록 용량·원 디자인·다른 저장 판본·전체 U1과 사용자 적용은 각각 별도 수용한다.
-  - [ ] **`organ-catalog-hosted-live-browser`** — [실제 통합 시험 계약](../contracts/crop-organ-native-acceptance-v1.md).
+  - [x] **`organ-catalog-hosted-live-browser`** — [실제 통합 시험 계약](../contracts/crop-organ-native-acceptance-v1.md).
     기존 직접 조회의 정상 producer/ApiRuntime을 재사용하고 같은 전체 CI의 minified 빌드를 실제 SCRAM/HTTPS에 연결한다.
     목록→원6시점/표/WebGL·재접속·현재 권리/계정·numeric hold와 원 row/선택한 DB counts·조회 계산/쓰기0,
     원30초·512MiB/PID/합1GiB/600초/.25초·소유 정리를 확인한다. hosted 자식이며 원5root의 WSL 동시 용량,
     역사적 row의 지원 reader/CODE·원 디자인/사용자 적용과 기관 family/U1 전체는 완료하지 않는다.
+    **수용:** [source92c6456/CI39444301162](../research/organ-native-integration-20261021.md)의 웹1,886/256,
+    실제 GET19/10장면·성공17본문/SHA/SDK 소비·거부422/403·원 row/서명/선택 DB counts 불변·조회 계산/쓰기0,
+    native0/57.591821초·합707,407,872bytes·FD6→6/소유 정리를 확인했다. WSL 동시 용량/U1/배포는 별도다.
     [첫 실행/보완 기록](../research/organ-native-integration-progress-20261020.md): 웹1,886/256 통과·native 종료 대기120초 실패,
     자원 한도/소유 정리 보존. source88d766e는 동작30초/단계 기록·최종 protocol을 보완했고 CI39441263299의 실제 결과를 기다린다.
     [두 번째 실패/관측 범위 수정](../research/organ-native-observer-recovery-20261021.md): 웹1,886/256은 통과했다.
     native의10화면 관측 뒤 SDK가 읽지 않는 오류 본문 관측2개가 남아 미수용이다. 성공 원 body/실제 SDK 소비와
     거부 헤더·장면 제거를 구분한 source92c6456/CI39444301162를 추적한다. 원 한도·최종 DB/쓰기 대사 조건은 유지한다.
+  - [ ] **`organ-catalog-20-large-HTTPS-capacity`** — 선행: 기관 서버/API·위 hosted 실제 통합.
+    기존 정상 producer로20개의 합성 원 결과를 만들고 각 packet/합계 bytes와 시점 수를 기록한다.
+    실제 SCRAM/TLS/Bearer 목록 limit20·cursor/원 ID와 metadata64KiB·완료 응답30초,
+    원 payload/hash/서명·현재 권리/거부와 조회 put/integrate/RHS/SQL 쓰기0을 대사한다.
+    큰 packet도 조작한 결과/재서명으로 대신하지 않고 정상 producer로 생성한다. 원5root/자료와
+    512MiB/PID·합1GiB/600초/.25초·소유 정리를 유지하며 검증한 크기와 미검증 상한을 구분한다.
+    실제20건/큰 packet의 완료 증거 전에는 용량/U1을 수용하지 않는다.
 
 - [x] **`product-ui-result-catalog-organ-server-api`** — [기관 v1 서버/보호 API 자식](../research/organ-catalog-server-api-20261020.md).
   고유295회귀·실제 SCRAM3결과/2+1페이지·표준 TLS/SCRAM/Bearer의 새 목록/선택7응답·원 row/hash·

@@ -1,0 +1,946 @@
+{
+  "version": "organ-native-integration-acceptance-v1",
+  "recorded_at": "2026-10-20T15:20:21.295976+00:00",
+  "source_commit": "92c64563b978d88b25de7f3cbea0a29cfcd80fa0",
+  "scope": "hosted new normal synthetic producer / actual SCRAM, verified HTTPS, Bearer, tested minified App catalogue and original saved WebGL integration only",
+  "task_accepted": true,
+  "hosted_actual_API_DB_browser_child_accepted": true,
+  "WSL_capacity_accepted": false,
+  "historical_preserved_row_compatibility_accepted": false,
+  "legacy_family_accepted": false,
+  "U1_accepted": false,
+  "deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "native_CLI_context": {
+    "timestamp": "2026-10-20T11:39:08.896Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_SHA256": "bb8d7c4a3054921f5370418f7b73345bfe514530277af9aece0a3785cafca32c",
+    "recursive_CLI": false
+  },
+  "recursive_CLI": false,
+  "web_CI": {
+    "run": 39444301162,
+    "job": 118702024662,
+    "source_commit": "92c64563b978d88b25de7f3cbea0a29cfcd80fa0",
+    "conclusion": "success",
+    "unit_files": 36,
+    "unit_passed": 1886,
+    "browser_passed": 256,
+    "typecheck_build_audit_passed": true,
+    "log_SHA256": "4e4fe1f05f3c41b78ad1eb8c0ecdc201ff810b111ba1edaffef5baf31aa605c0"
+  },
+  "verified_artifact": {
+    "source_commit": "92c64563b978d88b25de7f3cbea0a29cfcd80fa0",
+    "run": 39444301162,
+    "web_job": 118702024662,
+    "web_conclusion": "success",
+    "native_job": 118707949167,
+    "native_conclusion": "success",
+    "workflow_conclusion": "success",
+    "artifact_id": 12275518105,
+    "artifact_digest": "sha256:4c9fd40c714b591e1be224790891fec0f60f4065093d8c222e2b72a2b31590d1",
+    "ZIP_SHA256": "4c9fd40c714b591e1be224790891fec0f60f4065093d8c222e2b72a2b31590d1",
+    "files": {
+      "solar-tested-build/build-provenance.json": "c9a4664e1a1f95be462d573d2cb5df2dee2dc974b2836592d2fcca2933ec00ea",
+      "organ-native-evidence/organ-mobile-last.private.png": "07fa1f3d233ca27adcfb5b5cf45df55afc178a029dea5fcda1525dc0e2f7aa8a",
+      "organ-native-evidence/native-organ.json": "b73a0fb3da6f59b0a170a58e9a63a7f6b9114c42103db39554f56e5e21f52a81",
+      "organ-native-evidence/browser-progress.private.json": "4bbb6fc1367ed871a0385d43cd0125b604fbcd5b937bfce36647c88199284e2b",
+      "organ-native-evidence/organ-desktop-last.private.png": "58bac1871b74dc14eb295c86420e36e28585f16820a5ea222e68fa2b97e493b0",
+      "organ-native-evidence/resource-organ.json": "1f7486873fe54f0a3dba07de25dd573753263f694900d04c34db1c29f7c37371",
+      "organ-native-evidence/organ-desktop-first.private.png": "990aaa806869b2d4e9aed0615f742615d04bf4ef4b44892aa7f42c0511047aed"
+    },
+    "retrieved_at": "2026-10-20T15:15:25.138820+00:00",
+    "WSL_capacity_accepted": false,
+    "U1_accepted": false,
+    "deployed": false
+  },
+  "native": {
+    "G0_G4": "not_assessed",
+    "HTTPS_server_joined": true,
+    "U1_accepted": false,
+    "WSL_capacity_accepted": false,
+    "actual_API_DB_browser": true,
+    "actual_TLS_SCRAM_Bearer": true,
+    "actual_crop_Runs": 0,
+    "all_response_statuses_matched": true,
+    "browser": {
+      "DPR": 0.5,
+      "U1_accepted": false,
+      "WSL_capacity_accepted": false,
+      "account_denied_and_restored": true,
+      "actual_WebGL": true,
+      "consumed": [
+        {
+          "body_seconds": 0.04189999999999418,
+          "cache": "no-store",
+          "header_seconds": 0.041,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs/catalog",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.356,
+          "cache": "no-store",
+          "header_seconds": 0.3555,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs",
+          "status": 200
+        },
+        {
+          "body_seconds": 1.0188000000000175,
+          "cache": "no-store",
+          "header_seconds": 1.0182000000000115,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog/farm-crops",
+          "status": 200
+        },
+        {
+          "body_seconds": 6.102600000000006,
+          "cache": "no-store",
+          "header_seconds": 6.102200000000011,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.8061999999999825,
+          "cache": "no-store",
+          "header_seconds": 0.8051999999999825,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.03570000000001164,
+          "cache": "no-store",
+          "header_seconds": 0.03520000000001164,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs/catalog",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.344,
+          "cache": "no-store",
+          "header_seconds": 0.34360000000000585,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs",
+          "status": 200
+        },
+        {
+          "body_seconds": 1.019,
+          "cache": "no-store",
+          "header_seconds": 1.0186000000000057,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog/farm-crops",
+          "status": 200
+        },
+        {
+          "body_seconds": 6.1223999999999945,
+          "cache": "no-store",
+          "header_seconds": 6.121899999999994,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.7767000000000116,
+          "cache": "no-store",
+          "header_seconds": 0.7763000000000174,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.7614000000000233,
+          "cache": "no-store",
+          "header_seconds": 0.7609000000000233,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.7749000000000232,
+          "cache": "no-store",
+          "header_seconds": 0.7744000000000233,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A0fb169f6813216b79ac7e9f4e53bffd7e76f69955af6c8bc1e367ec17101ae1c",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.03820000000001164,
+          "cache": "no-store",
+          "header_seconds": 0.03779999999998836,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs/catalog",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.34720000000001167,
+          "cache": "no-store",
+          "header_seconds": 0.34670000000001167,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs",
+          "status": 200
+        },
+        {
+          "body_seconds": 1.0175,
+          "cache": "no-store",
+          "header_seconds": 1.017100000000035,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog/farm-crops",
+          "status": 200
+        },
+        {
+          "body_seconds": 6.233700000000011,
+          "cache": "no-store",
+          "header_seconds": 6.233200000000012,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog",
+          "status": 200
+        },
+        {
+          "body_seconds": 0.7770999999999767,
+          "cache": "no-store",
+          "header_seconds": 0.7765999999999768,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c",
+          "status": 200
+        }
+      ],
+      "current_rights_scene_removed": true,
+      "deployed": false,
+      "error_bodies_not_read_by_SDK": true,
+      "errors": [],
+      "frames": [
+        {
+          "LAI": 0.1161888,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:00:00Z",
+          "carbon_values": 4,
+          "index": 0,
+          "label": "desktop-0",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "43371638d955d414a4264151f663323659438e04c58b33b55f324691991fd37d"
+        },
+        {
+          "LAI": 0.11634135277706101,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:01:00Z",
+          "carbon_values": 4,
+          "index": 1,
+          "label": "desktop-1",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "a5340d697d10580a55e324d302bf07380449710c8e539125ba0d96a1434735dc"
+        },
+        {
+          "LAI": 0.11649390099231513,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:02:00Z",
+          "carbon_values": 4,
+          "index": 2,
+          "label": "desktop-2",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "9f43a23749a457a1891c88e7f1b7a07d81397dae6b7cd4b6a6f02b84e99db791"
+        },
+        {
+          "LAI": 0.11397049148333374,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:03:00Z",
+          "carbon_values": 4,
+          "index": 3,
+          "label": "desktop-3",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "cd131ef1adbce8e72cf023a1ac8fc19fe2acd82721739f10f34c8a4347a2d688"
+        },
+        {
+          "LAI": 0.11410713161656699,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:04:00Z",
+          "carbon_values": 4,
+          "index": 4,
+          "label": "desktop-4",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "ca54e17c054e1d373bfe7d126ddbcad4e5c2a73bcd444addd780e7b433444d29"
+        },
+        {
+          "LAI": 0.11425972729780491,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:05:00Z",
+          "carbon_values": 4,
+          "index": 5,
+          "label": "desktop-5",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "e5886de5a886eeaa6499d08547bb5d2dd2a6b747a8029ea179c8cd1acee718b3"
+        },
+        {
+          "LAI": 0.11425972729780491,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:05:00Z",
+          "carbon_values": 4,
+          "index": 5,
+          "label": "mobile-last",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "e5886de5a886eeaa6499d08547bb5d2dd2a6b747a8029ea179c8cd1acee718b3"
+        },
+        {
+          "LAI": 0.1161888,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:00:00Z",
+          "carbon_values": 4,
+          "index": 0,
+          "label": "reloaded-original",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "43371638d955d414a4264151f663323659438e04c58b33b55f324691991fd37d"
+        },
+        {
+          "LAI": 0.1161888,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:00:00Z",
+          "carbon_values": 4,
+          "index": 0,
+          "label": "rights-restored-original",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "43371638d955d414a4264151f663323659438e04c58b33b55f324691991fd37d"
+        },
+        {
+          "LAI": 0.1161888,
+          "actual_WebGL": true,
+          "at": "2026-10-01T00:00:00Z",
+          "carbon_values": 4,
+          "index": 0,
+          "label": "account-restored-original",
+          "same_original_values_and_UTC": true,
+          "source_sample_SHA256": "43371638d955d414a4264151f663323659438e04c58b33b55f324691991fd37d"
+        }
+      ],
+      "mock_API_used": false,
+      "network": [
+        {
+          "body_SHA256": "a40a9175c6adb587b72e4685d5755d8b39fc6a6e146db956ccd2c473921c9734",
+          "body_observed": true,
+          "body_seconds": 0.044278333000000204,
+          "bytes": 714,
+          "cache_control": "no-store",
+          "header_seconds": 0.040327486000000135,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs/catalog",
+          "status": 200
+        },
+        {
+          "body_SHA256": "2991a2660c038e11e23469aee924b01e6440ec4b1a84275a3a97935375bc7ed7",
+          "body_observed": true,
+          "body_seconds": 0.3566509130000002,
+          "bytes": 683,
+          "cache_control": "no-store",
+          "header_seconds": 0.35457131000000003,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1",
+          "status": 200
+        },
+        {
+          "body_SHA256": "7673b8954b4c00d388192a46667e15ea813c35877224bc394601614df6a83171",
+          "body_observed": true,
+          "body_seconds": 1.020697082,
+          "bytes": 585,
+          "cache_control": "no-store",
+          "header_seconds": 1.018518685,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog/farm-crops?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720",
+          "status": 200
+        },
+        {
+          "body_SHA256": "b66413f1188d298f8cc254fd7d481080fd3685618786c98257b3af093f338306",
+          "body_observed": true,
+          "body_seconds": 6.104329137999999,
+          "bytes": 1091,
+          "cache_control": "no-store",
+          "header_seconds": 6.102170296000001,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1&limit=10",
+          "status": 200
+        },
+        {
+          "body_SHA256": "451cbde158d0a0df93f61b8fc8518c0116dae3451b3dc86652a8b930530d5556",
+          "body_observed": true,
+          "body_seconds": 0.8056722689999988,
+          "bytes": 11355,
+          "cache_control": "no-store",
+          "header_seconds": 0.8037016989999993,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+          "status": 200
+        },
+        {
+          "body_SHA256": "a40a9175c6adb587b72e4685d5755d8b39fc6a6e146db956ccd2c473921c9734",
+          "body_observed": true,
+          "body_seconds": 0.03659842099999878,
+          "bytes": 714,
+          "cache_control": "no-store",
+          "header_seconds": 0.034436423999999535,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs/catalog",
+          "status": 200
+        },
+        {
+          "body_SHA256": "2991a2660c038e11e23469aee924b01e6440ec4b1a84275a3a97935375bc7ed7",
+          "body_observed": true,
+          "body_seconds": 0.344977350000001,
+          "bytes": 683,
+          "cache_control": "no-store",
+          "header_seconds": 0.3432982740000007,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1",
+          "status": 200
+        },
+        {
+          "body_SHA256": "7673b8954b4c00d388192a46667e15ea813c35877224bc394601614df6a83171",
+          "body_observed": true,
+          "body_seconds": 1.0210086069999997,
+          "bytes": 585,
+          "cache_control": "no-store",
+          "header_seconds": 1.0186841969999987,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog/farm-crops?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720",
+          "status": 200
+        },
+        {
+          "body_SHA256": "b66413f1188d298f8cc254fd7d481080fd3685618786c98257b3af093f338306",
+          "body_observed": true,
+          "body_seconds": 6.123538197,
+          "bytes": 1091,
+          "cache_control": "no-store",
+          "header_seconds": 6.1216963589999995,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1&limit=10",
+          "status": 200
+        },
+        {
+          "body_SHA256": "451cbde158d0a0df93f61b8fc8518c0116dae3451b3dc86652a8b930530d5556",
+          "body_observed": true,
+          "body_seconds": 0.7773293890000023,
+          "bytes": 11355,
+          "cache_control": "no-store",
+          "header_seconds": 0.775498351000002,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+          "status": 200
+        },
+        {
+          "body_observed": false,
+          "cache_control": "no-store",
+          "error_body": "SDK rejects at headers without reading body",
+          "header_seconds": 0.4039528329999994,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+          "status": 422
+        },
+        {
+          "body_SHA256": "451cbde158d0a0df93f61b8fc8518c0116dae3451b3dc86652a8b930530d5556",
+          "body_observed": true,
+          "body_seconds": 0.7614530489999998,
+          "bytes": 11355,
+          "cache_control": "no-store",
+          "header_seconds": 0.7597021910000004,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+          "status": 200
+        },
+        {
+          "body_SHA256": "a0f14ea8ffffdaf9f94bf2b54b04f0af76e77af254ef89b870277b01037b10ce",
+          "body_observed": true,
+          "body_seconds": 0.7759002720000026,
+          "bytes": 2772,
+          "cache_control": "no-store",
+          "header_seconds": 0.7737542360000007,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A0fb169f6813216b79ac7e9f4e53bffd7e76f69955af6c8bc1e367ec17101ae1c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+          "status": 200
+        },
+        {
+          "body_observed": false,
+          "cache_control": "no-store",
+          "error_body": "SDK rejects at headers without reading body",
+          "header_seconds": 0.016556479999999284,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+          "status": 403
+        },
+        {
+          "body_SHA256": "a40a9175c6adb587b72e4685d5755d8b39fc6a6e146db956ccd2c473921c9734",
+          "body_observed": true,
+          "body_seconds": 0.038638396999998804,
+          "bytes": 714,
+          "cache_control": "no-store",
+          "header_seconds": 0.03677294400000028,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs/catalog",
+          "status": 200
+        },
+        {
+          "body_SHA256": "2991a2660c038e11e23469aee924b01e6440ec4b1a84275a3a97935375bc7ed7",
+          "body_observed": true,
+          "body_seconds": 0.34885404600000036,
+          "bytes": 683,
+          "cache_control": "no-store",
+          "header_seconds": 0.34635022500000195,
+          "method": "GET",
+          "path": "/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1",
+          "status": 200
+        },
+        {
+          "body_SHA256": "7673b8954b4c00d388192a46667e15ea813c35877224bc394601614df6a83171",
+          "body_observed": true,
+          "body_seconds": 1.0188046979999998,
+          "bytes": 585,
+          "cache_control": "no-store",
+          "header_seconds": 1.0172117730000028,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog/farm-crops?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720",
+          "status": 200
+        },
+        {
+          "body_SHA256": "b66413f1188d298f8cc254fd7d481080fd3685618786c98257b3af093f338306",
+          "body_observed": true,
+          "body_seconds": 6.234859968999998,
+          "bytes": 1091,
+          "cache_control": "no-store",
+          "header_seconds": 6.233277113999997,
+          "method": "GET",
+          "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1&limit=10",
+          "status": 200
+        },
+        {
+          "body_SHA256": "451cbde158d0a0df93f61b8fc8518c0116dae3451b3dc86652a8b930530d5556",
+          "body_observed": true,
+          "body_seconds": 0.7777452699999995,
+          "bytes": 11355,
+          "cache_control": "no-store",
+          "header_seconds": 0.776148970000002,
+          "method": "GET",
+          "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+          "status": 200
+        }
+      ],
+      "numeric_hold_has_no_scene": true,
+      "reconnect_same_original_result": true,
+      "rights_restored_original": true,
+      "scope": "live synthetic organ catalogue/API/DB/browser only",
+      "stage": "verified",
+      "widths": [
+        1536,
+        390,
+        320
+      ]
+    },
+    "denied_responses_browser_headers_only": true,
+    "deployed": false,
+    "historical_preserved_row_compatibility_accepted": false,
+    "mock_API_used": false,
+    "original_rows_payloads_signatures_unchanged": true,
+    "owned_postgres_shared_buffers": "1MB",
+    "proxy_errors": [],
+    "query_calls": {
+      "RHS": 0,
+      "SQL_writes": 0,
+      "integrate": 0,
+      "put": 0
+    },
+    "responses": [
+      {
+        "body_SHA256": "a40a9175c6adb587b72e4685d5755d8b39fc6a6e146db956ccd2c473921c9734",
+        "bytes": 714,
+        "full_upstream_seconds": 0.03562527700000828,
+        "method": "GET",
+        "path": "/v1/farm-authored-inputs/catalog",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "2991a2660c038e11e23469aee924b01e6440ec4b1a84275a3a97935375bc7ed7",
+        "bytes": 683,
+        "full_upstream_seconds": 0.34962558399999466,
+        "method": "GET",
+        "path": "/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "7673b8954b4c00d388192a46667e15ea813c35877224bc394601614df6a83171",
+        "bytes": 585,
+        "full_upstream_seconds": 1.0138644060000104,
+        "method": "GET",
+        "path": "/v1/crop-research-result-catalog/farm-crops?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "b66413f1188d298f8cc254fd7d481080fd3685618786c98257b3af093f338306",
+        "bytes": 1091,
+        "full_upstream_seconds": 6.097421295999993,
+        "method": "GET",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1&limit=10",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "451cbde158d0a0df93f61b8fc8518c0116dae3451b3dc86652a8b930530d5556",
+        "bytes": 11355,
+        "full_upstream_seconds": 0.7965008470000043,
+        "method": "GET",
+        "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "a40a9175c6adb587b72e4685d5755d8b39fc6a6e146db956ccd2c473921c9734",
+        "bytes": 714,
+        "full_upstream_seconds": 0.030544026000001168,
+        "method": "GET",
+        "path": "/v1/farm-authored-inputs/catalog",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "2991a2660c038e11e23469aee924b01e6440ec4b1a84275a3a97935375bc7ed7",
+        "bytes": 683,
+        "full_upstream_seconds": 0.33838532999999416,
+        "method": "GET",
+        "path": "/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "7673b8954b4c00d388192a46667e15ea813c35877224bc394601614df6a83171",
+        "bytes": 585,
+        "full_upstream_seconds": 1.0146614669999963,
+        "method": "GET",
+        "path": "/v1/crop-research-result-catalog/farm-crops?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "b66413f1188d298f8cc254fd7d481080fd3685618786c98257b3af093f338306",
+        "bytes": 1091,
+        "full_upstream_seconds": 6.11482791399996,
+        "method": "GET",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1&limit=10",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "451cbde158d0a0df93f61b8fc8518c0116dae3451b3dc86652a8b930530d5556",
+        "bytes": 11355,
+        "full_upstream_seconds": 0.7704783980000229,
+        "method": "GET",
+        "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "a6369edcd5df2ddcf9c1c8144010bb173f6573a5385505ff70bf707e6e71dce6",
+        "bytes": 86,
+        "full_upstream_seconds": 0.40129612000004045,
+        "method": "GET",
+        "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+        "status": 422,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "451cbde158d0a0df93f61b8fc8518c0116dae3451b3dc86652a8b930530d5556",
+        "bytes": 11355,
+        "full_upstream_seconds": 0.7561972350000019,
+        "method": "GET",
+        "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "a0f14ea8ffffdaf9f94bf2b54b04f0af76e77af254ef89b870277b01037b10ce",
+        "bytes": 2772,
+        "full_upstream_seconds": 0.7694330969999896,
+        "method": "GET",
+        "path": "/v1/crop-research-results/crop-result-v1%3A0fb169f6813216b79ac7e9f4e53bffd7e76f69955af6c8bc1e367ec17101ae1c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+        "bytes": 65,
+        "full_upstream_seconds": 0.003341968999961864,
+        "method": "GET",
+        "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+        "status": 403,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "a40a9175c6adb587b72e4685d5755d8b39fc6a6e146db956ccd2c473921c9734",
+        "bytes": 714,
+        "full_upstream_seconds": 0.03112419100000352,
+        "method": "GET",
+        "path": "/v1/farm-authored-inputs/catalog",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "2991a2660c038e11e23469aee924b01e6440ec4b1a84275a3a97935375bc7ed7",
+        "bytes": 683,
+        "full_upstream_seconds": 0.339466453,
+        "method": "GET",
+        "path": "/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "7673b8954b4c00d388192a46667e15ea813c35877224bc394601614df6a83171",
+        "bytes": 585,
+        "full_upstream_seconds": 1.0126804429999652,
+        "method": "GET",
+        "path": "/v1/crop-research-result-catalog/farm-crops?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "b66413f1188d298f8cc254fd7d481080fd3685618786c98257b3af093f338306",
+        "bytes": 1091,
+        "full_upstream_seconds": 6.227744873000006,
+        "method": "GET",
+        "path": "/v1/crop-research-result-catalog?kind=organ_v1&scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1&limit=10",
+        "status": 200,
+        "upstream_TLS_verified": true
+      },
+      {
+        "body_SHA256": "451cbde158d0a0df93f61b8fc8518c0116dae3451b3dc86652a8b930530d5556",
+        "bytes": 11355,
+        "full_upstream_seconds": 0.7702903620000257,
+        "method": "GET",
+        "path": "/v1/crop-research-results/crop-result-v1%3A7d8e59b7a5363838c575889959c8c590e35a942c70146f882b11a763fbdfe64c?scenario_id=farm-1&scenario_revision=r1&registration_sha256=473c956d7ed804dc6ea52abe3ace11ebac58dcac5df9a89515b247c1ba937720&crop_id=crop-1",
+        "status": 200,
+        "upstream_TLS_verified": true
+      }
+    ],
+    "row_count_before_after": [
+      2,
+      2
+    ],
+    "scope": "synthetic live organ catalogue/API/DB/browser software integration",
+    "selected_DB_counts_before_after": [
+      {
+        "crop_research_results": 2,
+        "job_events": 89,
+        "jobs": 89,
+        "thermal_g1_runs": 0
+      },
+      {
+        "crop_research_results": 2,
+        "job_events": 89,
+        "jobs": 89,
+        "thermal_g1_runs": 0
+      }
+    ],
+    "successful_response_bodies_matched": true,
+    "test_build": {
+      "archive_checked": true,
+      "artifact_digest": "sha256:4dc5861771baf354877bf43dc006930c660a49ade4729e006897f7b27511f2df",
+      "artifact_id": 12277095809,
+      "browser_suite": "all",
+      "build_commit": "92c64563b978d88b25de7f3cbea0a29cfcd80fa0",
+      "web_run_id": 39444301162
+    }
+  },
+  "resource": {
+    "FD_before_after": [
+      6,
+      6
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 225,
+    "U1_accepted": false,
+    "WSL_capacity_accepted": false,
+    "actual_child_exit": 0,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 707407872,
+    "hosted_only": true,
+    "owned_non_zombie_remaining": [],
+    "owned_temp_or_credentials_remaining": [],
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 368406528,
+    "source_SHA256": {
+      "backend/tests/web_crop_organ_catalog_smoke.py": "9a4374a9cd667a0a72c5be431eb1bfc94337667de689ddef9805e0eeaaf5c36a",
+      "research/crop_organ_catalog_hosted.py": "4274767eca1c35fcf442726693ff4c96343206e7458484e31ad32e050e45f886",
+      "web/e2e/observe-api-body.mjs": "63239ce377752ff173f09737d6b578e4f79bbb268075e3a01154249a8a95f882",
+      "web/e2e/real-organ-catalog-smoke.mjs": "ebfd3ffeaeb6ae49403879eb65986433a6354481e3719fe246ac4ba142c21fc4"
+    },
+    "source_preserved": true,
+    "wall_seconds": 57.591821382999996
+  },
+  "observation_summary": {
+    "actual_GET_responses": 19,
+    "status_counts": {
+      "200": 17,
+      "422": 1,
+      "403": 1
+    },
+    "successful_body_SHA256_matches": 17,
+    "actual_SDK_consumed_bodies": 17,
+    "denied_responses_browser_evidence": "headers/current removal and restore only; raw error bytes/hash measured by verified upstream proxy, not SDK body consumption",
+    "frames": 10,
+    "distinct_saved_UTC": 6,
+    "max_verified_upstream_seconds": 6.227744873000006,
+    "max_browser_successful_body_seconds": 6.234859968999998,
+    "max_actual_SDK_body_seconds": 6.233700000000011
+  },
+  "public_screenshots": [
+    {
+      "path": "research/artifacts/organ-native-desktop-first-20261021.png",
+      "SHA256": "990aaa806869b2d4e9aed0615f742615d04bf4ef4b44892aa7f42c0511047aed",
+      "PNG_pixels": [
+        768,
+        512
+      ],
+      "DPR": 0.5,
+      "actual_API_DB_WebGL": true,
+      "synthetic_research_result": true,
+      "real_crop_morphology_validated": false
+    },
+    {
+      "path": "research/artifacts/organ-native-desktop-last-20261021.png",
+      "SHA256": "58bac1871b74dc14eb295c86420e36e28585f16820a5ea222e68fa2b97e493b0",
+      "PNG_pixels": [
+        768,
+        512
+      ],
+      "DPR": 0.5,
+      "actual_API_DB_WebGL": true,
+      "synthetic_research_result": true,
+      "real_crop_morphology_validated": false
+    },
+    {
+      "path": "research/artifacts/organ-native-mobile-last-20261021.png",
+      "SHA256": "07fa1f3d233ca27adcfb5b5cf45df55afc178a029dea5fcda1525dc0e2f7aa8a",
+      "PNG_pixels": [
+        195,
+        422
+      ],
+      "DPR": 0.5,
+      "actual_API_DB_WebGL": true,
+      "synthetic_research_result": true,
+      "real_crop_morphology_validated": false
+    }
+  ],
+  "prior_failures": [
+    {
+      "run": 39437814720,
+      "source": "c410ba48f1b1904e8189cca145309b157b862687",
+      "native": "communicate120 timeout; exact browser blocking operation not recorded",
+      "reference": "research/organ-native-integration-progress-20261020.md"
+    },
+    {
+      "run": 39441263299,
+      "source": "88d766ed70383501f3acf7e98c4a75373a4578c0",
+      "native": "all 10 UI observations reached; pending body observers timed out; no final DB/response acceptance",
+      "reference": "research/organ-native-observer-recovery-20261021.md"
+    }
+  ],
+  "fixed_limits": {
+    "single_PID_RSS_bytes": 536870912,
+    "combined_RSS_bytes": 1073741824,
+    "controller_wall_seconds": 600,
+    "sample_interval_seconds": 0.25,
+    "API_request_seconds": 30,
+    "metadata_bytes": 65536,
+    "replay_bytes": 2097152
+  },
+  "holds": [
+    "WSL protected-five-root concurrent API/PG/browser capacity and user activation",
+    "Historical stored-row current-reader/CODE compatibility",
+    "Actual 20-item and large-packet catalogue capacity under existing limits",
+    "Coupled v2/startup v3 discovery and selection",
+    "Original desktop-loaded/desktop-empty/mobile-loaded design conversion/comparison",
+    "Full U1-U5, crop climate/CO2-stomatal/water/nutrient/purchased-energy/economic connection",
+    "Actual CLI research/collection_review/assessment end-to-end G1, approved real data and independent farm/economic validation; G0-G4"
+  ],
+  "full_goal_completion_date": null,
+  "local_download_guard": {
+    "actual_child_exit": 0,
+    "reason": null,
+    "wall_seconds": 3.737115477997577,
+    "combined_peak_RSS_bytes": 644763648,
+    "single_PID_peak_RSS_bytes": 113844224,
+    "protected_root_count": 5,
+    "protected_live": true,
+    "source_preserved": true,
+    "original_sources_preserved": true,
+    "original_source_entries": 2148,
+    "preview_source_preserved": true,
+    "preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "joint_preview_assets_preserved": true,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "temporary_PG_directories_remaining": [],
+    "passfiles_remaining": [],
+    "terminal_SHA256": "022074984287cb8d7c151beb2b40822681ef54e78ed36ad73de6a9ccc8300264"
+  },
+  "local_publication_guard": {
+    "actual_child_exit": 0,
+    "reason": null,
+    "wall_seconds": 0.3398963990039192,
+    "combined_peak_RSS_bytes": 578101248,
+    "single_PID_peak_RSS_bytes": 113844224,
+    "protected_root_count": 5,
+    "protected_live": true,
+    "source_preserved": true,
+    "original_sources_preserved": true,
+    "original_source_entries": 2148,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "temporary_PG_directories_remaining": [],
+    "passfiles_remaining": [],
+    "terminal_SHA256": "43fca09a04cb86e9a08fbbd090827a219dbb1bb51630d7f3a447c24d6af15374"
+  },
+  "published_status": {
+    "observations": [
+      {
+        "HTTP": [
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5173,
+            "status": 200
+          },
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5174,
+            "status": 200
+          }
+        ],
+        "UI_code_changed": false,
+        "browser_rerun": false,
+        "reported_at": "2026-10-20T15:23:34.564961Z",
+        "source_sha256": "7feef98f1a26fbca59d0485a29c55acee576a4e91455afc27df422bc24a56c66"
+      },
+      {
+        "retained_ventilation_frozen_source_preserved": true,
+        "files": 2173
+      },
+      {
+        "current_HTML_matches_frozen_entry_both_ports": true,
+        "browser_DOM_rerun": false
+      }
+    ],
+    "new_UI_source_activated": false,
+    "browser_DOM_rerun": false
+  }
+}
