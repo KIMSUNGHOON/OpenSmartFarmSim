@@ -1,6 +1,8 @@
 # 구현 준비 현황
 
-**현재 JSON 재사용 후보 미채택 — 2026-10-20 KST:** [관측 경계27곳·반례3종/두 Python판](../research/solar-json-observation-boundaries-20261020.md)에서 함수 복원 뒤 자료 노출과 원 오류/값 차이를 확인해 후보 평가를 종료했다. 기존176검사는 당시 집중검사 기록이며 소유권 채택 근거로 확대하지 않는다. 연구 코드만 반례 재현용으로 보존했고 제품 app261개/호출0·두 UI는 유지했다. 다음은 기존 저장 checkpoint의 소비/검증 경계 대조다. 원64/새 일사·실제 농장/관문·최종 UI/전체 날짜 미완료/미정·goal active다.
+**제품 checkpoint 소비 검토 완료 — 2026-10-20 KST:** [실제 SCRAM 진단1건](../research/solar-checkpoint-consumer-review-20261020.md)에서 fresh 저장 검증3회·같은 HEAD의 늦은 변경2곳 차단/rollback과 등록 재구성2회를 확인했다. [후속 후보](../contracts/solar-confirm-registration-lifetime-v1.md)는 한 confirm 안 기존 등록 scope 소유권을 공유하는 최소 변경이며 아직 구현/비용 미수용이다. 제품 app261·기존 두 UI는 유지했다. 원 정상64/새 Solar·실제 농장/관문·최종 UI/전체 날짜는 미완료/미정·goal active다.
+
+아래 날짜별 기록은 당시 상태다.
 
 **현재 권한 matrix 평가 미채택 — 2026-10-20 KST:** [실제 오류 순서1·snapshot 반례1](../research/solar-role-matrix-conditional-review-20261020.md)을 확인했다. CASE 결합은 해당 첫 오류는 보존했으나 동시 변경에서 원 경로의 hold와 후보 정상 값이 달라 미채택·비용 trial 없음이다. 제품 app은 유지한다. 기존 두 UI의 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)과 원 조회를 확인했다. 다음은 원 SQL/statement 순서를 유지하는 bound-array 표현 검토다. [원 계측 OFF CI의44/64 미완료](../research/solar-worker-checkpoint-advance-native-normal-20261020.md)·같은 app82의 로컬 범위와 정상→hold→취소→계산 중WebGL→WSL 순서를 유지한다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 
