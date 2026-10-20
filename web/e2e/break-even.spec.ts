@@ -154,11 +154,20 @@ for(const lost of ['trial','plan','verification'] as const)test(`break-even lost
     for(const size of ['16px','32px']) {
       await page.addStyleTag({content:':root{font-size:'+size+'}'});
       const layout=await page.evaluate(()=>({viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,
-        overflow:[...document.querySelectorAll('body *')].map(element=>{
+        overflow:[...document.querySelectorAll('body *')].filter(element=>{
+          for(let parent=element.parentElement;parent&&parent!==document.body;parent=parent.parentElement)
+            if(['auto','scroll','hidden','clip'].includes(getComputedStyle(parent).overflowX))return false;
+          return true;
+        }).map(element=>{
           const rect=element.getBoundingClientRect(),style=getComputedStyle(element);
+          const textRight=Math.max(0,...[...element.childNodes].filter(node=>node.nodeType===Node.TEXT_NODE).flatMap(node=>{
+            const range=document.createRange();range.selectNodeContents(node);return [...range.getClientRects()].map(box=>box.right);
+          }));
           return {tag:element.tagName,classes:element.className,left:rect.left,right:rect.right,
-            width:rect.width,minWidth:style.minWidth,overflowX:style.overflowX};
-        }).filter(element=>element.width>0&&element.right>innerWidth+.5).slice(0,30)}));
+            width:rect.width,height:rect.height,clientWidth:element.clientWidth,scrollWidth:element.scrollWidth,
+            textRight,minWidth:style.minWidth,overflowX:style.overflowX};
+        }).filter(element=>element.height>0&&(element.right>innerWidth+.5||element.textRight>innerWidth+.5
+          ||element.overflowX==='visible'&&element.scrollWidth>element.clientWidth+1)).slice(0,30)}));
       expect(layout.documentWidth,JSON.stringify({width,size,...layout})).toBeLessThanOrEqual(layout.viewport);
       const table=area.getByRole('region',{name:'손익분기 시험 표 가로 스크롤'});await table.evaluate(element=>{element.scrollLeft=0;});
       if(await table.evaluate(element=>element.scrollWidth>element.clientWidth)) {
