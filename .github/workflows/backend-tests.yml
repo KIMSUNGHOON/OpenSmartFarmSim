@@ -2,6 +2,12 @@ name: Backend tests
 
 on:
   workflow_dispatch:
+    inputs:
+      verification_scope:
+        description: Focused CO2 projection evidence is separate from the full backend gate
+        type: choice
+        default: all
+        options: [all, co2-result-projection]
   push:
     branches: [main]
   pull_request:
@@ -16,6 +22,7 @@ concurrency:
 
 jobs:
   backend_partitions:
+    if: github.event_name != 'workflow_dispatch' || inputs.verification_scope != 'co2-result-projection'
     name: backend-partition-${{ matrix.partition }}
     runs-on: ubuntu-24.04
     timeout-minutes: 150
@@ -172,7 +179,7 @@ jobs:
 
   backend:
     needs: backend_partitions
-    if: ${{ always() }}
+    if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.verification_scope != 'co2-result-projection') }}
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -195,3 +202,65 @@ jobs:
               raise SystemExit('Backend partitions collected different inventories.')
           print('All six backend partitions passed with the same complete inventory.')
           PY
+
+  co2_result_projection:
+    if: github.event_name == 'workflow_dispatch' && inputs.verification_scope == 'co2-result-projection'
+    name: Focused CO2 projection (separate from full backend gate)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7
+        with:
+          version: "0.11.14"
+          python-version: "3.12.13"
+          enable-cache: false
+      - name: Install locked backend
+        working-directory: backend
+        run: |
+          uv python install 3.12.13
+          uv lock --check
+          uv sync --locked --group dev --python 3.12.13
+      - name: Build pinned disposable test PostgreSQL
+        run: |
+          set -euo pipefail
+          co2_pg_root="$RUNNER_TEMP/co2-projection-postgresql-16.15"
+          mkdir -m 700 "$co2_pg_root"
+          curl --fail --silent --show-error --location --max-time 120 \
+            https://ftp.postgresql.org/pub/source/v16.15/postgresql-16.15.tar.bz2 \
+            --output "$co2_pg_root/source.tar.bz2"
+          printf '%s  %s\n' c1575341fa7bd40f5274ea465b34390f4dc64cdd0770af327005caaeb9f6b7ed "$co2_pg_root/source.tar.bz2" | sha256sum --check
+          mkdir "$co2_pg_root/source" "$co2_pg_root/build"
+          tar -xjf "$co2_pg_root/source.tar.bz2" -C "$co2_pg_root/source" --strip-components=1
+          cd "$co2_pg_root/build"
+          "$co2_pg_root/source/configure" --prefix="$co2_pg_root/install" --without-icu --without-readline --without-zlib
+          make -j2
+          make install
+          "$co2_pg_root/install/bin/postgres" --version | grep -Fx 'postgres (PostgreSQL) 16.15'
+      - name: Verify original CO2 projection and fresh registered-record readers
+        env:
+          OSSF_TEST_PG_DSN: host=/owned-fixture dbname=postgres user=ossf_login_admin
+        run: |
+          export OSSF_TEST_PG_BIN="$RUNNER_TEMP/co2-projection-postgresql-16.15/install/bin"
+          backend/.venv/bin/python -B research/co2_result_projection_hosted.py "$RUNNER_TEMP/co2-projection-evidence"
+      - name: Store curated projection evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: co2-result-projection-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/co2-projection-evidence/tests.json
+            ${{ runner.temp }}/co2-projection-evidence/resource.json
+            ${{ runner.temp }}/co2-projection-evidence/provenance.json
+            ${{ runner.temp }}/co2-projection-evidence/failure.json
+            ${{ runner.temp }}/co2-projection-evidence/fresh-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/fresh-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-projection-store-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-projection-store-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-projection-store-database-cleanup.json
+            ${{ runner.temp }}/co2-projection-evidence/co2-projection-store-database-settings.json
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: error

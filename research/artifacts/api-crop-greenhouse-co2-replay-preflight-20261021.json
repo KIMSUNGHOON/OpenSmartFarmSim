@@ -1,0 +1,465 @@
+{
+  "schema_version": "co2-result-projection-preflight-v1",
+  "recorded_at_utc": "2026-10-20T22:45:01.722071+00:00",
+  "base_commit": "ad9203f1e4dad1643b65451a2d6ef6015c1a4075",
+  "status": "implementation_pending_actual_SCRAM_and_fresh_acceptance",
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "48c748b1dc4031f0f2e1ef68c739f10a33d4db30bb72b5bbc8e9791a88aa2bb1",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-20T21:27:59.686Z",
+    "decision_id": "co2-result-projection-20261021-v1",
+    "output": "Preserve the accepted CO2 109-state/44-ledger/6-event-total/17-balance stored rows, forcing_step_index, original units and microsecond UTC. The committed v2 journal retains management before/after state and derived quantities but excludes transient after_rhs; do not manufacture Solar/CO2 per-event RHS diagnostics or perform read calculations. A ppm value needs the explicit wet/dry basis: require the stored source_program matched to manifest.program_sha256, select basis by the original stored forcing_step_index (not latest forcing at the same UTC, which can be unconfirmed on hold), and expose only basis metadata, not raw boundary parameters/forcing. The trusted current reader later supplies its existing reader._context[program] in the same read session; projection alone does not authorize or authenticate pages. Versioned new family and finite/closed schemas, body limits, privacy and actual original/fresh/SCRAM tests are required before acceptance.",
+    "output_sha256": "ac3d396860f3502594fd984edc6f8e3a7abea54735a2d99701ad58211af6a7b2",
+    "test_budget_review": {
+      "decision_id": "co2-result-projection-owned-PG-budget-20261021-v1",
+      "recorded_at": "2026-10-20T22:39:43.265374+00:00",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "native_session_raw_line_sha256": "48c748b1dc4031f0f2e1ef68c739f10a33d4db30bb72b5bbc8e9791a88aa2bb1",
+      "recursive_CLI": false,
+      "output": "The exception chain reaches psycopg AdminShutdown during registration after the owned RSS guard requests SIGTERM. This is a resource-stopped test, not evidence of a projection arithmetic defect. An owned PostgreSQL probe confirms PGOPTIONS work_mem=64kB/jit=off is replaced by the explicit runtime-style options value, leaving work_mem=4MB/jit=on. Apply the same intended work_mem/jit settings at startup only for the new projection test database, and assert them on an actual runtime SCRAM connection. Keep production code, shared fixtures, SQL/rights checks, all original test cases/data/steps/timeouts, 512 MiB/PID and combined 1 GiB including five protected roots unchanged. Do not attribute the whole peak to JIT without a query-level measurement; the resource fix is a test budget configuration correction.",
+      "output_sha256": "e78bdf9769a7dbaa19f2edc4892fc58ff3a1d805cc8942440b1587c10f528929",
+      "sources": [
+        "https://www.postgresql.org/docs/16/libpq-envars.html",
+        "https://www.postgresql.org/docs/16/libpq-connect.html",
+        "https://www.postgresql.org/docs/16/runtime-config-resource.html"
+      ],
+      "probe": "focused-co2-projection-PG-options-precedence-v1"
+    }
+  },
+  "source_SHA256": {
+    "backend/app/api_crop_greenhouse_co2_replay.py": "b8d53cbe97a9c4d6de4b2b404d466091d204f749fab5edff74466ccd3a9d2062",
+    "backend/tests/test_api_crop_greenhouse_co2_replay.py": "50c2024c9cfa79cf9166f2a5eab4e9e87d8e5a83e818c38dcb012ec94b6dea66",
+    "backend/tests/test_api_crop_greenhouse_co2_replay_store.py": "bd027fb91cf68b9b3721c5c108a0a487bf5eab2394fdef83e0459c83bd98f9ce",
+    "fixtures/synthetic-co2-result-projection-template-v1.json": "ea388e1690d525edc0b6286137e35c1472080b7c76e1c3874bb4282bb7e5bf7e",
+    "research/co2_result_projection_hosted.py": "8f0fcb92478a9c8c9649cc4a60635d52fe8267735bc646fd70ea2443d57d1433",
+    ".github/workflows/backend-tests.yml": "9d6db95e96385bc4ee3b2cd881826e008b2d0b70fc3977ff4f2722bf4d549f59"
+  },
+  "pure_tests_passed": 37,
+  "original_template_projection": {
+    "FD_before_after": [
+      6,
+      6
+    ],
+    "actual_rows": {
+      "events": 3,
+      "samples": 5
+    },
+    "authenticated_current_read": false,
+    "calls": {
+      "CLI": 0,
+      "CO2": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "advance": 0,
+      "air": 0,
+      "event": 0,
+      "gas": 0,
+      "net": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "no_unretained_diagnostics_regenerated": true,
+    "original109_states44_ledgers17_balances_and_basis": true,
+    "private_fields_absent": true,
+    "responses": {
+      "events": {
+        "bytes": 84094,
+        "sha256": "e3d132192da0b73f09379f937f8b5d812446de0d139eb942da4f3b8586780e0c"
+      },
+      "samples": {
+        "bytes": 99407,
+        "sha256": "c0b588b3fa82e75a23f76386d94a0a5ff516432ed2dce50365f48789453c50d3"
+      },
+      "summary": {
+        "bytes": 33991,
+        "sha256": "3228d688f77d552b3d5153edae2c7fc804b18571cf1da5f0bb8c69f72d674972"
+      }
+    },
+    "unregistered_software_template": true
+  },
+  "fresh_template_only": {
+    "same_wire_SHA": true,
+    "numerical_CLI_SQL_calls": 0,
+    "actual_registered_record": false
+  },
+  "trials": [
+    {
+      "case": "focused-co2-result-projection-red-v1",
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 0.6010015409847256,
+      "combined_peak_RSS_bytes": 900276224,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "b2e7c584b4dee766355e969e9dcc8111301b3cbca3db9003f8fe842b8dc2efd2"
+    },
+    {
+      "case": "focused-co2-result-projection-green-v1",
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 3.181021928001428,
+      "combined_peak_RSS_bytes": 1001328640,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "39d58352de2fff58f13b5870c3d7e9111e02e3ba1e48f147ddd8bd52171c2f22"
+    },
+    {
+      "case": "focused-co2-result-projection-diagnosis-v1",
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 3.431553325004643,
+      "combined_peak_RSS_bytes": 1000386560,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "01c356063270fd06ae3b8065d4e8f1a255de33499769018bbfc60cf453101689"
+    },
+    {
+      "case": "focused-co2-result-projection-green-v2",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 3.4313125149928965,
+      "combined_peak_RSS_bytes": 1011073024,
+      "single_PID_peak_RSS_bytes": 149262336,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "2544a0c00d6370f04e9675d187ce9d7e0e142974efddd3cfb8182ad9af175de4"
+    },
+    {
+      "case": "focused-co2-result-projection-pure-v3",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 14.466402083984576,
+      "combined_peak_RSS_bytes": 1019858944,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "55495c50c9abba8a46915eb80ee08f94fe8e78975429d7ba5bd80debda311f6b"
+    },
+    {
+      "case": "focused-co2-result-projection-fresh-template-v1",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.3766373729740735,
+      "combined_peak_RSS_bytes": 962011136,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "4956773f275b5070ed9c8f97b7ea3061352778411b8538c81bd5e6abd0316888"
+    },
+    {
+      "case": "focused-co2-result-projection-SCRAM-normal-v1",
+      "actual_child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 28.043409028003225,
+      "combined_peak_RSS_bytes": 1119477760,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "f67ab10ad4e4c53121b6a5fe4da9c10ddee905b978d3788d2723d7bfacbe28a9"
+    },
+    {
+      "case": "focused-co2-result-projection-SCRAM-diagnosis-v1",
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 3.491882914007874,
+      "combined_peak_RSS_bytes": 1005531136,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "23b9468eb5ac4b8312180b1be487cb8e3587706f695e24b298f3e7c22bd965f1"
+    },
+    {
+      "case": "focused-co2-result-projection-SCRAM-diagnosis-v2",
+      "actual_child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 28.31611080499715,
+      "combined_peak_RSS_bytes": 1103953920,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "e743658a6be7a6a86b00b547fc18098adef7e69c95d4cb689d9d1ac852be430b"
+    },
+    {
+      "case": "focused-co2-result-projection-SCRAM-diagnosis-chain-v3",
+      "actual_child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 30.231989046995295,
+      "combined_peak_RSS_bytes": 1133682688,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "862c9436956233ad65a15eeddba3d14d667d19799370be7d80cb2e1342e8d6d3"
+    },
+    {
+      "case": "focused-co2-projection-PG-options-precedence-v1",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.2511811039876193,
+      "combined_peak_RSS_bytes": 987570176,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "1ad88b5f8473d6c9440c62ca40cc4d8fbdf9e01962d53dc8ae010ac16c174a7d"
+    },
+    {
+      "case": "focused-co2-result-projection-SCRAM-normal-v2",
+      "actual_child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 30.24568009900395,
+      "combined_peak_RSS_bytes": 1088471040,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "f67ab10ad4e4c53121b6a5fe4da9c10ddee905b978d3788d2723d7bfacbe28a9"
+    },
+    {
+      "case": "focused-co2-result-projection-SCRAM-normal-v3",
+      "actual_child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 31.23809619899839,
+      "combined_peak_RSS_bytes": 1073930240,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "f67ab10ad4e4c53121b6a5fe4da9c10ddee905b978d3788d2723d7bfacbe28a9"
+    }
+  ],
+  "diagnosis": {
+    "innermost_type": "AdminShutdown",
+    "observed_operation": "registration runtime identity query",
+    "guard_action": "owned SIGTERM on combined RSS above 1 GiB; database shutdown is compatible with this termination, no arithmetic defect proven",
+    "PG_options_probe": {
+      "actual_owned_PG_settings": {
+        "environment_default": {
+          "work_mem": "64kB",
+          "jit": "off",
+          "shared_buffers": "4MB"
+        },
+        "explicit_runtime_style": {
+          "work_mem": "4MB",
+          "jit": "on",
+          "shared_buffers": "4MB"
+        }
+      },
+      "explicit_options_replace_environment_default": true,
+      "actual_registered_result": false,
+      "credentials_or_input_values_printed": false
+    },
+    "correction": "Only new owned test database starts with work_mem64kB/jitoff and asserts runtime settings; existing production/shared fixtures unchanged. Collect/free unreachable producer allocations before registration.",
+    "latest_local_result": "RSS_limit; 1073930240 bytes; remains unaccepted"
+  },
+  "next": "Separate explicit focused hosted verification of all37 pure+2 actual SCRAM cases and two sequential fresh registered-record readers; full backend gate unchanged; no WSL capacity claim",
+  "current_query_HTTP_worker_browser": "not_implemented_by_this_child",
+  "new_CO2_deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null
+}

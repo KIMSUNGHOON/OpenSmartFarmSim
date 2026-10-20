@@ -2304,6 +2304,11 @@
         원128KiB metadata/progress·2MiB 응답/페이지·5root/WSL/소유 정리를 통과해야 수용한다.
         API/worker/같은 UTC3D는 그다음이며 실제 작물/경제 예측·관문 승인을 뜻하지 않는다.
       - [ ] **`co2-result-projection`** — 다음 작은 자식; 선행: 위 store와 원 CO₂ manifest/상태·장부/UTC.
+        [새 계약](../contracts/api-crop-greenhouse-co2-replay-v1.md)/[사전 증거](../research/artifacts/api-crop-greenhouse-co2-replay-preflight-20261021.json):
+        순수37/fresh 템플릿 응답은 통과했으나 실제 SCRAM/WSL 합산 RSS는 미수용이다.
+        원17계산·CLI/SQL0·원109상태/44장부/17수지·사건10수지와 forcing cursor별 wet/dry를 보존한다.
+        서버 내부 원 program SHA를 대사하고 v2에 없는 after_rhs/Solar 사건 진단은 재생성하지 않는다.
+        다음은 별도 hosted39/실제 등록 fresh2이며 전체 backend/WSL 동시 용량 수용과 구분한다.
         [기존 Solar 공개 투영](../contracts/api-crop-greenhouse-solar-replay-v1.md)을 현재 CO₂ 판본으로 구분한다.
         닫힌 summary/samples/events DTO에 원109상태·44연속/6사건/17수지·단위/UTC/정상·보류를 보존한다.
         원 행/체크포인트 대사와 구 family/누락·잘못된 타입/단위/한도·승인 혼합 거부,2MiB와 계산/CLI0을 확인한다.

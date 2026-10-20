@@ -36,3 +36,14 @@ Compare the first two hashes and byte counts with both manifests, and the therma
 ## Computed solar progress for the database contract
 
 [synthetic-solar-custody-progress-v1.json](synthetic-solar-custody-progress-v1.json) is a canonical captured32second software progress snapshot from [accepted solar custody](../research/crop-greenhouse-solar-server-custody-implementation-20261016.md), original32642:0. SHA256 `cd32057672e845030eee485359d7d4c7a6d39f16460ce8c4de598bbeebdf53a4`, 36617bytes. It contains computed synthetic state/ledger/checkpoint/UTC and hashes, with rights_or_gate_approval=false/G0_G4=not_assessed. It contains no farm measurements, credentials or acquired provider data and is not a new registered input or approval. Existing model/profile/[GreenLight notices](../LICENSES/GreenLight-BSD-3-Clause-Clear.txt) remain applicable. The DB test preserves these bytes without recomputing or treating its hashes as authenticated real farm evidence.
+
+## Computed CO₂ result template for projection tests
+
+[synthetic-co2-result-projection-template-v1.json](synthetic-co2-result-projection-template-v1.json)
+contains the synthetic packet captured from the accepted normal [CO₂ result store](../contracts/crop-greenhouse-co2-result-store-v1.md)
+at commit37c0d30. Its 76,537 UTF-8 bytes include the final newline; the captured canonical packet has76,536 bytes.
+The [preflight evidence](../research/artifacts/api-crop-greenhouse-co2-replay-preflight-20261021.json) pins its raw SHA.
+Pure projection tests explicitly rebuild unsigned software metadata around each original model program and stored artifact.
+This template supplies no current HMAC, farm permission or source-rights approval, and does not authenticate a result.
+Actual SCRAM registration and fresh-record checks are separate. It contains self-authored synthetic records, no acquired
+farm measurements or credentials. Existing model/profile notices remain applicable; G0–G4 are not assessed.

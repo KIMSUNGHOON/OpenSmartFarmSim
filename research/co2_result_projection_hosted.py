@@ -1,0 +1,161 @@
+"""Bound the CO2 projection tests and sequential fresh readers on hosted CI."""
+import ctypes
+from datetime import datetime
+from hashlib import sha256
+import importlib.util
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import signal
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path[:0] = [str(ROOT/'backend'), str(ROOT/'backend/tests')]
+
+
+def save(path, value):
+    with path.open('x') as output:
+        os.fchmod(output.fileno(), 0o400)
+        json.dump(value, output, sort_keys=True, indent=2)
+
+
+def fresh(pack_path, destination):
+    import psycopg
+    import pytest
+    from app import api_crop_greenhouse_co2_replay as public
+    import test_crop_greenhouse_co2_result_store as registered
+    raw = pack_path.read_bytes(); assert len(raw) <= 8*1024**2
+    data = json.loads(raw); record = data['record']
+    assert data['captured_from_actual_SCRAM_record'] is True
+    record['payload_raw'] = record['payload_raw'].encode()
+    record['progress_raw'] = record['progress_raw'].encode()
+    record['recorded_at'] = datetime.fromisoformat(record['recorded_at'])
+    before = len(os.listdir('/proc/self/fd')); responses = {}
+    with pytest.MonkeyPatch.context() as patch:
+        calls = registered.producer.reference.forbid(patch); calls['SQL_calls'] = 0
+        def forbidden(*args, **kwargs):
+            calls['SQL_calls'] += 1
+            raise AssertionError('projection-only fresh reader attempted SQL')
+        patch.setattr(psycopg.Connection, 'execute', forbidden)
+        for view in ('summary', 'samples', 'events'):
+            value = public.project_co2_result(record, data['terminal'], source_program=data['program'],
+                view=view, page=None if view == 'summary' else data['pages'][view],
+                limit=None if view == 'summary' else 64 if view == 'samples' else 8)
+            body = public._public_bytes(value)
+            responses[view] = {'bytes': len(body), 'sha256': sha256(body).hexdigest()}
+        assert responses == data['expected'] and all(value == 0 for value in calls.values())
+    after = len(os.listdir('/proc/self/fd')); assert before == after
+    save(destination, {'fresh_exec': True, 'responses': responses, 'same_original_wire_SHA': True,
+        'captured_from_actual_SCRAM_record': True, 'calls': calls, 'FD_before_after': [before, after],
+        'input_pack_sha256': sha256(raw).hexdigest(), 'scope': 'projection_only_no_current_DB_authorization',
+        'G0_G4': 'not_assessed'})
+
+
+def pins():
+    paths = list((ROOT/'backend/app').glob('*.py')) + [ROOT/name for name in (
+        'backend/tests/test_api_crop_greenhouse_co2_replay.py',
+        'backend/tests/test_api_crop_greenhouse_co2_replay_store.py',
+        'fixtures/synthetic-co2-result-projection-template-v1.json',
+        'research/co2_result_projection_hosted.py')]
+    return {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
+
+
+def supervise(directory):
+    assert os.environ.get('GITHUB_ACTIONS') == 'true', 'hosted only; preserve WSL previews'
+    directory.mkdir(mode=0o700)
+    spec = importlib.util.spec_from_file_location('co2_projection_scope', ROOT/'research/owned-research-process-scope.py')
+    owned = importlib.util.module_from_spec(spec); spec.loader.exec_module(owned)
+    assert ctypes.CDLL(None).prctl(36, 1, 0, 0, 0) == 0
+    scope = owned.OwnedProcessScope(); before = len(os.listdir('/proc/self/fd'))
+    original = pins(); started = time.monotonic(); child = None
+    single = combined = samples = 0; reason = None; exits = {}
+    temporary = directory/'owned-tmp'; temporary.mkdir(mode=0o700)
+    env = dict(os.environ, TMPDIR=str(temporary), PYTHONDONTWRITEBYTECODE='1', PYTHONMALLOC='malloc',
+        MALLOC_ARENA_MAX='2', PYTEST_DISABLE_PLUGIN_AUTOLOAD='1',
+        OSSF_TEST_PG_SHARED_BUFFERS_MIB='4', PGOPTIONS='-c work_mem=64kB -c jit=off',
+        OSSF_JOINT_PREFIX_SDK_EVIDENCE=str(directory))
+    for key in ('PYTEST_ADDOPTS', 'PYTEST_PLUGINS', 'PGPASSWORD', 'PGPASSFILE', 'PGSERVICE', 'PGSERVICEFILE'):
+        env.pop(key, None)
+    plans = [('tests', [sys.executable, '-B', '-m', 'pytest',
+        'tests/test_api_crop_greenhouse_co2_replay.py', 'tests/test_api_crop_greenhouse_co2_replay_store.py',
+        '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
+    for status in ('completed', 'hold'):
+        plans.append(('fresh-'+status, [sys.executable, '-B', str(Path(__file__).resolve()), 'fresh',
+            str(directory/('co2-projection-store-'+status+'-fresh-pack.private.json')),
+            str(directory/('fresh-'+status+'.json'))]))
+    try:
+        for phase, argv in plans:
+            log = directory/(phase+'.private.log')
+            with log.open('xb') as output:
+                os.fchmod(output.fileno(), 0o600)
+                child = subprocess.Popen(argv, cwd=ROOT/'backend', env=env, stdin=subprocess.DEVNULL,
+                    stdout=output, stderr=subprocess.STDOUT)
+                while child.poll() is None:
+                    rss = scope.sample(); samples += 1
+                    single = max(single, max(rss.values(), default=0)); combined = max(combined, sum(rss.values()))
+                    if single > 512*1024**2 or combined > 1024**3: reason = 'RSS_limit'
+                    elif time.monotonic()-started > 600: reason = 'wall_limit'
+                    elif os.fstat(output.fileno()).st_size > 4*1024**2: reason = 'log_limit'
+                    if reason: break
+                    time.sleep(.25)
+            if reason: break
+            exits[phase] = child.returncode
+            if child.returncode:
+                lines = log.read_text(errors='replace').splitlines()
+                save(directory/'failure.json', {'phase': phase, 'exit': child.returncode,
+                    'log_sha256': sha256(log.read_bytes()).hexdigest(),
+                    'failed_nodes': [line.split(' - ', 1)[0] for line in lines if line.startswith('FAILED ')]})
+                break
+            if phase == 'tests':
+                text = log.read_text(errors='replace')
+                assert re.search(r'\b39 passed\b', text) and ' skipped' not in text
+                assert json.loads((directory/'co2-projection-store-database-cleanup.json').read_bytes()) == {'schemas': 0, 'roles': 0}
+                save(directory/'tests.json', {'passed': 39, 'skipped': 0, 'pure': 37, 'actual_SCRAM': 2,
+                    'pytest_log_sha256': sha256(log.read_bytes()).hexdigest()})
+    finally:
+        scope.signal_owned(signal.SIGTERM)
+        if child is not None and child.poll() is None:
+            try: child.wait(timeout=15)
+            except subprocess.TimeoutExpired:
+                scope.signal_owned(signal.SIGKILL); child.wait(timeout=5)
+        deadline = time.monotonic()+10
+        while scope.remaining() and time.monotonic() < deadline: time.sleep(.1)
+        if scope.remaining(): scope.signal_owned(signal.SIGKILL)
+        while True:
+            try:
+                if os.waitpid(-1, os.WNOHANG)[0] == 0: break
+            except ChildProcessError: break
+        remaining = [i._asdict() for i in scope.remaining()]
+        passfiles = sum(1 for _ in directory.rglob('*.pgpass'))
+        temporary_entries = len(list(temporary.iterdir()))
+        if not remaining:
+            for path in (directory/'pytest', temporary):
+                if path.exists(): shutil.rmtree(path)
+        after = len(os.listdir('/proc/self/fd')); preserved = pins() == original
+        result = {'phase_exits': exits, 'reason': reason, 'wall_seconds': time.monotonic()-started,
+            'single_PID_peak_RSS_bytes': single, 'combined_peak_RSS_bytes': combined,
+            'RSS_samples': samples, 'sample_interval_seconds': .25, 'FD_before_after': [before, after],
+            'owned_non_zombie_remaining': remaining, 'passfiles_before_cleanup': passfiles,
+            'temporary_entries_before_cleanup': temporary_entries, 'source_preserved': preserved,
+            'hosted_only': True, 'WSL_capacity_accepted': False, 'new_CO2_deployed': False,
+            'actual_crop_Runs': 0, 'G0_G4': 'not_assessed'}
+        save(directory/'resource.json', result)
+    assert reason is None and exits == {phase: 0 for phase, _ in plans}
+    assert before == after and not remaining and passfiles == temporary_entries == 0 and preserved
+    save(directory/'provenance.json', {'source_commit': os.environ['GITHUB_SHA'],
+        'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
+        'source_SHA256': original, 'python': sys.version, 'test_scope': 'CO2_projection_only',
+        'current_query_HTTP_worker_browser': 'not_tested', 'G0_G4': 'not_assessed'})
+    print(json.dumps({'accepted_hosted_projection_tests': 39, 'fresh_registered_readers': 2,
+        'WSL_capacity_accepted': False, 'new_CO2_deployed': False}))
+
+
+if __name__ == '__main__':
+    if len(sys.argv) == 4 and sys.argv[1] == 'fresh': fresh(Path(sys.argv[2]), Path(sys.argv[3]))
+    else:
+        assert len(sys.argv) == 2
+        supervise(Path(sys.argv[1]).resolve())

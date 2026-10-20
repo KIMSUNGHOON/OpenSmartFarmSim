@@ -184,6 +184,12 @@ schema 단계는 수치/context/복원/CLI0이며 기존5root/자료·원 WSL/FD
 첫18개 묶음의17/18·600초 미완료/소유 정리 후속은 보존했고 원 코드/조건/상한은 유지했다.
 
 **다음 `co2-result-projection`→`co2-current-query`:** 위 store가 선행이다. [Solar DTO](../contracts/api-crop-greenhouse-solar-replay-v1.md)/[현재 조회](../contracts/crop-greenhouse-solar-current-query-v1.md)를 대조한다.
+[CO₂ 투영 계약](../contracts/api-crop-greenhouse-co2-replay-v1.md)의 순수37/fresh 템플릿은 통과했다.
+[사전 검증](../research/artifacts/api-crop-greenhouse-co2-replay-preflight-20261021.json)의 실제 SCRAM 시험은
+기존5서비스와 합산 RSS1GiB로 종료됐다. 원 설정이 명시 연결 options에 가려진 것을 실제 PG에서 확인하고
+새 시험 DB에만 work_mem64kB/jitoff를 적용했으나 동시 용량은 여전히 미수용이다.
+기존 전체 backend 관문을 유지한 별도 hosted39/실제 등록 fresh2로 기능을 검증하며 WSL 용량/사용자 배포는 해제하지 않는다.
+원 artifact의 검증된 program SHA와 forcing_step_index가 wet/dry metadata의 선행이며 HTTP 입력으로 받지 않는다.
 닫힌 summary/samples/events에서 원109상태·44연속/6사건/17수지·단위/UTC/hold를 보존하고 구 판본/타입·단위/한도 혼합을 거부한다.
 같은 현재 읽기 세션과 직렬화 뒤 권리/DB/HEAD 재확인, 실제 SCRAM/fresh 원 응답·조회 계산/쓰기0·5root/자원/정리를 수용한다.
 이후 보호 HTTP/명시 runtime→worker/prefix→같은 UTC3D이며 전체 작기/자원/경제·독립 관문은 후속이다.
