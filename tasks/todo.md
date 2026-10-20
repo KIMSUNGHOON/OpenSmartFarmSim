@@ -2146,7 +2146,10 @@
         (2)0·잘못된 형/비유한/물리 불가·부동소수 표현 한계 거부;
         (3)기존 작물/기공/원 프로필/결과 불변·보호5root/원 자료/자원/정리.
         확인: 해당 파일 집중 pytest·source/notice/hash 대조. 동적 질량수지/생장/Run/API/3D는 후속이다.
-      - [ ] **`co2-net-crop-sink-kernel`** — 선행: 위 연구 P02와 기존 crop rate identity/profile.
+      - [x] **`co2-net-crop-sink-kernel`** — [계약](../contracts/crop-co2-net-exchange-v1.md)/
+        [동일 최종 source 증거](../research/artifacts/crop-co2-net-exchange-20261021.json):32독립 기관/구획/startup 참조를 포함한
+        52검사·실제 joint stage 소비/재계산0·야간 배출/제거 제외·실현 호흡과 원5root/자료/자원/정리를 수용했다.
+        선행: 위 연구 P02와 기존 crop rate identity/profile.
         핵심3파일: 별도 net flux 모듈/집중 pytest/계약. 원 CH₂O 광합성−생장호흡−유지호흡을
         원44/30 규약의 signed mg_CO2/m2_floor/s로 변환한다. 독립 몰수/야간 음수·수확 제거 제외·
         이중 보상점 차감0과 기존 rate bytes/계수 불변을 검증한다. scalar 기공/기관 목록 용량은 선행이 아니다.
