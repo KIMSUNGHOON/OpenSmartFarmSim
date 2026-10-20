@@ -119,7 +119,7 @@
 - [ ] **`crop-solar-local-json-ownership-primitive`** — 선행: 위 fresh full 검증 의무·현재 source/payload 구성요소와 이전 같은-load 단독 비용 미채택. 한 load의 first/second commit과 한 source/payload pair의 수명·native 실제 decode provenance·비노출/일회 전달을 명시한다. 초기 미승인 codec을 기본으로 학습하지 않고 원/늦은 helper·method/codec·mutable alias·파일 bytes/hash/크기/상한 오류와 default fallback을 실제 검증한다. aggregate raw1MiB·종료 정리·현재 권리/HEAD/proof/all fresh file 검사를 보존한다. 의미/오류/소유권 수용 후에만 결합된 최종 guard의 원 quantum 평균2%/양짝 개선·제품 회귀/원64로 진행하며 구성요소 개선율은 합산하지 않는다.
 
   - [x] **`crop-solar-local-json-ownership-core`** — [제품 미연결 연구 핵심56검사/두 Python판](../research/solar-local-json-ownership-core-20261020.md). native provenance/일회 전달·초기/늦은 변경·원 fallback·fresh file/상한/정리를 최종 같은 source에서 확인했다. app261개 불변·전체 load/pair·성능·제품 수용은 아니다.
-  - [ ] **`crop-solar-local-json-ownership-load-adapter`** — 다음 한 단계. 한 load의 두 commit 루프를 연구 adapter로 연결한다. 불변 header의 원 key/version/header/sequence/parent·fresh bytes/SHA와 두 번째 일회 전달을 사용하고 실제 원 전체 반환/UTC·오류/현재 권리·HEAD/proof/모든 page·정리/한도를 대조한다. hash 경로는 원 구현을 유지한다.
+  - [x] **`crop-solar-local-json-ownership-load-adapter`** — [새28/핵심56=84·두 Python판/실제46commit/SCRAM1](../research/solar-json-load-adapter-20261020.md). 원 전체 값/UTC·artifact104읽기/한도/raw SHA·22일회 재사용·참조 집계·current6/SQL4,059·권리/HEAD 거부·상한/정리를 보존했다. 제품 연결0·페이지/source 조립·전체 비용/원64는 미수용이다.
   - [ ] **`crop-solar-local-json-ownership-source-assembly`** — 위 adapter 이후 native 페이지와 source/times의 비노출 조립·callback/alias/오류·합산 한도를 증명한다. 기존 mutable 반환에 소유권을 부여하거나 추가 재인코딩을 숨기지 않는다.
   - [ ] **`crop-solar-local-json-ownership-combined-evaluation`** — 의미/소유권 수용 뒤 최종 결합 guard의 원 quantum ABBA 평균2%/양짝 개선. 미달이면 연구 후보로 보존하고 제품 적용하지 않는다. 통과 뒤에만 관련 회귀/원64로 진행한다.
 - **이전 독립 CI 이력** — 아래 대기·실패 기록은 당시 상태이며 현재 load 검토의 실행 대기가 아니다.

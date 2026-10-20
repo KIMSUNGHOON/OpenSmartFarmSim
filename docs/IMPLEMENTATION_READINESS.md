@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 프로젝트 점검·JSON 연구 핵심 — 2026-10-20 KST:** [최종 연구 후보56검사/두 Python판·기존 서비스 인증 조회](../research/solar-local-json-ownership-core-20261020.md)를 확인했다. 기존 backend/app261개·두 UI를 유지했고 연구 후보의 제품 연결은0이다. 다음은 같은 load의 두 commit 읽기 adapter이며 페이지/source 조립의 소유권·전체 비용은 미수용이다. 원 정상64 미완료·새 일사 미배포·실제 농장 Run0·G0–G4 보류·최종 UI/전체 완료일 미정·goal active다.
+**현재 두 commit 읽기 연구 연결 — 2026-10-20 KST:** [새 adapter28/핵심56=84검사·실제 저장46commit·SCRAM1검사](../research/solar-json-load-adapter-20261020.md)를 확인했다. 원 전체 값/UTC·artifact104읽기·current6/SQL4,059·권리/HEAD 거부·상한/정리를 보존했다. 제품 app261개/기존 두 UI는 같고 제품 연결0이다. 다음은 페이지/source 소유권 조립이며 전체 성능·원64·새 일사 배포·실제 농장/관문·최종 UI/전체 완료일은 미수용/미정이다. goal active다.
 
 **현재 권한 matrix 평가 미채택 — 2026-10-20 KST:** [실제 오류 순서1·snapshot 반례1](../research/solar-role-matrix-conditional-review-20261020.md)을 확인했다. CASE 결합은 해당 첫 오류는 보존했으나 동시 변경에서 원 경로의 hold와 후보 정상 값이 달라 미채택·비용 trial 없음이다. 제품 app은 유지한다. 기존 두 UI의 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)과 원 조회를 확인했다. 다음은 원 SQL/statement 순서를 유지하는 bound-array 표현 검토다. [원 계측 OFF CI의44/64 미완료](../research/solar-worker-checkpoint-advance-native-normal-20261020.md)·같은 app82의 로컬 범위와 정상→hold→취소→계산 중WebGL→WSL 순서를 유지한다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 

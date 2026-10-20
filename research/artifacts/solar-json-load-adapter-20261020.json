@@ -1,0 +1,232 @@
+{
+  "schema_version": "solar-json-load-adapter-v1",
+  "recorded_at": "2026-10-20T01:09:08.945666Z",
+  "baseline_commit": "9dcbee0929a2e446a714ab12194665ba07d8c12f",
+  "previous_goal_turn": "progress: native ownership core56 and actual existing-service evidence committed",
+  "native_CLI": {
+    "timestamp": "2026-10-20T00:50:43.824Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_sha256": "30157e002cc26355c633dbac7758b51823bb8a38b35e7437482fa68aaedefa31"
+  },
+  "recursive_CLI_calls": 0,
+  "new_subagents": 0,
+  "research_source_SHA256": {
+    "research/solar-json-load-adapter.py": "a44a4c5b77e8efe375832cf794454e4f2acd7f89eacc70a4fa9ba954853e041e",
+    "backend/tests/test_solar_json_load_adapter.py": "3a2c19da1322d08d0aeffad4fb8c6f1561914c0ebbe6db4670ca4e16db9f8e7d",
+    "research/solar-local-json-ownership.py": "f0a0f676b369f4bc2176c547a1b0409d3493f729505977fadec23f1ecf2f809d",
+    "backend/tests/test_local_json_ownership.py": "069d163939acab3a0e055b96324ac781c7edfecadcad9b6601db53dc8838489b"
+  },
+  "private_source_SHA256": {
+    "probe-original-archive.py": "ba5c5ca26489013b1582eb1e0deb5f81a89a40332e008237563d8b389090e459",
+    "test-current-native-adapter.py": "36bd3a16fab6fcc5a2c82f5265810a7d212c0fa7ec353fd672d74aca74505d6d",
+    "test-locked-adapter.py": "64adede4a520c26c218d9a8d81b59f9683d6e729087d4c514f26067ebf3a5f16"
+  },
+  "proofs": {
+    "WSL_contract": {
+      "case": "focused-solar-json-load-adapter-final-contract-v1",
+      "terminal_sha256": "60af5ef096eb3725b9f91f2a0bd2b6c730dfee92642abd3acc11be2232e69e29",
+      "log_sha256": "294df33cdf78b934ed6cf53fa3d7f73396720d35946e3d9821124e2acb1d90a7",
+      "source_pins_sha256": "68f44d7d83e473c06495c9d932fa3a89008c01a215e931a3a23110a8a10ebd2d",
+      "actual_child_exit": 0,
+      "wall_seconds": 7.305935729003977,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 960446464,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "locked_contract": {
+      "case": "focused-solar-json-load-adapter-locked-contract-v1",
+      "terminal_sha256": "b0f9c1043d108f38d7669250ed7bd7ea007094c40766ad67772f18f3f7b57c51",
+      "log_sha256": "9af913728ee852a3f8f01a711ed41906871f5ac71870bff6b3c3cdaa039387dc",
+      "source_pins_sha256": "68f44d7d83e473c06495c9d932fa3a89008c01a215e931a3a23110a8a10ebd2d",
+      "actual_child_exit": 0,
+      "wall_seconds": 6.5338925679971,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 948563968,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "archive": {
+      "case": "focused-solar-json-load-adapter-original-archive-v1",
+      "terminal_sha256": "3fd6edea85203e47130cc943fcd454d0b90a49a6f45fec4581929249e47bc63f",
+      "log_sha256": "14cb6b82f6eb17f9f4de8451d82a5df8a8aef1177c146cd507806e9ea38c7e11",
+      "source_pins_sha256": "68f44d7d83e473c06495c9d932fa3a89008c01a215e931a3a23110a8a10ebd2d",
+      "actual_child_exit": 0,
+      "wall_seconds": 1.3804330679995473,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 928514048,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "native_current": {
+      "case": "focused-solar-json-load-adapter-native-current-v3",
+      "terminal_sha256": "1c3d290b15e3179234154064dc90ed152708f66164f74da957a22f308f1ce46e",
+      "log_sha256": "2a4efcda52edda315a027c8a6d9d07812ffd47872d37c14d986fb419952222ce",
+      "source_pins_sha256": "68f44d7d83e473c06495c9d932fa3a89008c01a215e931a3a23110a8a10ebd2d",
+      "actual_child_exit": 0,
+      "wall_seconds": 56.6275140689977,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 1058791424,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    }
+  },
+  "contract_unique_cases": 84,
+  "new_adapter_cases": 28,
+  "unchanged_ownership_core_cases": 56,
+  "contract_executions_two_interpreters": 168,
+  "native_current_fixture_cases": 1,
+  "archive": {
+    "source_HEAD_sha256": "ec3e876ab23b8f12644d75b475e2fd428112a790196f2a66f7ebdb18f5df0229",
+    "commit_count": 46,
+    "original_read_files": 59,
+    "source_files_unchanged": true,
+    "whole_load_canonical_result_equal": true,
+    "whole_result_sha256": "3136aa2840c1f2515925b8b335cc52e0d49cd8c771170d72d7f34d868c652249",
+    "whole_result_bytes": 267526,
+    "IO_call_sequence_and_limits_bytes_SHA_equal": true,
+    "IO_calls": 104,
+    "IO_sequence_sha256": "34b6eceefba410268f998d2a3d281275290f2621ea4ac7acd78d0a76d4a5b8b8",
+    "seen_and_referenced_bytes_equal": true,
+    "referenced_bytes": 2314629,
+    "decode_calls": [
+      104,
+      82
+    ],
+    "audit": {
+      "whole_load_fallback": false,
+      "cache_hits": 22,
+      "fallbacks": 0,
+      "peak_raw_bytes": 1034884,
+      "raw_bytes_after_close": 0,
+      "disposed": true
+    },
+    "monitoring_removed": true,
+    "timing_acceptance": false,
+    "product_adopted": false,
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed"
+  },
+  "archive_raw_SHA256": "e74e21adb43b12e35f7ffad8d9ba6ae22626764bd379b9a9f2c23007a5db858f",
+  "native_current_raw_SHA256": "854b83e0606a59abcbca135b98f535beef9ee77dbd6a80658eb2f9e487ef761c",
+  "database_cleanup_SHA256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+  "normal_confirm": [
+    {
+      "mode": "original",
+      "SQL_calls": 4059,
+      "current_calls": 6,
+      "UTC": "2026-10-01T00:00:00.123456Z",
+      "checkpoint_packet_SHA256": "35c4d0eb94f13cda9d4eff2290be63b49922e16fe8ed830846b8645c65e36aa7",
+      "numeric_CLI_zero": true
+    },
+    {
+      "mode": "candidate",
+      "SQL_calls": 4059,
+      "current_calls": 6,
+      "UTC": "2026-10-01T00:00:00.123456Z",
+      "checkpoint_packet_SHA256": "35c4d0eb94f13cda9d4eff2290be63b49922e16fe8ed830846b8645c65e36aa7",
+      "numeric_CLI_zero": true
+    }
+  ],
+  "native_negative_observations": [
+    {
+      "fault": "initial_rights",
+      "mode": "original",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "initial_rights",
+      "mode": "candidate",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "late_rights",
+      "mode": "original",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "late_rights",
+      "mode": "candidate",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "transient_HEAD",
+      "mode": "original",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "transient_HEAD",
+      "mode": "candidate",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    }
+  ],
+  "native_scope": "original CASE6/input64/chunk1 fixture; first existing checkpoint confirmation and current/HEAD failure comparison, not full normal64 actor or throughput proof",
+  "native_lease_seconds": 600,
+  "load_adapter_research_semantics_accepted": true,
+  "all_load_pair_source_assembly_accepted": false,
+  "whole_quantum_cost_trial_performed": false,
+  "whole_performance_accepted": false,
+  "production_call_sites": 0,
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "backend_app_changed": false,
+  "full_backend_browser_or_CI_rerun": false,
+  "new_CI_dispatched": false,
+  "normal64_accepted": false,
+  "new_Solar_deployed": false,
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null,
+  "remaining_external_dependencies": [
+    "rights-approved local cultivar/facility/climate inputs",
+    "independent local crop/climate/resource measurements",
+    "future production/settlement/cost and market-vintage validation",
+    "paired candidate validation"
+  ],
+  "next_task": "crop-solar-local-json-ownership-source-assembly: native page/source/times ownership, custom helper and alias/error/budget proof before final combined whole-quantum ABBA",
+  "interim_excluded": [
+    "RED absent module",
+    "two native-entry failures due to a 65-character source-pin transcription; original fallback preserved results",
+    "first native AST parent access failure",
+    "native fixture record serializer wrongly assumed a JSON datetime and then a checkpoint value member; no product source change"
+  ]
+}
