@@ -444,11 +444,14 @@ class OwnedJSONScope:
             self._drop(token)
         return child
 
+    def _encoding_bound(self, token):
+        return sum(len(self._groups[group]) for group in self._get(token)[2])
+
     def seal_source(self, token):
         row = self._get(token)
         if not row[3] or not self._ready():
             return None
-        reserved = sum(len(self._groups[group]) for group in row[2])
+        reserved = self._encoding_bound(token)
         if not self._reserve(reserved):
             return None
         try:
@@ -480,7 +483,7 @@ class OwnedJSONScope:
         value, raw, source_groups = left[1]
         before = {k: v for k, v in right[1].items() if k < 'source'}
         after = {k: v for k, v in right[1].items() if k > 'source'}
-        reserved = sum(len(self._groups[group]) for group in right[2]) + 16
+        reserved = self._encoding_bound(metadata) + 16
         if not self._reserve(reserved):
             return None
         try:

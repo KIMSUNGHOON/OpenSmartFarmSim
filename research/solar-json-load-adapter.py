@@ -11,7 +11,7 @@ from app import crop_greenhouse_solar_storage as storage
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE_PATH = ROOT/'research/solar-local-json-ownership.py'
-CORE_SHA256 = 'f0a0f676b369f4bc2176c547a1b0409d3493f729505977fadec23f1ecf2f809d'
+CORE_SHA256 = '7e90f6df0ba17dc6c00fb61e25608cea3b3c1379bb70e3c057c6a37c2cdf9126'
 STORAGE_SHA256 = '065ff9f9706bed285f19b82e67277123947715af285cc6438a77fed3c7e30d6d'
 CORE_NAME = 'app._research_local_json_ownership'
 if sha256(CORE_PATH.read_bytes()).hexdigest() != CORE_SHA256:
@@ -69,7 +69,7 @@ class _HeaderCondition(ast.NodeTransformer):
         return self.generic_visit(node)
 
 
-def _build_factory():
+def _build_factory(rewrite=None):
     tree = ast.parse(_SOURCE)
     cls = next(node for node in tree.body if isinstance(node, ast.ClassDef) and node.name == '_Files')
     function = next(node for node in cls.body if isinstance(node, ast.FunctionDef) and node.name == '_load')
@@ -88,6 +88,8 @@ def _build_factory():
     assert ast.unparse(first.body[-1]) == "digest = commit['parent_commit_sha256']"
     first.body[-1] = ast.parse("digest = commit.parent_commit_sha256 if __chain_read.retained else commit['parent_commit_sha256']").body[0]
     second.body[0] = ast.parse("commit = __scope.materialise(__scope.commit(self, digest, LIMITS['metadata_bytes']))").body[0]
+    if rewrite is not None:
+        rewrite(function)
     factory = ast.parse('def factory(__scope, __header_type):\n    pass\n').body[0]
     factory.body = [function, ast.Return(ast.Name('_load', ast.Load()))]
     module = ast.fix_missing_locations(ast.Module([factory], []))
@@ -101,7 +103,7 @@ _FACTORY = _build_factory() if _SOURCE_APPROVED else None
 
 def _native_entry(reader):
     try:
-        if getattr_static(reader, '_load') not in (_ORIGINAL_LOAD, load):
+        if not any(getattr_static(reader, '_load') is fn for fn in (_ORIGINAL_LOAD, load)):
             return False
         return (_attested(_ORIGINAL_LOAD, '_Files._load')
             and all(_attested(getattr_static(reader, name), '_Files.'+name)

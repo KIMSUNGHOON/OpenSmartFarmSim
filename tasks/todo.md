@@ -120,7 +120,7 @@
 
   - [x] **`crop-solar-local-json-ownership-core`** — [제품 미연결 연구 핵심56검사/두 Python판](../research/solar-local-json-ownership-core-20261020.md). native provenance/일회 전달·초기/늦은 변경·원 fallback·fresh file/상한/정리를 최종 같은 source에서 확인했다. app261개 불변·전체 load/pair·성능·제품 수용은 아니다.
   - [x] **`crop-solar-local-json-ownership-load-adapter`** — [새28/핵심56=84·두 Python판/실제46commit/SCRAM1](../research/solar-json-load-adapter-20261020.md). 원 전체 값/UTC·artifact104읽기/한도/raw SHA·22일회 재사용·참조 집계·current6/SQL4,059·권리/HEAD 거부·상한/정리를 보존했다. 제품 연결0·페이지/source 조립·전체 비용/원64는 미수용이다.
-  - [ ] **`crop-solar-local-json-ownership-source-assembly`** — 위 adapter 이후 native 페이지와 source/times의 비노출 조립·callback/alias/오류·합산 한도를 증명한다. 기존 mutable 반환에 소유권을 부여하거나 추가 재인코딩을 숨기지 않는다.
+  - [x] **`crop-solar-local-json-ownership-source-assembly`** — [새43/이전84=127·두 Python판·실제46commit/SCRAM1](../research/solar-json-source-assembly-20261020.md). 내부 native 페이지→source/times·source/payload SHA·초기/늦은 helper/codec/alias/원 오류·합산 추가 raw1MiB·current/HEAD/proof/정리를 대조했다. 원104읽기·source46회·전체payload0회 인코딩이다. 제품 연결0·전체 비용/원64는 미수용이다.
   - [ ] **`crop-solar-local-json-ownership-combined-evaluation`** — 의미/소유권 수용 뒤 최종 결합 guard의 원 quantum ABBA 평균2%/양짝 개선. 미달이면 연구 후보로 보존하고 제품 적용하지 않는다. 통과 뒤에만 관련 회귀/원64로 진행한다.
 - **이전 독립 CI 이력** — 아래 대기·실패 기록은 당시 상태이며 현재 load 검토의 실행 대기가 아니다.
   - [대기 관측](../research/solar-current-guard-independent-queue-20261020.md): CI39280701330/source8b5afe5 한 번 접수·계측 OFF. 2026-10-19T16:00:12.624737Z에 queued/실행기 미배정/steps0이며 GitHub Actions 처리 지연 공지가 있다. 동일 실행의 실제 종료/큐레이션 artifact 검증 전 체크하지 않는다.

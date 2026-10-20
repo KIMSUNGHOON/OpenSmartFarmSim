@@ -1,0 +1,253 @@
+{
+  "schema_version": "solar-json-source-assembly-v1",
+  "recorded_at": "2026-10-20T01:36:25.210909Z",
+  "baseline_commit": "143666cbf7bcb758bd7dd061094038b05f0334bc",
+  "previous_goal_turn": "progress: two-commit load adapter accepted and committed",
+  "native_CLI": {
+    "timestamp": "2026-10-20T01:12:52.753Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_sha256": "830480582220ae53706e0806e771cbdbbf7ad8d1124dcd123b053153f89ee427"
+  },
+  "recursive_CLI_calls": 0,
+  "subagents_started": 0,
+  "research_source_SHA256": {
+    "research/solar-local-json-ownership.py": "7e90f6df0ba17dc6c00fb61e25608cea3b3c1379bb70e3c057c6a37c2cdf9126",
+    "research/solar-json-load-adapter.py": "2bff52dd19091034c96c162091fc8cf54b9a210e351779152630d229ca22e9df",
+    "research/solar-json-source-assembly.py": "78f5aa927cb87e540878b872396a38184768d95ddfc2cf06b814497a4c7fb918",
+    "backend/tests/test_local_json_ownership.py": "069d163939acab3a0e055b96324ac781c7edfecadcad9b6601db53dc8838489b",
+    "backend/tests/test_solar_json_load_adapter.py": "3a2c19da1322d08d0aeffad4fb8c6f1561914c0ebbe6db4670ca4e16db9f8e7d",
+    "backend/tests/test_solar_json_source_assembly.py": "e3d8a82528d168f20ddbac76f3d85fadabce1eb9b19d18b6aa10f122b5e6234f"
+  },
+  "private_source_SHA256": {
+    "probe-source-archive.py": "78294ace3106b5dca74bc388b2673ebe218413e4706d0dc62c4c9f4ec59bf57a",
+    "test-current-source-native.py": "580deed5debc62950e15baa7ef1bfc7b243b9ffdc69cb44a71b08ff5945f883f",
+    "test-locked-source.py": "438bec10d05e8bf5b467f3a7fa4c9fad3d8b19e43458647e0b178dd63304a4e3"
+  },
+  "proofs": {
+    "WSL": {
+      "case": "focused-solar-json-source-assembly-final-unit-v1",
+      "terminal_sha256": "7b7dd9f04857fedcbc016c640f180ed38c7e7e607088d1973d688ed72f3d7455",
+      "log_sha256": "8a3083fdb55c72881c2521d62bf8b908001e6525952f7cb27aef066384925d5f",
+      "source_pins_sha256": "06231f6751312efc4a3647b4e474aab53d46d7d90946dd137558cda460e5f1d2",
+      "actual_child_exit": 0,
+      "wall_seconds": 15.745349075994454,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 966619136,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "locked_Python": {
+      "case": "focused-solar-json-source-assembly-locked-unit-v1",
+      "terminal_sha256": "6300083f049a93e2544352c326e6322c592d6b33b28b7503dac092e6b9106877",
+      "log_sha256": "3a01844b30cc292e665c058e84b3ffedb01a78b7de3ebddda9c0d0735c577439",
+      "source_pins_sha256": "06231f6751312efc4a3647b4e474aab53d46d7d90946dd137558cda460e5f1d2",
+      "actual_child_exit": 0,
+      "wall_seconds": 14.774419456007308,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 978386944,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "archive": {
+      "case": "focused-solar-json-source-assembly-archive-v1",
+      "terminal_sha256": "5323113ba275e2d8c2419d319fa9e997983595784e222072f3546f947654e218",
+      "log_sha256": "08af2911f575670d0193cc703ef46ae05f5511e434942f50ef2c20e3fb12319f",
+      "source_pins_sha256": "06231f6751312efc4a3647b4e474aab53d46d7d90946dd137558cda460e5f1d2",
+      "actual_child_exit": 0,
+      "wall_seconds": 1.88955780401011,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 931823616,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    },
+    "native_current": {
+      "case": "focused-solar-json-source-assembly-native-current-v1",
+      "terminal_sha256": "53abe2b2755caf0c9ee73282d60c279ffacb0bfda89b19829137974835c663d9",
+      "log_sha256": "80d1a6f8241e07937e67c7cce773d9cc32d310a8689d756157edc4b2d5951291",
+      "source_pins_sha256": "06231f6751312efc4a3647b4e474aab53d46d7d90946dd137558cda460e5f1d2",
+      "actual_child_exit": 0,
+      "wall_seconds": 57.350171506011975,
+      "single_PID_peak_RSS_bytes": 145444864,
+      "combined_peak_RSS_bytes": 1064136704,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_live": true,
+      "owned_non_zombie_remaining": []
+    }
+  },
+  "unique_contract_cases": 127,
+  "new_source_assembly_cases": 43,
+  "previous_core_and_loader_cases": 84,
+  "contract_executions_two_interpreters": 254,
+  "native_current_fixture_cases": 1,
+  "source_assembly_semantics_accepted": true,
+  "direct_private_native_page_reads": true,
+  "existing_mutable_records_outputs_marked_owned": false,
+  "extra_source_encodes_to_establish_ownership": 0,
+  "new_retained_and_encoding_raw_buffer_budget": 1048576,
+  "original_page_IO_limit_bytes": 2097152,
+  "original_page_IO_and_canonical_temporaries_unchanged": true,
+  "budget_scope": "aggregate added retained metadata/source bytes, added encoding reservations and optimized commit-read reservation; unchanged original reader/page/header temporaries retain original IO bounds and are included in supervised RSS",
+  "provenance": "fresh native commit capability; original blob decoder invoked privately by copied native records body; builtin/clock/codec/helper checks before private validation statements; taint is irreversible for the current source pair; capability consumed before external canonical context checks",
+  "archive": {
+    "source_HEAD_sha256": "ec3e876ab23b8f12644d75b475e2fd428112a790196f2a66f7ebdb18f5df0229",
+    "commit_count": 46,
+    "original_read_files": 59,
+    "source_files_unchanged": true,
+    "whole_load_canonical_result_equal": true,
+    "whole_result_sha256": "3136aa2840c1f2515925b8b335cc52e0d49cd8c771170d72d7f34d868c652249",
+    "whole_result_bytes": 267526,
+    "IO_call_sequence_and_limits_bytes_SHA_equal": true,
+    "IO_calls": 104,
+    "IO_sequence_sha256": "34b6eceefba410268f998d2a3d281275290f2621ea4ac7acd78d0a76d4a5b8b8",
+    "seen_and_referenced_bytes_equal": true,
+    "referenced_bytes": 2314629,
+    "decode_calls": [
+      104,
+      83
+    ],
+    "source_root_encodes": [
+      46,
+      46
+    ],
+    "full_payload_encodes": [
+      46,
+      0
+    ],
+    "audit": {
+      "whole_load_fallback": false,
+      "source_pairs": 46,
+      "fallback_pairs": 0,
+      "page_reads": 9,
+      "cache_hits": 21,
+      "fallbacks": 0,
+      "peak_raw_bytes": 1037131,
+      "disposed": true,
+      "raw_bytes_after_close": 0,
+      "extra_source_encodes_for_ownership": 0
+    },
+    "monitoring_removed": true,
+    "timing_acceptance": false,
+    "product_adopted": false,
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed"
+  },
+  "archive_raw_SHA256": "e228d91c8863511e1d947a8126219e28f9fc82b5e24efc3182efeee07353f079",
+  "native_current_raw_SHA256": "60746885d0cdab2c6695ad7b9f2f07568e0dac78fc96db6e9e08421af8a8f297",
+  "database_cleanup_SHA256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+  "normal_confirm": [
+    {
+      "mode": "original",
+      "SQL_calls": 4059,
+      "current_calls": 6,
+      "UTC": "2026-10-01T00:00:00.123456Z",
+      "checkpoint_packet_SHA256": "284eaa58379a0349b9bd72a6f985abf7d324f3b7b90489fb51da4c6906a22cc8",
+      "numeric_CLI_zero": true
+    },
+    {
+      "mode": "candidate",
+      "SQL_calls": 4059,
+      "current_calls": 6,
+      "UTC": "2026-10-01T00:00:00.123456Z",
+      "checkpoint_packet_SHA256": "284eaa58379a0349b9bd72a6f985abf7d324f3b7b90489fb51da4c6906a22cc8",
+      "numeric_CLI_zero": true
+    }
+  ],
+  "negative": [
+    {
+      "fault": "initial_rights",
+      "mode": "original",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "initial_rights",
+      "mode": "candidate",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "late_rights",
+      "mode": "original",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "late_rights",
+      "mode": "candidate",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "transient_HEAD",
+      "mode": "original",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    },
+    {
+      "fault": "transient_HEAD",
+      "mode": "candidate",
+      "error": "solar checkpoint unavailable",
+      "numeric_CLI_zero": true
+    }
+  ],
+  "native_fixture_scope": "existing first checkpoint with original CASE6/input64/chunk1 and lease600 semantics; no full64 actor or throughput proof",
+  "source_hash_before_payload_hash_error_order_verified": true,
+  "transient_self_restoring_callback_and_mid_pair_codec_mutation_rejected_or_fallback": true,
+  "interim_excluded": [
+    "RED absent source module",
+    "first generated prefix omitted digest argument",
+    "dict-alias expectation corrected with matching type alias to exercise an actually valid original path"
+  ],
+  "backend_app_files": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "backend_app_changed": false,
+  "production_call_sites": 0,
+  "combined_cost_trial_performed": false,
+  "whole_performance_accepted": false,
+  "full_backend_browser_or_CI_rerun": false,
+  "new_CI_dispatched": false,
+  "normal64_accepted": false,
+  "new_Solar_deployed": false,
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null,
+  "remaining_external_dependencies": [
+    "rights-approved local cultivar/facility/climate inputs",
+    "independent local crop/climate/resource measurements",
+    "future production/settlement/cost and market-vintage validation",
+    "paired candidate validation"
+  ],
+  "next_task": "crop-solar-local-json-ownership-combined-evaluation: final same guard/source whole-quantum ABBA, original input64/chunk1; mean>=2% and both pairs positive; no component gain addition or timing-selected rerun"
+}
