@@ -1,0 +1,497 @@
+{
+  "version": "crop-greenhouse-co2-farm-binding-acceptance-v1",
+  "recorded_at": "2026-10-20T19:59:33.388490+00:00",
+  "scope": "synthetic_joint_co2_solar_math_only",
+  "test_groups": 10,
+  "actual_SCRAM": true,
+  "fresh_forbidden_entrypoints": 17,
+  "fresh_physical_context_time_restore_CLI_calls": 0,
+  "new_Run_crop_result_rows": 0,
+  "binding_bytes_normal_and_maximum": 34687,
+  "unchanged_request_binding_cap_bytes": 131072,
+  "maximum": {
+    "binding_bytes": 34687,
+    "calls": {
+      "CLI": 0,
+      "CO2": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "advance": 0,
+      "air": 0,
+      "event": 0,
+      "gas": 0,
+      "net": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "counts_unchanged": true,
+    "events": 128,
+    "evidence_bytes": 1038344,
+    "forcing": 512,
+    "outputs": 512,
+    "source_bytes": 850874,
+    "variables": 48
+  },
+  "availability": {
+    "source_before_and_exact_decision_accepted": true,
+    "source_one_microsecond_after_rejected": true,
+    "declaration_before_and_exact_decision_accepted": true,
+    "declaration_one_microsecond_after_rejected": true,
+    "retrieval_distinct_from_availability": true,
+    "authenticated_end_one_microsecond_outside_occupancy_rejected": true
+  },
+  "native_CLI_review": {
+    "decision_id": "co2-farm-binding-20261021-v1",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "native_turn_context": {
+      "timestamp": "2026-10-20T19:52:36.281Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "event_line_sha256": "8166176a6af84b8d7dc888e3bde6f12d11fd51a2ddf8f2fda26627918f98b515"
+    },
+    "session_creation_metadata": {
+      "source": "vscode",
+      "cli_version": "0.157.1",
+      "model_provider": "openai"
+    },
+    "creation_version_not_current_binary_measurement": true,
+    "no_recursive_CLI": true
+  },
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_farm_binding.py": "c89ebab2908b531015b2bc19dd1f81911c6abbebb76adbe4ab0fae7b2c8ef1ff",
+    "backend/tests/test_crop_greenhouse_co2_farm_binding.py": "2941634432d97043d0d05b985d1479a02f14f2db1396ab0957500dd3cc8655cd",
+    "contracts/crop-greenhouse-co2-farm-binding-v1.md": "3c915bd833adab952743a55156e8efaf9853167cdd64c7aa336fb57f52bdff93",
+    "backend/app/crop_greenhouse_co2_input_evidence.py": "de3988f138fb1e6f10721978c1fa6c49e38ae656d68ca0938d97bc5ee1eae581",
+    "backend/tests/test_crop_greenhouse_co2_input_evidence.py": "320dcf15b8b081da4160d25d48d3a76ecd7556dabf46180bdb305789d3bed002",
+    "backend/app/crop_greenhouse_solar_farm_binding.py": "70c2dc9429708f58a8c64d2c9d8de328c9fd16a91f6ff97a7d319221bd75945f",
+    "backend/tests/test_crop_greenhouse_solar_farm_binding.py": "28bc20be773d96ba2f5934ab0ea112628a25b9d0c96241b4f3cc90ea48b0b0e7",
+    "backend/tests/login_database.py": "fec68c80d14f757c45a7d78dc40085d8b1526050a7590bf3b697105c291cf24b",
+    "backend/app/farm_authoring_storage.py": "96ec01beb3e39d7bb0f5b0896824f6208a3219fb926e6ab860c42a6297b57966",
+    "backend/app/farm_registration_read_scope.py": "cbbfb1ef7da1cfb26cb3f2e8d78e80e8a940a30ebdf5186abbef8b70cea3cbe1",
+    "backend/app/runtime_roles.py": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/market_candidate_store.py": "6523e117147062392f7f3cac4bdde610a1398ca804f24a13d7b7fde735a6b458",
+    "backend/app/market_reference_bundle.py": "7994806cb008d268f7d85eeda2c7bd15076e28a52c2a103c9646ee6ebe8a4dcf",
+    "backend/app/crop_greenhouse_co2_time.py": "e59960eeee0c36512a3c83913ce0bdc47695960152b20b4b68e110e4f97f499e",
+    "backend/app/crop_greenhouse_co2_continuation.py": "cf48f58eaa78b18f3a54e0ef42c039b92aed84030d583e13b48c0b89123f429b"
+  },
+  "tested_contract_sha256": "3c915bd833adab952743a55156e8efaf9853167cdd64c7aa336fb57f52bdff93",
+  "RED": {
+    "result": "new module absent; collection error, not model counterexample",
+    "guard": {
+      "actual_child_exit": 2,
+      "wall_seconds": 0.8460559509985615,
+      "combined_peak_RSS_bytes": 652857344,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 3,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "2a9a9f6e02057222bc88b13b0ac66629f5471b93861d6cf3c67a95f9b9e75b39",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "first_attempt": {
+    "result": "test helper import referred to self after a name substitution; collection error before DB execution; corrected shared fixture import only",
+    "guard": {
+      "actual_child_exit": 2,
+      "wall_seconds": 1.618633239006158,
+      "combined_peak_RSS_bytes": 705220608,
+      "single_PID_peak_RSS_bytes": 126431232,
+      "RSS_samples": 6,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "d189cbc83217c7df3bb6a00b29fbe07b19afac15bce30ead0efa9dcce5d0914a",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "GREEN": {
+    "test_groups": 10,
+    "pytest_seconds": 133.77,
+    "guard": {
+      "actual_child_exit": 0,
+      "wall_seconds": 140.30208451399812,
+      "combined_peak_RSS_bytes": 823685120,
+      "single_PID_peak_RSS_bytes": 156438528,
+      "RSS_samples": 509,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "fc7b16078e6fa54da9328107feae37a74e7dce48bdbd9c8776393629b1ad8e35",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "sanitized_owned_evidence": {
+    "co2-farm-actual-database-current.json": {
+      "sha256": "379ddbd6f01d5b1096fc47a3e857c3c0c798983109e5a32e318933c220e1f854",
+      "sanitized_result": {
+        "actual_unexpected_grant_rejected": true,
+        "counts_unchanged": true,
+        "digest_constraint_rejected_bytes_only_change": true,
+        "immutable_trigger_rejected_update": true,
+        "rehashed_corruption_injected_only_by_scratch_fixture_admin": true,
+        "restored_binding_bytes_identical": true,
+        "stored_registration_tamper_rejected": true
+      }
+    },
+    "co2-farm-availability.json": {
+      "sha256": "4509b3f9747c81b5eb5e4f7a99a4df344ab1fc4f42f5f9d0679eb001027e656d",
+      "sanitized_result": {
+        "before_and_exact_accepted": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "decision_at": "2026-09-28T00:00:00Z",
+        "late_retrieval_not_confused_with_availability": true,
+        "source_one_microsecond_after_decision_rejected": true
+      }
+    },
+    "co2-farm-closed-and-mixed.json": {
+      "sha256": "b47fc9afa27609c1cf203149e5eb85bc976e6a2e813a4c552ac94762e05e64d7",
+      "sanitized_result": {
+        "counts_unchanged": true,
+        "expected_binding_rejected": true,
+        "raw_cases": 6,
+        "request_cases": [
+          "extra",
+          "source",
+          "context",
+          "time",
+          "evidence",
+          "program",
+          "old-input",
+          "old-rights",
+          "old-joint-input",
+          "old-joint-rights",
+          "old-ventilation-input",
+          "old-ventilation-rights",
+          "approval",
+          "rights-source",
+          "rights-type",
+          "redistribute",
+          "available",
+          "crop",
+          "farm",
+          "revision",
+          "null"
+        ]
+      }
+    },
+    "co2-farm-current-rights.json": {
+      "sha256": "866b439e7ad0caab977388a06d1d79b7859b9b0308796250a521c5d662b0aba4",
+      "sanitized_result": {
+        "counts_unchanged": true,
+        "foreign_tenant_rejected": true,
+        "scopes_checked": [
+          "read-versus-write",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ],
+        "source_review_rights_revocations_rejected": true
+      }
+    },
+    "co2-farm-database-cleanup.json": {
+      "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+      "sanitized_result": {
+        "roles": 0,
+        "schemas": 0
+      }
+    },
+    "co2-farm-declared-availability.json": {
+      "sha256": "c8a597a953ced590001074022436bd6d9f64e289833ca7cec4dcbb08f2d6831e",
+      "sanitized_result": {
+        "before_exact_accepted": true,
+        "counts_unchanged": true,
+        "one_microsecond_after_rejected": true,
+        "timestamps_checked": [
+          "2026-09-27T23:59:59.999999Z",
+          "2026-09-28T00:00:00Z",
+          "2026-09-28T00:00:00.000001Z"
+        ]
+      }
+    },
+    "co2-farm-late-callbacks.json": {
+      "sha256": "1d3aa3f55dc68c22744bfdb4d1728df370465037860bb5e6f033a671466a9a46",
+      "sanitized_result": {
+        "cases": [
+          "rights",
+          "review",
+          "source",
+          "scope",
+          "bytes",
+          "declaration"
+        ],
+        "counts_unchanged": true
+      }
+    },
+    "co2-farm-maximum.json": {
+      "sha256": "989560bc8545f11bd3bea3cc8a0649c3d6f5cb10592f06257c5a701938b1bd5a",
+      "sanitized_result": {
+        "binding_bytes": 34687,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "events": 128,
+        "evidence_bytes": 1038344,
+        "forcing": 512,
+        "outputs": 512,
+        "source_bytes": 850874,
+        "variables": 48
+      }
+    },
+    "co2-farm-normal-binding.json": {
+      "sha256": "d315a0c847bf8f5459a009d52da09d3a6f231c49b0b00dfe5d90ccf63f3ea5dc",
+      "sanitized_result": {
+        "binding_bytes": 34687,
+        "binding_sha256": "05d15237bb4bd6aaffcb4e8a8f7733beb4aafe4fc9363c56e8577cef989f32bc",
+        "counts_before_after": [
+          [
+            88,
+            88,
+            0,
+            0
+          ],
+          [
+            88,
+            88,
+            0,
+            0
+          ]
+        ],
+        "current_seconds": 0.7759287559892982,
+        "fresh": {
+          "actual_exit": 0,
+          "actual_scram": true,
+          "binding_sha256": "05d15237bb4bd6aaffcb4e8a8f7733beb4aafe4fc9363c56e8577cef989f32bc",
+          "calls": {
+            "CLI": 0,
+            "CO2": 0,
+            "NIR": 0,
+            "PAR": 0,
+            "RHS": 0,
+            "advance": 0,
+            "air": 0,
+            "event": 0,
+            "gas": 0,
+            "net": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "solar": 0,
+            "start": 0,
+            "step": 0,
+            "ventilation": 0
+          },
+          "counts": [
+            88,
+            88,
+            0,
+            0
+          ],
+          "fresh_exec": true,
+          "review_revocation_rejected": true
+        },
+        "prepare_seconds": 0.7687444589973893,
+        "proof_checks_per_call": 2
+      }
+    },
+    "co2-farm-outside-period.json": {
+      "sha256": "ad53847a7029f5099c001c968c941576eaf0d4c400a57684d6af599c77de0bac",
+      "sanitized_result": {
+        "actual_occupancy_rejected": true,
+        "authenticated_end_one_microsecond_outside": "2026-10-25T00:00:00.000001Z",
+        "authenticated_time_origin": "2026-01-01T00:00:00Z",
+        "counts_unchanged": true
+      }
+    },
+    "co2-farm-runtime-fixed.json": {
+      "sha256": "9f50f9c8238b6337709d25a6bd48577c11ce3762b0e0bfac3cb868c51afb707c",
+      "sanitized_result": {
+        "bool_write_required": true,
+        "configuration_cases": [
+          "farms",
+          "input_authority",
+          "input_rights",
+          "policy_version",
+          "runtime_identity",
+          "CODE_SHA256",
+          "key_id"
+        ],
+        "non_true_answers_rejected": 5
+      }
+    }
+  },
+  "review": {
+    "correctness": "Exact verified CO2 type/model/provenance, current registered farm and independent source/declaration availability; actual DB tamper/grant/revocation tests and fresh bytes.",
+    "architecture": "Reuse production farm registration and permissions unchanged; additive typed CO2 binding only. Test authoring fixture is reused from Solar without copying or changing it.",
+    "readability": "Same narrow prepare/current interface and currentness fences as the accepted Solar boundary.",
+    "security": "No request-supplied paths, exact True rights, strict bounded canonical request and trusted expected bytes, repeated source/review/scope/registration fences. Credentials remain only in owned private fixture files.",
+    "performance": "Maximum distinct512/128/512 input keeps34,687 binding bytes under128KiB. Focused run with five protected roots stays within original600s/RSS limits. No optimization claims beyond measured boundary.",
+    "verdict": "accepted synthetic software binding only; no main merge or deployment"
+  },
+  "next_child": "co2-server-custody",
+  "not_accepted": [
+    "actual external rights/G0 or cultivar-specific applicability",
+    "independent local/future/paired field validation G2/G3a/G3b",
+    "G4 deployment proof",
+    "new CO2 signed custody/DB results/API/worker/3D or user deployment",
+    "whole crop cycle/resource/economic integration",
+    "full CI or browser validation in this increment"
+  ],
+  "goal_status": "active",
+  "full_product_completion": null,
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "reported_at": "2026-10-20T20:00:18.776536Z",
+    "source_sha256": "d997fb3e19db89b76eb17934089c9b72fe106d7f409d6e05bcb45d0d0a6f53cc",
+    "retained_ventilation_frozen_source_preserved": true,
+    "files": 2173,
+    "current_HTML_matches_frozen_entry_both_ports": true,
+    "browser_DOM_rerun": false,
+    "guard": {
+      "actual_child_exit": 0,
+      "wall_seconds": 0.3390235679980833,
+      "combined_peak_RSS_bytes": 601681920,
+      "single_PID_peak_RSS_bytes": 113844224,
+      "RSS_samples": 1,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "frontend_status": 200,
+      "log_sha256": "78e8575bc628f6907cd605b2f6a1f28ea7dda72a5ad7917c3cb38c2863406b56",
+      "reason": null,
+      "supervisor_error_type": null
+    }
+  },
+  "accepted_contract_sha256": "c6423ab4b23854d24aa41acce5d5ef0b773d31e63c400b2ec6332876fffb8a6d",
+  "contract_hash_note": "Tested source/contract pins refer to GREEN before the acceptance-status/result section was appended; accepted_contract_sha256 identifies that documented current contract."
+}

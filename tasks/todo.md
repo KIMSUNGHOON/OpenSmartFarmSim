@@ -2242,7 +2242,11 @@
         변수 coverage의 실제 크기를 먼저 재고 초과는 보류한다. 수용: issue 실제 초기 평가1·verify/fresh의
         context/UTC/수치/restore0; 변조/잘못된 선언/늦은 철회·파일/원 자원 한도·5root/자료/정리.
         합성 내부 선언의 소프트웨어 검증이며 외부 자료/G0/농장 승인이 아니다. 이후 농장 결속·서명 custody다.
-      - [ ] **`co2-farm-binding`** — 다음 작은 자식; 선행: 위 입력 증거와 기존 등록 농장/명시 결과 권한.
+      - [x] **`co2-farm-binding`** — [계약/수용](../contracts/crop-greenhouse-co2-farm-binding-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-farm-binding-20261021.json):실제 SCRAM10그룹,
+        fresh17진입점0·원 등록/UTC/provenance·현재 권리/철회·실제 DB 변경/복구·source/선언1µs 경계,
+        최대512환경/128사건/512출력의 연결34,687bytes/원128KiB·원5root/자료/소유 정리를 수용했다.
+        선행: 위 입력 증거와 기존 등록 농장/명시 결과 권한.
         [기존 Solar 결속 계약](../contracts/crop-greenhouse-solar-farm-binding-v1.md)의 등록·현재 권리 검사를
         새 CO₂ evidence/rights/binding type과109상태/44장부 identity에 결속한다. 핵심3파일: 새 binding/집중 pytest/계약.
         실제 SCRAM prepare/current/read/write·fresh 동일 bytes, 원 microsecond UTC/재배·점유 구간,
@@ -2250,6 +2254,16 @@
         현재 scope/권리/review/등록·늦은 source/DB/선언 변경·구 판본 혼합은 거부하며 request/result 각128KiB를 유지한다.
         수치/context/UTC 생성·restore/CLI·새 Run/결과 row0, 원5root/자료·512MiB/PID/합1GiB/FD와
         소유 PG/schema/role/passfile 정리가 수용 기준이다. 외부 실제 권리/농장·G0–G4는 별도다.
+      - [ ] **`co2-server-custody`** — 다음 작은 자식; 선행: 위 농장 연결/입력 증거와 v2 continuation/UTC/파일 저장.
+        [기존 Solar custody](../contracts/crop-greenhouse-solar-server-custody-v1.md)의 잠금/fsync/선택 HEAD를
+        새 CO₂ class/version/intent·proof·identity HMAC domain으로 구분한다. 핵심3파일: 새 custody/집중 pytest/계약.
+        원 forcing program과 verified full record·초기/endpoint/새 구간 호출을 대사하며 과거 재계산0을 확인한다.
+        실제 SCRAM 정상/hold·fresh 재개·109상태/44연속·6사건/17수지·UTC/원 producer 일치;
+        inspect/page/terminal retry의 context/UTC/수치/restore/CLI0와 현재 권리/검토·늦은 철회,
+        원 요청 충돌/잠금·서명/HEAD/페이지 변조와 HEAD 전후 실제 SIGKILL의 선택 prefix를 확인한다.
+        원 intent192KiB/proof8KiB/progress128KiB·최대 입력/파일 한도를 먼저 재며 초과를 보류한다.
+        행/사건/출력 수·상한을 줄이지 않고 원5root/결과·512MiB/PID/합1GiB/FD·소유 PG/schema/role/passfile을 보존한다.
+        이후 DB/API/worker/같은 UTC3D·사용자 수용이며 실제 자료/관문은 별도다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

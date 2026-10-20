@@ -62,7 +62,11 @@ UTC/서명 custody·저장/실행/3D는 남아 있어 현 낮은 신뢰 공수/�
 [입력 증거167검사](../contracts/crop-greenhouse-co2-input-evidence-v1.md)로9행의 입력 자식을 완료했다.
 원10프로그램/초기 RHS·UTC와 현재 review/provenance·권리/QC·매 구간 schema를 대사했다.
 실제 issue9성분 각1회·verify/fresh0과 최대512환경/128사건/512출력의 원1MiB/2MiB를 수용했다.
-농장/서명/DB/API/3D·전체 작기/자원/경제와 독립 자료는 남는다. 검사16.32초를 개발 공수로 환산하지 않는다.
+이 입력 증거 자식의 수용은 농장/서명/DB/API/3D·전체 작기/자원/경제나 독립 자료 검증이 아니다.
+검사16.32초를 개발 공수로 환산하지 않는다.
+[농장 연결 실제 SCRAM10그룹](../contracts/crop-greenhouse-co2-farm-binding-v1.md)으로9행의 현재 농장 자식도 완료했다.
+source/선언 가용 시각·원 등록/UTC·현재 권리와 fresh17진입점0·실제 DB 변조/철회·원128KiB를 수용했다.
+서명 이력/DB 결과/API/새3D와 전체 작기/자원/경제·자료 관문은 남아 기존 낮은 신뢰 공수/계획 창을 유지한다.
 
 **달력 환산은 조건부:** 한 작업자 주40집중시간, 계정/CI/도구 사용 가능, 권리 있는 명시 시험 입력,
 기존 디자인 변환 복구와 독립 검토/해제 확보, 추가 큰 수치/성능 재설계 없음이라는 가정이면 약5–9개발주다.
@@ -127,7 +131,8 @@ UTC110/프로그램38/재개122=270검사로 수용했다.13수치 진입점 금
 850,867 source/1,038,337 서명bytes·48변수다. 원한도/행·사건·출력 수를 줄이지 않았다.
 원 프로그램/프로필/source/초기 RHS/UTC·review ID와 별도 HMAC, 실제 issue 초기 평가1과
 verify/fresh의 context/UTC/수치/restore0, 변조/늦은 철회·5root/자료/정리를 대사했다.
-**다음 `co2-farm-binding`:** 선행은 위 입력 증거와 기존 등록 농장/명시 결과 권한이다.
+`co2-farm-binding`은 [실제 SCRAM10그룹](../contracts/crop-greenhouse-co2-farm-binding-v1.md)으로 수용했다.
+선행은 위 입력 증거와 기존 등록 농장/명시 결과 권한이다.
 기존 [Solar 농장 결속](../contracts/crop-greenhouse-solar-farm-binding-v1.md)의 등록/권리 resolver를
 재사용하되 새 CO₂ source/rights/binding/verified type과109상태/44장부 identity로 구분한다.
 핵심3파일: 새 farm binding/집중 pytest/계약. 요청 경로는 서버가 공급하며 새 schema/role/service를 추가하지 않는다.
@@ -136,7 +141,19 @@ available_at<=decision_at·source/context/evidence/provenance/농장·품종/bat
 현재 scope/권리/review/등록·늦은 철회/DB·source·선언 변경 거부와 read/write 권한을 확인한다.
 prepare/current/fresh의 수치·context/UTC 생성·restore/CLI·새 작물 Run/결과 row는0이어야 한다.
 128KiB 결속 상한·FD/원5root/자료·512MiB/PID/합1GiB와 소유 PG/schema/role/passfile 정리를 확인한다.
-실제 외부 권리/G0 승인이나 농장 검증을 선언하지 않는다. 이후 서명 custody→DB/API/같은 UTC3D다.
+실제 외부 권리/G0 승인이나 농장 검증을 선언하지 않는다.
+**다음 `co2-server-custody`:** 위 농장 연결/입력 증거와 CO₂ v2 continuation/UTC/파일 저장이 선행이다.
+[기존 Solar 서명 이력](../contracts/crop-greenhouse-solar-server-custody-v1.md)의 소유 잠금/fsync/서명 HEAD를
+재사용하되 CO₂ class/version/intent·proof·identity HMAC domain은 분리한다. 새 DB/role/service를 추가하지 않는다.
+핵심3파일: 새 custody/집중 pytest/계약. 최초 원 forcing program으로 공식 context/UTC를 만들고 전체
+verified record와 대사한다. 초기/endpoint 복원 평가와 새 구간 평가를 따로 계수해 과거 구간 재실행0을 확인한다.
+수용: 실제 SCRAM 정상/hold의 원109상태/44연속·6사건/17수지/UTC·checkpoint를 직접 producer와 대사;
+inspect/page/terminal retry는 context/UTC/수치/restore/CLI0·현재 권리/review를 확인한다.
+별도 fresh 재개·원 요청 충돌/잠금·서명/선택 HEAD/페이지 변조·늦은 철회와 HEAD 전후 실제 소유 SIGKILL에서
+선택 prefix/마지막 결과를 보존해야 한다. 최대 입력에서 원 intent192KiB/proof8KiB/progress128KiB와
+storage 한도를 먼저 재고 초과는 hold/근거 있는 별도 수정으로 기록한다. 행/사건/출력 수나 상한을 줄여 통과시키지 않는다.
+원5root/결과·FD/512MiB/PID/합1GiB/600초와 소유 PG/schema/role/passfile 정리를 수용한다.
+이후 DB 결과 등록/현재 조회→API/worker→같은 UTC3D/사용자 정상·보류·취소이며 실제 자료/관문은 별도다.
 독립 농장 자료 확보는 병행하고 이 합성 파일 저장의 인위적인 개발 선행으로 추가하지 않는다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 이미 수용한 짧은 적분/관리·continuation/UTC/파일 저장은 유지한다. 후속 농장/서명·DB/API/3D는

@@ -23,7 +23,9 @@
 원 모델/자료/5root를 보존했다. [입력 증거167검사](../contracts/crop-greenhouse-co2-input-evidence-v1.md)는
 원10프로그램/초기 RHS·UTC·review/provenance와 issue 초기9성분 각1회/verify·fresh 계산0을 수용했다.
 최대512환경/128사건/512출력·850,867 source/1,038,337 서명bytes는 원1MiB/2MiB 안이다.
-다음은 현재 농장 결속→서명 custody→DB/API/같은 UTC3D다.
+[농장 연결 실제 SCRAM10그룹](../contracts/crop-greenhouse-co2-farm-binding-v1.md)도 원 등록/provenance/UTC·현재 권리,
+fresh17진입점0·DB 변조/철회·source/선언1µs 경계와 최대 연결34,687bytes/원128KiB로 수용했다.
+원 자료/5root와 소유 PG/schema/role/passfile 정리를 보존했다. 다음은 서명 custody→DB/API/같은 UTC3D다.
 새 저장/API/3D와 실제 품종/농장·관문은 후속이며 기공 단위는 별도 hold다.
 필요한 계산 근거·권리를 대사했으며 UI 용량을 이 계산 개발의 선행으로 추가하지 않는다.
 기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.

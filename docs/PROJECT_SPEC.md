@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-21 KST:** [CO₂·일사 입력 증거](../contracts/crop-greenhouse-co2-input-evidence-v1.md)를167집중 검사로 수용했다. 원10프로그램/초기 RHS·UTC를 보존했고 issue의 실제 초기9성분 각1회·verify/fresh 계산0, 현재 review/권리/QC/단위·변조/철회 거부를 확인했다. 최대512환경/128사건/512출력의 원본850,867/서명1,038,337bytes는 원1MiB/2MiB 안이며 원 자료/5서비스를 보존했다. 다음은 현재 농장 결속→서명 custody→DB/API/같은 UTC3D다. 합성 소프트웨어 범위이며 새 CO₂ 모델 사용자 배포·전체 작기/자원/경제/독립 자료·G0–G4는 미완료다. 전체 goal은 active, 완료일은 미정이다.
+**현재 — 2026-10-21 KST:** [CO₂·일사 농장 연결](../contracts/crop-greenhouse-co2-farm-binding-v1.md)을 실제 SCRAM10검사 그룹으로 수용했다. 등록 농장/품종/batch/면적·원 UTC/출처·현재 권리와 fresh 동일 bytes를 대사했고17수치/context/CLI 진입점 호출0·DB 변조/철회 거부·1µs 시각 경계를 확인했다. 최대512환경/128사건/512출력도 연결 정보34,687bytes로 원128KiB 안이다. 원 자료/5서비스와 소유 정리를 보존했다. 다음은 서명 custody→DB/API/같은 UTC3D다. 합성 소프트웨어 연결이며 새 CO₂ 사용자 배포·전체 작기/자원/경제/실제 농장 검증·G0–G4는 미완료다. 전체 goal active·완료일 미정이다.
 
 **API 요청별 실제 관측 완료 — 2026-10-20 KST:** [CI39369990827·24요청/서버 구간 대사](../research/solar-api-request-cost-observation-20261020.md)에서 원360초 미완료·마지막 confirm27/64, 성공 prefix/samples의 current6·원천912·약14–16초를 확인했다. observer11/두 Python판과 원 actor/hash·종료/정리는 수용했으며 정상64는 미수용이다. 다음은 [query의 한 현재 검사 안 등록 scope 후보](../contracts/solar-query-current-registration-scope-v1.md)다. 제품 app261·기존 두 UI 유지·새 Solar/실제 자료·관문/최종 UI와 전체 날짜는 미완료/미정·goal active다.
 
@@ -738,7 +738,9 @@ CO₂ 경계의 개발은 [원문/단위 정책](../research/crop-co2-stomatal-s
 [불변 저장103검사](../contracts/crop-greenhouse-co2-storage-v1.md)는10개 프로그램×3예산의 실제 파일/원량/UTC와
 fresh 조회 계산0·중간 재개·HEAD 전후 SIGKILL·파일/권한 변조 거부를 수용했다.
 [입력 증거167검사](../contracts/crop-greenhouse-co2-input-evidence-v1.md)로 현재 review/provenance·단위/QC/권리와
-원1MiB source/2MiB 서명·fresh 계산0을 수용했다. 다음은 농장 결속·서명 custody→DB/API/같은 UTC3D다.
+원1MiB source/2MiB 서명·fresh 계산0을 수용했다. [농장 연결 실제 SCRAM10그룹](../contracts/crop-greenhouse-co2-farm-binding-v1.md)도
+원 provenance/등록·UTC/현재 권리와 fresh17진입점0·DB 변경/1µs 경계·원128KiB로 수용했다.
+다음은 서명 custody→DB/API/같은 UTC3D다.
 전체 작기·109상태 사용자3D와 실제 자료/관문은 후속이다.
 기공 단위 해석의 별도 hold나
 기관 목록/U1 용량을 앞의 gas/net/mass 자식의 개발 선행으로 추가하지 않는다.
