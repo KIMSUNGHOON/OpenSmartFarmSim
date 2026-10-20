@@ -10,11 +10,16 @@ const reader=createInterface({input:process.stdin}),lines=reader[Symbol.asyncIte
 async function next(){const line=await lines.next();assert(!line.done,'owned browser protocol ended');return JSON.parse(line.value);}
 const config=await next(),origin=process.argv[2],directory=process.argv[3];
 const clean=value=>Object.values(config.tokens).reduce((s,token)=>s.replaceAll(token,'[owned-token]'),String(value));
-const network=[],errors=[],frames=[],pending=new Set(),started=new Map();
+const network=[],errors=[],frames=[],phases=[],pending=new Set(),started=new Map();
 const hash=raw=>createHash('sha256').update(raw).digest('hex');
 const browser=await chromium.launch({args:['--enable-unsafe-swiftshader','--single-process','--no-zygote']});
 const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1536,height:1024},deviceScaleFactor:.5});
 const page=await context.newPage();
+page.setDefaultTimeout(30_000);page.setDefaultNavigationTimeout(30_000);
+async function phase(name){
+  phases.push({name,frames:frames.length,responses:network.length});
+  await writeFile(directory+'/browser-progress.private.json',JSON.stringify({phases,frames,network,errors}),{mode:0o600});
+}
 page.on('pageerror',error=>errors.push(clean(error.message)));
 page.on('request',request=>started.set(request,performance.now()));
 page.on('response',response=>{
@@ -104,26 +109,39 @@ try{
   await sized(390,844);await sample(config.result.samples.length-1,'mobile-last');await screenshot('mobile-last');
   await sized(320,900);
   await page.reload();await connect(config.tokens.owner);await selectNormal();await sample(0,'reloaded-original');
-  send('geometry_verified');assert((await next()).stage==='rights_revoked');
+  await phase('geometry-verified');send('geometry_verified');assert((await next()).stage==='rights_revoked');
+  await phase('rights-revoked-query');
   await lookup();await expect(page.locator('.crop-viewer')).toHaveCount(0);
   await expect(page.locator('.crop-table')).toHaveCount(0);await expect(page.locator('.catalog-replay [role=alert]')).toBeVisible();
-  send('rights_hold_verified');assert((await next()).stage==='rights_restored');
+  await phase('rights-hold-verified');send('rights_hold_verified');assert((await next()).stage==='rights_restored');
+  await phase('rights-restored-query');
   await lookup();await sample(0,'rights-restored-original');
+  await phase('rights-restored-visible');
   await chooseResult(config.held_recorded_at);
   await expect(page.locator('.crop-hold')).toBeVisible();await expect(page.locator('.crop-canvas')).toHaveCount(0);
   await expect(page.locator('.crop-table')).toHaveCount(0);
   await expect(page.locator('.crop-hold-reason')).toContainText(config.held.hold.reason_code);
+  await phase('numeric-hold-visible');
+  await phase('denied-account-connect');
   await connect(config.tokens.denied);await expect(page.locator('.crop-viewer')).toHaveCount(0);
   const labels={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리오 ID',scenario_revision:'농장 판본',
     registration_sha256:'등록 SHA-256',crop_id:'작물 ID'};
   const details=page.locator('.crop-lookup');
   if(!await details.evaluate(e=>e.open))await details.locator('summary').click();
-  for(const [key,value] of Object.entries({result_id:config.result.result_id,...config.result.farm}))
+  for(const [key,value] of Object.entries({result_id:config.result.result_id,...config.result.farm})){
+    await phase('denied-account-fill-'+key);
     await details.getByLabel(labels[key],{exact:true}).fill(value);
+  }
   await details.getByRole('button',{name:'저장 연구 조회',exact:true}).click();
   await expect(page.locator('.crop-viewer')).toHaveCount(0);await expect(page.locator('.crop-replay [role=alert]')).toBeVisible();
-  await connect(config.tokens.owner);await selectNormal();await sample(0,'account-restored-original');
-  await Promise.all([...pending]);assert.deepEqual(errors,[]);
+  await phase('denied-account-verified');await connect(config.tokens.owner);
+  await phase('owner-metadata-selection');await selectNormal();await sample(0,'account-restored-original');
+  await phase('owner-restored-visible');
+  let drainTimer;
+  try{await Promise.race([Promise.all([...pending]),new Promise((_,reject)=>{
+    drainTimer=setTimeout(()=>reject(new Error('network body observation did not settle')),30_000);
+  })]);}finally{clearTimeout(drainTimer);}
+  assert.deepEqual(errors,[]);
   assert(network.some(r=>r.status===403)&&network.some(r=>r.status===422),'missing real current denial');
   assert(network.length<64,'unexpected request repetition');
   assert(!network.some(r=>r.path.includes('cycle-calculation')||r.path.includes('harvest-research')),'organ selection used another model');
@@ -132,11 +150,11 @@ try{
     reconnect_same_original_result:true,account_denied_and_restored:true,numeric_hold_has_no_scene:true,
     widths:[1536,390,320],DPR:.5,U1_accepted:false,WSL_capacity_accepted:false,deployed:false};
   assert(!JSON.stringify(result).includes(config.tokens.owner)&&!JSON.stringify(result).includes(config.tokens.denied));
-  console.log(JSON.stringify(result));
+  await phase('verified');console.log(JSON.stringify(result));
 }catch(error){
   await writeFile(directory+'/browser-failure.private.json',JSON.stringify({name:error.name,message:clean(error.message),frames,network,errors}),{flag:'wx',mode:0o400});
   await page.screenshot({path:directory+'/organ-failure.private.png'}).catch(()=>{});
   console.error(clean(error.stack));process.exitCode=1;
 }finally{
-  await browser.close();reader.close();process.stdin.destroy();
+  await phase('browser-close');await browser.close();await phase('browser-closed');reader.close();process.stdin.destroy();
 }

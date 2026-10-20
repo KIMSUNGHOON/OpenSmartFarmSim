@@ -244,9 +244,12 @@ def test_live_organ_catalogue_saved_frames_current_rights_and_account(crop_setup
                 rights.allowed = True
                 browser.stdin.write('{"stage":"rights_restored"}\n')
                 browser.stdin.flush()
-                output,error = browser.communicate(timeout=120)
+                report = phase('verified',105)
+                browser.stdin.close()
+                browser.stdin = None
+                output,error = browser.communicate(timeout=15)
                 assert browser.returncode == 0,error[-2500:]
-                report = json.loads(output)
+                assert not output.strip(), 'unexpected duplicate browser protocol output'
                 assert report['stage']=='verified' and report['actual_WebGL'] and not report['mock_API_used']
         assert not failures and all(n==0 for n in calls.values())
         assert count(store)==before

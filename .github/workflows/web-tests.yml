@@ -333,6 +333,7 @@ jobs:
             ${{ runner.temp }}/organ-native-evidence/resource-organ.json
             ${{ runner.temp }}/organ-native-evidence/native-failure-summary.json
             ${{ runner.temp }}/organ-native-evidence/browser-failure.private.json
+            ${{ runner.temp }}/organ-native-evidence/browser-progress.private.json
             ${{ runner.temp }}/organ-native-evidence/organ-*.private.png
             ${{ runner.temp }}/solar-tested-build/build-provenance.json
           retention-days: 3
