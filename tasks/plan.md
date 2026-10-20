@@ -171,15 +171,17 @@ SHA·정수/UTC·불변성 원칙을 새 `joint-co2-solar-result-v1`, CO₂ stor
 고유 키/FK·수정/재설치 거부와 설치 rollback, 기존 Solar 포함4결과 표/원 행·runtime4역할20작업 거부.
 schema 단계는 수치/context/복원/CLI0이며 기존5root/자료·원 WSL/FD/소유 PG/schema/role/passfile을 보존한다.
 설치는 provisioner 경계이며 runtime grant/서명 결과 등록·현재 조회·사용자 배포는 이후 별도 수용한다.
-**다음 `co2-result-roles`:** 위 schema가 선행이며 [Solar 명시 권한 계약](../contracts/crop-greenhouse-solar-result-roles-v1.md)을 대조한다.
-현재 공통 role policy와 모든 기존 operator/API 설정의 flag/factory 경계를 먼저 열거한 뒤 작은 코드 자식으로 나눈다.
-새 `crop_greenhouse_co2_result_storage`는 keyword-only exact bool/defaultFalse이며 명시True일 때만 새 표의
-authority SELECT/INSERT를 허용한다. 다른3역할/추가 DML·승격/PUBLIC/column/routine/grant-option은 거부한다.
-실제 SCRAM 누락/False/True·필수 grant 철회/예상 밖 grant·미설치/재설치와 기존 표/행·권한 보존을 확인한다.
-기존 operator/API 설정은 누락/False 호환과 True/다른 타입의 dependency factory 이전 거부를 확인한다.
-공통 코드 변경은 새 서명 identity에 반영하고 원 signed input/farm/custody는 원 판본으로 보존한다.
-현재 코드의 농장/서명 이력 fresh 재개/원 checkpoint·UTC/조회 계산0과 WSL/5root/정리를 다시 확인해야 부모를 수용한다.
-이 flag만으로 새 API를 활성화하지 않는다. 이후 서명 등록/현재 조회→API/worker→같은 UTC3D다.
+**`co2-result-roles` 수용:** [계약/증거](../contracts/crop-greenhouse-co2-result-roles-v1.md)의 새9/공통363/
+현재 farm·custody fresh2=374검사를 통과했다. 기본False·명시True authority SELECT/INSERT·원5표/행,
+12설정 판본/기존 Solar True3맥락과 현재 checkpoint/UTC·조회0·원5root/정리를 확인했다.
+공통 검사의 owned DSN/spawn 준비 실패와 기존 가짜 passfile2개의 정리 오류는 기록하고 수정했다.
+원 선택363개·timeout/RSS를 유지했으며 원 signed epoch를 재서명하지 않았다.
+
+**다음 `co2-result-store`:** 위 권한·현재 farm/custody가 선행이다. 기존 [Solar 결과 등록/조회](../contracts/crop-greenhouse-solar-result-store-v1.md)의
+transaction·HMAC/ID/현재 권리 경계를 새 CO₂ family로 구분한다. 이미 저장된 completed/hold만 등록하고
+ready/yielded·다른 family/tenant/서명·현재 권리 철회를 거부한다. 실제 SCRAM 등록/동일 재시도·fresh 조회,
+원 bytes/최초 기록 시각/행·UTC/checkpoint·조회 계산0과 busy/충돌/rollback/호출자 거래·기존5표/행을 확인한다.
+원 metadata/progress 각128KiB·응답/페이지 한도·5root/자원/소유 정리를 유지한다. 이후 API/worker/같은 UTC3D다.
 독립 농장 자료 확보는 병행하고 이 합성 파일 저장의 인위적인 개발 선행으로 추가하지 않는다.
 독립 normal64/U1은 이 순수 자식의 선행이 아니다.
 이미 수용한 짧은 적분/관리·continuation/UTC/파일 저장은 유지한다. 후속 농장/서명·DB/API/3D는

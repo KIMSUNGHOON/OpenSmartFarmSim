@@ -64,6 +64,7 @@ class ApiRuntimeConfig:
 
     def __post_init__(self):
         if (type(self.policy) is not RuntimeLoginPolicy or not self.policy.break_even_calculation or
+                self.policy.crop_greenhouse_co2_result_storage is not False or
                 type(self.policy.crop_greenhouse_solar_result_storage) is not bool or
                 type(self.dsn) is not str or not self.dsn or
                 any(not isinstance(path, Path) or not path.is_absolute() or '..' in path.parts

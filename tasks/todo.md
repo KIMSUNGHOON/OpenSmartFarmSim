@@ -2279,13 +2279,24 @@
         새 판본/원 microsecond UTC·고유 키/FK·불변/재설치 거부·설치 rollback을 확인한다.
         기존 Solar 포함4결과 표/행 보존과 runtime4역할20작업 거부, 수치/context/restore/CLI0·5root/원 자료/
         WSL/FD/소유 PG/schema/role/passfile 정리가 수용 기준이다. runtime grant/등록·현재 조회/API/배포는 후속이다.
-      - [ ] **`co2-result-roles`** — 다음 작은 부모; 선행: 위 schema.
+      - [x] **`co2-result-roles`** — [계약/수용](../contracts/crop-greenhouse-co2-result-roles-v1.md)/
+        [기계 증거](../research/artifacts/crop-greenhouse-co2-result-roles-20261021.json): 새9/공통363/현재 farm·custody fresh2=374검사.
+        실제 SCRAM의 기본False/명시True authority SELECT/INSERT·168권한×3모드/원5표·행 보존,
+        12설정 판본/기존 Solar True3맥락·30호환/105factory 전 거부·현재 checkpoint/UTC·조회0·5root/정리를 수용했다.
+        선행: 위 schema.
         [기존 Solar 권한](../contracts/crop-greenhouse-solar-result-roles-v1.md)과 현재 전체 operator/API 설정 경계를
         먼저 대조해 작은 자식으로 구현한다. 새 exact bool/defaultFalse flag의 명시True authority SELECT/INSERT,
         다른3역할/추가 DML·승격/PUBLIC/column/routine/grant-option 거부와 실제 SCRAM/기존 표·권한 보존을 확인한다.
         기존 설정의 누락/False 호환과 True/다른 타입의 factory 이전 거부, 공통 code identity 변경에 따른
         원 서명 판본 보존·현재 farm/custody fresh/원 checkpoint/UTC/조회0·원5root/WSL/소유 정리가 부모 수용 기준이다.
         flag만으로 API를 활성화하지 않으며 이후 서명 등록/현재 조회→API/worker/같은 UTC3D다.
+      - [ ] **`co2-result-store`** — 다음 작은 부모; 선행: 위 명시 권한과 현재 farm/custody.
+        [기존 Solar 등록/조회](../contracts/crop-greenhouse-solar-result-store-v1.md)를 대조해 새 CO₂ table/ID/HMAC/lock domain을 구분한다.
+        서버가 이미 저장한 completed/hold 원문만 등록하고 ready/yielded·다른 family/tenant/코드·서명/권리 혼합은 거부한다.
+        실제 SCRAM 최초 등록/동일 재시도·충돌/잠금·현재/늦은 철회·거래 rollback/호출자 거래와 원5표/행 보존을 확인한다.
+        fresh get/page/summary의 원 bytes/최초 recorded_at·전체 행/UTC/checkpoint 동일성, 계산/context/restore/CLI0,
+        원128KiB metadata/progress·2MiB 응답/페이지·5root/WSL/소유 정리를 통과해야 수용한다.
+        API/worker/같은 UTC3D는 그다음이며 실제 작물/경제 예측·관문 승인을 뜻하지 않는다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

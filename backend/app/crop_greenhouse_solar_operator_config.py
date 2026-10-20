@@ -46,7 +46,8 @@ def load_solar_api_runtime(config_path):
         execution = value[EXECUTION_FLAG] if execution_version else False
         prefix = value[PREFIX_FLAG] if prefix_version else False
         flags = (FLAG, original.JOINT_RESULT_FLAG, original.VENTILATION_RESULT_FLAG, CALCULATION_FLAG)
-        if (type(execution) is not bool or type(prefix) is not bool or
+        if (policy.get(original.CO2_RESULT_FLAG, False) is not False or
+                type(execution) is not bool or type(prefix) is not bool or
                 (prefix and not execution) or (execution and policy[FLAG] is not True) or
                 any(type(policy.get(flag, False)) is not bool for flag in flags) or
                 (any(policy.get(flag, False) for flag in flags) and

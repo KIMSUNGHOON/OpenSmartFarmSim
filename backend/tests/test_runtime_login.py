@@ -69,6 +69,7 @@ def test_authenticated_general_logins_deny_all_base_access_and_role_escalation(l
 def test_runtime_connect_rejects_missing_wrong_or_changed_login(login_scope, tmp_path, fault):
     base, policy, dsns = login_scope
     dsn = dsns["authority"]
+    private = None
     if fault in {"wrong_password", "missing_password"}:
         private = tmp_path / "invalid.pgpass"
         private.write_text("*:*:*:*:incorrect\n" if fault == "wrong_password" else "")
@@ -79,9 +80,13 @@ def test_runtime_connect_rejects_missing_wrong_or_changed_login(login_scope, tmp
     else:
         with base.connect() as conn:
             conn.execute(sql.SQL("ALTER ROLE {} NOLOGIN").format(sql.Identifier(policy.roles["authority"])))
-    with pytest.raises(RolePolicyHold) as error:
-        connect_runtime(dsn, policy, "authority")
-    assert str(error.value) == "runtime_login_rejected"
+    try:
+        with pytest.raises(RolePolicyHold) as error:
+            connect_runtime(dsn, policy, "authority")
+        assert str(error.value) == "runtime_login_rejected"
+    finally:
+        if private is not None:
+            private.unlink()
 
 
 def test_conflicting_dsn_bounds_are_forced_on_job_and_supervisor_paths(login_scope):

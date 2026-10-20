@@ -55,7 +55,8 @@ def load_ventilation_api_runtime(config_path):
         joint_execution = value[JOINT_EXECUTION_FLAG] if mixed_version else False
         joint_prefix = value[JOINT_PREFIX_FLAG] if mixed_version else False
         flags = (FLAG, original.JOINT_RESULT_FLAG, CALCULATION_FLAG)
-        if (policy.get(original.SOLAR_RESULT_FLAG, False) is not False or
+        if (policy.get(original.CO2_RESULT_FLAG, False) is not False or
+                policy.get(original.SOLAR_RESULT_FLAG, False) is not False or
                 type(execution) is not bool or type(prefix) is not bool or (prefix and not execution) or
                 (execution and policy[FLAG] is not True) or
                 type(joint_execution) is not bool or type(joint_prefix) is not bool or
