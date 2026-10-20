@@ -7,7 +7,7 @@ on:
         description: Focused CO2 read evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection, co2-current-query]
+        options: [all, co2-result-projection, co2-current-query, co2-http]
   push:
     branches: [main]
   pull_request:
@@ -204,7 +204,7 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query')
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http')
     name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -272,6 +272,18 @@ jobs:
             ${{ runner.temp }}/co2-projection-evidence/co2-current-query-tamper.json
             ${{ runner.temp }}/co2-projection-evidence/co2-current-query-edges.json
             ${{ runner.temp }}/co2-projection-evidence/co2-current-query-database-cleanup.json
+            ${{ runner.temp }}/co2-projection-evidence/http/openapi.json
+            ${{ runner.temp }}/co2-projection-evidence/http/import-api.json
+            ${{ runner.temp }}/co2-projection-evidence/http/import-api_crop_greenhouse_co2_route.json
+            ${{ runner.temp }}/co2-projection-evidence/http/import-operator_config.json
+            ${{ runner.temp }}/co2-projection-evidence/http/native-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/http/native-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/http/database-cleanup-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/http/database-cleanup-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/legacy-solar/openapi.json
+            ${{ runner.temp }}/co2-projection-evidence/legacy-solar/import-api.json
+            ${{ runner.temp }}/co2-projection-evidence/legacy-solar/import-api_crop_greenhouse_solar_route.json
+            ${{ runner.temp }}/co2-projection-evidence/legacy-solar/import-operator_config.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: error

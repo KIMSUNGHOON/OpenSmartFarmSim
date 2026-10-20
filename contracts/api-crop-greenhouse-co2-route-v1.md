@@ -1,6 +1,8 @@
 # CO₂·일사 저장 결과의 보호 HTTP v1
 
-Status: planned; implementation/tests pending.
+Status: implemented; focused native SCRAM/TLS and complete acceptance pending.
+[사전 증거](../research/artifacts/crop-greenhouse-co2-http-preflight-20261021.json)는 로컬 제어65검사와
+전체215개 수집·원5root/자료/자원·정리를 확인했다. 실제 전송/기존 회귀를 격리 CI에서 후속한다.
 선행은 [현재 권리 조회](crop-greenhouse-co2-current-query-v1.md)의 기능 수용이다.
 [기존 Solar 보호 조회](api-crop-greenhouse-solar-route-v1.md)의 요청/전송/명시 조립 계약을 대조한다.
 WSL 동시 용량과 기본 operator/runtime 활성화는 별도 미완료 조건이다.
@@ -30,6 +32,9 @@ X-OSSF-CO2-Query-Version/Query-Code-SHA256/Projection-Code-SHA256 헤더로 읽�
 전송 전에 확정된 bytes 이후의 철회를 소급 취소하는 스트림이라고 주장하지 않는다.
 
 OpenAPI는 Co2Replay·109상태/44장부/17수지·사건10수지/원 UTC와 오류/인증/scopes를 선언한다.
+operation ID는 getGreenhouseCo2ResearchResult다. 변경 전 git bytes의64경로/398스키마를
+[기준 지문](../research/artifacts/co2-route-openapi-baseline-20261021.json)으로 고정했고,
+생성된65경로/477스키마에서 기존 값/참조를 대사했다.
 원 v2에 없는 사건 after_rhs/Solar 진단은 schema에도 추가하지 않는다.
 기존 모든 경로/타입 이름/참조를 보존하며 생성 snapshot과 전체 경로/scope inventory를 대사한다.
 모듈 import/스키마 생성이 계산·DB 접속을 수행하지 않도록 확인한다.

@@ -1,0 +1,170 @@
+{
+  "schema_version": "co2-http-preflight-v1",
+  "recorded_at_utc": "2026-10-20T23:29:13.972804+00:00",
+  "status": "implemented_native_SCRAM_TLS_and_full_focused_acceptance_pending",
+  "native_CLI": {
+    "decision_id": "co2-protected-route-preparation-20261021-v1",
+    "recorded_at": "2026-10-20T23:29:13.972240+00:00",
+    "native_CLI": {
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "raw_line_sha256": "48c748b1dc4031f0f2e1ef68c739f10a33d4db30bb72b5bbc8e9791a88aa2bb1",
+      "timestamp": "2026-10-20T21:27:59.686Z",
+      "recursive_CLI": false,
+      "subagents": false
+    },
+    "reference_files": {
+      "backend/app/api_crop_greenhouse_solar_route.py": "ea0e6fe15d229a96be26955461affcc6bedd40d1d8502e6951ffadcaa2356355",
+      "contracts/api-crop-greenhouse-solar-route-v1.md": "997734056bacfe0f8389b57360a9abdbd72ad7e430bb37037a826dccbbb0aba4"
+    },
+    "output": "Implement the accepted current reader through a new exact Co2 route and two optional create_app keyword arguments. Reuse the existing Solar ASGI/native boundaries without changing old handlers. Baseline64 paths/398 schemas were captured from committed7cd8360 bytes and remain canonically identical in generated65 paths/477 schemas. Local65 control cases pass; three fresh import tests and the genuine producer/reader SCRAM/TLS cases require isolated CI under the same600s/512MiB/1GiB limits. Use a real PrincipalMiddleware provider during HTTP, preserving the preparation-only provider switch from the existing native fixture; neither fake ASGI unit queries nor schema exports count as actual data transport. Run exact215 collected cases (new68, native2, legacySolar65, OpenAPI80), preserve full six-partition backend gate, current rights/late revocation/cancel and unchanged old models. No default operator/runtime activation or WSL gate release.",
+    "output_sha256": "261df324bcce24922ebd308aeb9301ef71265d4cf23d47eb7139a578f2c31e59",
+    "status": "implementation_available; local65 and215 collection accepted, actual/native pending",
+    "CI": 39512608538
+  },
+  "baseline_git_bytes_verified": true,
+  "baseline": "co2-route-openapi-baseline-20261021.json",
+  "generated_snapshot": {
+    "bytes": 1322523,
+    "paths": 65,
+    "schemas": 477,
+    "previous64_paths398_schemas_equal": true
+  },
+  "source_SHA256": {
+    "backend/app/api.py": "35eda633b876ce1e37679b74905424cba32cafd13502864e073905d7bc64fea5",
+    "backend/app/api_crop_greenhouse_co2_route.py": "0bfc8bccf138a65005acf38184fee2e831d69a4f6b44c183d7be34d6dcb19dd0",
+    "backend/tests/test_api_crop_greenhouse_co2_route.py": "b4026f164fa4001c7149f506c4ff21e8ae33cd519dfc198a5c4ce6998e62ef5f",
+    "backend/tests/test_api_crop_greenhouse_co2_native.py": "0fb9e723053520b01112e7adcb3d1324139166aa01582b0ae6284c08c0d91ecd",
+    "backend/tests/test_api_openapi.py": "137f92dcb63d031f90ec4a9deee14599afce7f2644886f126600111832778949",
+    "contracts/openapi-v1.json": "eaee7b5279a976e06ecc7e176465903f405d0c239b63e9c501d278afe8e59a83",
+    "research/co2_result_projection_hosted.py": "b2d149bd9e238c8278fcd1d2463ddaad6c4c98106230810444cf1b75b64064ab",
+    ".github/workflows/backend-tests.yml": "4bb8d55c9ad2579e48263a5a2e2f670385e06668e648fe3a57ca7f33fe84d7c2"
+  },
+  "local_control_cases_passed": 65,
+  "full_collected_tests": 215,
+  "collection_inventory": {
+    "new_CO2_controls": 68,
+    "native_SCRAM_TLS": 2,
+    "legacy_Solar": 65,
+    "OpenAPI": 80
+  },
+  "verbose_collection_log_hold": "automatic IDs included two2MiB bytes sentinels;4MiB log guard stopped listing. Exact unchanged collection passed with additional quiet verbosity; no case/input/limit removed.",
+  "trials": [
+    {
+      "case": "focused-co2-http-red-v1",
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 1.8858688629989047,
+      "combined_peak_RSS_bytes": 983367680,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "8338eed1b5e9f6c3e50edb6b2a0150695a59dfee099ff00b44db4dfd19999846"
+    },
+    {
+      "case": "schema-co2-http-openapi-v1",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 3.448240216996055,
+      "combined_peak_RSS_bytes": 979648512,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "a267dcc4b00f3560055b411a90742796d7300bd00a404f3d8926a3f061cb31dc"
+    },
+    {
+      "case": "focused-co2-http-unit-green-v1",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 5.4938598459993955,
+      "combined_peak_RSS_bytes": 1063337984,
+      "single_PID_peak_RSS_bytes": 186982400,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "bf42813456717db89011e94939af6199bf89126338966f1cd08f16e639359f34"
+    },
+    {
+      "case": "focused-co2-http-full-collection-v1",
+      "actual_child_exit": -15,
+      "reason": "log_limit",
+      "wall_seconds": 1.9338053140090778,
+      "combined_peak_RSS_bytes": 998088704,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "013f4d805e92f8227bee50d6bfbb7b9f21d754c21352fe52ac89346343edb6d1"
+    },
+    {
+      "case": "focused-co2-http-full-collection-quiet-v2",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.4019658399920445,
+      "combined_peak_RSS_bytes": 998559744,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "e9650bba77e07a76665448c7e615998464e45f83b7d101d237a2163ac39fe523"
+    }
+  ],
+  "native_SCRAM_TLS_accepted": false,
+  "full_backend_CI": "not_run",
+  "new_CO2_deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null
+}

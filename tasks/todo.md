@@ -2333,6 +2333,8 @@
           변조10·경계/잠금·조회17계측/SQL쓰기0·285코드 지문/기존278제품 파일·FD/DB/소유 정리를 대사했다.
           hosted 합278,224,896bytes이며 공통 WSL 용량/새 사용자 적용 조건은 해제하지 않는다.
       - [ ] **`co2-result-http`** — 선행: 위 현재 조회의 기능 수용. [보호 HTTP 계약](../contracts/api-crop-greenhouse-co2-route-v1.md).
+        [사전 검증](../research/artifacts/crop-greenhouse-co2-http-preflight-20261021.json)의 로컬65/전체215수집·
+        기존64경로398스키마 보존/새65경로477스키마를 확인했다. 실제 SCRAM/TLS·전체 회귀 전이다.
         exact query/store/같은 jobs·farm·principal과 원 UTF-8 bytes, 닫힌 query/body·전후 인증/권한·오류/취소를 확인한다.
         실제 SCRAM/TLS 정상·보류3응답/늦은 철회·계산/쓰기0, 기존 OpenAPI/경로와 원 자료/자원·정리를 수용한다.
         새 True/operator 자동 활성화·WSL 용량/사용자 배포를 이 검사로 완료하지 않는다.
