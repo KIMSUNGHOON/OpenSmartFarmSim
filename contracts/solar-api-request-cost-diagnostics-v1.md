@@ -1,6 +1,6 @@
 # Solar API request cost diagnostics — v1
 
-Local observer accepted with [11 checks on both Python versions and actor hashes](../research/solar-api-request-cost-implementation-20261020.md). The actual simultaneous observation remains pending.
+Local observer accepted with [11 checks on both Python versions and actor hashes](../research/solar-api-request-cost-implementation-20261020.md). The [one actual observation](../research/solar-api-request-cost-observation-20261020.md) is also accepted as diagnostic evidence:24 requests/segments reconciled, whole execution failed at last-confirmed27/64. Normal acceptance remains pending.
 
 Extends the existing [worker/API observer](crop-solar-worker-progress-diagnostics-v1.md).
 The [current simultaneous run](../research/solar-current-worker-api-diagnostic-20261020.md)

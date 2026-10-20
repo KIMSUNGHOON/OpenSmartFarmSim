@@ -1,5 +1,7 @@
 # API 요청별 비용 진단기 — 2026-10-20 KST
 
+**후속 실제 관측 완료:** [24요청/서버 구간·CI39369990827의 failure27/64](solar-api-request-cost-observation-20261020.md)를 대사했다. 아래는 실행 전 로컬 수용과 접수 당시 기록이며 원 정상64/새 배포는 미수용이다.
+
 [로컬 기계 증거](artifacts/solar-api-request-cost-local-implementation-20261020.json) · [계약](../contracts/solar-api-request-cost-diagnostics-v1.md) · [진단기](crop-solar-api-response-trace.py) · [검사](../backend/tests/test_solar_api_response_trace.py).
 
 ## 구현과 확인 범위
@@ -29,3 +31,7 @@ frame/thread 식별자는 내부 수명 결속에만 사용하고 내보내지 �
 로컬 진단기만 수용한 상태다. 다음은 이 새 header로 원 actor/input64/chunk1/조회·retry360/RSS를 유지한 선택 동시 관측1회이며, 그 실행의 실제 반환·원 source/actor/header·run/artifact·종료/정리를 확인하기 전51 부모를 완료 처리하지 않는다. client 대기와 서버 body CPU/SQL을 혼동하거나 계측 실행을 원 정상64/계산 중WebGL/WSL 적용으로 수용하지 않는다.
 
 현재 native Codex CLI `gpt-6.1-sol`/`xhigh`의 문맥·원행/source/출력 SHA를 기록했다. 재귀 CLI/하위 agent·새 framework/자료 채택0이다. 전체 backend/browser CI·새 DOM/WebGL·실제 농장/경제 검증은 미실행이며, 새 Solar 미배포·실제 농장 Run0·전체 완료일 미정·goal active다.
+
+## 실제 관측 접수
+
+[새 CI39369990827](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39369990827), 고정 source `7fda9ba96b68297832d5d313091d041689f4fd39`/attempt1·job118455456705를 한 번 접수했다. [접수/현재 단계 기록](artifacts/solar-api-request-cost-dispatch-20261020.json)의2026-10-20T04:35:04Z 관측에서 실제 API·worker 단계가 in_progress였다. 종료·실제 timing/counter·원 수치/UTC·artifact/자원/정리 대사 전이며51 부모와 원 정상 수용은 미완료다.

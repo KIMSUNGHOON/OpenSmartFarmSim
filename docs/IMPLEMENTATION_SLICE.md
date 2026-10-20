@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**API 요청별 비용 진단기 로컬 수용 — 2026-10-20 KST:** [고유11검사/두 Python판·원 actor 대조](../research/solar-api-request-cost-implementation-20261020.md)에서 client/server 시간·SQL/current/load·중첩/thread/오류·64KiB/비밀 미노출과 원 API/worker 본문 보존을 확인했다. 제품 app261·기존 두 UI는 유지한다. 다음은 새 observer로 실제 동시 관측1회다. 원 정상64/새 Solar·실제 농장/관문·최종 UI/전체 날짜는 미완료/미정·goal active다.
+**API 요청별 실제 관측 완료 — 2026-10-20 KST:** [CI39369990827·24요청/서버 구간 대사](../research/solar-api-request-cost-observation-20261020.md)에서 원360초 미완료·마지막 confirm27/64, 성공 prefix/samples의 current6·원천912·약14–16초를 확인했다. observer11/두 Python판과 원 actor/hash·종료/정리는 수용했으며 정상64는 미수용이다. 다음은 [query의 한 현재 검사 안 등록 scope 후보](../contracts/solar-query-current-registration-scope-v1.md)다. 제품 app261·기존 두 UI 유지·새 Solar/실제 자료·관문/최종 UI와 전체 날짜는 미완료/미정·goal active다.
 
 아래 날짜별 기록은 당시 상태다.
 

@@ -1,0 +1,689 @@
+{
+  "schema_version": "solar-api-request-cost-actual-observation-v1",
+  "observed_at": "2026-10-20T04:41:21.668125+00:00",
+  "run_id": 39369990827,
+  "head_sha": "7fda9ba96b68297832d5d313091d041689f4fd39",
+  "status": "completed",
+  "conclusion": "failure",
+  "job": {
+    "id": 118455456705,
+    "name": "Solar worker progress diagnostic (no acceptance)",
+    "status": "completed",
+    "conclusion": "failure",
+    "started_at": "2026-10-20T04:31:09Z",
+    "completed_at": "2026-10-20T04:40:02Z"
+  },
+  "artifact": {
+    "id": 12241058794,
+    "name": "solar-unpaused-normal-7fda9ba96b68297832d5d313091d041689f4fd39",
+    "size_in_bytes": 33812,
+    "digest": "sha256:4e9ee69bda40395c4eabc1a01bf1206f19b96fdcfba5bd2199fbce5c95de99aa"
+  },
+  "archive_downloaded_once": true,
+  "digest_and_path_validated": true,
+  "files": [
+    "actor-diagnostics.json",
+    "api-response-diagnostics.json",
+    "failure-checkpoint-diagnostics.json",
+    "failure.json",
+    "resource.json",
+    "worker-progress-diagnostics.json"
+  ],
+  "raw_file_SHA256": {
+    "resource.json": "7ac55c476e4257f80dbaeff482ce9730db93ba005e0c19aa25547e059a9e8223",
+    "actor-diagnostics.json": "051b02c562d935e60595b500898ad136414828f7f275c1c8cacd3fdd86fe012c",
+    "failure.json": "caeef10a9162d92609cde8d7f0459a8b7e469119a2d13e2ea63663f3c9bd6d3e",
+    "worker-progress-diagnostics.json": "6825bcd9f14f854103a53b90bea1a10241903cb6d063c0b2e971b4a16db4d4b4",
+    "api-response-diagnostics.json": "d6d547a1c634c1858d120605b897ab70d5a519c52ce8e0e9d6d68d113725525b",
+    "failure-checkpoint-diagnostics.json": "78ce50ba4a01ef6942463018b35b0a3432fecbbe6b2df8d0b2acb5846c2384f2"
+  },
+  "actor_sha256": {
+    "api": "14471fb0fdba900755433555ff155ad41dd48753c36ebd993aabe4e74254d957",
+    "worker": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8"
+  },
+  "actor_exits": {
+    "api": -15,
+    "worker": -15
+  },
+  "expected_actors_SHA256": "bef15be7574c01777329d30f60ab2e484a9bb6c5839cc771c195be4a8473c36f",
+  "original_actor_bodies_preserved": true,
+  "clocks": {
+    "monotonic": {
+      "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+      "resolution_seconds": 1e-09
+    },
+    "thread_time": {
+      "implementation": "clock_gettime(CLOCK_THREAD_CPUTIME_ID)",
+      "resolution_seconds": 1e-09
+    }
+  },
+  "client_by_route": {
+    "admission": {
+      "count": 1,
+      "returned": 1,
+      "status_counts": {
+        "202": 1
+      },
+      "wall_sum_seconds": "3.334686",
+      "wall_min_seconds": "3.334686",
+      "wall_max_seconds": "3.334686",
+      "client_thread_CPU_sum_seconds": "0.008414"
+    },
+    "prefix": {
+      "count": 8,
+      "returned": 8,
+      "status_counts": {
+        "503": 1,
+        "200": 7
+      },
+      "wall_sum_seconds": "105.329652",
+      "wall_min_seconds": "4.038628",
+      "wall_max_seconds": "15.058669",
+      "client_thread_CPU_sum_seconds": "0.019516"
+    },
+    "progress": {
+      "count": 8,
+      "returned": 8,
+      "status_counts": {
+        "200": 3,
+        "503": 5
+      },
+      "wall_sum_seconds": "56.168296",
+      "wall_min_seconds": "4.108649",
+      "wall_max_seconds": "10.433398",
+      "client_thread_CPU_sum_seconds": "0.020824"
+    },
+    "samples": {
+      "count": 7,
+      "returned": 7,
+      "status_counts": {
+        "200": 7
+      },
+      "wall_sum_seconds": "101.936794",
+      "wall_min_seconds": "13.920491",
+      "wall_max_seconds": "15.677736",
+      "client_thread_CPU_sum_seconds": "0.022710"
+    }
+  },
+  "server_sync_by_operation": {
+    "execution": {
+      "count": 9,
+      "wall_sum_seconds": "59.385001",
+      "wall_min_seconds": "3.273190",
+      "wall_max_seconds": "10.427071",
+      "thread_CPU_sum_seconds": "36.903200",
+      "SQL_wall_sum_seconds": "24.638784",
+      "SQL_thread_CPU_sum_seconds": "8.835513",
+      "SQL_calls_sum": 25423,
+      "current_calls_sum": 29,
+      "storage_loads_sum": 3,
+      "source_selects_sum": 4560,
+      "exception_events_sum": 5,
+      "SQL_unfinished_calls_sum": 0
+    },
+    "prefix": {
+      "count": 15,
+      "wall_sum_seconds": "207.124273",
+      "wall_min_seconds": "4.029075",
+      "wall_max_seconds": "15.667792",
+      "thread_CPU_sum_seconds": "141.452458",
+      "SQL_wall_sum_seconds": "72.262936",
+      "SQL_thread_CPU_sum_seconds": "25.879619",
+      "SQL_calls_sum": 72985,
+      "current_calls_sum": 86,
+      "storage_loads_sum": 37,
+      "source_selects_sum": 13072,
+      "exception_events_sum": 1,
+      "SQL_unfinished_calls_sum": 0
+    }
+  },
+  "unique_contained_client_server_pairs": [
+    {
+      "route": "admission",
+      "status": 202,
+      "client_wall_seconds": "3.334686",
+      "server_sync_wall_seconds": "3.273190",
+      "server_thread_CPU_seconds": "1.956732",
+      "SQL_wall_seconds": "1.369344",
+      "SQL_calls": 1690,
+      "current_calls": 1,
+      "storage_loads": 0,
+      "source_selects": 304
+    },
+    {
+      "route": "progress",
+      "status": 200,
+      "client_wall_seconds": "7.952093",
+      "server_sync_wall_seconds": "7.943990",
+      "server_thread_CPU_seconds": "4.929547",
+      "SQL_wall_seconds": "3.284133",
+      "SQL_calls": 3391,
+      "current_calls": 4,
+      "storage_loads": 0,
+      "source_selects": 608
+    },
+    {
+      "route": "prefix",
+      "status": 503,
+      "client_wall_seconds": "4.038628",
+      "server_sync_wall_seconds": "4.029075",
+      "server_thread_CPU_seconds": "2.509044",
+      "SQL_wall_seconds": "1.654596",
+      "SQL_calls": 1718,
+      "current_calls": 2,
+      "storage_loads": 0,
+      "source_selects": 304
+    },
+    {
+      "route": "progress",
+      "status": 503,
+      "client_wall_seconds": "4.108649",
+      "server_sync_wall_seconds": "4.102137",
+      "server_thread_CPU_seconds": "2.593829",
+      "SQL_wall_seconds": "1.666345",
+      "SQL_calls": 1718,
+      "current_calls": 2,
+      "storage_loads": 0,
+      "source_selects": 304
+    },
+    {
+      "route": "prefix",
+      "status": 200,
+      "client_wall_seconds": "13.775957",
+      "server_sync_wall_seconds": "13.767715",
+      "server_thread_CPU_seconds": "9.300062",
+      "SQL_wall_seconds": "4.872615",
+      "SQL_calls": 5090,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    },
+    {
+      "route": "samples",
+      "status": 200,
+      "client_wall_seconds": "13.920491",
+      "server_sync_wall_seconds": "13.911466",
+      "server_thread_CPU_seconds": "9.400063",
+      "SQL_wall_seconds": "4.972952",
+      "SQL_calls": 5091,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    },
+    {
+      "route": "progress",
+      "status": 503,
+      "client_wall_seconds": "5.537919",
+      "server_sync_wall_seconds": "5.530774",
+      "server_thread_CPU_seconds": "3.342402",
+      "SQL_wall_seconds": "2.402239",
+      "SQL_calls": 2531,
+      "current_calls": 3,
+      "storage_loads": 0,
+      "source_selects": 456
+    },
+    {
+      "route": "prefix",
+      "status": 200,
+      "client_wall_seconds": "13.889894",
+      "server_sync_wall_seconds": "13.881501",
+      "server_thread_CPU_seconds": "9.324688",
+      "SQL_wall_seconds": "4.971021",
+      "SQL_calls": 5090,
+      "current_calls": 6,
+      "storage_loads": 2,
+      "source_selects": 912
+    },
+    {
+      "route": "samples",
+      "status": 200,
+      "client_wall_seconds": "14.106552",
+      "server_sync_wall_seconds": "14.097626",
+      "server_thread_CPU_seconds": "9.627552",
+      "SQL_wall_seconds": "4.974423",
+      "SQL_calls": 5091,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    },
+    {
+      "route": "progress",
+      "status": 503,
+      "client_wall_seconds": "7.728023",
+      "server_sync_wall_seconds": "7.721167",
+      "server_thread_CPU_seconds": "4.720446",
+      "SQL_wall_seconds": "3.291950",
+      "SQL_calls": 3367,
+      "current_calls": 4,
+      "storage_loads": 1,
+      "source_selects": 608
+    },
+    {
+      "route": "prefix",
+      "status": 200,
+      "client_wall_seconds": "14.321772",
+      "server_sync_wall_seconds": "14.313518",
+      "server_thread_CPU_seconds": "9.672143",
+      "SQL_wall_seconds": "5.109104",
+      "SQL_calls": 5090,
+      "current_calls": 6,
+      "storage_loads": 2,
+      "source_selects": 912
+    },
+    {
+      "route": "samples",
+      "status": 200,
+      "client_wall_seconds": "14.088566",
+      "server_sync_wall_seconds": "14.080104",
+      "server_thread_CPU_seconds": "9.569414",
+      "SQL_wall_seconds": "4.937087",
+      "SQL_calls": 5091,
+      "current_calls": 6,
+      "storage_loads": 2,
+      "source_selects": 912
+    },
+    {
+      "route": "progress",
+      "status": 200,
+      "client_wall_seconds": "7.937915",
+      "server_sync_wall_seconds": "7.931364",
+      "server_thread_CPU_seconds": "4.965595",
+      "SQL_wall_seconds": "3.275336",
+      "SQL_calls": 3391,
+      "current_calls": 4,
+      "storage_loads": 0,
+      "source_selects": 608
+    },
+    {
+      "route": "prefix",
+      "status": 200,
+      "client_wall_seconds": "14.444744",
+      "server_sync_wall_seconds": "14.436170",
+      "server_thread_CPU_seconds": "9.841328",
+      "SQL_wall_seconds": "5.032727",
+      "SQL_calls": 5090,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    },
+    {
+      "route": "samples",
+      "status": 200,
+      "client_wall_seconds": "14.517032",
+      "server_sync_wall_seconds": "14.503066",
+      "server_thread_CPU_seconds": "9.808551",
+      "SQL_wall_seconds": "5.149267",
+      "SQL_calls": 5091,
+      "current_calls": 6,
+      "storage_loads": 2,
+      "source_selects": 912
+    },
+    {
+      "route": "progress",
+      "status": 200,
+      "client_wall_seconds": "8.158556",
+      "server_sync_wall_seconds": "8.150589",
+      "server_thread_CPU_seconds": "5.118584",
+      "SQL_wall_seconds": "3.334019",
+      "SQL_calls": 3391,
+      "current_calls": 4,
+      "storage_loads": 0,
+      "source_selects": 608
+    },
+    {
+      "route": "prefix",
+      "status": 200,
+      "client_wall_seconds": "14.741888",
+      "server_sync_wall_seconds": "14.732442",
+      "server_thread_CPU_seconds": "10.086930",
+      "SQL_wall_seconds": "5.109568",
+      "SQL_calls": 5090,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    },
+    {
+      "route": "samples",
+      "status": 200,
+      "client_wall_seconds": "14.733741",
+      "server_sync_wall_seconds": "14.723624",
+      "server_thread_CPU_seconds": "10.172535",
+      "SQL_wall_seconds": "4.992981",
+      "SQL_calls": 5091,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    },
+    {
+      "route": "progress",
+      "status": 503,
+      "client_wall_seconds": "4.311744",
+      "server_sync_wall_seconds": "4.304719",
+      "server_thread_CPU_seconds": "2.760562",
+      "SQL_wall_seconds": "1.717930",
+      "SQL_calls": 1718,
+      "current_calls": 2,
+      "storage_loads": 0,
+      "source_selects": 304
+    },
+    {
+      "route": "prefix",
+      "status": 200,
+      "client_wall_seconds": "15.058669",
+      "server_sync_wall_seconds": "15.049421",
+      "server_thread_CPU_seconds": "10.484585",
+      "SQL_wall_seconds": "5.094876",
+      "SQL_calls": 5090,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    },
+    {
+      "route": "samples",
+      "status": 200,
+      "client_wall_seconds": "14.892676",
+      "server_sync_wall_seconds": "14.881047",
+      "server_thread_CPU_seconds": "10.394880",
+      "SQL_wall_seconds": "4.904313",
+      "SQL_calls": 5091,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    },
+    {
+      "route": "progress",
+      "status": 503,
+      "client_wall_seconds": "10.433398",
+      "server_sync_wall_seconds": "10.427071",
+      "server_thread_CPU_seconds": "6.515503",
+      "SQL_wall_seconds": "4.297487",
+      "SQL_calls": 4226,
+      "current_calls": 5,
+      "storage_loads": 2,
+      "source_selects": 760
+    },
+    {
+      "route": "prefix",
+      "status": 200,
+      "client_wall_seconds": "15.058098",
+      "server_sync_wall_seconds": "15.049707",
+      "server_thread_CPU_seconds": "10.315738",
+      "SQL_wall_seconds": "5.285536",
+      "SQL_calls": 5090,
+      "current_calls": 6,
+      "storage_loads": 2,
+      "source_selects": 912
+    },
+    {
+      "route": "samples",
+      "status": 200,
+      "client_wall_seconds": "15.677736",
+      "server_sync_wall_seconds": "15.667792",
+      "server_thread_CPU_seconds": "10.944945",
+      "SQL_wall_seconds": "5.201871",
+      "SQL_calls": 5091,
+      "current_calls": 6,
+      "storage_loads": 3,
+      "source_selects": 912
+    }
+  ],
+  "unmatched_or_ambiguous_client_records": 0,
+  "active_client_requests": [
+    {
+      "caller_line": 469,
+      "route": "progress",
+      "started_monotonic_ns": 557282230890
+    }
+  ],
+  "active_server_operations": [
+    {
+      "SQL_calls": 0,
+      "SQL_thread_CPU_ns": 0,
+      "SQL_wall_ns": 0,
+      "current_calls": 0,
+      "exception_events": 0,
+      "operation": "execution",
+      "source_selects": 0,
+      "started_monotonic_ns": 557286756956,
+      "storage_loads": 0
+    }
+  ],
+  "dropped": {
+    "dropped_active_operations": 0,
+    "dropped_counters": 0,
+    "dropped_exceptions": 47,
+    "dropped_responses": 0,
+    "dropped_server_operations": 0
+  },
+  "raw_API_observation_bytes": 15346,
+  "worker_phase_totals": {
+    "worker._adopt": {
+      "calls": 1,
+      "exception_events": 0,
+      "inclusive_seconds": 1.3781906549999974,
+      "max_inclusive_seconds": 1.3781906549999974,
+      "returns": 1
+    },
+    "worker._before": {
+      "calls": 30,
+      "exception_events": 0,
+      "inclusive_seconds": 31.657123310999907,
+      "max_inclusive_seconds": 1.173851098,
+      "returns": 30
+    },
+    "worker._confirm": {
+      "calls": 29,
+      "exception_events": 0,
+      "inclusive_seconds": 144.183740187,
+      "max_inclusive_seconds": 6.102658813999938,
+      "returns": 28
+    },
+    "worker._custody_call": {
+      "calls": 59,
+      "exception_events": 0,
+      "inclusive_seconds": 320.4390137370003,
+      "max_inclusive_seconds": 8.10128605700001,
+      "returns": 58
+    },
+    "worker.run_once": {
+      "calls": 1,
+      "exception_events": 0,
+      "inclusive_seconds": 0.0,
+      "max_inclusive_seconds": 0.0,
+      "returns": 0
+    }
+  },
+  "worker_active_phases": [
+    {
+      "phase": "worker.run_once",
+      "started_elapsed_seconds": 3.4262922750000087
+    },
+    {
+      "phase": "worker._custody_call",
+      "started_elapsed_seconds": 355.66297123000004
+    },
+    {
+      "phase": "worker._confirm",
+      "started_elapsed_seconds": 355.663330748
+    }
+  ],
+  "last_confirmed": {
+    "computed_through_utc": "2026-10-01T00:00:54.123456Z",
+    "planned_steps": 64,
+    "status": "yielded",
+    "steps": 27
+  },
+  "worker_outcome": null,
+  "stopped_metadata_diagnostic_only": {
+    "G0_G4": "not_assessed",
+    "checkpoint_payload_sha256": "b9b2714898f6b10ee218e2eb5dc24071776a5a601bc0ee486e0ae5cfceea07d5",
+    "checkpoint_recorded_at": "2026-10-20T04:39:43.033252+00:00",
+    "evidence_kind": "stored_owned_fixture_metadata_only",
+    "job": {
+      "attempt": 1,
+      "state": "simulating"
+    },
+    "normal_execution_accepted": false,
+    "observed_at": "2026-10-20T04:39:56.967374+00:00",
+    "owned_cluster_identity_verified": true,
+    "rights_or_gate_approval": false,
+    "stored_checkpoint": {
+      "computed_through_utc": "2026-10-01T00:00:54.123456Z",
+      "planned_steps": 64,
+      "publication_sequence": 28,
+      "status": "yielded",
+      "steps": 27
+    },
+    "transaction_isolation": "repeatable read",
+    "transaction_read_only": true
+  },
+  "resource": {
+    "FD_before_after": [
+      7,
+      7
+    ],
+    "G0_G4": "not_assessed",
+    "RSS_samples": 1461,
+    "WSL_capacity_accepted": false,
+    "actual_child_exit": 1,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 367919104,
+    "hosted_only": true,
+    "local_protected_roots_present": false,
+    "owned_non_zombie_remaining": [],
+    "reason": null,
+    "rights_or_gate_approval": false,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 130134016,
+    "temporary_entries_remaining": 0,
+    "wall_seconds": 385.42177670800004
+  },
+  "normal_proof_file_present": false,
+  "database_cleanup_proof": null,
+  "normal64_accepted": false,
+  "diagnostic_only": true,
+  "new_Solar_deployed": false,
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "server_scope": "protected synchronous body only; external auth/ASGI/serialization excluded; observer costs included",
+  "nested_inclusive_sums_not_total_runtime": true,
+  "native_CLI": {
+    "timestamp": "2026-10-20T04:14:15.473Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_sha256": "0d74262f2c863243c1ab142857ed351de02b9f5478d324a80a233f93bae08ff8"
+  },
+  "actual_observation_accepted": true,
+  "local_implementation_evidence": "research/artifacts/solar-api-request-cost-local-implementation-20261020.json",
+  "local_unique_tests": 11,
+  "new_data_adopted": false,
+  "curation_proof": {
+    "case": "focused-solar-api-request-cost-actual-curation-v1",
+    "terminal_SHA256": "d99de61d5eed7ded5d08e9b477eded88789271fef127846d4400c0dd77250a66",
+    "log_SHA256": "33e742a8134bfd802313f01c945566bf57fd8ab366359020d87e2b3d24eac936",
+    "source_pins_SHA256": "6c9129334a883c35253454e40dec78a1a361d0716c7fab68bfa70cd04d3d66e9",
+    "actual_observation_raw_SHA256": "830d15f0cdb411b8d3bdfbbf693b9e2b5b0b44f296dd8203ee2c1d816a77b6c7",
+    "verifier_source_SHA256": "32a0deef1141427d02b2f21f2c6d299db5340bbb28bcab34bac0e6dba6be1e8c",
+    "download_log_SHA256": "f6bc943352e5546e91e5bcb33592bb9ce3413d0181f28536687a15aa1f941d24"
+  },
+  "actor_expected_evidence": {
+    "detail": "worker-api",
+    "original_API_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+    "original_worker_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+    "API_header_sha256": "5a74d85065130bbddf49979b51f66554807a3262bd82be2006f247018e4af701",
+    "worker_header_sha256": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373",
+    "instrumented_API_sha256": "14471fb0fdba900755433555ff155ad41dd48753c36ebd993aabe4e74254d957",
+    "instrumented_worker_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8",
+    "original_actor_bodies_and_assertions_byte_equal_after_header_removal": true,
+    "normal64_accepted": false,
+    "app261_unchanged": true
+  },
+  "backend_app_count": 261,
+  "backend_app_tree_sha256": "d477b74bc0a7ad2258a5bfd7bb522ad559a704ea55fca3849fb2f46e7ce403db",
+  "production_changed": false,
+  "next_task": "crop-solar-query-current-registration-scope-candidate",
+  "no_success_or_DB_cleanup_count_proof": true,
+  "job_steps": [
+    {
+      "name": "Set up job",
+      "number": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T04:31:10Z",
+      "completed_at": "2026-10-20T04:31:11Z"
+    },
+    {
+      "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+      "number": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T04:31:11Z",
+      "completed_at": "2026-10-20T04:31:15Z"
+    },
+    {
+      "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+      "number": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T04:31:15Z",
+      "completed_at": "2026-10-20T04:31:16Z"
+    },
+    {
+      "name": "Install locked backend",
+      "number": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T04:31:16Z",
+      "completed_at": "2026-10-20T04:31:18Z"
+    },
+    {
+      "name": "Build the pinned native test PostgreSQL",
+      "number": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T04:31:18Z",
+      "completed_at": "2026-10-20T04:33:32Z"
+    },
+    {
+      "name": "Original independent unpaused normal execution",
+      "number": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-20T04:33:32Z",
+      "completed_at": "2026-10-20T04:39:57Z"
+    },
+    {
+      "name": "Store curated normal execution evidence",
+      "number": 7,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T04:39:57Z",
+      "completed_at": "2026-10-20T04:39:59Z"
+    },
+    {
+      "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+      "number": 13,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-10-20T04:39:59Z",
+      "completed_at": "2026-10-20T04:39:59Z"
+    },
+    {
+      "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+      "number": 14,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T04:39:59Z",
+      "completed_at": "2026-10-20T04:39:59Z"
+    },
+    {
+      "name": "Complete job",
+      "number": 15,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-20T04:39:59Z",
+      "completed_at": "2026-10-20T04:39:59Z"
+    }
+  ],
+  "terminal_job_metadata_SHA256": "7ee549f9ad30f35abd81333958a6cdd96c5e1938216f97868b84895e9b59e5db"
+}
