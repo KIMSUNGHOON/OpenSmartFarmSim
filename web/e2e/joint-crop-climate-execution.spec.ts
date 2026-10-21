@@ -149,6 +149,22 @@ test('E8 06 hidden view stops polling and resumes one current read',async({page}
   await page.evaluate(()=>{Object.defineProperty(document,'visibilityState',{configurable:true,value:'visible'});document.dispatchEvent(new Event('visibilitychange'));});
   await expect.poll(()=>count).toBe(2);
 });
+test('E8 navigation releases stored 3D and reopens the same server result after returning',async({page})=>{
+  const d=data();let gets=0;await page.route(path,route=>{gets++;return route.fulfill({json:d.final});});
+  await saved(page,d);await enter(page);
+  await page.getByRole('button',{name:'09 계산 진행 상태',exact:true}).click();await attach(page,d);
+  await page.getByRole('button',{name:'같은 저장 결과 3D 열기'}).click();
+  await expect(page.locator('.joint-viewer')).toHaveAttribute('data-result-id',d.final.result.result_id);
+  await page.getByRole('button',{name:'01 입력 설정',exact:true}).click();
+  await expect(page.locator('.joint-viewer')).toHaveCount(0);
+  await page.clock.fastForward(60_000);expect(gets).toBe(1);
+  await page.getByRole('button',{name:'09 계산 진행 상태',exact:true}).click();
+  await expect.poll(()=>gets).toBe(2);
+  await expect(page.getByLabel('계산 작업 ID',{exact:true})).toHaveValue(ID);
+  await page.getByRole('button',{name:'같은 저장 결과 3D 열기'}).click();
+  await expect(page.locator('.joint-viewer')).toHaveAttribute('data-result-id',d.final.result.result_id);
+  await expect(page.locator('.joint-viewer')).toHaveAttribute('data-selected-at',d.rows[1].page.records[0].time.at);
+});
 test('E8 07 rejects malformed file, retries same request after unknown submission',async({page})=>{
   const d=data();let posts=0;await page.route('**/v1/crop-climate-joint-executions',async r=>{
     posts++;expect(r.request().postDataJSON()).toEqual(d.request);await r.fulfill({status:posts===1?503:202,json:posts===1?{}:d.job()});});

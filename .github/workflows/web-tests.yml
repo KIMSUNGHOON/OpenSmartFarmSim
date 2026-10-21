@@ -7,6 +7,10 @@ on:
         description: Also check actual stored Solar HTTPS and WebGL on an isolated hosted runner
         type: boolean
         default: false
+      retained_execution_navigation:
+        description: Also test and build only the navigation fix on the retained preview web source
+        type: boolean
+        default: false
       native_organ:
         description: Also check live organ catalogue, SCRAM, HTTPS and WebGL (hosted only; full browser suite required)
         type: boolean
@@ -108,6 +112,29 @@ jobs:
         with:
           name: web-build-${{ github.sha }}
           path: web/dist
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: error
+      - name: Verify retained preview navigation build
+        if: inputs.retained_execution_navigation
+        working-directory: .
+        run: |
+          git fetch --no-tags --depth=1 origin 2aa45fa7bc219a02e6a322ca095b0e726fad82da
+          python3 research/prepare-retained-execution-navigation.py "$RUNNER_TEMP/ossf-retained-execution-navigation"
+          cd "$RUNNER_TEMP/ossf-retained-execution-navigation/web"
+          npm ci --strict-peer-deps
+          npm run typecheck
+          npm run test
+          npm audit --audit-level=high
+          OSSF_TEST_WEB_PORT=5188 npm run test:browser -- --reporter=line --max-failures=1 connection-entry.spec.ts
+          npm run build
+          python3 "$GITHUB_WORKSPACE/research/prepare-retained-execution-navigation.py" "$RUNNER_TEMP/ossf-retained-execution-navigation" --finalize
+      - name: Tested retained preview build
+        if: inputs.retained_execution_navigation
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: retained-navigation-build-${{ github.sha }}
+          path: ${{ runner.temp }}/ossf-retained-execution-navigation/delivery
           retention-days: 3
           compression-level: 0
           if-no-files-found: error

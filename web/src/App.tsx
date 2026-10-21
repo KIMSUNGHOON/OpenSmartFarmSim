@@ -197,7 +197,7 @@ export default function App() {
         <button className="button secondary" aria-pressed={!cropCatalog} onClick={()=>setCropCatalog(false)}>결과 ID로 직접 조회</button>
       </div><Suspense fallback={<p role="status">성장 연구 화면 준비 중…</p>}>
         {cropCatalog?<CropResultCatalog api={api} onCreateFarm={()=>setView('authored')}/>:<CropReplay api={api}/>}</Suspense></>}
-      {view==='crop-execution'&&<Suspense fallback={<p role="status">계산 상태 화면 준비 중…</p>}><CropExecution api={api}/></Suspense>}
+      <RetainedWorkspace active={view==='crop-execution'}><CropExecution api={api} active={view==='crop-execution'}/></RetainedWorkspace>
       {view==='crop-execution' || view==='crop-replay' || view==='economic' || view==='authored' || view==='replay' || view==='assessment' || view==='authored-financial' ? null : view==='input' ? <form onSubmit={submit} className="input-form">
         <section className="panel input-panel" id="viewport-1-a-coordinates"><div><p className="step-number">01 / 지역</p><h2>위도·경도 설정</h2>
           <p>한국 내 좌표를 입력하세요. 서버에 등록된 시범 범위만 접수됩니다.</p>

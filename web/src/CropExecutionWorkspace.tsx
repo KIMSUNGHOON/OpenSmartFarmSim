@@ -3,7 +3,7 @@ import type { createApi } from './api';
 const Joint=lazy(()=>import('./JointCropClimateExecution'));
 const Ventilation=lazy(()=>import('./GreenhouseVentilationExecution'));
 
-export default function CropExecutionWorkspace({api}:{api:ReturnType<typeof createApi>|null}){
+export default function CropExecutionWorkspace({api,active=true}:{api:ReturnType<typeof createApi>|null;active?:boolean}){
   const [model,setModel]=useState<'joint'|'ventilation'>(()=>
     window.location.hash==='#ventilation-execution'?'ventilation':'joint');
   return <>
@@ -16,7 +16,7 @@ export default function CropExecutionWorkspace({api}:{api:ReturnType<typeof crea
       <p className="crop-caption">선택한 모델의 등록 입력과 작업 ID를 사용합니다. 모델을 바꾸면 화면 조회가 중지되며 서버 계산은 계속됩니다.</p>
     </section>
     <Suspense fallback={<p role="status">계산 연결 화면 준비 중…</p>}>
-      {model==='joint'?<Joint api={api}/>:<Ventilation api={api}/>}
+      {model==='joint'?<Joint api={api} active={active}/>:<Ventilation api={api} active={active}/>}
     </Suspense>
   </>;
 }

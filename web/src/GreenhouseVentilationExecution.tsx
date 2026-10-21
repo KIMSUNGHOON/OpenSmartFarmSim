@@ -26,14 +26,15 @@ function terminal(value:VentilationExecutionRead){
     && !(value.checkpoint_status==='unavailable' && (value.job.state==='succeeded'||value.job.state==='hold'));
 }
 function terminalState(value:VentilationExecutionRead|null){return value!==null&&(!['queued','simulating'].includes(value.job.state)||value.cancel_requested);}
-export default function GreenhouseVentilationExecution({api}:{api:Api|null}){
+export default function GreenhouseVentilationExecution({api,active=true}:{api:Api|null;active?:boolean}){
   const [fields,setFields]=useState(EMPTY),[request,setRequest]=useState<VentilationExecutionRequest|null>(null);
   const [session,setSession]=useState<Session|null>(null),[job,setJob]=useState<VentilationExecutionJob|null>(null);
   const [progress,setProgress]=useState<VentilationExecutionRead|null>(null),[cancellation,setCancellation]=useState<VentilationExecutionCancellation|null>(null);
   const [error,setError]=useState<ApiError|null>(null),[commandError,setCommandError]=useState<ApiError|null>(null);
   const [connection,setConnection]=useState<Connection>('idle'),[lastObserved,setLastObserved]=useState<string|null>(null);
   const [submitBusy,setSubmitBusy]=useState(false),[cancelBusy,setCancelBusy]=useState(false),[restart,setRestart]=useState(0);
-  const [visible,setVisible]=useState(()=>document.visibilityState!=='hidden');
+  const [pageVisible,setPageVisible]=useState(()=>document.visibilityState!=='hidden');
+  const visible=active&&pageVisible;
   const [opened,setOpened]=useState<GreenhouseVentilationLookup|null>(null);
   const [prefix,setPrefix]=useState<VentilationPrefixSnapshot|null>(null),[prefixObserved,setPrefixObserved]=useState<string|null>(null);
   const [prefixUnavailable,setPrefixUnavailable]=useState(false);
@@ -49,8 +50,9 @@ export default function GreenhouseVentilationExecution({api}:{api:Api|null}){
   }
   useEffect(()=>{reset();setRequest(null);setFields(EMPTY);return()=>{epoch.current++;
     submitAbort.current?.abort();cancelAbort.current?.abort();pollAbort.current?.abort();};},[api]);
-  useEffect(()=>{const change=()=>{setVisible(document.visibilityState!=='hidden');setOpened(null);setPrefix(null);setPrefixObserved(null);};
+  useEffect(()=>{const change=()=>setPageVisible(document.visibilityState!=='hidden');
     document.addEventListener('visibilitychange',change);return()=>document.removeEventListener('visibilitychange',change);},[]);
+  useEffect(()=>{if(!visible){setOpened(null);setPrefix(null);setPrefixObserved(null);}},[visible]);
   useEffect(()=>{
     if(!current||!visible||cancelBusy)return;
     let active=true,timer:ReturnType<typeof setTimeout>|undefined,delay=10_000;
@@ -202,7 +204,7 @@ export default function GreenhouseVentilationExecution({api}:{api:Api|null}){
         stale={connection==='checking'||connection==='retrying'}/>:
         !terminalState(progress)&&<p className="panel" role="status">{prefixUnavailable?'현재 서버에서 확정 부분 결과를 열 수 없습니다. 계산 상태는 계속 확인합니다.':'표시 가능한 확정 생장 시점을 기다립니다.'}</p>}
     </>}
-    {current&&opened&&<Suspense fallback={<p role="status">같은 저장 결과 준비 중…</p>}>
+    {current&&visible&&opened&&<Suspense fallback={<p role="status">같은 저장 결과 준비 중…</p>}>
       <Replay api={current.api} initialSelection={opened} autoLoadInitialSelection/></Suspense>}
   </div>;
 }
