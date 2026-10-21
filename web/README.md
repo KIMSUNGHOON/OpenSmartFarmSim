@@ -1,5 +1,14 @@
 # Internal web shell
 
+## 계산 접수 후 메뉴 이동 — 2026-10-21
+
+[메뉴 이동 유지 수정](../research/execution-navigation-retention-20261021.md)을5174의 기존 화면에 적용했다.
+새 빌드를 받으려면 한 번 새로고침한 뒤 인증 연결하고 같은 접수 파일로 기존 작업을 다시 연결한다.
+이후 앱 내부 메뉴를 오가도 선택 모델·접수 파일·계산 작업 ID를 유지하고 현재 상태를 다시 조회한다.
+다른 메뉴에서는 자동 조회/3D를 멈추며 저장 결과는 같은 작업에서 다시 연다.
+계정 변경/연결 해제는 작업과 선택 파일을 지운다. 페이지 새로고침의 영속 복원은 이번 범위가 아니다.
+실제 전체 작기/지역·품종 예측과 최종 제품 UI는 후속이며 전체 goal은 paused를 유지한다.
+
 ## 현재 접속 — 2026-10-21 재시작 복구
 
 http://localhost:5173/ 는 완료 합성166일 저장 재생, http://localhost:5174/#ventilation-execution 은 기존 합성 환기 계산/3D입니다. [복구 검증](../research/WSL-post-boot-recovery-20261021.md)에서 원 결과/같은 토큰·키·두 화면을 확인했습니다. 사설 접속 안내는 `~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v35/service/OPEN-UI.private.txt`, `~/.local/state/OpenSmartFarmSim/20261013-ventilation-user-activation/user-service-v3/OPEN-UI-ISOLATED-POSTBOOT-20261021.private.txt`입니다. 새 CO₂ 사용자 적용은 후속입니다. 아래 날짜별 안내는 당시 기록입니다.

@@ -1,0 +1,138 @@
+{
+  "schema_version": "execution-navigation-retention-evidence-v1",
+  "recorded_at": "2026-10-21T08:26:28.453558Z",
+  "scope": "existing UI internal menu navigation only",
+  "accepted": true,
+  "full_goal_status": "paused",
+  "full_goal_complete": false,
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "turn_context_at": "2026-10-21T07:52:20.440Z",
+    "turn_context_sha256": "ed1bc79199998be5ec5548a2abb92e1f62c0b18b254886ab61f19d626bb5fea4",
+    "recursive_CLI": false
+  },
+  "red": {
+    "audit_blocked_CI": 39565948331,
+    "reproduction_CI": 39566408040,
+    "browser_passed_before_failure": 19,
+    "failed": 1,
+    "not_run": 5,
+    "failure": "checkpoint no longer present after returning to calculation menu"
+  },
+  "initial_green": {
+    "CI": 39566874547,
+    "source_commit": "de4612ee912f15e806dc25921beff915db8e8032",
+    "canonical_unit_passed": 1886,
+    "canonical_browser_passed": 263,
+    "overall_conclusion": "failure",
+    "retained_unit_passed": 1705,
+    "retained_unit_failed": 1,
+    "reason": "missing original public replay fixture in isolated verification directory; fixed without changing the fixture"
+  },
+  "final": {
+    "CI": 39568367571,
+    "source_commit": "6bc68a55747206bc96d543f337279b25e68aa8dd",
+    "overall_conclusion": "success",
+    "canonical_unit_passed": 1886,
+    "canonical_focused_browser_passed": 25,
+    "retained_unit_passed": 1706,
+    "retained_browser_passed": 8,
+    "typecheck_build_audit_passed": true,
+    "source_delta_after_full_browser": "two execution views clear the file input on account changes; the focused and retained browser suites include those checks",
+    "full_263_browser_rerun_on_final_source": false
+  },
+  "software_acceptance": [
+    "two models retain accepted job, selected file and model after menu round trip",
+    "no re-submission and no polling while menu is inactive; one current read on return",
+    "late submission response while inactive retains accepted job",
+    "account change clears job, request and file selection",
+    "stored 3D is released while inactive and the same original result/UTC can be reopened"
+  ],
+  "artifact": {
+    "CI": 39568367571,
+    "commit": "6bc68a55747206bc96d543f337279b25e68aa8dd",
+    "all_baseline_web_files_match_retained_source": 209,
+    "canonical_source_hashes_equal": 4,
+    "verified_build_files": 183,
+    "frozen_backend_source_files_preserved": 2173,
+    "immutable_original_entries_preserved": 2148,
+    "App_only_one_retention_line_changed": true,
+    "base_commit": "2aa45fa7bc219a02e6a322ca095b0e726fad82da",
+    "canonical_source_sha256": {
+      "src/App.tsx": "9509788e6c48fd15e6a17fcda881ff2c2ff27c84d8656e13cebdf2f42ea384c8",
+      "src/CropExecutionWorkspace.tsx": "8a37a11ef0be937575402f744b803d5789c0ddd0713dd070a8faa54146f7b99f",
+      "src/JointCropClimateExecution.tsx": "a48db02ad0eb00423af16122caa68d40d09896c56113da611767f3cb250412ad",
+      "src/GreenhouseVentilationExecution.tsx": "e393ae3e50e927ed4b98422843342ad3287accf629e4cc235a4930b25f17b20e"
+    },
+    "retained_source_sha256": {
+      "src/App.tsx": "1ecc5ded5b47c836191ea08cd7f78b118d3e8c575a1ea93974c9c2a72eead1e0",
+      "src/CropExecutionWorkspace.tsx": "8a37a11ef0be937575402f744b803d5789c0ddd0713dd070a8faa54146f7b99f",
+      "src/JointCropClimateExecution.tsx": "a48db02ad0eb00423af16122caa68d40d09896c56113da611767f3cb250412ad",
+      "src/GreenhouseVentilationExecution.tsx": "e393ae3e50e927ed4b98422843342ad3287accf629e4cc235a4930b25f17b20e"
+    },
+    "provenance_sha256": "77e554145cb58bbe17be59e97518bc70930197a88909a533fc7bb4548a1a07f8"
+  },
+  "deployment": {
+    "accepted": true,
+    "CI": 39568367571,
+    "source_commit": "6bc68a55747206bc96d543f337279b25e68aa8dd",
+    "same_nginx_master_reloaded": true,
+    "HTML_SHA256": "1e7eff798ad4031810a66be79b49444068622e1fbd44cc6fc3489735f339a6fe",
+    "entry_and_execution_asset_HTTP_hashes_equal": [
+      "assets/JointCropClimateExecution-APPRyfNd.css",
+      "assets/GreenhouseVentilationExecution-r5mkoNKF.js",
+      "assets/index-IFWQ1kap.js",
+      "assets/CropExecutionWorkspace-CCqPsLIP.js",
+      "assets/index-CL1UXupZ.css",
+      "assets/JointCropClimateExecution-Yft0PZX-.js"
+    ],
+    "original_frontend_files_preserved": 183,
+    "old_assets_available_for_open_tabs": 40,
+    "frozen_source_files_preserved": 2173,
+    "protected_root_count": 5,
+    "all_protected_roots_live": true,
+    "backend_restarted": false,
+    "database_restarted": false,
+    "new_model_deployed": false,
+    "goal_status": "paused",
+    "WSL_browser_rerun": false
+  },
+  "existing_server_read": {
+    "HTTP_status": 200,
+    "job_state": "succeeded",
+    "checkpoint_status": "current",
+    "result_present": true,
+    "body_sha256": "f4ec16d740c583a4f80034070e99e2b45d3d2df2a05a15281e49292df26750a2",
+    "method": "GET",
+    "write_HTTP_requests": 0,
+    "new_calculation_requested": false,
+    "wall_seconds": 14.007334807999541
+  },
+  "security_patch": {
+    "version": "8.3.3",
+    "registry_url": "https://registry.npmjs.org/vite/8.3.3",
+    "registry_sha256": "1e6277e40450e3316dc9087c63fe0d9ee7d45d14951683ac79e8f83c4374c1f4",
+    "tarball_integrity_verified": true,
+    "tarball_sha256": "a5895f70698d23dfef30418b563c9f369ab99703edf3503815bb5c2ee40baa40",
+    "dependency_change": "rolldown lower bound 1.2.9 to 1.2.11; existing lock already 1.2.11; all other dependency and peer declarations preserved",
+    "rationale": "minimum patch listed by three launch-editor advisories; preserve audit gate; no forced audit fix"
+  },
+  "local_resource_stop": {
+    "reason": "combined RSS limit",
+    "wall_seconds": 1.9513894109995817,
+    "combined_peak_RSS_bytes": 1118867456,
+    "single_PID_peak_RSS_bytes": 243896320,
+    "original_entries_preserved": 2148,
+    "protected_roots_live": 5,
+    "owned_remaining": 0,
+    "same_probe_repeated": false
+  },
+  "not_run": [
+    "WSL actual browser due combined memory headroom",
+    "new numerical crop run",
+    "full backend CI"
+  ],
+  "G0_G4": "not_assessed",
+  "real_farm_runs": 0
+}

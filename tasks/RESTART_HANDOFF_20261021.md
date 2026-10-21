@@ -1,5 +1,14 @@
 # 시스템 재시작을 위한 작업 중단 — 2026-10-21 KST
 
+## 후속 사용자 요청: 계산 메뉴 이동 수정 적용
+
+중단 뒤 사용자가 보고한 앱 내부 메뉴 초기화 버그만 [수정·검증·5174 적용](../research/execution-navigation-retention-20261021.md)했다.
+최종 검증 source는 `6bc68a5`/CI39568367571이며 전체 goal은 **paused**다. 기존 CO₂ 변경8 CI취소/미수용은 유지한다.
+재시작 후 기존 서비스/환기 proxy 복구가 끝나면 private handoff의 `current_execution_navigation.frontend_root`를
+5174 root로 다시 적용한다. 기존2173파일/원 frontend는 보존됐으며 해당 경로의 수용 빌드와 구 asset 호환 파일을 사용한다.
+상태 게시/HTTP 검증기는 같은 handoff의 `current_development_status_publisher`를 따른다.
+이전 read-only 게시기는 구5174 HTML을 검사하는 역사적 판본으로 보존했다. 이전 PID를 재사용하지 않는다.
+
 ## 최신 중단 기록 — 2026-10-21T07:15:20.071593Z
 
 사용자의 두 번째 시스템 재시작 요청으로 goal을 **paused**로 전환했다. 새 구현·계산·CI 제출을 중단했다.

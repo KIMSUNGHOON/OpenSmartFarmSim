@@ -1,9 +1,11 @@
 # 첫 구현 작업 목록
 
-- [ ] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).
+- [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).
   접수 후 앱 내부 메뉴 왕복에서 두 계산 모델의 파일·작업 ID·선택을 유지하고 재접수 없이 현재 조회를 재개한다.
   숨김 GET/3D 중지, 늦은 접수 응답 보존, 계정 변경 시 작업/파일 제거, 같은 저장 결과 3D 재개와
-  기존 고정 frontend의 실제 빌드·5174 적용을 확인한 뒤 체크한다. 전체 goal paused와 별개인 버그 수정이다.
+  기존 고정 frontend의 실제 빌드·5174 적용을 확인했다. 현재1,886/집중25·기존1,706/8과
+  이전 전체263의 source 차이 검토, 새 HTML/실행6asset의 실제 HTTP/SHA·5root/원 자료를 대사했다.
+  전체 goal paused와 별개인 버그 수정이다.
 
 - [x] **`preview-existing-authentication-renewal-20261021`** — [실제 만료 전 기존 서비스 갱신/복구](../research/frozen-preview-authentication-renewal-20261021.md). 현재 실행 경로·같은 토큰/키/DB와 최종 legacy8·joint입력3/저장9·환기8, 실제 TLS 수명/원 값·UTC/조회0·5root/자원/정리를 확인했다. 감독 정리 지연과 누락된 기존 TLS 설정은 기록했다. 새 모델/API/3D나 G4 수용은 아니다.
 
