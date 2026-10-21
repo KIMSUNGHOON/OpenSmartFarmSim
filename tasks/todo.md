@@ -21,6 +21,17 @@
     현재 조회 거부 시 제거와 기존 창 회귀·현재 47,809시점 저장 API/사용자 화면 연결을 확인한다.
     source42d5284/CI39584108997의 현재12/3·고정61/21·원 legacy80/13, 실제 API/Chrome GET5/POST0·같은 UTC/면적비,
     실제 동시성1/원 이벤트 전달2의 구분·6root/원 frontend164 보존과5173 사용자 적용을 확인했다. 실제 품종·과실/수확은 미완료다.
+  - [x] **`realistic-morphology-evidence-r3c`** — [기관 형태/발달 1차 근거](../research/tomato-morphology-primary-sources-20261021.md).
+    현재 scalar/50구획·저장 DTO와 키/마디/개화/과실 크기/색·숙기의 대응 부재, 출처/권리·단위와
+    실제 코드 hash를 대조한다. 논문·코드·자료 권리를 구분하고 Axiany 초기 상태/계수·관측 공백을 남긴다.
+    실제 부모/자식 CLI context·원 HTML MathML/단위·현재 코드/DTO hash를 대조했다. 새 품종 계수·원측정 채택은0이다.
+  - [x] **`crop-internode-elongation-rates`** — [한 절간 순간 신장률 계약](../contracts/crop-internode-elongation-v1.md).
+    명시 합성 열적 나이/3매개변수만으로 원 Eq(4)를 계산하고 독립 Decimal·대칭/극값·단위/overflow/underflow와
+    입력 불변/원6서비스·자원 상한을 확인한다. 초기 길이·시간 적분·마디 생성·실제 키/3D 연결은 별도다.
+    부재 RED 후 집중49/독립 Decimal20·최대 상대차1.356e-14, 재생성 동일 bytes·합859,340,800bytes/6root·정리를 확인했다.
+  - [ ] **`crop-morphology-thermal-clock`** — 위 형태 근거/절간 신장률 뒤 원 기온·기준온도/온도 문턱과 출현 기준을 검토한다.
+    명시 합성 입력의 기관별 열적 나이·원 시각/단위, 구간별 누적/분할 재개를 독립 수치로 대조하고 기존 수관 Tsum과 혼합을 거부한다.
+    타품종 기본 계수·실제 관측 시계의 자동 채택, 절대 키/3D 연결은 별도다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).

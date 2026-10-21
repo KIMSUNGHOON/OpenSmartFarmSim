@@ -1,0 +1,246 @@
+{
+  "version": "crop-internode-elongation-evidence-v1",
+  "date": "2026-10-21",
+  "CLI": {
+    "parent_session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "at": "2026-10-21T12:06:09.540Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "context_line_sha256_including_LF": "478c491ea2dee5a6a6bf95e56062d5e039c6ac87623d9866e27fc2fc72f96942",
+    "recursive_CLI": false
+  },
+  "source": {
+    "DOI": "10.1093/insilicoplants/diaf022",
+    "equation": "2.5.3 Eq4",
+    "raw_HTML_SHA256": "e3d4b09e1d0e2041d43736d1fd5181442e2fbd851f2434a84a553bdf13422749",
+    "parent_rechecked_original_MathML": true,
+    "age_unit": "degC_day_since_organ_emergence",
+    "steepness_dimension_correction": "1/degC_day_instead_of_table_dimensionless",
+    "cultivar_coefficients_adopted": 0,
+    "author_repository_code_reused": false
+  },
+  "source_hashes": {
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "web/src/cropReplay.ts": "ae136eeeee0982b37f769cf80e2c7775f44546b44eab630eb76a6ef8bdd6df08",
+    "web/src/coupledCropReplay.ts": "a73e52cb8c5cfa38e2da6d6fb9268fa7314980bd156fc31ccead163029a2e1a4",
+    "web/src/startupCropReplay.ts": "6917bce223a2f768394b4fa872c70a2cd7183e0da63a050df43e001039a3626a",
+    "web/src/cycleCropReplay.ts": "05b35cbf28e0b9b3df3495bc68e382c56cbe8311c820d1cf5dcaa7d470867308",
+    "web/src/tomatoAppearance.ts": "f6b9ba2b14eddaa13dc0aff1e77acb93f193d0b156e416e2c01e2bfdf0266445",
+    "web/src/tomatoLeafReplay.ts": "de8004367ad22785b1ae9e2d4a74cc2306287e9dfe7060248a17d60cd5a7ccc4",
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+    "research/crop-internode-elongation-reference.py": "7726e156aa1a79e11f6cd28835849ddc778cae3f5293a1e4f9e25b8c4b4bd391",
+    "fixtures/crop-internode-elongation-reference-v1.json": "2028a0294b345eae167719669f54af3fc4e481b266400b53e523a8d5e1965389"
+  },
+  "independent_reference": {
+    "precision": 100,
+    "cases": 20,
+    "repeated_bytes_equal": true,
+    "maximum_relative_error": "1.355629327232356486767466367899106930363891256399796678616065471987480350930024801358298793497446773E-14"
+  },
+  "tests": {
+    "focused_passed": 49,
+    "RED": "ModuleNotFoundError_before_implementation",
+    "GREEN_child_exit": 0,
+    "full_suite": false,
+    "browser_rerun": false,
+    "plugin_autoload_disabled": true
+  },
+  "resource": {
+    "red": {
+      "phase": "red",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 0.5204586449981434,
+      "peak_PID_RSS_bytes": 132030464,
+      "combined_RSS_bytes": 855019520,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "fixtures/crop-internode-elongation-reference-v1.json": "2028a0294b345eae167719669f54af3fc4e481b266400b53e523a8d5e1965389",
+        "research/crop-internode-elongation-reference.py": "7726e156aa1a79e11f6cd28835849ddc778cae3f5293a1e4f9e25b8c4b4bd391"
+      },
+      "log_sha256": "5b78e23f16ef32a3d7f0a588d3e141d96ecb872512078fedc914f54f7433e7d2",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "green": {
+      "phase": "green",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.5201294120015518,
+      "peak_PID_RSS_bytes": 132030464,
+      "combined_RSS_bytes": 859340800,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "fixtures/crop-internode-elongation-reference-v1.json": "2028a0294b345eae167719669f54af3fc4e481b266400b53e523a8d5e1965389",
+        "research/crop-internode-elongation-reference.py": "7726e156aa1a79e11f6cd28835849ddc778cae3f5293a1e4f9e25b8c4b4bd391"
+      },
+      "log_sha256": "ac2d8ece906f022fafb03186e9482316157ddf614a83dde8b3f397bba93a61c2",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    }
+  },
+  "cases": [
+    {
+      "case_id": "synthetic-symmetric-0",
+      "value_m_per_degC_day": 0.0006299615124210387,
+      "input_sha256": "a19d477a0f8a46e72d5387d37a64a881df3f4d0fcacede71ab36633a19e5a257",
+      "relative_error": "6.181243643494981818311063997883600707426727772364424188087759200315728391872765864303401594398778795E-16"
+    },
+    {
+      "case_id": "synthetic-symmetric-20",
+      "value_m_per_degC_day": 0.0011796715994488905,
+      "input_sha256": "c2bdd39d72be4e25ae33cdd5a9086e0b490d58fcda54785d3a2080dfd01ba56b",
+      "relative_error": "5.576891340831461302190496249893640428615237521503408198211432163206185359375564911609656324470217286E-16"
+    },
+    {
+      "case_id": "synthetic-symmetric-40",
+      "value_m_per_degC_day": 0.0014999999999999994,
+      "input_sha256": "119ca2761c4107ba665fa47a3a2273876c497ed19f6efc9c6e5dab5b3f69644d",
+      "relative_error": "4.128641872824800884700380265712738037109375E-16"
+    },
+    {
+      "case_id": "synthetic-symmetric-60",
+      "value_m_per_degC_day": 0.0011796715994488905,
+      "input_sha256": "1902dce2c45895d25990d7fbdaaec16351d3b13b1ce489f7921600993ea0e699",
+      "relative_error": "5.576891340831461302190496249893640428615237521503408198211432163206185359375564911609656324470217286E-16"
+    },
+    {
+      "case_id": "synthetic-symmetric-80",
+      "value_m_per_degC_day": 0.0006299615124210387,
+      "input_sha256": "6950fe472bb26b9ea76d2c1b5628a914e8b24bf50887225bcec573044c846aa4",
+      "relative_error": "6.181243643494981818311063997883600707426727772364424188087759200315728391872765864301814195835084252E-16"
+    },
+    {
+      "case_id": "synthetic-narrow-0",
+      "value_m_per_degC_day": 0.019732074330880374,
+      "input_sha256": "16623d886986977088798bec0a8945c14e921ffcb82b13e53f3faf17c26361f8",
+      "relative_error": "4.363734337404556788947057871435354419270616204280254346721607420030635624989271642117104252985352871E-16"
+    },
+    {
+      "case_id": "synthetic-narrow-1",
+      "value_m_per_degC_day": 0.14130164970632889,
+      "input_sha256": "8766a0c9fea619e11a2f7f46be73a406660f0c665bd6b1482d886f925829de4c",
+      "relative_error": "3.235214579322724606881083120043302211870012666843960550181890330931306770719568483760484738876098468E-16"
+    },
+    {
+      "case_id": "synthetic-narrow-2",
+      "value_m_per_degC_day": 0.8399486832280519,
+      "input_sha256": "da044a74271d9ae51b24cd134c6021faebec285f9527b926a38cea8859b006c2",
+      "relative_error": "2.367372530965667568046540310920006546023575403174510878556361797090083506715909681020443040511459637E-16"
+    },
+    {
+      "case_id": "synthetic-narrow-3",
+      "value_m_per_degC_day": 1.9999999999999998,
+      "input_sha256": "cf3fa0970df66b51e2c3c7f380391ca839ee10d1fea23c0b8c0f51e3e91acc87",
+      "relative_error": "1.1102230246251565404236316680908203125E-16"
+    },
+    {
+      "case_id": "synthetic-narrow-4",
+      "value_m_per_degC_day": 0.8399486832280519,
+      "input_sha256": "b528e9819552d62b26a3185ce5c9c48e39329d57571e3917feca771908f81032",
+      "relative_error": "2.367372530965667568046540310920006546023575403174510878556361797090083506715909681014490295897605099E-16"
+    },
+    {
+      "case_id": "synthetic-narrow-5",
+      "value_m_per_degC_day": 0.14130164970632889,
+      "input_sha256": "507fe27a63dff5d5d7728057b62ca6defb1c9c35dcf4867086ba4c0d3e0ec3a4",
+      "relative_error": "3.235214579322724606881083120043302211870012666843960550181890330931306770719568483746330622458090229E-16"
+    },
+    {
+      "case_id": "synthetic-narrow-6",
+      "value_m_per_degC_day": 0.019732074330880374,
+      "input_sha256": "f8f4c4b8c5a85756a7244d69258e079a8d52d6a3f448fab742de88307ee878c9",
+      "relative_error": "4.363734337404556788947057871435354419270616204280254346721607420030635624989271642117104252985352871E-16"
+    },
+    {
+      "case_id": "synthetic-wide-0",
+      "value_m_per_degC_day": 0.0022878424045665756,
+      "input_sha256": "4e35ebce8de0791d11e58257958359669da3e06b72bae1675bd3a47aea5136dd",
+      "relative_error": "1.112671104779763966369849901821146944931167614438998009072852471961253320575913833328032063929119108E-15"
+    },
+    {
+      "case_id": "synthetic-wide-60",
+      "value_m_per_degC_day": 0.002444583116907459,
+      "input_sha256": "29f7fd959d1987d8d687ab60e8eefb046d80445a6db1bbe1bed0bdc228b1a91d",
+      "relative_error": "1.864420585109211043891901482737639714162645044516380646593461083536372021099366365508340433302793498E-16"
+    },
+    {
+      "case_id": "synthetic-wide-120",
+      "value_m_per_degC_day": 0.0025000000000000005,
+      "input_sha256": "49e33f85d4bcccfdf1157b58726be42ee29712ff4c6e3827d274b91f6ba6ddab",
+      "relative_error": "1.942890293094023945741355419158935546875E-16"
+    },
+    {
+      "case_id": "synthetic-wide-180",
+      "value_m_per_degC_day": 0.002444583116907459,
+      "input_sha256": "0fce1c1a9bffdf19e83a2d4e483e3cab8b88f68f0dd64da1ac01f7bae2b63354",
+      "relative_error": "1.864420585109211043891901482737639714162645044516380646593461083536372021099366365508340433302793498E-16"
+    },
+    {
+      "case_id": "synthetic-wide-240",
+      "value_m_per_degC_day": 0.0022878424045665756,
+      "input_sha256": "0d4082a007160af55b646c1a2b1804d6525c21aaac3425b3cd55010cfa5029a4",
+      "relative_error": "1.112671104779763966369849901821146944931167614438998009072852471961253320575913833328469156972767562E-15"
+    },
+    {
+      "case_id": "synthetic-large-exponent-0",
+      "value_m_per_degC_day": 5.0759588975495256e-127,
+      "input_sha256": "c13f0d3833f285036ba917958aed64de173525cb93c74a67e477cf76cf54ac2b",
+      "relative_error": "1.355629327232356486767466367899106930363891256399796678616065471987480350930024801358298793497446773E-14"
+    },
+    {
+      "case_id": "synthetic-large-exponent-1000",
+      "value_m_per_degC_day": 2.5000000000000245e+307,
+      "input_sha256": "90b55d7c8e9e5a16090e9bb42b309b225213a9d931824e2f1663f549db042193",
+      "relative_error": "9.790596580349567532533631216977282092193879282962773529216530602857709903447708869235284643410612148E-15"
+    },
+    {
+      "case_id": "synthetic-large-exponent-2000",
+      "value_m_per_degC_day": 5.0759588975495256e-127,
+      "input_sha256": "3f792592cf78682f340f4a10dba4397cecd491126ab893d4ac14d3429fadd76e",
+      "relative_error": "1.355629327232356486767466367899106930363891256399796678616065471987480350930024801358279092786306603E-14"
+    }
+  ],
+  "deployment": {
+    "new_module_deployed": false,
+    "existing_frontends_backend_and_DB_unchanged": true
+  },
+  "holds": [
+    "thermal-clock/base-temperature definition and forcing review",
+    "initial internode identity, lengths and emergence ages",
+    "phyllochron and shape/integration/storage/3D linkage",
+    "Axiany/Maxifort morphology coefficients and independent observations",
+    "flowers/fruit dimensions/colour/ripeness/harvest and G0-G4 release"
+  ],
+  "scope": "synthetic instantaneous internode thermal-age derivative only; no crop height or harvest prediction",
+  "status_publication": {
+    "reported_at": "2026-10-21T12:22:38.254208Z",
+    "SHA256": "5f4be33111cde9e80e87366d18f526e2a1b7778ecfff76bc203466b3d4b755b5",
+    "both_5173_5174_HTTP200_same_bytes_no_store": true,
+    "both_current_HTML_match": true,
+    "frozen_ventilation_source_files_preserved": 2173,
+    "UI_code_changed": false,
+    "browser_DOM_rerun": false,
+    "historical_publisher_UI_flag_corrected_in_current_copy": true
+  },
+  "resource_guard_sha256": "876a3b29f1ea1edd2e3fe0c2e04e4c2ac882f9642e675760b3bf265369a509e4",
+  "review": {
+    "correctness": "original_MathML_and_independent_Decimal20_rechecked",
+    "architecture": "isolated_stdlib_function_no_existing_import_or_API_changes",
+    "inputs": "closed_synthetic_only_unit_checked_no_defaults",
+    "performance": "fixed_four_quantity_evaluation_no_time_series_or_DB",
+    "full_regression_claim": false
+  }
+}

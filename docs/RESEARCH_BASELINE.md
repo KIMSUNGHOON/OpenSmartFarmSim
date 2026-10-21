@@ -59,6 +59,11 @@ Vanthoor/GreenLight를 첫 탄소 계산의 참조로 선택했으며 일반 계
 필요한 수식/계수의 권리·차원/범위 검토와 합성 입력으로 개발을 시작하며 국내 자료
 접근·독립 G2/G3a 검증은 병행한다. 자료 확보 전에는 국내 미래 생산·경제를 게시하지 않는다.
 
+[2026-10-21 형태/발달 조사](../research/tomato-morphology-primary-sources-20261021.md)는
+현재 탄소/과실 구획과 키·개화/과실 형태의 대응 부재를 대조했다. Smoleňová 등2025 Eq(4)의
+절간 신장률은 별도 합성 커널로 수용했고 원 표의 기울기 단위 차원을 구분했다.
+타품종 계수·권리 미확인 저자 코드/데이터는 채택하지 않았다. 기관 열적 시계/초기 상태·Axiany 계수와 독립 측정은 남는다.
+
 [수관·공기 교환식 추가 검토](../research/crop-canopy-exchange-baseline-20261009.md)는
 같은 고정 GreenLight의 6식·9계수/식 상수·원 단위/해석과 권리를 기록했다.
 [순수 순간 계산](../research/crop-canopy-exchange-implementation-20261009.md)은 독립 Decimal 참조와
