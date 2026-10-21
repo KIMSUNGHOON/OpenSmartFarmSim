@@ -50,10 +50,7 @@ def _softplus(x):
     return max(x, 0) + log1p(exp(-abs(x)))
 
 
-def calculate_internode_length_change(*, inputs):
-    _need(type(inputs) is dict and set(inputs) == {
-        'input_id', 'clock_state', 'segments', 'curve'}, 'INPUT_HOLD: closed length-change input required')
-    curve = inputs['curve']
+def normalize_internode_curve(*, curve):
     _need(type(curve) is dict and set(curve) == {'profile_id', 'origin', 'values'},
           'INPUT_HOLD: closed curve required')
     supplied = curve['values']
@@ -64,12 +61,25 @@ def calculate_internode_length_change(*, inputs):
             'input_id': curve['profile_id'], 'origin': curve['origin'],
             'thermal_age_basis': 'since_internode_emergence',
             'values': {**supplied, 'thermal_age': supplied['inflection_age']}})
-        clock = advance_internode_thermal_clock(inputs={
-            'input_id': inputs['input_id'], 'state': inputs['clock_state'], 'segments': inputs['segments']})
-    except (InternodeElongationHold, MorphologyClockHold) as exc:
+    except InternodeElongationHold as exc:
         raise InternodeLengthChangeHold(str(exc)) from None
     values = {name: {'value': float(quantity['value']), 'unit': quantity['unit']}
               for name, quantity in supplied.items()}
+    normalized = {**curve, 'values': values}
+    return {'curve': normalized, 'curve_sha256': _digest({'rate_model_version': RATE_VERSION,
+                                                        'curve': normalized})}
+
+
+def calculate_internode_length_change(*, inputs):
+    _need(type(inputs) is dict and set(inputs) == {
+        'input_id', 'clock_state', 'segments', 'curve'}, 'INPUT_HOLD: closed length-change input required')
+    normalized_curve = normalize_internode_curve(curve=inputs['curve'])
+    values = normalized_curve['curve']['values']
+    try:
+        clock = advance_internode_thermal_clock(inputs={
+            'input_id': inputs['input_id'], 'state': inputs['clock_state'], 'segments': inputs['segments']})
+    except MorphologyClockHold as exc:
+        raise InternodeLengthChangeHold(str(exc)) from None
     maximum, k, tm = (values[name]['value'] for name in ('maximum_length', 'steepness', 'inflection_age'))
     start, end = _exact_age(inputs['clock_state']), _exact_age(clock['checkpoint'])
     change = 0.0
@@ -97,8 +107,7 @@ def calculate_internode_length_change(*, inputs):
                 raise InternodeLengthChangeHold('NUMERIC_HOLD: length change overflow') from None
         _need(isfinite(change) and float_info.min <= change <= maximum,
               'NUMERIC_HOLD: normal bounded positive length change required')
-    curve_hash = _digest({'rate_model_version': RATE_VERSION,
-                         'curve': {**curve, 'values': values}})
+    curve_hash = normalized_curve['curve_sha256']
     identity = {'model_version': MODEL_VERSION, 'clock_model_version': CLOCK_VERSION,
                 'clock_input_sha256': clock['input_sha256'], 'curve_sha256': curve_hash}
     return {'model_version': MODEL_VERSION, 'scope': 'software_research_only',
