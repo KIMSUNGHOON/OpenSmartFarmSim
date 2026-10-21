@@ -1,7 +1,7 @@
 # CO₂·일사 계산의 확정 구간 원 조회 — v1
 
-Status: partial acceptance23 (core13 + fences10). Concurrent/fresh8 remain required
-before full raw-prefix acceptance. No public response or user activation accepted.
+Status: accepted raw-prefix software31 (controls7 / actual SCRAM23 / independent process1).
+[Evidence](../research/crop-greenhouse-co2-prefix-20261021.md). Public projection and user activation remain unaccepted.
 2026-10-21. native Codex CLI `gpt-6.1-sol / xhigh`의 인터페이스 검토를
 [진행 조회 전체 증거](../research/artifacts/crop-greenhouse-co2-execution-query-20261021.json)에 기록했다.
 선행은 [현재 진행 조회](crop-greenhouse-co2-execution-query-v1.md),

@@ -2392,12 +2392,12 @@
           CI39533373500의24와 CI39534107848의11·서로 같은324지문/원 UTC·최초 시각/조회31계측0/정리를 확인했다.
           원 상태/읽기 권리·늦은 변경/잠금·HEAD/디렉터리/독립 원 DTO와 별도 actor UPDATE1을 구분했다.
           첫 증거 필드 누락/수정을 보존하며 공통 WSL/사용자 적용과 전체 작기/자료 관문은 남는다.
-        - [ ] **`co2-confirmed-prefix-read`** — 위 query/worker 뒤 [확정 구간 원 조회 계약](../contracts/crop-greenhouse-co2-prefix-v1.md)을 구현한다.
+        - [x] **`co2-confirmed-prefix-read`** — 위 query/worker 뒤 [확정 구간 원 조회 계약](../contracts/crop-greenhouse-co2-prefix-v1.md)의 [전체31검사](../research/crop-greenhouse-co2-prefix-20261021.md)를 수용했다.
           정확한 CO₂ 선택자·불변 원 페이지/UTC·private witness와 직렬화 후검사, 정상 append/heartbeat·늦은 권리/이력,
           독립 fresh/동시 writer·조회 계산/SQL 변경0·원 자료/소유 정리를 수용한다. 이후 공개 투영/보호 실행 HTTP·runtime→typed web/같은 UTC3D다.
           - [x] **`co2-prefix-core`** — [CI39537144157/13검사](../research/crop-greenhouse-co2-prefix-20261021.md)의 제어7/실제 SCRAM6·338지문/10산출물·원 UTC/64+1·조회31계측0/정리를 수용했다. 부모/나머지18/공통 WSL·사용자 적용은 남는다.
           - [x] **`co2-prefix-fences`** — [수정 CI39539414514/실제 SCRAM10](../research/crop-greenhouse-co2-prefix-20261021.md)을 수용했다. 원 감사 행6/별도 반환값 fault6·늦은 권리/변조/선택 page·조회31계측0/338지문·정리를 대사했다. 첫 실패/actor 인증 수정·원 core와2파일 차이 검토를 보존하며 concurrent8/부모는 남는다.
-          - [ ] **`co2-prefix-concurrent`** — 실제 SCRAM7/독립 fresh1의 원 선택자·최초 UTC·동시 append/heartbeat/cancel과 private witness/철회·정리를 수용한다.
+          - [x] **`co2-prefix-concurrent`** — [CI39540356484/실제 SCRAM7·독립1](../research/crop-greenhouse-co2-prefix-20261021.md)의 원 선택자/최초 UTC·동시 append/heartbeat/cancel·private witness/철회·조회31계측0/같은338지문·정리를 수용했다. full raw31은 완료했고 공개 응답/HTTP·3D/WSL 적용은 남는다.
         - [ ] **`co2-prefix-projection`** — 원 조회31개 전체 수용 뒤 [닫힌 공개 응답 계약](../contracts/api-crop-greenhouse-co2-prefix-v1.md)을 구현한다.
           원109상태/장부·UTC와 검증한 원 프로그램의 wet/dry를 private witness에 결속하고, 원량/비공개/2MiB·현재 권리/후검사·실제 SCRAM/독립 응답·조회 계산/쓰기0을 수용한다. HTTP/runtime/3D·사용자 적용은 후속이다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.

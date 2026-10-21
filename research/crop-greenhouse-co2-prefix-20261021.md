@@ -1,5 +1,10 @@
 # CO₂ 확정 구간 원 조회 — 구현/검증 진행
 
+**현재 확정 구간 원 조회31개 전체 수용.** [최종 기계 증거](artifacts/crop-greenhouse-co2-prefix-20261021.json)는
+core13/fences10/concurrent8의 서로 겹치지 않는 제어7/실제 SCRAM23/독립 프로세스1을 결속한다.
+첫 audit actor 실패는 합산하지 않는다. 아래 기록은 해당 시점의 진행 이력이다.
+공개 투영/HTTP/runtime/같은 UTC3D·WSL/사용자 적용과 전체 제품/자료 관문은 남는다.
+
 **현재 core13+fences10=고유23검사 수용.** 원 실패10은 합산하지 않는다.
 [수정 CI39539414514](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39539414514)의
 [14개 원 산출물/기계 증거](artifacts/crop-greenhouse-co2-prefix-fences-20261021.json)를 대사했다.
@@ -67,3 +72,26 @@ controller292행에서 감사 행 변경을 시도한 소켓 관리자 연결의
 core 선택 시험·fences 밖 AST 동일성은 앞선 수정 증거에 결속한다. 제품 코드/수치/저장/API는 같다.
 다음은 원 signed HEAD 공개/heartbeat/cancel·witness/provenance/승인과 독립 producer/reader8검사다.
 현재까지 고유23=제어7/실제 DB16이며 전체 원 조회31/실제3D·전체 작기/자원/경제/외부 관문 수용은 남는다.
+
+## 독립·동시8 수용 및 전체 원 조회 완료
+
+[CI39540356484](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39540356484)의13개 원 산출물을
+현재338지문·앞선 fences와 같은338지문에 대사했다. 원 core와 다른2파일은 감사 actor/해당 postcheck이며
+기존 검토에 결속한다. 제품/수치 코드는 세 배치에서 같다. 최종 고유31개에 원 Solar23개를 모두 유지했다.
+
+독립 actor의 실제 SCRAM heartbeat/cancel과 미리 계산된 원 signed descendant/확정 사건 공개에서도
+이전 선택자의 binary64/UTC·최초 확인 시각을 보존하거나 취소 Pending으로 차단했다.
+actor의 의도된 시험 SQL과 제품 조회31계측0을 구분한다. owner/payload/witness와 provenance/승인 fault도 거부했다.
+별도 producer는 실제 advance/confirm으로1→9걸음, samples1→3/events1→2를 저장하고 종료했다.
+독립 readonly reader의 summary/sample/event/재summary는 관측 시각 제외 원문·선택자/UTC/최초 시각·해시가 같고
+현재 review 철회를 거부했다. reader31계측/SQL쓰기0·DB 관측 수 불변·현재 읽기 scopes를 확인했다.
+기존 wrapper의 automatic_discovery 표기는 이 시험의 unpaused 동시 수치 worker 완료를 뜻하지 않는다.
+
+156.572676578초·단일 PID139,751,424/합318,529,536bytes·FD6→6·소유 process/schema/role/PG/임시/passfile0이다.
+세 성공 배치 모두 원600초/512MiB PID/합1GiB 안이며 로컬 사전 guard의 원2148항목/5root·두 미리보기 보존은 유지한다.
+hosted 수용은 공통 WSL 동시 용량·사용자 적용을 해제하지 않는다. 전체 CI/DOM/WebGL은 이번에 실행하지 않았다.
+
+다음 한 단계는 [닫힌 CO₂ 공개 응답](../contracts/api-crop-greenhouse-co2-prefix-v1.md)이다.
+원량/UTC·wet/dry를 선택 프로그램의 immutable private witness에 결속하고, 비공개 필드/2MiB·직렬화 후
+현재 권리/선택 source/page 검사를 실제 DB·독립 프로세스로 수용한다. 이어 보호 실행 API/runtime → 같은 UTC3D다.
+실제 농장 Run0/G0–G4 not_assessed·새 CO₂ 미배포·전체 작기/자원/경제·최종 UI/실제 CLI 종단 간·독립 검증은 남는다.

@@ -3059,3 +3059,11 @@ immutable program bytes를 private owner witness에 결속하고, 기존 CO₂ b
 원 core와 다른2파일은 actor 시험과 fences 대사이며 core 선택 시험/다른 controller AST 및 나머지336지문은 같다.
 실패10은 합산하지 않고 현재 고유23(제어7/실제 DB16)이다. 다음은 같은 제품/수치 source의
 `co2-prefix-concurrent`8이며, 전체31 뒤 공개 투영 → 보호 실행 API/runtime → 같은 UTC3D 순서를 유지한다.
+
+**전체 확정 구간 원 조회 수용:** [최종31검사](../research/crop-greenhouse-co2-prefix-20261021.md)의
+core13/fences10/concurrent8을 결속했다. 제어7/실제 SCRAM23/독립 프로세스1이며 실패10은 합산하지 않는다.
+원값/UTC·최초 시각/선택·늦은 권리/이력·원 page/lock·독립 producer1→9/readonly 원문·조회31계측0과
+338지문/정리를 확인했다. fences/concurrent338은 같고 core와 다른2시험파일은 기존 AST 검토에 결속한다.
+다음 `co2-prefix-projection`은 원 선택 프로그램을 private immutable witness에 결속하고 기존 CO₂ 원량/identity/
+wet-dry 타입으로 투영한다. 해당 source/page 후검사·현재 권리/2MiB·실제 native/독립 및 영향받는 원 reader 회귀를
+수용한 뒤 보호 실행 API/runtime → 같은 UTC3D → WSL/사용자 적용으로 진행한다. 전체 M1/외부 관문은 남는다.
