@@ -40,7 +40,7 @@ test('narrow viewport retains camera controls and readable scope',async({page})=
 
 test('unavailable WebGL leaves an explicit fallback',async({page})=>{
   await page.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;
-    HTMLCanvasElement.prototype.getContext=function(type:string,...args:unknown[]){
+    HTMLCanvasElement.prototype.getContext=function(this:HTMLCanvasElement,type:string,...args:unknown[]){
       return type==='webgl2'?null:Reflect.apply(get,this,[type,...args]);
     } as typeof get;
   });
