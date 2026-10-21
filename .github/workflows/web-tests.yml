@@ -3,6 +3,10 @@ name: Web tests
 on:
   workflow_dispatch:
     inputs:
+      crop_appearance:
+        description: Only build and check the isolated authored tomato appearance viewer (no complete regression claim)
+        type: boolean
+        default: false
       native_solar:
         description: Also check actual stored Solar HTTPS and WebGL on an isolated hosted runner
         type: boolean
@@ -62,7 +66,7 @@ permissions:
 jobs:
   web:
     name: web (${{ inputs.browser_suite || 'all' }})
-    if: github.event_name != 'workflow_dispatch' || (inputs.organ_capacity != '1' && inputs.organ_capacity != '20' && (!inputs.unpaused_solar || inputs.native_solar || inputs.native_organ))
+    if: github.event_name != 'workflow_dispatch' || (!inputs.crop_appearance && inputs.organ_capacity != '1' && inputs.organ_capacity != '20' && (!inputs.unpaused_solar || inputs.native_solar || inputs.native_organ))
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     defaults:
@@ -141,7 +145,7 @@ jobs:
 
   unpaused_solar:
     name: ${{ (inputs.organ_capacity == '1' || inputs.organ_capacity == '20') && 'organ catalogue large packet capacity' || inputs.solar_query_scope_cost && 'Solar query scope evaluation (no normal acceptance)' || inputs.solar_worker_diagnostics && 'Solar worker progress diagnostic (no acceptance)' || 'independent normal Solar execution' }}
-    if: github.event_name == 'workflow_dispatch' && (inputs.unpaused_solar || inputs.organ_capacity == '1' || inputs.organ_capacity == '20')
+    if: github.event_name == 'workflow_dispatch' && !inputs.crop_appearance && (inputs.unpaused_solar || inputs.organ_capacity == '1' || inputs.organ_capacity == '20')
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
@@ -260,7 +264,7 @@ jobs:
           if-no-files-found: ignore
   native_solar:
     name: ${{ inputs.native_organ && 'native organ HTTPS and WebGL' || 'native Solar HTTPS and WebGL' }}
-    if: github.event_name == 'workflow_dispatch' && (inputs.native_solar || inputs.native_organ)
+    if: github.event_name == 'workflow_dispatch' && !inputs.crop_appearance && (inputs.native_solar || inputs.native_organ)
     needs: web
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -402,6 +406,40 @@ jobs:
             ${{ runner.temp }}/organ-native-evidence/browser-progress.private.json
             ${{ runner.temp }}/organ-native-evidence/organ-*.private.png
             ${{ runner.temp }}/solar-tested-build/build-provenance.json
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: ignore
+
+  crop_appearance:
+    name: isolated tomato appearance (focused)
+    if: github.event_name == 'workflow_dispatch' && inputs.crop_appearance
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22.22.3'
+      - run: npm install --global npm@11.16.0
+      - run: npm ci --strict-peer-deps
+      - run: npm run typecheck
+      - run: npm run test -- src/tomatoAppearance.test.ts
+      - run: npx --no-install vite build --config vite.crop-appearance.config.ts
+      - run: npm audit --audit-level=high
+      - run: npx --no-install playwright install --with-deps chromium
+      - run: npm run test:browser -- --config playwright.appearance.config.ts --reporter=line --max-failures=1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: tomato-appearance-${{ github.sha }}
+          path: |
+            web/dist-crop-appearance
+            research/artifacts/tomato-appearance-*-20261021.png
           retention-days: 3
           compression-level: 0
           if-no-files-found: ignore
