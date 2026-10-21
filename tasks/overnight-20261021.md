@@ -46,3 +46,4 @@
 - [국내 공식 자료 경로](../research/korean-axiany-morphology-sources-20261022.md): 공개 명세/접근·권리 검토. Axiany 원 측정/독립 자료 확보0, 합성 개발과 자료 확보를 병행한다.
 - [정확 출현→새 기관](../research/crop-rational-new-internodes-20261022.md):450검사·독립22길이/기존10 ID와 분할9기관 수용. 다음은 기존 기관 목록이다.
 - [정확 시각 기관 목록](../research/crop-rational-shoot-inventory-20261022.md):473검사·독립34길이/6합계와 분할12기관 수용. 다음은 새 저장 판본/계산 없는 조회→같은 UTC3D다.
+- [별도 불변 v2/계산 없는 조회](../research/crop-rational-morphology-artifact-20261022.md):505검사·실제3원결과/fresh3 DTO와 역사12프레임/import·DB0 수용. 다음은 export/같은 UTC3D다.

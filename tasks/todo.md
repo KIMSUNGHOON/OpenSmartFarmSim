@@ -98,10 +98,11 @@
     기존 독립 whole-second 초기 목록/길이/합계에 대응하고 소수 초 출현 뒤 재개를 독립 대사한다.
     추적 축 길이는 실제 키가 아니며 저장 판본/같은 UTC3D·실제 품종 게시는 후속이다.
     [473검사/독립34길이·6합계](../research/crop-rational-shoot-inventory-20261022.md), 원22 ID/길이·분할12기관과512/513·overflow/2MiB/6root를 확인했다.
-  - [ ] **`morphology-rational-artifact-replay`** — 위 정확 상태를 기존 JobStore 운송의 별도 artifact 판본에 보관한다.
+  - [x] **`morphology-rational-artifact-replay`** — 위 정확 상태를 기존 JobStore 운송의 별도 artifact 판본에 보관한다.
     원 입력/코드·계수/초기 기관·원점/정확 출현 초·원 UTC 결과/상태 chain을 보존한다.
     별도 프로세스의 원 bytes/단위/UTC·계산/import0·재보관/변조/미지원 보류와 역사 v1/12프레임·6root를 확인한다.
     원점/분수 출현 정보를 잃는 암묵 변환은 금지하며 농장 등록/권리·서명은 별도다.
+    [505검사/실제 원3결과·fresh3 DTO](../research/crop-rational-morphology-artifact-20261022.md),9모델/17코드·역사12프레임 bytes/성장12모듈 import0/DB0·6root를 확인했다.
   - [ ] **`morphology-rational-stored-frame-3d`** — 위 artifact를 계산 없이 export/typed 조회해 같은 저장 UTC의3D·표·그래프에 연결한다.
     정확 출현/길이·기관 ID/합계·첫/끝/재생/모바일과 이전12프레임/원190·223·137파일/6root를 검증한다.
     기존 authored 잎·표면 가정은 분리하며 실제 품종/키·과실/생산량을 추가로 추정하지 않는다.
