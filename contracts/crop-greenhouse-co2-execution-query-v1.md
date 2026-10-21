@@ -2,7 +2,7 @@
 
 Status: implemented; local15 controls passed; actual readonly query not accepted.
 [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-execution-query-preflight-20261021.json)는
-전체35수집·원 자료/5root/자원 보존을 확인했다. 실제 DB18/fresh2는 아직 실행하지 않았다.
+전체35수집·원 자료/5root/자원 보존을 확인했다. 사전 검증 당시 실제 DB18/fresh2는 미실행이었다.
 원600초 한도를 유지하는 서로 겹치지 않는24(제어15/DB9)+11(DB9/fresh2) 배치 모두를
 같은 최종 구현 source에서 통과해야 query를 수용한다. 일부 배치 성공으로 부모를 완료하지 않는다.
 [첫 배치 증거 수정](../research/artifacts/crop-greenhouse-co2-execution-query-evidence-fix-20261021.json)은
