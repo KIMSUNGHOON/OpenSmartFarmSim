@@ -2387,14 +2387,14 @@
             [독립 기능 수용](../research/crop-greenhouse-co2-worker-consumer-20261021.md)의 source314bc26/CI39530741390에서37개·독립 실제3경로·318지문을 수용했다.
             정상/hold 자동 발견·다른 Solar queued·fresh 원문/UTC/철회와 실제 libc pidfd SIGKILL−9/7+9·정리를 대사했다.
             첫 두 실패/수정을 보존하며 공통 WSL/새 CO₂ 적용·전체 작기/자료 관문은 미완료다.
-        - [ ] **`co2-execution-query`** — 위 worker 기능 수용 뒤 [진행 조회 계약](../contracts/crop-greenhouse-co2-execution-query-v1.md)의 닫힌 DTO/현재 읽기 경계를 구현한다.
-          실제 queued/canceled/확정/heartbeat·원 정상/hold/최초 UTC·읽기 권리/늦은 변경·독립 fresh와 조회 수치/SQL 변경0·정리를 수용한다.
-          [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-execution-query-preflight-20261021.json)의 로컬15/전체35수집을 통과했다.
-          첫24 CI39532409534는 pytest 성공 뒤 필수 권리 증거 누락으로 후검사 실패다. [기록 필드 수정](../research/artifacts/crop-greenhouse-co2-execution-query-evidence-fix-20261021.json) 후
-          [첫24 기능 수용](../research/artifacts/crop-greenhouse-co2-execution-query-progress-20261021.json)의 source2f8b5e9/CI39533373500을 확인했다.
-          같은 구현 source3eb99bd의 [후속11 CI39534107848](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39534107848)가 진행 중이며 부모는 미수용이다.
-          전체 DB18/fresh2를 같은 최종 source에서 모두 수용하기 전 부모를 완료하지 않는다.
-          확정 prefix 읽기/투영→보호 접수/진행/취소 HTTP·실행 runtime→typed web/같은 UTC3D는 이후다. 공통 WSL 보류는 새 사용자 적용 전에 유지한다.
+        - [x] **`co2-execution-query`** — [계약](../contracts/crop-greenhouse-co2-execution-query-v1.md)의 닫힌16KiB/현재 읽기 경계를 수용했다.
+          [전체35검사](../research/crop-greenhouse-co2-execution-query-20261021.md)는 제어15/실제 DB18/독립2이며,
+          CI39533373500의24와 CI39534107848의11·서로 같은324지문/원 UTC·최초 시각/조회31계측0/정리를 확인했다.
+          원9상태/읽기 권리·늦은 변경/잠금·HEAD/디렉터리/독립 원 DTO와 별도 actor UPDATE1을 구분했다.
+          첫 증거 필드 누락/수정을 보존하며 공통 WSL/사용자 적용과 전체 작기/자료 관문은 남는다.
+        - [ ] **`co2-confirmed-prefix-read`** — 위 query/worker 뒤 [확정 구간 원 조회 계약](../contracts/crop-greenhouse-co2-prefix-v1.md)을 구현한다.
+          정확한 CO₂ 선택자·불변 원 페이지/UTC·private witness와 직렬화 후검사, 정상 append/heartbeat·늦은 권리/이력,
+          독립 fresh/동시 writer·조회 계산/SQL 변경0·원 자료/소유 정리를 수용한다. 이후 공개 투영/보호 실행 HTTP·runtime→typed web/같은 UTC3D다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.

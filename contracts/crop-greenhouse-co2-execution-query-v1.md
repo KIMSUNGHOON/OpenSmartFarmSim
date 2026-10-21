@@ -1,15 +1,12 @@
 # CO₂·일사 실행 진행 조회 — v1
 
-Status: implemented; first24/control15+actualDB9 accepted; fences11 pending; query parent not accepted.
-[구현 사전 증거](../research/artifacts/crop-greenhouse-co2-execution-query-preflight-20261021.json)는
-전체35수집·원 자료/5root/자원 보존을 확인했다. 사전 검증 당시 실제 DB18/fresh2는 미실행이었다.
-원600초 한도를 유지하는 서로 겹치지 않는24(제어15/DB9)+11(DB9/fresh2) 배치 모두를
-같은 최종 구현 source에서 통과해야 query를 수용한다. 일부 배치 성공으로 부모를 완료하지 않는다.
-[첫 배치 증거 수정](../research/artifacts/crop-greenhouse-co2-execution-query-evidence-fix-20261021.json)은
-CI39532409534의 pytest 종료0 뒤 필수 권리 기록 필드 누락으로 후검사가 실패한 것을 보존한다.
-원 DB 불변/조회31계측0 검사를 유지하고 증거 필드만 기록했다.
-[첫24 기능 수용](../research/artifacts/crop-greenhouse-co2-execution-query-progress-20261021.json)은 source2f8b5e9/CI39533373500의
-제어15/실제 DB9·원 상태/최초 UTC·조회31계측0/324지문·정리를 확인했다. 후속11은 미수용이다.
+Status: functional35 accepted; shared WSL capacity and new user activation pending.
+[전체 기능 수용](../research/crop-greenhouse-co2-execution-query-20261021.md)은 제어15/실제 DB18/독립2=35검사를 확인했다.
+source2f8b5e9/CI39533373500의24와 source3eb99bd/CI39534107848의11은 서로 같은324지문이며,
+수용 시 현재 파일과도 같았다. 원 UTC/최초 시각·권리/파일·DB fence·조회31계측0/정리를 대사했다.
+[사전 증거](../research/artifacts/crop-greenhouse-co2-execution-query-preflight-20261021.json)와
+[첫 기록 필드 누락/수정](../research/artifacts/crop-greenhouse-co2-execution-query-evidence-fix-20261021.json)은 보존한다.
+다음은 [확정 구간 원 조회](crop-greenhouse-co2-prefix-v1.md)이며 HTTP/runtime·웹/사용자 적용은 후속이다.
 2026-10-21. native Codex CLI `gpt-6.1-sol / xhigh`에서 검토하며 재귀 CLI를 실행하지 않는다.
 선행은 [실행 핵심](crop-greenhouse-co2-execution-core-v1.md)의 worker/독립 소비자 기능 수용이다.
 [Solar 조회](crop-greenhouse-solar-execution-query-v1.md)의 읽기 경계와 기존 jobs를 재사용한다.

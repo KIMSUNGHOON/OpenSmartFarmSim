@@ -50,7 +50,8 @@ fresh17진입점0·DB 변조/철회·source/선언1µs 경계와 최대 연결34
 원 수치/UTC·정상/hold 원자 저장·취소/expiry7+9·늦은 fence rollback·311지문/정리를 대사했다.
 [독립 소비자37/실제 SCRAM3](../research/crop-greenhouse-co2-worker-consumer-20261021.md)도 수용했다.
 정상/hold 자동 발견·fresh 원문/UTC/현재 철회와 실제 libc pidfd SIGKILL−9·7+9/318지문·정리를 확인했다.
-worker 기능 부모는 수용했으며 공통 WSL 용량·새 사용자 적용은 남는다. 다음은 진행 query→prefix/보호 실행 API/runtime→같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
+[진행 조회35검사](../research/crop-greenhouse-co2-execution-query-20261021.md)의 실제 DB18/독립2·원 UTC/최초 시각·늦은 fence/31계측0·같은324지문·정리도 수용했다.
+worker/query 기능은 수용했으며 공통 WSL 용량·새 사용자 적용은 남는다. 다음은 확정 prefix 원 조회/투영→보호 실행 API/runtime→같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
 전체 작기/109상태 저장3D는 아직 미수용이다.
 기공 단위 P03은 hold이며 개발 순서와 분리한다.
 [잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지161–308집중시간의
