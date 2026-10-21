@@ -81,3 +81,5 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 - [잎 구간 면적 변화량](../research/crop-leaf-area-change-20261022.md): 새31/관련82·독립10사례와 정확 작은 나이 차/분할합·7root 보존을 수용했다. 초기조건/한 잎 상태→기관 시계·명시 목록/불변 저장/같은 UTC3D는 별도다.
 
 - [한 잎 초기/정확 나이 상태](../research/crop-leaf-area-state-20261022.md):41집중/독립16점·필수 합성 정규화/초기일치·anchor·분할 state/7root를 수용했다. 원점/정확 초의 잎 시계→명시 목록→저장/3D는 후속이다.
+
+- [전용 잎 기온/면적](../research/crop-rational-leaf-area-20261022.md):34집중/독립8프로그램·정확 시계8/면적24·분수 초/분할 같은 state·기존 internode 호출0/7root를 수용했다. 다음은 명시 초기 잎 목록→저장/같은 UTC3D다.

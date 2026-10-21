@@ -1,0 +1,791 @@
+{
+  "cases": [
+    {
+      "case_id": "synthetic-day",
+      "expected_age_exact": {
+        "denominator": "1",
+        "numerator": "12",
+        "unit": "degC_day"
+      },
+      "expected_area_m2": "0.02924234314520019577877491943145233550485195405202120885396743873183187002439852351427376952606685182",
+      "expected_at_seconds_exact": {
+        "denominator": "1",
+        "numerator": "86400",
+        "unit": "s"
+      },
+      "expected_change_m2": "0.02447422626431549344190771360988418167868360832362827887967568904241675233675081377213723103079327923",
+      "expected_initial_area_m2": "0.004768116880884702336867205821568153826168345728392929974291749689415117687647709742136538495273572593",
+      "initialization": {
+        "clock_state": {
+          "age_basis": "since_leaf_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "base_temperature": {
+            "unit": "degC",
+            "value": 10
+          },
+          "emerged_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "leaf_id": "leaf-day",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "time_origin_utc": "2026-10-01T00:00:00Z"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-clock-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.04
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.004768116880884702
+        },
+        "input_id": "synthetic-day",
+        "normalization": "zero_lower_asymptote_sigmoid_v1"
+      },
+      "segments": [
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 22
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "synthetic-fractional-birth",
+      "expected_age_exact": {
+        "denominator": "21600",
+        "numerator": "259199",
+        "unit": "degC_day"
+      },
+      "expected_area_m2": "0.02924225212091360418431377427833265314125260282315216114097235435078729131924108012644042477953137007",
+      "expected_at_seconds_exact": {
+        "denominator": "1",
+        "numerator": "86400",
+        "unit": "s"
+      },
+      "expected_change_m2": "0.02447413524002890184744656845676449931508425709475923116668060466137217363159337038430388628425779748",
+      "expected_initial_area_m2": "0.004768116880884702336867205821568153826168345728392929974291749689415117687647709742136538495273572593",
+      "initialization": {
+        "clock_state": {
+          "age_basis": "since_leaf_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at_elapsed_seconds_exact": {
+            "denominator": "3",
+            "numerator": "1",
+            "unit": "s"
+          },
+          "base_temperature": {
+            "unit": "degC",
+            "value": 10
+          },
+          "emerged_elapsed_seconds_exact": {
+            "denominator": "3",
+            "numerator": "1",
+            "unit": "s"
+          },
+          "leaf_id": "leaf-fractional-birth",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "time_origin_utc": "2026-10-01T00:00:00Z"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-clock-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.04
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.004768116880884702
+        },
+        "input_id": "synthetic-fractional-birth",
+        "normalization": "zero_lower_asymptote_sigmoid_v1"
+      },
+      "segments": [
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 22
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "3",
+            "numerator": "1",
+            "unit": "s"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "synthetic-warm-cool",
+      "expected_age_exact": {
+        "denominator": "1",
+        "numerator": "9",
+        "unit": "degC_day"
+      },
+      "expected_area_m2": "0.02248706003543192462919891690608117873445093178776902816602546946270559077845184502285331665929039525",
+      "expected_at_seconds_exact": {
+        "denominator": "1",
+        "numerator": "86400",
+        "unit": "s"
+      },
+      "expected_change_m2": "0.01771894315454722229233171108451302490828258605937609819173371977329047309080413528071677816401682266",
+      "expected_initial_area_m2": "0.004768116880884702336867205821568153826168345728392929974291749689415117687647709742136538495273572593",
+      "initialization": {
+        "clock_state": {
+          "age_basis": "since_leaf_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5
+          },
+          "emerged_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "leaf_id": "leaf-warm-cool",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "time_origin_utc": "2026-10-01T00:00:00Z"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-clock-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.04
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.004768116880884702
+        },
+        "input_id": "synthetic-warm-cool",
+        "normalization": "zero_lower_asymptote_sigmoid_v1"
+      },
+      "segments": [
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 25
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "21600",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          }
+        },
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 13
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "64800",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "21600",
+            "unit": "s"
+          }
+        },
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 5
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "64800",
+            "unit": "s"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "synthetic-explicit-prior-age",
+      "expected_age_exact": {
+        "denominator": "1",
+        "numerator": "11",
+        "unit": "degC_day"
+      },
+      "expected_area_m2": "0.02716714796701571949191707687567623506607036681457353799897063001744393915930428255284637176327865614",
+      "expected_at_seconds_exact": {
+        "denominator": "1",
+        "numerator": "90000",
+        "unit": "s"
+      },
+      "expected_change_m2": "0.01825914241400336518646274249883041884818924343959225813070287207678045623738866520668970889907639680",
+      "expected_initial_area_m2": "0.008908005553012354305454334376845816217881123374981279868267757940663482921915617346156662864202259341",
+      "initialization": {
+        "clock_state": {
+          "age_basis": "since_leaf_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "3",
+            "unit": "degC_day"
+          },
+          "at_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "3600",
+            "unit": "s"
+          },
+          "base_temperature": {
+            "unit": "degC",
+            "value": 10
+          },
+          "emerged_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "leaf_id": "leaf-explicit-prior-age",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "time_origin_utc": "2026-10-01T00:00:00Z"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-clock-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.04
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.008908005553012355
+        },
+        "input_id": "synthetic-explicit-prior-age",
+        "normalization": "zero_lower_asymptote_sigmoid_v1"
+      },
+      "segments": [
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 18
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "90000",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "3600",
+            "unit": "s"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "synthetic-flat",
+      "expected_age_exact": {
+        "denominator": "1",
+        "numerator": "0",
+        "unit": "degC_day"
+      },
+      "expected_area_m2": "0.004768116880884702336867205821568153826168345728392929974291749689415117687647709742136538495273572593",
+      "expected_at_seconds_exact": {
+        "denominator": "1",
+        "numerator": "86400",
+        "unit": "s"
+      },
+      "expected_change_m2": "0E-102",
+      "expected_initial_area_m2": "0.004768116880884702336867205821568153826168345728392929974291749689415117687647709742136538495273572593",
+      "initialization": {
+        "clock_state": {
+          "age_basis": "since_leaf_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "base_temperature": {
+            "unit": "degC",
+            "value": 10
+          },
+          "emerged_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "leaf_id": "leaf-flat",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "time_origin_utc": "2026-10-01T00:00:00Z"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-clock-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.04
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.004768116880884702
+        },
+        "input_id": "synthetic-flat",
+        "normalization": "zero_lower_asymptote_sigmoid_v1"
+      },
+      "segments": [
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 10
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "3600",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          }
+        },
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 10
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "3600",
+            "unit": "s"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "synthetic-rational-split",
+      "expected_age_exact": {
+        "denominator": "259200",
+        "numerator": "2600779",
+        "unit": "degC_day"
+      },
+      "expected_area_m2": "0.02497788514057488179399355837835341476274765091888357524819390717782779826257429533811871403718946525",
+      "expected_at_seconds_exact": {
+        "denominator": "1",
+        "numerator": "86400",
+        "unit": "s"
+      },
+      "expected_change_m2": "0.02020976825969017945712635255678526093657930519049064527390215748841268057492658559598217554191589266",
+      "expected_initial_area_m2": "0.004768116880884702336867205821568153826168345728392929974291749689415117687647709742136538495273572593",
+      "initialization": {
+        "clock_state": {
+          "age_basis": "since_leaf_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at_elapsed_seconds_exact": {
+            "denominator": "3",
+            "numerator": "13",
+            "unit": "s"
+          },
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5
+          },
+          "emerged_elapsed_seconds_exact": {
+            "denominator": "3",
+            "numerator": "13",
+            "unit": "s"
+          },
+          "leaf_id": "leaf-rational-split",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "time_origin_utc": "2026-10-01T00:00:00Z"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-clock-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.04
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.004768116880884702
+        },
+        "input_id": "synthetic-rational-split",
+        "normalization": "zero_lower_asymptote_sigmoid_v1"
+      },
+      "segments": [
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 22
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "1000",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "3",
+            "numerator": "13",
+            "unit": "s"
+          }
+        },
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 13
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "3000",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "1000",
+            "unit": "s"
+          }
+        },
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 15
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "3000",
+            "unit": "s"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "synthetic-binary-Celsius",
+      "expected_age_exact": {
+        "denominator": "2",
+        "numerator": "27",
+        "unit": "degC_day"
+      },
+      "expected_area_m2": "0.03192747110958484746151146473856272595012855537880131370117107184859292456052249099719558663636924483",
+      "expected_at_seconds_exact": {
+        "denominator": "1",
+        "numerator": "86400",
+        "unit": "s"
+      },
+      "expected_change_m2": "0.02715935422870014512464425891699457212396020965040838372687932215917780687287478125505904814109567224",
+      "expected_initial_area_m2": "0.004768116880884702336867205821568153826168345728392929974291749689415117687647709742136538495273572593",
+      "initialization": {
+        "clock_state": {
+          "age_basis": "since_leaf_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5.3
+          },
+          "emerged_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "leaf_id": "leaf-binary-Celsius",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "time_origin_utc": "2026-10-01T00:00:00Z"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-clock-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.04
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.004768116880884702
+        },
+        "input_id": "synthetic-binary-Celsius",
+        "normalization": "zero_lower_asymptote_sigmoid_v1"
+      },
+      "segments": [
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 25.2
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "43200",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          }
+        },
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 12.4
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "43200",
+            "unit": "s"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "synthetic-rational-prior-age",
+      "expected_age_exact": {
+        "denominator": "7",
+        "numerator": "43",
+        "unit": "degC_day"
+      },
+      "expected_area_m2": "0.01543878508212614192203030720402938918542973099708451402007790047635312642472134487672977253377554200",
+      "expected_at_seconds_exact": {
+        "denominator": "1",
+        "numerator": "172800",
+        "unit": "s"
+      },
+      "expected_change_m2": "0.01051862576430498070849304311333954492423045682844897537091952739863808551850897672249802321300325159",
+      "expected_initial_area_m2": "0.004920159317821161213537264090689844261199274168635538649158373077715040906212368154231749320772290409",
+      "initialization": {
+        "clock_state": {
+          "age_basis": "since_leaf_emergence",
+          "age_exact": {
+            "denominator": "7",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "at_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          },
+          "base_temperature": {
+            "unit": "degC",
+            "value": 10
+          },
+          "emerged_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "s"
+          },
+          "leaf_id": "leaf-rational-prior-age",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "time_origin_utc": "2026-10-01T00:00:00Z"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-clock-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.04
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.004920159317821161
+        },
+        "input_id": "synthetic-rational-prior-age",
+        "normalization": "zero_lower_asymptote_sigmoid_v1"
+      },
+      "segments": [
+        {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 16
+          },
+          "end_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "172800",
+            "unit": "s"
+          },
+          "start_elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          }
+        }
+      ]
+    }
+  ],
+  "origin": "synthetic_arithmetic_probes_not_crop_parameters",
+  "precision": 100,
+  "version": "rational-leaf-area-reference-v1"
+}
