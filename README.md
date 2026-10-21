@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**중간 확정 기록 기능 수용 — 2026-10-21 KST:** [CO₂ checkpoint](research/crop-greenhouse-co2-checkpoint-20261021.md)의26검사·실제 SCRAM13을 수용했습니다. 원4상태/HEAD·UTC/최초 시각·늦은 변경 rollback·확인 중17계측0/308지문·정리를 대사했습니다. 불변성 시험 준비 수정도 보존했습니다. 다음은 worker 실제 계산/원자 저장→독립 자동 발견·강제 종료 재개→같은 UTC3D입니다. core/공통 WSL·새 CO₂ 배포·전체 작기/자원/경제·실제 자료/관문은 미완료입니다.
+**자동 계산 worker core 구현·검증 중 — 2026-10-21 KST:** [사전 증거](research/artifacts/crop-greenhouse-co2-worker-core-preflight-20261021.json)의 로컬 제어9통과/전체20수집을 확인했습니다. 실제 SCRAM11의 [CI39527128812](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39527128812)는 진행 중이며 미수용입니다. 기존 checkpoint26 수용을 유지하고 worker 원자 계산/저장→독립 자동 발견·강제 종료 재개→같은 UTC3D로 진행합니다. 새 CO₂ 배포·공통 WSL·전체 작기/자원/경제·실제 자료/관문·전체 완료일은 미완료/미정입니다.
 
 **보호 HTTP 기능 수용 — 2026-10-21 KST:** [CO₂ 결과 HTTP](research/crop-greenhouse-co2-http-20261021.md)의 집중215검사·실제 SCRAM/검증 TLS 정상/보류를 수용했습니다. 원3응답/UTC·늦은 철회12·취소/전송 실패·기존64경로398스키마/294지문과 조회17계측/SQL쓰기0·정리를 대사했습니다. 다음은 명시 runtime→자동 worker/prefix→같은 UTC3D입니다. 공통 WSL 용량/부모·새 CO₂ 사용자 적용·전체 작기/자원/경제·실제 자료/관문은 미완료입니다.
 

@@ -105,6 +105,8 @@ M1+M2의 현재 산술 합은233–450집중시간이나, M2는 필요한 실제
 
 ## 현재 다음 실행 — 2026-10-21
 
+**worker core 현재 — 2026-10-21 KST:** source`0bca8cd`의 [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-core-preflight-20261021.json)는 로컬 제어9/전체20수집을 확인했다. 실제 SCRAM11의 [CI39527128812](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39527128812)는 진행 중·미수용이다. 정상/수치 hold의 원 수치/UTC, 취소·만료 후 남은 계산, result/link/outcome/terminal 원자 저장과 late 권리/범위/최종 UPDATE rollback을 먼저 수용한다. 이후 별도 consumer/restart 자식에서 자동 발견·독립 normal/hold/fresh·실제 SIGKILL을 확인하고 진행 query/HTTP/runtime→같은 UTC3D로 잇는다. 원 공수/낮은 신뢰 달력 창과 자료/WSL/사용자 적용 보류는 유지한다.
+
 기존 미리보기는 [인증/TLS 실제 갱신·복구](../research/frozen-preview-authentication-renewal-20261021.md)를 수용했다. 다음 준비는 2026-10-21T20:37:14.318934+00:00 이전이다. 실제 만료에 따른 유지 작업이며 현재 핵심 순서 `co2-result-projection`→`co2-current-query`→API/worker/같은 UTC3D를 유지한다.
 
 **다음 핵심 개발 — CO₂ 원문/단위 정책:** [등록 재구성 범위 수정](../research/organ-catalog-registration-scope-20261021.md)은
