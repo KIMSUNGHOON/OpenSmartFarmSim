@@ -28,6 +28,7 @@ function createView(canvas:HTMLCanvasElement,maximum:number,fail:()=>void):View|
         canvas.dataset.selectedIndex=String(frame.index);canvas.dataset.internodeCount=String(frame.internodes.length);
         canvas.dataset.storedLengths=JSON.stringify(frame.internodes.map(n=>n.length.value));
         canvas.dataset.renderedLengths=JSON.stringify(plant.segments.map(m=>m.scale.y));
+        canvas.dataset.renderedInternodeIds=JSON.stringify(plant.segments.map(m=>m.userData.internode_id));
         canvas.dataset.authoredLeafCount=String(plant.authoredLeafCount);canvas.dataset.axisLength=String(frame.tracked_axis_length.value);
       }
       canvas.dataset.mapping=MORPHOLOGY_MAPPING;canvas.dataset.drawCalls=String(renderer.info.render.calls);
