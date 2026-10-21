@@ -477,7 +477,8 @@ PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수�
 이후 [열적 시계·명시 초기 길이/적분](../research/crop-internode-length-initialization-20261021.md),
 [출현 사건과 기존/새 절간 목록](../research/crop-shoot-internode-inventory-20261022.md)의 합성 계산을272집중검사로 수용했다.
 [동일 입력/코드·초기 목록의 합성 불변 저장/typed 조회](../research/crop-morphology-research-artifact-20261022.md)를312집중검사로 수용했다.
-다음은 같은 UTC3D이며 현재 탄소 모델이나 사용자 화면을 교체하지 않았다.
+[별도 합성 연구 화면의 같은 UTC3D](../research/morphology-stored-replay-20261022.md)도 CI22/브라우저7·실제 native로 수용했다.
+현재 탄소 모델/농장 Run·기존 주 화면은 유지하며 소수 초 출현 결속·실제 품종/작기와 자원/경제 통합은 후속이다.
 
 ## 1. 목표와 확인할 사용자 경로
 

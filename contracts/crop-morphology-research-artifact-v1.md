@@ -21,7 +21,7 @@ source/관문 상태는 미평가다. 공개 fixture export에는 redistribute=t
 producer는 같은 원 구간을 출력 시각에서 나누어 기존 결정적 계산기를 순서대로 실행한다.
 입력/각 전체 결과/마지막 root를 원 bytes의 내용 주소 파일로 보관한다. root는 모든 시점 보관 뒤에만 반환한다.
 원 bytes·모델/의존 코드 SHA-256·입력 state/단계/결과 state의 hash chain과 원 UTC를 보존한다.
-같은 입력/코드의 재생성은 같은 root다. 내부 producer 재호출은 계산을 다시 수행할 수 있으나
+수용한 동일 Python/플랫폼에서 같은 입력/코드의 재생성은 같은 root다. 플랫폼 간 비트 일치는 이번 수용의 범위가 아니다. 내부 producer 재호출은 계산을 다시 수행할 수 있으나
 파일을 덮어쓰지 않는다. 공개 접수/작업 멱등성·중단 producer의 자동 재개는 이 내부 export의 수용 범위가 아니다.
 실패 중 남은 비공개 내용 주소 객체는 완성 artifact/정상 prefix로 게시하지 않는다.
 

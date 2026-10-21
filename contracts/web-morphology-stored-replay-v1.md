@@ -1,6 +1,6 @@
 # 합성 저장 형태의 3D 재생 — v1
 
-상태: 구현/수용 전. [불변 artifact](crop-morphology-research-artifact-v1.md)의 자체 합성 결과만 쓴다.
+상태: [합성 연구 경로의 CI/실제 로컬 브라우저 수용](../research/morphology-stored-replay-20261022.md). [불변 artifact](crop-morphology-research-artifact-v1.md)의 자체 합성 결과만 쓴다.
 농장 Run·현재 원천 권리/검증된 품종 모델로 게시하지 않는다.
 
 ## 연결

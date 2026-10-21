@@ -69,10 +69,16 @@
       독립 프로세스/원 단위·UTC·값, 조회의 모델 호출0·변조/미지원 거부와 재생 동일성을 확인한다.
       [새26/기존286=312검사](../research/crop-morphology-research-artifact-20261022.md)로 원 값/UTC·chain/같은 root/파일, fresh import0·모델/DB0와6root를 확인했다.
       농장 등록/현재 권리·서명 custody와 제품 게시 수용·중단 producer 자동 재개는 별도다.
-  - [ ] **`morphology-stored-frame-3d`** — [자체 합성 저장 형태 재생 계약](../contracts/web-morphology-stored-replay-v1.md).
+  - [x] **`morphology-stored-frame-3d`** — [자체 합성 저장 형태 재생 계약](../contracts/web-morphology-stored-replay-v1.md).
     명시 하루/12시점의 원 UTC·기관별 미터 길이/ID를 실제3D·표·그래프·재생에 연결한다.
     고정3복엽/표면은 제작 가정으로 분리하고 과실/실제 키·생산 예측을 만들지 않는다.
-    타입·원 값/hash/기하·실제 WebGL/모바일·불가/변조 보류와6root/원 자산을 확인한 뒤 수용한다.
+    [CI22/브라우저7·export29/실제 native](../research/morphology-stored-replay-20261022.md)에서 원 값/UTC·재생/정지·GET13/POST0·6root와 원190/223/137파일을 확인했다.
+    headless 드라이버 성능 진단·최종 사실감/제품 메뉴·농장/실제 작기 통합은 남는다.
+  - [ ] **`morphology-exact-age-length-point`** — 선행은 저장 형태3D 수용이다.
+    명시 synthetic 곡선과 canonical 정확 열적 나이에서 길이를 제공하는 작은 API를 만들고 기존 수식 커널을 재사용한다.
+    기존 독립16점·새 분수 나이/극단값·범위/단위/기원·입력 불변과 원 수치/계산 지문을 확인한다.
+    이후 소수 초 출현의 유리수 시각/기관 상태→목록→불변 저장/같은 UTC3D를 별도 자식으로 분해한다.
+    실제 품종 계수/기관·농장 검증을 이 개발 착수의 선행으로 묶지 않으며 게시 관문은 유지한다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).

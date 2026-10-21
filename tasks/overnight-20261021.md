@@ -35,3 +35,7 @@
 
 - 열적 시계: [새56/기존49 집중 수용](../research/crop-morphology-thermal-clock-20261021.md).
   독립 Decimal9·40초 분할/변온 재개·원6root/자원 보존을 확인했다. 다음은 길이 변화/초기조건과 재개다.
+
+- 명시 기존/새 절간 계산과 합성 불변 저장은 [312검사](../research/crop-morphology-research-artifact-20261022.md)로 수용했다.
+- [별도 저장 길이3D](../research/morphology-stored-replay-20261022.md)는 CI/실제 native로 수용하고 사용자 창을 열어 두었다.
+  다음은 소수 초 출현의 정확 상태 결속을 위한 작은 길이 point API다. 실제 품종/독립 자료는0이며 관문은 유지한다.

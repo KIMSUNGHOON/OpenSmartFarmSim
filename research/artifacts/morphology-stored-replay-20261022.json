@@ -1,0 +1,397 @@
+{
+  "schema_version": "morphology-stored-web-acceptance-v1",
+  "reported_at_utc": "2026-10-21T16:31:29.785645+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_UTC": "2026-10-21T15:43:34.498Z",
+    "raw_context_line_sha256_including_LF": "f30ceade3f9927099e25561a33f5ef255d17f4ae90d31bed33debaddb4fea95e",
+    "recursive_CLI": false
+  },
+  "URL": "http://localhost:5173/morphology-lab/",
+  "accepted_CI": 39634431597,
+  "source_commit": "257da092dab3aa6f1d27d9d6995f94526c9b7850",
+  "source_pins": {
+    "web/src/MorphologyScene.tsx": "a041f7f30d629dd5ec7b4ca535cba974449a86d810d3439cf903ef774f18c7d4",
+    "web/src/MorphologyReplayPage.tsx": "2fd6e590ba38d7d91262bb37433294ccd884e16e11dc2a12f43e6b759b66a639",
+    "web/src/MorphologyReplayPage.css": "cd7430536d0a82cc4825fc04f36010ee5733ea7b6f02f4f982e15747e0aba522",
+    "web/src/morphology-replay-main.tsx": "1695b0c502e5ef4a219a2d8a2d8cd6a3670ec75f4ec4d6575f21ece79ca812a6",
+    "web/src/morphologyGeometry.ts": "003c84f98be8954246cc2939697378728f4e36cd074f25ee6c77962ac0772b3d",
+    "web/src/morphologyGeometry.test.ts": "5bc0899d73d635a4e562033b42418b088e1823726de3f90d1b41001869fe8337",
+    "web/src/morphologyReplay.ts": "9c3ad9218396a5be74782df88cd24ed17f4c41cf3fb71c69c184d7a485523af4",
+    "web/src/morphologyReplay.test.ts": "c08a3d64166f63e829b8c8896974cf6faed2f62c0d4c5a3799f54ce764135ded",
+    "web/src/morphologyReplayFixture.ts": "18a5ac43c27473d0d9dde9f1598332fa2209eef95c5bff12269804f0dc35d29d",
+    "web/src/tomatoAppearance.ts": "f6b9ba2b14eddaa13dc0aff1e77acb93f193d0b156e416e2c01e2bfdf0266445",
+    "web/src/tomatoAppearanceTextures.ts": "003767c1616e29b6b2893876e3a9e77a23ecb15d7c9a35f2fbd8523c4fe3919d",
+    "web/src/TomatoAppearanceScene.tsx": "c155ad2245bae4442b6ff7c70590cce04a6ddb32f7b4f6592b90974e9dd0b010",
+    "web/src/TomatoAppearance.css": "047a25c3dbfb56516d36316168e7a770b1db9c20bd29ee7847c6b196b8475993",
+    "web/src/tomato-appearance-main.tsx": "53c84a002e2740a9c7f9501af1e95c0ce2a8a17d752e8c86627ce4ffae9e61ee",
+    "web/src/TomatoAppearancePage.css": "1b60aea9434fc06e7233af274a7b1eb252ef26e340a72bb94653c6a136cf7fa7",
+    "web/package.json": "58892beb0ca910a8030c8c8a7f31b5c1814388b7342f01ecdfb3f7c7d9a3d748",
+    "web/package-lock.json": "ab108cb675c61e26dbbf7f00961edf484876e048ec04618496d0d63d20f7010a",
+    "web/tsconfig.json": "516c51a4d31761d6e2d211309c6de6d159388e21c263020f7a5f300a741ccaa8",
+    "web/vite.crop-appearance.config.ts": "c4e36508d0566cec91cca93347809c8b900bade0b8bb28f1926c194567be0154",
+    "web/playwright.appearance.config.ts": "25abf92973d07e880108becaafd4b2a81b5d1a63aedcaa6dd883a8a864b33eaf",
+    "web/e2e/morphology-replay.spec.ts": "299b693d1927220591fd6647965385d77278f82383fad00088d566a8411b5faf",
+    "web/morphology-replay.html": "5effc6a2f5c90c7fb858bf0fe3c6297f5f7e74decdddb938a58ca87175a5c870",
+    "web/public/morphology-replay/frame-6.json": "6d85fc2943497cdfb68997c6dd80d956fb4a41887123c22024b813d994f6a5cd",
+    "web/public/morphology-replay/input.json": "8181601610b0997b2a0a117cda64a86e2b46237648b3f9fe7b950827a0f9615c",
+    "web/public/morphology-replay/frame-0.json": "57289fb641a154c648184c812dc9546b417e0a7eba7c1df9030a12dfefd96f01",
+    "web/public/morphology-replay/frame-1.json": "8562c8a1d0976c8537993576c1f0d7c01de629a46656383bd30a3efce33b5e07",
+    "web/public/morphology-replay/frame-2.json": "42f7946b09ceb2d9f85fdde5c6dc7e34b4599b8249b6c604cfdb1681ebaf6a49",
+    "web/public/morphology-replay/frame-3.json": "3c1f9f29106e29f19b93840020111004ea3db84d33d677e7989d90d95d9e4236",
+    "web/public/morphology-replay/frame-5.json": "d4dbbeab47a633690a161b973478f875524e0f0a78d0a0a71f67da0b0dc3be97",
+    "web/public/morphology-replay/frame-10.json": "df8e8d5dab3c1bf0e99f44dd6cd9d537546fe583f5020da6dbcecdbebfd3e6c1",
+    "web/public/morphology-replay/frame-9.json": "aa65ff0994fe7d2aaf6307cda7b4f6824913f874af4af7ec384fe3168b8e1693",
+    "web/public/morphology-replay/frame-4.json": "22ce1a59dd8b2487e39174d61726044a299dca0a6383bd5c974cadd1ee65d0e0",
+    "web/public/morphology-replay/root.json": "b720389c738483680370056454a443929057450d954c4cd20048272ee3a9ec56",
+    "web/public/morphology-replay/frame-8.json": "773094ef851cf8b5d04a810e57d28321acfbc892691b2afd43f9f68baeea6185",
+    "web/public/morphology-replay/frame-11.json": "5995462fb8280b119ce111ae61ca7fa998f2e84e11bb11055c5ee0ae2b7f6712",
+    "web/public/morphology-replay/index.json": "dfb2a5d5500481c77f0bac7eabbad5b96193d357fe0826a03f760865ce3bd2e1",
+    "web/public/morphology-replay/frame-7.json": "b6d639d55ca807bd670e1f62a9ebab073336e96e5d0f79ae0af789cb96bcacb8"
+  },
+  "CI": {
+    "typecheck": true,
+    "focused_unit_geometry_passed": 22,
+    "new_unit_geometry": 10,
+    "browser_passed": 7,
+    "new_browser": 4,
+    "build": true,
+    "audit_vulnerabilities": 0,
+    "full_web_suite": false,
+    "console": {
+      "application_errors_and_warnings": [],
+      "application_readPixels_calls": 0,
+      "graphics_driver_warnings": [
+        {
+          "text": "[.WebGL-0x306c001a4e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+          "during_screenshot": false,
+          "location": {
+            "url": "http://127.0.0.1:4175/morphology-replay.html",
+            "line": 0,
+            "column": 0,
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        },
+        {
+          "text": "[.WebGL-0x306c001a4e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+          "during_screenshot": false,
+          "location": {
+            "url": "http://127.0.0.1:4175/morphology-replay.html",
+            "line": 0,
+            "column": 0,
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        },
+        {
+          "text": "[.WebGL-0x306c001a4e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+          "during_screenshot": false,
+          "location": {
+            "url": "http://127.0.0.1:4175/morphology-replay.html",
+            "line": 0,
+            "column": 0,
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        },
+        {
+          "text": "[.WebGL-0x306c001a4e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+          "during_screenshot": false,
+          "location": {
+            "url": "http://127.0.0.1:4175/morphology-replay.html",
+            "line": 0,
+            "column": 0,
+            "lineNumber": 0,
+            "columnNumber": 0
+          }
+        }
+      ],
+      "exception_scope": "exact observed Chromium GPU-driver performance warning pattern; original text/location/timing retained; other warnings fail",
+      "performance_hold": "Driver stall diagnostics remain unresolved. No screenshot-causation or general graphics performance acceptance is claimed."
+    }
+  },
+  "public_export": {
+    "passed": 29,
+    "new": 3,
+    "retained_artifact_tests": 26,
+    "fresh_growth_imports_calls_DB": 0,
+    "explicit_redistribution_required": true,
+    "original_bytes_SHA_UTC": true
+  },
+  "native": {
+    "URL": "http://localhost:5173/morphology-lab/",
+    "first": {
+      "index": 0,
+      "at": "2026-10-01T02:00:00Z",
+      "internodes": 3,
+      "original_lengths_m": [
+        0.015110731780215879,
+        0.015110731780215879,
+        0.015110731780215879
+      ],
+      "stored_axis_m": 0.045332195340647634,
+      "authored_leaves": 3,
+      "draw_calls": 28,
+      "same_UTC_table_graph_geometry": true
+    },
+    "last": {
+      "index": 11,
+      "at": "2026-10-02T00:00:00Z",
+      "internodes": 6,
+      "original_lengths_m": [
+        0.02672401665903706,
+        0.02672401665903706,
+        0.02672401665903706,
+        0.021891062856762757,
+        0.017765663763802737,
+        0.014304350642654106
+      ],
+      "stored_axis_m": 0.13413312724033077,
+      "authored_leaves": 3,
+      "draw_calls": 40,
+      "same_UTC_table_graph_geometry": true
+    },
+    "first_render_observed_ms": 456,
+    "actual_geometry_changed": true,
+    "idle_frames_unchanged": true,
+    "keyboard_selection": true,
+    "autoplay_advances_actual_stored_frames": true,
+    "autoplay_stops_at_last_stored_frame": true,
+    "pause_stable": true,
+    "original_HTTP": [
+      {
+        "name": "index.json",
+        "status": 200,
+        "bytes": 4462,
+        "sha256": "dfb2a5d5500481c77f0bac7eabbad5b96193d357fe0826a03f760865ce3bd2e1"
+      },
+      {
+        "name": "frame-0.json",
+        "status": 200,
+        "bytes": 1371,
+        "sha256": "57289fb641a154c648184c812dc9546b417e0a7eba7c1df9030a12dfefd96f01"
+      },
+      {
+        "name": "frame-1.json",
+        "status": 200,
+        "bytes": 1367,
+        "sha256": "8562c8a1d0976c8537993576c1f0d7c01de629a46656383bd30a3efce33b5e07"
+      },
+      {
+        "name": "frame-2.json",
+        "status": 200,
+        "bytes": 1373,
+        "sha256": "42f7946b09ceb2d9f85fdde5c6dc7e34b4599b8249b6c604cfdb1681ebaf6a49"
+      },
+      {
+        "name": "frame-3.json",
+        "status": 200,
+        "bytes": 1702,
+        "sha256": "3c1f9f29106e29f19b93840020111004ea3db84d33d677e7989d90d95d9e4236"
+      },
+      {
+        "name": "frame-4.json",
+        "status": 200,
+        "bytes": 1702,
+        "sha256": "22ce1a59dd8b2487e39174d61726044a299dca0a6383bd5c974cadd1ee65d0e0"
+      },
+      {
+        "name": "frame-5.json",
+        "status": 200,
+        "bytes": 1701,
+        "sha256": "d4dbbeab47a633690a161b973478f875524e0f0a78d0a0a71f67da0b0dc3be97"
+      },
+      {
+        "name": "frame-6.json",
+        "status": 200,
+        "bytes": 1703,
+        "sha256": "6d85fc2943497cdfb68997c6dd80d956fb4a41887123c22024b813d994f6a5cd"
+      },
+      {
+        "name": "frame-7.json",
+        "status": 200,
+        "bytes": 2038,
+        "sha256": "b6d639d55ca807bd670e1f62a9ebab073336e96e5d0f79ae0af789cb96bcacb8"
+      },
+      {
+        "name": "frame-8.json",
+        "status": 200,
+        "bytes": 2038,
+        "sha256": "773094ef851cf8b5d04a810e57d28321acfbc892691b2afd43f9f68baeea6185"
+      },
+      {
+        "name": "frame-9.json",
+        "status": 200,
+        "bytes": 2037,
+        "sha256": "aa65ff0994fe7d2aaf6307cda7b4f6824913f874af4af7ec384fe3168b8e1693"
+      },
+      {
+        "name": "frame-10.json",
+        "status": 200,
+        "bytes": 2037,
+        "sha256": "df8e8d5dab3c1bf0e99f44dd6cd9d537546fe583f5020da6dbcecdbebfd3e6c1"
+      },
+      {
+        "name": "frame-11.json",
+        "status": 200,
+        "bytes": 2370,
+        "sha256": "5995462fb8280b119ce111ae61ca7fa998f2e84e11bb11055c5ee0ae2b7f6712"
+      }
+    ],
+    "CDP_data_request_peak": 1,
+    "data_GETs": 13,
+    "POSTs": 0,
+    "API_requests": 0,
+    "console_errors_warnings": [],
+    "AX_buttons": 6,
+    "view_left_open": true,
+    "Windows_memory_in_WSL_total": false,
+    "field_crop_prediction": false
+  },
+  "deployment": {
+    "HTTP_files_original_bytes": 157,
+    "same_NGINX_master": true,
+    "backend_restarted": false,
+    "DB_model_credentials_changed": false,
+    "old_frontends": [
+      {
+        "file_count": 190,
+        "snapshot_sha256": "ca3cdab62d87f11533a17be6bfbce48e5b7c258d955dca10be4c097621769d66"
+      },
+      {
+        "file_count": 223,
+        "snapshot_sha256": "3c06bffabfe3b421b02895568513686c36d118d1f3969588a681667f3f12a352"
+      },
+      {
+        "file_count": 137,
+        "snapshot_sha256": "94a47397fef4341a09ed99e223ca41df2ca9a48880fead3165fb7f9508e07ce9"
+      }
+    ],
+    "old_three_entry_bytes_preserved": true,
+    "old_lab_bundle_retained": true,
+    "scope": "isolated lab alias only; original routes unchanged"
+  },
+  "resource": {
+    "download": {
+      "phase": "download-guard",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 10.317330806996324,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 837414912,
+      "samples": 41,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "af188cde050ff3e50bd9dd8a6fec9044957196b898c5ffe13afba893c6bcd199",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "deployment": {
+      "phase": "deploy-guard",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.5235194990018499,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 799592448,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "650239bea5126b0027a66310483b0cbbaf48b62d4e82d472c6f6821735630ef2",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "native": {
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 19.07732592499815,
+      "WSL_PID_peak_RSS_bytes": 124559360,
+      "WSL_combined_peak_RSS_bytes": 862470144,
+      "samples": 74,
+      "sample_interval_seconds": 0.25,
+      "six_preserved_roots_live": true,
+      "static_viewer_live": true,
+      "Windows_Chrome_and_Node_memory_included": false,
+      "common_capacity_acceptance": false
+    },
+    "local_consumer": {
+      "phase": "focused",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.7808284339989768,
+      "peak_PID_RSS_bytes": 179920896,
+      "combined_RSS_bytes": 1025978368,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "ad6f5deb612903b3c964ad2f679e3b98a556f8778ab9b9e9096f5a2b2e6fe3dc",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "local_geometry_hold": {
+      "phase": "geometry",
+      "child_exit": -15,
+      "hold_reason": "WSL_RSS_limit",
+      "wall_seconds": 0.834126945999742,
+      "peak_PID_RSS_bytes": 217522176,
+      "combined_RSS_bytes": 1091117056,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "6f92055bd706a094038fcdeac999bf8618d49298771e3c5702756bacac9b7f4a",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "public_export": {
+      "phase": "focused",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.8387959680039785,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 864169984,
+      "samples": 12,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "a87b97667d7ce301ab952f5b5e52d6c7a290610433505f58159ad8c9bc5befcb",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    }
+  },
+  "screenshots": {
+    "research/artifacts/morphology-stored-first-20261022.png": "e517268d12b18ac8513b495a164fbf35fb00a0150c5e6fac3c3abe8914dd869c",
+    "research/artifacts/morphology-stored-last-20261022.png": "14570ca3a53534d6c854a2c04b43dbfcd1fc37ce531a20b3022d28a01edbcf8a",
+    "research/artifacts/morphology-stored-mobile-20261022.png": "1ed28765c0eb27bea28d1130197d0324fe0b6b80cbc8e04585ffd441671d2fd8"
+  },
+  "design_tool": {
+    "skill": "12ui-design",
+    "draft": "corpus_ambiguous_failure",
+    "stable_resume": "same_ambiguous_failure",
+    "candidate_images": 0,
+    "approved_design_alignment_claim": false,
+    "fallback": "reuse existing authored appearance style; actual WebGL implementation"
+  },
+  "failed_attempts": {
+    "CI39630703185": "unused import; fixed",
+    "CI39632525439": "new warning gate observed GPU driver stalls",
+    "CI39633045950": "screenshot-only causation assumption not supported; preserved",
+    "CI39633883890": "empty driver location assumption not supported; preserved",
+    "initial_native": "deprecated Three shadow filter; fixed per installed source and official docs",
+    "native_v2": "idle frame observation changed; cause not established; later font-ready/settlement and same1.5s idle stable",
+    "initial_deploy_guard": "wrong private command repeated download; existing log refused overwrite before config mutation"
+  },
+  "limitations": [
+    "synthetic software fixture only; real farm runs 0; gates not_assessed",
+    "fixed authored 3 leaves, radius/surface/straight-axis are appearance assumptions",
+    "no actual height, leaf/fruit count, phenology, harvest, resource cost or recommendation claim",
+    "headless graphics-driver performance warnings retained; general graphics performance not accepted",
+    "Windows Chrome/Node memory outside WSL resource totals",
+    "actual Axiany parameters/initial organs and independent validation absent",
+    "farm/current-rights/signed custody and product Run posting are separate"
+  ]
+}
