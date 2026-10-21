@@ -2377,6 +2377,8 @@
           기존 loop/다른 판본·원 자료/서비스/상한을 유지한다. 이후 진행 query/HTTP/실행 runtime→typed web/같은 UTC3D다.
           - [ ] **`co2-worker-core`** — 실제 정상/수치 hold 원 수치/UTC·현재 입력/임대·취소/만료와
             result/link/outcome/terminal 원자성·늦은 권리/실행 범위/최종 UPDATE fence와 소유 정리를 수용한다.
+            [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-core-preflight-20261021.json)는 로컬9/전체20수집을 확인했다.
+            실제 SCRAM11·정상/hold 원자 저장은 미실행이며 수용 전 체크하지 않는다.
           - [ ] **`co2-worker-consumer-restart`** — 위 core 뒤 명시 discovery/loop·기존 소비자 보존,
             독립 정상/hold·fresh 원문/현재 권리·실제 SIGKILL 뒤 확정 HEAD 채택/남은 구간만 계산을 수용한다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.

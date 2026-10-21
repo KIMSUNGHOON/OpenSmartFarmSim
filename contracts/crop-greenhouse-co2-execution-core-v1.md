@@ -1,6 +1,9 @@
 # CO₂·일사 모델의 접수·자동 계산 핵심 — v1
 
-Status: admission/checkpoint functionality accepted; worker and independent consumer/restart planned.
+Status: admission/checkpoint functionality accepted; worker core implemented, actual SCRAM pending; independent consumer/restart planned.
+[worker core 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-core-preflight-20261021.json)는
+로컬 제어9통과/전체20수집(실제 DB11 미실행)과 원 자료/서비스/상한 보존을 확인했다.
+실제 계산/원자 저장은 호스팅 집중 검증 뒤 수용하며 자동 발견·독립 프로세스·SIGKILL은 후속 자식이다.
 [접수 기능 수용](../research/crop-greenhouse-co2-admission-20261021.md)은 source43c0a98/CI39520744344의
 17검사·실제 SCRAM13과 원 입력/멱등·접수/취소 rollback·17계측0/정리를 확인했다.
 전체 core/worker·공통 WSL 용량/새 사용자 적용은 미완료다.
