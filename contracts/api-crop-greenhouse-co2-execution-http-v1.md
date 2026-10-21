@@ -1,6 +1,6 @@
 # CO₂ 접수·진행·취소·확정 구간 보호 HTTP — v1 계획
 
-Status: planned; no execution/prefix HTTP code or acceptance.
+Status: base execution3 implemented; control/regression375 accepted. Explicit prefix3 and native SCRAM/TLS acceptance pending.
 선행은 [공개 응답110개 전체 수용](api-crop-greenhouse-co2-prefix-v1.md),
 현재 CO₂ admission/checkpoint/worker/query와 [기존 결과 HTTP](api-crop-greenhouse-co2-route-v1.md) 기능이다.
 [기존 Solar HTTP 경계](api-crop-greenhouse-solar-execution-http-v1.md)를 같은 modular FastAPI 앱에 결속한다.
@@ -45,3 +45,5 @@ no-store와 고정 오류를 사용하고 입력 원문/계수/권리·검토/�
 
 이후 명시 실행 runtime/독립 worker → typed web/같은 UTC3D → 사용자 적용/재접속·재시작을 수용한다.
 생산·경제·예측/추천의 주장 범위는 [제품 명세](../docs/PROJECT_SPEC.md)를 따른다.
+
+현재 base 제어 수용은 [원 검증 기록](../research/api-crop-greenhouse-co2-execution-http-20261021.md)을 따른다.

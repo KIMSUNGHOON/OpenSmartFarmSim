@@ -3105,3 +3105,7 @@ late5/사전 witness1·독립 heartbeat/cancel2/원 HEAD append2를 수용했다
 preflight/core/fences/regression의343지문과 고유110 ID를 결속했고 공개 응답 부모를 수용했다.
 보호 HTTP는 원65경로/477스키마 지문을 보존해 base3→명시 prefix3→실제 SCRAM/TLS로 나눈다.
 기존 수치/worker·5서비스는 유지한다. runtime/같은 UTC3D/새 사용자 적용·전체 작기와 M1/M2는 후속이다.
+
+**보호 실행 base3 제어 수용:** [집중375검사](../research/api-crop-greenhouse-co2-execution-http-20261021.md)는
+새114/기존 Solar 실행·CO₂ 결과/공통 OpenAPI를 확인했다. 원65경로/477스키마의 지문을 보존해
+68/483 문서를 생성했다. 원 자원/2148항목/5root를 보존했으며 prefix3·실제 SCRAM/TLS 수용과 부모는 후속이다.

@@ -2406,7 +2406,7 @@
             - [x] **`co2-prefix-projection-fences`** — [실제 SCRAM10/CI39545348424](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 late5/사전 witness1·독립 heartbeat/cancel2/원 HEAD append2·원 UTC/최초 시각·31계측0/같은343지문/14산출물·정리를 수용했다. 독립/회귀93과 부모는 남는다.
             - [x] **`co2-prefix-projection-regression`** — [CI39546601275/93검사](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 순수87·독립 fresh1/영향받은 raw5·원 값/UTC/최초 시각·readonly31계측0/같은343지문/15산출물·정리를 수용했다. 전체 고유110이며87은 중복 합산하지 않는다.
         - [ ] **`co2-execution-http`** — 공개 응답110 전체 수용 뒤 [보호 실행 HTTP 계약](../contracts/api-crop-greenhouse-co2-execution-http-v1.md)을 구현한다. 현재 기본 OpenAPI 지문→접수/진행/취소→명시 prefix3경로·정확한 graph/계정/권리/전송→실제 SCRAM/TLS·원 byte/UTC/조회0·정리를 수용한다. 실행 runtime/typed web·3D/사용자 적용은 후속이다.
-          - [ ] **`co2-execution-http-base`** — 원65경로/477스키마의 지문을 고정하고 접수/진행/취소3경로·기본 인증 뒤503/정확한 graph·닫힌 입력/권한/한도/취소·전송 해제를 수용한다. 현재 missing-module RED를 확인했고 구현/실제 TLS는 남는다.
+          - [x] **`co2-execution-http-base`** — [제어/회귀375검사](../research/api-crop-greenhouse-co2-execution-http-20261021.md)의 접수/진행/취소3경로·기본 인증 뒤503/같은 graph·닫힌 입력/권한/한도/취소/전송 해제를 수용했다. 원65경로/477스키마 지문·실제68/483 문서/5root·자료/정리를 확인했다. 제어 수용이며 명시 prefix와 실제 SCRAM/TLS·부모/사용자 적용은 남는다.
           - [ ] **`co2-execution-http-prefix`** — 명시된 같은 실행 graph에서만 prefix3경로·선택자/UTC/원 공개 byte·현재 후검사·실제 TLS/독립 변경/정리를 수용한다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.

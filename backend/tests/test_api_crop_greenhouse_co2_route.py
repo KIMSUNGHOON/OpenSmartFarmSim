@@ -212,7 +212,9 @@ def test_openapi_preserves_existing_operations_and_closed_joint_shapes():
     doc = contract_document(); previous = json.loads((root/'research/artifacts/co2-route-openapi-baseline-20261021.json').read_bytes())
     canonical = lambda value: json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()
     assert all(sha256(canonical(doc['paths'][p])).hexdigest() == digest for p, digest in previous['paths'].items())
-    assert set(doc['paths']) == set(previous['paths']) | {PATH+'{result_id}'}
+    assert set(doc['paths']) == set(previous['paths']) | {PATH+'{result_id}',
+        '/v1/crop-greenhouse-co2-executions', '/v1/jobs/{job_id}/crop-greenhouse-co2-execution',
+        '/v1/jobs/{job_id}/crop-greenhouse-co2-execution/cancel'}
     assert all(sha256(canonical(doc['components']['schemas'][p])).hexdigest() == digest for p, digest in previous['schemas'].items())
     assert sha256(canonical({k: v for k, v in doc['components'].items() if k != 'schemas'})).hexdigest() == previous['other_components_sha256']
     assert sha256(canonical({k: v for k, v in doc.items() if k not in ('paths', 'components')})).hexdigest() == previous['root_fields_sha256']
