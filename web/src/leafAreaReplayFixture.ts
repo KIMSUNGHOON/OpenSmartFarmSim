@@ -1,0 +1,1 @@
+export const LEAF_AREA_FIXTURE={"artifact_sha256":"7ebcd02d902f03343e61e2151a93107d021404eed74071fa3e9bbe417743a8a5","index_sha256":"c6f0ba4d5b85483a78c5d94d2e40389b8fd45787cb795b5dba2a0c8d2a379621","frames":12} as const;

@@ -219,6 +219,8 @@ E1은0.5–1.25, E2/E3는1–2.5집중시간의 낮은 신뢰 계획이다. 보�
 
 **명시 초기 잎 목록 수용:** [22집중/독립4프로그램](../research/crop-leaf-inventory-20261022.md)에서 원 목록/같은 시점·분할/합계와512/2MiB를 확인했다. 다음은 원 v2 줄기 결과와 같은 UTC/실제 부착 ID를 별도 불변 잎 면적 판본에 결속하고 fresh 계산 없는 조회를 검증하는 자식이다. 이후 저장면적/제작 표면의 명시 대응→같은 UTC3D다. 새 잎 사건/관리와 실제 품종은 후속이다.
 
+**잎 불변 결과/원 조회 수용:** [18pytest/별도 fresh/실제 생산](../research/crop-leaf-area-artifact-20261022.md)으로 원12 줄기 DTO와36면적·24code/40blob/17public파일을 수용했다. fresh 생장 import/SQL·CLI/파일쓰기0·원40 metadata와7root를 유지했다. 다음 typed frontend/제작 leaflet 단면 면적 대응→실제 WebGL/표·그래프/재생이며, 새 잎 모델의 farm API/실제 자료 관문은 별도다.
+
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.
 데이터셋 판본1·2를 독립 작기로 세지 않으며 다른 품종 계수로 빈칸을 채우지 않는다. 개발과 자료 확보는 병행한다.

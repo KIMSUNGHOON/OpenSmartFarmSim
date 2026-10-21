@@ -41,7 +41,8 @@
   - [x] 잎 기관별 원점/정확 초·공기 기온 시계와 면적 상태 결속 — [34집중/독립8프로그램·24면적](../research/crop-rational-leaf-area-20261022.md), 원 internode 호출0·분수 초/변온/분할/512·혼합 거부·원7root/자료 보존. 실제 기온/초기관측/관리와 새3D는 별도다.
   - [x] 명시 초기 잎 목록 — [22집중/독립4프로그램·36면적/12나이](../research/crop-leaf-inventory-20261022.md), 원 ID/순서·같은 시점/합계·분할/512·2MiB/overflow·원7root/자료 보존. 실제 줄기 참조 결속은 다음 게시/reader에서 확인한다.
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 선언 목록만 추적한다.
-  - [ ] 별도 불변 면적 판본/계산 없는 조회→같은 UTC3D — 현재 v2/원 화면·자료 권리 보존.
+  - [x] 별도 불변 면적 판본/계산 없는 조회·export — [18pytest/실제12시점·36면적/별도 fresh](../research/crop-leaf-area-artifact-20261022.md), 원 stem14blob/12 DTO·40불변 blob/24code·현재 부착/UTC·권리와 fresh import/SQL/CLI/파일쓰기0·17public파일·원7root/자료 보존.
+  - [ ] 같은 UTC의 잎 면적3D — public 원값/strict SDK와 제작 단면 삼각형 면적·실제 WebGL/표/그래프·모바일/유휴·현재 UI 보존을 대사한다. 현재5176에 새 잎 모델을 적용한 것은 아니다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
