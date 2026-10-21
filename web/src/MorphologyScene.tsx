@@ -4,18 +4,19 @@ import { ACESFilmicToneMapping,BoxGeometry,Color,DirectionalLight,DoubleSide,Hem
   PMREMGenerator,Scene,WebGLRenderer,type Material } from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { createMorphologyGeometry,MORPHOLOGY_MAPPING } from './morphologyGeometry';
+import { createMorphologyGeometry,MORPHOLOGY_MAPPING,STORED_LEAF_AREA_MAPPING,type MorphologyLeafArea } from './morphologyGeometry';
 import { tomatoAppearanceTextures } from './tomatoAppearanceTextures';
 import type { MorphologyFrame } from './morphologyReplay';
 
-type View={update:(frame:MorphologyFrame)=>void;reset:()=>void;dispose:()=>void};
+type LeafBinding=Readonly<{artifact_sha256:string;result_sha256:string;at:string;leaves:readonly MorphologyLeafArea[]}>;
+type View={update:(frame:MorphologyFrame,leaves?:LeafBinding)=>void;reset:()=>void;dispose:()=>void};
 function createView(canvas:HTMLCanvasElement,maximum:number,fail:()=>void):View|null{
   const context=canvas.getContext('webgl2',{antialias:true,alpha:false});if(!context)return null;
   const renderer=new WebGLRenderer({canvas,context}),scene=new Scene(),camera=new PerspectiveCamera(36,1,.001,10);
   const materials:Material[]=[],geometries:(PlaneGeometry|BoxGeometry)[]=[];
   let controls:OrbitControls|undefined,observer:ResizeObserver|undefined,plant:ReturnType<typeof createMorphologyGeometry>|undefined;
   let environment:ReturnType<PMREMGenerator['fromScene']>|undefined,textures:ReturnType<typeof tomatoAppearanceTextures>|undefined;
-  let frame:MorphologyFrame|undefined,pending:number|null=null,disposed=false;
+  let frame:MorphologyFrame|undefined,leafBinding:LeafBinding|undefined,pending:number|null=null,disposed=false;
   const material=<T extends Material,>(value:T)=>{materials.push(value);return value;};
   const render=()=>{
     pending=null;if(disposed||document.hidden)return;
@@ -30,6 +31,10 @@ function createView(canvas:HTMLCanvasElement,maximum:number,fail:()=>void):View|
         canvas.dataset.renderedLengths=JSON.stringify(plant.segments.map(m=>m.scale.y));
         canvas.dataset.renderedInternodeIds=JSON.stringify(plant.segments.map(m=>m.userData.internode_id));
         canvas.dataset.authoredLeafCount=String(plant.authoredLeafCount);canvas.dataset.axisLength=String(frame.tracked_axis_length.value);
+        if(leafBinding){canvas.dataset.leafAreaMapping=STORED_LEAF_AREA_MAPPING;canvas.dataset.leafArtifactSha256=leafBinding.artifact_sha256;
+          canvas.dataset.leafResultSha256=leafBinding.result_sha256;canvas.dataset.storedLeafAreas=JSON.stringify(leafBinding.leaves.map(q=>q.area.value));
+          canvas.dataset.renderedLeafAreas=JSON.stringify(plant.leafSurfaceAreas());}
+        else for(const key of ['leafAreaMapping','leafArtifactSha256','leafResultSha256','storedLeafAreas','renderedLeafAreas'])delete canvas.dataset[key];
       }
       canvas.dataset.mapping=MORPHOLOGY_MAPPING;canvas.dataset.drawCalls=String(renderer.info.render.calls);
       canvas.dataset.frame=String(Number(canvas.dataset.frame||0)+1);
@@ -70,22 +75,23 @@ function createView(canvas:HTMLCanvasElement,maximum:number,fail:()=>void):View|
     const reset=()=>{controls!.target.set(.006,maximum*.48,0);camera.position.set(maximum*1.4,maximum*.85,maximum*2.7);
       camera.lookAt(controls!.target);controls!.update();schedule();};
     observer=new ResizeObserver(schedule);observer.observe(canvas);document.addEventListener('visibilitychange',schedule);reset();
-    return {update(value){if(disposed)return;plant?.dispose();plant=createMorphologyGeometry(value,{stem,leaf});scene.add(plant.root);frame=value;schedule();},reset,dispose};
+    return {update(value,binding){if(disposed)return;if(binding&&binding.at!==value.at)throw Error('stored leaf UTC mismatch');
+      plant?.dispose();plant=createMorphologyGeometry(value,{stem,leaf},binding?.leaves);scene.add(plant.root);frame=value;leafBinding=binding;schedule();},reset,dispose};
   }catch{dispose();throw Error('morphology WebGL unavailable');}
 }
 
-export default function MorphologyScene({frame,maximum}:{frame:MorphologyFrame;maximum:number}){
-  const canvas=useRef<HTMLCanvasElement>(null),view=useRef<View|null>(null),latest=useRef(frame);latest.current=frame;
+export default function MorphologyScene({frame,maximum,leafBinding}:{frame:MorphologyFrame;maximum:number;leafBinding?:LeafBinding}){
+  const canvas=useRef<HTMLCanvasElement>(null),view=useRef<View|null>(null),latest=useRef({frame,leafBinding});latest.current={frame,leafBinding};
   const [available,setAvailable]=useState<boolean|null>(null),[epoch,setEpoch]=useState(0);
   useEffect(()=>{
     const target=canvas.current;if(!target)return;let active=true,owned:View|null=null;
     const fail=()=>{owned?.dispose();view.current=null;if(active)setAvailable(false);};
     const lost=(event:Event)=>{event.preventDefault();fail();},restored=()=>{if(active)setEpoch(n=>n+1);};
     target.addEventListener('webglcontextlost',lost);target.addEventListener('webglcontextrestored',restored);
-    try{owned=createView(target,maximum,fail);view.current=owned;owned?.update(latest.current);setAvailable(!!owned);}catch{fail();}
+    try{owned=createView(target,maximum,fail);view.current=owned;owned?.update(latest.current.frame,latest.current.leafBinding);setAvailable(!!owned);}catch{fail();}
     return()=>{active=false;target.removeEventListener('webglcontextlost',lost);target.removeEventListener('webglcontextrestored',restored);owned?.dispose();view.current=null;};
   },[maximum,epoch]);
-  useEffect(()=>{try{view.current?.update(frame);}catch{view.current?.dispose();view.current=null;setAvailable(false);}},[frame]);
+  useEffect(()=>{try{view.current?.update(frame,leafBinding);}catch{view.current?.dispose();view.current=null;setAvailable(false);}},[frame,leafBinding]);
   return <section className="morphology-stage" aria-label="저장된 줄기 길이의 3D">
     <canvas ref={canvas} tabIndex={available?0:-1} aria-label="회전 가능한 합성 토마토 줄기 3D"/>
     <p className="morphology-hint">드래그로 회전 · 스크롤로 확대</p>
