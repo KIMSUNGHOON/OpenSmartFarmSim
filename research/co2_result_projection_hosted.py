@@ -68,6 +68,9 @@ EXECUTION_HTTP_CORE = ['test_native_submit_progress_and_running_cancel',
 EXECUTION_HTTP_FENCES = ['test_native_late_prefix_changes_are_withheld',
     'test_native_independent_change_after_prefix_serialization',
     'test_native_new_original_HEAD_preserves_selected_HTTP_page']
+EXECUTION_HTTP_COLLECTION_TARGETS = ['tests/test_api_crop_greenhouse_co2_execution_http_native.py',
+    'tests/test_api_crop_greenhouse_co2_route.py', 'tests/test_api_crop_greenhouse_co2_native.py',
+    'tests/test_api_crop_greenhouse_solar_route.py', 'tests/test_api_openapi.py']
 PREFIX_PROJECTION_CORE = ['test_selected_page_changed_after_serialization_is_held',
     'test_actual_current_views_scope_and_cancel_without_writes',
     'test_actual_terminal_closed_keeps_existing_result',
@@ -88,6 +91,26 @@ def save(path, value):
     with path.open('x') as output:
         os.fchmod(output.fileno(), 0o400)
         json.dump(value, output, sort_keys=True, indent=2)
+
+
+def collect_execution_http(destination):
+    from collections import Counter
+    import pytest
+    class Inventory:
+        def pytest_collection_finish(self, session):
+            nodes = [item.nodeid for item in session.items]
+            native = [n for n in nodes if n.startswith('tests/test_api_crop_greenhouse_co2_execution_http_native.py::')]
+            batches = {name: [n for n in native if n.split('::')[1].split('[')[0] in functions]
+                for name, functions in (('core', EXECUTION_HTTP_CORE), ('fences', EXECUTION_HTTP_FENCES))}
+            encoded = [n.encode('utf-8') for n in nodes]
+            save(destination, {'native_cases': len(native), 'existing_co2_http_cases': len(nodes)-len(native),
+                'native_batches': batches, 'total': len(nodes),
+                'per_file_counts': dict(Counter(n.split('::', 1)[0] for n in nodes)),
+                'nodeid_sha256': [sha256(n).hexdigest() for n in encoded],
+                'maximum_nodeid_UTF8_bytes': max(map(len, encoded), default=0),
+                'nodeids_over_1MiB': sum(len(n)>1024**2 for n in encoded),
+                'collection_only_not_runtime_acceptance': True})
+    return pytest.main(['--collect-only', '-qq', *EXECUTION_HTTP_COLLECTION_TARGETS], plugins=[Inventory()])
 
 
 def fresh(pack_path, destination):
@@ -292,10 +315,8 @@ def supervise(directory):
     plans = [('tests', [sys.executable, '-B', '-m', 'pytest', *targets,
         '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
     if execution_http:
-        plans.insert(0, ('collect', [sys.executable, '-B', '-m', 'pytest', '--collect-only', '-q',
-            'tests/test_api_crop_greenhouse_co2_execution_http_native.py',
-            'tests/test_api_crop_greenhouse_co2_route.py', 'tests/test_api_crop_greenhouse_co2_native.py',
-            'tests/test_api_crop_greenhouse_solar_route.py', 'tests/test_api_openapi.py']))
+        plans.insert(0, ('collect', [sys.executable, '-B', str(Path(__file__).resolve()),
+            'collect-execution-http', str(directory/'collection.json')]))
     for status in (() if current or http or admission or checkpoint or worker or consumer or query or prefix or prefix_projection or execution_http else ('completed', 'hold')):
         plans.append(('fresh-'+status, [sys.executable, '-B', str(Path(__file__).resolve()), 'fresh',
             str(directory/('co2-projection-store-'+status+'-fresh-pack.private.json')),
@@ -324,18 +345,14 @@ def supervise(directory):
                     'failed_nodes': [line.split(' - ', 1)[0] for line in lines if line.startswith('FAILED ')]})
                 break
             if phase == 'collect':
-                collected = [line for line in log.read_text(errors='replace').splitlines()
-                    if line.startswith('tests/') and '::' in line]
-                native_nodes = [n for n in collected if n.startswith('tests/test_api_crop_greenhouse_co2_execution_http_native.py::')]
-                assert len(collected) == len(set(collected)) == 232 and len(native_nodes) == 14
-                batches = {name: [n for n in native_nodes if n.split('::')[1].split('[')[0] in functions]
-                    for name, functions in (('core', EXECUTION_HTTP_CORE), ('fences', EXECUTION_HTTP_FENCES))}
+                inventory = json.loads((directory/'collection.json').read_bytes())
+                assert inventory['total'] == len(set(inventory['nodeid_sha256'])) == 232
+                assert inventory['native_cases'] == 14 and inventory['existing_co2_http_cases'] == 218
+                assert set(inventory['per_file_counts']) == set(EXECUTION_HTTP_COLLECTION_TARGETS)
+                assert sum(inventory['per_file_counts'].values()) == 232
+                batches = inventory['native_batches']
                 assert len(batches['core']) == 6 and len(batches['fences']) == 8
                 assert set(batches['core']).isdisjoint(batches['fences'])
-                save(directory/'collection.json', {'native_cases': 14, 'existing_co2_http_cases': 218,
-                    'native_batches': batches, 'collected_nodeids': collected,
-                    'collection_only_not_runtime_acceptance': True,
-                    'log_sha256': sha256(log.read_bytes()).hexdigest()})
             if phase == 'tests':
                 text = log.read_text(errors='replace')
                 assert re.search(rf'\b{expected} passed\b', text) and ' skipped' not in text
@@ -621,6 +638,8 @@ def supervise(directory):
 
 if __name__ == '__main__':
     if len(sys.argv) == 4 and sys.argv[1] == 'fresh': fresh(Path(sys.argv[2]), Path(sys.argv[3]))
+    elif len(sys.argv) == 3 and sys.argv[1] == 'collect-execution-http':
+        raise SystemExit(collect_execution_http(Path(sys.argv[2])))
     else:
         assert len(sys.argv) == 2
         supervise(Path(sys.argv[1]).resolve())

@@ -45,3 +45,16 @@ OpenAPI 생성만 기존 schema guard가 허용하는 contracts/openapi-v1.json 
 의도된 actor/HEAD SQL은 조회 DB 불변과 별도로 검사한다.
 누락 witness는 source/직렬화 전, 늦은 권리/페이지/프로그램은 최종 직렬화 뒤 거부한다.
 실제 SCRAM/TLS 수용 전 HTTP 부모/새 CO₂ 적용은 미완료다.
+
+## 첫 native CI 수집 실패와 출력 수정
+
+CI39557484658은 실제 시험 전 수집 로그4MiB 한도로 종료했다. 종료 phase 기록은 없으며 native 수용은0이다.
+원 두 result HTTP 시험은 각2MiB 초과 bytes 입력을 유지한다. pytest9.1.1의 -q 수집 출력은
+그 입력을 시험 ID에 그대로 넣어 큰 줄을 만든다. 설치된 `_pytest/terminal.py::_printcollecteditems`에서
+-qq의 파일별 출력 경로를 확인했다. 사례/입력·4MiB 로그·원 자원 상한은 바꾸지 않았다.
+
+[수정 최종 준비](artifacts/api-crop-greenhouse-co2-execution-http-native-preflight-v2-20261021.json)는
+plugin으로 전체232 ID의 hash/파일별 개수와 native14의 원 ID·분할6/8을 저장한다.
+실제 로컬 수집232=신규14+기존218, 큰 ID2개·최대2,097,236bytes를 확인했고 출력은241bytes다.
+4.216087904초·단일170,160,128/합1,005,072,384bytes·FD4→4·원 자료/5root/정리0이다.
+349지문 중 controller만 바뀌고 나머지348·모든 제품/원 fixture는 같다. 실제 hosted native6→8은 후속이다.
