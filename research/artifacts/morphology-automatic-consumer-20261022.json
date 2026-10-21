@@ -1,0 +1,130 @@
+{
+  "actual_crop_Runs": 0,
+  "cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_context_sha256": "88b892130bd446bdbc3a4d06d7ba58ff7736eb679dd4856efa30c9fad5feb47a"
+  },
+  "controls": {
+    "child_exit": 0,
+    "combined_RSS_bytes": 935071744,
+    "full_suite": false,
+    "hold_reason": null,
+    "log_sha256": "bfa23c3c2b5379c534e461787eb8621f4f880b18f972071d8569e3a499b8ccdd",
+    "peak_PID_RSS_bytes": 131833856,
+    "phase": "loop-old-regression",
+    "plugin_autoload_disabled": true,
+    "protected_six_roots_live": true,
+    "remaining_owned_children": 0,
+    "sample_interval_seconds": 0.25,
+    "samples": 9,
+    "wall_seconds": 2.070719037001254
+  },
+  "gates": "not_assessed",
+  "native": {
+    "RSS_samples": 106,
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 992411648,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "frontend_status": 200,
+    "log_sha256": "ad9ecdcc883a02224503d4985d4f55fa114feb43870df4a84aef3ea5118147be",
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "protected_live": true,
+    "protected_root_count": 6,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 124948480,
+    "source_count": 3176,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 28.78874690399971
+  },
+  "native_SCRAM_tests": 1,
+  "native_full_private_record_sha256": "1e3fb0baa751c665ba5b59f3b0511a5857bd139713819c2b92ab8244fb587a3f",
+  "new_controls": 5,
+  "observations": {
+    "after_completion_selected_jobs": 0,
+    "events": [
+      {
+        "attempt": 1,
+        "event": "attempt",
+        "job_id": "0cf2b1c4-f5d6-485f-9675-7b0936032c4e",
+        "reason_code": "morphology_completed",
+        "state": "succeeded",
+        "version": 1
+      }
+    ],
+    "explicit_version": "morphology-execution-input-v1",
+    "one_actual_numeric_call": [
+      1
+    ],
+    "original_12_frames": true,
+    "page_scanned_counts": [
+      50,
+      36
+    ],
+    "query_discovery_growth_CLI_calls": {
+      "CLI": 0,
+      "crop_internode_elongation.calculate_internode_elongation": 0,
+      "crop_internode_length.advance_internode_length": 0,
+      "crop_internode_length.calculate_internode_length_point": 0,
+      "crop_internode_length.initialize_internode_length": 0,
+      "crop_internode_length.normalize_internode_length_state": 0,
+      "crop_internode_length_change.calculate_internode_length_change": 0,
+      "crop_internode_length_change.normalize_internode_curve": 0,
+      "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+      "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+      "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+      "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+      "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+      "crop_new_internodes.create_internodes_from_shoot_events": 0,
+      "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+      "crop_rational_internode_length.advance_rational_internode_length": 0,
+      "crop_rational_internode_length.initialize_rational_internode_length": 0,
+      "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+      "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+      "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+      "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+      "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+      "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+      "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+      "crop_shoot_timeline.advance_shoot_event_timeline": 0
+    },
+    "result": {
+      "binding_sha256": "3202e977d5323932e6449aaa1e6056ebe8cdfc0f7e5051e78167b592cc2e3dd9",
+      "calculated_at": "2026-10-21T21:00:29.977422Z",
+      "farm": {
+        "crop_id": "crop-1",
+        "registration_sha256": "e0540909eeb51b4db1adfe8761cd5d0dc5c4a7e62da08736b4472002b9a1c0c1",
+        "scenario_id": "farm-1",
+        "scenario_revision": "r1"
+      },
+      "input_evidence_sha256": "8ad008483dbe8fb91f94dc033fb39cfaaac87832d37fee6d8020cb421806b662",
+      "numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+      "profile_applicability": "unvalidated_for_registered_crop",
+      "program_sha256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3",
+      "result_sha256": "9785149d757e89c06fa11f7877f67909756f1232f4fe6e88a420d5bfe6f55522",
+      "revision": "r1",
+      "source_sha256": "877ef02b25869c5e099312734aa236613cf1f607daec097a95b4fb54da064490",
+      "study_id": "synthetic-morphology-native-study"
+    },
+    "unrelated_queued_job_preserved": true
+  },
+  "related_controls": 21,
+  "schema_version": "morphology-automatic-consumer-acceptance-v1",
+  "scope": "software_research_only",
+  "source_sha256": {
+    "backend/app/deterministic_job_discovery.py": "f235a40decf12c373706437d537207976075e015d2983e4d3d0afe669d56a566",
+    "backend/app/deterministic_work.py": "3144185cc47b411a049a379647473a0e739f2e86259f3d3b81f0a59ca596d09a",
+    "backend/tests/test_morphology_deterministic_work.py": "97d712ea2073233e9cdb93d2aa001a4536a79d94fff1c5969d93e200bac1e45c",
+    "backend/tests/test_morphology_deterministic_work_native.py": "410280db5ffe4f225c6c78c6a4c2bfb38fc8d7eb915279f9f57ba857cbadc7eb"
+  }
+}

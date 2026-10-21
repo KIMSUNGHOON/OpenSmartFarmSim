@@ -49,3 +49,10 @@ state/publication/event/outcome이 조회 중 바뀌면 Pending으로 재조회�
 수용은 접수(권한·commit fence·멱등/충돌/0계산) → worker(정상/hold/취소/lease·원 서명과 원자 게시) →
 현재 query(원 bytes/UTC·현재 철회·fresh·0계산/쓰기)로 나눈다.
 각 단계 실제 SCRAM/원 행·기존 모델의 queued job 보존·6root/WSL 상한·소유 정리를 확인한 뒤 체크한다.
+
+## 자동 소비
+
+[기존 foreground loop 연결](../research/morphology-automatic-consumer-20261022.md)을 제어21/실제 SCRAM1로 수용했다.
+`DeterministicWorkerLoop(worker,input_versions=frozenset({'morphology-execution-input-v1'}))`만 명시 구성한다.
+기존 metadata/simulation_execute·감사된 authority/discovery·같은 tenant/worker/현재 Scope·bounded page 규약을 유지한다.
+loop의 operator factory/소유 runtime과 사용자 UI 배포는 별도 수용이며 constructor만으로 계산하지 않는다.

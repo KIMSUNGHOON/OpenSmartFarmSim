@@ -29,6 +29,8 @@
 
 - [x] **`morphology-execution-http`** — 선행: `morphology-execution-core`. [27제어/89 OpenAPI·권한/실제 HTTPS2](../research/api-crop-morphology-execution-20261022.md)로 표준 인증/현재 tenant/services의 접수·상태/manifest/frame/replay/취소를 수용했다. 입력/상한/권한·현재/늦은 만료·멱등/409·원12 DTO/UTC/25표·disabled와6root/정리를 확인했다. 단일 회귀의1GiB 중단을 보존하고 같은 검사를 분할 통과했다.
 - [ ] **`morphology-execution-runtime-preview`** — 선행: 위 HTTP/core. 기존 deterministic discovery/loop에 정확한 morphology 판본과 worker/outcome을 명시 등록한다. 현재 역할·원 입력/현재 검토/권리·서버 조립/TLS/실제 접수→자동 계산→저장/재조회·다른 queued 모델 보존과6root/WSL 상한·소유 정리를 검사한다. 사용자 검토용 자료는 자체 합성으로 제한하고 실제 농장/자료 관문/G4를 주장하지 않는다. 후속 연구 입력 목록/일반 운영 설정은 독립 수용이다.
+  - [x] 기존 자동 consumer — [신규5/관련21·실제 SCRAM1](../research/morphology-automatic-consumer-20261022.md). 명시 판본·실제 discovery→1계산/원자 완료/원12프레임·기존 queued job/완료 뒤 선택0·6root/정리 수용.
+  - [ ] 불변 소유 runtime 조립·현재 auth/TLS/검토/권리·실제 사용자 HTTP/브라우저/저장 재조회·WSL 적용.
 - [ ] **`morphology-execution-web`** — 선행: 위 HTTP. 사용자에게 접수·현재 실제 단계/보류/취소·완료 결과와 같은 UTC의 기존 사실적 3D/표/그래프를 연결한다. 메뉴 이동·새로고침 뒤 같은 job 재조회, 오래된 응답 무시/철회 때 제거·중복 계산0·모바일/실제 브라우저·원 화면/자원 보존이 수용 기준이다. 실제 품종·과실/수확/예측/추천은 별도다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.

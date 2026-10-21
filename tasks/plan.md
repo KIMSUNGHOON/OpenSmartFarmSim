@@ -196,6 +196,9 @@ E1은0.5–1.25, E2/E3는1–2.5집중시간의 낮은 신뢰 계획이다. 보�
 **보호 HTTP 수용 — 2026-10-22:** [제어27/기존 포함 OpenAPI·Scope89·실제 SCRAM/TLS2](../research/api-crop-morphology-execution-20261022.md)로 표준 조립의6경로·원12 DTO/UTC/계산 없는 현재 조회·취소/늦은 만료/409·25표/6root와 정리를 확인했다. 단일 회귀1GiB 중단 뒤 같은 검사의 fresh 프로세스 분할을 수용했으며 전체 backend gate는 별도다.
 다음은 기존 deterministic discovery/loop의 정확한 형태 판본/worker 등록과 합성 검토용 runtime → 접수/상태·저장3D UI다. 실제 연구 입력 목록·일반 운영 설정/계정·G4는 별도 수용한다.
 
+**자동 consumer 수용 — 2026-10-22:** [제어21/실제 SCRAM1](../research/morphology-automatic-consumer-20261022.md)로 정확한 판본/discovery→실제1계산·원자 완료/원12 DTO와 다른 모델 보존을 확인했다. 기존 loop와 표/권한을 재사용한다. 다음은 자체 합성 검토용 runtime의 현재 auth/TLS·검토/권리/역할·원 source 고정과 사용자 UI이며 일반 입력 목록/공개 운영/G4는 별도다.
+
+
 
 
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와

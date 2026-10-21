@@ -15,6 +15,7 @@ from .crop_climate_joint_execution_worker import JointExecutionWorker, JointExec
 from .crop_greenhouse_ventilation_execution_worker import VentilationExecutionWorker, VentilationExecutionOutcome
 from .crop_greenhouse_solar_execution_worker import SolarExecutionWorker, SolarExecutionOutcome
 from .crop_greenhouse_co2_execution_worker import Co2ExecutionWorker, Co2ExecutionOutcome
+from .crop_morphology_execution_worker import MorphologyExecutionWorker, MorphologyExecutionOutcome
 from .deterministic_job_discovery import DeterministicJobDiscovery
 from .economic_calculation_worker import EconomicCalculationWorker, EconomicCalculationOutcome
 from .jobs import require_reason_code, require_seconds
@@ -30,6 +31,7 @@ WORKERS = {
     VentilationExecutionWorker: (frozenset({'joint-ventilation-execution-input-v1'}), VentilationExecutionOutcome),
     SolarExecutionWorker: (frozenset({'joint-solar-execution-input-v1'}), SolarExecutionOutcome),
     Co2ExecutionWorker: (frozenset({'joint-co2-solar-execution-input-v1'}), Co2ExecutionOutcome),
+    MorphologyExecutionWorker: (frozenset({'morphology-execution-input-v1'}), MorphologyExecutionOutcome),
 }
 
 
