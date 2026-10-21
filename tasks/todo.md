@@ -28,10 +28,12 @@
   보호 API와 제품 UI/실제 CLI 전체 경로·독립 자료/관문은 뒤따르는 단계다.
 
 - [x] **`morphology-execution-http`** — 선행: `morphology-execution-core`. [27제어/89 OpenAPI·권한/실제 HTTPS2](../research/api-crop-morphology-execution-20261022.md)로 표준 인증/현재 tenant/services의 접수·상태/manifest/frame/replay/취소를 수용했다. 입력/상한/권한·현재/늦은 만료·멱등/409·원12 DTO/UTC/25표·disabled와6root/정리를 확인했다. 단일 회귀의1GiB 중단을 보존하고 같은 검사를 분할 통과했다.
-- [ ] **`morphology-execution-runtime-preview`** — 선행: 위 HTTP/core. 기존 deterministic discovery/loop에 정확한 morphology 판본과 worker/outcome을 명시 등록한다. 현재 역할·원 입력/현재 검토/권리·서버 조립/TLS/실제 접수→자동 계산→저장/재조회·다른 queued 모델 보존과6root/WSL 상한·소유 정리를 검사한다. 사용자 검토용 자료는 자체 합성으로 제한하고 실제 농장/자료 관문/G4를 주장하지 않는다. 후속 연구 입력 목록/일반 운영 설정은 독립 수용이다.
+- [x] **`morphology-execution-runtime-preview`** — 선행: 위 HTTP/core. 기존 deterministic discovery/loop에 정확한 morphology 판본과 worker/outcome을 명시 등록한다. 현재 역할·원 입력/현재 검토/권리·서버 조립/TLS/실제 접수→자동 계산→저장/재조회·다른 queued 모델 보존과6root/WSL 상한·소유 정리를 검사한다. 사용자 검토용 자료는 자체 합성으로 제한하고 실제 농장/자료 관문/G4를 주장하지 않는다. 후속 연구 입력 목록/일반 운영 설정은 독립 수용이다.
   - [x] 기존 자동 consumer — [신규5/관련21·실제 SCRAM1](../research/morphology-automatic-consumer-20261022.md). 명시 판본·실제 discovery→1계산/원자 완료/원12프레임·기존 queued job/완료 뒤 선택0·6root/정리 수용.
-  - [ ] 불변 소유 runtime 조립·현재 auth/TLS/검토/권리·실제 사용자 HTTP/브라우저/저장 재조회·WSL 적용.
-- [ ] **`morphology-execution-web`** — 선행: 위 HTTP. 사용자에게 접수·현재 실제 단계/보류/취소·완료 결과와 같은 UTC의 기존 사실적 3D/표/그래프를 연결한다. 메뉴 이동·새로고침 뒤 같은 job 재조회, 오래된 응답 무시/철회 때 제거·중복 계산0·모바일/실제 브라우저·원 화면/자원 보존이 수용 기준이다. 실제 품종·과실/수확/예측/추천은 별도다.
+  - [x] 불변 소유 runtime 조립·현재 auth/TLS/검토/권리·실제 사용자 HTTP/브라우저/저장 재조회·WSL 적용. [실제 UI/runtime 수용](../research/morphology-execution-live-20261022.md): CI50/Chromium16·실제 접수2/취소1/자동 완료1·원12시점·메뉴/reload/현재 철회·동일 DB cold restart/25표 행 SHA/POST0·178 HTTP파일/원6root 보존. 일반 입력 목록/운영/G4는 별도다.
+- [x] **`morphology-execution-web`** — 선행: 위 HTTP. 사용자에게 접수·현재 실제 단계/보류/취소·완료 결과와 같은 UTC의 기존 사실적 3D/표/그래프를 연결한다. 메뉴 이동·새로고침 뒤 같은 job 재조회, 오래된 응답 무시/철회 때 제거·중복 계산0·모바일/실제 브라우저·원 화면/자원 보존이 수용 기준이다. 실제 품종·과실/수확/예측/추천은 별도다.
+
+- [ ] **`crop-leaf-expansion-equation-kernel`** — 현재 고정 제작 잎 뒤의 다음 계산 자식. [기존 잎 식/단위 보류](../research/tomato-leaf-morphology-boundaries-20261022.md)를 원문/저자 1차 정의로 해소한 범위만 계약한다. 정확 면적 식·차원/초기조건을 추정하지 않으며, 명시 합성 한 기관의 독립 수치·극한/오류/입력 불변을 수용한 뒤 시계/기관 목록→새 불변 저장/같은 UTC3D로 나눈다. 실제 Axiany 자료/독립 검증은 병행 외부 의존성이다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.

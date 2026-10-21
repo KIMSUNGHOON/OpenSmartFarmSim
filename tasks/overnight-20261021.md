@@ -31,6 +31,11 @@
 현재 앱의 사용자 `/goal clear` 또는 `/goal <새 목표>` 조작이 필요하며, 등록 뒤 도구로 실제 상태를 재확인한다.
 이 파일은 실행 지시와 등록 초안이며 실제 goal 활성화의 증거가 아니다. 해당 제어와 독립적인 구현은 계속한다.
 
+**22:03 UTC 재확인:** 사용자가 `/goal clear` 실행 완료를 회신했다. 이어 실제 `get_goal`은
+여전히 같은 이전 objective/`paused`를 반환했고 새 `create_goal`도 unfinished goal 오류로 거부했다.
+사용자 입력과 제공된 도구 상태의 불일치다. 새 goal 등록을 완료했다고 표시하지 않으며
+재입력을 반복 요청하지 않는다. 사용자의 오전9시까지 계속하라는 실행 지시로 구현을 이어간다.
+
 ## 진행
 
 - 열적 시계: [새56/기존49 집중 수용](../research/crop-morphology-thermal-clock-20261021.md).
@@ -68,3 +73,5 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 - [보호 HTTP](../research/api-crop-morphology-execution-20261022.md):제어27/OpenAPI·Scope89·실제 SCRAM/TLS2·원12 DTO/취소·늦은 만료/409 수용.1GiB 중단 뒤 같은 검사 분할 통과·6root/정리. 다음 자동 consumer/runtime과 UI다.
 
 - [명시 자동 consumer](../research/morphology-automatic-consumer-20261022.md):제어21/실제 SCRAM1·discovery→1계산/원자 저장/원12 DTO·다른 queued job/완료 뒤 선택0/6root·정리 수용. 다음 소유 runtime/사용자 UI다.
+
+- [실제 실행/성장3D](../research/morphology-execution-live-20261022.md): CI50/Chromium16·실제 HTTP 접수2/취소1/자동 완료1·원12시점/메뉴/reload/현재 철회와 새 API·PG cold restart/25표 원 SHA·추가POST0을 수용했다. 원6/기존 화면·WSL 상한을 보존했다. 사용자 Chrome을 마지막/정지로 유지하며 다음은 잎의 식/차원·초기조건을 먼저 확인하는 한 기관 계산 자식이다.

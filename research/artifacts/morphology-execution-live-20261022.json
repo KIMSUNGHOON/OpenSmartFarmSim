@@ -1,0 +1,336 @@
+{
+  "G0_G4": "not_assessed",
+  "UI": {
+    "CI_run": 39680266179,
+    "URL": "http://localhost:5176/",
+    "audit_vulnerabilities": 0,
+    "build": true,
+    "focused_Chromium_tests": 16,
+    "focused_unit_tests": 50,
+    "full_backend_suite": false,
+    "full_web_suite": false,
+    "source_commit": "6c2eb842b644cdd6e1f7c0fd7979381e6c088726",
+    "typecheck": true
+  },
+  "actual_HTTP_observations": [
+    {
+      "body_aborted": false,
+      "path": "/preview-input",
+      "state": null,
+      "status": 200
+    },
+    {
+      "body_aborted": false,
+      "path": "/v1/crop-morphology-executions",
+      "state": "queued",
+      "status": 202
+    },
+    {
+      "body_aborted": false,
+      "path": "/v1/jobs/b902e89a-6992-4cb6-9a3f-e87c913c1910/crop-morphology-execution/cancel",
+      "state": "canceled",
+      "status": 200
+    },
+    {
+      "body_aborted": false,
+      "path": "/v1/crop-morphology-executions",
+      "state": "queued",
+      "status": 202
+    },
+    {
+      "body_aborted": true,
+      "path": "/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution",
+      "state": null,
+      "status": 503
+    },
+    {
+      "body_aborted": false,
+      "path": "/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution",
+      "state": "simulating",
+      "status": 200
+    },
+    {
+      "body_aborted": false,
+      "path": "/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution",
+      "state": "succeeded",
+      "status": 200
+    },
+    {
+      "body_aborted": false,
+      "path": "/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution/replay",
+      "state": "succeeded",
+      "status": 200
+    },
+    {
+      "body_aborted": false,
+      "path": "/preview-input",
+      "state": null,
+      "status": 200
+    },
+    {
+      "body_aborted": false,
+      "path": "/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution",
+      "state": "succeeded",
+      "status": 200
+    },
+    {
+      "body_aborted": false,
+      "path": "/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution/replay",
+      "state": "succeeded",
+      "status": 200
+    }
+  ],
+  "actual_farm_Runs": 0,
+  "cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_context_LF_SHA256": "dbc644831a351328d76893e8823fbe5f9b38ec4c60822ba20c977a8994dbd2cc",
+    "turn_context_timestamp": "2026-10-21T22:03:05.125Z"
+  },
+  "cold_restart": {
+    "application_errors": [],
+    "expected_HTTP_console": [],
+    "last_frame_left_open_paused": true,
+    "new_POSTs": 0,
+    "restored_same_job_id": "66b8c06d-7137-42d2-b141-e9d39bc230c4",
+    "restored_same_result_and_calculated_at": true,
+    "same_DB_after_owned_API_PostgreSQL_cold_restart": true
+  },
+  "cold_restart_old_controller": {
+    "combined_peak_RSS_bytes": 1053954048,
+    "owned_remaining": 0,
+    "protected_original_six_live": true,
+    "ready_reached": true,
+    "reason": "owned_stop_requested",
+    "running": false,
+    "samples": 1666,
+    "single_PID_peak_RSS_bytes": 124948480,
+    "wall_seconds": 445.21943954300514
+  },
+  "cold_restart_resources": {
+    "WSL_PID_peak_RSS_bytes": 124948480,
+    "WSL_combined_peak_RSS_bytes": 1043066880,
+    "Windows_Chrome_and_Node_memory_included": false,
+    "child_exit": 0,
+    "common_capacity_acceptance": false,
+    "hold_reason": null,
+    "original_six_and_new_root_live": true,
+    "sample_interval_seconds": 0.25,
+    "samples": 56,
+    "static_viewer_live": true,
+    "wall_seconds": 14.557506639997882
+  },
+  "current_rights": {
+    "actual_HTTP_no_interception": true,
+    "application_errors": [],
+    "denied_geometry_table_graph_and_result_metadata_removed": true,
+    "expected_HTTP_console": [
+      {
+        "text": "Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)",
+        "type": "error",
+        "url": "http://localhost:5176/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution"
+      }
+    ],
+    "new_POSTs": 0,
+    "owned_fixture_revocation_injection": true,
+    "restored_same_job_id": "66b8c06d-7137-42d2-b141-e9d39bc230c4",
+    "restored_same_result_and_calculated_at": true,
+    "revoked_HTTP_422": true
+  },
+  "current_rights_resources": {
+    "WSL_PID_peak_RSS_bytes": 124948480,
+    "WSL_combined_peak_RSS_bytes": 1041244160,
+    "Windows_Chrome_and_Node_memory_included": false,
+    "child_exit": 0,
+    "common_capacity_acceptance": false,
+    "hold_reason": null,
+    "original_rights_SHA256": "4e670761a1339f7a5aee303bbd00c590f250ce48fe4a879acc302c64351b1a98",
+    "original_six_and_new_root_live": true,
+    "rights_restored_exactly": true,
+    "sample_interval_seconds": 0.25,
+    "samples": 51,
+    "static_viewer_live": true,
+    "wall_seconds": 13.255249804999039
+  },
+  "database_before_after": {
+    "after": {
+      "WSL_PID_peak_RSS_bytes": 124948480,
+      "WSL_combined_peak_RSS_bytes": 977846272,
+      "all_original_25_table_rows_identical": true,
+      "original_six_and_current_runtime_live": true,
+      "read_queries_only": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 1,
+      "schema_rowset_SHA256": "02711ef673b441d2f1d6d01f27421bb2f8e296703fe882d03725c8d3f5fdbe87",
+      "table_count": 25,
+      "wall_seconds": 0.23483444500016049
+    },
+    "before": {
+      "WSL_PID_peak_RSS_bytes": 124948480,
+      "WSL_combined_peak_RSS_bytes": 956116992,
+      "original_six_and_current_runtime_live": true,
+      "read_queries_only": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 1,
+      "schema_rowset_SHA256": "02711ef673b441d2f1d6d01f27421bb2f8e296703fe882d03725c8d3f5fdbe87",
+      "table_count": 25,
+      "wall_seconds": 0.24895806799759157
+    }
+  },
+  "native": {
+    "actual_HTTP_no_interception": true,
+    "actual_cancelled_state": true,
+    "actual_geometry_changed": true,
+    "application_errors": [],
+    "autoplay_original_frames": true,
+    "cancel_POSTs": 1,
+    "cancelled_job_id": "b902e89a-6992-4cb6-9a3f-e87c913c1910",
+    "completed_job_id": "66b8c06d-7137-42d2-b141-e9d39bc230c4",
+    "first": {
+      "at": "2026-10-01T02:00:00Z",
+      "axis_m": 0.045663424634695575,
+      "draw_calls": 28,
+      "index": 0,
+      "internodes": 3,
+      "original_exact_births": true,
+      "original_lengths": [
+        0.015221141544898524,
+        0.015221141544898524,
+        0.015221141544898524
+      ]
+    },
+    "idle_renderer_stops": true,
+    "last": {
+      "at": "2026-10-02T00:00:00Z",
+      "axis_m": 0.14526009414404015,
+      "draw_calls": 40,
+      "index": 11,
+      "internodes": 6,
+      "original_exact_births": true,
+      "original_lengths": [
+        0.028858689966106667,
+        0.028858689966106667,
+        0.028858689966106667,
+        0.02373793337297019,
+        0.019333073949190226,
+        0.015613016923559741
+      ]
+    },
+    "menu_keeps_same_job_and_selected_frame": true,
+    "mobile_no_overflow": true,
+    "observed_transient_HTTP_503_console": [
+      {
+        "location": {
+          "column": 0,
+          "columnNumber": 0,
+          "line": 0,
+          "lineNumber": 0,
+          "url": "http://localhost:5176/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution"
+        },
+        "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+        "type": "error"
+      }
+    ],
+    "reload_same_result_and_calculated_at_no_new_POST": true,
+    "result": {
+      "binding_sha256": "7f87177b2c1475db1ba8b984645b9fc4b06e08a9e8c4356667bcb426a8eb588b",
+      "calculated_at": "2026-10-21T22:00:13.774657Z",
+      "farm": {
+        "crop_id": "crop-1",
+        "registration_sha256": "a86a6b2709b2eebbc658fc029e1f6ad1c501cc70751c96ed75735a9268d76b40",
+        "scenario_id": "farm-1",
+        "scenario_revision": "r1"
+      },
+      "input_evidence_sha256": "8ad008483dbe8fb91f94dc033fb39cfaaac87832d37fee6d8020cb421806b662",
+      "numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+      "profile_applicability": "unvalidated_for_registered_crop",
+      "program_sha256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3",
+      "result_sha256": "b367b91fc557ea49de8f53d6db94128ec9e6985752ad73fed03934785e29f37d",
+      "revision": "r1",
+      "source_sha256": "877ef02b25869c5e099312734aa236613cf1f607daec097a95b4fb54da064490",
+      "study_id": "morphology-0b092d52-8508-40b4-a38d-4321bcaf6ce3"
+    },
+    "submission_POSTs": 2,
+    "unexpected_console": [],
+    "view_left_open_last_paused": true,
+    "wall_seconds": 43.691
+  },
+  "native_resources": {
+    "WSL_PID_peak_RSS_bytes": 124948480,
+    "WSL_combined_peak_RSS_bytes": 1065050112,
+    "Windows_Chrome_and_Node_memory_included": false,
+    "child_exit": 0,
+    "common_capacity_acceptance": false,
+    "hold_reason": null,
+    "original_six_and_new_root_live": true,
+    "sample_interval_seconds": 0.25,
+    "samples": 171,
+    "static_viewer_live": true,
+    "wall_seconds": 44.389480624995485
+  },
+  "not_claimed": [
+    "real_cultivar_growth_or_whole_cycle",
+    "predicted_leaf_number_area_or_height",
+    "fruit_maturity_harvest_resources_margin_or_autonomous_crop_ranking",
+    "G0_G4_or_public_production_deployment",
+    "WSL_restart_automatic_recovery_or_common_capacity",
+    "exact_transient_503_cause",
+    "instrumented_runtime_zero_math_on_reload"
+  ],
+  "original_frontend_preservation": {
+    "all_new_HTTP_files_original_bytes": true,
+    "new_HTTP_file_count": 178,
+    "no_old_backend_or_DB_replacement": true,
+    "original_file_counts": [
+      190,
+      223,
+      137,
+      175
+    ],
+    "original_six_and_new_root_live": true
+  },
+  "owned_runtime": {
+    "PostgreSQL_max_connections": 8,
+    "PostgreSQL_shared_buffers_MiB": 4,
+    "assembly_source_SHA256": "989904e4a2901e10e7f1c84e502eb2c46483ccbc1c559234bdc2c763d9762075",
+    "automatic_loop": "app.deterministic_work.DeterministicWorkerLoop",
+    "configuration_SHA256": "9c1a03d061e85f131b0f4eea33ca038de0be22efc77ce0fae777595c57a8689d",
+    "explicit_input_version": "morphology-execution-input-v1",
+    "fixture_roles_installed_with_existing_procedure": true,
+    "frozen_files": 772,
+    "new_product_schema_or_role_definitions_or_packages": 0,
+    "original_databases_copied_or_mutated": false,
+    "owned_fixture_only": true,
+    "production_route_installer": "app.api_crop_morphology_execution.install_morphology_execution_routes"
+  },
+  "prior_failures": [
+    "initial_frozen_snapshot_missing_LICENSES_fixed_before_acceptance",
+    "initial_empty_blob_directory_mode_0700_rejected_required_ContentAccess_0750_created_by_writer",
+    "earlier_full_API_owned_runtime_RSS_limit_terminated_its_owned_tree_original_six_survived",
+    "two_earlier_native_attempts_RSS_limit_unaccepted",
+    "first_pending_submission_test_revealed_stale_previous_job_restore_fixed",
+    "explicit_H2_status_role_lost_heading_semantics_fixed_with_status_parent",
+    "first_5_second_WebGL_CI_timeout_unaccepted_followup_diagnostics_and_60_second_baseline_bound"
+  ],
+  "private_evidence_SHA256": {
+    "CI-v2.private.json": "2960cbbf3c827fe08a5f4a3afbcc653b0e1f89674f7272afbd4ba554da241e00",
+    "deployment.private.json": "df626a8db8fb12215484dfece2f8feb7f812ab46b298197c764c3ae41e0473df",
+    "download-v2.private.json": "f3232708a9cb0d26bba59e9f6d8f98edfdaa903775880b9e0118260d08944d94",
+    "native-rights-v1/native-result.private.json": "cbfbe020ea2152abf654023649812c43be8dfcad42e40557e6ec88aa51b2f410",
+    "native-rights-v1/resource.private.json": "f5d73ee2b9988406d947afcbb89a706c6be75fc053ee9616c163ef7321fa28d1",
+    "native-v3/native-result.private.json": "4f7f19d7955daf285dc60e4931756d254b1241a19654205b8ddccbd105ae6de1",
+    "native-v3/resource.private.json": "8f7a65b288eb50ee33f166cde0b987a69930edbd467ee643e8daaa66e7a73f95",
+    "ready-v5.private.json": "7b8120ee233060fef38091c2bf04ee80e82c55c5e3ac58f97d7d3e3c220547cb",
+    "restart-v1/after.private.json": "187c8ce49f2af9519d27a62a274c1c90f7bd212b0cd2cb8214d19f347a5c9af1",
+    "restart-v1/before.private.json": "776ba60d9be161179f043426fc9766585812f53b97e299e1be352f8c2d985225",
+    "restart-v1/browser/native-result.private.json": "b9c7e81528c863d118cacdf763509d5b52a48357fb6701eec0d096f0f1652b80"
+  },
+  "scope": "software_research_only",
+  "screenshots_SHA256": {
+    "morphology-execution-denied-20261022.png": "3bec8435100be6f11604500c11b37be3992d4e91491293f58745ea069f74bc41",
+    "morphology-execution-first-20261022.png": "933a423ad2f420be9ba89e054bcc4bcd3c8e56f2fbc0374f5febab09ddfe99f0",
+    "morphology-execution-last-20261022.png": "f415be0456ce69e3381d7af21ba9ab417a85188d6cc0c6e5877d0c350dbc398a",
+    "morphology-execution-mobile-20261022.png": "b9553000d898be1f365147404d16ae8fbdeeda191254b536eed33cb654a4bb1a"
+  }
+}
