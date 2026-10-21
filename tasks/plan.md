@@ -186,6 +186,8 @@ E1은0.5–1.25, E2/E3는1–2.5집중시간의 낮은 신뢰 계획이다. 보�
 2,269bytes job input·원 binding/SourceResolver와 같은1행/충돌·commit 철회 rollback/0계산·6root를 확인했다.
 기존 공통 표/Role 코드는 유지했다. 다음 E2 worker/원자 결과 참조와 E3 현재 조회를 진행한다.
 
+**E2 수용 — 2026-10-22:** [참조9/실제 SCRAM5](../research/crop-morphology-execution-worker-20261022.md)로 실제1계산/원 root·같은 transaction 완료와 완료 재접수0계산, 다른 queued 모델 보존·취소/늦은 권리/임대 만료 게시0·6root/소유 정리를 확인했다. 다음 E3 현재 readonly query/fresh → 보호 API/사용자 화면이며 실제 농장/관문은 유지한다.
+
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.
 데이터셋 판본1·2를 독립 작기로 세지 않으며 다른 품종 계수로 빈칸을 채우지 않는다. 개발과 자료 확보는 병행한다.

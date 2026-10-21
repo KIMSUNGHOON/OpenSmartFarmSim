@@ -23,7 +23,7 @@
 
 - [ ] **`morphology-execution-core`** — [기존 작업/완료 참조 계약](../contracts/crop-morphology-execution-v1.md).
   - [x] E1 현재 원 입력/binding·intent HMAC/기존 submit의 멱등·commit fence. [제어11/실제 SCRAM2](../research/crop-morphology-execution-admission-20261022.md), 1행/충돌/commit 철회·26계측0/원 표·6root/정리 수용.
-  - [ ] E2 해당 input_version의 worker·실제 producer/현재성·lease/cancel/원자 opaque 참조/terminal 게시·기존 다른 job 보존.
+  - [x] E2 해당 input_version의 worker·실제 producer/현재성·lease/cancel/원자 opaque 참조/terminal 게시·기존 다른 job 보존. [참조9/실제 SCRAM5](../research/crop-morphology-execution-worker-20261022.md), 실제1계산·원 root/재접수0계산·취소/늦은 권리/만료 게시0·6root/정리 수용.
   - [ ] E3 같은 job/publication·현재 manifest/frame/원 시각/ID·fresh/현재 철회·조회 계산/쓰기0.
   보호 API와 제품 UI/실제 CLI 전체 경로·독립 자료/관문은 뒤따르는 단계다.
 

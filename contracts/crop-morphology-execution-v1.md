@@ -1,6 +1,7 @@
 # 형태 계산의 접수·완료 참조와 현재 조회 — v1
 
-상태: [E1 제어11/실제 SCRAM2 수용](../research/crop-morphology-execution-admission-20261022.md). E2/E3와 HTTP/UI는 후속이다.
+상태: [E1 제어11/실제 SCRAM2](../research/crop-morphology-execution-admission-20261022.md),
+[E2 참조9/실제 SCRAM5](../research/crop-morphology-execution-worker-20261022.md) 수용. E3와 HTTP/UI는 후속이다.
 
 선행: [완료 수치 서명/현재 조회](crop-morphology-signed-artifact-v1.md).
 기존 JobStore의 deterministic simulation·jobs/job_attempts/job_events/job_publications/attempt_outcomes를 사용한다.
@@ -27,6 +28,9 @@ study/revision의 versioned intent key와 기존 submit commit_guard로 같은 �
 작은 **opaque result reference**를 저장한다. 같은 transaction에 publication/outcome/events·terminal state를 기록한다.
 다른 모델/시도·만료 임대/취소·현재 철회는 게시하지 않는다. 완료 job 재조회/동일 접수는 수치 재실행0이다.
 중단된 시도는 기존 attempts 정책을 따르며 새 시도의 계산 시각/증거를 보존한다. completed artifact 자체를 승인 Run으로 승격하지 않는다.
+계산은 job 행 잠금 밖에서 수행한다. 실제 deterministic 계산 시작 사건과 code/input SHA·원 output 수를 기록하고
+AI 전용 attempt_invocations에 가짜 CLI 호출을 넣지 않는다. 완료 전 취소·임대 만료/권리 철회 때 private artifact가
+남을 수 있으나 publication/완료 참조는 없으며 제품 query로 조회할 수 없다. 이 v1은 계산 중 프레임이나 checkpoint 재개를 약속하지 않는다.
 
 ## E3 현재 조회와 다음 API
 
