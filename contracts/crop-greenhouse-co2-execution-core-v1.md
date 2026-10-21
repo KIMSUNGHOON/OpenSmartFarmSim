@@ -6,6 +6,9 @@ Status: admission functionality accepted; checkpoint implemented/local13 passed,
 전체 core/worker·공통 WSL 용량/새 사용자 적용은 미완료다.
 [checkpoint 사전 증거](../research/artifacts/crop-greenhouse-co2-checkpoint-preflight-20261021.json)의
 전체26개 수집은 통과했으며 실제 준비/진행/완료/수치 hold와 현재/늦은 fence 검증은 후속이다.
+[첫 CI의 불변성 시험 준비 수정](../research/artifacts/crop-greenhouse-co2-checkpoint-immutable-test-fix-20261021.json)은
+기존 DB의 이력/입력 UPDATE 거부를 보존한다. 잘못된 새 metadata와 최종 읽기 결과의 fault injection은
+실제 DB 변경과 구분하며 같은26개 재검증 전까지 checkpoint는 미수용이다.
 선행은 [명시 조회 runtime 기능 수용](crop-greenhouse-co2-runtime-v1.md)이다.
 [기존 Solar 실행 핵심](crop-greenhouse-solar-execution-core-v1.md)의 임대/현재성/원자 게시 경계를 재사용한다.
 공통 WSL 용량은 사용자 적용 전 조건이며 아래 개발의 별도 중복 장애로 계산하지 않는다.

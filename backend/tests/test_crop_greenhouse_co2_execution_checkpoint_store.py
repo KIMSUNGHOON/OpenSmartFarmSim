@@ -153,55 +153,94 @@ def test_current_data_rights_execution_scope_and_tenant_are_checked(setup,monkey
 @pytest.mark.parametrize('fault',['provenance','approval'])
 def test_actual_owner_metadata_tampering_cannot_authorize_another_checkpoint(setup,monkeypatch,login_database,fault):
     store,job,_,raw,_=setup;store.server.advance('tenant-1',raw,budget=1);first=confirm(setup)
-    original=first['checkpoint'];bad=deepcopy(original)
+    bad=deepcopy(first['checkpoint'])
     if fault=='provenance':bad['provenance_sha256']='0'*64
     else:bad['rights_or_gate_approval']=True
     policy=store.jobs.runtime_identity[0]
-    def write(value):
+    with pytest.raises(psycopg.errors.RaiseException,match='accepted publication and audit rows are immutable') as blocked:
         with psycopg.connect(login_database['admin']) as conn:
             conn.execute(sql.SQL('SET LOCAL ROLE {}').format(sql.Identifier(policy.owner)))
             conn.execute(sql.SQL('UPDATE {} SET reason=%s WHERE tenant_id=%s AND job_id=%s AND event_id=%s').format(
-                store.jobs._table('job_events')),(Jsonb(value),'tenant-1',job,first['event_id']))
-    write(bad)
-    try:
-        with monkeypatch.context() as patch:
-            calls=producer.reference.forbid(patch)
+                store.jobs._table('job_events')),(Jsonb(bad),'tenant-1',job,first['event_id']))
+    assert blocked.value.sqlstate=='P0001'
+    assert model.Co2ExecutionCheckpointStore._record(events(store,job)[0],job)==first
+    store.server.advance('tenant-1',raw,budget=1);before=files(store.server)
+    snapshot=model.Co2ExecutionCheckpointStore._snapshot;execute=psycopg.Connection.execute;corrupted=[];inserted=[]
+    def damaged(instance,*args,**kwargs):
+        value,proof=snapshot(instance,*args,**kwargs);value=deepcopy(value)
+        if fault=='provenance':value['provenance_sha256']='0'*64
+        else:value['rights_or_gate_approval']=True
+        corrupted.append(1);return value,proof
+    def observe(conn,statement,*args,**kwargs):
+        cursor=execute(conn,statement,*args,**kwargs)
+        text=statement.as_string(conn) if hasattr(statement,'as_string') else statement
+        if text.startswith('INSERT INTO '+store.jobs._table('job_events').as_string(conn)) and args and args[0][4]==model.EVENT_KIND:
+            inserted.append(1)
+        return cursor
+    with monkeypatch.context() as patch:
+        calls=producer.reference.forbid(patch)
+        with monkeypatch.context() as fault_patch:
+            fault_patch.setattr(model.Co2ExecutionCheckpointStore,'_snapshot',damaged)
+            fault_patch.setattr(psycopg.Connection,'execute',observe)
             with pytest.raises(model.Co2CheckpointHold):confirm(setup)
-            assert not any(calls.values())
-    finally:write(original)
-    assert len(events(store,job))==1 and confirm(setup)==first;no_result(store,job)
-    save('tamper-'+fault,{'actual_owner_metadata_mutations':2,'forgery_denied':True,'original_event_restored':True,'calls':calls})
+        assert corrupted==inserted==[1] and len(events(store,job))==1
+        second=confirm(setup);assert second['checkpoint']['publication_sequence']==2
+        assert not any(calls.values())
+    rows=events(store,job);assert len(rows)==2 and model.Co2ExecutionCheckpointStore._record(rows[0],job)==first
+    assert files(store.server)==before;no_result(store,job)
+    save('tamper-'+fault,{'owner_UPDATE_denied_by_immutable_trigger':True,'SQLSTATE':'P0001',
+        'constructor_fault_injected_not_DB_history_mutated':True,'invalid_checkpoint_insert_rolled_back':True,
+        'first_event_preserved_and_valid_next_checkpoint_accepted':True,'calls':calls})
 
 
 @pytest.mark.parametrize('change',['cancel','expire','input','scope'])
-def test_changes_after_second_current_validation_roll_back_checkpoint(setup,monkeypatch,change):
+def test_changes_after_second_current_validation_roll_back_checkpoint(setup,monkeypatch,login_database,change):
     store,job,_,raw,value=setup;store.server.advance('tenant-1',raw,budget=1)
     original=model.Co2ExecutionCheckpointStore._current;observed=[];before=files(store.server)
+    read_lease=model.Co2ExecutionCheckpointStore._lease;identity_denied=[];injected=[]
+    with store.jobs.connect() as conn:
+        original_input=store.jobs._verified_input(conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(
+            store.jobs._table('jobs')),('tenant-1',job)).fetchone())
     def current(instance,*args,**kwargs):
         result=original(instance,*args,**kwargs);observed.append(1)
         if len(observed)==2:
             if change=='cancel':assert store.admission.cancel('tenant-1',job)
             elif change=='scope':value[4]['scopes'].remove('simulation_execute')
-            else:
+            elif change=='expire':
                 with store.jobs.connect() as conn:
-                    if change=='expire':
-                        conn.execute(sql.SQL("UPDATE {} SET lease_until=clock_timestamp()-interval '1 second' WHERE tenant_id=%s AND job_id=%s").format(
-                            store.jobs._table('jobs')),('tenant-1',job))
-                    else:
-                        row=conn.execute(sql.SQL('SELECT input_bytes FROM {} WHERE tenant_id=%s AND job_id=%s').format(
-                            store.jobs._table('jobs')),('tenant-1',job)).fetchone()
-                        doc=json.loads(bytes(row['input_bytes']));doc['input_resolver_version']+='-changed'
-                        new=model.execution.canonical_input_bytes(doc)
+                    conn.execute(sql.SQL("UPDATE {} SET lease_until=clock_timestamp()-interval '1 second' WHERE tenant_id=%s AND job_id=%s").format(
+                        store.jobs._table('jobs')),('tenant-1',job))
+            else:
+                doc=json.loads(original_input);doc['input_resolver_version']+='-changed'
+                new=model.execution.canonical_input_bytes(doc)
+                with pytest.raises(psycopg.errors.RaiseException,match='job identity is immutable') as blocked:
+                    with psycopg.connect(login_database['admin']) as conn:
+                        conn.execute(sql.SQL('SET LOCAL ROLE {}').format(sql.Identifier(store.jobs.runtime_identity[0].owner)))
                         conn.execute(sql.SQL('UPDATE {} SET input_bytes=%s,input_sha256=%s WHERE tenant_id=%s AND job_id=%s').format(
                             store.jobs._table('jobs')),(new,sha256(new).hexdigest(),'tenant-1',job))
+                assert blocked.value.sqlstate=='P0001';identity_denied.append(1)
         return result
+    def changed_read(instance,conn,*args,lock=True,**kwargs):
+        row=read_lease(instance,conn,*args,lock=lock,**kwargs)
+        if change=='input' and lock and len(observed)==2:
+            row=deepcopy(row);doc=json.loads(bytes(row['input_bytes']));doc['input_resolver_version']+='-changed'
+            row['input_bytes']=model.execution.canonical_input_bytes(doc);row['input_sha256']=sha256(row['input_bytes']).hexdigest()
+            injected.append(1)
+        return row
     try:
         with monkeypatch.context() as patch:
             calls=producer.reference.forbid(patch)
             patch.setattr(model.Co2ExecutionCheckpointStore,'_current',current)
+            patch.setattr(model.Co2ExecutionCheckpointStore,'_lease',changed_read)
             with pytest.raises((model.Co2CheckpointHold,PermissionError)):confirm(setup)
             assert not any(calls.values())
     finally:value[4]['scopes'].add('simulation_execute')
     assert len(observed)==2 and events(store,job)==[] and files(store.server)==before;no_result(store,job)
+    if change=='input':
+        assert identity_denied==injected==[1]
+        with store.jobs.connect() as conn:
+            assert store.jobs._verified_input(conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(
+                store.jobs._table('jobs')),('tenant-1',job)).fetchone())==original_input
     save('late-'+change,{'after_second_current_validation':True,'checkpoint_rollback':True,
-        'intentional_other_connection_change':change!='scope','calls':calls})
+        'intentional_other_connection_change':change in ('cancel','expire'),
+        'identity_UPDATE_denied_and_final_read_fault_injected':change=='input','actual_input_bytes_preserved':True,'calls':calls})

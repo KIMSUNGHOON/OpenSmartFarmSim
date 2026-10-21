@@ -1,0 +1,394 @@
+{
+  "schema_version": "co2-checkpoint-immutable-test-repair-v1",
+  "recorded_at": "2026-10-21T00:59:43.518410+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-21T00:47:20.066Z",
+    "raw_line_sha256": "de19186c1cf25008e71f3f70295780687db0cc57a322540f0739a5bc14a1c078",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "first_CI": {
+    "run_id": 39523075575,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39523075575",
+    "source_commit": "8faa5b6014463474fc09359d7fb60c02c23e0186",
+    "conclusion": "failure",
+    "failure": {
+      "exit": 1,
+      "failed_nodes": [
+        "FAILED tests/test_crop_greenhouse_co2_execution_checkpoint_store.py::test_actual_owner_metadata_tampering_cannot_authorize_another_checkpoint[provenance-login_scope0]"
+      ],
+      "log_sha256": "1edb179899964c9fb93df548555dd9d643ef9bd9d081dcba4bd87bb8f48eae7a",
+      "phase": "tests"
+    },
+    "resource": {
+      "FD_before_after": [
+        6,
+        6
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 714,
+      "WSL_capacity_accepted": false,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 195395584,
+      "hosted_only": true,
+      "mode": "co2-checkpoint",
+      "new_CO2_deployed": false,
+      "owned_non_zombie_remaining": [],
+      "passfiles_before_cleanup": 0,
+      "phase_exits": {
+        "tests": 1
+      },
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 113807360,
+      "source_preserved": true,
+      "temporary_entries_before_cleanup": 0,
+      "wall_seconds": 181.13797231400002
+    },
+    "curated_artifact_sha256": {
+      "checkpoint/current-denied.json": "6095a2fdc8e3fe739206c8487fefc962cb9b7891dfc32787d9f5d12bf45ce4df",
+      "checkpoint/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+      "checkpoint/history.json": "e505d2591f45690dc293c3530276dea288bde838a2aaafecc8f0cc7539e1aeb0",
+      "checkpoint/missing-head.json": "c8e1a7a88034a2bcfbcf2108ebb39cd6469b84eeba75f5f07617d02dc0d3d939",
+      "checkpoint/original-completed.json": "a0694c6aaf373f9bf5b3e41fd907a39f4ace04e7b7eb5819969fe067e8732ddd",
+      "checkpoint/original-hold.json": "a5178e4917d1a3bffcc887cbb7181066ec417530253154df803780aabf0f72a3",
+      "checkpoint/original-ready.json": "da25b8097989436254142c8a364adb3ac106f0c8ac96bdd2a06cb3d1f4f89d4d",
+      "checkpoint/original-yielded.json": "a3ea3a0b3e6c6dbe0dfb497ee3a3d6764baf5393afa39eb9144c11b0e6a2c613",
+      "failure.json": "077091b964ad035cf825d3ce8d6ad9f813f9b32d40758c7ac1948a45758402f0",
+      "resource.json": "e291c437d2b110ad7452878857c9ae5580f4922ff6006f095ac8cd5e9174472b"
+    },
+    "partial_native_records": {
+      "checkpoint/current-denied.json": {
+        "actual_scram": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "denials": 3,
+        "no_checkpoint_or_result": true
+      },
+      "checkpoint/database-cleanup.json": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "checkpoint/history.json": {
+        "actual_scram": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "first_event_time_preserved": true,
+        "signed_descendant_and_sequence": true
+      },
+      "checkpoint/missing-head.json": {
+        "actual_scram": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "no_initialization_or_checkpoint": true
+      },
+      "checkpoint/original-completed.json": {
+        "actual_scram": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "duplicate_event_and_first_recorded_at": true,
+        "fixture_ready_stop_not_SIGKILL": false,
+        "new_object_not_fresh_process": true,
+        "original_metadata_time_and_file_hashes": true,
+        "publications": 0,
+        "status": "completed"
+      },
+      "checkpoint/original-hold.json": {
+        "actual_scram": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "duplicate_event_and_first_recorded_at": true,
+        "fixture_ready_stop_not_SIGKILL": false,
+        "new_object_not_fresh_process": true,
+        "original_metadata_time_and_file_hashes": true,
+        "publications": 0,
+        "status": "hold"
+      },
+      "checkpoint/original-ready.json": {
+        "actual_scram": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "duplicate_event_and_first_recorded_at": true,
+        "fixture_ready_stop_not_SIGKILL": true,
+        "new_object_not_fresh_process": true,
+        "original_metadata_time_and_file_hashes": true,
+        "publications": 0,
+        "status": "ready"
+      },
+      "checkpoint/original-yielded.json": {
+        "actual_scram": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "duplicate_event_and_first_recorded_at": true,
+        "fixture_ready_stop_not_SIGKILL": false,
+        "new_object_not_fresh_process": true,
+        "original_metadata_time_and_file_hashes": true,
+        "publications": 0,
+        "status": "yielded"
+      }
+    },
+    "raw_pytest_traceback": "not_uploaded_private_log; exact trigger behavior reproduced from failed node/source in owned database"
+  },
+  "diagnosis_and_collection": {
+    "focused-co2-checkpoint-immutable-event-probe-v1": {
+      "terminal_sha256": "8b6368856f472408982692833d006d014e4919d833aabdefd80bc9efc4f54d9e",
+      "guard": {
+        "actual_child_exit": 0,
+        "reason": null,
+        "wall_seconds": 1.505969226011075,
+        "combined_peak_RSS_bytes": 949141504,
+        "single_PID_peak_RSS_bytes": 144052224,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      },
+      "actual_probe": {
+        "owned_PG16_probe_only": true,
+        "test_owner_connection_kind": "same local admin SET ROLE as failed CI test",
+        "exact_DB_source_sha256": "a269f4e19509375a361e18cb1a53aacaf1f73553809d59ba1429b68901c6fe85",
+        "owner_UPDATE_denials": [
+          {
+            "field": "provenance_sha256",
+            "sqlstate": "P0001",
+            "message": "accepted publication and audit rows are immutable",
+            "actual_table_owner": true
+          },
+          {
+            "field": "rights_or_gate_approval",
+            "sqlstate": "P0001",
+            "message": "accepted publication and audit rows are immutable",
+            "actual_table_owner": true
+          }
+        ],
+        "row_unchanged": true,
+        "triggers_or_grants_weakened": false,
+        "schema_role_remaining": 0,
+        "actual_crop_Runs": 0,
+        "G0_G4": "not_assessed"
+      }
+    },
+    "focused-co2-checkpoint-immutable-event-and-input-probe-v2": {
+      "terminal_sha256": "6fb2386f5ea37c3cb32c406a32a29f71285cec597b5c4c30792d87a320d0ec4b",
+      "guard": {
+        "actual_child_exit": 0,
+        "reason": null,
+        "wall_seconds": 1.5050409139948897,
+        "combined_peak_RSS_bytes": 948641792,
+        "single_PID_peak_RSS_bytes": 144052224,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      },
+      "actual_probe": {
+        "owned_PG16_probe_only": true,
+        "test_owner_connection_kind": "same local admin SET ROLE as failed CI test",
+        "exact_DB_source_sha256": "a269f4e19509375a361e18cb1a53aacaf1f73553809d59ba1429b68901c6fe85",
+        "owner_UPDATE_denials": [
+          {
+            "field": "provenance_sha256",
+            "sqlstate": "P0001",
+            "message": "accepted publication and audit rows are immutable",
+            "actual_table_owner": true
+          },
+          {
+            "field": "rights_or_gate_approval",
+            "sqlstate": "P0001",
+            "message": "accepted publication and audit rows are immutable",
+            "actual_table_owner": true
+          },
+          {
+            "field": "job.input_bytes+input_sha256",
+            "sqlstate": "P0001",
+            "message": "job identity is immutable",
+            "actual_table_owner": true
+          }
+        ],
+        "row_unchanged": true,
+        "triggers_or_grants_weakened": false,
+        "schema_role_remaining": 0,
+        "actual_crop_Runs": 0,
+        "G0_G4": "not_assessed"
+      }
+    },
+    "focused-co2-checkpoint-repaired-collection-v2": {
+      "terminal_sha256": "6217e35a7a15289f477b1aa2f8d419e6845a945b0074f1dc11421803729ca842",
+      "guard": {
+        "actual_child_exit": 0,
+        "reason": null,
+        "wall_seconds": 2.1641063569986727,
+        "combined_peak_RSS_bytes": 996675584,
+        "single_PID_peak_RSS_bytes": 144052224,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      },
+      "same_collection26": {
+        "control": 13,
+        "actual_SCRAM_required": 13
+      }
+    }
+  },
+  "exact_DB_source_sha256": "a269f4e19509375a361e18cb1a53aacaf1f73553809d59ba1429b68901c6fe85",
+  "repaired_test_sha256": "723785b97da8b814777ec43fb3ccdc870dee1a81992e7bbb0ff3af054a90735d",
+  "production_app_files_changed": false,
+  "triggers_grants_schema_or_limits_weakened": false,
+  "test_nodes_and_case_count_unchanged": 26,
+  "actual_repaired_native_accepted": false,
+  "review_output": "The first checkpoint CI failed at owner UPDATE preparation in the provenance test, after seven actual-path receipts. The exact db.py source installs reject_change on job_events and guard_job_change on immutable job input. Independent owned PG16.15 probes confirmed actual table owner UPDATE is rejected with P0001 for provenance/approval and job identity; no triggers/grants were weakened. The test-only correction now asserts those DB protections, injects corrupted new snapshot metadata after legitimate construction, observes the attempted INSERT and verifies final-history rejection rolls it back, then accepts a valid next checkpoint without changing the first event. The late input case asserts immutable UPDATE denial and separately fault-injects the final locked-row read while proving stored input bytes remain original. It no longer misreports a blocked UPDATE as an actual input change. Same26 test nodes, status fixtures and resource caps retained; production backend app files are byte-identical to8faa5b6. Actual repaired SCRAM26 acceptance is pending. No worker/deployment/WSL/G0-G4 release.",
+  "review_output_sha256": "7e315717884d53f2d476f7ca06ebe2f3e98d84a0796ca007160f30a724e9b474",
+  "new_CO2_deployed": false,
+  "shared_WSL_capacity_accepted": false,
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed"
+}
