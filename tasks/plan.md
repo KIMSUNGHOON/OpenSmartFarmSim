@@ -176,6 +176,16 @@ CI 빌드/브라우저와 현재 사용자 서버 적용·직접 시각 검토�
 기존 표/권한·불변 수치/출처 판본을 보존할 수 있는 경로를 우선하며 새 schema/Role 기반을 근거 없이 늘리지 않는다.
 보호 API/제품 UI와 실제 품종/독립 자료·전체 작기/자원/경제는 남는다.
 
+[형태 실행 core](../contracts/crop-morphology-execution-v1.md)는 기존 JobStore simulation/publication으로 진행한다.
+64KiB job input에는 닫힌 요청/참조·HMAC intent만 넣고 큰 provenance/binding은 수용된 blob 저장을 사용한다.
+새 표/Role·공통 JobStore 변경 없이 E1 접수 → E2 실제 worker/완료 참조 → E3 현재 query를 각각 수용한다.
+E1은0.5–1.25, E2/E3는1–2.5집중시간의 낮은 신뢰 계획이다. 보호 API/화면은 이후 별도 수용이며
+실제 자료/품종·전체 제품 완료일을 이 소프트웨어 계획으로 확정하지 않는다.
+
+[E1 접수](../research/crop-morphology-execution-admission-20261022.md)는 제어11/실제 SCRAM2로 수용했다.
+2,269bytes job input·원 binding/SourceResolver와 같은1행/충돌·commit 철회 rollback/0계산·6root를 확인했다.
+기존 공통 표/Role 코드는 유지했다. 다음 E2 worker/원자 결과 참조와 E3 현재 조회를 진행한다.
+
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.
 데이터셋 판본1·2를 독립 작기로 세지 않으며 다른 품종 계수로 빈칸을 채우지 않는다. 개발과 자료 확보는 병행한다.

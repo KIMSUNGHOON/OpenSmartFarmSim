@@ -21,6 +21,12 @@
   [제어30/관련653·실제 SCRAM2/fresh](../research/crop-morphology-signed-artifact-20261022.md), 원 root/12프레임·14모듈 import0,
   25표 원 행 SHA·현재/늦은 철회·원15파일/6root와 소유 정리를 확인했다.
 
+- [ ] **`morphology-execution-core`** — [기존 작업/완료 참조 계약](../contracts/crop-morphology-execution-v1.md).
+  - [x] E1 현재 원 입력/binding·intent HMAC/기존 submit의 멱등·commit fence. [제어11/실제 SCRAM2](../research/crop-morphology-execution-admission-20261022.md), 1행/충돌/commit 철회·26계측0/원 표·6root/정리 수용.
+  - [ ] E2 해당 input_version의 worker·실제 producer/현재성·lease/cancel/원자 opaque 참조/terminal 게시·기존 다른 job 보존.
+  - [ ] E3 같은 job/publication·현재 manifest/frame/원 시각/ID·fresh/현재 철회·조회 계산/쓰기0.
+  보호 API와 제품 UI/실제 CLI 전체 경로·독립 자료/관문은 뒤따르는 단계다.
+
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
   실제 WebGL의 연결된 줄기·복엽/잎맥·과실/꽃받침·표면/조명/그림자, 회전·전체/과실/잎 확대,
