@@ -5,7 +5,7 @@
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-21T02:03:35.897378Z",
+  "reported_at": "2026-10-21T02:22:54.686936Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,7 +24,7 @@
       "state": "completed"
     },
     {
-      "evidence": "worker core20 수용 유지. 독립 정상/hold의 원 결과·UTC/현재 철회·정리를 확인했습니다. SIGKILL 시험의 직접 pidfd API 오류를 기존 libc 호환 헬퍼로 수정했고 실제 호환성3통과입니다. 기존34+회귀3=37의 CI39530741390가 진행 중이며 강제 종료 재개·새 CO₂/WSL 적용은 미수용입니다. 이후 진행 API→같은 UTC3D입니다.",
+      "evidence": "독립 worker37/실제 SCRAM3을 수용했습니다. 정상/hold·fresh 원 UTC/철회, 실제 SIGKILL−9/7+9와318지문/정리를 확인했습니다. 진행 조회를 구현해 제어15를 통과했고 전체35를24+11로 검증합니다. 첫24 CI39532409534 진행 중/후속11 미실행이며 진행 조회·새 CO₂/WSL 적용은 미수용입니다. 이후 확정 prefix/API→같은 UTC3D입니다.",
       "id": "execution_3d",
       "state": "next"
     },

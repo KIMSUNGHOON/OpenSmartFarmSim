@@ -107,6 +107,8 @@ M1+M2의 현재 산술 합은233–450집중시간이나, M2는 필요한 실제
 
 **worker 기능 수용 — 2026-10-21 KST:** [core20/실제 SCRAM11](../research/crop-greenhouse-co2-worker-core-20261021.md)과 [독립 소비자37/실제 SCRAM3](../research/crop-greenhouse-co2-worker-consumer-20261021.md)를 수용했다. source314bc26/CI39530741390의 원 결과/UTC·현재 철회·자동 발견/다른 Solar queued와 실제 libc pidfd SIGKILL−9/7+9·318지문/정리를 대사했다. 첫 두 실패·시험 환경변수/정리/pidfd 호환 수정은 보존했다. 다음은 [진행 query](../contracts/crop-greenhouse-co2-execution-query-v1.md)→확정 prefix/보호 실행 HTTP·runtime→typed web/같은 UTC3D다. worker 기능 수용이며 공통 WSL/새 사용자 적용·전체 작기/자료 관문은 남고 기존 공수/낮은 신뢰 달력 창을 유지한다.
 
+**진행 조회 구현 — 2026-10-21 KST:** source d0934a1의 [사전 증거](../research/artifacts/crop-greenhouse-co2-execution-query-preflight-20261021.json)는 로컬15·전체35수집과 원5root/자료를 확인했다. 같은 최종 구현 source의 겹치지 않는24(제어15/DB9)+11(DB9/fresh2)을 모두 수용해야 query를 완료한다. 첫 [CI39532409534](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39532409534)가 진행 중이며 후속 `co2-execution-query-fences`11은 미실행이다. 현재 query/새 CO₂ 배포·공통 WSL·생산/자원/경제/최종 UI·실제 자료 관문은 미수용이다.
+
 기존 미리보기는 [인증/TLS 실제 갱신·복구](../research/frozen-preview-authentication-renewal-20261021.md)를 수용했다. 다음 준비는 2026-10-21T20:37:14.318934+00:00 이전이다. 실제 만료에 따른 유지 작업이며 현재 핵심 순서 `co2-result-projection`→`co2-current-query`→API/worker/같은 UTC3D를 유지한다.
 
 **다음 핵심 개발 — CO₂ 원문/단위 정책:** [등록 재구성 범위 수정](../research/organ-catalog-registration-scope-20261021.md)은

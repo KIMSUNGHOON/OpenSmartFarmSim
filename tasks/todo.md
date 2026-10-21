@@ -2390,8 +2390,9 @@
         - [ ] **`co2-execution-query`** — 위 worker 기능 수용 뒤 [진행 조회 계약](../contracts/crop-greenhouse-co2-execution-query-v1.md)의 닫힌 DTO/현재 읽기 경계를 구현한다.
           실제 queued/canceled/확정/heartbeat·원 정상/hold/최초 UTC·읽기 권리/늦은 변경·독립 fresh와 조회 수치/SQL 변경0·정리를 수용한다.
           [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-execution-query-preflight-20261021.json)의 로컬15/전체35수집을 통과했다.
-          같은 최종 source의 독립24+11 배치(전체 DB18/fresh2)는 미실행이며 둘 다 수용 전 부모를 완료하지 않는다.
-          보호 접수/진행/취소 HTTP·실행 runtime→typed web/같은 UTC3D는 이후다. 공통 WSL 보류는 새 사용자 적용 전에 유지한다.
+          source d0934a1의 [첫24 CI39532409534](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39532409534)가 진행 중이며 후속11은 미실행이다.
+          전체 DB18/fresh2를 같은 최종 source에서 모두 수용하기 전 부모를 완료하지 않는다.
+          확정 prefix 읽기/투영→보호 접수/진행/취소 HTTP·실행 runtime→typed web/같은 UTC3D는 이후다. 공통 WSL 보류는 새 사용자 적용 전에 유지한다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
