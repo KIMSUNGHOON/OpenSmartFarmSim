@@ -2391,7 +2391,8 @@
           실제 queued/canceled/확정/heartbeat·원 정상/hold/최초 UTC·읽기 권리/늦은 변경·독립 fresh와 조회 수치/SQL 변경0·정리를 수용한다.
           [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-execution-query-preflight-20261021.json)의 로컬15/전체35수집을 통과했다.
           첫24 CI39532409534는 pytest 성공 뒤 필수 권리 증거 누락으로 후검사 실패다. [기록 필드 수정](../research/artifacts/crop-greenhouse-co2-execution-query-evidence-fix-20261021.json) 후
-          source2f8b5e9의 [같은24 CI39533373500](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39533373500)가 진행 중이며 후속11은 미실행이다.
+          [첫24 기능 수용](../research/artifacts/crop-greenhouse-co2-execution-query-progress-20261021.json)의 source2f8b5e9/CI39533373500을 확인했다.
+          같은 구현 source3eb99bd의 [후속11 CI39534107848](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39534107848)가 진행 중이며 부모는 미수용이다.
           전체 DB18/fresh2를 같은 최종 source에서 모두 수용하기 전 부모를 완료하지 않는다.
           확정 prefix 읽기/투영→보호 접수/진행/취소 HTTP·실행 runtime→typed web/같은 UTC3D는 이후다. 공통 WSL 보류는 새 사용자 적용 전에 유지한다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
