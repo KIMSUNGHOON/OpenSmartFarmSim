@@ -1,13 +1,14 @@
 # 첫 구현 작업 목록
 
-- [ ] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
+- [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
   실제 WebGL의 연결된 줄기·복엽/잎맥·과실/꽃받침·표면/조명/그림자, 회전·전체/과실/잎 확대,
   좁은 화면·WebGL 대체와 실제 캡처/오류·자원 관측이 수용 조건이다. 대표 외형은 제작 가정이며
   특정 품종의 생장·개수·숙기 예측으로 게시하지 않는다. 자동 시험만으로 사실적 품질을 완료하지 않는다.
   - [x] 첫 외형 소프트웨어/실제 확인본 — [집중 CI/실제 Chrome·137파일 HTTP 증거](../research/realistic-crop-appearance-20261021.md).
     전체/과실/잎·회전·모바일/WebGL 대체·오류0, 기존5root/두 화면/WSL 관측을 확인하고 별도5175를 제공했다.
-    직접 작성한 대표 형태의 1차본이며 부모의 사실적 시각 품질·저장 생장 연결 수용은 남는다.
+    직접 작성한 대표 형태의 1차본이며 최종 사실감 R2·전체 저장 생장 R3의 수용은 별도다.
+  사용자 후속 “마음에 드는군”으로 첫 외형 확인본의 방향을 확인했다. 최종 사실감/품종 형태 R2와 성장 연결 R3는 별도다.
 - [ ] **`realistic-tomato-appearance-r2`** — R1의 실제 화면 검토/피드백, 필요한 자산 품질 개선과 권리·판본/시기별 형태 근거 확정.
 - [ ] **`realistic-crop-stored-state-r3`** — R2 및 관련 저장 계산. 같은 실행/UTC·현재 권리, 근거 있는 형태 상태 대응과 미확인 처리, 표/그래프 대사.
   - [x] **`realistic-v1-leaf-area-r3a`** — [작은 표시 계약과 실제 수용](../research/tomato-stored-leaf-area-20261021.md).
@@ -15,9 +16,11 @@
     표/그래프·과실/숙기 보류·현재 조회 거부 시 제거, 고정 앱 빌드/회귀가 수용 조건이다.
     cycle/공동 기후·환기의 페이지 재생과 실제 품종 생장/수확 표현은 별도다.
     CI39582186631에서 현재8/외형3·고정57/빌드된19와 타입/build/audit0을 확인했다. 실제 v1 사용자 저장소 적용은 별도다.
-  - [ ] **`realistic-cycle-leaf-area-r3b`** — 같은 계약의 endpoint 표시 기준과 실제 cycle/계산 검토 cycle 페이지 연결.
+  - [x] **`realistic-cycle-leaf-area-r3b`** — [실제 수용](../research/tomato-stored-leaf-area-20261021.md)의 endpoint 표시 기준과 실제 cycle/계산 검토 cycle 페이지 연결.
     단일 요청 흐름·고정 result/payload/마지막 LAI·UTC, 페이지 이동 뒤 같은 기준, 실제 삼각형 면적·표/그래프,
     현재 조회 거부 시 제거와 기존 창 회귀·현재 47,809시점 저장 API/사용자 화면 연결을 확인한다.
+    source42d5284/CI39584108997의 현재12/3·고정61/21·원 legacy80/13, 실제 API/Chrome GET5/POST0·같은 UTC/면적비,
+    실제 동시성1/원 이벤트 전달2의 구분·6root/원 frontend164 보존과5173 사용자 적용을 확인했다. 실제 품종·과실/수확은 미완료다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).

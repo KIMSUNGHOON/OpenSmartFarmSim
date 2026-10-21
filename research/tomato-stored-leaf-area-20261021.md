@@ -1,6 +1,6 @@
 # 저장된 잎 면적과 토마토 3D의 첫 연결
 
-상태: R3a v1 소프트웨어 수용 / R3b cycle 연결 후보, 2026-10-21. 사용자는 앞선 외형 확인본의 방향을 선호했고 계속 진행하도록 지시했다.
+상태: R3a v1 소프트웨어 / R3b 실제 저장 cycle 연결 수용, 2026-10-21. 사용자는 앞선 외형 확인본의 방향을 선호했고 계속 진행하도록 지시했다.
 R3a는 기존 v1 기관 탄소 연구 조회의 전체 저장 시계열이다.
 긴 cycle의 페이지 연결은 아래 R3b이며 공동 기후/환기·과실 표현·품종 형태 모델과 자동 작물 선정은 후속이다.
 
@@ -53,6 +53,7 @@ hosted에서는 타입·기하/연결 단위 검사, 기존 독립 외형 3검�
 
 **남은 의존성:** 해당 실제 저장 v1 결과의 현재 조회/사용자 적용, 다른 family의 고정 표시 기준,
 품종/시기별 형태 근거·권리, 기관별 발달 모델과 G0–G4의 기존 관문.
+cycle의 표시 기준과 실제 사용자 적용은 아래 R3b에서 수용했으며 공동 기후/환기 family는 남는다.
 이 연결은 합성 저장 수치의 표시 계약이며 실제 농장 성장·생과 수확·추천의 검증이 아니다.
 
 ## R3a 소프트웨어 수용과 R3b의 착수
@@ -75,3 +76,40 @@ R3b는 기존 cycle의 `seekSample`로 마지막 **실제 저장 시점**을 먼
 키·기관 개수/배치·숙기·수확을 추정하지 않으며 과실/꽃·배경 식물은 숨긴다. 같은 G0–G4 범위를 유지한다.
 이 endpoint 기준의 순수 계약도 구현 전 부재 RED와 구현 후 GREEN을 native Windows Node에서 확인했다.
 처음 두 native 실행기의 경로/TS 변환 문제는 계약 RED로 세지 않았다.
+
+## R3b 수용과 사용자 적용
+
+[source42d5284 / CI39584108997](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39584108997)의
+현재12단위·독립 외형3브라우저, 기존5174 기준61단위/빌드된21브라우저와
+실제 legacy source7ff954b 기준80단위/빌드된13브라우저가 통과했다. 타입·두 고정 앱/외형 빌드·audit0도 확인했다.
+이 수치는 겹치는 검사를 포함하므로 합산한 고유 전체 회귀나 새 물리 모델 검증으로 보고하지 않는다.
+최종 legacy ZIP의 제공된 SHA-256 digest를 확인하고, 원 App은 그대로 둔 채 v1 부모 네 군데와
+같은 원 CycleCropReplay의 표시 기능만 추가한 출처/원 코드 hash를 대사했다.
+
+실제5173은 이 legacy 빌드로 교체했다. 기존 개발 진행 안내를 가진 HTML의 entry JS/CSS 두 참조를 갱신하고
+NGINX의 정적 root/HTML alias만 바꿨다. 같은 master의 pidfd reload와168개 빌드 파일/원164개 frontend 보존,
+새 compiled asset의 HTTP/hash를 확인했다. 원 backend/모델·DB·키/토큰과5174/5175는 교체하지 않았다.
+첫 적용 전 검사는 source-hash dictionary의 상대 경로를 잘못 읽어 중단했고 runtime 수정 전에 바로잡았다.
+
+전용 Windows Chrome에서 **mock 없이 현재 API**를 연결해 마지막→최초→실제 저장 시점 자동 재생→마지막을 조작했다.
+요약1+시점 페이지4=GET5개는 모두200이며 새 계산 POST0·JavaScript 오류0이었다.
+원47,809시점 중 처음/마지막의 raw LAI·payload hash/UTC와 표/그래프·실제 삼각형 면적비가 일치한다.
+첫 LAI2.659734, 마지막8.972676029873755의 면적 비율을 그대로 사용했다. 날짜는 합성 모델의 시계이며 미래 현장 예측이 아니다.
+실제 화면: [처음](artifacts/tomato-stored-native-first-20261021.png),
+[마지막](artifacts/tomato-stored-native-last-20261021.png). [공개 증거](artifacts/tomato-stored-leaf-area-20261021.json)에 원 source/화면 hash를 보존했다.
+
+첫 두 native는 Playwright 이벤트가 전달된 시점만 센 동시성2 때문에 미수용했다.
+최종 관측은 원 지표2를 그대로 보존하고 브라우저 본문 소비의 peak1과
+[CDP Network 사건](https://chromedevtools.github.io/devtools-protocol/tot/Network/)의 내부 monotonic timestamp peak1을 따로 확인했다.
+실제 요청 구간은 겹치지 않았으며 최소 간격은 약2.779ms였다. [Playwright 사건](https://playwright.dev/docs/api/class-page#page-event-requestfinished)의
+전달 시점 계수를 실제 네트워크 겹침으로 사용하지 않았다. 제품 코드를 바꾸거나 단일 조회 조건을 낮추지 않았다.
+
+최종 native는40.442초·.25초157관측으로 WSL 합산 peak899,768,320bytes/PID132,161,536bytes,
+기존6root 생존/보류 없음이었다. Windows Chrome/Node 메모리는 제외하므로 공통 전체 용량 수용은 아니다.
+화면은 사용자가 볼 수 있게 남겼고 원 자료와 이전 정적 빌드를 보존했다. 복구/현재 HTML 검사는 private handoff의 새 root/entry를 따른다.
+같은 작업의 중복 탭2개만 닫고 최종5173 화면·기존5174와 독립5175를 유지했다.
+진행 안내를 두 포트에 게시해 HTTP200/동일 bytes/no-store와 실제 HTML을 확인했고
+동결 환기 source2,173파일의 원 hash도 대사했다. 이 문구 갱신에 브라우저 시험을 반복하지 않았다.
+
+**이 단계의 완료 범위는 저장된 합성 LAI를 외형에 연결한 재생이다.** 실제 키·기관 개수/배치·개화/착과·과실 크기/색·숙기·생과 수확과
+그 결과의 자원/경제·자율 작물 선정은 다음 작업이며 G0–G4를 통과한 것으로 표시하지 않는다.

@@ -1,0 +1,134 @@
+{
+  "version": "tomato-stored-leaf-area-evidence-v1",
+  "date": "2026-10-21",
+  "source_commit": "42d5284d0f56e30c3c290d05e3715fe32cba9cd9",
+  "CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "native_session": true,
+    "recursive_CLI": false,
+    "turn_context_at": "2026-10-21T09:45:03.797Z",
+    "turn_context_sha256": "38906c01e78a1fc4ebf279c994d7c4bc13810cfeaee855e8c46373d87c098f11"
+  },
+  "CI": {
+    "run": 39584108997,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39584108997",
+    "canonical_units": 12,
+    "standalone_browsers": 3,
+    "retained_units": 61,
+    "retained_built_browsers": 21,
+    "original_legacy_units": 80,
+    "original_legacy_built_browsers": 13,
+    "type_build_audit_passed": true,
+    "full_regression_claim": false,
+    "artifact_digest": "sha256:4dc95d98b7ee7f1a9ad5d0c2d22b7545aad12a08f85c3b0a47a567018bc90275",
+    "artifact_digest_verified": true
+  },
+  "native": {
+    "stored_synthetic_sample_count": 47809,
+    "first": {
+      "at": "2026-10-01T00:00:00Z",
+      "index": 0,
+      "raw_LAI": 2.659734,
+      "reference_LAI": 8.972676029873755,
+      "actual_triangle_area_ratio": 0.2964259484492081,
+      "draw_calls": 27,
+      "same_UTC_and_payload": true
+    },
+    "last": {
+      "at": "2027-03-16T00:00:00Z",
+      "index": 47808,
+      "raw_LAI": 8.972676029873755,
+      "reference_LAI": 8.972676029873755,
+      "actual_triangle_area_ratio": 1,
+      "draw_calls": 27,
+      "same_UTC_and_payload": true
+    },
+    "autoplay_actual_stored_UTC": "2026-10-01T00:05:00Z",
+    "GET_count": 5,
+    "all_HTTP_statuses": [
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "new_calculation_POSTs": 0,
+    "JavaScript_errors": 0,
+    "browser_body_read_peak": 1,
+    "CDP_timestamp_network_peak": 1,
+    "CDP_minimum_request_gap_seconds": 0.0027790000021923333,
+    "raw_Playwright_delivery_peak": 2,
+    "initial_event_delivery_observation_not_accepted": true,
+    "first_and_last_same_UTC_payload_and_raw_LAI": true,
+    "viewer_left_open": true
+  },
+  "WSL_observation": {
+    "child_exit": 0,
+    "hold_reason": null,
+    "wall_seconds": 40.44246504900002,
+    "WSL_PID_peak_RSS_bytes": 132161536,
+    "WSL_combined_peak_RSS_bytes": 899768320,
+    "samples": 157,
+    "sample_interval_seconds": 0.25,
+    "six_preserved_roots_live": true,
+    "static_viewer_live": true,
+    "Windows_Chrome_and_Node_memory_included": false,
+    "common_capacity_acceptance": false
+  },
+  "deployment": {
+    "base": "7ff954b464a63f829f1f949621a3ec3f4d1623bd",
+    "App_unchanged": true,
+    "four_CropReplay_replacements_only": true,
+    "all_built_files_verified_before_deploy": 168,
+    "original_frontend_files_unchanged": 164,
+    "all_compiled_assets_HTTP_SHA256_match": true,
+    "same_NGINX_master": true,
+    "configuration_changes": "static root and reviewed HTML alias only; original progress notice retained",
+    "backend_restarted": false,
+    "DB_or_model_changed": false,
+    "index_sha256": "0d8a3756af4f083b21acedcf6a569f5155244149e31b12a672b09b100662e638"
+  },
+  "source_hashes": {
+    "web/src/CropReplay.tsx": "4598998211cb356c32ad3cfc763f2b9ca2f9a9fa5371e47cd509078c59c9f664",
+    "web/src/CycleCropReplay.tsx": "394f8e2020020cd7a62401c114afb8847adea6085fe042b223806887ce08a170",
+    "web/src/tomatoLeafReplay.ts": "de8004367ad22785b1ae9e2d4a74cc2306287e9dfe7060248a17d60cd5a7ccc4",
+    "web/src/tomatoAppearance.ts": "f6b9ba2b14eddaa13dc0aff1e77acb93f193d0b156e416e2c01e2bfdf0266445",
+    "web/src/TomatoAppearanceScene.tsx": "c155ad2245bae4442b6ff7c70590cce04a6ddb32f7b4f6592b90974e9dd0b010",
+    "web/src/StoredTomatoScene.tsx": "b30beb5ae856d5d3e09b31c0fe6f3861e45f82f8053ee4e21ca014f8cc239b61",
+    "web/src/StoredCycleTomatoScene.tsx": "a9d566665399aaaf63cedd2cbbc2c67f6312b473c16ce841fea7683e31bdef85",
+    "web/src/TomatoAppearance.css": "047a25c3dbfb56516d36316168e7a770b1db9c20bd29ee7847c6b196b8475993",
+    "web/src/tomatoLeafReplay.test.ts": "8ffdfc5b709a04bb297a6b413f644630baa088f0962ff822142901d5a58772f7",
+    "web/src/tomatoCycleLeafReplay.test.ts": "c94340abeecf5d043f674dec747e6ffddca9f490cb1e93ca5b5e267970b17062",
+    "web/e2e/tomato-cycle-leaf-replay.spec.ts": "09a3766f7666392eab410650d5f6a68bb411c80c68676bdc1c400a167391aeee",
+    "web/e2e/tomato-leaf-replay.spec.ts": "dec1bb4974e2b697df719e61cb58d6609ce6d95b494b94146743ca537094bb03",
+    "research/prepare-retained-execution-navigation.py": "e2eeac414956da97ae428ba9d90bee32090311b45ca73c638ef1ac0923736542",
+    ".github/workflows/web-tests.yml": "7510375999ade98913729c1d517519a099418c33b5d7e4f63fe24f2c51a1bba6"
+  },
+  "screenshots": {
+    "research/artifacts/tomato-stored-native-first-20261021.png": "7a5875bb9db20c1d053e4f3273787ab4dc2e6a5dc49caf8eb7e63169ecd40aee",
+    "research/artifacts/tomato-stored-native-last-20261021.png": "d0ea11c7924b5d8cb855a6a160d1d1e2ace6d39b64cb8b78a2b68e7edcdd9dd6"
+  },
+  "holds": [
+    "height, organ count and cultivar morphology prediction",
+    "flowering, fruit size, color and harvest representation",
+    "real farm and G0-G4 claims",
+    "joint climate and ventilation family bindings",
+    "autonomous crop selection and production/economic full product"
+  ],
+  "scope": "only actual stored synthetic LAI display; no arbitrary growth animation or field prediction",
+  "presentation": {
+    "duplicate_owned_viewer_pages_closed": 2,
+    "current_viewer_left_open": true,
+    "standalone_5175_viewer_retained": true,
+    "original_5174_demo_retained": true
+  },
+  "status_publication": {
+    "reported_at": "2026-10-21T10:45:32.263989Z",
+    "source_sha256": "541a3961dd8623a55970dfaf63f88fc634954f9a2ad2c61057497976d56401ca",
+    "both_5173_and_5174_HTTP_200_same_bytes_no_store": true,
+    "both_HTML_match_accepted_entries": true,
+    "frozen_ventilation_source_files_preserved": 2173,
+    "browser_DOM_rerun_for_prose_update": false
+  }
+}
