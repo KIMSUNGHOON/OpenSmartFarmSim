@@ -1,6 +1,6 @@
 import { useEffect,useRef,useState } from 'react';
 import { ACESFilmicToneMapping,BoxGeometry,Color,DirectionalLight,DoubleSide,HemisphereLight,Mesh,
-  MeshPhysicalMaterial,MeshStandardMaterial,PCFSoftShadowMap,PerspectiveCamera,PlaneGeometry,
+  MeshPhysicalMaterial,MeshStandardMaterial,PCFShadowMap,PerspectiveCamera,PlaneGeometry,
   PMREMGenerator,Scene,WebGLRenderer,type Material } from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -42,7 +42,7 @@ function createView(canvas:HTMLCanvasElement,maximum:number,fail:()=>void):View|
     renderer.dispose();renderer.forceContextLoss();for(const k of Object.keys(canvas.dataset))delete canvas.dataset[k];
   }
   try{
-    renderer.toneMapping=ACESFilmicToneMapping;renderer.toneMappingExposure=.95;renderer.shadowMap.enabled=true;renderer.shadowMap.type=PCFSoftShadowMap;
+    renderer.toneMapping=ACESFilmicToneMapping;renderer.toneMappingExposure=.95;renderer.shadowMap.enabled=true;renderer.shadowMap.type=PCFShadowMap;
     renderer.debug.onShaderError=()=>{throw Error('shader unavailable');};scene.background=new Color('#e9e9dc');
     const room=new RoomEnvironment(),pmrem=new PMREMGenerator(renderer);
     try{environment=pmrem.fromScene(room,.04);scene.environment=environment.texture;}finally{room.dispose();pmrem.dispose();}

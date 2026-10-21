@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 const fixture=(index:number)=>JSON.parse(readFileSync(resolve(`public/morphology-replay/frame-${index}.json`),'utf8'));
 test('stored UTC, exact internode lengths, table and graph move together in actual WebGL',async({page})=>{
   const errors:string[]=[],methods:string[]=[];
-  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'||m.type()==='warning')errors.push(m.text());});
   page.on('request',r=>methods.push(r.method()));await page.setViewportSize({width:1440,height:1100});
   await page.goto('/morphology-replay.html');const canvas=page.locator('canvas');
   await expect(canvas).toHaveAttribute('data-mapping','stored-internode-metres-straight-axis-v1',{timeout:60_000});
