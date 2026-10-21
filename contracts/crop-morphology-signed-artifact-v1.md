@@ -1,6 +1,6 @@
 # 등록 형태 계산의 완료 artifact·현재 조회 — v1
 
-상태: 제어30/관련653검사 통과. 실제 SCRAM/fresh 검증은 진행 전이며 부모는 아직 미수용이다.
+상태: [제어30/관련653·실제 SCRAM2/fresh 수용](../research/crop-morphology-signed-artifact-20261022.md).
 
 선행: [현재 농장/입력 결속](crop-morphology-farm-binding-v1.md)과
 [v2 수치 producer/불변 저장](crop-rational-morphology-artifact-v2.md).

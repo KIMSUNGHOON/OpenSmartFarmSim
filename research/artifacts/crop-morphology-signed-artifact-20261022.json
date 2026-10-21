@@ -1,0 +1,252 @@
+{
+  "schema_version": "morphology-signed-artifact-acceptance-v1",
+  "scope": "synthetic_crop_math_only",
+  "gates": "not_assessed",
+  "real_farm_runs": 0,
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_at": "2026-10-21T18:31:18.690Z",
+    "turn_context_raw_LF_sha256": "b3c3ff5325fb029473061d116799c0f1468b096986e70ad8118f6979b5607ff9",
+    "recursive_invocations": 0
+  },
+  "tests": {
+    "new_controls": 30,
+    "existing_pure": 623,
+    "combined_pure_passed": 653,
+    "new_native_SCRAM_groups": 2,
+    "prior_native_farm_groups": 3,
+    "distinct_combined": 658,
+    "full_backend_web_or_UI": false
+  },
+  "actual_numeric_and_fresh": {
+    "all_12_original_frames": true,
+    "calculated_at": "2026-10-21T19:43:27.220355Z",
+    "fresh": {
+      "actual_SCRAM": true,
+      "blocked_import_calls": {
+        "app.crop_internode_elongation": 0,
+        "app.crop_internode_length": 0,
+        "app.crop_internode_length_change": 0,
+        "app.crop_morphology_signed_producer": 0,
+        "app.crop_morphology_thermal_clock": 0,
+        "app.crop_new_internodes": 0,
+        "app.crop_phytomer_emergence": 0,
+        "app.crop_rational_internode_length": 0,
+        "app.crop_rational_morphology_artifact_producer": 0,
+        "app.crop_rational_morphology_clock": 0,
+        "app.crop_rational_new_internodes": 0,
+        "app.crop_rational_shoot_inventory": 0,
+        "app.crop_shoot_inventory": 0,
+        "app.crop_shoot_timeline": 0
+      },
+      "calculated_at": "2026-10-21T19:43:27.220355Z",
+      "counts_before_after": [
+        [
+          88,
+          88,
+          0,
+          0
+        ],
+        [
+          88,
+          88,
+          0,
+          0
+        ]
+      ],
+      "current_review_revocation_rejected": true,
+      "fresh_exec": true,
+      "job_write_calls": {
+        "_event": 0,
+        "_insert_publication": 0,
+        "publish": 0,
+        "record_decision": 0,
+        "submit": 0
+      },
+      "new_growth_modules_imported": 0,
+      "numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+      "original_frame_sha256": [
+        "1f71201fcf52cb15d101ea83c0ec75c55f7e05bfbf1d784f4da7fe17127b123d",
+        "3d39bb95f3db44a423f3cf23a6737009c663e8e0aff78d50d33738b8ea6e5c3b"
+      ],
+      "result_sha256": "a44c955aabf277bbe9ab64ba43143aad7f3659d309e49326ca5aff69b451256c"
+    },
+    "numeric_producer_calls": 1,
+    "numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+    "original_15_files_preserved": true,
+    "owned_database_sha256_before_after": [
+      [
+        "f980a8abd7d2ab4c724cfdbfe90bcb1ea7a789d4074b994e2c3d7bbac560871a",
+        25
+      ],
+      [
+        "f980a8abd7d2ab4c724cfdbfe90bcb1ea7a789d4074b994e2c3d7bbac560871a",
+        25
+      ]
+    ],
+    "query_growth_CLI_calls": {
+      "CLI": 0,
+      "crop_internode_elongation.calculate_internode_elongation": 0,
+      "crop_internode_length.advance_internode_length": 0,
+      "crop_internode_length.calculate_internode_length_point": 0,
+      "crop_internode_length.initialize_internode_length": 0,
+      "crop_internode_length.normalize_internode_length_state": 0,
+      "crop_internode_length_change.calculate_internode_length_change": 0,
+      "crop_internode_length_change.normalize_internode_curve": 0,
+      "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+      "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+      "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+      "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+      "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+      "crop_new_internodes.create_internodes_from_shoot_events": 0,
+      "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+      "crop_rational_internode_length.advance_rational_internode_length": 0,
+      "crop_rational_internode_length.initialize_rational_internode_length": 0,
+      "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+      "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+      "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+      "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+      "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+      "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+      "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+      "crop_shoot_timeline.advance_shoot_event_timeline": 0
+    },
+    "result_sha256": "a44c955aabf277bbe9ab64ba43143aad7f3659d309e49326ca5aff69b451256c",
+    "signature_bytes": 1702
+  },
+  "actual_current_late": {
+    "current_rights_review_scope_rejected": true,
+    "late_scene_query_revocation_rejected": true,
+    "original_result_after_restore": "88f5bb42502177413b9aa0a18e85eeb31a831491ad646a907cb9e8077317e620",
+    "owned_database_sha256_before_after": [
+      [
+        "d2a8724bc093a91b278f1f25747c02668051e8603929beff9f7ca0dc707cbe80",
+        25
+      ],
+      [
+        "d2a8724bc093a91b278f1f25747c02668051e8603929beff9f7ca0dc707cbe80",
+        25
+      ]
+    ],
+    "query_growth_CLI_calls": {
+      "CLI": 0,
+      "crop_internode_elongation.calculate_internode_elongation": 0,
+      "crop_internode_length.advance_internode_length": 0,
+      "crop_internode_length.calculate_internode_length_point": 0,
+      "crop_internode_length.initialize_internode_length": 0,
+      "crop_internode_length.normalize_internode_length_state": 0,
+      "crop_internode_length_change.calculate_internode_length_change": 0,
+      "crop_internode_length_change.normalize_internode_curve": 0,
+      "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+      "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+      "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+      "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+      "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+      "crop_new_internodes.create_internodes_from_shoot_events": 0,
+      "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+      "crop_rational_internode_length.advance_rational_internode_length": 0,
+      "crop_rational_internode_length.initialize_rational_internode_length": 0,
+      "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+      "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+      "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+      "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+      "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+      "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+      "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+      "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+      "crop_shoot_timeline.advance_shoot_event_timeline": 0
+    }
+  },
+  "same_native_source_pins": true,
+  "source_count": 3148,
+  "source_pin_manifest_sha256": "81b64effd1f225990c3a6fd7831d3145969ec841f7605199a7fd3296a6a34fd4",
+  "guards": {
+    "regression-v1": {
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 24.717369459998736,
+      "peak_PID_RSS_bytes": 124948480,
+      "combined_RSS_bytes": 928919552,
+      "samples": 97,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0
+    },
+    "focused-signed-native-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 41.79516209600115,
+      "source_preserved": true,
+      "source_count": 3148,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 6,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1018646528,
+      "RSS_samples": 153,
+      "sample_interval_seconds": 0.25,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true
+    },
+    "focused-signed-native-fences-v1": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 19.326626743000816,
+      "source_preserved": true,
+      "source_count": 3148,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 6,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 970620928,
+      "RSS_samples": 71,
+      "sample_interval_seconds": 0.25,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true
+    }
+  },
+  "private_receipt_sha256": {
+    "red": "7b995fa549b26a7cfaeb32630bc17ba9bff32fbd99caa0475e87739fdb3ccde4",
+    "green-v1": "21d67827dae02c6d22faaa2a943d8dd991cd1813598d552da22532041f4a64e9",
+    "green-reviewed": "ff41ea302c8ea0205ab9cdb0c7275867aafe8fb2ffc2af17591064870c3acff3",
+    "regression-v1": "5318e6fa0711f8cfc1b1af348800152a11fd4d125650aeaa42cbc7552b808eab",
+    "focused-signed-native-v1": "3b4235043cfc3a76fa5187629b281dfb3353f547686b0377dd1788b8c921453f",
+    "focused-signed-native-fences-v1": "beec5630859e1c096c167e9cc4104eaf2a7ec446d86cb0c77bdb1d9d386f1b4a"
+  },
+  "code_files_sha256": {
+    "backend/app/crop_morphology_signed_artifact.py": "20ff26044bd94a812a3157df611a7178b2f59b01755f3f963a9461674553b90d",
+    "backend/app/crop_morphology_signed_producer.py": "34e1c6a007a629e6bddb081e2ba5d5437082cc5c17e81dad341a54a4e532ad07",
+    "backend/tests/test_crop_morphology_signed_artifact.py": "4233a28c56384a6d85fb540b216b89463fb87d99554ced0d347cda0df6fac3e5",
+    "backend/tests/test_crop_morphology_signed_artifact_native.py": "3c3938ba922905f4538b224f28e8317c3b978005fed324ee798d0693df7df292",
+    "backend/tests/morphology_signed_fresh.py": "bf35706acb8e72c820df2b5050b6c7f15fa5d93bae97137e36066c91e6678f91"
+  },
+  "remaining": [
+    "job/result registration and protected API",
+    "product UI and actual execution integration",
+    "Axiany/leaf equations and independent farm data",
+    "whole-cycle resources/economics and autonomous selection"
+  ]
+}

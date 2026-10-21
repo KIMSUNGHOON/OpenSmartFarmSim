@@ -170,6 +170,12 @@ CI 빌드/브라우저와 현재 사용자 서버 적용·직접 시각 검토�
 잠정0.75–2집중시간은 수용된 파일/농장 모듈 재사용과 실제 native 비용을 근거로 한 이 자식만의 작업량이다.
 등록/API/제품 UI와 실제 자료의 확보일은 이 추정에 포함하지 않는다.
 
+이 [완료 수치 서명/현재 조회](../research/crop-morphology-signed-artifact-20261022.md)는 제어30/관련653·실제 SCRAM2/fresh로 수용했다.
+원 root/12프레임·실제 계산 시각과 query의14모듈 import/쓰기0·25표 원 SHA/6root를 확인했다.
+다음은 기존 JobStore의 simulation/jobs·job_publications를 대조해 접수/완료 참조·현재 조회를 연결한다.
+기존 표/권한·불변 수치/출처 판본을 보존할 수 있는 경로를 우선하며 새 schema/Role 기반을 근거 없이 늘리지 않는다.
+보호 API/제품 UI와 실제 품종/독립 자료·전체 작기/자원/경제는 남는다.
+
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.
 데이터셋 판본1·2를 독립 작기로 세지 않으며 다른 품종 계수로 빈칸을 채우지 않는다. 개발과 자료 확보는 병행한다.
