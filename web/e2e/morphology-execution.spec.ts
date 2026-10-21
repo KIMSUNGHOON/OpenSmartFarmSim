@@ -5,6 +5,7 @@ import { morphologyFlags,morphologyFrame,morphologyJobId,morphologyPreview,morph
 
 async function setup(page:Page){
   const state={phase:'queued',submissions:[] as string[],lost:false,failRead:false,cancels:0,requests:[] as string[]};
+  page.on('pageerror',error=>console.log('Owned morphology browser error:',error.name,error.message));
   await page.addInitScript(token=>sessionStorage.setItem('ossf-morphology-token-v1',token),morphologyToken);
   await page.route('**/preview-input',route=>route.fulfill({json:morphologyPreview()}));
   await page.route('**/v1/**',async route=>{
@@ -38,7 +39,9 @@ test('queued calculation, stored WebGL, menu/reload recovery, and current denial
   await expect(page.locator('.morphology-execution')).toHaveAttribute('data-job-state','queued');
   state.phase='simulating';await page.getByRole('button',{name:'현재 상태 다시 확인',exact:true}).click();
   await expect(page.locator('.morphology-execution')).toHaveAttribute('data-job-state','simulating');
-  state.phase='succeeded';await page.getByRole('button',{name:'현재 상태 다시 확인',exact:true}).click();await check(page,0);
+  state.phase='succeeded';await page.getByRole('button',{name:'현재 상태 다시 확인',exact:true}).click();
+  try{await check(page,0);}catch(error){console.log('Owned fixture requests:',JSON.stringify(state.requests));
+    console.log('Owned fixture interface:',await page.locator('main').innerText());throw error;}
   mkdirSync(resolve('../research/artifacts'),{recursive:true});await page.screenshot({path:resolve('../research/artifacts/morphology-execution-first-20261022.png'),fullPage:true});
   await page.getByRole('button',{name:'마지막',exact:true}).click();await check(page,11);
   await page.getByRole('button',{name:'근거와 범위',exact:true}).click();await expect(page.getByRole('heading',{name:'계산과 표현의 범위'})).toBeVisible();
