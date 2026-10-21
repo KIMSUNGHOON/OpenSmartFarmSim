@@ -10,6 +10,10 @@
     직접 작성한 대표 형태의 1차본이며 부모의 사실적 시각 품질·저장 생장 연결 수용은 남는다.
 - [ ] **`realistic-tomato-appearance-r2`** — R1의 실제 화면 검토/피드백, 필요한 자산 품질 개선과 권리·판본/시기별 형태 근거 확정.
 - [ ] **`realistic-crop-stored-state-r3`** — R2 및 관련 저장 계산. 같은 실행/UTC·현재 권리, 근거 있는 형태 상태 대응과 미확인 처리, 표/그래프 대사.
+  - [ ] **`realistic-v1-leaf-area-r3a`** — [작은 표시 계약](../research/tomato-stored-leaf-area-20261021.md).
+    v1 전체 저장 결과의 고정 최대 LAI로 상대 잎 면적만 연결한다. 실제 삼각형 면적·원 result/UTC/LAI/hash와
+    표/그래프·과실/숙기 보류·현재 조회 거부 시 제거, 고정 앱 빌드/회귀가 수용 조건이다.
+    cycle/공동 기후·환기의 페이지 재생과 실제 품종 생장/수확 표현은 별도다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).

@@ -7,6 +7,10 @@ on:
         description: Only build and check the isolated authored tomato appearance viewer (no complete regression claim)
         type: boolean
         default: false
+      tomato_leaf:
+        description: With crop_appearance, also verify the saved-LAI opt-in on the retained application build
+        type: boolean
+        default: false
       native_solar:
         description: Also check actual stored Solar HTTPS and WebGL on an isolated hosted runner
         type: boolean
@@ -428,11 +432,36 @@ jobs:
       - run: npm install --global npm@11.16.0
       - run: npm ci --strict-peer-deps
       - run: npm run typecheck
-      - run: npm run test -- src/tomatoAppearance.test.ts
+      - run: npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts
       - run: npx --no-install vite build --config vite.crop-appearance.config.ts
       - run: npm audit --audit-level=high
       - run: npx --no-install playwright install --with-deps chromium
       - run: npm run test:browser -- --config playwright.appearance.config.ts --reporter=line --max-failures=1
+      - name: Verify saved leaf area on the retained application
+        if: inputs.tomato_leaf
+        working-directory: .
+        run: |
+          git fetch --no-tags --depth=1 origin 2aa45fa7bc219a02e6a322ca095b0e726fad82da
+          python3 research/prepare-retained-execution-navigation.py "$RUNNER_TEMP/ossf-retained-tomato" --tomato-leaf
+          cd "$RUNNER_TEMP/ossf-retained-tomato/web"
+          npm ci --strict-peer-deps
+          npm run typecheck
+          npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/cropReplay.test.ts src/cropGeometry.test.ts
+          npm run build
+          npm audit --audit-level=high
+          npm run test:browser -- --config playwright.retained-tomato.config.ts --reporter=line --max-failures=1
+          python3 "$GITHUB_WORKSPACE/research/prepare-retained-execution-navigation.py" "$RUNNER_TEMP/ossf-retained-tomato" --finalize
+      - name: Tested retained tomato application
+        if: inputs.tomato_leaf
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: retained-tomato-leaf-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/ossf-retained-tomato/delivery
+            ${{ runner.temp }}/ossf-retained-tomato/research/artifacts/tomato-leaf-stored-20261021.png
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: error
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:

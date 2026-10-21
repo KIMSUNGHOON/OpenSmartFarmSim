@@ -1,5 +1,5 @@
 import { BufferGeometry,Float32BufferAttribute,Group,InstancedMesh,Matrix4,Mesh,
-  Vector3,Quaternion,CatmullRomCurve3,TubeGeometry,SphereGeometry,Color,
+  Vector3,Quaternion,CatmullRomCurve3,TubeGeometry,SphereGeometry,Color,Triangle,
   LineSegments,LineBasicMaterial,type Material } from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
@@ -125,8 +125,9 @@ export function createTomatoAppearance(materials:Materials){
   }
   const leaves=instances(tomatoLeafletGeometry(),materials.leaf,leafMatrices);
   const fruits=instances(tomatoFruitGeometry(),materials.fruit,fruitMatrices,fruitColors);
-  instances(tomatoLeafletGeometry(),materials.calyx,calyxMatrices);
-  instances(tomatoLeafletGeometry(),materials.flower,flowerMatrices);
+  const calyces=instances(tomatoLeafletGeometry(),materials.calyx,calyxMatrices);
+  const flowers=instances(tomatoLeafletGeometry(),materials.flower,flowerMatrices);
+  const baseLeafMatrices=leafMatrices.map((_,i)=>{const m=new Matrix4();leaves.getMatrixAt(i,m);return m;});
   const merged=mergeGeometries(stemParts);stemParts.forEach(g=>g.dispose());
   if(!merged)throw Error('appearance_stem_merge');owned.push(merged);
   const stems=new Mesh(merged,materials.stem);stems.castShadow=true;stems.receiveShadow=true;root.add(stems);
@@ -135,6 +136,25 @@ export function createTomatoAppearance(materials:Materials){
   root.add(new LineSegments(hairGeometry,hairMaterial));
   root.userData={version:TOMATO_APPEARANCE_VERSION,scope:APPEARANCE_SCOPE};
   return {root,leafletCount:leaves.count,fruitCount:fruits.count,fruitBounds,
+    setLeafAreaRatio(ratio:number|null){
+      if(ratio!==null&&(!Number.isFinite(ratio)||ratio<0||ratio>1))throw Error('appearance_leaf_ratio_invalid');
+      const scale=Math.sqrt(ratio??1),localScale=new Matrix4().makeScale(scale,scale,scale);
+      baseLeafMatrices.forEach((m,i)=>leaves.setMatrixAt(i,m.clone().multiply(localScale)));
+      leaves.instanceMatrix.needsUpdate=true;leaves.visible=ratio!==0;leaves.computeBoundingSphere();
+      for(const mesh of [fruits,calyces,flowers])mesh.visible=ratio===null;
+    },
+    leafSurfaceArea(){
+      if(!leaves.visible)return 0;
+      const p=leaves.geometry.getAttribute('position'),idx=leaves.geometry.index!,m=new Matrix4();
+      const a=new Vector3(),b=new Vector3(),c=new Vector3(),triangle=new Triangle(a,b,c);let total=0;
+      for(let k=0;k<leaves.count;k++){
+        leaves.getMatrixAt(k,m);
+        for(let i=0;i<idx.count;i+=3){a.fromBufferAttribute(p,idx.getX(i)).applyMatrix4(m);
+          b.fromBufferAttribute(p,idx.getX(i+1)).applyMatrix4(m);c.fromBufferAttribute(p,idx.getX(i+2)).applyMatrix4(m);total+=triangle.getArea();}
+      }
+      return total;
+    },
     trussFocus:trussViews[0]!,leafFocus:point(.05,1.28,.02),
-    dispose(){root.removeFromParent();owned.forEach(g=>g.dispose());hairMaterial.dispose();}};
+    dispose(){root.removeFromParent();[leaves,fruits,calyces,flowers].forEach(mesh=>mesh.dispose());
+      owned.forEach(g=>g.dispose());hairMaterial.dispose();}};
 }

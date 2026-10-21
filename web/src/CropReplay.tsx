@@ -7,6 +7,7 @@ import researchLeaf from './assets/crop-research-leaf.png';
 import researchHold from './assets/crop-design/research-hold.png';
 import './CropReplay.css';
 const CropScene=lazy(()=>import('./CropScene'));
+const StoredTomatoScene=lazy(()=>import('./StoredTomatoScene'));
 const CropChart=lazy(()=>import('./CropChart'));
 const CoupledCropReplay=lazy(()=>import('./CoupledCropReplay'));
 const CycleCropReplay=lazy(()=>import('./CycleCropReplay'));
@@ -100,6 +101,7 @@ export default function CropReplayView(props:{api:Api|null;initialSelection?:Cro
 
 export function LegacyCropReplay({api,initialSelection,autoLoadInitialSelection=false}:{api:Api|null;
   initialSelection?:CropLookup;autoLoadInitialSelection?:boolean}){
+  const [tomato,setTomato]=useState(false);
   const [lookup,setLookup]=useState<CropLookup>(initialSelection??EMPTY),[loaded,setLoaded]=useState<{api:Api;data:CropReplay}|null>(null);
   const [busy,setBusy]=useState(false),[error,setError]=useState<ApiError|null>(null),[index,setIndex]=useState(0);
   const [playing,setPlaying]=useState(false),[reduced,setReduced]=useState(false),epoch=useRef(0);
@@ -153,9 +155,10 @@ export function LegacyCropReplay({api,initialSelection,autoLoadInitialSelection=
       <div className="crop-period"><strong>{data.study_id} / {data.revision}</strong>
         <span>{data.start_utc} → {data.end_utc} · {data.samples.length} 저장 시점</span></div>
       <div className="crop-top-grid">
-        <section className="panel crop-scene-panel" id="viewport-1-winner-canopy"><h2>잎 면적 기반 성장 모식도</h2>
+        <section className="panel crop-scene-panel" id="viewport-1-winner-canopy"><h2>{tomato?'저장된 잎 면적 · 토마토 3D':'잎 면적 기반 성장 모식도'}</h2>
+          <button className="button secondary" aria-pressed={tomato} onClick={()=>setTomato(value=>!value)}>토마토 잎 면적 3D</button>
           <Suspense fallback={<p role="status">3D를 준비합니다. 같은 수치는 옆 요약과 아래 표에서 확인하세요.</p>}>
-            <CropScene sample={sample} maximum={maximum}/></Suspense></section>
+            {tomato?<StoredTomatoScene data={data} index={index}/>:<CropScene sample={sample} maximum={maximum}/>}</Suspense></section>
         <section className="panel crop-readout" id="viewport-1-winner-carbon" data-selected-at={sample.at} aria-label="선택 성장 시점 계산값">
           <h2>기관별 탄소량</h2><dl>{STORES.map(key=><div className="crop-carbon-card" key={key}>
             <dt><span className="crop-dot" style={{background:STORE_COLORS[key]}}/>{STORE_LABELS[key]}</dt>
