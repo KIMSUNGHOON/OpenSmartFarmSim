@@ -1,5 +1,9 @@
 # Internal web shell
 
+## 현재 접속 — 2026-10-21 재시작 복구
+
+http://localhost:5173/ 는 완료 합성166일 저장 재생, http://localhost:5174/#ventilation-execution 은 기존 합성 환기 계산/3D입니다. [복구 검증](../research/WSL-post-boot-recovery-20261021.md)에서 원 결과/같은 토큰·키·두 화면을 확인했습니다. 사설 접속 안내는 `~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v35/service/OPEN-UI.private.txt`, `~/.local/state/OpenSmartFarmSim/20261013-ventilation-user-activation/user-service-v3/OPEN-UI-ISOLATED-POSTBOOT-20261021.private.txt`입니다. 새 CO₂ 사용자 적용은 후속입니다. 아래 날짜별 안내는 당시 기록입니다.
+
 ## 현재 접속·인증 갱신 — 2026-10-17
 
 기존 화면은 http://localhost:5173/ , 합성 환기 계산/3D는 http://localhost:5174/#ventilation-execution 이다. [2026-10-17 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261017.md)에서 원 결과/두 화면을 보존했다. 사설 안내는 `~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v27/service/OPEN-UI.private.txt`, `~/.local/state/OpenSmartFarmSim/20261013-ventilation-user-activation/user-service-v3/OPEN-UI-ISOLATED-20261017.private.txt`다. 토큰은 동일하며 공통/환기 인증은2026-10-18 20:50KST까지다. 새 Solar 사용자 배포·정상64단계 실행은 미완료이며 다음은 단계별 시간 계측이다. 아래 접속 기록은 당시 상태다.

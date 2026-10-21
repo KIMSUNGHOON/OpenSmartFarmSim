@@ -3123,3 +3123,7 @@ core6→fences8로 실행한다. 현재 WSL 부팅 복구와 독립인 hosted �
 수집을 검사한 뒤 실제 시험을 실행한다. 원600초/512MiB/1GiB와 모든 사례를 유지한다.
 한 배치가 terminal success이고 원 산출물 대사가 끝난 뒤 다음 배치를 제출한다.
 그 뒤 runtime→typed web/같은 UTC3D→사용자 적용이다. 실제 자료/관문과 전체 M1/M2는 남는다.
+
+**WSL 재시작 복구 수용:** [인증 조회/원 자료·5root](../research/WSL-post-boot-recovery-20261021.md)를 보존했다.
+CO₂ 수집 로그의 원 두2MiB ID를 유지한 출력 수정 뒤 최종232(14+218)/6·8 분할과241bytes 로그를 확인했다.
+다음은 수정 source2ae6684의 실제 core6 CI39558663729 대사→같은 source fences8이며 전체 제품 일정/관문은 유지한다.

@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**WSL 재시작 복구 — 2026-10-21 KST:** [5173/5174·보호5서비스](research/WSL-post-boot-recovery-20261021.md)를 기존 물리 DB/키·같은 토큰/원 입력과 동결 화면으로 복구했습니다. legacy8/joint 입력3·저장9시점/환기 정상·보류8본문의 실제 인증 조회·조회/쓰기0·원2148항목/2173파일·정리를 확인했습니다. 새 CO₂ 적용은 후속이며 실제 HTTP core6 CI39558663729가 진행 중입니다. 첫 수집 로그 실패/출력 수정과 전체 작기/자원/경제·최종 UI/실제 자료 관문 미완료를 유지합니다.
+
 **확정 구간 공개 응답110 수용 — 2026-10-21 KST:** [최종 회귀93](research/api-crop-greenhouse-co2-prefix-20261021.md)의 순수87·독립 producer/readonly reader1·원 조회 회귀5를 수용했습니다. core7/fences10과 같은343지문·고유110/원 값·UTC/최초 시각·31계측0/정리를 확인했습니다. 다음은 보호 실행 HTTP의 접수/진행/취소→명시 prefix→runtime/같은 UTC3D입니다. 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI와 실제 자료/관문은 남습니다.
 
 **확정 구간 공개 변경 차단 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM fences10을 수용했습니다. 늦은 권리/원본/페이지5·사전 witness1·독립 heartbeat/cancel2/원 HEAD append2와 원 UTC/최초 시각·31계측0/343지문·정리를 확인했습니다. 다음은 독립/회귀93이며 공개 응답 부모·보호 실행 HTTP/runtime/같은 UTC3D·새 CO₂ 적용과 전체 작기/자원/경제·최종 UI/실제 자료 관문은 남습니다.

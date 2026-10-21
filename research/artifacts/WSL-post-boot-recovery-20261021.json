@@ -1,0 +1,3950 @@
+{
+  "schema_version": "WSL-post-boot-recovery-v1",
+  "recorded_at": "2026-10-21T07:00:22.938408+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-21T06:40:56.770Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "3ac35967be78e237883deee88ebc47015b4dbdb52dbaf1cb621a88da02dd132e",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "boot_id": "3baa4f4c-ccd3-40d3-ad91-7191f7de982a",
+  "checks": {
+    "legacy": {
+      "terminal_sha256": "0a06813d862d415f1834f549b5cb7e662e72723b29ce642612bfdbafc3501004",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 36954112,
+            "comm": "python",
+            "pid": 8832
+          },
+          {
+            "RSS_bytes": 146944000,
+            "comm": "python",
+            "pid": 8839
+          },
+          {
+            "RSS_bytes": 8986624,
+            "comm": "nginx",
+            "pid": 8862
+          },
+          {
+            "RSS_bytes": 7667712,
+            "comm": "nginx",
+            "pid": 10354
+          },
+          {
+            "RSS_bytes": 18272256,
+            "comm": "postgres",
+            "pid": 8845
+          },
+          {
+            "RSS_bytes": 5324800,
+            "comm": "postgres",
+            "pid": 8851
+          },
+          {
+            "RSS_bytes": 6078464,
+            "comm": "postgres",
+            "pid": 8850
+          },
+          {
+            "RSS_bytes": 7491584,
+            "comm": "postgres",
+            "pid": 8849
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 8847
+          },
+          {
+            "RSS_bytes": 5689344,
+            "comm": "postgres",
+            "pid": 8846
+          },
+          {
+            "RSS_bytes": 41398272,
+            "comm": "python",
+            "pid": 10754
+          },
+          {
+            "RSS_bytes": 18149376,
+            "comm": "postgres",
+            "pid": 10764
+          },
+          {
+            "RSS_bytes": 5173248,
+            "comm": "postgres",
+            "pid": 10775
+          },
+          {
+            "RSS_bytes": 6103040,
+            "comm": "postgres",
+            "pid": 10774
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "postgres",
+            "pid": 10773
+          },
+          {
+            "RSS_bytes": 4210688,
+            "comm": "postgres",
+            "pid": 10767
+          },
+          {
+            "RSS_bytes": 5804032,
+            "comm": "postgres",
+            "pid": 10766
+          },
+          {
+            "RSS_bytes": 108765184,
+            "comm": "python",
+            "pid": 10760
+          },
+          {
+            "RSS_bytes": 9043968,
+            "comm": "nginx",
+            "pid": 10782
+          },
+          {
+            "RSS_bytes": 4272128,
+            "comm": "nginx",
+            "pid": 10815
+          },
+          {
+            "RSS_bytes": 102088704,
+            "comm": "python",
+            "pid": 10781
+          },
+          {
+            "RSS_bytes": 109948928,
+            "comm": "python",
+            "pid": 10784
+          },
+          {
+            "RSS_bytes": 93052928,
+            "comm": "python",
+            "pid": 10792
+          },
+          {
+            "RSS_bytes": 27586560,
+            "comm": "python",
+            "pid": 12619
+          },
+          {
+            "RSS_bytes": 101097472,
+            "comm": "python",
+            "pid": 12650
+          },
+          {
+            "RSS_bytes": 11980800,
+            "comm": "postgres",
+            "pid": 12689
+          },
+          {
+            "RSS_bytes": 16822272,
+            "comm": "postgres",
+            "pid": 12688
+          },
+          {
+            "RSS_bytes": 11468800,
+            "comm": "postgres",
+            "pid": 12699
+          },
+          {
+            "RSS_bytes": 16986112,
+            "comm": "postgres",
+            "pid": 12698
+          },
+          {
+            "RSS_bytes": 17182720,
+            "comm": "postgres",
+            "pid": 12697
+          },
+          {
+            "RSS_bytes": 14086144,
+            "comm": "postgres",
+            "pid": 12711
+          },
+          {
+            "RSS_bytes": 15794176,
+            "comm": "postgres",
+            "pid": 12724
+          },
+          {
+            "RSS_bytes": 16969728,
+            "comm": "postgres",
+            "pid": 12718
+          },
+          {
+            "RSS_bytes": 17362944,
+            "comm": "postgres",
+            "pid": 12717
+          },
+          {
+            "RSS_bytes": 17113088,
+            "comm": "gone",
+            "pid": 12730
+          },
+          {
+            "RSS_bytes": 14966784,
+            "comm": "postgres",
+            "pid": 12741
+          },
+          {
+            "RSS_bytes": 16838656,
+            "comm": "postgres",
+            "pid": 12737
+          },
+          {
+            "RSS_bytes": 17362944,
+            "comm": "postgres",
+            "pid": 12736
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 12750
+          },
+          {
+            "RSS_bytes": 6545408,
+            "comm": "postgres",
+            "pid": 12762
+          },
+          {
+            "RSS_bytes": 16781312,
+            "comm": "postgres",
+            "pid": 12756
+          },
+          {
+            "RSS_bytes": 17305600,
+            "comm": "postgres",
+            "pid": 12755
+          },
+          {
+            "RSS_bytes": 15732736,
+            "comm": "postgres",
+            "pid": 12766
+          },
+          {
+            "RSS_bytes": 17215488,
+            "comm": "postgres",
+            "pid": 12807
+          },
+          {
+            "RSS_bytes": 14888960,
+            "comm": "postgres",
+            "pid": 12822
+          },
+          {
+            "RSS_bytes": 16863232,
+            "comm": "postgres",
+            "pid": 12820
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 12819
+          },
+          {
+            "RSS_bytes": 14942208,
+            "comm": "postgres",
+            "pid": 12841
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 12845
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 12844
+          },
+          {
+            "RSS_bytes": 7983104,
+            "comm": "postgres",
+            "pid": 12859
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 12863
+          },
+          {
+            "RSS_bytes": 15732736,
+            "comm": "postgres",
+            "pid": 12869
+          },
+          {
+            "RSS_bytes": 16908288,
+            "comm": "postgres",
+            "pid": 12864
+          },
+          {
+            "RSS_bytes": 14417920,
+            "comm": "postgres",
+            "pid": 12877
+          },
+          {
+            "RSS_bytes": 16781312,
+            "comm": "gone",
+            "pid": 12887
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 12882
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 12881
+          },
+          {
+            "RSS_bytes": 14626816,
+            "comm": "postgres",
+            "pid": 12905
+          },
+          {
+            "RSS_bytes": 16986112,
+            "comm": "postgres",
+            "pid": 12900
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 12899
+          },
+          {
+            "RSS_bytes": 15540224,
+            "comm": "postgres",
+            "pid": 12912
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 12918
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 12917
+          },
+          {
+            "RSS_bytes": 14360576,
+            "comm": "postgres",
+            "pid": 12928
+          },
+          {
+            "RSS_bytes": 16855040,
+            "comm": "gone",
+            "pid": 12939
+          },
+          {
+            "RSS_bytes": 16850944,
+            "comm": "postgres",
+            "pid": 12938
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 12937
+          },
+          {
+            "RSS_bytes": 15597568,
+            "comm": "postgres",
+            "pid": 12956
+          },
+          {
+            "RSS_bytes": 6541312,
+            "comm": "postgres",
+            "pid": 12965
+          },
+          {
+            "RSS_bytes": 17563648,
+            "comm": "postgres",
+            "pid": 12974
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 12984
+          },
+          {
+            "RSS_bytes": 15728640,
+            "comm": "postgres",
+            "pid": 12990
+          },
+          {
+            "RSS_bytes": 15601664,
+            "comm": "postgres",
+            "pid": 13004
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 12996
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 12995
+          },
+          {
+            "RSS_bytes": 16822272,
+            "comm": "postgres",
+            "pid": 13003
+          },
+          {
+            "RSS_bytes": 6582272,
+            "comm": "postgres",
+            "pid": 13025
+          },
+          {
+            "RSS_bytes": 15728640,
+            "comm": "postgres",
+            "pid": 13032
+          },
+          {
+            "RSS_bytes": 11481088,
+            "comm": "postgres",
+            "pid": 13043
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13038
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13037
+          },
+          {
+            "RSS_bytes": 15933440,
+            "comm": "gone",
+            "pid": 13053
+          },
+          {
+            "RSS_bytes": 6483968,
+            "comm": "postgres",
+            "pid": 13065
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13060
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13059
+          },
+          {
+            "RSS_bytes": 18132992,
+            "comm": "postgres",
+            "pid": 13069
+          },
+          {
+            "RSS_bytes": 14491648,
+            "comm": "postgres",
+            "pid": 13076
+          },
+          {
+            "RSS_bytes": 15732736,
+            "comm": "gone",
+            "pid": 13086
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13080
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13079
+          },
+          {
+            "RSS_bytes": 13004800,
+            "comm": "postgres",
+            "pid": 13087
+          },
+          {
+            "RSS_bytes": 6541312,
+            "comm": "postgres",
+            "pid": 13120
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13124
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13123
+          },
+          {
+            "RSS_bytes": 15990784,
+            "comm": "gone",
+            "pid": 13178
+          },
+          {
+            "RSS_bytes": 16789504,
+            "comm": "postgres",
+            "pid": 13183
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13182
+          },
+          {
+            "RSS_bytes": 15732736,
+            "comm": "postgres",
+            "pid": 13190
+          },
+          {
+            "RSS_bytes": 11534336,
+            "comm": "postgres",
+            "pid": 13199
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13202
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13201
+          },
+          {
+            "RSS_bytes": 15671296,
+            "comm": "postgres",
+            "pid": 13215
+          },
+          {
+            "RSS_bytes": 17682432,
+            "comm": "postgres",
+            "pid": 13214
+          },
+          {
+            "RSS_bytes": 15556608,
+            "comm": "postgres",
+            "pid": 13226
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13222
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13221
+          },
+          {
+            "RSS_bytes": 10981376,
+            "comm": "postgres",
+            "pid": 13244
+          },
+          {
+            "RSS_bytes": 12132352,
+            "comm": "postgres",
+            "pid": 13252
+          },
+          {
+            "RSS_bytes": 15675392,
+            "comm": "postgres",
+            "pid": 13263
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13256
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13255
+          },
+          {
+            "RSS_bytes": 15413248,
+            "comm": "postgres",
+            "pid": 13306
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13308
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13307
+          },
+          {
+            "RSS_bytes": 17956864,
+            "comm": "postgres",
+            "pid": 13318
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13327
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13326
+          },
+          {
+            "RSS_bytes": 6541312,
+            "comm": "postgres",
+            "pid": 13337
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13348
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13347
+          },
+          {
+            "RSS_bytes": 14876672,
+            "comm": "postgres",
+            "pid": 13355
+          },
+          {
+            "RSS_bytes": 6541312,
+            "comm": "postgres",
+            "pid": 13364
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13366
+          },
+          {
+            "RSS_bytes": 17383424,
+            "comm": "postgres",
+            "pid": 13365
+          },
+          {
+            "RSS_bytes": 6483968,
+            "comm": "postgres",
+            "pid": 13389
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13391
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13390
+          },
+          {
+            "RSS_bytes": 16457728,
+            "comm": "gone",
+            "pid": 13408
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "gone",
+            "pid": 13410
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13409
+          },
+          {
+            "RSS_bytes": 15990784,
+            "comm": "gone",
+            "pid": 13431
+          },
+          {
+            "RSS_bytes": 16908288,
+            "comm": "gone",
+            "pid": 13433
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13432
+          },
+          {
+            "RSS_bytes": 9519104,
+            "comm": "postgres",
+            "pid": 13468
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13470
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13469
+          },
+          {
+            "RSS_bytes": 15728640,
+            "comm": "postgres",
+            "pid": 13487
+          },
+          {
+            "RSS_bytes": 6541312,
+            "comm": "postgres",
+            "pid": 13500
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13495
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13494
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13516
+          },
+          {
+            "RSS_bytes": 16990208,
+            "comm": "gone",
+            "pid": 13517
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13558
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13559
+          },
+          {
+            "RSS_bytes": 15933440,
+            "comm": "gone",
+            "pid": 13602
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13605
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13604
+          },
+          {
+            "RSS_bytes": 15990784,
+            "comm": "gone",
+            "pid": 13618
+          },
+          {
+            "RSS_bytes": 11800576,
+            "comm": "postgres",
+            "pid": 13630
+          },
+          {
+            "RSS_bytes": 16920576,
+            "comm": "postgres",
+            "pid": 13624
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13622
+          },
+          {
+            "RSS_bytes": 6541312,
+            "comm": "postgres",
+            "pid": 13638
+          },
+          {
+            "RSS_bytes": 6541312,
+            "comm": "postgres",
+            "pid": 13648
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13643
+          },
+          {
+            "RSS_bytes": 17444864,
+            "comm": "postgres",
+            "pid": 13642
+          },
+          {
+            "RSS_bytes": 16777216,
+            "comm": "postgres",
+            "pid": 13653
+          },
+          {
+            "RSS_bytes": 17682432,
+            "comm": "postgres",
+            "pid": 13657
+          },
+          {
+            "RSS_bytes": 13340672,
+            "comm": "postgres",
+            "pid": 13659
+          },
+          {
+            "RSS_bytes": 6656000,
+            "comm": "postgres",
+            "pid": 13738
+          },
+          {
+            "RSS_bytes": 15732736,
+            "comm": "postgres",
+            "pid": 13749
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13747
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13746
+          },
+          {
+            "RSS_bytes": 14417920,
+            "comm": "postgres",
+            "pid": 13770
+          },
+          {
+            "RSS_bytes": 16994304,
+            "comm": "postgres",
+            "pid": 13774
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13773
+          },
+          {
+            "RSS_bytes": 15671296,
+            "comm": "postgres",
+            "pid": 13788
+          },
+          {
+            "RSS_bytes": 15937536,
+            "comm": "gone",
+            "pid": 13799
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13793
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13792
+          },
+          {
+            "RSS_bytes": 14884864,
+            "comm": "postgres",
+            "pid": 13807
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13811
+          },
+          {
+            "RSS_bytes": 17256448,
+            "comm": "postgres",
+            "pid": 13810
+          },
+          {
+            "RSS_bytes": 6672384,
+            "comm": "postgres",
+            "pid": 13826
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13829
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13828
+          },
+          {
+            "RSS_bytes": 14680064,
+            "comm": "postgres",
+            "pid": 13845
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13846
+          },
+          {
+            "RSS_bytes": 15597568,
+            "comm": "postgres",
+            "pid": 13877
+          },
+          {
+            "RSS_bytes": 6483968,
+            "comm": "postgres",
+            "pid": 13885
+          },
+          {
+            "RSS_bytes": 14360576,
+            "comm": "postgres",
+            "pid": 13898
+          },
+          {
+            "RSS_bytes": 16195584,
+            "comm": "postgres",
+            "pid": 13895
+          },
+          {
+            "RSS_bytes": 14585856,
+            "comm": "postgres",
+            "pid": 13906
+          },
+          {
+            "RSS_bytes": 15540224,
+            "comm": "postgres",
+            "pid": 13914
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13917
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13916
+          },
+          {
+            "RSS_bytes": 12525568,
+            "comm": "postgres",
+            "pid": 13930
+          },
+          {
+            "RSS_bytes": 15994880,
+            "comm": "gone",
+            "pid": 13943
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 13936
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 13935
+          },
+          {
+            "RSS_bytes": 18075648,
+            "comm": "postgres",
+            "pid": 13942
+          },
+          {
+            "RSS_bytes": 15609856,
+            "comm": "gone",
+            "pid": 13950
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 13981
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 13980
+          },
+          {
+            "RSS_bytes": 15994880,
+            "comm": "gone",
+            "pid": 13986
+          },
+          {
+            "RSS_bytes": 16003072,
+            "comm": "gone",
+            "pid": 13993
+          },
+          {
+            "RSS_bytes": 8175616,
+            "comm": "postgres",
+            "pid": 14011
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 14004
+          },
+          {
+            "RSS_bytes": 17170432,
+            "comm": "postgres",
+            "pid": 14003
+          },
+          {
+            "RSS_bytes": 17948672,
+            "comm": "postgres",
+            "pid": 14010
+          },
+          {
+            "RSS_bytes": 14417920,
+            "comm": "postgres",
+            "pid": 14016
+          },
+          {
+            "RSS_bytes": 13062144,
+            "comm": "postgres",
+            "pid": 14026
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 14023
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 14022
+          },
+          {
+            "RSS_bytes": 15757312,
+            "comm": "postgres",
+            "pid": 14032
+          },
+          {
+            "RSS_bytes": 13930496,
+            "comm": "postgres",
+            "pid": 14037
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 14041
+          },
+          {
+            "RSS_bytes": 17375232,
+            "comm": "postgres",
+            "pid": 14040
+          },
+          {
+            "RSS_bytes": 15544320,
+            "comm": "postgres",
+            "pid": 14048
+          }
+        ],
+        "RSS_samples": 217,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 957083648,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "ff3e6e8d99680acac3ec7e259cbbd1031470ddc2c3ab75f5bf7a4c32c64a82c5",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 146944000,
+        "source_count": 2925,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 56.03723868400016
+      }
+    },
+    "joint": {
+      "terminal_sha256": "8b8c9227090a4159f2bb67da5402f47c6c63b54074e496dbf77589b526985136",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 36954112,
+            "comm": "python",
+            "pid": 8832
+          },
+          {
+            "RSS_bytes": 146944000,
+            "comm": "python",
+            "pid": 8839
+          },
+          {
+            "RSS_bytes": 8986624,
+            "comm": "nginx",
+            "pid": 8862
+          },
+          {
+            "RSS_bytes": 7667712,
+            "comm": "nginx",
+            "pid": 10354
+          },
+          {
+            "RSS_bytes": 18272256,
+            "comm": "postgres",
+            "pid": 8845
+          },
+          {
+            "RSS_bytes": 5324800,
+            "comm": "postgres",
+            "pid": 8851
+          },
+          {
+            "RSS_bytes": 6078464,
+            "comm": "postgres",
+            "pid": 8850
+          },
+          {
+            "RSS_bytes": 7491584,
+            "comm": "postgres",
+            "pid": 8849
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 8847
+          },
+          {
+            "RSS_bytes": 5689344,
+            "comm": "postgres",
+            "pid": 8846
+          },
+          {
+            "RSS_bytes": 41422848,
+            "comm": "python",
+            "pid": 10754
+          },
+          {
+            "RSS_bytes": 18149376,
+            "comm": "postgres",
+            "pid": 10764
+          },
+          {
+            "RSS_bytes": 5173248,
+            "comm": "postgres",
+            "pid": 10775
+          },
+          {
+            "RSS_bytes": 6103040,
+            "comm": "postgres",
+            "pid": 10774
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "postgres",
+            "pid": 10773
+          },
+          {
+            "RSS_bytes": 4603904,
+            "comm": "postgres",
+            "pid": 10767
+          },
+          {
+            "RSS_bytes": 5804032,
+            "comm": "postgres",
+            "pid": 10766
+          },
+          {
+            "RSS_bytes": 126590976,
+            "comm": "python",
+            "pid": 10760
+          },
+          {
+            "RSS_bytes": 9043968,
+            "comm": "nginx",
+            "pid": 10782
+          },
+          {
+            "RSS_bytes": 4272128,
+            "comm": "nginx",
+            "pid": 10815
+          },
+          {
+            "RSS_bytes": 103792640,
+            "comm": "python",
+            "pid": 10781
+          },
+          {
+            "RSS_bytes": 109948928,
+            "comm": "python",
+            "pid": 10784
+          },
+          {
+            "RSS_bytes": 96198656,
+            "comm": "python",
+            "pid": 10792
+          },
+          {
+            "RSS_bytes": 27652096,
+            "comm": "python",
+            "pid": 14346
+          },
+          {
+            "RSS_bytes": 128204800,
+            "comm": "python",
+            "pid": 14355
+          },
+          {
+            "RSS_bytes": 16637952,
+            "comm": "postgres",
+            "pid": 14410
+          },
+          {
+            "RSS_bytes": 18640896,
+            "comm": "postgres",
+            "pid": 14404
+          },
+          {
+            "RSS_bytes": 16642048,
+            "comm": "postgres",
+            "pid": 14421
+          },
+          {
+            "RSS_bytes": 18214912,
+            "comm": "postgres",
+            "pid": 14420
+          },
+          {
+            "RSS_bytes": 17616896,
+            "comm": "postgres",
+            "pid": 14414
+          },
+          {
+            "RSS_bytes": 17989632,
+            "comm": "postgres",
+            "pid": 14413
+          },
+          {
+            "RSS_bytes": 16551936,
+            "comm": "postgres",
+            "pid": 14427
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14431
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14430
+          },
+          {
+            "RSS_bytes": 14860288,
+            "comm": "postgres",
+            "pid": 14437
+          },
+          {
+            "RSS_bytes": 17092608,
+            "comm": "gone",
+            "pid": 14458
+          },
+          {
+            "RSS_bytes": 17092608,
+            "comm": "postgres",
+            "pid": 14469
+          },
+          {
+            "RSS_bytes": 16551936,
+            "comm": "postgres",
+            "pid": 14468
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14466
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14465
+          },
+          {
+            "RSS_bytes": 15241216,
+            "comm": "postgres",
+            "pid": 14484
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14483
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14482
+          },
+          {
+            "RSS_bytes": 16699392,
+            "comm": "postgres",
+            "pid": 14493
+          },
+          {
+            "RSS_bytes": 16777216,
+            "comm": "postgres",
+            "pid": 14502
+          },
+          {
+            "RSS_bytes": 17166336,
+            "comm": "postgres",
+            "pid": 14501
+          },
+          {
+            "RSS_bytes": 6524928,
+            "comm": "postgres",
+            "pid": 14510
+          },
+          {
+            "RSS_bytes": 17825792,
+            "comm": "postgres",
+            "pid": 14519
+          },
+          {
+            "RSS_bytes": 18214912,
+            "comm": "postgres",
+            "pid": 14518
+          },
+          {
+            "RSS_bytes": 16642048,
+            "comm": "postgres",
+            "pid": 14539
+          },
+          {
+            "RSS_bytes": 17825792,
+            "comm": "postgres",
+            "pid": 14537
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 14536
+          },
+          {
+            "RSS_bytes": 12042240,
+            "comm": "postgres",
+            "pid": 14558
+          },
+          {
+            "RSS_bytes": 16556032,
+            "comm": "postgres",
+            "pid": 14568
+          },
+          {
+            "RSS_bytes": 17747968,
+            "comm": "postgres",
+            "pid": 14567
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14565
+          },
+          {
+            "RSS_bytes": 16830464,
+            "comm": "postgres",
+            "pid": 14574
+          },
+          {
+            "RSS_bytes": 18042880,
+            "comm": "gone",
+            "pid": 14577
+          },
+          {
+            "RSS_bytes": 17747968,
+            "comm": "gone",
+            "pid": 14598
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14596
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14595
+          },
+          {
+            "RSS_bytes": 14454784,
+            "comm": "postgres",
+            "pid": 14606
+          },
+          {
+            "RSS_bytes": 16699392,
+            "comm": "postgres",
+            "pid": 14615
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14614
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14613
+          },
+          {
+            "RSS_bytes": 16494592,
+            "comm": "postgres",
+            "pid": 14630
+          },
+          {
+            "RSS_bytes": 17559552,
+            "comm": "postgres",
+            "pid": 14639
+          },
+          {
+            "RSS_bytes": 17825792,
+            "comm": "postgres",
+            "pid": 14632
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 14631
+          },
+          {
+            "RSS_bytes": 16642048,
+            "comm": "postgres",
+            "pid": 14646
+          },
+          {
+            "RSS_bytes": 17825792,
+            "comm": "postgres",
+            "pid": 14649
+          },
+          {
+            "RSS_bytes": 18214912,
+            "comm": "postgres",
+            "pid": 14648
+          },
+          {
+            "RSS_bytes": 16773120,
+            "comm": "postgres",
+            "pid": 14668
+          },
+          {
+            "RSS_bytes": 17694720,
+            "comm": "postgres",
+            "pid": 14679
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 14671
+          },
+          {
+            "RSS_bytes": 11571200,
+            "comm": "postgres",
+            "pid": 14701
+          },
+          {
+            "RSS_bytes": 16842752,
+            "comm": "postgres",
+            "pid": 14700
+          },
+          {
+            "RSS_bytes": 17092608,
+            "comm": "postgres",
+            "pid": 14707
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14711
+          },
+          {
+            "RSS_bytes": 15765504,
+            "comm": "postgres",
+            "pid": 14718
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14710
+          },
+          {
+            "RSS_bytes": 13406208,
+            "comm": "postgres",
+            "pid": 14730
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14729
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14728
+          },
+          {
+            "RSS_bytes": 17223680,
+            "comm": "gone",
+            "pid": 14737
+          },
+          {
+            "RSS_bytes": 13275136,
+            "comm": "postgres",
+            "pid": 14748
+          },
+          {
+            "RSS_bytes": 17604608,
+            "comm": "postgres",
+            "pid": 14747
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14746
+          },
+          {
+            "RSS_bytes": 15183872,
+            "comm": "postgres",
+            "pid": 14763
+          },
+          {
+            "RSS_bytes": 18739200,
+            "comm": "postgres",
+            "pid": 14756
+          },
+          {
+            "RSS_bytes": 17821696,
+            "comm": "postgres",
+            "pid": 14766
+          },
+          {
+            "RSS_bytes": 18214912,
+            "comm": "postgres",
+            "pid": 14764
+          },
+          {
+            "RSS_bytes": 16494592,
+            "comm": "postgres",
+            "pid": 14782
+          },
+          {
+            "RSS_bytes": 9572352,
+            "comm": "postgres",
+            "pid": 14805
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14825
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14824
+          },
+          {
+            "RSS_bytes": 16551936,
+            "comm": "postgres",
+            "pid": 14840
+          },
+          {
+            "RSS_bytes": 15241216,
+            "comm": "postgres",
+            "pid": 14867
+          },
+          {
+            "RSS_bytes": 17633280,
+            "comm": "postgres",
+            "pid": 14866
+          },
+          {
+            "RSS_bytes": 18153472,
+            "comm": "postgres",
+            "pid": 14865
+          },
+          {
+            "RSS_bytes": 15241216,
+            "comm": "postgres",
+            "pid": 14886
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14883
+          },
+          {
+            "RSS_bytes": 18010112,
+            "comm": "postgres",
+            "pid": 14882
+          },
+          {
+            "RSS_bytes": 16523264,
+            "comm": "gone",
+            "pid": 14930
+          },
+          {
+            "RSS_bytes": 17825792,
+            "comm": "postgres",
+            "pid": 14919
+          },
+          {
+            "RSS_bytes": 17952768,
+            "comm": "postgres",
+            "pid": 14918
+          },
+          {
+            "RSS_bytes": 16642048,
+            "comm": "postgres",
+            "pid": 14939
+          },
+          {
+            "RSS_bytes": 18219008,
+            "comm": "gone",
+            "pid": 14938
+          },
+          {
+            "RSS_bytes": 17825792,
+            "comm": "postgres",
+            "pid": 14943
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 14942
+          },
+          {
+            "RSS_bytes": 15196160,
+            "comm": "postgres",
+            "pid": 14947
+          },
+          {
+            "RSS_bytes": 13537280,
+            "comm": "postgres",
+            "pid": 14958
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14960
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14959
+          },
+          {
+            "RSS_bytes": 17092608,
+            "comm": "postgres",
+            "pid": 14967
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 14974
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14977
+          },
+          {
+            "RSS_bytes": 18272256,
+            "comm": "postgres",
+            "pid": 14976
+          },
+          {
+            "RSS_bytes": 14585856,
+            "comm": "postgres",
+            "pid": 14990
+          },
+          {
+            "RSS_bytes": 13373440,
+            "comm": "postgres",
+            "pid": 15003
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 14995
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 14994
+          },
+          {
+            "RSS_bytes": 16318464,
+            "comm": "postgres",
+            "pid": 15013
+          },
+          {
+            "RSS_bytes": 2658304,
+            "comm": "postgres",
+            "pid": 15030
+          },
+          {
+            "RSS_bytes": 17829888,
+            "comm": "postgres",
+            "pid": 15021
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 15018
+          },
+          {
+            "RSS_bytes": 6656000,
+            "comm": "postgres",
+            "pid": 15042
+          },
+          {
+            "RSS_bytes": 16232448,
+            "comm": "postgres",
+            "pid": 15055
+          },
+          {
+            "RSS_bytes": 17825792,
+            "comm": "postgres",
+            "pid": 15047
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 15046
+          },
+          {
+            "RSS_bytes": 6524928,
+            "comm": "postgres",
+            "pid": 15087
+          },
+          {
+            "RSS_bytes": 16773120,
+            "comm": "gone",
+            "pid": 15096
+          },
+          {
+            "RSS_bytes": 17575936,
+            "comm": "postgres",
+            "pid": 15092
+          },
+          {
+            "RSS_bytes": 18096128,
+            "comm": "postgres",
+            "pid": 15091
+          },
+          {
+            "RSS_bytes": 6713344,
+            "comm": "postgres",
+            "pid": 15112
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 15111
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 15110
+          },
+          {
+            "RSS_bytes": 17223680,
+            "comm": "gone",
+            "pid": 15119
+          },
+          {
+            "RSS_bytes": 11702272,
+            "comm": "postgres",
+            "pid": 15129
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 15128
+          },
+          {
+            "RSS_bytes": 17862656,
+            "comm": "postgres",
+            "pid": 15127
+          },
+          {
+            "RSS_bytes": 17092608,
+            "comm": "postgres",
+            "pid": 15145
+          },
+          {
+            "RSS_bytes": 17911808,
+            "comm": "postgres",
+            "pid": 15165
+          },
+          {
+            "RSS_bytes": 18284544,
+            "comm": "postgres",
+            "pid": 15158
+          },
+          {
+            "RSS_bytes": 9633792,
+            "comm": "postgres",
+            "pid": 15179
+          },
+          {
+            "RSS_bytes": 17821696,
+            "comm": "postgres",
+            "pid": 15182
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 15181
+          },
+          {
+            "RSS_bytes": 16494592,
+            "comm": "postgres",
+            "pid": 15201
+          },
+          {
+            "RSS_bytes": 15843328,
+            "comm": "postgres",
+            "pid": 15212
+          },
+          {
+            "RSS_bytes": 17821696,
+            "comm": "postgres",
+            "pid": 15208
+          },
+          {
+            "RSS_bytes": 17965056,
+            "comm": "postgres",
+            "pid": 15207
+          },
+          {
+            "RSS_bytes": 12562432,
+            "comm": "postgres",
+            "pid": 15219
+          },
+          {
+            "RSS_bytes": 16556032,
+            "comm": "postgres",
+            "pid": 15230
+          },
+          {
+            "RSS_bytes": 17821696,
+            "comm": "postgres",
+            "pid": 15225
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 15224
+          },
+          {
+            "RSS_bytes": 17223680,
+            "comm": "gone",
+            "pid": 15305
+          },
+          {
+            "RSS_bytes": 17629184,
+            "comm": "postgres",
+            "pid": 15308
+          },
+          {
+            "RSS_bytes": 18272256,
+            "comm": "postgres",
+            "pid": 15306
+          },
+          {
+            "RSS_bytes": 18272256,
+            "comm": "postgres",
+            "pid": 15324
+          },
+          {
+            "RSS_bytes": 17879040,
+            "comm": "postgres",
+            "pid": 15325
+          },
+          {
+            "RSS_bytes": 10477568,
+            "comm": "postgres",
+            "pid": 15431
+          },
+          {
+            "RSS_bytes": 18272256,
+            "comm": "postgres",
+            "pid": 15430
+          },
+          {
+            "RSS_bytes": 17752064,
+            "comm": "gone",
+            "pid": 15438
+          },
+          {
+            "RSS_bytes": 17702912,
+            "comm": "postgres",
+            "pid": 15486
+          },
+          {
+            "RSS_bytes": 17559552,
+            "comm": "postgres",
+            "pid": 15505
+          },
+          {
+            "RSS_bytes": 16773120,
+            "comm": "postgres",
+            "pid": 15551
+          },
+          {
+            "RSS_bytes": 16773120,
+            "comm": "postgres",
+            "pid": 15562
+          },
+          {
+            "RSS_bytes": 17559552,
+            "comm": "postgres",
+            "pid": 15558
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 15557
+          },
+          {
+            "RSS_bytes": 15183872,
+            "comm": "postgres",
+            "pid": 15569
+          },
+          {
+            "RSS_bytes": 6713344,
+            "comm": "postgres",
+            "pid": 15581
+          },
+          {
+            "RSS_bytes": 17879040,
+            "comm": "postgres",
+            "pid": 15575
+          },
+          {
+            "RSS_bytes": 18087936,
+            "comm": "postgres",
+            "pid": 15574
+          },
+          {
+            "RSS_bytes": 15765504,
+            "comm": "postgres",
+            "pid": 15585
+          },
+          {
+            "RSS_bytes": 8167424,
+            "comm": "postgres",
+            "pid": 15597
+          },
+          {
+            "RSS_bytes": 13017088,
+            "comm": "postgres",
+            "pid": 15596
+          },
+          {
+            "RSS_bytes": 17879040,
+            "comm": "postgres",
+            "pid": 15593
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 15592
+          },
+          {
+            "RSS_bytes": 6582272,
+            "comm": "postgres",
+            "pid": 15604
+          },
+          {
+            "RSS_bytes": 16556032,
+            "comm": "postgres",
+            "pid": 15615
+          },
+          {
+            "RSS_bytes": 17879040,
+            "comm": "postgres",
+            "pid": 15610
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 15609
+          },
+          {
+            "RSS_bytes": 16551936,
+            "comm": "postgres",
+            "pid": 15621
+          },
+          {
+            "RSS_bytes": 16834560,
+            "comm": "gone",
+            "pid": 15631
+          },
+          {
+            "RSS_bytes": 17825792,
+            "comm": "postgres",
+            "pid": 15627
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 15626
+          },
+          {
+            "RSS_bytes": 15052800,
+            "comm": "postgres",
+            "pid": 15639
+          },
+          {
+            "RSS_bytes": 17821696,
+            "comm": "postgres",
+            "pid": 15644
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 15643
+          },
+          {
+            "RSS_bytes": 17821696,
+            "comm": "postgres",
+            "pid": 15671
+          },
+          {
+            "RSS_bytes": 6524928,
+            "comm": "postgres",
+            "pid": 15673
+          },
+          {
+            "RSS_bytes": 18083840,
+            "comm": "postgres",
+            "pid": 15670
+          },
+          {
+            "RSS_bytes": 5103616,
+            "comm": "postgres",
+            "pid": 15703
+          },
+          {
+            "RSS_bytes": 16449536,
+            "comm": "postgres",
+            "pid": 15719
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "postgres",
+            "pid": 15717
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 15715
+          },
+          {
+            "RSS_bytes": 6582272,
+            "comm": "postgres",
+            "pid": 15740
+          },
+          {
+            "RSS_bytes": 17879040,
+            "comm": "postgres",
+            "pid": 15747
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 15746
+          },
+          {
+            "RSS_bytes": 6582272,
+            "comm": "postgres",
+            "pid": 15758
+          },
+          {
+            "RSS_bytes": 15245312,
+            "comm": "postgres",
+            "pid": 15768
+          },
+          {
+            "RSS_bytes": 17879040,
+            "comm": "postgres",
+            "pid": 15764
+          },
+          {
+            "RSS_bytes": 18141184,
+            "comm": "postgres",
+            "pid": 15763
+          },
+          {
+            "RSS_bytes": 18214912,
+            "comm": "postgres",
+            "pid": 15833
+          },
+          {
+            "RSS_bytes": 17616896,
+            "comm": "postgres",
+            "pid": 15834
+          },
+          {
+            "RSS_bytes": 18096128,
+            "comm": "postgres",
+            "pid": 15854
+          },
+          {
+            "RSS_bytes": 17952768,
+            "comm": "gone",
+            "pid": 15855
+          },
+          {
+            "RSS_bytes": 18214912,
+            "comm": "gone",
+            "pid": 15864
+          }
+        ],
+        "RSS_samples": 126,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 998191104,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "c929d1f23e70ac06b92a436619502d359862f102dd04285a33c4dcecabfed2d5",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 146944000,
+        "source_count": 2925,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 32.636550510999996
+      }
+    },
+    "ventilation": {
+      "terminal_sha256": "22275591c2482b91d8e2974dac909833641830bab088015aa20174e3f3e254cb",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 36954112,
+            "comm": "python",
+            "pid": 8832
+          },
+          {
+            "RSS_bytes": 146944000,
+            "comm": "python",
+            "pid": 8839
+          },
+          {
+            "RSS_bytes": 8986624,
+            "comm": "nginx",
+            "pid": 8862
+          },
+          {
+            "RSS_bytes": 7667712,
+            "comm": "nginx",
+            "pid": 10354
+          },
+          {
+            "RSS_bytes": 18272256,
+            "comm": "postgres",
+            "pid": 8845
+          },
+          {
+            "RSS_bytes": 5324800,
+            "comm": "postgres",
+            "pid": 8851
+          },
+          {
+            "RSS_bytes": 6078464,
+            "comm": "postgres",
+            "pid": 8850
+          },
+          {
+            "RSS_bytes": 7491584,
+            "comm": "postgres",
+            "pid": 8849
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 8847
+          },
+          {
+            "RSS_bytes": 6094848,
+            "comm": "postgres",
+            "pid": 8846
+          },
+          {
+            "RSS_bytes": 41422848,
+            "comm": "python",
+            "pid": 10754
+          },
+          {
+            "RSS_bytes": 18149376,
+            "comm": "postgres",
+            "pid": 10764
+          },
+          {
+            "RSS_bytes": 5173248,
+            "comm": "postgres",
+            "pid": 10775
+          },
+          {
+            "RSS_bytes": 6103040,
+            "comm": "postgres",
+            "pid": 10774
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "postgres",
+            "pid": 10773
+          },
+          {
+            "RSS_bytes": 4603904,
+            "comm": "postgres",
+            "pid": 10767
+          },
+          {
+            "RSS_bytes": 6078464,
+            "comm": "postgres",
+            "pid": 10766
+          },
+          {
+            "RSS_bytes": 126590976,
+            "comm": "python",
+            "pid": 10760
+          },
+          {
+            "RSS_bytes": 9043968,
+            "comm": "nginx",
+            "pid": 10782
+          },
+          {
+            "RSS_bytes": 7622656,
+            "comm": "nginx",
+            "pid": 10815
+          },
+          {
+            "RSS_bytes": 108118016,
+            "comm": "python",
+            "pid": 10781
+          },
+          {
+            "RSS_bytes": 123695104,
+            "comm": "python",
+            "pid": 10784
+          },
+          {
+            "RSS_bytes": 97779712,
+            "comm": "python",
+            "pid": 10792
+          },
+          {
+            "RSS_bytes": 27688960,
+            "comm": "python",
+            "pid": 17071
+          },
+          {
+            "RSS_bytes": 24059904,
+            "comm": "python",
+            "pid": 17080
+          },
+          {
+            "RSS_bytes": 18165760,
+            "comm": "postgres",
+            "pid": 17101
+          },
+          {
+            "RSS_bytes": 18448384,
+            "comm": "postgres",
+            "pid": 17109
+          },
+          {
+            "RSS_bytes": 18477056,
+            "comm": "postgres",
+            "pid": 17108
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 17112
+          },
+          {
+            "RSS_bytes": 11460608,
+            "comm": "postgres",
+            "pid": 17129
+          },
+          {
+            "RSS_bytes": 15011840,
+            "comm": "postgres",
+            "pid": 17128
+          },
+          {
+            "RSS_bytes": 16998400,
+            "comm": "postgres",
+            "pid": 17138
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17136
+          },
+          {
+            "RSS_bytes": 18382848,
+            "comm": "postgres",
+            "pid": 17135
+          },
+          {
+            "RSS_bytes": 16179200,
+            "comm": "postgres",
+            "pid": 17144
+          },
+          {
+            "RSS_bytes": 18350080,
+            "comm": "postgres",
+            "pid": 17153
+          },
+          {
+            "RSS_bytes": 17563648,
+            "comm": "postgres",
+            "pid": 17152
+          },
+          {
+            "RSS_bytes": 13877248,
+            "comm": "postgres",
+            "pid": 17160
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17170
+          },
+          {
+            "RSS_bytes": 18493440,
+            "comm": "postgres",
+            "pid": 17169
+          },
+          {
+            "RSS_bytes": 17170432,
+            "comm": "postgres",
+            "pid": 17177
+          },
+          {
+            "RSS_bytes": 15843328,
+            "comm": "postgres",
+            "pid": 17182
+          },
+          {
+            "RSS_bytes": 17043456,
+            "comm": "postgres",
+            "pid": 17193
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17187
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17186
+          },
+          {
+            "RSS_bytes": 13746176,
+            "comm": "postgres",
+            "pid": 17201
+          },
+          {
+            "RSS_bytes": 18427904,
+            "comm": "postgres",
+            "pid": 17204
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17203
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 17214
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17223
+          },
+          {
+            "RSS_bytes": 17506304,
+            "comm": "postgres",
+            "pid": 17222
+          },
+          {
+            "RSS_bytes": 16863232,
+            "comm": "postgres",
+            "pid": 17231
+          },
+          {
+            "RSS_bytes": 18305024,
+            "comm": "postgres",
+            "pid": 17240
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17239
+          },
+          {
+            "RSS_bytes": 9838592,
+            "comm": "postgres",
+            "pid": 17248
+          },
+          {
+            "RSS_bytes": 13221888,
+            "comm": "postgres",
+            "pid": 17252
+          },
+          {
+            "RSS_bytes": 9891840,
+            "comm": "postgres",
+            "pid": 17264
+          },
+          {
+            "RSS_bytes": 18350080,
+            "comm": "postgres",
+            "pid": 17258
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17257
+          },
+          {
+            "RSS_bytes": 10428416,
+            "comm": "postgres",
+            "pid": 17271
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17274
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17273
+          },
+          {
+            "RSS_bytes": 16896000,
+            "comm": "postgres",
+            "pid": 17295
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17293
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17292
+          },
+          {
+            "RSS_bytes": 17170432,
+            "comm": "postgres",
+            "pid": 17301
+          },
+          {
+            "RSS_bytes": 18558976,
+            "comm": "postgres",
+            "pid": 17310
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17308
+          },
+          {
+            "RSS_bytes": 16834560,
+            "comm": "postgres",
+            "pid": 17313
+          },
+          {
+            "RSS_bytes": 15523840,
+            "comm": "postgres",
+            "pid": 17319
+          },
+          {
+            "RSS_bytes": 16986112,
+            "comm": "postgres",
+            "pid": 17330
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17327
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17326
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 17335
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17342
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 17347
+          },
+          {
+            "RSS_bytes": 18296832,
+            "comm": "postgres",
+            "pid": 17344
+          },
+          {
+            "RSS_bytes": 16986112,
+            "comm": "postgres",
+            "pid": 17357
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17361
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17360
+          },
+          {
+            "RSS_bytes": 16502784,
+            "comm": "postgres",
+            "pid": 17377
+          },
+          {
+            "RSS_bytes": 13234176,
+            "comm": "postgres",
+            "pid": 17398
+          },
+          {
+            "RSS_bytes": 15978496,
+            "comm": "postgres",
+            "pid": 17407
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17402
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17401
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 17417
+          },
+          {
+            "RSS_bytes": 10559488,
+            "comm": "postgres",
+            "pid": 17428
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17421
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17420
+          },
+          {
+            "RSS_bytes": 17510400,
+            "comm": "gone",
+            "pid": 17432
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17438
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17437
+          },
+          {
+            "RSS_bytes": 16867328,
+            "comm": "postgres",
+            "pid": 17444
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17456
+          },
+          {
+            "RSS_bytes": 18161664,
+            "comm": "postgres",
+            "pid": 17455
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17457
+          },
+          {
+            "RSS_bytes": 13484032,
+            "comm": "postgres",
+            "pid": 17500
+          },
+          {
+            "RSS_bytes": 18685952,
+            "comm": "postgres",
+            "pid": 17503
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17504
+          },
+          {
+            "RSS_bytes": 15200256,
+            "comm": "postgres",
+            "pid": 17522
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 17521
+          },
+          {
+            "RSS_bytes": 15716352,
+            "comm": "postgres",
+            "pid": 17532
+          },
+          {
+            "RSS_bytes": 18440192,
+            "comm": "postgres",
+            "pid": 17530
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17529
+          },
+          {
+            "RSS_bytes": 16891904,
+            "comm": "postgres",
+            "pid": 17539
+          },
+          {
+            "RSS_bytes": 17436672,
+            "comm": "gone",
+            "pid": 17548
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17547
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17546
+          },
+          {
+            "RSS_bytes": 18743296,
+            "comm": "postgres",
+            "pid": 17563
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17564
+          },
+          {
+            "RSS_bytes": 17776640,
+            "comm": "gone",
+            "pid": 17581
+          },
+          {
+            "RSS_bytes": 18382848,
+            "comm": "postgres",
+            "pid": 17606
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17611
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 17621
+          },
+          {
+            "RSS_bytes": 16732160,
+            "comm": "postgres",
+            "pid": 17631
+          },
+          {
+            "RSS_bytes": 17117184,
+            "comm": "gone",
+            "pid": 17630
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17628
+          },
+          {
+            "RSS_bytes": 18436096,
+            "comm": "postgres",
+            "pid": 17627
+          },
+          {
+            "RSS_bytes": 15917056,
+            "comm": "postgres",
+            "pid": 17637
+          },
+          {
+            "RSS_bytes": 16896000,
+            "comm": "postgres",
+            "pid": 17647
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17645
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17644
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 17656
+          },
+          {
+            "RSS_bytes": 11784192,
+            "comm": "postgres",
+            "pid": 17666
+          },
+          {
+            "RSS_bytes": 18350080,
+            "comm": "postgres",
+            "pid": 17665
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17664
+          },
+          {
+            "RSS_bytes": 15843328,
+            "comm": "postgres",
+            "pid": 17677
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17694
+          },
+          {
+            "RSS_bytes": 18350080,
+            "comm": "postgres",
+            "pid": 17699
+          },
+          {
+            "RSS_bytes": 15073280,
+            "comm": "postgres",
+            "pid": 17758
+          },
+          {
+            "RSS_bytes": 18563072,
+            "comm": "postgres",
+            "pid": 17757
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17756
+          },
+          {
+            "RSS_bytes": 17244160,
+            "comm": "gone",
+            "pid": 17777
+          },
+          {
+            "RSS_bytes": 18685952,
+            "comm": "postgres",
+            "pid": 17785
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "gone",
+            "pid": 17786
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 17797
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 17808
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17805
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17804
+          },
+          {
+            "RSS_bytes": 16797696,
+            "comm": "postgres",
+            "pid": 17814
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17822
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17821
+          },
+          {
+            "RSS_bytes": 12177408,
+            "comm": "postgres",
+            "pid": 17825
+          },
+          {
+            "RSS_bytes": 17170432,
+            "comm": "postgres",
+            "pid": 17831
+          },
+          {
+            "RSS_bytes": 17174528,
+            "comm": "postgres",
+            "pid": 17842
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17839
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17838
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 17848
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17855
+          },
+          {
+            "RSS_bytes": 16896000,
+            "comm": "postgres",
+            "pid": 17863
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 17856
+          },
+          {
+            "RSS_bytes": 15130624,
+            "comm": "postgres",
+            "pid": 17941
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17950
+          },
+          {
+            "RSS_bytes": 17117184,
+            "comm": "gone",
+            "pid": 17979
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17943
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 17986
+          },
+          {
+            "RSS_bytes": 16838656,
+            "comm": "postgres",
+            "pid": 17996
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17990
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 17989
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 18005
+          },
+          {
+            "RSS_bytes": 18563072,
+            "comm": "postgres",
+            "pid": 18010
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18008
+          },
+          {
+            "RSS_bytes": 15187968,
+            "comm": "postgres",
+            "pid": 18016
+          },
+          {
+            "RSS_bytes": 16891904,
+            "comm": "postgres",
+            "pid": 18021
+          },
+          {
+            "RSS_bytes": 16896000,
+            "comm": "postgres",
+            "pid": 18032
+          },
+          {
+            "RSS_bytes": 18362368,
+            "comm": "postgres",
+            "pid": 18026
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18025
+          },
+          {
+            "RSS_bytes": 18743296,
+            "comm": "postgres",
+            "pid": 18044
+          },
+          {
+            "RSS_bytes": 15187968,
+            "comm": "postgres",
+            "pid": 18062
+          },
+          {
+            "RSS_bytes": 17563648,
+            "comm": "postgres",
+            "pid": 18061
+          },
+          {
+            "RSS_bytes": 5685248,
+            "comm": "postgres",
+            "pid": 18069
+          },
+          {
+            "RSS_bytes": 17444864,
+            "comm": "gone",
+            "pid": 18077
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 18089
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18085
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18084
+          },
+          {
+            "RSS_bytes": 17637376,
+            "comm": "postgres",
+            "pid": 18095
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18102
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18101
+          },
+          {
+            "RSS_bytes": 15921152,
+            "comm": "postgres",
+            "pid": 18105
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 18111
+          },
+          {
+            "RSS_bytes": 15138816,
+            "comm": "postgres",
+            "pid": 18121
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18119
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18118
+          },
+          {
+            "RSS_bytes": 16891904,
+            "comm": "postgres",
+            "pid": 18130
+          },
+          {
+            "RSS_bytes": 16240640,
+            "comm": "postgres",
+            "pid": 18140
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18137
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18136
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 18151
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18154
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18153
+          },
+          {
+            "RSS_bytes": 15056896,
+            "comm": "postgres",
+            "pid": 18168
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18173
+          },
+          {
+            "RSS_bytes": 18481152,
+            "comm": "postgres",
+            "pid": 18172
+          },
+          {
+            "RSS_bytes": 17113088,
+            "comm": "gone",
+            "pid": 18271
+          },
+          {
+            "RSS_bytes": 18161664,
+            "comm": "gone",
+            "pid": 18270
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18287
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18272
+          },
+          {
+            "RSS_bytes": 14880768,
+            "comm": "postgres",
+            "pid": 18353
+          },
+          {
+            "RSS_bytes": 18305024,
+            "comm": "postgres",
+            "pid": 18356
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18355
+          },
+          {
+            "RSS_bytes": 18087936,
+            "comm": "postgres",
+            "pid": 18407
+          },
+          {
+            "RSS_bytes": 18558976,
+            "comm": "postgres",
+            "pid": 18423
+          },
+          {
+            "RSS_bytes": 18743296,
+            "comm": "postgres",
+            "pid": 18415
+          },
+          {
+            "RSS_bytes": 18726912,
+            "comm": "postgres",
+            "pid": 18439
+          },
+          {
+            "RSS_bytes": 13746176,
+            "comm": "postgres",
+            "pid": 18447
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 18453
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18460
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18458
+          },
+          {
+            "RSS_bytes": 8417280,
+            "comm": "postgres",
+            "pid": 18472
+          },
+          {
+            "RSS_bytes": 17956864,
+            "comm": "postgres",
+            "pid": 18477
+          },
+          {
+            "RSS_bytes": 16994304,
+            "comm": "postgres",
+            "pid": 18501
+          },
+          {
+            "RSS_bytes": 18493440,
+            "comm": "postgres",
+            "pid": 18498
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18497
+          },
+          {
+            "RSS_bytes": 17113088,
+            "comm": "postgres",
+            "pid": 18512
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 18524
+          },
+          {
+            "RSS_bytes": 17641472,
+            "comm": "gone",
+            "pid": 18522
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18521
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18520
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 18529
+          },
+          {
+            "RSS_bytes": 18436096,
+            "comm": "postgres",
+            "pid": 18538
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18537
+          },
+          {
+            "RSS_bytes": 15450112,
+            "comm": "postgres",
+            "pid": 18546
+          },
+          {
+            "RSS_bytes": 17121280,
+            "comm": "postgres",
+            "pid": 18549
+          },
+          {
+            "RSS_bytes": 17563648,
+            "comm": "postgres",
+            "pid": 18548
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 18559
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18556
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18555
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 18590
+          },
+          {
+            "RSS_bytes": 15716352,
+            "comm": "postgres",
+            "pid": 18681
+          },
+          {
+            "RSS_bytes": 18362368,
+            "comm": "postgres",
+            "pid": 18672
+          },
+          {
+            "RSS_bytes": 18481152,
+            "comm": "postgres",
+            "pid": 18661
+          },
+          {
+            "RSS_bytes": 16367616,
+            "comm": "postgres",
+            "pid": 18722
+          },
+          {
+            "RSS_bytes": 17301504,
+            "comm": "gone",
+            "pid": 18721
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 18728
+          },
+          {
+            "RSS_bytes": 17055744,
+            "comm": "postgres",
+            "pid": 18778
+          },
+          {
+            "RSS_bytes": 18350080,
+            "comm": "postgres",
+            "pid": 18766
+          },
+          {
+            "RSS_bytes": 18624512,
+            "comm": "postgres",
+            "pid": 18760
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 18812
+          },
+          {
+            "RSS_bytes": 6598656,
+            "comm": "postgres",
+            "pid": 18828
+          },
+          {
+            "RSS_bytes": 18755584,
+            "comm": "postgres",
+            "pid": 18827
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 18838
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18846
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18845
+          },
+          {
+            "RSS_bytes": 15921152,
+            "comm": "postgres",
+            "pid": 18848
+          },
+          {
+            "RSS_bytes": 9834496,
+            "comm": "postgres",
+            "pid": 18855
+          },
+          {
+            "RSS_bytes": 17002496,
+            "comm": "gone",
+            "pid": 18866
+          },
+          {
+            "RSS_bytes": 18296832,
+            "comm": "postgres",
+            "pid": 18865
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18864
+          },
+          {
+            "RSS_bytes": 16986112,
+            "comm": "postgres",
+            "pid": 18877
+          },
+          {
+            "RSS_bytes": 15192064,
+            "comm": "postgres",
+            "pid": 18887
+          },
+          {
+            "RSS_bytes": 18362368,
+            "comm": "postgres",
+            "pid": 18883
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18882
+          },
+          {
+            "RSS_bytes": 15974400,
+            "comm": "postgres",
+            "pid": 18893
+          },
+          {
+            "RSS_bytes": 17043456,
+            "comm": "gone",
+            "pid": 18902
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18900
+          },
+          {
+            "RSS_bytes": 18481152,
+            "comm": "postgres",
+            "pid": 18899
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18917
+          },
+          {
+            "RSS_bytes": 17575936,
+            "comm": "postgres",
+            "pid": 18916
+          },
+          {
+            "RSS_bytes": 17387520,
+            "comm": "postgres",
+            "pid": 18925
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18934
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18933
+          },
+          {
+            "RSS_bytes": 15785984,
+            "comm": "postgres",
+            "pid": 18966
+          },
+          {
+            "RSS_bytes": 9834496,
+            "comm": "postgres",
+            "pid": 18970
+          },
+          {
+            "RSS_bytes": 15917056,
+            "comm": "postgres",
+            "pid": 18969
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 18975
+          },
+          {
+            "RSS_bytes": 13049856,
+            "comm": "postgres",
+            "pid": 18980
+          },
+          {
+            "RSS_bytes": 18173952,
+            "comm": "postgres",
+            "pid": 18976
+          },
+          {
+            "RSS_bytes": 16982016,
+            "comm": "postgres",
+            "pid": 18986
+          },
+          {
+            "RSS_bytes": 17174528,
+            "comm": "gone",
+            "pid": 18996
+          },
+          {
+            "RSS_bytes": 18350080,
+            "comm": "postgres",
+            "pid": 18994
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 18993
+          },
+          {
+            "RSS_bytes": 15396864,
+            "comm": "postgres",
+            "pid": 19002
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 19014
+          },
+          {
+            "RSS_bytes": 12058624,
+            "comm": "postgres",
+            "pid": 19030
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19029
+          },
+          {
+            "RSS_bytes": 18481152,
+            "comm": "postgres",
+            "pid": 19021
+          },
+          {
+            "RSS_bytes": 8286208,
+            "comm": "postgres",
+            "pid": 19037
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 19101
+          },
+          {
+            "RSS_bytes": 18743296,
+            "comm": "postgres",
+            "pid": 19100
+          },
+          {
+            "RSS_bytes": 18178048,
+            "comm": "postgres",
+            "pid": 19102
+          },
+          {
+            "RSS_bytes": 7962624,
+            "comm": "postgres",
+            "pid": 19112
+          },
+          {
+            "RSS_bytes": 17567744,
+            "comm": "gone",
+            "pid": 19123
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19120
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19118
+          },
+          {
+            "RSS_bytes": 15261696,
+            "comm": "postgres",
+            "pid": 19130
+          },
+          {
+            "RSS_bytes": 18337792,
+            "comm": "gone",
+            "pid": 19129
+          },
+          {
+            "RSS_bytes": 16986112,
+            "comm": "postgres",
+            "pid": 19140
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 19137
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 19136
+          },
+          {
+            "RSS_bytes": 6594560,
+            "comm": "postgres",
+            "pid": 19153
+          },
+          {
+            "RSS_bytes": 11595776,
+            "comm": "postgres",
+            "pid": 19162
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 19155
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 19154
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 19170
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19172
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19171
+          },
+          {
+            "RSS_bytes": 9367552,
+            "comm": "postgres",
+            "pid": 19187
+          },
+          {
+            "RSS_bytes": 18624512,
+            "comm": "postgres",
+            "pid": 19189
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19188
+          },
+          {
+            "RSS_bytes": 17039360,
+            "comm": "postgres",
+            "pid": 19204
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19206
+          },
+          {
+            "RSS_bytes": 18743296,
+            "comm": "postgres",
+            "pid": 19205
+          },
+          {
+            "RSS_bytes": 15187968,
+            "comm": "postgres",
+            "pid": 19216
+          },
+          {
+            "RSS_bytes": 18558976,
+            "comm": "postgres",
+            "pid": 19222
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19223
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 19235
+          },
+          {
+            "RSS_bytes": 16941056,
+            "comm": "postgres",
+            "pid": 19242
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 19257
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 19254
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 19256
+          },
+          {
+            "RSS_bytes": 15917056,
+            "comm": "postgres",
+            "pid": 19264
+          },
+          {
+            "RSS_bytes": 15790080,
+            "comm": "postgres",
+            "pid": 19277
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 19276
+          },
+          {
+            "RSS_bytes": 18554880,
+            "comm": "postgres",
+            "pid": 19275
+          },
+          {
+            "RSS_bytes": 12439552,
+            "comm": "postgres",
+            "pid": 19295
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19294
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19293
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 19302
+          },
+          {
+            "RSS_bytes": 9891840,
+            "comm": "postgres",
+            "pid": 19305
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 19314
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19311
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19310
+          },
+          {
+            "RSS_bytes": 15187968,
+            "comm": "postgres",
+            "pid": 19321
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19327
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 19332
+          },
+          {
+            "RSS_bytes": 16777216,
+            "comm": "postgres",
+            "pid": 19331
+          },
+          {
+            "RSS_bytes": 18612224,
+            "comm": "postgres",
+            "pid": 19328
+          }
+        ],
+        "RSS_samples": 187,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 924721152,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "5fe8806651a824029cb0f1c26394b8d98ec65371e501bb4212f5545cba543ae8",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 146944000,
+        "source_count": 2925,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 48.67038396900011
+      }
+    }
+  },
+  "legacy": {
+    "probe_sha256": "07816f092ca68a6b56cbb5b4d8ada86d25b212c2c84fb2f5952e60d954572b48",
+    "original_growth_harvest_wire_equal": true,
+    "HTTP_responses": 8,
+    "same_frozen_HTML": true,
+    "guarded_math_publication_calls": 0,
+    "retained_original_physical_database": true,
+    "FD_before_after": [
+      8,
+      8
+    ]
+  },
+  "joint": {
+    "probe_sha256": "cfcc022ac8cdbff7cb252edcbd5124231b4755823521cdc7671d236b8a637740",
+    "actual_HTTPS_SCRAM": true,
+    "original_inputs": 3,
+    "original_samples": 9,
+    "original_current_values_and_UTC_except_observation_equal": true,
+    "read_calculation_and_write_calls": {
+      "RHS": 0,
+      "_put_in_transaction": 0,
+      "advance": 0,
+      "confirm": 0,
+      "event": 0,
+      "jobs._durable_artifact": 0,
+      "jobs._event": 0,
+      "jobs._insert_publication": 0,
+      "jobs._outcome": 0,
+      "jobs.ack_cancel": 0,
+      "jobs.cancel": 0,
+      "jobs.claim": 0,
+      "jobs.fail": 0,
+      "jobs.renew": 0,
+      "jobs.submit": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "put": 0,
+      "restore": 0,
+      "start": 0,
+      "step": 0
+    },
+    "same_bearer_and_runtime_model_keys": true
+  },
+  "ventilation": {
+    "probe_sha256": "2b9a8b4ccc7b4314f3c63a9c34ed845df138a88e8d9d303031f1150e1877a4d8",
+    "original_normal_hold_wire_equal": true,
+    "verified_TLS_CA_hostname_time": true,
+    "HTTP_responses": 8,
+    "query_audit_rows": 8,
+    "numerical_and_write_hooks_zero": true,
+    "FD_before_after": [
+      8,
+      8
+    ],
+    "frozen_source_files": 2173
+  },
+  "failed_attempts_preserved": {
+    "new_copy_initdb": "60s timeout while syncing data; old DB preserved",
+    "retained_dirty_start": "10s start/stop timeouts; same owned postmaster6731 observed to terminal clean shutdown, never restarted on observation timeout",
+    "first_ready_resume": "read-only nginx file replaced atomically without restarting healthy service",
+    "joint_metadata": "stale nested PG_identity rejected; archived PID matched previous authoritative protected root2140186"
+  },
+  "readiness": {
+    "legacy_run": "run-v35",
+    "joint_run": "serve-v31",
+    "ventilation_run": "serve-v17",
+    "protected_roots": 5,
+    "both_frozen_HTML_equal": true,
+    "new_TLS_certificates": true,
+    "existing_tokens_keys_input_DB_retained": true
+  },
+  "same_owned_dirty_postmaster_termination": {
+    "same_owned_postmaster_terminal": true,
+    "PG_identity": {
+      "pid": 6731,
+      "start_ticks": 87903,
+      "boot_id": "3baa4f4c-ccd3-40d3-ad91-7191f7de982a"
+    },
+    "single_PID_peak_RSS_bytes": 18214912,
+    "combined_peak_RSS_bytes": 38686720,
+    "samples": 290,
+    "PID_file_absent": true
+  },
+  "new_CO2_deployed": false,
+  "browser_WebGL_rerun": false,
+  "full_CI_run": false,
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "goal_status": "active"
+}
