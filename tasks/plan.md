@@ -3077,3 +3077,9 @@ wet-dry 타입으로 투영한다. 해당 source/page 후검사·현재 권리/2
 추가한다. witness 부재는 프로그램 접근/직렬화 전에 차단해야 하며 late source/page 철회와 구분한다.
 실제 시험 수집 뒤 원600초/512MiB/1GiB 안의 서로 겹치지 않는 배치를 고정한다.
 공개 응답 부모/HTTP/runtime/3D·WSL/사용자 적용 및 기존 전체 작기/자원/경제/자료 관문은 계속 남는다.
+
+**공개 응답 native 배치 고정:** [최종110개 수집](../research/api-crop-greenhouse-co2-prefix-20261021.md)·
+순수4 source 불변/현재343지문과 원 forcing→관리→출력 순서를 대사했다.
+core7 → fences10 → regression93(순수87+독립1+raw5)을 같은 source/원 한도로 실행한다.
+원 Solar DB15/fresh1은 유지하고 CO₂ basis/늦은 program2를 추가했다. 전체110 전 부모는 미완료다.
+원9guard/1423.896초 증거로 나눴고 수집 시간은 구현 공수/남은161–308시간에서 차감하지 않는다.

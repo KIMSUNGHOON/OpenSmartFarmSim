@@ -41,3 +41,25 @@ none/closed의 명시 None와 전환 사례의 실제 재계산으로 보완했�
 원 Solar DB15/fresh1의 의미를 유지하고 CO₂ basis 전환/프로그램 변조도 실제로 확인한다.
 구체적 전체 사례/배치는 해당 시험을 수집한 뒤 고정한다. 이후 보호 실행 API/runtime → 같은 UTC3D → WSL/사용자 적용이다.
 실제 농장 Run0/G0–G4 not_assessed·새 CO₂ 미배포·전체 작기/자원/경제·최종 UI/실제 CLI 종단 간/독립 검증과 전체 완료일은 남는다.
+
+## Native 실행 준비 — 전체110개 수집 / 미수용
+
+[수집/인터페이스 검토 증거](artifacts/api-crop-greenhouse-co2-prefix-native-preflight-20261021.json)는
+새 공개83/private4·실제 DB17·독립1·영향받은 raw5=110개를 수집했다.
+실제 DB17은 원 Solar15개에 basis 전환/늦은 원 프로그램 변조2개를 추가한 것이다.
+원 커널/프로그램 계약에서 새 forcing → 관리 → 출력 순서를 확인했다.
+전환 fixture의 같은 UTC8 사건/출력은 모두 새 wet, 이전 UTC4 출력은 dry여야 한다.
+처음 적은 사건-before-forcing 기대는 실행 전에 원 계약/코드에 맞게 수정했다.
+
+7(core) →10(fences) →93(순수87+독립1+raw5)의 서로 겹치지 않는 배치를 고정했다.
+원 Solar91의9개 guard 관측 합1423.896초 근거에 따라 원600초/512MiB PID/합1GiB를 유지하며 나눴다.
+Pydantic source/모델·reader와 기존 순수4파일은87 수용 후 변경하지 않았다. 현재343 source 지문을 고정했다.
+실제 DB/독립 검증은 아직 미수행이며 전체110개 통과 전 공개 응답 부모를 완료하지 않는다.
+
+원 witness 부재는 프로그램 접근/직렬화 전 Pending·직렬화0회로 거부한다. 권리/review/farm/page/원 program의
+늦은 변경은 최종 직렬화 뒤2회에서 차단하는 시험으로 구분했다. 원 actor의 의도된 SQL·미리 계산된 HEAD 공개와
+제품 조회31계측0을 구분하며 raw/DSN/개인 파일·스크립트·비공개 로그는 CI artifact에 올리지 않는다.
+실제 raw 회귀5는 none/원 sparse·이전 선택/새 시도·owner witness/늦은 권리·조회 뒤 원 page다.
+
+최종 수집3.947427427초·단일 PID142,446,592/합746,221,568bytes·FD4→4·원2148/5root/소유 정리0이다.
+수집 성공은 실제 DB 통과가 아니다. 같은 source의 native 수용 뒤 보호 실행 API/runtime → 같은 UTC3D를 이어 간다.

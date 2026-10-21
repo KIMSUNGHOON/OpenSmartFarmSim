@@ -53,3 +53,11 @@ witness에 결속한다. 이 바이트는 immutable이고 원 payload/manifest/�
 위 수용은 새 HTTP 경로/역할·worker runtime이나 사용자3D 배포가 아니다.
 후속은 보호 실행 HTTP/runtime → typed web/같은 UTC3D → WSL/사용자 정상·보류·취소/복구다.
 전체 작기·자원/경제/최종 UI·실제 CLI 종단 간·외부 자료/관문/예측·추천의 기존 미완료 범위는 유지한다.
+
+## 고정한 native 실행 범위
+
+[전체110개 수집 증거](../research/artifacts/api-crop-greenhouse-co2-prefix-native-preflight-20261021.json)를
+`co2-prefix-projection-core`7 → `co2-prefix-projection-fences`10 → `co2-prefix-projection-regression`93으로
+나눈다. 마지막93은 공개83/private4·독립 fresh1·영향받은 raw5다. 원 Solar의 DB15/fresh1 의미를 유지하고
+CO₂의 실제 basis 전환/늦은 program 변조2개를 추가한다. 전체110의 source·원량/UTC·source/권리·정리 수용 전
+부모를 완료하지 않는다. witness 부재의 직렬화 전 거부와 다른 최종 직렬화 뒤 변경을 구분한다.
