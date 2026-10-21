@@ -105,7 +105,7 @@ M1+M2의 현재 산술 합은233–450집중시간이나, M2는 필요한 실제
 
 ## 현재 다음 실행 — 2026-10-21
 
-**worker core 수용 — 2026-10-21 KST:** [실제 기능 수용](../research/crop-greenhouse-co2-worker-core-20261021.md)은 source0bca8cd/CI39527128812의20검사·실제 SCRAM11·원 수치/UTC·정상/hold 원자 저장·취소/expiry7+9·늦은 fence rollback과311지문/정리를 확인했다. consumer/restart는 source68bb182의 로컬 새17/기존 Solar14=31통과·전체34수집 뒤 [독립3경로 CI39528616279](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39528616279)가 진행 중·미수용이다. 이 자식은 기존 discovery/loop에 exact CO₂ 입력/결과 쌍만 추가하고 독립 normal/hold 자동 발견·다른 Solar 작업 queued 유지·fresh 원문/현재 권리와 실제 pidfd SIGKILL 뒤 남은 구간만 계산을 수용한다. 이후 진행 query/HTTP/runtime→같은 UTC3D다. 원 공수/낮은 신뢰 달력 창과 자료/WSL/사용자 적용 보류는 유지한다.
+**worker core 수용 — 2026-10-21 KST:** [실제 기능 수용](../research/crop-greenhouse-co2-worker-core-20261021.md)은 source0bca8cd/CI39527128812의20검사·실제 SCRAM11·원 수치/UTC·정상/hold 원자 저장·취소/expiry7+9·늦은 fence rollback과311지문/정리를 확인했다. consumer/restart는 source68bb182의 로컬 새17/기존 Solar14=31통과·전체34수집 뒤 CI39528616279는 SIGKILL 재개 node 실패로 미수용이다. [첫 실패/진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json)의 증거 환경변수·정리를 수정하고 원34개/상한을 유지한 [진단 CI39529771606](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39529771606)가 진행 중이다. crash 원인은 아직 미진단이며 query 구현은 기능 수용 뒤 진행한다. 이 자식은 기존 discovery/loop에 exact CO₂ 입력/결과 쌍만 추가하고 독립 normal/hold 자동 발견·다른 Solar 작업 queued 유지·fresh 원문/현재 권리와 실제 pidfd SIGKILL 뒤 남은 구간만 계산을 수용한다. 이후 진행 query/HTTP/runtime→같은 UTC3D다. 원 공수/낮은 신뢰 달력 창과 자료/WSL/사용자 적용 보류는 유지한다.
 
 기존 미리보기는 [인증/TLS 실제 갱신·복구](../research/frozen-preview-authentication-renewal-20261021.md)를 수용했다. 다음 준비는 2026-10-21T20:37:14.318934+00:00 이전이다. 실제 만료에 따른 유지 작업이며 현재 핵심 순서 `co2-result-projection`→`co2-current-query`→API/worker/같은 UTC3D를 유지한다.
 

@@ -2384,7 +2384,8 @@
           - [ ] **`co2-worker-consumer-restart`** — 위 core 뒤 명시 discovery/loop·기존 소비자 보존,
             독립 정상/hold·fresh 원문/현재 권리·실제 SIGKILL 뒤 확정 HEAD 채택/남은 구간만 계산을 수용한다.
             [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-consumer-preflight-20261021.json)의 새17/기존 Solar14=31 로컬 제어와 전체34수집을 통과했다.
-            source68bb182의 [독립 실제3경로 CI39528616279](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39528616279)가 진행 중·미수용이며 부모/새 CO₂ 배포·공통 WSL은 미완료다.
+            source68bb182/CI39528616279는 SIGKILL 재개 node 실패로 미수용이다. [첫 실패/진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json)을 보존했다.
+            source1175509의 [같은34검사 진단 CI39529771606](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39529771606)가 진행 중이며 crash 원인·독립 재개/부모·새 CO₂/WSL은 미수용이다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
