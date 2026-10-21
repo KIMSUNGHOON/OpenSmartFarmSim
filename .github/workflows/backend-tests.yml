@@ -7,7 +7,7 @@ on:
         description: Focused CO2 read evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission]
+        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint]
   push:
     branches: [main]
   pull_request:
@@ -204,7 +204,7 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission')
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint')
     name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -306,6 +306,20 @@ jobs:
             ${{ runner.temp }}/co2-projection-evidence/admission/cancel-contract-INTENT_DOMAIN.json
             ${{ runner.temp }}/co2-projection-evidence/admission/cancel-contract-CODE_SHA256.json
             ${{ runner.temp }}/co2-projection-evidence/admission/database-cleanup.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/original-ready.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/original-yielded.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/original-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/original-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/history.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/missing-head.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/current-denied.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/tamper-provenance.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/tamper-approval.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/late-cancel.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/late-expire.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/late-input.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/late-scope.json
+            ${{ runner.temp }}/co2-projection-evidence/checkpoint/database-cleanup.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: error

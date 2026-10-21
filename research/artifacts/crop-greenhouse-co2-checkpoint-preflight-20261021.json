@@ -1,0 +1,101 @@
+{
+  "schema_version": "co2-checkpoint-preflight-v1",
+  "recorded_at": "2026-10-21T00:41:53.339365+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-21T00:23:42.400Z",
+    "raw_line_sha256": "b71fa5e9bc642bec6fdb019f50fe2455940033d5ac133a82f6943e06ad59a268",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "reference_file": "backend/app/crop_greenhouse_solar_execution_checkpoint.py",
+  "reference_sha256": "6201b934429afe64a8bddcbe975c9c4b972de6d019958c0f18679cc4d482641a",
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_execution_checkpoint.py": "daf7b8470a953f2dfac531f0f1df6f2bcb0c400b957e28d712338830ba651d6d",
+    "backend/tests/test_crop_greenhouse_co2_execution_checkpoint.py": "886c4e03804decb98f1cf459d180e1ee8f20cf0b8bd32675cd18495179544493",
+    "backend/tests/test_crop_greenhouse_co2_execution_checkpoint_store.py": "24069d6bd4050412675e3394d6911b202866085e4fa0fef806d4fcbe5853952f",
+    "research/co2_result_projection_hosted.py": "9e278aa750aa18939a22cf3feb2351d7333bf557403b3d9b59c0d8f7b845af59",
+    ".github/workflows/backend-tests.yml": "eecf4276a99cab3e27453f7237b51a9babb9cf25d77a0aadd38a140bb1bc93ac"
+  },
+  "guard_receipts": {
+    "focused-co2-checkpoint-red-v1": {
+      "terminal_sha256": "925bbd9419b05e9455d4845ccd8fb30179e4f661703a93283155a15e59bb5ea8",
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 0.6071467740111984,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 908292096,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-co2-checkpoint-control-green-v1": {
+      "terminal_sha256": "545fa16b0ddacd0a1918ab1efe471eb9e5e206877e9858a8749c7d0a3172d688",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.3704513369884808,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 982106112,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-co2-checkpoint-collection-v1": {
+      "terminal_sha256": "5aa494b594118b0a29fc7ec2283c652bbd6a83ca070888bf8262c50e6bd1a3b2",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.149828922993038,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 977657856,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    }
+  },
+  "local_control_passed": 13,
+  "collected": 26,
+  "actual_SCRAM_required": 13,
+  "actual_SCRAM_local": "not_run_preserve_shared_WSL_hold",
+  "independent_fresh_or_SIGKILL": "not_run_worker_child",
+  "review_output": "Checkpoint implementation follows the recorded Co2 preparation and existing Solar boundaries, with exact Co2 admission/custody pointers, distinct joint-co2-solar checkpoint version/event, original closed8KiB metadata/provenance/false gate scope, signed HEAD ancestry, current input/resolver and unlocked lease reads before final locking. It adds a final _guard after private reader exit and before DB commit so data WRITE scope cannot substitute for current simulation_execute. Local13 metadata/authority controls pass and26 cases collect. Actual13 SCRAM cases remain pending: ready via controlled fixture stop (not SIGKILL), yielded/completed/hold original metadata/UTC/file hashes, duplicate original event/time after renewal/new object (not fresh process), later signed-head ancestry, absent HEAD without initialization, current tenant/data/execute authority, two actual owner metadata tamper/restores, and cancel/expire/input/execute-scope changes after second current check with rollback. Actual source preparation/advance occurs before measured confirmation; only confirmation requires17 numeric/context/restore/UTC/CLI entries zero. Event writes are intentional. No worker/discovery/HTTP/new3D or user deployment; independent fresh/SIGKILL belongs to worker. Original caps/data/previews, common WSL hold and G0-G4 remain unchanged.",
+  "review_output_sha256": "e6a3184d3bf052fabb242531d61b2ff87dba25c5e75ac364e9554458c6d58da7",
+  "functional_checkpoint_accepted": false,
+  "worker_implemented": false,
+  "new_CO2_deployed": false,
+  "shared_WSL_capacity_accepted": false,
+  "full_backend_CI": "not_run",
+  "new_browser_DOM_WebGL": "not_run",
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed"
+}

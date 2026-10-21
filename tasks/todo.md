@@ -2368,6 +2368,8 @@
         - [ ] **`co2-execution-checkpoint`** — 위 접수 뒤 원 custody의 HEAD/provenance·임대/취소/입력 fence,
           중복 사건/시각 보존·현재/late 변경 거부·계산0·실제 DB/소유 정리를 수용한다.
           private reader 종료 뒤 commit 전 execution 권한을 재확인하며 데이터 WRITE 범위로 대체하지 않는다.
+          [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-checkpoint-preflight-20261021.json)의 로컬13/전체26수집을 통과했다.
+          실제 SCRAM13·원 HEAD/UTC/최초 시각과 late fence rollback은 미검증이며 worker/새 배포는 미완료다.
         - [ ] **`co2-execution-worker`** — 위 checkpoint 뒤 원109상태/장부/수지·UTC 정상/hold,
           fresh/SIGKILL 재개·취소/만료·원자 result/link/terminal rollback과 독립 자동 발견을 수용한다.
           기존 loop/다른 판본·원 자료/서비스/상한을 유지한다. 이후 진행 query/HTTP/실행 runtime→typed web/같은 UTC3D다.

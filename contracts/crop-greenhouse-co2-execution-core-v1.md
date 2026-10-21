@@ -1,9 +1,11 @@
 # CO₂·일사 모델의 접수·자동 계산 핵심 — v1
 
-Status: admission functionality accepted; checkpoint/worker planned.
+Status: admission functionality accepted; checkpoint implemented/local13 passed, actual13 pending; worker planned.
 [접수 기능 수용](../research/crop-greenhouse-co2-admission-20261021.md)은 source43c0a98/CI39520744344의
 17검사·실제 SCRAM13과 원 입력/멱등·접수/취소 rollback·17계측0/정리를 확인했다.
 전체 core/worker·공통 WSL 용량/새 사용자 적용은 미완료다.
+[checkpoint 사전 증거](../research/artifacts/crop-greenhouse-co2-checkpoint-preflight-20261021.json)의
+전체26개 수집은 통과했으며 실제 준비/진행/완료/수치 hold와 현재/늦은 fence 검증은 후속이다.
 선행은 [명시 조회 runtime 기능 수용](crop-greenhouse-co2-runtime-v1.md)이다.
 [기존 Solar 실행 핵심](crop-greenhouse-solar-execution-core-v1.md)의 임대/현재성/원자 게시 경계를 재사용한다.
 공통 WSL 용량은 사용자 적용 전 조건이며 아래 개발의 별도 중복 장애로 계산하지 않는다.
