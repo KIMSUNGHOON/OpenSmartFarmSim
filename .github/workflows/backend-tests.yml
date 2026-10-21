@@ -7,7 +7,7 @@ on:
         description: Focused CO2 functional evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint, co2-worker-core]
+        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint, co2-worker-core, co2-worker-consumer]
   push:
     branches: [main]
   pull_request:
@@ -204,7 +204,7 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint' || inputs.verification_scope == 'co2-worker-core')
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint' || inputs.verification_scope == 'co2-worker-core' || inputs.verification_scope == 'co2-worker-consumer')
     name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -332,6 +332,12 @@ jobs:
             ${{ runner.temp }}/co2-projection-evidence/worker/late-resolver.json
             ${{ runner.temp }}/co2-projection-evidence/worker/late-after-update-scope.json
             ${{ runner.temp }}/co2-projection-evidence/worker/database-cleanup.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/fresh-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/cleanup-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/fresh-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/cleanup-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/fresh-crash.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/cleanup-crash.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: error

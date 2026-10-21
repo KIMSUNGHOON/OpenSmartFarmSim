@@ -1,0 +1,589 @@
+{
+  "schema_version": "co2-worker-consumer-preflight-v1",
+  "recorded_at": "2026-10-21T01:39:27.272831+00:00",
+  "native_review": {
+    "native_CLI": {
+      "timestamp": "2026-10-21T01:26:20.156Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "raw_line_sha256": "0632935f247ddfdb4a9eef3fd80879738a0acbc4ae25eb97e6eb652fd7867fb1",
+      "recursive_CLI": false,
+      "subagents": false
+    },
+    "source_sha256": {
+      "backend/app/deterministic_work.py": "d8aa1addddaf909573592a798274bed9a0e8dc12796ce08a2b8b0917ced7dcc5",
+      "backend/app/deterministic_job_discovery.py": "e14796224c6b323f62b4121e595e175b8747dfa49e0ed562ee5e20048413c5a9",
+      "backend/tests/test_solar_deterministic_work.py": "ccac82e4e048fff4ee2fbb81689634dc33720e14a08589bca5830d71aa1f2849",
+      "backend/tests/test_crop_greenhouse_solar_execution_fresh.py": "f6ea754e679e010b57d714b8dfa9cc5ab58c2e55293d6ab328986b91c070176f",
+      "backend/tests/test_crop_greenhouse_solar_current_fresh.py": "aec55820bd303782ffc9864ca1b47094fe2cacc1546254c28952dbdb67eaebfd",
+      "backend/tests/test_crop_greenhouse_co2_result_store.py": "b57b3d6668ac0d5c42615c553fc8efd33450d76eb3692ad852251e4ee6d7c12f"
+    },
+    "decision": "After core acceptance, add only the exact CO2 input/outcome pair to the existing simulation discovery and deterministic loop, preserving every old pair. Follow the owned sequential process proof, use the existing CO2 original-result reader and exact key/domain.",
+    "acceptance": [
+      "explicit version selection; wrong family/future version/foreign outcome/unclosed attempt denied before emission",
+      "independent normal and hold workers discover without manually passed selected job ID; other-family job remains queued",
+      "separate fresh SCRAM reader preserves original payload/progress/pages/UTC and first recorded_at, current review revocation denied with no arithmetic or SQL writes",
+      "actual owned pidfd SIGKILL after signed HEAD and before DB confirmation; result/publication/checkpoint rows stay zero; expire only test lease; fresh automatic consumer adopts that HEAD and computes only remaining steps",
+      "same 600s/512MiB/1GiB bounds, exact immutable programs and source pins, five protected WSL roots unchanged, schema/roles/process/passfiles/temp cleanup zero"
+    ],
+    "known_family_adjustments": [
+      "CO2 fresh prepare fixture takes original_login_scope and then explicit co2 login_scope True; never reuse Solar result schema/grants",
+      "CO2 restore may validate context/endpoint without past integration: prove remaining-only step count and start0, do not require a Solar-specific restore invocation count",
+      "complete core functional results must precede production registry changes; WSL capacity and user deployment remain pending"
+    ],
+    "status": "reviewed_not_yet_implemented"
+  },
+  "accepted_core": {
+    "source_commit": "0bca8cd6ed0855efbb5dcd4fd0a613c662eeadfe",
+    "CI": 39527128812,
+    "evidence": "crop-greenhouse-co2-worker-core-20261021.json",
+    "passed": 20,
+    "actual_SCRAM": 11
+  },
+  "source_SHA256": {
+    "backend/app/deterministic_work.py": "58242b0a9122d7103dac7b3cce6aff42783ca51d205b16b14b9b8a364955c271",
+    "backend/app/deterministic_job_discovery.py": "a099b19fb2bf6773486296eac8c781ae8a20d22dddc6fd86feb28216f00da8fe",
+    "backend/tests/test_co2_deterministic_work.py": "59914c905d5d659b47f30d26d5f3c4e9055867e60a4d2ffb5337eb9131dfc843",
+    "backend/tests/test_crop_greenhouse_co2_execution_fresh.py": "eb703bc4e06e7b440b72c216f72c26ea5da2d324b80d11ec6a7041582ae2d6a2",
+    "research/co2_result_projection_hosted.py": "a73ed9227097856953fea800ca19e4f480f8d2c1da0d71e6198466095f927a82",
+    ".github/workflows/backend-tests.yml": "240077ef7d57ebd3b63793fc90638e35e69545b9800ad10bb27936bdc8036641"
+  },
+  "local_red": {
+    "expected_rejection": "deterministic_binding_rejected before explicit CO2 selection",
+    "terminal": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 41238528,
+          "comm": "python",
+          "pid": 2140179
+        },
+        {
+          "RSS_bytes": 126423040,
+          "comm": "python",
+          "pid": 2140182
+        },
+        {
+          "RSS_bytes": 8912896,
+          "comm": "nginx",
+          "pid": 2140197
+        },
+        {
+          "RSS_bytes": 7491584,
+          "comm": "nginx",
+          "pid": 2144260
+        },
+        {
+          "RSS_bytes": 122974208,
+          "comm": "python",
+          "pid": 2140196
+        },
+        {
+          "RSS_bytes": 18026496,
+          "comm": "postgres",
+          "pid": 2140186
+        },
+        {
+          "RSS_bytes": 6049792,
+          "comm": "postgres",
+          "pid": 2140191
+        },
+        {
+          "RSS_bytes": 7188480,
+          "comm": "postgres",
+          "pid": 2140190
+        },
+        {
+          "RSS_bytes": 4304896,
+          "comm": "postgres",
+          "pid": 2140188
+        },
+        {
+          "RSS_bytes": 6238208,
+          "comm": "postgres",
+          "pid": 2140187
+        },
+        {
+          "RSS_bytes": 5111808,
+          "comm": "postgres",
+          "pid": 2140192
+        },
+        {
+          "RSS_bytes": 37937152,
+          "comm": "python",
+          "pid": 2144194
+        },
+        {
+          "RSS_bytes": 144052224,
+          "comm": "python",
+          "pid": 2144199
+        },
+        {
+          "RSS_bytes": 9097216,
+          "comm": "nginx",
+          "pid": 2144245
+        },
+        {
+          "RSS_bytes": 7475200,
+          "comm": "nginx",
+          "pid": 2144248
+        },
+        {
+          "RSS_bytes": 18354176,
+          "comm": "postgres",
+          "pid": 2144225
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 2144231
+        },
+        {
+          "RSS_bytes": 6062080,
+          "comm": "postgres",
+          "pid": 2144230
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "postgres",
+          "pid": 2144229
+        },
+        {
+          "RSS_bytes": 4509696,
+          "comm": "postgres",
+          "pid": 2144227
+        },
+        {
+          "RSS_bytes": 11710464,
+          "comm": "postgres",
+          "pid": 2144226
+        },
+        {
+          "RSS_bytes": 122548224,
+          "comm": "python",
+          "pid": 2144249
+        },
+        {
+          "RSS_bytes": 108802048,
+          "comm": "python",
+          "pid": 2144255
+        },
+        {
+          "RSS_bytes": 27619328,
+          "comm": "python",
+          "pid": 2246043
+        },
+        {
+          "RSS_bytes": 101269504,
+          "comm": "python",
+          "pid": 2246048
+        },
+        {
+          "RSS_bytes": 17522688,
+          "comm": "postgres",
+          "pid": 2246052
+        }
+      ],
+      "RSS_samples": 5,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 966234112,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "5c10c028b00303b20eade6cf6c7aa975a35af9503afb502d4696edc1e0fdcfd6",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_count": 2863,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.3694529859931208
+    }
+  },
+  "local_green": {
+    "new_consumer_control": 17,
+    "legacy_solar_control": 14,
+    "passed": 31,
+    "terminal": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 41254912,
+          "comm": "python",
+          "pid": 2140179
+        },
+        {
+          "RSS_bytes": 126423040,
+          "comm": "python",
+          "pid": 2140182
+        },
+        {
+          "RSS_bytes": 8912896,
+          "comm": "nginx",
+          "pid": 2140197
+        },
+        {
+          "RSS_bytes": 7491584,
+          "comm": "nginx",
+          "pid": 2144260
+        },
+        {
+          "RSS_bytes": 122974208,
+          "comm": "python",
+          "pid": 2140196
+        },
+        {
+          "RSS_bytes": 18026496,
+          "comm": "postgres",
+          "pid": 2140186
+        },
+        {
+          "RSS_bytes": 6049792,
+          "comm": "postgres",
+          "pid": 2140191
+        },
+        {
+          "RSS_bytes": 7188480,
+          "comm": "postgres",
+          "pid": 2140190
+        },
+        {
+          "RSS_bytes": 4304896,
+          "comm": "postgres",
+          "pid": 2140188
+        },
+        {
+          "RSS_bytes": 6238208,
+          "comm": "postgres",
+          "pid": 2140187
+        },
+        {
+          "RSS_bytes": 5111808,
+          "comm": "postgres",
+          "pid": 2140192
+        },
+        {
+          "RSS_bytes": 37937152,
+          "comm": "python",
+          "pid": 2144194
+        },
+        {
+          "RSS_bytes": 144052224,
+          "comm": "python",
+          "pid": 2144199
+        },
+        {
+          "RSS_bytes": 9097216,
+          "comm": "nginx",
+          "pid": 2144245
+        },
+        {
+          "RSS_bytes": 7475200,
+          "comm": "nginx",
+          "pid": 2144248
+        },
+        {
+          "RSS_bytes": 18354176,
+          "comm": "postgres",
+          "pid": 2144225
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 2144231
+        },
+        {
+          "RSS_bytes": 6062080,
+          "comm": "postgres",
+          "pid": 2144230
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "postgres",
+          "pid": 2144229
+        },
+        {
+          "RSS_bytes": 4509696,
+          "comm": "postgres",
+          "pid": 2144227
+        },
+        {
+          "RSS_bytes": 11710464,
+          "comm": "postgres",
+          "pid": 2144226
+        },
+        {
+          "RSS_bytes": 122548224,
+          "comm": "python",
+          "pid": 2144249
+        },
+        {
+          "RSS_bytes": 108802048,
+          "comm": "python",
+          "pid": 2144255
+        },
+        {
+          "RSS_bytes": 27635712,
+          "comm": "python",
+          "pid": 2248304
+        },
+        {
+          "RSS_bytes": 100990976,
+          "comm": "python",
+          "pid": 2248310
+        }
+      ],
+      "RSS_samples": 5,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 965988352,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "4a30b2adbbc3b54d5c7fad8bb4569629a4c0b3500ccc60302c85713ab3a8ad15",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_count": 2866,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.3703315680031665
+    }
+  },
+  "collection": {
+    "total": 34,
+    "actual_independent_SCRAM": 3,
+    "actual_executed_here": false,
+    "terminal": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 41381888,
+          "comm": "python",
+          "pid": 2140179
+        },
+        {
+          "RSS_bytes": 126423040,
+          "comm": "python",
+          "pid": 2140182
+        },
+        {
+          "RSS_bytes": 8912896,
+          "comm": "nginx",
+          "pid": 2140197
+        },
+        {
+          "RSS_bytes": 7491584,
+          "comm": "nginx",
+          "pid": 2144260
+        },
+        {
+          "RSS_bytes": 122974208,
+          "comm": "python",
+          "pid": 2140196
+        },
+        {
+          "RSS_bytes": 18026496,
+          "comm": "postgres",
+          "pid": 2140186
+        },
+        {
+          "RSS_bytes": 6049792,
+          "comm": "postgres",
+          "pid": 2140191
+        },
+        {
+          "RSS_bytes": 7188480,
+          "comm": "postgres",
+          "pid": 2140190
+        },
+        {
+          "RSS_bytes": 4304896,
+          "comm": "postgres",
+          "pid": 2140188
+        },
+        {
+          "RSS_bytes": 6238208,
+          "comm": "postgres",
+          "pid": 2140187
+        },
+        {
+          "RSS_bytes": 5111808,
+          "comm": "postgres",
+          "pid": 2140192
+        },
+        {
+          "RSS_bytes": 37937152,
+          "comm": "python",
+          "pid": 2144194
+        },
+        {
+          "RSS_bytes": 144052224,
+          "comm": "python",
+          "pid": 2144199
+        },
+        {
+          "RSS_bytes": 9097216,
+          "comm": "nginx",
+          "pid": 2144245
+        },
+        {
+          "RSS_bytes": 7475200,
+          "comm": "nginx",
+          "pid": 2144248
+        },
+        {
+          "RSS_bytes": 18354176,
+          "comm": "postgres",
+          "pid": 2144225
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 2144231
+        },
+        {
+          "RSS_bytes": 6062080,
+          "comm": "postgres",
+          "pid": 2144230
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "postgres",
+          "pid": 2144229
+        },
+        {
+          "RSS_bytes": 4509696,
+          "comm": "postgres",
+          "pid": 2144227
+        },
+        {
+          "RSS_bytes": 11710464,
+          "comm": "postgres",
+          "pid": 2144226
+        },
+        {
+          "RSS_bytes": 122548224,
+          "comm": "python",
+          "pid": 2144249
+        },
+        {
+          "RSS_bytes": 107720704,
+          "comm": "python",
+          "pid": 2144255
+        },
+        {
+          "RSS_bytes": 27713536,
+          "comm": "python",
+          "pid": 2248666
+        },
+        {
+          "RSS_bytes": 99635200,
+          "comm": "python",
+          "pid": 2248674
+        }
+      ],
+      "RSS_samples": 5,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 963756032,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "7160989b1ca9585c081138762802c90c39738170c5cc80c0d02297b11d98afd1",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_count": 2866,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.3710632270085625
+    }
+  },
+  "embedded_process_scripts": {
+    "PREPARE_WORKER_READ_LINK_EXPIRE": "compiled and CO2 schema/key/event replacement verified without calculation",
+    "test_cases": [
+      "normal automatic worker without passed selected job ID; original fresh SCRAM read",
+      "numerical hold automatic worker; original fresh SCRAM read",
+      "actual pidfd SIGKILL after signed HEAD before DB confirm; no result/publication/checkpoint; test lease expiry; separate automatic consumer adopts HEAD and integrates remaining only"
+    ],
+    "other_selected_family": "Solar v1 stays queued; 14 existing Solar control checks preserved",
+    "private_pack_contents_uploaded": false
+  },
+  "review_output": {
+    "production_change": "one CO2 input version and one exact worker/outcome pair in existing registries, no generic queue or new role/schema",
+    "unchanged": [
+      "all previous worker/version pairs and shared loop/discovery control flow",
+      "numerical profiles/programs and old user preview services",
+      "full six backend partition gate and hosted600s/512MiB/1GiB guard"
+    ],
+    "acceptance": "actual independent normal/hold, fresh original results/current revocation, real SIGKILL remaining-only restart plus process/schema/role/passfile/temp/FD cleanup are pending hosted CI"
+  },
+  "hosted_scope": "co2-worker-consumer",
+  "actual_independent_processes": "pending",
+  "worker_parent_complete": false,
+  "new_CO2_deployed": false,
+  "WSL_capacity_accepted": false,
+  "G0_G4": "not_assessed",
+  "actual_crop_Runs": 0,
+  "full_product_completion": null,
+  "goal_status": "active"
+}

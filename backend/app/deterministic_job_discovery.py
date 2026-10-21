@@ -19,6 +19,7 @@ INPUT_VERSIONS = frozenset({
     'joint-crop-climate-execution-input-v1',
     'joint-ventilation-execution-input-v1',
     'joint-solar-execution-input-v1',
+    'joint-co2-solar-execution-input-v1',
 })
 
 

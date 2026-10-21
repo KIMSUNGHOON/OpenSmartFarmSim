@@ -95,19 +95,25 @@ def pins():
         'backend/tests/test_crop_greenhouse_co2_execution_checkpoint.py',
         'backend/tests/test_crop_greenhouse_co2_execution_checkpoint_store.py',
         'backend/tests/test_crop_greenhouse_co2_execution_worker_control.py',
-        'backend/tests/test_crop_greenhouse_co2_execution_worker.py')]
+        'backend/tests/test_crop_greenhouse_co2_execution_worker.py',
+        'backend/tests/test_co2_deterministic_work.py',
+        'backend/tests/test_solar_deterministic_work.py',
+        'backend/tests/test_crop_greenhouse_co2_execution_fresh.py',
+        'backend/tests/test_crop_greenhouse_co2_result_store.py',
+        'backend/tests/test_crop_greenhouse_co2_server_custody.py')]
     return {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def supervise(directory):
     assert os.environ.get('GITHUB_ACTIONS') == 'true', 'hosted only; preserve WSL previews'
     mode = os.environ.get('OSSF_CO2_VERIFICATION_SCOPE', 'co2-result-projection')
-    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission', 'co2-checkpoint', 'co2-worker-core')
+    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission', 'co2-checkpoint', 'co2-worker-core', 'co2-worker-consumer')
     current = mode == 'co2-current-query'
     runtime = mode == 'co2-runtime'
     admission = mode == 'co2-admission'
     checkpoint = mode == 'co2-checkpoint'
     worker = mode == 'co2-worker-core'
+    consumer = mode == 'co2-worker-consumer'
     http = mode in ('co2-http', 'co2-runtime')
     directory.mkdir(mode=0o700)
     spec = importlib.util.spec_from_file_location('co2_projection_scope', ROOT/'research/owned-research-process-scope.py')
@@ -127,6 +133,9 @@ def supervise(directory):
         name = 'worker' if worker else 'checkpoint' if checkpoint else 'admission'
         target = directory/name; target.mkdir(mode=0o700)
         env['OSSF_CO2_'+name.upper()+'_EVIDENCE'] = str(target)
+    if consumer:
+        target = directory/'consumer'; target.mkdir(mode=0o700)
+        env['OSSF_CO2_EXECUTION_EVIDENCE'] = str(target)
     if runtime:
         env['OSSF_CO2_RUNTIME_EVIDENCE'] = str(directory/'http')
     if http:
@@ -144,10 +153,13 @@ def supervise(directory):
         targets = ['tests/test_crop_greenhouse_co2_execution_checkpoint.py', 'tests/test_crop_greenhouse_co2_execution_checkpoint_store.py']
     if worker:
         targets = ['tests/test_crop_greenhouse_co2_execution_worker_control.py', 'tests/test_crop_greenhouse_co2_execution_worker.py']
-    expected = 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
+    if consumer:
+        targets = ['tests/test_co2_deterministic_work.py', 'tests/test_solar_deterministic_work.py',
+            'tests/test_crop_greenhouse_co2_execution_fresh.py']
+    expected = 34 if consumer else 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
     plans = [('tests', [sys.executable, '-B', '-m', 'pytest', *targets,
         '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
-    for status in (() if current or http or admission or checkpoint or worker else ('completed', 'hold')):
+    for status in (() if current or http or admission or checkpoint or worker or consumer else ('completed', 'hold')):
         plans.append(('fresh-'+status, [sys.executable, '-B', str(Path(__file__).resolve()), 'fresh',
             str(directory/('co2-projection-store-'+status+'-fresh-pack.private.json')),
             str(directory/('fresh-'+status+'.json'))]))
@@ -177,7 +189,26 @@ def supervise(directory):
             if phase == 'tests':
                 text = log.read_text(errors='replace')
                 assert re.search(rf'\b{expected} passed\b', text) and ' skipped' not in text
-                if worker:
+                if consumer:
+                    folder = directory/'consumer'
+                    assert len(list(folder.glob('*.json'))) == 6
+                    for case in ('normal', 'hold', 'crash'):
+                        assert json.loads((folder/('cleanup-'+case+'.json')).read_bytes()) == {'schemas': 0, 'roles': 0}
+                        record = json.loads((folder/('fresh-'+case+'.json')).read_bytes())
+                        actual, reader = record['worker'], record['fresh_reader']
+                        assert record['same_owned_database_and_original_files'] and record['sequential_processes']
+                        assert not any(record['admission_calls'].values())
+                        assert actual['actual_scram'] and actual['automatic_discovery'] and actual['unselected_queued']
+                        assert actual['original_result_progress_equal'] and actual['calls']['CLI'] == 0
+                        assert actual['event']['state'] == ('hold' if case == 'hold' else 'succeeded')
+                        assert reader['actual_scram'] and reader['original_bytes_pages_UTC'] and reader['review_revocation_rejected']
+                        assert not any(reader['calls'].values())
+                        if case == 'crash':
+                            assert record['actual_kill_exit'] == -9 and record['no_prefix_reintegration']
+                            assert record['killed']['calls']['step'] + actual['calls']['step'] == 16
+                            assert actual['event']['attempt'] == 2 and actual['calls']['start'] == 0
+                            assert not any(actual['adopted'][0]['calls'].values())
+                elif worker:
                     folder = directory/'worker'
                     assert json.loads((folder/'database-cleanup.json').read_bytes()) == {'schemas': 0, 'roles': 0}
                     records = [json.loads(path.read_bytes()) for path in folder.glob('*.json') if path.name != 'database-cleanup.json']
@@ -229,7 +260,8 @@ def supervise(directory):
                         assert all(value == 0 for value in result['calls'].values())
                 counts_record = {'passed': expected, 'skipped': 0, 'mode': mode,
                     'pytest_log_sha256': sha256(log.read_bytes()).hexdigest()}
-                counts_record.update({'control_contract': 9, 'actual_SCRAM': 11} if worker else
+                counts_record.update({'new_consumer_control': 17, 'legacy_solar_control': 14, 'actual_independent_SCRAM': 3} if consumer else
+                    {'control_contract': 9, 'actual_SCRAM': 11} if worker else
                     {'control_contract': 13 if checkpoint else 4, 'actual_SCRAM': 13} if admission or checkpoint else
                     {'control_contract': 173, 'actual_SCRAM_TLS': 4} if runtime else
                     {'pure': 213 if http else 5 if current else 37, 'actual_SCRAM': 6 if current else 2})
@@ -268,9 +300,10 @@ def supervise(directory):
         'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
         'source_SHA256': original, 'python': sys.version, 'test_scope': mode,
         'current_query_tested': current or http, 'HTTP_tested': http, 'runtime_tested': runtime, 'admission_tested': admission, 'checkpoint_tested': checkpoint, 'worker_core_tested': worker,
-        'worker_discovery_independent_restart': 'not_tested', 'worker_browser': 'not_tested', 'G0_G4': 'not_assessed'})
+        'worker_discovery_independent_restart': 'tested' if consumer else 'not_tested', 'worker_browser': 'not_tested', 'G0_G4': 'not_assessed'})
     print(json.dumps({'accepted_hosted_tests': expected, 'mode': mode,
-        'fresh_registered_readers': 0 if http or admission or checkpoint or worker else 2, 'native_HTTPS_readers': 4 if runtime else 2 if http else 0,
+        'fresh_registered_readers': 3 if consumer else 0 if http or admission or checkpoint or worker else 2,
+        'native_HTTPS_readers': 4 if runtime else 2 if http else 0,
         'WSL_capacity_accepted': False, 'new_CO2_deployed': False}))
 
 
