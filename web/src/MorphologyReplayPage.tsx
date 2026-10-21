@@ -3,13 +3,17 @@ import MorphologyScene from './MorphologyScene';
 import { loadMorphologyReplay,LEGACY_MORPHOLOGY_SOURCE,type MorphologyReplay,type MorphologyReplaySource } from './morphologyReplay';
 import './MorphologyReplayPage.css';
 
-export default function MorphologyReplayPage({source=LEGACY_MORPHOLOGY_SOURCE}:{source?:MorphologyReplaySource}){
+export default function MorphologyReplayPage({source=LEGACY_MORPHOLOGY_SOURCE,providedReplay,embedded=false,paused=false}:
+  {source?:MorphologyReplaySource;providedReplay?:MorphologyReplay;embedded?:boolean;paused?:boolean}){
+  const Container=embedded?'section':'main';
   const rational=source.version==='v2',title=rational?'정확 출현 시각의 줄기 생장':'저장된 줄기 생장';
-  const [data,setData]=useState<MorphologyReplay|null>(null),[error,setError]=useState(false),[index,setIndex]=useState(0),[playing,setPlaying]=useState(false);
+  const [data,setData]=useState<MorphologyReplay|null>(providedReplay??null),[error,setError]=useState(false),[index,setIndex]=useState(0),[playing,setPlaying]=useState(false);
   useEffect(()=>{const controller=new AbortController();let active=true;
+    if(providedReplay){setData(providedReplay);setError(false);setIndex(0);setPlaying(false);return()=>{active=false;controller.abort();};}
     setData(null);setError(false);setIndex(0);setPlaying(false);
     loadMorphologyReplay(controller.signal,source).then(value=>{if(active)setData(value);},()=>{if(active)setError(true);});
-    return()=>{active=false;controller.abort();};},[source]);
+    return()=>{active=false;controller.abort();};},[source,providedReplay]);
+  useEffect(()=>{if(paused)setPlaying(false);},[paused]);
   useEffect(()=>{
     if(!playing||!data)return;
     const timer=window.setInterval(()=>setIndex(value=>{if(value+1>=data.frames.length){setPlaying(false);return value;}return value+1;}),900);
@@ -17,11 +21,11 @@ export default function MorphologyReplayPage({source=LEGACY_MORPHOLOGY_SOURCE}:{
     return()=>{clearInterval(timer);document.removeEventListener('visibilitychange',hidden);};
   },[playing,data]);
   const select=(value:number)=>{setPlaying(false);setIndex(value);};
-  if(!data)return <main className="morphology-page"><h1>{title}</h1><p role="status">{error?
-    '저장 결과 조회 보류: 원 파일·권리·무결성을 확인할 수 없습니다. 새 계산이나 대체 결과는 표시하지 않습니다.':'12개 저장 시점을 확인하고 있습니다.'}</p></main>;
+  if(!data)return <Container className="morphology-page"><h1>{title}</h1><p role="status">{error?
+    '저장 결과 조회 보류: 원 파일·권리·무결성을 확인할 수 없습니다. 새 계산이나 대체 결과는 표시하지 않습니다.':'12개 저장 시점을 확인하고 있습니다.'}</p></Container>;
   const frame=data.frames[index]!,maximum=Math.max(...data.frames.map(f=>f.tracked_axis_length.value));
-  const x=(i:number)=>25+i/(data.frames.length-1)*590,y=(v:number)=>125-v/maximum*105;
-  return <main className="morphology-page" data-selected-at={frame.at} data-selected-index={index} data-artifact-sha256={data.artifact_sha256}>
+  const x=(i:number)=>data.frames.length===1?320:25+i/(data.frames.length-1)*590,y=(v:number)=>125-(maximum>0?v/maximum:0)*105;
+  return <Container className="morphology-page" data-selected-at={frame.at} data-selected-index={index} data-artifact-sha256={data.artifact_sha256}>
     <header className="morphology-header"><div><span className="morphology-eyebrow">OPEN SMART FARM SIMULATOR / MORPHOLOGY STUDY</span>
       <h1>{title}</h1><p>기온 → 기관 출현 → 절간 길이 → 같은 시점의 3D</p></div>
       <a href="./crop-appearance.html">성숙 토마토 외형 참고 ↗</a></header>
@@ -35,7 +39,8 @@ export default function MorphologyReplayPage({source=LEGACY_MORPHOLOGY_SOURCE}:{
         <p>고정된 복엽 3개·표면·줄기 반경은 제작 가정입니다. 잎 수·잎 면적·화방·과실·숙기·수확을 예측하지 않습니다.</p>
         <details><summary>입력과 계산 근거</summary><p className="morphology-hash">artifact {data.artifact_sha256}<br/>result {frame.result_sha256}</p>
           <p>Smoleňová et al. (2025), Eq.4 · 논문 CC BY 4.0. 계수는 자체 합성 fixture이며 품종 계수를 채택하지 않았습니다.</p>
-          <a href={source.directory+'/input.json'}>원 합성 입력</a> · <a href={source.directory+'/root.json'}>모델·코드/상태 지문</a></details>
+          {!providedReplay&&<><a href={source.directory+'/input.json'}>원 합성 입력</a> · <a href={source.directory+'/root.json'}>모델·코드/상태 지문</a></>}
+          {providedReplay&&<p>인증된 작업의 현재 원 입력·권리와 서명 결과를 서버가 확인했습니다. 비공개 원 입력은 내려받지 않습니다.</p>}</details>
       </aside></div>
     <section className="morphology-timeline" aria-label="저장 시점 재생">
       <div className="morphology-controls"><button onClick={()=>{if(!playing&&index===data.frames.length-1)setIndex(0);setPlaying(!playing);}}>{playing?'일시 정지':'저장 결과 재생'}</button>
@@ -43,10 +48,10 @@ export default function MorphologyReplayPage({source=LEGACY_MORPHOLOGY_SOURCE}:{
         <button disabled={index===data.frames.length-1} onClick={()=>select(index+1)}>다음</button><button disabled={index===data.frames.length-1} onClick={()=>select(data.frames.length-1)}>마지막</button>
         <span role="status">{playing?'저장 시점을 순서대로 재생 중':'일시 정지'} · 새 계산 없음</span></div>
       <label>저장 시점 <input type="range" min={0} max={data.frames.length-1} step={1} value={index} onChange={event=>select(Number(event.target.value))}/></label>
-      <div className="morphology-range"><span>{data.frames[0]!.at}</span><span>합성 모델 시각 · 2시간 간격</span><span>{data.frames.at(-1)!.at}</span></div>
+      <div className="morphology-range"><span>{data.frames[0]!.at}</span><span>{providedReplay?'합성 모델 시각 · 원 저장 시점':'합성 모델 시각 · 2시간 간격'}</span><span>{data.frames.at(-1)!.at}</span></div>
     </section>
     <div className="morphology-evidence"><section className="morphology-history" data-selected-at={frame.at} aria-label="저장 축 길이 이력"><h2>추적 축 길이 <small>m</small></h2>
-      <svg viewBox="0 0 640 160" role="img" aria-label="12개 원 저장 시점의 축 길이. 선택 시점은 진한 점으로 표시합니다.">
+      <svg viewBox="0 0 640 160" role="img" aria-label={`${data.frames.length}개 원 저장 시점의 축 길이. 선택 시점은 진한 점으로 표시합니다.`}>
         <line x1="25" y1="125" x2="615" y2="125" stroke="#c4ccb9"/><polyline fill="none" stroke="#729361" strokeWidth="2" points={data.frames.map((f,i)=>`${x(i)},${y(f.tracked_axis_length.value)}`).join(' ')}/>
         {data.frames.map((f,i)=><circle key={f.at} cx={x(i)} cy={y(f.tracked_axis_length.value)} r={i===index?6:3} fill={i===index?'#224d33':'#93a884'}/>)}
         <text x="25" y="150">첫 저장 시점</text><text x="540" y="150">마지막 시점</text>
@@ -60,5 +65,5 @@ export default function MorphologyReplayPage({source=LEGACY_MORPHOLOGY_SOURCE}:{
             {'emerged_at' in n?n.emerged_at:`${n.emerged_elapsed_seconds_exact.numerator}/${n.emerged_elapsed_seconds_exact.denominator} s`}</td></tr>)}</tbody>
       </table></div></section></div>
     <footer className="morphology-footer">연구용 형태 연결입니다. 지역 선택·자율 작물 선정·생산량/자원·경제 통합과 독립 검증은 후속입니다. G0–G4는 미평가입니다.</footer>
-  </main>;
+  </Container>;
 }

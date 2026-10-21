@@ -432,7 +432,7 @@ jobs:
       - run: npm install --global npm@11.16.0
       - run: npm ci --strict-peer-deps
       - run: npm run typecheck
-      - run: npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/tomatoCycleLeafReplay.test.ts src/morphologyReplay.test.ts src/morphologyGeometry.test.ts src/morphologyRationalReplay.test.ts
+      - run: npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/tomatoCycleLeafReplay.test.ts src/morphologyReplay.test.ts src/morphologyGeometry.test.ts src/morphologyRationalReplay.test.ts src/morphologyExecution.test.ts
       - run: npx --no-install vite build --config vite.crop-appearance.config.ts
       - run: npm audit --audit-level=high
       - run: npx --no-install playwright install --with-deps chromium
@@ -498,6 +498,7 @@ jobs:
             research/artifacts/morphology-replay-console-20261022.json
             research/artifacts/morphology-rational-replay-*-20261022.png
             research/artifacts/morphology-rational-replay-console-20261022.json
+            research/artifacts/morphology-execution-*-20261022.png
           retention-days: 3
           compression-level: 0
           if-no-files-found: ignore
