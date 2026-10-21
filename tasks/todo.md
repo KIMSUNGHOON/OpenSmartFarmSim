@@ -36,6 +36,11 @@
   - [ ] **`crop-internode-length-integration`** — 수용된 열적 시계와 신장률 뒤 명시 초기 길이/곡선 기준을 검토한다.
     같은 기관/기준온도·열적 나이/원 UTC를 유지하고 길이 변화·단위·분할/재개와 초기조건 불일치를 독립 수치로 대사한다.
     원 도함수에 없는 초기 길이를 자동0으로 만들지 않는다. 마디 출현·실제 품종/절대 키·저장/3D는 후속이다.
+    - [x] **`crop-internode-length-change`** — [초기화 검토/정적분 수용](../research/crop-internode-length-initialization-20261021.md).
+      새22/기존105, 독립 Decimal800의9사례/최대 상대차1.847e-13·재생성, 분할합/정확 나이와6root를 확인했다.
+      길이 변화만이며 초기/현재 절대 길이·키와 저장/3D는 없다.
+    - [ ] **`crop-internode-length-initial-state`** — 같은 곡선의 명시 기준 길이를 고정 수치 오차로 검사하고,
+      정규 `F(a)` 길이와 초기 영수증을 분리한다. 불일치/암묵0·곡선 교체를 보류하며 분할 재개/독립 수치를 대사한다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).

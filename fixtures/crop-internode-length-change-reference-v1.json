@@ -1,0 +1,483 @@
+{
+  "cases": [
+    {
+      "case_id": "synthetic-ordinary-0",
+      "expected_change_m": "0.012419666016382955145013828914576210205597288534157993423334592344013471192843054748435053989721629263001129549594191179484299458388649182682929979682847921443290724183440493732473799937848558869764656682689559237909852798279339384241854499589423296981188181449376229267491789918832002971170160961594646741500535916834093490835011620242156848807939724861195793686395792849755837485034882953862897723431206150185217883786646326651232750156635206582392024649627261470080012978909300192198733727027412691333604865322954755416059182151096619490996955666372000662906337161184254565711805358960825040871739181249864860853119433424611528698815793901925548330619428629830903457671491170586759282016918644103591822982866975798401135513869445771983033306210930393839700741337002178958984069097871235489043270439",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5
+          },
+          "emerged_at": "2026-10-01T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-ordinary-0",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 40
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 0.12
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.05
+            }
+          }
+        },
+        "input_id": "synthetic-ordinary-0",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 20
+            },
+            "end_utc": "2026-10-02T00:00:00Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-ordinary-1",
+      "expected_change_m": "0.002025324724734199673621341301381550609538546602943952108505969744210240616939906198933359055732888451674415639629338397615535766048218248690921575647547725192535435093973429673327131444952237228453805309860090347927439115516065038640785201151295604873523114086586064851424627760244108878944498184199730586940357753448583007984435858277694716437311315534889416197210848309185506591445279840464481220112913034682391562578894575471420282769048409007967159547018774172368847212114010943335200872955508735757615616208018879705023274859546388184332387697127325209306999848428992529549581016297758217691339241528621572925612111473808729210751309709564716842960773189802695523342421314177900736151608384720946115264970633960691478506799475762362098408203090870480987391029554711811359921356080781117366198431",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "3",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-02T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5
+          },
+          "emerged_at": "2026-10-01T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-ordinary-1",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 40
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 0.12
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.05
+            }
+          }
+        },
+        "input_id": "synthetic-ordinary-1",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 11
+            },
+            "end_utc": "2026-10-02T12:00:00Z",
+            "start_utc": "2026-10-02T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-ordinary-2",
+      "expected_change_m": "0.007065454779136422337320881992074336117772397277889151155145510591077968021720114531152561928929236824511615779009648925471347380729293087913747793374195216489007788684096272257016130109131649425368746942712168128785639659399239890886724209305364749498615005592295538008108317377644348104874754148920035120093147002024461024734133891897569336204417287943613759383709152855773708447378652184949261646161679564051323672605453947828803647276184741898297192892000839861190020487187374622255987733142642208947558950680896853363509634972970754129999118825435358285496215823384810418449848921639972409321101372210669606497964422498657153576430731505625340172206078723623968178863715531997500697000815072531990258604613632512534786834757265353317160254775012785150109672783719617477044963730758095678857304885",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "2",
+            "numerator": "3",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-02T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5
+          },
+          "emerged_at": "2026-10-01T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-ordinary-2",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 40
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 0.12
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.05
+            }
+          }
+        },
+        "input_id": "synthetic-ordinary-2",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 5
+            },
+            "end_utc": "2026-10-02T06:00:00Z",
+            "start_utc": "2026-10-02T00:00:00Z"
+          },
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 17
+            },
+            "end_utc": "2026-10-03T00:00:00Z",
+            "start_utc": "2026-10-02T06:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-ordinary-4",
+      "expected_change_m": "0E-801",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "3",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-02T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5
+          },
+          "emerged_at": "2026-10-01T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-ordinary-4",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 40
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 0.12
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.05
+            }
+          }
+        },
+        "input_id": "synthetic-ordinary-4",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 5
+            },
+            "end_utc": "2026-10-03T00:00:00Z",
+            "start_utc": "2026-10-02T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-ordinary-6",
+      "expected_change_m": "0.001308666280905635463701026771530209598581561275889839728337384384091623750035013697297000212938369000199517161978585071410893506312799907573638288626879295445319416269372215679094029005819277136336063027671479351624298840854626860335636186727794388144401823104770368409281926714279912042497459359893187977106646943620964075218348057491250523233676908147763796801679879141863722283583880005894725228484808811725866743193090583582855458880827718868062123397427114291354352921757308055952973864875863897041986896634751348759158967126190731925452623381757176528102354117464126340804506166022606204030513020017199475741540726093760016328984342391788763599094386285530162913762140003879492094899293351661153083193540297787978252835234128208356053432318064552052679493799209086452504805491825011806189194694",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2028-02-28T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 8
+          },
+          "emerged_at": "2028-02-28T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-ordinary-6",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 40
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 0.12
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.05
+            }
+          }
+        },
+        "input_id": "synthetic-ordinary-6",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 9
+            },
+            "end_utc": "2028-03-01T00:00:00Z",
+            "start_utc": "2028-02-28T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-tiny-thermal-increment",
+      "expected_change_m": "1.541976423090495170067063222884191891703007369620808335231410889159355943443672087519855403065348118591844609044703304129589689155523625091778414050066319363569118945313059053525761641128686653164231798085897658535897743001730130510548071246684140374372049641257810492811405363047379187346798974588264576784385242479478988775465571992687974077638905784696557162681971349937410348781960179721305705743071551149767686905519730151694603240961404030216782531888882150022167424382195306393620746631841549893466994904661040905507241490202522770931603239229813216512268271375622130127068850767982630671946905918573379272258196491319542578000318726443893148745497378898820665874189567643587094273452812814061484520902737291584989301346187940859954534750196091039244067010622094930109410E-24",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "20",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 1
+          },
+          "emerged_at": "2026-09-30T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-tiny-thermal-increment",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 20
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 0.12
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.02
+            }
+          }
+        },
+        "input_id": "synthetic-tiny-thermal-increment",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 1.0000000000000002
+            },
+            "end_utc": "2026-10-01T00:00:01Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-negative-exponent-rescue",
+      "expected_change_m": "8.7219279356642401336359148238765112136955252827486178921648250158250448789364065348989424848843584514660441557113637593542625452693201751394941757015322852252762421874989893582292209037786313029000058771087151763029197679279980795528567299600677931129202029991871393446489647564475147667861842264839786957952061630376587778429128746626181360495733618931956398262919481881047883084574048266598863911542591973664081276802826361796484655907508244554365072935388197137814043377661664605814907551859096410569702736663548798251384284721354750533971107178388759006070683950835854255846226021545181602088998318797826445924024867682175548487572870760543386545761994801002545786532542931790946753097895689531004438838968130832258720874260344441156456200704387559044418621202854056968436554220235706746501223873E-127",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 0
+          },
+          "emerged_at": "2026-10-01T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-negative-exponent-rescue",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 1000
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 1e+308
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 1
+            }
+          }
+        },
+        "input_id": "synthetic-negative-exponent-rescue",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 1
+            },
+            "end_utc": "2026-10-02T00:00:00Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-whole-curve",
+      "expected_change_m": "0.11999999999999999555910790149937383830547332763671874999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999878176986458813042141353724578482300531946231645471045094622916871902694055265095031419792845390203834964844056944098576248372018485879308486988664441383963039725784608945732636270040221948990588216696538180683473233405829722817556749158707294821347940267762102976914416788816409340808649086125198303766034775565837358948053326758406058273796538494627014852410552685",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 0
+          },
+          "emerged_at": "2026-10-01T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-whole-curve",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 1000
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 0.12
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 1
+            }
+          }
+        },
+        "input_id": "synthetic-whole-curve",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 2000
+            },
+            "end_utc": "2026-10-02T00:00:00Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-exact-age-difference-rescue",
+      "expected_change_m": "1.429588095605458766206443737499595786517381782837374134994998139855279414742081253616898148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148148E-21",
+      "inputs": {
+        "clock_state": {
+          "age_basis": "since_internode_emergence",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 0
+          },
+          "emerged_at": "2026-09-30T00:00:00Z",
+          "internode_id": "synthetic-internode-1",
+          "origin": "synthetic",
+          "temperature_basis": "indoor_air_piecewise_constant"
+        },
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-exact-age-difference-rescue",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 1
+            },
+            "maximum_length": {
+              "unit": "m",
+              "value": 1e+308
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 1
+            }
+          }
+        },
+        "input_id": "synthetic-exact-age-difference-rescue",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 5e-324
+            },
+            "end_utc": "2026-10-01T00:00:01Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          }
+        ]
+      }
+    }
+  ],
+  "origin": "synthetic_arithmetic_not_cultivar_parameters",
+  "precision": 800,
+  "version": "internode-length-change-reference-v1"
+}
