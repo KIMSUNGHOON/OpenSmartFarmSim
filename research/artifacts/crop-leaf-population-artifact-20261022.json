@@ -1,0 +1,157 @@
+{
+  "schema_version": "leaf-population-producer-acceptance-v1",
+  "tests": 14,
+  "phases": {
+    "RED": {
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 0.6076797920031822,
+      "combined_peak_RSS_bytes": 1009819648,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "RSS_samples": 2,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "2f7ec393451abe75378830cba58da577253676e1db76d097a3b25dece48c0bed"
+    },
+    "accepted14": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 3.1878218519996153,
+      "combined_peak_RSS_bytes": 1025462272,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "RSS_samples": 12,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "1bf8231ef5b2248811a555070b12bbf5ae2968977215c6418e0d8f5ebc244545"
+    },
+    "actual40": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.1195374769959017,
+      "combined_peak_RSS_bytes": 997326848,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "RSS_samples": 4,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "88031254f68d78e4a23ef83b6198cef615dae4df2fedb6b8e96946eca9f4eed7"
+    }
+  },
+  "actual": {
+    "root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+    "blob_count": 40,
+    "code_pins": 28,
+    "frames": [
+      {
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "count": 3,
+        "total_area_m2": 0.0009700372917537751,
+        "binding_sha256": "02398aa821aa17146ace46be4a8f043a1c0df71eabc282245d296005f7a6a534"
+      },
+      {
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "count": 3,
+        "total_area_m2": 0.0012934250627792618,
+        "binding_sha256": "20423f183be9fb4148d1edc0700c37102f7b95fad567bf111f80a22e609c561b"
+      },
+      {
+        "index": 2,
+        "at": "2026-10-01T06:00:00Z",
+        "count": 3,
+        "total_area_m2": 0.001688433644574863,
+        "binding_sha256": "43604c157b9c34cff0a0cdac837e13381f4385db9294633c9f2845b2a8978cc1"
+      },
+      {
+        "index": 3,
+        "at": "2026-10-01T08:00:00Z",
+        "count": 4,
+        "total_area_m2": 0.0023557582149150175,
+        "binding_sha256": "ea7db8b9eb83f31d0d330c9adeba0791c192caa9db8444e79f5f0d023904af20"
+      },
+      {
+        "index": 4,
+        "at": "2026-10-01T10:00:00Z",
+        "count": 4,
+        "total_area_m2": 0.0029360765281571787,
+        "binding_sha256": "0f8b03c4d165a9a8fb060b325073189236ca49b618d24bb1c7fdb279fc24523e"
+      },
+      {
+        "index": 5,
+        "at": "2026-10-01T12:00:00Z",
+        "count": 4,
+        "total_area_m2": 0.003554883759941095,
+        "binding_sha256": "cbcfc577995111deaac831050183882e9d8cdb6d2a291cad287c222708e0dfc5"
+      },
+      {
+        "index": 6,
+        "at": "2026-10-01T14:00:00Z",
+        "count": 4,
+        "total_area_m2": 0.004179754756286953,
+        "binding_sha256": "0594d7baf393977b41d3cc63688b46204f5b9ce7ff988cdfc617c1677a97b0e9"
+      },
+      {
+        "index": 7,
+        "at": "2026-10-01T16:00:00Z",
+        "count": 5,
+        "total_area_m2": 0.005016631354146079,
+        "binding_sha256": "285d7ded133c0c3349cf980505c5a6ea8b777d276ba8f4778c63bf0acce0e712"
+      },
+      {
+        "index": 8,
+        "at": "2026-10-01T18:00:00Z",
+        "count": 5,
+        "total_area_m2": 0.005642435191466893,
+        "binding_sha256": "c8186d1963bd43edaae51bd0a6ee6aa04e41d71dafb923083129d39d207abf9f"
+      },
+      {
+        "index": 9,
+        "at": "2026-10-01T20:00:00Z",
+        "count": 5,
+        "total_area_m2": 0.006216665460691303,
+        "binding_sha256": "e67f03447e97fa1874b9d1814ff431bd1bd0b5bab0d4fd4c5b5e188f59453844"
+      },
+      {
+        "index": 10,
+        "at": "2026-10-01T22:00:00Z",
+        "count": 6,
+        "total_area_m2": 0.006933784779828246,
+        "binding_sha256": "919ed810068bcc275dc2c42b5ec1d16874a110d922b3ce1965f224b67dfa3492"
+      },
+      {
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "count": 6,
+        "total_area_m2": 0.007454864612931188,
+        "binding_sha256": "d67ccf344c8792119e21fa8989a0fe493759752a8e536ad0f62e69722094d51b"
+      }
+    ],
+    "binding_bytes_equal_independent_52_area_probe": true,
+    "same_input_repeat_root_and_40_metadata_bytes_preserved": true,
+    "original_14_metadata_bytes_preserved": true,
+    "source_program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+    "new_compute_free_reader_accepted": false,
+    "new_UI_deployed": false,
+    "scope": "software_research_only",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed"
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_CLI": 0
+  },
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_suite": false,
+  "producer_only": true
+}
