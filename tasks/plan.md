@@ -3088,3 +3088,14 @@ core7 → fences10 → regression93(순수87+독립1+raw5)을 같은 source/원 
 실제 SCRAM/선택 program·원 값/UTC/현재3view·ready/normal/hold/64+1·원 page 후검사/31계측0·343지문/정리를 수용했다.
 증강 reader의 기본 경계를 실제로 확인했고 다음은 같은 source fences10 → regression93이다.
 순수87의 재검증을 중복 합산하지 않으며 전체110 전 부모/HTTP/runtime/3D·WSL·후속 제품/관문은 미완료다.
+
+**후속 보호 HTTP 인터페이스 준비:** [CO₂ 실행 HTTP 계획](../contracts/api-crop-greenhouse-co2-execution-http-v1.md)은
+공개 응답110 수용 뒤 현재 OpenAPI 지문 → 접수/진행/취소 → 명시 prefix → 실제 SCRAM/TLS 수용 순서다.
+기존 CO₂ wire의 dynamic ResultFarm/Read를 사용하고, 같은 graph를 요구하며 현재 read-only runtime을
+실행 권한으로 바꾸지 않는다. 기본 실행3은 인증 뒤 미구성503, prefix3은 명시 조립에서만 설치한다.
+기존 stack의 후속 단계이며 새 큐/프레임워크·사용자 배포는 추가하지 않는다. 현재는 계획만 수용하고 코드는 없다.
+
+**공개 늦은 변경10 수용:** [CI39545348424](../research/api-crop-greenhouse-co2-prefix-20261021.md)의
+late5/사전 witness1·독립 heartbeat/cancel2/원 HEAD append2를 수용했다. 원 UTC/최초 시각·31계측0·
+14산출물과 preflight/core/현재343지문·원 자원/정리를 확인했다. 다음은 독립/회귀93이며
+순수87을 이전 수용과 중복 합산하지 않는다. 전체110 전 부모·HTTP/runtime/3D/사용자 적용은 남는다.
