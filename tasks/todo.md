@@ -53,6 +53,11 @@
   - [ ] **`crop-shoot-internode-state`** — 명시 초기 기관/순번 목록·곡선/출현 초기 길이를 같은 기온 timeline에 결속한다.
     기존 기관 나이를 reset하지 않고 새 절간을 사건 후 남은 기온 구간에서 계산한다. 소수 초 출현은 보류한다.
     정확 나이/길이와 분할 재개·기관 순서/유한 합계·같은 UTC·입력 불변을 독립 대사한다. 저장/3D·실제 전체 키는 별도다.
+    - [x] **`crop-shoot-new-internodes`** — [새 출현→남은 기온→한 절간 상태 수용](../research/crop-shoot-new-internodes-20261021.md).
+      새18/기존232·독립6프로그램/길이10점·최대 상대차2.170e-16, 같은 ID/분할 재개·소수 초/2MiB 보류와6root를 확인했다.
+      첫 패킷 fixture의 잘못된 기대/수정은 보존했다. 기존 기관 목록과 전체 식물/키는 이 자식에 포함하지 않는다.
+    - [ ] **`crop-shoot-existing-inventory`** — 명시 초기 순번/기관 목록·시계와 초기/곡선 판본을 보존하며 기존 기관을 전진하고 새 기관을 합류한다.
+      같은 공통 나이−출현 나이/원 UTC·중복/누락·분할 상태/길이 합계를 대사한다. 합계는 추적된 축 길이이며 실제 키로 표시하지 않는다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).
