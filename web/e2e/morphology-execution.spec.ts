@@ -63,6 +63,15 @@ test('lost admission response survives reload and reuses the exact original requ
   expect(state.submissions).toHaveLength(2);expect(state.submissions[0]).toBe(state.submissions[1]);
 });
 
+test('an unconfirmed new submission never restores the previous completed result',async({page})=>{
+  const state=await setup(page);state.phase='succeeded';await page.getByRole('button',{name:'계산 시작',exact:true}).click();await check(page,0);
+  await page.getByRole('button',{name:'계산 작업',exact:true}).click();state.lost=true;
+  await page.getByRole('button',{name:'같은 입력으로 새 계산',exact:true}).click();await expect(page.getByRole('alert')).toBeVisible();
+  await page.reload();await expect(page.getByRole('button',{name:'같은 접수 다시 확인',exact:true})).toBeEnabled();
+  await expect(page.getByRole('heading',{name:'새 접수 확인 필요',exact:true})).toBeVisible();await expect(page.locator('canvas')).toHaveCount(0);
+  expect(state.submissions).toHaveLength(2);
+});
+
 test('actual server cancellation state is shown without geometry or a fake completion',async({page})=>{
   const state=await setup(page);state.phase='simulating';await page.getByRole('button',{name:'계산 시작',exact:true}).click();
   await expect(page.getByRole('button',{name:'취소 요청',exact:true})).toBeEnabled();await page.getByRole('button',{name:'취소 요청',exact:true}).click();

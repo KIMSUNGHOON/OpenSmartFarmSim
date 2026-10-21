@@ -27,7 +27,7 @@ export default function MorphologyExecutionPage(){
   const [data,setData]=useState<MorphologyReplay|null>(null),[error,setError]=useState(''),[inputError,setInputError]=useState('');
   const [busy,setBusy]=useState<'connect'|'submit'|'refresh'|'cancel'|null>(null),[tab,setTab]=useState<'overview'|'replay'|'evidence'>('overview');
   const generation=useRef(0),active=useRef<AbortController|null>(null),timer=useRef<number|null>(null),id=useRef(jobId),currentJob=useRef(job);
-  const loadedResult=useRef<string|null>(null);id.current=jobId;currentJob.current=job;
+  const loadedResult=useRef<string|null>(null),pendingRequest=useRef(pending);id.current=jobId;currentJob.current=job;pendingRequest.current=pending;
   const source=useMemo<MorphologyReplaySource>(()=>({version:'v2',directory:'./morphology-rational-replay',
     artifact_sha256:data?.artifact_sha256??'0'.repeat(64),index_sha256:'0'.repeat(64),frames:data?.frames.length??0}),[data]);
   function stop(){generation.current++;active.current?.abort();if(timer.current!==null)window.clearTimeout(timer.current);timer.current=null;}
@@ -58,19 +58,19 @@ export default function MorphologyExecutionPage(){
     void (async()=>{
       try{const value=await api.preview(work.signal);if(work.current())setPreview(value);}
       catch(cause){if(work.current()){setInputError(message(cause));if(cause instanceof ApiError&&cause.status===401)rejected(cause);}}
-      if(work.current()){setBusy(null);if(id.current)void refresh(api,id.current);}
+      if(work.current()){setBusy(null);if(id.current&&!pendingRequest.current)void refresh(api,id.current);}
     })();
-    const visible=()=>{if(document.hidden){stop();setBusy(null);}else if(id.current)void refresh(api,id.current);};
+    const visible=()=>{if(document.hidden){stop();setBusy(null);}else if(id.current&&!pendingRequest.current)void refresh(api,id.current);};
     document.addEventListener('visibilitychange',visible);
     return()=>{stop();document.removeEventListener('visibilitychange',visible);};
   },[client]);
   async function submit(){
     if(!client||(!preview&&!pending))return;
     const request=pending??{...preview!.request,study_id:'morphology-'+crypto.randomUUID(),revision:'r1'};
-    setPending(request);store('localStorage',PENDING_KEY,JSON.stringify(request));const work=begin('submit');setError('');clearResult();
+    setPending(request);pendingRequest.current=request;store('localStorage',PENDING_KEY,JSON.stringify(request));const work=begin('submit');setError('');clearResult();setStatus(null);
     try{const value=await client.submit(request,work.signal);if(!work.current())return;
       setJobId(value.job_id);id.current=value.job_id;store('localStorage',JOB_KEY,value.job_id);setJob(value);currentJob.current=value;
-      setStatus(null);setPending(null);store('localStorage',PENDING_KEY,null);setBusy(null);void refresh(client,value.job_id);
+      setStatus(null);setPending(null);pendingRequest.current=null;store('localStorage',PENDING_KEY,null);setBusy(null);void refresh(client,value.job_id);
     }catch(cause){if(work.current()){rejected(cause);setBusy(null);}}
   }
   async function cancel(){
@@ -104,11 +104,11 @@ export default function MorphologyExecutionPage(){
         {pending&&<p>응답이 유실돼도 같은 요청으로 접수를 확인합니다. 확인 전 새 요청을 만들지 않습니다.</p>}
       </article>
       <article className="morph-execution-status" aria-label="서버 계산 상태"><span className="morphology-eyebrow">SERVER EXECUTION</span>
-        <h2 role="status">{busy==='submit'?'새 계산 접수 확인 중':status?.cancel_requested?'취소 요청됨 · 확인 대기':job?stateLabel[job.state]:busy==='connect'?'연결 확인 중':'아직 접수한 계산이 없습니다'}</h2>
-        <ol>{['접수','계산','저장 완료'].map((label,index)=><li key={label} aria-current={index===1&&job?.state==='simulating'?'step':undefined}
+        <h2 role="status">{busy==='submit'?'새 계산 접수 확인 중':pending?'새 접수 확인 필요':status?.cancel_requested?'취소 요청됨 · 확인 대기':job?stateLabel[job.state]:busy==='connect'?'연결 확인 중':'아직 접수한 계산이 없습니다'}</h2>
+        <ol hidden={!!pending}>{['접수','계산','저장 완료'].map((label,index)=><li key={label} aria-current={index===1&&job?.state==='simulating'?'step':undefined}
           data-complete={!!job&&(index===0||job.state==='succeeded')}>
           <span>{index+1}</span>{label}</li>)}</ol>
-        {jobId&&<><p className="morph-execution-identifier">작업 ID <code>{jobId}</code></p><p>메뉴를 이동하거나 새로고침해도 이 작업을 다시 조회합니다.</p>
+        {jobId&&!pending&&<><p className="morph-execution-identifier">작업 ID <code>{jobId}</code></p><p>메뉴를 이동하거나 새로고침해도 이 작업을 다시 조회합니다.</p>
           {job&&<dl><div><dt>등록 시각</dt><dd>{job.created_at}</dd></div><div><dt>최근 상태 기록</dt><dd>{job.updated_at}</dd></div></dl>}
           <div className="morph-execution-actions"><button disabled={!client||locked} onClick={()=>client&&void refresh(client,jobId)}>현재 상태 다시 확인</button>
             <button disabled={!client||locked||terminal(job)} onClick={()=>void cancel()}>취소 요청</button></div></>}
