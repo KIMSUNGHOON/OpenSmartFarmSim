@@ -9,6 +9,7 @@ import subprocess
 import tarfile
 
 BASE = '2aa45fa7bc219a02e6a322ca095b0e726fad82da'
+LEGACY_BASE = '7ff954b'
 SOURCES = ('src/App.tsx', 'src/CropExecutionWorkspace.tsx',
            'src/JointCropClimateExecution.tsx', 'src/GreenhouseVentilationExecution.tsx')
 OLD = "      {view==='crop-execution'&&<Suspense fallback={<p role=\"status\">계산 상태 화면 준비 중…</p>}><CropExecution api={api}/></Suspense>}"
@@ -37,6 +38,7 @@ def main():
     parser.add_argument('directory', type=Path)
     parser.add_argument('--finalize', action='store_true')
     parser.add_argument('--tomato-leaf', action='store_true')
+    parser.add_argument('--legacy-frontend', action='store_true')
     args = parser.parse_args()
     repository = Path(__file__).resolve().parents[1]
     directory = args.directory.resolve()
@@ -52,17 +54,20 @@ def main():
         (delivery/'provenance.json').write_text(json.dumps(proof, indent=2)+'\n')
         return
     directory.mkdir()
-    archive = subprocess.check_output(['git', 'archive', BASE, 'web',
+    assert not args.legacy_frontend or args.tomato_leaf
+    base_commit = LEGACY_BASE if args.legacy_frontend else BASE
+    archive = subprocess.check_output(['git', 'archive', base_commit, 'web',
         'research/artifacts/api-crop-replay-reference-20261004.json'], cwd=repository)
     with tarfile.open(fileobj=BytesIO(archive)) as stream:
         stream.extractall(directory, filter='data')
     web = directory/'web'
     before = pins(web)
-    original = (web/'src/App.tsx').read_text()
-    assert original.count(OLD) == 1 and (repository/'web/src/App.tsx').read_text().count(NEW) == 1
-    (web/'src/App.tsx').write_text(original.replace(OLD, NEW))
-    for name in SOURCES[1:]:
-        shutil.copyfile(repository/'web'/name, web/name)
+    if not args.legacy_frontend:
+        original = (web/'src/App.tsx').read_text()
+        assert original.count(OLD) == 1 and (repository/'web/src/App.tsx').read_text().count(NEW) == 1
+        (web/'src/App.tsx').write_text(original.replace(OLD, NEW))
+        for name in SOURCES[1:]:
+            shutil.copyfile(repository/'web'/name, web/name)
     for name in ('package.json', 'package-lock.json',
                  'e2e/connection-entry.spec.ts', 'e2e/connection-fixture.ts'):
         shutil.copyfile(repository/'web'/name, web/name)
@@ -75,9 +80,11 @@ def main():
         (web/'src/CropReplay.tsx').write_text(text)
         for name in TOMATO_SOURCES:
             shutil.copyfile(repository/'web'/name,web/name)
+        matches = ['crop-replay.spec.ts','tomato-leaf-replay.spec.ts','tomato-cycle-leaf-replay.spec.ts']
+        if not args.legacy_frontend: matches.insert(0,'connection-entry.spec.ts')
         (web/'playwright.retained-tomato.config.ts').write_text(
             "import { defineConfig } from '@playwright/test';\nimport base from './playwright.config';\n"
-            "export default defineConfig({...base,testMatch:['connection-entry.spec.ts','crop-replay.spec.ts','tomato-leaf-replay.spec.ts','tomato-cycle-leaf-replay.spec.ts'],"
+            "export default defineConfig({...base,testMatch:"+json.dumps(matches)+","
             "use:{...base.use,baseURL:'http://127.0.0.1:5188'},webServer:{"
             "command:'npm run preview -- --host 127.0.0.1 --port 5188 --strictPort',"
             "url:'http://127.0.0.1:5188/',reuseExistingServer:false}});\n")
@@ -87,21 +94,24 @@ def main():
     if args.tomato_leaf:
         allowed.update((*TOMATO_SOURCES,'src/CropReplay.tsx','playwright.retained-tomato.config.ts'))
     changed = {name for name in before.keys() | after.keys() if before.get(name) != after.get(name)}
-    assert changed <= allowed and set(SOURCES) <= changed
+    assert changed <= allowed and (args.legacy_frontend or set(SOURCES) <= changed)
+    if args.legacy_frontend:
+        assert after['src/App.tsx']==before['src/App.tsx']
     assert json.loads((web/'package.json').read_bytes())['devDependencies']['vite'] == '8.3.3'
-    proof = {'base_commit': BASE, 'fix_commit': subprocess.check_output(
+    proof = {'base_commit': base_commit, 'fix_commit': subprocess.check_output(
         ['git', 'rev-parse', 'HEAD'], cwd=repository).decode().strip(),
         'changed_files': sorted(changed), 'baseline_sha256': before,
         'retained_fixture_sha256': pins(directory/'research'/'artifacts'),
         'prepared_sha256': after, 'prepared_src_sha256': pins(web/'src'),
         'canonical_source_sha256': {name: sha256((repository/'web'/name).read_bytes()).hexdigest()
-                                    for name in (*SOURCES,*(TOMATO_SOURCES if args.tomato_leaf else ()))},
+                                    for name in (*(SOURCES if not args.legacy_frontend else ()),*(TOMATO_SOURCES if args.tomato_leaf else ()))},
         'tomato_leaf_binding': args.tomato_leaf,
+        'legacy_frontend': args.legacy_frontend,
         'CropReplay_change': 'Four exact reviewed opt-in replacements only' if args.tomato_leaf else 'unchanged',
-        'App_change': 'Only retain the execution workspace and pass its activity; retain all other frozen App bytes.',
+        'App_change': 'unchanged' if args.legacy_frontend else 'Only retain the execution workspace and pass its activity; retain all other frozen App bytes.',
         'new_model_deployed': False, 'G0_G4': 'not_assessed', 'build_verified': False}
     (directory/'provenance.json').write_text(json.dumps(proof, indent=2)+'\n')
-    print(json.dumps({'base_commit': BASE, 'changed_files': sorted(changed)}))
+    print(json.dumps({'base_commit': base_commit, 'changed_files': sorted(changed)}))
 
 
 if __name__ == '__main__':

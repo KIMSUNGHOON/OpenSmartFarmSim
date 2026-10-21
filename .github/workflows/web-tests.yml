@@ -462,6 +462,31 @@ jobs:
           retention-days: 3
           compression-level: 0
           if-no-files-found: error
+      - name: Verify the legacy user's retained frontend
+        if: inputs.tomato_leaf
+        working-directory: .
+        run: |
+          git fetch --no-tags --depth=1 origin 7ff954b
+          python3 research/prepare-retained-execution-navigation.py "$RUNNER_TEMP/ossf-legacy-tomato" --tomato-leaf --legacy-frontend
+          cd "$RUNNER_TEMP/ossf-legacy-tomato/web"
+          npm ci --strict-peer-deps
+          npm run typecheck
+          npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/tomatoCycleLeafReplay.test.ts src/cropReplay.test.ts src/cropGeometry.test.ts src/cycleCropWindow.test.ts
+          npm run build
+          npm audit --audit-level=high
+          npm run test:browser -- --config playwright.retained-tomato.config.ts --reporter=line --max-failures=1
+          python3 "$GITHUB_WORKSPACE/research/prepare-retained-execution-navigation.py" "$RUNNER_TEMP/ossf-legacy-tomato" --finalize
+      - name: Tested retained legacy tomato application
+        if: inputs.tomato_leaf
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: legacy-tomato-leaf-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/ossf-legacy-tomato/delivery
+            ${{ runner.temp }}/ossf-legacy-tomato/research/artifacts/tomato-cycle-*-20261021.png
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: error
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
