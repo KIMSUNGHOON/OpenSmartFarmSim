@@ -2390,7 +2390,7 @@
         - [x] **`co2-execution-query`** — [계약](../contracts/crop-greenhouse-co2-execution-query-v1.md)의 닫힌16KiB/현재 읽기 경계를 수용했다.
           [전체35검사](../research/crop-greenhouse-co2-execution-query-20261021.md)는 제어15/실제 DB18/독립2이며,
           CI39533373500의24와 CI39534107848의11·서로 같은324지문/원 UTC·최초 시각/조회31계측0/정리를 확인했다.
-          원9상태/읽기 권리·늦은 변경/잠금·HEAD/디렉터리/독립 원 DTO와 별도 actor UPDATE1을 구분했다.
+          원 상태/읽기 권리·늦은 변경/잠금·HEAD/디렉터리/독립 원 DTO와 별도 actor UPDATE1을 구분했다.
           첫 증거 필드 누락/수정을 보존하며 공통 WSL/사용자 적용과 전체 작기/자료 관문은 남는다.
         - [ ] **`co2-confirmed-prefix-read`** — 위 query/worker 뒤 [확정 구간 원 조회 계약](../contracts/crop-greenhouse-co2-prefix-v1.md)을 구현한다.
           정확한 CO₂ 선택자·불변 원 페이지/UTC·private witness와 직렬화 후검사, 정상 append/heartbeat·늦은 권리/이력,
