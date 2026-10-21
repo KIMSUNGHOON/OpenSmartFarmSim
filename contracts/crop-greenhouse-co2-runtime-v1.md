@@ -1,8 +1,9 @@
 # CO₂ 결과 조회의 명시 runtime v1
 
-Status: implemented; local control77 passed, focused native acceptance pending.
-[사전 증거](../research/artifacts/crop-greenhouse-co2-runtime-preflight-20261021.json)는 전체177개 수집과
-원 자료/두 UI/5root·자원·정리를 확인했다. 새 CO₂/기존 Solar의 실제 SCRAM/TLS4를 후속 검증한다.
+Status: functional runtime accepted; shared WSL capacity and user activation pending.
+[기능 수용](../research/crop-greenhouse-co2-runtime-20261021.md)은 source8c1ba5d/CI39518527650의
+177검사·새 CO₂/기존 Solar 실제 SCRAM/검증 TLS 정상·보류4와 원 응답/권한·설정/정리를 대사했다.
+[사전 증거](../research/artifacts/crop-greenhouse-co2-runtime-preflight-20261021.json)의 원 한도를 유지했다.
 선행은 [보호 HTTP 기능 수용](api-crop-greenhouse-co2-route-v1.md)이다.
 [기존 Solar runtime](crop-greenhouse-solar-runtime-v1.md)의 보호 설정/동일 객체 조립을 대조한다.
 기본 operator 자동 활성화·worker/prefix/3D·공통 WSL 용량/사용자 적용은 별도 조건이다.
