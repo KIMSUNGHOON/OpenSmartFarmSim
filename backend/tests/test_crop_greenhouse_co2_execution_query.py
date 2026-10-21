@@ -229,7 +229,8 @@ def test_rights_readonly_scopes_and_late_revocation_fail_closed(setup, monkeypat
         with pytest.raises(model.Co2ExecutionQueryHold): query.read('tenant-1', job_id)
     rights.allowed = True
     assert persisted_digest(worker.jobs) == before and all(n == 0 for n in calls.values())
-    save('rights', {'read_scopes_without_create_execute_write': True, 'scope_rejections': 2, 'late_source_rights_rejected': True, 'calls': calls})
+    save('rights', {'read_scopes_without_create_execute_write': True, 'scope_rejections': 2,
+        'late_source_rights_rejected': True, 'calls': calls, 'query_database_unchanged': True})
 
 
 @reference.pytestmark
