@@ -93,3 +93,5 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 - [명시 새 잎 출현 계산](../research/crop-declared-leaf-births-20261022.md): 새38/관련94·독립5프로그램/22면적·정확 시계11, 출현 후 기온만/분수 초·끝/동시·분할과512/2MiB·7root를 수용했다. 자동 출현/관리는 미구현이며 사용자 화면은 기존 저장3잎을 유지한다. 다음은 기존/명시 새 잎 목록 결속이다.
 
 - [기존/명시 새 잎 population](../research/crop-leaf-population-20261022.md): 새43/관련137·독립26면적/26시계·5합계/11분할·512/2MiB/overflow와7root를 수용했다. 검토 중 발견한 잎 항목 제거를 RED로 확인하고 별도 출현 목록 대사로 막았다. 다음은 저장 stem의 부착/출현 시각 결속→새 불변 판본/무계산 조회→새 잎3D다. 현재 저장3잎 UI는 보존한다.
+
+- [저장 stem의 잎 부착/출현 결속](../research/crop-leaf-stem-binding-20261022.md): 새13/관련150·실제 원14blob/12시점과 독립52면적/12합계·원 권리/시각·7root를 수용했다. 초기3→명시6잎의 계산/부착을 확인했으나 새 불변 population 판본/3D는 미적용이다. 기존 leaf40blob fresh의 연결 차단 지점을 실제 JobStore.connect로 고친 뒤 import/DB/쓰기0·원40blob/12시점을 재확인했다.

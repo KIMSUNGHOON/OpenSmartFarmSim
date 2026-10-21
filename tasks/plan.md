@@ -3391,3 +3391,5 @@ normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다�
 [명시 새 잎 계산](../research/crop-declared-leaf-births-20261022.md)은 새38/관련94와 독립5프로그램·22면적/11정확 시계로 수용했다. 다음은 기존/새 잎 목록 결속→같은 줄기/부착 존재 검증→새 불변 판본/무계산 조회·export→같은 UTC의 잎 수/면적3D다. 초기 목록의 immutable anchor 계약은 유지하고 새 모델 판본을 분리한다. 자동 출현/관리·실제 품종 근거 및 원 farm/job 현재 권리 통합은 병행 후속이다.
 
 [기존/명시 새 잎 population](../research/crop-leaf-population-20261022.md)은 새43/관련137·독립26면적/26시계·5합계와11분할·출현 목록 보존/512·2MiB/overflow로 수용했다. 다음은 저장 stem과 실제 ID/출현 초 대조이며 이후 새 불변 population 판본/무계산 reader→같은 UTC의 새 잎 수/면적3D다. 현재 UI는 수용된 초기3잎 저장본이고 새 population은 미적용이다.
+
+[원 저장 stem의 부착/출현 결속](../research/crop-leaf-stem-binding-20261022.md)은 새13/관련150·실제14blob/12시점·독립52면적/12합계로 수용했다. 이 함수는 production 경계의 면적 anchor 검증을 하므로 GET reader로 재사용하지 않는다. 다음 새 불변 population 결과/별도 무계산 reader에서 그 경계를 분리하고, export/SDK/같은 UTC의 새 잎3D를 뒤따르게 한다. 현재 사용자 화면은 초기3잎 저장본을 유지한다.

@@ -13,12 +13,12 @@ from app.crop_morphology_artifact_io import MorphologyBlobStore
 from app.job_store import JobStore
 import psycopg
 
-calls={'JobStore._conn':0,'psycopg.connect':0,'subprocess.run':0,'subprocess.Popen':0,
+calls={'JobStore.connect':0,'psycopg.connect':0,'subprocess.run':0,'subprocess.Popen':0,
        'artifact.put':0,'content_write':0,'write_open':0}
 def forbidden(name):
     def fail(*a,**kw):calls[name]+=1;raise AssertionError('read-only boundary crossed')
     return fail
-JobStore._conn=forbidden('JobStore._conn');psycopg.connect=forbidden('psycopg.connect')
+JobStore.connect=forbidden('JobStore.connect');psycopg.connect=forbidden('psycopg.connect')
 subprocess.run=forbidden('subprocess.run');subprocess.Popen=forbidden('subprocess.Popen')
 MorphologyBlobStore.put=forbidden('artifact.put');JobStore._durable_content=forbidden('content_write')
 original_open=os.open
