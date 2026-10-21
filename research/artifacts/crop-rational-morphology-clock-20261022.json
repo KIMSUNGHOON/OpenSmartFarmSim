@@ -1,0 +1,803 @@
+{
+  "schema_version": "rational-internode-clock-acceptance-v1",
+  "reported_at_utc": "2026-10-21T17:11:43.461938+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_UTC": "2026-10-21T15:43:34.498Z",
+    "raw_context_line_sha256_including_LF": "f30ceade3f9927099e25561a33f5ef255d17f4ae90d31bed33debaddb4fea95e",
+    "recursive_CLI": false
+  },
+  "source_pins": {
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+    "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+    "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+    "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+    "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+    "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+    "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+    "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+    "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+    "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+    "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/tests/test_crop_shoot_timeline.py": "4c4f40d68e9fd7f92ca7d576cd5fc33523e3ebff007b93972138a489eab78774",
+    "fixtures/crop-shoot-timeline-reference-v1.json": "370eaceb095b52b98271378d90bc863f16596b0ce6f84dfb136bcfeae9054a0f",
+    "research/crop-shoot-timeline-reference.py": "1f516356a5941f8235f8fa8d8a19bc9179175d802fd7d1d4a81e662e71ffd54d",
+    "backend/app/crop_new_internodes.py": "4fb5b91632289029b334cc2a291f28c10222ed8f54616ee25a16d472483f2ffd",
+    "backend/tests/test_crop_new_internodes.py": "c84cdb5801d5e4f53efa3b9cf1d487ed3d1679bafddde2a0fea3a75f6b7ad6c6",
+    "fixtures/crop-new-internodes-reference-v1.json": "2868d13c92835180ea8ae62b0030949bcfea35274f4f62ef3dd189c81160a594",
+    "research/crop-new-internodes-reference.py": "9cfdafe54b8d85791dcb0061447fd41cf6e78099f4cee9484371df7c2aec56ad",
+    "backend/app/crop_shoot_inventory.py": "b5e04672cc792bf46244b6dc05dcf250285038bf833ecc1086c1b2f43b363939",
+    "backend/tests/test_crop_shoot_inventory.py": "f9469cf8b82839155275d0bc20221a3378b04f9c3933d6a564180853091bb97f",
+    "fixtures/crop-shoot-inventory-reference-v1.json": "63f8633bb5e5d33de523641af7c8c0b58ab9f708864c401b3efc051a0cf323ec",
+    "research/crop-shoot-inventory-reference.py": "c502ffa4d31c88ae175a47f093018a9bc217c87d060b779d68b34cc91b0631cc",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/tests/test_crop_morphology_artifact_io.py": "3e55daa66eab6af051b54157588f23325632d57110772bfd7948155ec9907e61",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/crop_morphology_artifact_producer.py": "16fd1c30087f662f4406b1f66512a65665fc7ad6b96fa2b62cbf64c47f2d2264",
+    "backend/tests/test_crop_morphology_research_artifact.py": "f6a1e82e7e2db4bf2d3b63c26a947c448f128e6f2349bbf690da74b2925fe911",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+    "backend/tests/test_crop_morphology_public_export.py": "9b1aaf30547c7678a5e1775a42f51878639f31a2e207a36293d17b69cf000b46",
+    "research/export-morphology-replay.py": "af52fb7438bcb62680b3d03287c2186b8b850cae8bf7a7e9e64437599b1c6a07",
+    "backend/tests/test_crop_internode_length_point.py": "5f36fe52b63ff0a53f8e699487542d3615c4f3253385c579e34dbc9a5fc2fa36",
+    "research/crop-internode-length-point-reference.py": "6b792378f687c3e5ce010daa1fbb8eee1c68e84832f1c59747b425b9d43eafc5",
+    "fixtures/crop-internode-length-point-reference-v1.json": "9a1e4b57e0ae3c0407af9ab64dbbaf2585d752e57cb75f5f0aeb4ab4b7baab98",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/tests/test_crop_rational_morphology_clock.py": "56d5ec338e33cab8f1d3ae6b66762bd330395c599ee864d39f9623c341a0cfa1"
+  },
+  "tests": {
+    "new": 34,
+    "retained": 351,
+    "passed": 385,
+    "pytest_seconds": 4.71,
+    "RED": "missing module import",
+    "full_backend_suite": false,
+    "browser_rerun": false,
+    "new_deployment": false
+  },
+  "verification": {
+    "manual_reference_cases": 8,
+    "cases": [
+      {
+        "case_id": "one-third-birth",
+        "reference": "independent manual Celsius-seconds/86400",
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "129600",
+          "unit": "degC_day"
+        },
+        "original_input": {
+          "state": {
+            "origin": "synthetic",
+            "age_basis": "since_internode_emergence",
+            "temperature_basis": "indoor_air_piecewise_constant",
+            "internode_id": "synthetic-rational-node",
+            "time_origin_utc": "2026-10-01T00:00:00Z",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "1",
+              "denominator": "3",
+              "unit": "s"
+            },
+            "at_elapsed_seconds_exact": {
+              "numerator": "1",
+              "denominator": "3",
+              "unit": "s"
+            },
+            "age_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "degC_day"
+            },
+            "base_temperature": {
+              "value": 0,
+              "unit": "degC"
+            }
+          },
+          "segments": [
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "3",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 1,
+                "unit": "degC"
+              }
+            }
+          ]
+        },
+        "input_sha256": "76089b77cce549a4f300cc462f6c1c80cb962a091d41767e582745d7beb219cc",
+        "checkpoint": {
+          "origin": "synthetic",
+          "age_basis": "since_internode_emergence",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "internode_id": "synthetic-rational-node",
+          "time_origin_utc": "2026-10-01T00:00:00Z",
+          "emerged_elapsed_seconds_exact": {
+            "numerator": "1",
+            "denominator": "3",
+            "unit": "s"
+          },
+          "at_elapsed_seconds_exact": {
+            "numerator": "1",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "age_exact": {
+            "numerator": "1",
+            "denominator": "129600",
+            "unit": "degC_day"
+          },
+          "base_temperature": {
+            "value": 0.0,
+            "unit": "degC"
+          }
+        }
+      },
+      {
+        "case_id": "two-temperatures",
+        "reference": "independent manual Celsius-seconds/86400",
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "51840",
+          "unit": "degC_day"
+        },
+        "original_input": {
+          "state": {
+            "origin": "synthetic",
+            "age_basis": "since_internode_emergence",
+            "temperature_basis": "indoor_air_piecewise_constant",
+            "internode_id": "synthetic-rational-node",
+            "time_origin_utc": "2026-10-01T00:00:00Z",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "1",
+              "denominator": "3",
+              "unit": "s"
+            },
+            "at_elapsed_seconds_exact": {
+              "numerator": "1",
+              "denominator": "3",
+              "unit": "s"
+            },
+            "age_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "degC_day"
+            },
+            "base_temperature": {
+              "value": 0,
+              "unit": "degC"
+            }
+          },
+          "segments": [
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "3",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "2",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 1,
+                "unit": "degC"
+              }
+            },
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "2",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 3,
+                "unit": "degC"
+              }
+            }
+          ]
+        },
+        "input_sha256": "834b44c14f10c3dfdb64ed6545a7d9f86e4cd28c3284bae84e238b025df65b6e",
+        "checkpoint": {
+          "origin": "synthetic",
+          "age_basis": "since_internode_emergence",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "internode_id": "synthetic-rational-node",
+          "time_origin_utc": "2026-10-01T00:00:00Z",
+          "emerged_elapsed_seconds_exact": {
+            "numerator": "1",
+            "denominator": "3",
+            "unit": "s"
+          },
+          "at_elapsed_seconds_exact": {
+            "numerator": "1",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "age_exact": {
+            "numerator": "1",
+            "denominator": "51840",
+            "unit": "degC_day"
+          },
+          "base_temperature": {
+            "value": 0.0,
+            "unit": "degC"
+          }
+        }
+      },
+      {
+        "case_id": "large-instant-difference",
+        "reference": "independent manual Celsius-seconds/86400",
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "17280",
+          "unit": "degC_day"
+        },
+        "original_input": {
+          "state": {
+            "origin": "synthetic",
+            "age_basis": "since_internode_emergence",
+            "temperature_basis": "indoor_air_piecewise_constant",
+            "internode_id": "synthetic-rational-node",
+            "time_origin_utc": "2026-10-01T00:00:00Z",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "216172782113783809",
+              "denominator": "3",
+              "unit": "s"
+            },
+            "at_elapsed_seconds_exact": {
+              "numerator": "216172782113783809",
+              "denominator": "3",
+              "unit": "s"
+            },
+            "age_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "degC_day"
+            },
+            "base_temperature": {
+              "value": 5,
+              "unit": "degC"
+            }
+          },
+          "segments": [
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "216172782113783809",
+                "denominator": "3",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "216172782113783810",
+                "denominator": "3",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 20,
+                "unit": "degC"
+              }
+            }
+          ]
+        },
+        "input_sha256": "52a795d8e5722f44197b5cf9b64b3ace6e9583a39a775252c008549e6984e2fb",
+        "checkpoint": {
+          "origin": "synthetic",
+          "age_basis": "since_internode_emergence",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "internode_id": "synthetic-rational-node",
+          "time_origin_utc": "2026-10-01T00:00:00Z",
+          "emerged_elapsed_seconds_exact": {
+            "numerator": "216172782113783809",
+            "denominator": "3",
+            "unit": "s"
+          },
+          "at_elapsed_seconds_exact": {
+            "numerator": "216172782113783810",
+            "denominator": "3",
+            "unit": "s"
+          },
+          "age_exact": {
+            "numerator": "1",
+            "denominator": "17280",
+            "unit": "degC_day"
+          },
+          "base_temperature": {
+            "value": 5.0,
+            "unit": "degC"
+          }
+        }
+      },
+      {
+        "case_id": "tiny-positive-age",
+        "reference": "independent manual Celsius-seconds/86400",
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "864000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "unit": "degC_day"
+        },
+        "original_input": {
+          "state": {
+            "origin": "synthetic",
+            "age_basis": "since_internode_emergence",
+            "temperature_basis": "indoor_air_piecewise_constant",
+            "internode_id": "synthetic-rational-node",
+            "time_origin_utc": "2026-10-01T00:00:00Z",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "at_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "age_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "degC_day"
+            },
+            "base_temperature": {
+              "value": 0,
+              "unit": "degC"
+            }
+          },
+          "segments": [
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "0",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 1,
+                "unit": "degC"
+              }
+            }
+          ]
+        },
+        "input_sha256": "5a883c8b1a39e9661ce36db68f7100e3375698b7eb21315abce4f91579e813e8",
+        "checkpoint": {
+          "origin": "synthetic",
+          "age_basis": "since_internode_emergence",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "internode_id": "synthetic-rational-node",
+          "time_origin_utc": "2026-10-01T00:00:00Z",
+          "emerged_elapsed_seconds_exact": {
+            "numerator": "0",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "at_elapsed_seconds_exact": {
+            "numerator": "1",
+            "denominator": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "unit": "s"
+          },
+          "age_exact": {
+            "numerator": "1",
+            "denominator": "864000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "unit": "degC_day"
+          },
+          "base_temperature": {
+            "value": 0.0,
+            "unit": "degC"
+          }
+        }
+      },
+      {
+        "case_id": "binary64-temperatures",
+        "reference": "independent manual Celsius-seconds/86400",
+        "expected_age_exact": {
+          "numerator": "3602879701896397",
+          "denominator": "6225776124876973670400",
+          "unit": "degC_day"
+        },
+        "original_input": {
+          "state": {
+            "origin": "synthetic",
+            "age_basis": "since_internode_emergence",
+            "temperature_basis": "indoor_air_piecewise_constant",
+            "internode_id": "synthetic-rational-node",
+            "time_origin_utc": "2026-10-01T00:00:00Z",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "at_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "age_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "degC_day"
+            },
+            "base_temperature": {
+              "value": 0.05,
+              "unit": "degC"
+            }
+          },
+          "segments": [
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "0",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 0.1,
+                "unit": "degC"
+              }
+            }
+          ]
+        },
+        "input_sha256": "1fe4fe42eeb452ce55ca188b2664891cd88fce3bba88bed3f87fa6e20ba03563",
+        "checkpoint": {
+          "origin": "synthetic",
+          "age_basis": "since_internode_emergence",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "internode_id": "synthetic-rational-node",
+          "time_origin_utc": "2026-10-01T00:00:00Z",
+          "emerged_elapsed_seconds_exact": {
+            "numerator": "0",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "at_elapsed_seconds_exact": {
+            "numerator": "1",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "age_exact": {
+            "numerator": "3602879701896397",
+            "denominator": "6225776124876973670400",
+            "unit": "degC_day"
+          },
+          "base_temperature": {
+            "value": 0.05,
+            "unit": "degC"
+          }
+        }
+      },
+      {
+        "case_id": "stationary",
+        "reference": "independent manual Celsius-seconds/86400",
+        "expected_age_exact": {
+          "numerator": "5",
+          "denominator": "7",
+          "unit": "degC_day"
+        },
+        "original_input": {
+          "state": {
+            "origin": "synthetic",
+            "age_basis": "since_internode_emergence",
+            "temperature_basis": "indoor_air_piecewise_constant",
+            "internode_id": "synthetic-rational-node",
+            "time_origin_utc": "2026-10-01T00:00:00Z",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "at_elapsed_seconds_exact": {
+              "numerator": "1",
+              "denominator": "3",
+              "unit": "s"
+            },
+            "age_exact": {
+              "numerator": "5",
+              "denominator": "7",
+              "unit": "degC_day"
+            },
+            "base_temperature": {
+              "value": 5,
+              "unit": "degC"
+            }
+          },
+          "segments": [
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "3",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "100",
+                "denominator": "3",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 5,
+                "unit": "degC"
+              }
+            }
+          ]
+        },
+        "input_sha256": "594201d8a9c289531586bd847d31256b685b7fd9b3b1f5720c88aa7dcfd9f68d",
+        "checkpoint": {
+          "origin": "synthetic",
+          "age_basis": "since_internode_emergence",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "internode_id": "synthetic-rational-node",
+          "time_origin_utc": "2026-10-01T00:00:00Z",
+          "emerged_elapsed_seconds_exact": {
+            "numerator": "0",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "at_elapsed_seconds_exact": {
+            "numerator": "100",
+            "denominator": "3",
+            "unit": "s"
+          },
+          "age_exact": {
+            "numerator": "5",
+            "denominator": "7",
+            "unit": "degC_day"
+          },
+          "base_temperature": {
+            "value": 5.0,
+            "unit": "degC"
+          }
+        }
+      },
+      {
+        "case_id": "explicit-checkpoint",
+        "reference": "independent manual Celsius-seconds/86400",
+        "expected_age_exact": {
+          "numerator": "12343",
+          "denominator": "17280",
+          "unit": "degC_day"
+        },
+        "original_input": {
+          "state": {
+            "origin": "synthetic",
+            "age_basis": "since_internode_emergence",
+            "temperature_basis": "indoor_air_piecewise_constant",
+            "internode_id": "synthetic-rational-node",
+            "time_origin_utc": "2026-10-01T00:00:00Z",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "at_elapsed_seconds_exact": {
+              "numerator": "1",
+              "denominator": "3",
+              "unit": "s"
+            },
+            "age_exact": {
+              "numerator": "5",
+              "denominator": "7",
+              "unit": "degC_day"
+            },
+            "base_temperature": {
+              "value": 5,
+              "unit": "degC"
+            }
+          },
+          "segments": [
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "1",
+                "denominator": "3",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "10",
+                "denominator": "21",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 10,
+                "unit": "degC"
+              }
+            }
+          ]
+        },
+        "input_sha256": "4d5a80c43f6495ab93868105f40b7e347d8319b682d351e1e39782c3c8009561",
+        "checkpoint": {
+          "origin": "synthetic",
+          "age_basis": "since_internode_emergence",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "internode_id": "synthetic-rational-node",
+          "time_origin_utc": "2026-10-01T00:00:00Z",
+          "emerged_elapsed_seconds_exact": {
+            "numerator": "0",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "at_elapsed_seconds_exact": {
+            "numerator": "10",
+            "denominator": "21",
+            "unit": "s"
+          },
+          "age_exact": {
+            "numerator": "12343",
+            "denominator": "17280",
+            "unit": "degC_day"
+          },
+          "base_temperature": {
+            "value": 5.0,
+            "unit": "degC"
+          }
+        }
+      },
+      {
+        "case_id": "whole-day",
+        "reference": "independent manual Celsius-seconds/86400",
+        "expected_age_exact": {
+          "numerator": "25",
+          "denominator": "2",
+          "unit": "degC_day"
+        },
+        "original_input": {
+          "state": {
+            "origin": "synthetic",
+            "age_basis": "since_internode_emergence",
+            "temperature_basis": "indoor_air_piecewise_constant",
+            "internode_id": "synthetic-rational-node",
+            "time_origin_utc": "2026-10-01T00:00:00Z",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "at_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "age_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "degC_day"
+            },
+            "base_temperature": {
+              "value": 5,
+              "unit": "degC"
+            }
+          },
+          "segments": [
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "0",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "43200",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 20,
+                "unit": "degC"
+              }
+            },
+            {
+              "start_elapsed_seconds_exact": {
+                "numerator": "43200",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "end_elapsed_seconds_exact": {
+                "numerator": "86400",
+                "denominator": "1",
+                "unit": "s"
+              },
+              "air_temperature": {
+                "value": 15,
+                "unit": "degC"
+              }
+            }
+          ]
+        },
+        "input_sha256": "0f45291a99c377c88c73664261c316c70229b65e7f1c70c120f2711d96d79dd3",
+        "checkpoint": {
+          "origin": "synthetic",
+          "age_basis": "since_internode_emergence",
+          "temperature_basis": "indoor_air_piecewise_constant",
+          "internode_id": "synthetic-rational-node",
+          "time_origin_utc": "2026-10-01T00:00:00Z",
+          "emerged_elapsed_seconds_exact": {
+            "numerator": "0",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "at_elapsed_seconds_exact": {
+            "numerator": "86400",
+            "denominator": "1",
+            "unit": "s"
+          },
+          "age_exact": {
+            "numerator": "25",
+            "denominator": "2",
+            "unit": "degC_day"
+          },
+          "base_temperature": {
+            "value": 5.0,
+            "unit": "degC"
+          }
+        }
+      }
+    ],
+    "existing_timeline_events_to_point": 3,
+    "independent_length_reference": "Decimal800 direct logistic F(a), binary64 coefficients represented exactly",
+    "length_state_adapter_accepted": false
+  },
+  "resource": {
+    "focused": {
+      "phase": "green-integration",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 5.15456262799853,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 903753728,
+      "samples": 21,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "8c1ef71dd6ed7ff8839fc3d5b2933b85d770970a0998331eb2af2174e4bb6a39",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "manual_verification": {
+      "phase": "verify",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.26704628900188254,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 783511552,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "e3c31e120fa81659544f491fd5b24376fb5faa4d3d69775a858abb8e6c20610c",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    }
+  },
+  "limitations": [
+    "synthetic air clock only; no historical custody/authentication",
+    "no calendar projection of rational offsets",
+    "v1 fractional emergence hold unchanged",
+    "actual cultivar coefficients and independent farm measurements0",
+    "G0_G4 not_assessed"
+  ]
+}

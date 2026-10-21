@@ -79,6 +79,13 @@
     [351검사/독립21점](../research/crop-internode-length-point-20261022.md)·원 v1전체 결과16개/SHA와 역사 root/12프레임 bytes·fresh import/DB0·6root를 확인했다.
     이후 소수 초 출현의 유리수 시각/기관 상태→목록→불변 저장/같은 UTC3D를 별도 자식으로 분해한다.
     실제 품종 계수/기관·농장 검증을 이 개발 착수의 선행으로 묶지 않으며 게시 관문은 유지한다.
+  - [x] **`morphology-rational-internode-clock`** — [385검사/독립8구간](../research/crop-rational-morphology-clock-20261022.md).
+    명시 UTC 원점+정확 출현/현재 경과 초·기관 나이를 보존하며1/3초를 반올림하지 않는다.
+    분할 동일 checkpoint·기존 시계 대사·timeline 출현3건→point/독립 Decimal 길이와6root를 확인했다.
+    기존 v1 소수 초 hold·현재 저장/화면은 유지하며 길이 상태/목록 수용은 다음이다.
+  - [ ] **`morphology-rational-internode-length-state`** — 위 시계/point에 명시 초기 길이와 canonical anchor를 결속한다.
+    독립 분수 출현 길이·변온/분할 동일 state·곡선/기관/anchor 변조 보류·기존385검사/6root를 수용 조건으로 한다.
+    ΔL을 endpoint 차감으로 게시하지 않으며 새 기관/목록→불변 저장/같은 UTC3D를 뒤따르는 자식으로 둔다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).

@@ -41,3 +41,4 @@
   다음은 소수 초 출현의 정확 상태 결속을 위한 작은 길이 point API다. 실제 품종/독립 자료는0이며 관문은 유지한다.
 
 - [exact-age point](../research/crop-internode-length-point-20261022.md):351검사·독립21점/원16출력/12저장 프레임 대사 수용. 다음은 정확 유리수 출현 상태다.
+- [유리수 기관 시계](../research/crop-rational-morphology-clock-20261022.md):385검사·독립8구간/출현3건→point·분할 checkpoint 수용. 다음은 명시 anchor를 가진 기관 길이 상태다.
