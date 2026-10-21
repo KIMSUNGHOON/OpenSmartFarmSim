@@ -1,4 +1,5 @@
 import { lazy,Suspense,useEffect,useMemo,useRef,useState,type FormEvent } from 'react';
+import type { TomatoLeafAnchor } from './tomatoLeafReplay';
 import { ApiError,type createApi } from './api';
 import { validCycleCropLookup,type CycleCropLookup } from './cycleCropReplay';
 import { validCalculationCycleCropLookup } from './calculationCycleCropReplay';
@@ -12,6 +13,7 @@ import './CoupledCropReplay.css';
 import './CycleCropReplay.css';
 import HarvestReplay from './HarvestReplay';
 const Scene=lazy(()=>import('./CoupledCropScene'));
+const StoredCycleTomatoScene=lazy(()=>import('./StoredCycleTomatoScene'));
 const Chart=lazy(()=>import('./CoupledCropChart'));
 type Api=ReturnType<typeof createApi>;
 const EMPTY:CycleCropLookup={result_id:'',scenario_id:'',scenario_revision:'',registration_sha256:'',crop_id:''};
@@ -80,6 +82,7 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
   initialSelection?:CycleCropLookup;autoLoadInitialSelection?:boolean;sourceKind?:'original'|'calculation';initialHarvestResultId?:string}){
   const initial=initialSelection?.result_id.startsWith(sourceKind==='calculation'?'crop-cycle-verified-result-v1:':'crop-cycle-result-v1:')?initialSelection:undefined;
   const [lookup,setLookup]=useState(initial??EMPTY),[localError,setLocalError]=useState<ApiError|null>(null);
+  const [tomato,setTomato]=useState(false),[tomatoAnchor,setTomatoAnchor]=useState<TomatoLeafAnchor|null>(null);
   const [playing,setPlaying]=useState(false),[reduced,setReduced]=useState(false),owner=useRef({api,sourceKind});
   const viewerTarget=useRef<HTMLDivElement|null>(null),sampleNumber=useRef<HTMLInputElement|null>(null);
   const [visible,setVisible]=useState<{api:Api|null;sourceKind:'original'|'calculation';state:CycleCropWindowState}|null>(null);
@@ -91,9 +94,9 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
   const scales=useMemo(()=>startupCohortScales(samples),[samples]);
   const busy=state?.phase==='loading',error=localError??state?.error;
   const rangeLabel=range?`현재 읽은 범위 ${range.count?`${range.offset+1}–${range.offset+range.count}`:'0'} / ${range.total} · ${range.first_utc??'시점 없음'} → ${range.last_utc??'시점 없음'} UTC`:'';
-  function clear(){setPlaying(false);setLocalError(null);void window.cancel();}
+  function clear(){setPlaying(false);setLocalError(null);setTomato(false);setTomatoAnchor(null);void window.cancel();}
   function read(client:Api,selection:CycleCropLookup){
-    setPlaying(false);setLocalError(null);owner.current={api:client,sourceKind};
+    setPlaying(false);setLocalError(null);setTomato(false);setTomatoAnchor(null);owner.current={api:client,sourceKind};
     if(!(sourceKind==='calculation'?validCalculationCycleCropLookup(selection):validCycleCropLookup(selection))){
       void window.cancel();setLocalError(new ApiError('invalid_request'));return;}
     if(sourceKind==='calculation')void window.openCalculation(client,selection);else void window.open(client,selection);
@@ -103,6 +106,11 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
     return()=>{void window.cancel();};
   },[api,initial,autoLoadInitialSelection,sourceKind,window]);
   useEffect(()=>()=>{void window.dispose();},[window]);
+  useEffect(()=>{
+    if(tomato&&!tomatoAnchor&&summary&&sample&&state?.phase==='ready'&&state.selected?.index===summary.reference.sample_count-1)
+      setTomatoAnchor({result_id:summary.result_id,payload_sha256:summary.reference.payload_sha256,
+        sample_index:state.selected.index,at:sample.at,lai:sample.lai.value});
+  },[tomato,tomatoAnchor,summary,sample,state]);
   useEffect(()=>{const query=matchMedia('(prefers-reduced-motion: reduce)');
     const change=()=>{setReduced(query.matches);if(query.matches)setPlaying(false);};change();
     query.addEventListener('change',change);return()=>query.removeEventListener('change',change);},[]);
@@ -114,6 +122,12 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
     return()=>clearTimeout(timer);
   },[playing,reduced,sample,state,index,samples,window]);
   function select(i:number){setPlaying(false);window.select(i);}
+  function toggleTomato(){
+    setPlaying(false);
+    if(tomato){setTomato(false);return;}
+    setTomato(true);
+    if(!tomatoAnchor&&summary&&summary.reference.sample_count>0)void window.seekSample(summary.reference.sample_count-1);
+  }
   function move(direction:'previous'|'next'){if(!range || state?.phase!=='ready')return;setPlaying(false);void window[direction](range.kind);}
   function submit(e:FormEvent){e.preventDefault();if(busy)return;
     if(!api){clear();setLocalError(new ApiError('auth_required'));return;}read(api,{...lookup});}
@@ -164,8 +178,12 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
       {sample && <div className="coupled-viewer" ref={viewerTarget} tabIndex={-1} aria-label="선택된 저장 생장 시점"
         data-result-id={summary.result_id} data-selected-at={sample.at} data-selected-index={state!.selected!.index}
         data-farm={JSON.stringify(summary.farm)} data-reference={JSON.stringify(summary.reference)}>
-        <div className="coupled-top-grid"><section className="panel"><h2>LAI·과실 구획 수치 모식도</h2>
-          <Suspense fallback={<p role="status">3D 준비 중… 같은 값은 표에서 확인하세요.</p>}><Scene sample={sample} scales={scales} rangeLabel={rangeLabel}/></Suspense></section>
+        <div className="coupled-top-grid"><section className="panel"><h2>{tomato?'저장된 잎 면적 · 토마토 3D':'LAI·과실 구획 수치 모식도'}</h2>
+          <button className="button secondary" aria-pressed={tomato} onClick={toggleTomato}>토마토 잎 면적 3D</button>
+          {!tomato&&!tomatoAnchor&&<p className="crop-caption">첫 연결 때 마지막 저장 시점으로 이동해 외형 표시 기준을 확인합니다.</p>}
+          <Suspense fallback={<p role="status">3D 준비 중… 같은 값은 표에서 확인하세요.</p>}>
+            {tomato?<StoredCycleTomatoScene summary={summary} sample={sample} index={state!.selected!.index} anchor={tomatoAnchor}/>
+              :<Scene sample={sample} scales={scales} rangeLabel={rangeLabel}/>}</Suspense></section>
           <section className="panel coupled-readout" data-selected-at={sample.at}><h2>같은 UTC의 계산값</h2><dl>
             {(Object.keys(STATE_LABELS) as (keyof typeof STATE_LABELS)[]).map(key=><div key={key}><dt>{STATE_LABELS[key]}</dt>
               <dd data-metric={key} data-raw-value={sample.state[key].value}><Quantity q={sample.state[key]}/></dd></div>)}

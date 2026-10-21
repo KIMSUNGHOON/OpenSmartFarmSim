@@ -16,7 +16,9 @@ NEW = "      <RetainedWorkspace active={view==='crop-execution'}><CropExecution 
 TOMATO_SOURCES = ('src/TomatoAppearanceScene.tsx','src/TomatoAppearance.css',
     'src/tomatoAppearance.ts','src/tomatoAppearanceTextures.ts','src/tomatoLeafReplay.ts',
     'src/StoredTomatoScene.tsx','src/tomatoAppearance.test.ts','src/tomatoLeafReplay.test.ts',
-    'e2e/tomato-leaf-replay.spec.ts','e2e/crop-replay.spec.ts')
+    'e2e/tomato-leaf-replay.spec.ts','e2e/crop-replay.spec.ts',
+    'src/CycleCropReplay.tsx','src/StoredCycleTomatoScene.tsx','src/tomatoCycleLeafReplay.test.ts',
+    'e2e/tomato-cycle-leaf-replay.spec.ts')
 TOMATO_PATCHES = (
     ("const CropScene=lazy(()=>import('./CropScene'));", "const CropScene=lazy(()=>import('./CropScene'));\nconst StoredTomatoScene=lazy(()=>import('./StoredTomatoScene'));"),
     ('  const [lookup,setLookup]=useState<CropLookup>', '  const [tomato,setTomato]=useState(false);\n  const [lookup,setLookup]=useState<CropLookup>'),
@@ -75,7 +77,7 @@ def main():
             shutil.copyfile(repository/'web'/name,web/name)
         (web/'playwright.retained-tomato.config.ts').write_text(
             "import { defineConfig } from '@playwright/test';\nimport base from './playwright.config';\n"
-            "export default defineConfig({...base,testMatch:['connection-entry.spec.ts','crop-replay.spec.ts','tomato-leaf-replay.spec.ts'],"
+            "export default defineConfig({...base,testMatch:['connection-entry.spec.ts','crop-replay.spec.ts','tomato-leaf-replay.spec.ts','tomato-cycle-leaf-replay.spec.ts'],"
             "use:{...base.use,baseURL:'http://127.0.0.1:5188'},webServer:{"
             "command:'npm run preview -- --host 127.0.0.1 --port 5188 --strictPort',"
             "url:'http://127.0.0.1:5188/',reuseExistingServer:false}});\n")

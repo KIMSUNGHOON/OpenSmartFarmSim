@@ -173,6 +173,7 @@ export default function TomatoAppearanceScene({leafBinding,embedded=false}:{leaf
       <p>{leafBinding?'잎 면적만 같은 저장 시점에 연결합니다. 키·잎 수·기관 배치는 고정 외형이며 과실·숙기·수확 표현은 보류합니다.':
         '직접 제작한 대표 외형입니다. 품종별 형태·과실 개수·색·시설 배치는 제작 가정이며, 계산된 생장이나 수확 예측이 아닙니다.'}</p></footer>
     {leafBinding&&<p className="appearance-binding">{leafBinding.at} UTC · LAI {leafBinding.lai} m²_leaf/m²_floor<br/>
-      외형 기준은 이 저장 결과의 최대 LAI {leafBinding.reference_lai}입니다. 그림의 크기는 실제 길이·재식밀도가 아닙니다.</p>}
+      외형 기준은 {leafBinding.reference_kind==='whole_result_maximum'?'이 저장 결과의 최대 LAI':`마지막 저장 시점 ${leafBinding.reference_at}의 LAI`} {leafBinding.reference_lai}입니다.
+      그림의 크기는 실제 길이·재식밀도가 아닙니다.</p>}
   </section>;
 }

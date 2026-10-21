@@ -432,7 +432,7 @@ jobs:
       - run: npm install --global npm@11.16.0
       - run: npm ci --strict-peer-deps
       - run: npm run typecheck
-      - run: npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts
+      - run: npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/tomatoCycleLeafReplay.test.ts
       - run: npx --no-install vite build --config vite.crop-appearance.config.ts
       - run: npm audit --audit-level=high
       - run: npx --no-install playwright install --with-deps chromium
@@ -446,7 +446,7 @@ jobs:
           cd "$RUNNER_TEMP/ossf-retained-tomato/web"
           npm ci --strict-peer-deps
           npm run typecheck
-          npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/cropReplay.test.ts src/cropGeometry.test.ts
+          npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/tomatoCycleLeafReplay.test.ts src/cropReplay.test.ts src/cropGeometry.test.ts
           npm run build
           npm audit --audit-level=high
           npm run test:browser -- --config playwright.retained-tomato.config.ts --reporter=line --max-failures=1
