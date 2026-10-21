@@ -39,3 +39,5 @@
 - 명시 기존/새 절간 계산과 합성 불변 저장은 [312검사](../research/crop-morphology-research-artifact-20261022.md)로 수용했다.
 - [별도 저장 길이3D](../research/morphology-stored-replay-20261022.md)는 CI/실제 native로 수용하고 사용자 창을 열어 두었다.
   다음은 소수 초 출현의 정확 상태 결속을 위한 작은 길이 point API다. 실제 품종/독립 자료는0이며 관문은 유지한다.
+
+- [exact-age point](../research/crop-internode-length-point-20261022.md):351검사·독립21점/원16출력/12저장 프레임 대사 수용. 다음은 정확 유리수 출현 상태다.

@@ -14,10 +14,11 @@ from sys import float_info
 from .crop_internode_length_change import (
     InternodeLengthChangeHold, calculate_internode_length_change, normalize_internode_curve,
 )
-from .crop_morphology_thermal_clock import MorphologyClockHold, normalize_internode_clock_state
+from .crop_morphology_thermal_clock import MorphologyClockHold, normalize_internode_clock_state, thermal_age_fraction
 
 
 MODEL_VERSION = 'internode-logistic-length-state-research-v1'
+POINT_VERSION = 'internode-logistic-length-point-research-v1'
 STATE_KEYS = {'model_version', 'clock_state', 'curve', 'curve_sha256', 'length', 'anchor'}
 
 
@@ -56,10 +57,10 @@ def _age(clock):
     return Fraction(int(exact['numerator']), int(exact['denominator']))
 
 
-def _length(clock, curve):
+def _length_at_thermal_age(age, curve):
     m, k, tm = (curve['values'][key]['value'] for key in ('maximum_length', 'steepness', 'inflection_age'))
     try:
-        x = float(Fraction.from_float(k) * (_age(clock) - Fraction.from_float(tm)))
+        x = float(Fraction.from_float(k) * (age - Fraction.from_float(tm)))
     except OverflowError:
         raise InternodeLengthHold('NUMERIC_HOLD: point exponent overflow') from None
     _need(isfinite(x), 'NUMERIC_HOLD: finite point exponent required')
@@ -70,6 +71,29 @@ def _length(clock, curve):
         length = m * q / (1 + q) if q >= float_info.min else exp(log(m) + x - log1p(q))
     _need(isfinite(length) and float_info.min <= length <= m, 'NUMERIC_HOLD: normal bounded length required')
     return {'value': length, 'unit': 'm'}
+
+
+def _length(clock, curve):
+    return _length_at_thermal_age(_age(clock), curve)
+
+
+def calculate_internode_length_point(*, inputs):
+    _need(type(inputs) is dict and set(inputs) == {
+        'input_id', 'origin', 'thermal_age_basis', 'age_exact', 'curve'}, 'INPUT_HOLD: closed length point required')
+    _identifier(inputs['input_id'])
+    _need(inputs['origin'] == 'synthetic' and inputs['thermal_age_basis'] == 'since_internode_emergence',
+          'INPUT_HOLD: explicit synthetic organ age required')
+    try:
+        age = thermal_age_fraction(inputs['age_exact'])
+        normalized = normalize_internode_curve(curve=inputs['curve'])
+    except (MorphologyClockHold, InternodeLengthChangeHold) as exc:
+        raise InternodeLengthHold(str(exc)) from None
+    length = _length_at_thermal_age(age, normalized['curve'])
+    identity = {**inputs, 'age_exact': dict(inputs['age_exact']), 'curve': normalized['curve']}
+    return {'model_version': POINT_VERSION, 'scope': 'software_research_only',
+            'claim_scope': 'synthetic_crop_math_only', 'gates': 'not_assessed',
+            'input_sha256': _digest({'model_version': POINT_VERSION, 'inputs': identity}),
+            'curve_sha256': normalized['curve_sha256'], 'age_exact': dict(inputs['age_exact']), 'length': length}
 
 
 def _normalized(clock, curve):

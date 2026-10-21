@@ -74,9 +74,9 @@
     고정3복엽/표면은 제작 가정으로 분리하고 과실/실제 키·생산 예측을 만들지 않는다.
     [CI22/브라우저7·export29/실제 native](../research/morphology-stored-replay-20261022.md)에서 원 값/UTC·재생/정지·GET13/POST0·6root와 원190/223/137파일을 확인했다.
     headless 드라이버 성능 진단·최종 사실감/제품 메뉴·농장/실제 작기 통합은 남는다.
-  - [ ] **`morphology-exact-age-length-point`** — 선행은 저장 형태3D 수용이다.
+  - [x] **`morphology-exact-age-length-point`** — 선행은 저장 형태3D 수용이다.
     명시 synthetic 곡선과 canonical 정확 열적 나이에서 길이를 제공하는 작은 API를 만들고 기존 수식 커널을 재사용한다.
-    기존 독립16점·새 분수 나이/극단값·범위/단위/기원·입력 불변과 원 수치/계산 지문을 확인한다.
+    [351검사/독립21점](../research/crop-internode-length-point-20261022.md)·원 v1전체 결과16개/SHA와 역사 root/12프레임 bytes·fresh import/DB0·6root를 확인했다.
     이후 소수 초 출현의 유리수 시각/기관 상태→목록→불변 저장/같은 UTC3D를 별도 자식으로 분해한다.
     실제 품종 계수/기관·농장 검증을 이 개발 착수의 선행으로 묶지 않으며 게시 관문은 유지한다.
 
