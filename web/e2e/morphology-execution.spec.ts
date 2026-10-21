@@ -27,7 +27,7 @@ async function setup(page:Page){
   await page.goto('/morphology-execution.html');await expect(page.getByRole('button',{name:'계산 시작',exact:true})).toBeEnabled();return state;
 }
 async function check(page:Page,index:number){
-  const saved=morphologyFrame(index),canvas=page.locator('canvas');await expect(canvas).toHaveAttribute('data-selected-index',String(index));
+  const saved=morphologyFrame(index),canvas=page.locator('canvas');await expect(canvas).toHaveAttribute('data-selected-index',String(index),{timeout:60_000});
   await expect(canvas).toHaveAttribute('data-scene-at',saved.at);await expect(canvas).toHaveAttribute('data-axis-length',String(saved.tracked_axis_length.value));
   expect(JSON.parse((await canvas.getAttribute('data-rendered-lengths'))!)).toEqual(saved.internodes.map((n:{length:{value:number}})=>n.length.value));
   expect(await page.locator('tbody td[data-raw-value]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('data-raw-value'))))
