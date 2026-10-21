@@ -83,9 +83,15 @@
     명시 UTC 원점+정확 출현/현재 경과 초·기관 나이를 보존하며1/3초를 반올림하지 않는다.
     분할 동일 checkpoint·기존 시계 대사·timeline 출현3건→point/독립 Decimal 길이와6root를 확인했다.
     기존 v1 소수 초 hold·현재 저장/화면은 유지하며 길이 상태/목록 수용은 다음이다.
-  - [ ] **`morphology-rational-internode-length-state`** — 위 시계/point에 명시 초기 길이와 canonical anchor를 결속한다.
+  - [x] **`morphology-rational-internode-length-state`** — 위 시계/point에 명시 초기 길이와 canonical anchor를 결속한다.
     독립 분수 출현 길이·변온/분할 동일 state·곡선/기관/anchor 변조 보류·기존385검사/6root를 수용 조건으로 한다.
     ΔL을 endpoint 차감으로 게시하지 않으며 새 기관/목록→불변 저장/같은 UTC3D를 뒤따르는 자식으로 둔다.
+    [423검사/독립5길이](../research/crop-rational-internode-length-state-20261022.md)·최대 상대차2.262E-16,
+    분할 같은 state/anchor·변조 보류·원6root를 확인했다. 새 UI/저장 배포는 없다.
+  - [ ] **`morphology-rational-new-internodes`** — 기존 정확 timeline의 소수 초 출현을 새 길이 상태에 연결한다.
+    원 UTC AIR 구간을 같은 원점의 정확 초로 결속/출현에서 자르고, 끝 출현은 초기화만 한다.
+    출현 순서/안정 ID·독립 길이/변온·분할 재개·whole-second 기존 결과 대응과6root를 확인한다.
+    이후 기존 기관 목록→새 불변 저장 판본/계산 없는 조회→같은 UTC3D를 분리하며 v1을 바꾸지 않는다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).
