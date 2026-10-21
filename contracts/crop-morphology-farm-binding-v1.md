@@ -1,6 +1,7 @@
 # 형태 입력과 등록 농장·현재 권리 — v1
 
-상태: 닫힌 요청/원 입력·시각 제어28검사 통과. 실제 SCRAM/fresh·철회/정리는 검증 중이며 부모는 미수용이다.
+상태: [제어28·실제 SCRAM3/집중 회귀623 수용](../research/crop-morphology-farm-binding-20261022.md).
+마이크로초 경계는 같은 scope 함수의 순수 제어, 실제 등록/current·철회/새 exec는 별도 SCRAM 검증이다.
 
 선행: [형태 입력의 현재 출처 검토](crop-morphology-input-evidence-v1.md).
 기존 FarmAuthoringService·authority SCRAM 로그인/권한 감사와 현재 crop read/write scopes를 사용한다.

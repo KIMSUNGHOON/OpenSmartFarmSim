@@ -58,3 +58,4 @@
 native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이며 이 구현 수용을 기존 전체 goal 완료로 처리하지 않는다.
 
 - [형태 입력의 현재 출처/검토](../research/crop-morphology-input-evidence-20261022.md):595집중검사·실제 원 입력/fresh 검증·단위59와 원15파일/6root를 수용했다. 다음은 농장/현재 권리 결속이다.
+- [현재 농장 결속](../research/crop-morphology-farm-binding-20261022.md):제어28/실제 SCRAM3·관련623검사, 원 binding/fresh·현재/늦은 철회/DB와6root를 수용했다. 다음은 완료 수치 artifact의 서명·현재 readonly 조회다.
