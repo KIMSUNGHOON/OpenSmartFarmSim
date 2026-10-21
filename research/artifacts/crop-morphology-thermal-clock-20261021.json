@@ -1,0 +1,242 @@
+{
+  "version": "crop-morphology-thermal-clock-evidence-v1",
+  "date": "2026-10-21",
+  "CLI": {
+    "parent_session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "at": "2026-10-21T13:47:52.425Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "context_line_sha256_including_LF": "d43b8c71500f237c2fe4cd60e1874ebda64c3247d870a0e09888be58e76d7077",
+    "recursive_CLI": false
+  },
+  "primary_source": {
+    "DOI": "10.1093/insilicoplants/diaf022",
+    "article_SHA256": "e3d4b09e1d0e2041d43736d1fd5181442e2fbd851f2434a84a553bdf13422749",
+    "supplement_SHA256": "ce01dd7c054adb7039304f00a37380c4bfe6776161ca47e0da49fcba430c7e51",
+    "parent_rechecked_source_sections_and_supplement_hash": true,
+    "cultivar_coefficients_adopted": 0,
+    "author_code_reused": false,
+    "UTC_piecewise_constant_policy_is_our_synthetic_extension": true,
+    "below_base_policy": "hold_not_clipping"
+  },
+  "source_hashes": {
+    "backend/app/crop_morphology_thermal_clock.py": "1ccc2acadc45137beb77575af36154106739fb1cc8c3692eb3796ad9ee999254",
+    "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+    "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+    "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92"
+  },
+  "reference": {
+    "precision": 100,
+    "cases": 9,
+    "maximum_relative_error": "5.551115123125782702118158340454101562499999999999999999999999999999999999999999999990000000000000001E-17",
+    "repeated_bytes_equal": true
+  },
+  "tests": {
+    "focused_new": 56,
+    "retained_internode_rates": 49,
+    "total_passed": 105,
+    "pytest_seconds": 0.28,
+    "RED": "ModuleNotFoundError_before_implementation",
+    "every_interior_second_split_of_41_second_case": 40,
+    "variable_program_split_resume_equal": true,
+    "full_backend_suite": false,
+    "browser_rerun": false
+  },
+  "resource": {
+    "red": {
+      "phase": "red",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 0.7767658999982814,
+      "peak_PID_RSS_bytes": 132030464,
+      "combined_RSS_bytes": 865411072,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+        "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+        "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188"
+      },
+      "log_sha256": "593f29ba17eefe2007047b6905a46bd153715af67c963439cde3e3a1a7888fdb",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "green": {
+      "phase": "green",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.52122331999999,
+      "peak_PID_RSS_bytes": 132030464,
+      "combined_RSS_bytes": 856797184,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "backend/app/crop_morphology_thermal_clock.py": "1ccc2acadc45137beb77575af36154106739fb1cc8c3692eb3796ad9ee999254",
+        "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+        "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+        "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188"
+      },
+      "log_sha256": "5e1ea4ba570198ebbd8285fd5d444545b9e637e57fb24f71befcdc745ce6bb0b",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    }
+  },
+  "cases": [
+    {
+      "case_id": "synthetic-day",
+      "thermal_age": {
+        "value": 15.0,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "15",
+        "denominator": "1",
+        "unit": "degC_day"
+      },
+      "input_sha256": "6e613921c996fe49a16a67b48d8204c02e2e6b0f7c2d55c892f7cc8318839de2",
+      "relative_error": "0"
+    },
+    {
+      "case_id": "synthetic-half-day",
+      "thermal_age": {
+        "value": 3.3333333333333335,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "10",
+        "denominator": "3",
+        "unit": "degC_day"
+      },
+      "input_sha256": "5e7e8541be124df538601140d3a4723bf4bf8786087e072721622c62824ecffc",
+      "relative_error": "4.440892098500626161694526672363281250000000000000000000000000000000000000000000000010000000000000000E-17"
+    },
+    {
+      "case_id": "synthetic-variable",
+      "thermal_age": {
+        "value": 10.5,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "21",
+        "denominator": "2",
+        "unit": "degC_day"
+      },
+      "input_sha256": "768210c6954edcb18e287c7f9fae39da3bbbce1f9a79fdd41dd6fda75f9f478c",
+      "relative_error": "0"
+    },
+    {
+      "case_id": "synthetic-negative-celsius",
+      "thermal_age": {
+        "value": 3.0,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "3",
+        "denominator": "1",
+        "unit": "degC_day"
+      },
+      "input_sha256": "7d28421a6ffc63df39179336ebd3bdfc156acadb525003edc872651fa3edb874",
+      "relative_error": "0"
+    },
+    {
+      "case_id": "synthetic-equal-base",
+      "thermal_age": {
+        "value": 0.3333333333333333,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "1",
+        "denominator": "3",
+        "unit": "degC_day"
+      },
+      "input_sha256": "387de57102f4c5b44e0b49e550de956aa12f48e37f75eb528778e2e0ea29f9b7",
+      "relative_error": "5.551115123125782702118158340454101562499999999999999999999999999999999999999999999990000000000000001E-17"
+    },
+    {
+      "case_id": "synthetic-binary-increment",
+      "thermal_age": {
+        "value": 2.5699607051508252e-21,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "1",
+        "denominator": "389111007804810854400",
+        "unit": "degC_day"
+      },
+      "input_sha256": "b368499cd22f3fcf81e03185425bcafed2586d3edd300421f98cc058aaf2a923",
+      "relative_error": "4.965645949983610307754133827984333038330078124999999999999999999999999999999999999988470784953931531E-17"
+    },
+    {
+      "case_id": "synthetic-leap-day",
+      "thermal_age": {
+        "value": 2.0,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "2",
+        "denominator": "1",
+        "unit": "degC_day"
+      },
+      "input_sha256": "950e8c922c633eb5ddd7965341d887d39e067ae29cbcfebe5e253490d2d9db98",
+      "relative_error": "0"
+    },
+    {
+      "case_id": "synthetic-UTC-midnight",
+      "thermal_age": {
+        "value": 2.3148148148148147e-05,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "1",
+        "denominator": "43200",
+        "unit": "degC_day"
+      },
+      "input_sha256": "0d21fa4d88bd8fb04b220da0c10f30c19b241493f13c22555530789d88340b3b",
+      "relative_error": "4.965645949983610307754133827984333038330078125000000000000000000000000000000000000008000000000000000E-17"
+    },
+    {
+      "case_id": "synthetic-large-signed-difference",
+      "thermal_age": {
+        "value": 2.314814814814815e+303,
+        "unit": "degC_day"
+      },
+      "exact_age": {
+        "numerator": "1562500000000000017154786921000711589695192338707997599012666920361837271951742055268177015288979514047832026089393320556431098183486563880129797018721031969238619757858328549776523276556071235052162257283828143412920275409577268400438924934167304033168499533934131486020184420206373019890232589303597236224",
+        "denominator": "675",
+        "unit": "degC_day"
+      },
+      "input_sha256": "2032c58a1e235d967e1de82e51f42e9ad5d26f40a01b3975606efd58b40ca4fe",
+      "relative_error": "5.009091401859599472306505320668213816656954035072133602006422633882872380537279693761278462213597431E-17"
+    }
+  ],
+  "deployment": {
+    "new_model_deployed": false,
+    "current_backend_DB_frontends_unchanged": true
+  },
+  "holds": [
+    "actual cultivar base temperature, initial internodes, forcing and independent observations",
+    "below-base and high-temperature physiology",
+    "initial length and elongation integration, phytomer creation",
+    "immutable authenticated state persistence and sameUTC 3D linkage",
+    "crop/farm G0-G4, harvest, resources, economics and recommendation"
+  ],
+  "scope": "synthetic exact thermal-age arithmetic only; no crop height prediction",
+  "status_publication": {
+    "reported_at": "2026-10-21T14:07:54.319303Z",
+    "SHA256": "aea224837241a96976be34d2072fa3b9d45df70f4adf39c3ccd09a053aa4da8b",
+    "HTTP_both200_same_bytes_no_store": true,
+    "both_HTML_unchanged": true,
+    "frozen_ventilation_files_preserved": 2173,
+    "browser_rerun": false
+  }
+}

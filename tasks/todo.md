@@ -29,9 +29,13 @@
     명시 합성 열적 나이/3매개변수만으로 원 Eq(4)를 계산하고 독립 Decimal·대칭/극값·단위/overflow/underflow와
     입력 불변/원6서비스·자원 상한을 확인한다. 초기 길이·시간 적분·마디 생성·실제 키/3D 연결은 별도다.
     부재 RED 후 집중49/독립 Decimal20·최대 상대차1.356e-14, 재생성 동일 bytes·합859,340,800bytes/6root·정리를 확인했다.
-  - [ ] **`crop-morphology-thermal-clock`** — 위 형태 근거/절간 신장률 뒤 원 기온·기준온도/온도 문턱과 출현 기준을 검토한다.
+  - [x] **`crop-morphology-thermal-clock`** — [온도/시각 근거·구현 수용](../research/crop-morphology-thermal-clock-20261021.md).
     명시 합성 입력의 기관별 열적 나이·원 시각/단위, 구간별 누적/분할 재개를 독립 수치로 대조하고 기존 수관 Tsum과 혼합을 거부한다.
     타품종 기본 계수·실제 관측 시계의 자동 채택, 절대 키/3D 연결은 별도다.
+    새56/기존49·독립 Decimal9·41초의 모든40분할/변온 재개, 합856,797,184bytes/원6root·정리를 확인했다.
+  - [ ] **`crop-internode-length-integration`** — 수용된 열적 시계와 신장률 뒤 명시 초기 길이/곡선 기준을 검토한다.
+    같은 기관/기준온도·열적 나이/원 UTC를 유지하고 길이 변화·단위·분할/재개와 초기조건 불일치를 독립 수치로 대사한다.
+    원 도함수에 없는 초기 길이를 자동0으로 만들지 않는다. 마디 출현·실제 품종/절대 키·저장/3D는 후속이다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).
