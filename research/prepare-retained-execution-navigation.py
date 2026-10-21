@@ -16,7 +16,7 @@ NEW = "      <RetainedWorkspace active={view==='crop-execution'}><CropExecution 
 TOMATO_SOURCES = ('src/TomatoAppearanceScene.tsx','src/TomatoAppearance.css',
     'src/tomatoAppearance.ts','src/tomatoAppearanceTextures.ts','src/tomatoLeafReplay.ts',
     'src/StoredTomatoScene.tsx','src/tomatoAppearance.test.ts','src/tomatoLeafReplay.test.ts',
-    'e2e/tomato-leaf-replay.spec.ts')
+    'e2e/tomato-leaf-replay.spec.ts','e2e/crop-replay.spec.ts')
 TOMATO_PATCHES = (
     ("const CropScene=lazy(()=>import('./CropScene'));", "const CropScene=lazy(()=>import('./CropScene'));\nconst StoredTomatoScene=lazy(()=>import('./StoredTomatoScene'));"),
     ('  const [lookup,setLookup]=useState<CropLookup>', '  const [tomato,setTomato]=useState(false);\n  const [lookup,setLookup]=useState<CropLookup>'),
