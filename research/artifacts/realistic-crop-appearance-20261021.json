@@ -1,0 +1,126 @@
+{
+  "version": "realistic-crop-appearance-evidence-v1",
+  "date": "2026-10-21",
+  "source_commit": "87cb0ec176f1832a36391f6c6b0d3c69e8bfa89b",
+  "claim_scope": "authored representative appearance software; realistic quality and stored growth binding incomplete",
+  "CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "native_session": true,
+    "recursive_CLI": false,
+    "turn_context_at": "2026-10-21T09:10:52.921Z",
+    "turn_context_sha256": "e8ed59551dd468f185755c59964e19a60898e68acd8bb34693f670b257c1d436"
+  },
+  "CI": {
+    "run": 39578040554,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39578040554",
+    "typecheck": true,
+    "geometry_tests": 3,
+    "built_Chromium_tests": 3,
+    "build": true,
+    "audit_vulnerabilities": 0,
+    "full_existing_regression_run": false
+  },
+  "native_browser": {
+    "first_display_seconds": 0.557,
+    "plant": {
+      "version": "authored-tomato-appearance-v1",
+      "view": "plant",
+      "frame": 2,
+      "draw_calls": 74,
+      "triangles": 2683258
+    },
+    "truss": {
+      "version": "authored-tomato-appearance-v1",
+      "view": "truss",
+      "frame": 3,
+      "draw_calls": 49,
+      "triangles": 2072554
+    },
+    "leaf": {
+      "version": "authored-tomato-appearance-v1",
+      "view": "leaf",
+      "frame": 4,
+      "draw_calls": 59,
+      "triangles": 2642842
+    },
+    "idle_frame_before": 4,
+    "idle_frame_after": 4,
+    "no_continuous_animation": true,
+    "errors": [],
+    "API_requests": [],
+    "visibility": "visible",
+    "original_demo_page_preserved": true,
+    "viewer_page_left_open": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  "WSL_observation": {
+    "child_exit": 0,
+    "hold_reason": null,
+    "wall_seconds": 6.710435299000892,
+    "WSL_PID_peak_RSS_bytes": 139603968,
+    "WSL_combined_peak_RSS_bytes": 919973888,
+    "samples": 26,
+    "sample_interval_seconds": 0.25,
+    "five_original_roots_live": true,
+    "static_viewer_live": true,
+    "Windows_Chrome_and_Node_memory_included": false,
+    "common_capacity_acceptance": false
+  },
+  "HTTP": {
+    "matching_artifact_files": 137,
+    "all_SHA256_match": true,
+    "existing_preview_status": {
+      "5173": 200,
+      "5174": 200
+    }
+  },
+  "source_hashes": {
+    "web/src/TomatoAppearanceScene.tsx": "f923648a9cb231b8a211f8957c9f29d637dbac88c6efc7f8c21578aae677c349",
+    "web/src/tomatoAppearance.ts": "5b811066a30ada2f7c94c83b3267377bb682a47853eef69936b515059e282f52",
+    "web/src/tomatoAppearanceTextures.ts": "003767c1616e29b6b2893876e3a9e77a23ecb15d7c9a35f2fbd8523c4fe3919d",
+    "web/src/TomatoAppearance.css": "2aab5e39e4997cbc4d0d81819ba19cca8099060a6c1e96c829c40602f86e2d2e",
+    "web/src/tomato-appearance-main.tsx": "4d4153e7f5c1b82463f9714199c81d439ba8e6d6a601da3d6208ff8804f02f25",
+    "web/crop-appearance.html": "377f32033cb58317b9a1024154e2f9e7b74c08881227f5c0cf2bc7e361cb7681",
+    "web/public/crop-appearance-icon.svg": "d36b1eb938ebc71539b0823488c7e89814168933c830ad89c054f18b5b3c98a3",
+    "web/vite.crop-appearance.config.ts": "68701e86ffe7880cc3b3059ccaa5d6d880e501544a79323a4274657a31e6ea70",
+    "web/playwright.appearance.config.ts": "6761dbe1b140cfbb648da617e462d2bea8f96cf45db84d510e94a8ebe23e3a61",
+    "web/e2e/tomato-appearance.spec.ts": "d05c6ff907564f84bcd1998bada8f623a15c75e2501aa631ab0bba85f11bb3a6",
+    "web/src/tomatoAppearance.test.ts": "78671ad0a5400e07e69bf07c53fc1ee2237e6b8e3ad93f5a9df0bd47fe5ef270",
+    "web/tsconfig.json": "516c51a4d31761d6e2d211309c6de6d159388e21c263020f7a5f300a741ccaa8",
+    ".github/workflows/web-tests.yml": "2fe8679b4656a6c207e6a749d525a92e0958aa835ffd5a9b2a6cde7867ee1274"
+  },
+  "native_screenshots": {
+    "research/artifacts/tomato-appearance-native-plant-20261021.png": "fa8445d2d49e935942f57ffb0dcc30f9963700913bd333ab4eb4450bdd71fdb4",
+    "research/artifacts/tomato-appearance-native-truss-20261021.png": "da10f05e83ab15465ad65844d4a0524a86a47117df170cf1081b2b61418d95f6",
+    "research/artifacts/tomato-appearance-native-leaf-20261021.png": "1b1b886cd979978237712ce7b8d981e2fe9a97e06da3b6df0eb2f9f12704a4ec"
+  },
+  "prior_observations": {
+    "unregistered_new_workflow_dispatch": "404; moved focused task into existing workflow",
+    "CI_39576719391": "type error in fallback test; corrected",
+    "CI_39576948083": "software passed; visual review found overlapping fruit and strong highlights; corrected",
+    "CI_39577579179": "passed; first native check saw optional favicon 404; added explicit local icon; final native errors 0"
+  },
+  "holds": [
+    "realistic visual quality final acceptance",
+    "cultivar and stage specific morphology evidence/rights",
+    "stored model output to morphology mapping",
+    "growth/resource/economic integration and existing G0-G4",
+    "12ui draft and resume failed with ambiguous corpus response; no design-close acceptance"
+  ],
+  "full_project_goal": "paused; this user directed appearance correction only",
+  "native_presentation": {
+    "duplicate_owned_viewer_pages_closed": 1,
+    "current_viewer_left_open": true,
+    "original_5174_demo_retained": true
+  },
+  "followup_resource_roots": {
+    "original_services": 5,
+    "additional_static_viewer": 1,
+    "all_six_included_in_private_handoff": true,
+    "RSS_caps_unchanged": true
+  }
+}

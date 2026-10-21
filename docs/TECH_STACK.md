@@ -49,6 +49,12 @@ SCRAM/Unix IPC를 사용하며 새 orchestration 프레임워크를 추가하지
 
 ### 작물 수치 모듈 — 2026-10-04
 
+**2026-10-21 외형 연구 뷰어 후보:** 사용자 정정에 따라 같은 `three@0.186.1`의
+곡면/곡선 geometry·instancing·PBR 표면·환경광·그림자와 기존 OrbitControls를 사용한다.
+직접 작성한 대표 방울토마토 외형/표면이며 새 런타임 패키지나 외부 사진/3D/HDR 자산을 추가하지 않는다.
+기존 Noto Sans KR/Three.js 고지를 함께 제공한다. 별도 정적 진입점의 외형 검증과
+저장 생장/품종 형태 대응은 [외형 기록](../research/realistic-crop-appearance-20261021.md)에서 구분한다.
+
 다음 구현은 기존 Python 백엔드의 작은 결정적 수식 모듈이다.
 [Vanthoor/GreenLight 고정 참조와 권리](../research/crop-tomato-model-baseline-20261004.md)를
 사용하며 전체 GreenLight GUI/해석기·새 에이전트 orchestration 의존성을 추가하지 않았다.
