@@ -10,6 +10,10 @@ exact 입력/결과 쌍 등록 뒤 로컬 새17/기존 Solar14=31통과와 전�
 [첫 CI 진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json)은 source68bb182/CI39528616279의
 SIGKILL 재개 node 실패·원 자원/정리 미수용을 보존한다. 시험의 증거 환경변수 누락을 수정했으나
 crash 원인으로 단정하지 않는다. 같은34검사/상한에서 값·비밀 없는 단계/예외 위치 진단을 수집한다.
+[진단/수정 증거](../research/artifacts/crop-greenhouse-co2-consumer-pidfd-fix-20261021.json)는 CI39529771606의
+정상/hold 독립 원 조회·현재 철회/정리와 직접 `os.pidfd_open` 호출의 AttributeError 위치를 확인했다.
+기존 canonical libc pidfd 헬퍼를 재사용했고 로컬 실제 호환성3통과/기존34+회귀3=37수집을 확인했다.
+강제 종료/재개는 수정 판본의 호스팅 검증 전이며 전체 consumer/worker 부모는 미수용이다.
 [worker core 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-core-preflight-20261021.json)는
 로컬 제어9통과/전체20수집(실제 DB11 미실행)과 원 자료/서비스/상한 보존을 확인했다.
 실제 계산/원자 저장은 위 호스팅 집중 검증으로 수용했으며 자동 발견·독립 프로세스·SIGKILL은 후속 자식이다.

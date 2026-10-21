@@ -13,6 +13,7 @@ import time
 import traceback
 
 from test_crop_greenhouse_solar_current_fresh import PREPARE as BASE_PREPARE, CLEANUP
+from test_owned_research_process_scope import scope_module as processes
 
 ORIGINAL_PREPARE = BASE_PREPARE.replace('crop_greenhouse_solar_result_store', 'crop_greenhouse_co2_result_store')
 
@@ -199,14 +200,14 @@ def exercise(tmp_path, *, case=None, crash=False):
                 phase = 'producer_before_confirm'; result = None
                 child=subprocess.Popen([sys.executable,'-B',str(runner),prepared['pack']],env=env,
                     stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-                pidfd=os.pidfd_open(child.pid);deadline=time.monotonic()+180
+                pidfd=processes._pidfd_open(child.pid);deadline=time.monotonic()+180
                 with selectors.DefaultSelector() as selector:
                     selector.register(child.stdout,selectors.EVENT_READ)
                     while not selector.select(min(30,max(0,deadline-time.monotonic()))):
                         assert child.poll() is None and time.monotonic()<deadline
                 failed=json.loads(child.stdout.readline(131073));assert failed['PID']==child.pid
                 phase = 'kill_after_HEAD'
-                signal.pidfd_send_signal(pidfd,signal.SIGKILL);_,stderr=child.communicate(timeout=10)
+                processes._pidfd_send_signal(pidfd,signal.SIGKILL);_,stderr=child.communicate(timeout=10)
                 assert child.returncode==-9 and not Path('/proc',str(child.pid)).exists(),stderr.decode()
                 phase = 'expire_test_lease'
                 expired=subprocess.run([sys.executable,'-B','-c',CHILD_DIAGNOSTICS+EXPIRE,str(config)],env=env,
@@ -237,7 +238,10 @@ def exercise(tmp_path, *, case=None, crash=False):
             proof={'admission_calls':prepared['admission_calls'],'worker':done,'fresh_reader':read,
                 'same_owned_database_and_original_files':True,'sequential_processes':True}
             if crash:proof.update(killed=failed,actual_kill_exit=-9,no_prefix_reintegration=True,
-                before_retry=json.loads(expired.stdout))
+                before_retry=json.loads(expired.stdout),
+                pidfd_backend='libc' if processes._pidfd_backend()[2] else 'python',
+                python_pidfd_open_available=callable(getattr(os,'pidfd_open',None)),
+                python_pidfd_send_available=callable(getattr(signal,'pidfd_send_signal',None)))
             save('fresh-'+('crash' if crash else 'hold' if case else 'normal')+'.json',proof)
             phase = 'cleanup'; result = None
             cleanup=subprocess.run([sys.executable,'-B','-c',CHILD_DIAGNOSTICS+CLEANUP,str(config)],env=env,
@@ -272,7 +276,7 @@ def exercise(tmp_path, *, case=None, crash=False):
             try:
                 if child is not None and child.poll() is None:
                     if pidfd is not None:
-                        signal.pidfd_send_signal(pidfd,signal.SIGKILL)
+                        processes._pidfd_send_signal(pidfd,signal.SIGKILL)
                     else:
                         child.kill()
                     child.communicate(timeout=10)

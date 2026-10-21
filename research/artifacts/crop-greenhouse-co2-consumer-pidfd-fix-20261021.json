@@ -1,0 +1,631 @@
+{
+  "schema_version": "co2-consumer-pidfd-fix-v1",
+  "recorded_at": "2026-10-21T02:01:17.763029+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-21T01:42:00.675Z",
+    "raw_line_sha256": "8f074340398a049d49947c2dc2d526615baac348f552ed64245f68a50983582f",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "diagnostic_CI": {
+    "run_id": 39529771606,
+    "source_commit": "11755098b7e017a118042b919f778223e7f09980",
+    "conclusion": "failure",
+    "records": {
+      "consumer/cleanup-hold.json": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "consumer/cleanup-normal.json": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "consumer/failure-crash.json": {
+        "locations": [
+          {
+            "file": "test_crop_greenhouse_co2_execution_fresh.py",
+            "function": "exercise",
+            "line": 202
+          }
+        ],
+        "owned_producer_exit": null,
+        "phase": "producer_before_confirm",
+        "type": "AttributeError"
+      },
+      "consumer/fresh-hold.json": {
+        "admission_calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "fresh_reader": {
+          "PID": 14486,
+          "actual_scram": true,
+          "calls": {
+            "CLI": 0,
+            "CO2": 0,
+            "NIR": 0,
+            "PAR": 0,
+            "RHS": 0,
+            "SQL_writes": 0,
+            "advance": 0,
+            "air": 0,
+            "event": 0,
+            "gas": 0,
+            "net": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "solar": 0,
+            "start": 0,
+            "step": 0,
+            "ventilation": 0
+          },
+          "original_bytes_pages_UTC": true,
+          "review_revocation_rejected": true
+        },
+        "same_owned_database_and_original_files": true,
+        "sequential_processes": true,
+        "worker": {
+          "G0_G4": "not_assessed",
+          "PID": 14445,
+          "actual_farm_Runs": 0,
+          "actual_scram": true,
+          "adopted": [],
+          "automatic_discovery": true,
+          "calls": {
+            "CLI": 0,
+            "CO2": 90,
+            "NIR": 90,
+            "PAR": 90,
+            "RHS": 90,
+            "advance": 1,
+            "air": 90,
+            "event": 3,
+            "gas": 90,
+            "net": 90,
+            "prepare_binding": 1,
+            "prepare_context": 1,
+            "restore": 0,
+            "solar": 90,
+            "start": 1,
+            "step": 16,
+            "ventilation": 90
+          },
+          "completed_pack": "/home/runner/work/_temp/co2-projection-evidence/pytest/test_independent_auto_hold_and0/completed.private.json",
+          "event": {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "655e7e5a-5e36-4a8d-b9e9-ef7a191714db",
+            "reason_code": "co2_numerical_hold",
+            "state": "hold",
+            "version": 1
+          },
+          "job_id": "655e7e5a-5e36-4a8d-b9e9-ef7a191714db",
+          "original_result_progress_equal": true,
+          "provenance_sha256": "a31c426e87f4b8d3f6f84fd6e78b810fba4b7c25061eb683e7497a2abc85741d",
+          "rights_or_gate_approval": false,
+          "unselected_queued": true
+        }
+      },
+      "consumer/fresh-normal.json": {
+        "admission_calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "advance": 0,
+          "air": 0,
+          "event": 0,
+          "gas": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "fresh_reader": {
+          "PID": 13864,
+          "actual_scram": true,
+          "calls": {
+            "CLI": 0,
+            "CO2": 0,
+            "NIR": 0,
+            "PAR": 0,
+            "RHS": 0,
+            "SQL_writes": 0,
+            "advance": 0,
+            "air": 0,
+            "event": 0,
+            "gas": 0,
+            "net": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "solar": 0,
+            "start": 0,
+            "step": 0,
+            "ventilation": 0
+          },
+          "original_bytes_pages_UTC": true,
+          "review_revocation_rejected": true
+        },
+        "same_owned_database_and_original_files": true,
+        "sequential_processes": true,
+        "worker": {
+          "G0_G4": "not_assessed",
+          "PID": 13824,
+          "actual_farm_Runs": 0,
+          "actual_scram": true,
+          "adopted": [],
+          "automatic_discovery": true,
+          "calls": {
+            "CLI": 0,
+            "CO2": 91,
+            "NIR": 91,
+            "PAR": 91,
+            "RHS": 91,
+            "advance": 1,
+            "air": 91,
+            "event": 3,
+            "gas": 91,
+            "net": 91,
+            "prepare_binding": 1,
+            "prepare_context": 1,
+            "restore": 0,
+            "solar": 91,
+            "start": 1,
+            "step": 16,
+            "ventilation": 91
+          },
+          "completed_pack": "/home/runner/work/_temp/co2-projection-evidence/pytest/test_independent_auto_normal_a0/completed.private.json",
+          "event": {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "27a83e1c-ec5c-4c4f-95cf-dc50ac426f5c",
+            "reason_code": "completed",
+            "state": "succeeded",
+            "version": 1
+          },
+          "job_id": "27a83e1c-ec5c-4c4f-95cf-dc50ac426f5c",
+          "original_result_progress_equal": true,
+          "provenance_sha256": "d7ee1727cfb53c83c8f8bfd55635efd771e68434a31e469f79137e51c4a0f1f7",
+          "rights_or_gate_approval": false,
+          "unselected_queued": true
+        }
+      },
+      "failure.json": {
+        "exit": 1,
+        "failed_nodes": [
+          "FAILED tests/test_crop_greenhouse_co2_execution_fresh.py::test_actual_SIGKILL_after_HEAD_and_automatic_fresh_resume"
+        ],
+        "log_sha256": "417b5de2e3eee597c02252a5a8e98f6db1ccee6d7652c39d3f439f43e14e6f92",
+        "phase": "tests"
+      },
+      "resource.json": {
+        "FD_before_after": [
+          6,
+          6
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 627,
+        "WSL_capacity_accepted": false,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 287739904,
+        "hosted_only": true,
+        "mode": "co2-worker-consumer",
+        "new_CO2_deployed": false,
+        "owned_non_zombie_remaining": [],
+        "passfiles_before_cleanup": 0,
+        "phase_exits": {
+          "tests": 1
+        },
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 102322176,
+        "source_preserved": true,
+        "temporary_entries_before_cleanup": 0,
+        "wall_seconds": 159.827509942
+      }
+    },
+    "artifact_SHA256": {
+      "consumer/cleanup-hold.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+      "consumer/cleanup-normal.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+      "consumer/failure-crash.json": "aacfc2dcbebc8ea1341120319cc4cf0329bf2cfd23b6f9db6cbb50a0355c261c",
+      "consumer/fresh-hold.json": "6ce216b4ab5fb138737dc0c1693926e4d3b9cfbd6c657d575c863c1291c5dbc4",
+      "consumer/fresh-normal.json": "0f477f530c3e80039e77e5fc62566b2d5a2afb2a6426ed2de53ac25750695a8e",
+      "failure.json": "c560088d28a08dfd67898c38fe0a0bb17a8160d3874b9353e1b8f5aaec562ef2",
+      "resource.json": "2397c6655d7548309316bbd5a233415e991eb21141f3097486c78d8c962789ee"
+    }
+  },
+  "diagnosis": {
+    "exact_failed_source": "backend/tests/test_crop_greenhouse_co2_execution_fresh.py:202 at1175509",
+    "statement": "os.pidfd_open(child.pid)",
+    "observed": "AttributeError before any producer confirmation; owned producer remained live",
+    "accepted_partial_native": [
+      "normal automatic calculation/fresh original read/current review revocation/schema-role0",
+      "hold automatic calculation/fresh original read/current review revocation/schema-role0"
+    ],
+    "whole_consumer_accepted": false,
+    "cleanup_change_verified": "passfiles_before_cleanup4 in first CI,0 in diagnostic CI; FD6->6 and no owned live processes"
+  },
+  "fix": {
+    "existing_canonical_helper": "research/owned-research-process-scope.py",
+    "helper_SHA256": "4b28fa12d98bf624687d22a8857894ec2ec4f88b3a2bf34d9bbf13f4f8bdf2a2",
+    "change": "Use canonical _pidfd_open/_pidfd_send_signal; existing libc binding when Python symbols absent. Actual test still requires pidfd SIGKILL exit-9, exact HEAD and remaining-only steps. Record backend and Python capabilities in final crash receipt.",
+    "helper_modified": false,
+    "backend_app_unchanged_from": "68bb182326a9854dcf447477979639c0e6c64e7f",
+    "local_actual_libc_regressions": {
+      "passed": 3,
+      "cases": "missing open / missing send / missing both, real Linux pidfd signal0 and owned cleanup, protected tree retained",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 41459712,
+            "comm": "python",
+            "pid": 2140179
+          },
+          {
+            "RSS_bytes": 126423040,
+            "comm": "python",
+            "pid": 2140182
+          },
+          {
+            "RSS_bytes": 8912896,
+            "comm": "nginx",
+            "pid": 2140197
+          },
+          {
+            "RSS_bytes": 7491584,
+            "comm": "nginx",
+            "pid": 2144260
+          },
+          {
+            "RSS_bytes": 120643584,
+            "comm": "python",
+            "pid": 2140196
+          },
+          {
+            "RSS_bytes": 18026496,
+            "comm": "postgres",
+            "pid": 2140186
+          },
+          {
+            "RSS_bytes": 6049792,
+            "comm": "postgres",
+            "pid": 2140191
+          },
+          {
+            "RSS_bytes": 7188480,
+            "comm": "postgres",
+            "pid": 2140190
+          },
+          {
+            "RSS_bytes": 4304896,
+            "comm": "postgres",
+            "pid": 2140188
+          },
+          {
+            "RSS_bytes": 6238208,
+            "comm": "postgres",
+            "pid": 2140187
+          },
+          {
+            "RSS_bytes": 5111808,
+            "comm": "postgres",
+            "pid": 2140192
+          },
+          {
+            "RSS_bytes": 37937152,
+            "comm": "python",
+            "pid": 2144194
+          },
+          {
+            "RSS_bytes": 144052224,
+            "comm": "python",
+            "pid": 2144199
+          },
+          {
+            "RSS_bytes": 9097216,
+            "comm": "nginx",
+            "pid": 2144245
+          },
+          {
+            "RSS_bytes": 7475200,
+            "comm": "nginx",
+            "pid": 2144248
+          },
+          {
+            "RSS_bytes": 18354176,
+            "comm": "postgres",
+            "pid": 2144225
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 2144231
+          },
+          {
+            "RSS_bytes": 6062080,
+            "comm": "postgres",
+            "pid": 2144230
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "postgres",
+            "pid": 2144229
+          },
+          {
+            "RSS_bytes": 4509696,
+            "comm": "postgres",
+            "pid": 2144227
+          },
+          {
+            "RSS_bytes": 11710464,
+            "comm": "postgres",
+            "pid": 2144226
+          },
+          {
+            "RSS_bytes": 122941440,
+            "comm": "python",
+            "pid": 2144249
+          },
+          {
+            "RSS_bytes": 107720704,
+            "comm": "python",
+            "pid": 2144255
+          },
+          {
+            "RSS_bytes": 27697152,
+            "comm": "python",
+            "pid": 2255028
+          },
+          {
+            "RSS_bytes": 51040256,
+            "comm": "python",
+            "pid": 2255034
+          },
+          {
+            "RSS_bytes": 12230656,
+            "comm": "python",
+            "pid": 2255047
+          }
+        ],
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 925515776,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "fbd78fec782001f93d58ec55c49ed2f14ea9bf835f6197896c81813538559ce5",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 144052224,
+        "source_count": 2871,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.8723535840108525
+      }
+    },
+    "collection": {
+      "total": 37,
+      "original_retained": 34,
+      "added_real_libc_regressions": 3,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 41336832,
+            "comm": "python",
+            "pid": 2140179
+          },
+          {
+            "RSS_bytes": 126423040,
+            "comm": "python",
+            "pid": 2140182
+          },
+          {
+            "RSS_bytes": 8912896,
+            "comm": "nginx",
+            "pid": 2140197
+          },
+          {
+            "RSS_bytes": 7491584,
+            "comm": "nginx",
+            "pid": 2144260
+          },
+          {
+            "RSS_bytes": 122478592,
+            "comm": "python",
+            "pid": 2140196
+          },
+          {
+            "RSS_bytes": 18026496,
+            "comm": "postgres",
+            "pid": 2140186
+          },
+          {
+            "RSS_bytes": 6049792,
+            "comm": "postgres",
+            "pid": 2140191
+          },
+          {
+            "RSS_bytes": 7188480,
+            "comm": "postgres",
+            "pid": 2140190
+          },
+          {
+            "RSS_bytes": 4304896,
+            "comm": "postgres",
+            "pid": 2140188
+          },
+          {
+            "RSS_bytes": 6238208,
+            "comm": "postgres",
+            "pid": 2140187
+          },
+          {
+            "RSS_bytes": 5111808,
+            "comm": "postgres",
+            "pid": 2140192
+          },
+          {
+            "RSS_bytes": 37937152,
+            "comm": "python",
+            "pid": 2144194
+          },
+          {
+            "RSS_bytes": 144052224,
+            "comm": "python",
+            "pid": 2144199
+          },
+          {
+            "RSS_bytes": 9097216,
+            "comm": "nginx",
+            "pid": 2144245
+          },
+          {
+            "RSS_bytes": 7475200,
+            "comm": "nginx",
+            "pid": 2144248
+          },
+          {
+            "RSS_bytes": 18354176,
+            "comm": "postgres",
+            "pid": 2144225
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 2144231
+          },
+          {
+            "RSS_bytes": 6062080,
+            "comm": "postgres",
+            "pid": 2144230
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "postgres",
+            "pid": 2144229
+          },
+          {
+            "RSS_bytes": 4509696,
+            "comm": "postgres",
+            "pid": 2144227
+          },
+          {
+            "RSS_bytes": 11710464,
+            "comm": "postgres",
+            "pid": 2144226
+          },
+          {
+            "RSS_bytes": 122941440,
+            "comm": "python",
+            "pid": 2144249
+          },
+          {
+            "RSS_bytes": 107720704,
+            "comm": "python",
+            "pid": 2144255
+          },
+          {
+            "RSS_bytes": 27709440,
+            "comm": "python",
+            "pid": 2255293
+          },
+          {
+            "RSS_bytes": 99885056,
+            "comm": "python",
+            "pid": 2255300
+          }
+        ],
+        "RSS_samples": 5,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 963854336,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "2512a2c4a4104a86acaec1f4038bb18394f4d70659904a59b35dd82e42a2b4c6",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 144052224,
+        "source_count": 2871,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.3769810130179394
+      }
+    }
+  },
+  "hosted_fixed_verification": "pending",
+  "accepted_core20_unchanged": true,
+  "consumer_accepted": false,
+  "worker_parent_complete": false,
+  "new_CO2_deployed": false,
+  "WSL_capacity_accepted": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null,
+  "goal_status": "active"
+}

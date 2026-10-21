@@ -100,7 +100,9 @@ def pins():
         'backend/tests/test_solar_deterministic_work.py',
         'backend/tests/test_crop_greenhouse_co2_execution_fresh.py',
         'backend/tests/test_crop_greenhouse_co2_result_store.py',
-        'backend/tests/test_crop_greenhouse_co2_server_custody.py')]
+        'backend/tests/test_crop_greenhouse_co2_server_custody.py',
+        'backend/tests/test_owned_research_process_scope.py',
+        'research/owned-research-process-scope.py')]
     return {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
@@ -155,8 +157,9 @@ def supervise(directory):
         targets = ['tests/test_crop_greenhouse_co2_execution_worker_control.py', 'tests/test_crop_greenhouse_co2_execution_worker.py']
     if consumer:
         targets = ['tests/test_co2_deterministic_work.py', 'tests/test_solar_deterministic_work.py',
-            'tests/test_crop_greenhouse_co2_execution_fresh.py']
-    expected = 34 if consumer else 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
+            'tests/test_crop_greenhouse_co2_execution_fresh.py',
+            'tests/test_owned_research_process_scope.py::test_real_libc_pidfd_signal0_and_owned_cleanup_preserve_protected_tree']
+    expected = 37 if consumer else 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
     plans = [('tests', [sys.executable, '-B', '-m', 'pytest', *targets,
         '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
     for status in (() if current or http or admission or checkpoint or worker or consumer else ('completed', 'hold')):
@@ -205,6 +208,7 @@ def supervise(directory):
                         assert not any(reader['calls'].values())
                         if case == 'crash':
                             assert record['actual_kill_exit'] == -9 and record['no_prefix_reintegration']
+                            assert record['pidfd_backend'] in ('python', 'libc')
                             assert record['killed']['calls']['step'] + actual['calls']['step'] == 16
                             assert actual['event']['attempt'] == 2 and actual['calls']['start'] == 0
                             assert not any(actual['adopted'][0]['calls'].values())
@@ -260,7 +264,7 @@ def supervise(directory):
                         assert all(value == 0 for value in result['calls'].values())
                 counts_record = {'passed': expected, 'skipped': 0, 'mode': mode,
                     'pytest_log_sha256': sha256(log.read_bytes()).hexdigest()}
-                counts_record.update({'new_consumer_control': 17, 'legacy_solar_control': 14, 'actual_independent_SCRAM': 3} if consumer else
+                counts_record.update({'new_consumer_control': 17, 'legacy_solar_control': 14, 'actual_independent_SCRAM': 3, 'pidfd_libc_regression': 3} if consumer else
                     {'control_contract': 9, 'actual_SCRAM': 11} if worker else
                     {'control_contract': 13 if checkpoint else 4, 'actual_SCRAM': 13} if admission or checkpoint else
                     {'control_contract': 173, 'actual_SCRAM_TLS': 4} if runtime else
