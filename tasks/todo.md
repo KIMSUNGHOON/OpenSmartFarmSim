@@ -2395,7 +2395,7 @@
         - [ ] **`co2-confirmed-prefix-read`** — 위 query/worker 뒤 [확정 구간 원 조회 계약](../contracts/crop-greenhouse-co2-prefix-v1.md)을 구현한다.
           정확한 CO₂ 선택자·불변 원 페이지/UTC·private witness와 직렬화 후검사, 정상 append/heartbeat·늦은 권리/이력,
           독립 fresh/동시 writer·조회 계산/SQL 변경0·원 자료/소유 정리를 수용한다. 이후 공개 투영/보호 실행 HTTP·runtime→typed web/같은 UTC3D다.
-          - [ ] **`co2-prefix-core`** — 순수 제어7/실제 SCRAM6의 원 값·UTC·ready/none/closed·sparse/dense64+1·normal/hold를 수용한다.
+          - [x] **`co2-prefix-core`** — [CI39537144157/13검사](../research/crop-greenhouse-co2-prefix-20261021.md)의 제어7/실제 SCRAM6·338지문/10산출물·원 UTC/64+1·조회31계측0/정리를 수용했다. 부모/나머지18/공통 WSL·사용자 적용은 남는다.
           - [ ] **`co2-prefix-fences`** — 실제 SCRAM10의 현재/늦은 권리·원 audit/이력·변조/조회 뒤 선택 page·원 lock/수치·SQL쓰기0을 수용한다.
           - [ ] **`co2-prefix-concurrent`** — 실제 SCRAM7/독립 fresh1의 원 선택자·최초 UTC·동시 append/heartbeat/cancel과 private witness/철회·정리를 수용한다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.

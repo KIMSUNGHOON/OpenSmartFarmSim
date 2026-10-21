@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**확정 구간 core 부분 수용 — 2026-10-21 KST:** [CO₂ 원 조회](research/crop-greenhouse-co2-prefix-20261021.md)의 제어7/실제 SCRAM6=13검사를 수용했습니다. 원 sparse UTC·65시점/64+1 페이지·ready/none/closed·조회31계측0·338지문/정리를 대사했습니다. 늦은 변경10/동시·독립8과 원 조회 부모는 미수용입니다. 다음은 남은18검사→공개 투영/보호 실행 API/runtime→같은 UTC3D입니다. 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 남습니다.
+
 **현재 진행 조회 기능 수용 — 2026-10-21 KST:** [CO₂ 진행 조회](research/crop-greenhouse-co2-execution-query-20261021.md)의 제어15/실제 DB18/독립2=35검사를 수용했습니다. 두 배치의324지문이 같으며 원 UTC·최초 시각/상태·권리·DB/HEAD/디렉터리 fence·조회31계측0/정리를 확인했습니다. 첫 기록 누락 수정도 보존했습니다. 다음은 확정 prefix 원 조회/투영→보호 실행 HTTP/runtime→같은 UTC3D입니다. 공통 WSL·새 CO₂ 배포·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
 **보호 HTTP 기능 수용 — 2026-10-21 KST:** [CO₂ 결과 HTTP](research/crop-greenhouse-co2-http-20261021.md)의 집중215검사·실제 SCRAM/검증 TLS 정상/보류를 수용했습니다. 원3응답/UTC·늦은 철회12·취소/전송 실패·기존64경로398스키마/294지문과 조회17계측/SQL쓰기0·정리를 대사했습니다. 다음은 명시 runtime→자동 worker/prefix→같은 UTC3D입니다. 공통 WSL 용량/부모·새 CO₂ 사용자 적용·전체 작기/자원/경제·실제 자료/관문은 미완료입니다.

@@ -1,5 +1,7 @@
 # 첫 구현 범위
 
+**확정 구간 core 부분 수용 — 2026-10-21 KST:** [CO₂ 원 조회](../research/crop-greenhouse-co2-prefix-20261021.md)의 제어7/실제 SCRAM6=13검사를 수용했습니다. 원 sparse UTC·65시점/64+1 페이지·ready/none/closed·조회31계측0·338지문/정리를 대사했습니다. 늦은 변경10/동시·독립8과 원 조회 부모는 미수용입니다. 다음은 남은18검사→공개 투영/보호 실행 API/runtime→같은 UTC3D입니다. 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 남습니다.
+
 **현재 계산 우선순위 — 2026-10-21 KST:** [기관 등록 재구성 범위 수정](../research/organ-catalog-registration-scope-20261021.md)은
 163검사/같은 small3 비교 평균38.69% 감소로 부분 수용했다. 원20개/큰 packet의 정상 HTTPS는30.08초로 미수용이다.
 이 용량/최종 U1 조건을 남긴다. [CO₂ 원문 검토](../research/crop-co2-stomatal-source-policy-20261021.md)와
