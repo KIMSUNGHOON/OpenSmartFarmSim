@@ -4,7 +4,8 @@ import { resolve } from 'node:path';
 
 const fixture=(index:number)=>JSON.parse(readFileSync(resolve(`public/morphology-replay/frame-${index}.json`),'utf8'));
 test('stored UTC, exact internode lengths, table and graph move together in actual WebGL',async({page})=>{
-  const errors:string[]=[],methods:string[]=[],driverWarnings:{text:string;during_screenshot:boolean}[]=[];let capturing=false;
+  const errors:string[]=[],methods:string[]=[],driverWarnings:{text:string;during_screenshot:boolean;
+    location:{url:string;lineNumber:number;columnNumber:number}}[]=[];let capturing=false;
   await page.addInitScript(()=>{
     let count=0;const read=WebGL2RenderingContext.prototype.readPixels;
     WebGL2RenderingContext.prototype.readPixels=function(this:WebGL2RenderingContext,...args:unknown[]){
@@ -13,8 +14,8 @@ test('stored UTC, exact internode lengths, table and graph move together in actu
     Object.defineProperty(window,'__morphologyApplicationReadbacks',{value:()=>count});
   });
   page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{
-    if(m.type()==='warning'&&m.location().url===''&&/^\[\.WebGL-0x[0-9a-f]+\]GL Driver Message \(OpenGL, Performance, GL_CLOSE_PATH_NV, High\): GPU stall due to ReadPixels(?: \(this message will no longer repeat\))?$/.test(m.text()))
-      driverWarnings.push({text:m.text(),during_screenshot:capturing});
+    if(m.type()==='warning'&&/^\[\.WebGL-0x[0-9a-f]+\]GL Driver Message \(OpenGL, Performance, GL_CLOSE_PATH_NV, High\): GPU stall due to ReadPixels(?: \(this message will no longer repeat\))?$/.test(m.text()))
+      driverWarnings.push({text:m.text(),during_screenshot:capturing,location:m.location()});
     else if(m.type()==='error'||m.type()==='warning')errors.push(m.text());
   });
   async function capture<T>(take:()=>Promise<T>){capturing=true;try{return await take();}finally{capturing=false;}}
@@ -50,7 +51,7 @@ test('stored UTC, exact internode lengths, table and graph move together in actu
     (window as unknown as {__morphologyApplicationReadbacks:()=>number}).__morphologyApplicationReadbacks());
   writeFileSync(resolve('../research/artifacts/morphology-replay-console-20261022.json'),JSON.stringify({
     application_errors_and_warnings:errors,application_readPixels_calls:applicationReadbacks,graphics_driver_warnings:driverWarnings,
-    exception_scope:'exact Chromium GPU driver performance warning with no JavaScript location; other warnings fail',
+    exception_scope:'exact observed Chromium GPU-driver performance warning pattern; original text/location/timing retained; other warnings fail',
     performance_hold:'Driver stall diagnostics remain unresolved. No screenshot-causation or general graphics performance acceptance is claimed.'},null,2));
   expect(applicationReadbacks).toBe(0);
   expect(errors).toEqual([]);expect(methods.every(m=>m==='GET')).toBe(true);
