@@ -1,0 +1,114 @@
+{
+  "schema_version": "leaf-population-acceptance-v1",
+  "new_tests": 43,
+  "related_tests": 137,
+  "reference": {
+    "programs": 5,
+    "independent_final_area_points": 26,
+    "exact_clocks": 26,
+    "totals": 5,
+    "maximum_relative_difference": "2.135972111870291790619242695E-16",
+    "reference_regenerated_exact_bytes": true,
+    "reference_SHA256": "3c48c127c6a38a91d04c19dd46074350fd6b4d6ba76f3b3d2db548d167df41e2",
+    "scope": "software_research_only",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed"
+  },
+  "phases": {
+    "absent_RED": {
+      "actual_child_exit": 2,
+      "wall_seconds": 0.6083539129976998,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1003376640,
+      "RSS_samples": 2,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "73d69b80802660a7cbdbda6ba937c9781b65bf4dd56d98be6ee187c18255922c"
+    },
+    "initial32": {
+      "actual_child_exit": 0,
+      "wall_seconds": 1.1208357859941316,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1024610304,
+      "RSS_samples": 4,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "e632d6f55e5aa58f075da27604185a9f35a0936c4ea78ae6a1a46d0db9f64523"
+    },
+    "removal_RED": {
+      "actual_child_exit": 1,
+      "wall_seconds": 1.6451391540031182,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1041170432,
+      "RSS_samples": 6,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "1c1d79cffe0b92de10d61ccd4215b3b98dc1480a44017cd05f1263bb57ec0da7"
+    },
+    "accepted137": {
+      "actual_child_exit": 0,
+      "wall_seconds": 3.2125311070049065,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1039384576,
+      "RSS_samples": 12,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "f3258f3ffe8517ad1846037a7220eed61ae81bc765adfff00bfb785caaa732d8"
+    },
+    "independent_reference": {
+      "actual_child_exit": 0,
+      "wall_seconds": 0.3545786809991114,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 970780672,
+      "RSS_samples": 1,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "54995cb858d3f7c64a00546b86f704ff0da737ba1dcc921ec1f3655f832dc8fb"
+    }
+  },
+  "code_and_reference_SHA256": {
+    "backend/app/crop_leaf_population.py": "b37bbee59c20778f38506d157644d87c91cd8fe2cf1ca54e9842bb8c10eabd09",
+    "backend/tests/test_crop_leaf_population.py": "66dc970c4579a1d19ee24f919a72d5e53ac5f627252733cf9677fc8f26c875c9",
+    "contracts/crop-leaf-population-v1.md": "03fe7c56c9bbba9dd4b773c188b0ca7e893d5928ed70d4660a27f0fee97fe9f9",
+    "research/crop-leaf-population-reference.py": "62732984ef587a21d0588a733d42afe2a398ba0b6e457bcc65fd2f585460d7d2",
+    "fixtures/crop-leaf-population-reference-v1.json": "3c48c127c6a38a91d04c19dd46074350fd6b4d6ba76f3b3d2db548d167df41e2"
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_CLI": 0,
+    "turn_context_timestamp": "2026-10-21T23:23:55.923Z",
+    "raw_context_line_LF_sha256": "7c46f4b94b428fc64ff6bdc09f47f6aa5d758599dc0fdeab89ab60a315e6cc9e"
+  },
+  "current_UI_new_population_model": false,
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_suite": false,
+  "holds": [
+    "stored_stem_attachment_existence_and_birth_time_validation",
+    "new_immutable_population_artifact_and_compute_free_reader",
+    "same_UTC_new_leaf_count_and_area_3D",
+    "current_farm_signed_job_integration",
+    "automatic_emergence_management_and_independent_cultivar_evidence"
+  ]
+}

@@ -3389,3 +3389,5 @@ normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다�
 **잎 저장3D 수용 — 2026-10-22:** [실제 화면/검증](../research/leaf-area-stored-replay-20261022.md)의 원12시점/3선언 잎을 public17파일→strict SDK→원 면적과 같은 UTC3D/표/그래프에 연결했다. CI69/Chromium18·실제 Chrome5시점 대사/모바일·원178파일/7root를 확인했다. 다음 한 단계는 명시 출현 사건→해당 잎의 나이0/초기 면적→남은 기온 구간 계산이다. 자동 leaf/truss 분류·phyllochron 계수, 관리/노화와 원 farm/job의 새 잎 모델 게시 조건은 분리한다. 실제 Axiany/독립 자료0과 전체 완료일 미정은 유지한다.
 
 [명시 새 잎 계산](../research/crop-declared-leaf-births-20261022.md)은 새38/관련94와 독립5프로그램·22면적/11정확 시계로 수용했다. 다음은 기존/새 잎 목록 결속→같은 줄기/부착 존재 검증→새 불변 판본/무계산 조회·export→같은 UTC의 잎 수/면적3D다. 초기 목록의 immutable anchor 계약은 유지하고 새 모델 판본을 분리한다. 자동 출현/관리·실제 품종 근거 및 원 farm/job 현재 권리 통합은 병행 후속이다.
+
+[기존/명시 새 잎 population](../research/crop-leaf-population-20261022.md)은 새43/관련137·독립26면적/26시계·5합계와11분할·출현 목록 보존/512·2MiB/overflow로 수용했다. 다음은 저장 stem과 실제 ID/출현 초 대조이며 이후 새 불변 population 판본/무계산 reader→같은 UTC의 새 잎 수/면적3D다. 현재 UI는 수용된 초기3잎 저장본이고 새 population은 미적용이다.
