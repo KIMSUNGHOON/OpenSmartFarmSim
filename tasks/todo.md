@@ -106,6 +106,9 @@
   - [ ] **`morphology-rational-stored-frame-3d`** — 위 artifact를 계산 없이 export/typed 조회해 같은 저장 UTC의3D·표·그래프에 연결한다.
     정확 출현/길이·기관 ID/합계·첫/끝/재생/모바일과 이전12프레임/원190·223·137파일/6root를 검증한다.
     기존 authored 잎·표면 가정은 분리하며 실제 품종/키·과실/생산량을 추가로 추정하지 않는다.
+    - [x] **`morphology-rational-public-export`** — [508검사/실제12 DTO·15파일](../research/crop-rational-morphology-export-20261022.md).
+      재배포 권리/덮어쓰기 거부·fresh 모델 import/DB0, 새 원 bytes/기존15파일·6root를 확인했다.
+      typed frontend/실제 WebGL·배포는 부모의 남은 수용이다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).
