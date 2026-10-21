@@ -69,6 +69,10 @@
       독립 프로세스/원 단위·UTC·값, 조회의 모델 호출0·변조/미지원 거부와 재생 동일성을 확인한다.
       [새26/기존286=312검사](../research/crop-morphology-research-artifact-20261022.md)로 원 값/UTC·chain/같은 root/파일, fresh import0·모델/DB0와6root를 확인했다.
       농장 등록/현재 권리·서명 custody와 제품 게시 수용·중단 producer 자동 재개는 별도다.
+  - [ ] **`morphology-stored-frame-3d`** — [자체 합성 저장 형태 재생 계약](../contracts/web-morphology-stored-replay-v1.md).
+    명시 하루/12시점의 원 UTC·기관별 미터 길이/ID를 실제3D·표·그래프·재생에 연결한다.
+    고정3복엽/표면은 제작 가정으로 분리하고 과실/실제 키·생산 예측을 만들지 않는다.
+    타입·원 값/hash/기하·실제 WebGL/모바일·불가/변조 보류와6root/원 자산을 확인한 뒤 수용한다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).
