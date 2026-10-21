@@ -737,6 +737,10 @@ G1 제품 Run을 자동으로 만들지 않는다. 제품 재생은 해당 입�
 형태 개발은 [기관별 열적 나이/절간 신장률 연구](../research/tomato-morphology-primary-sources-20261021.md)부터 분리한다.
 합성 순간 수식의 검증과 실제 품종의 초기 기관·열적 시계·계수/측정 확보를 병행하며 기존3D의 제작 형태를 예측값으로 승격하지 않는다.
 
+[정확 출현의 저장 형태3D](../research/morphology-rational-stored-replay-20261022.md)는 별도 연구 진입에서 수용했다.
+같은 원 길이/기관 ID·원점/분수 초를 재생하며 고정 제작 잎을 잎 생장으로 표시하지 않는다.
+[현재 입력의 출처/구조 검토](../research/crop-morphology-input-evidence-20261022.md) 뒤 농장/서명·API와 제품 UI 연결이 남는다.
+
 [합성 형태 계산 수용](../research/crop-shoot-internode-inventory-20261022.md)은 명시 기온/열적 시계·초기 길이와
 기존/새 절간의 원 UTC·길이/추적 축 합계를 지원한다. 실제 품종/전체 식물 키의 검증이 아니며
 [자체 합성 불변 저장/계산 없는 typed 조회](../research/crop-morphology-research-artifact-20261022.md)는312집중검사로 수용했다.

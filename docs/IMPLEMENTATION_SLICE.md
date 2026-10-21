@@ -478,7 +478,10 @@ PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수�
 [출현 사건과 기존/새 절간 목록](../research/crop-shoot-internode-inventory-20261022.md)의 합성 계산을272집중검사로 수용했다.
 [동일 입력/코드·초기 목록의 합성 불변 저장/typed 조회](../research/crop-morphology-research-artifact-20261022.md)를312집중검사로 수용했다.
 [별도 합성 연구 화면의 같은 UTC3D](../research/morphology-stored-replay-20261022.md)도 CI22/브라우저7·실제 native로 수용했다.
-현재 탄소 모델/농장 Run·기존 주 화면은 유지하며 소수 초 출현 결속·실제 품종/작기와 자원/경제 통합은 후속이다.
+이후 [정확 유리수 출현의 별도 저장3D](../research/morphology-rational-stored-replay-20261022.md)도 수용했다.
+현재 탄소 모델/농장 Run·기존 주 화면은 유지한다. [형태 입력의 출처·현재 검토 결속](../research/crop-morphology-input-evidence-20261022.md)은
+595집중검사/실제 원 입력·fresh 검증을 수용했으며 다음은 현재 농장 권리/서명 이력→API/제품 UI다.
+실제 품종/작기·잎 식/초기 기관과 자원/경제 통합은 후속이다.
 
 ## 1. 목표와 확인할 사용자 경로
 

@@ -141,6 +141,17 @@ CI 빌드/브라우저와 현재 사용자 서버 적용·직접 시각 검토�
 현재 v2 원 프로그램/결과·별도3D와 원6root를 유지하고 첫 자식에서 수치 계산/농장 승인을 추가하지 않는다.
 [잎 확장 조사](../research/tomato-leaf-morphology-boundaries-20261022.md)의 식/단위·초기 조건 미확정은 별도 보류다.
 
+다음 한 단계는 [형태 입력의 출처·현재 검토 결속](../contracts/crop-morphology-input-evidence-v1.md)이다.
+원 v2 입력/공개15파일은 유지하고 SourceRecord/새 서명 domain의 한 모듈·집중 test로 분리한다.
+원 입력/수량/UTC·현재 검토 전후와 fresh 계산/import/DB/CLI0·거부/6root를 수용한 뒤 체크한다.
+잠정0.75–1.75집중시간은 기존 입력 evidence 구조를 재사용하는 이 작은 자식만의 계획이다.
+농장/서명/DB/API/UI와 실제 자료 확보 시간은 포함하지 않으며 결과 뒤 후속 작업량을 갱신한다.
+
+이 [입력 증거 자식](../research/crop-morphology-input-evidence-20261022.md)은 새87/기존508=595검사로 수용했다.
+실제 원6,719bytes·단위59·원 모델9/코드19와 fresh metadata/프로그램·현재 철회/성장 import/DB/CLI0을 대사했다.
+원15파일/6root를 보존했으며 수치 초기 조건을 검증했다고 주장하지 않는다.
+다음 농장 결속은 현재 FarmAuthoringService/Scope·기존 자료 권리 경계를 대조해 별도 작은 계약으로 고정한다.
+
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.
 데이터셋 판본1·2를 독립 작기로 세지 않으며 다른 품종 계수로 빈칸을 채우지 않는다. 개발과 자료 확보는 병행한다.

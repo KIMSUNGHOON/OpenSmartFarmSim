@@ -1,5 +1,12 @@
 # 첫 구현 작업 목록
 
+- [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
+  수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
+  실제 원 공개 입력/fresh 검증·철회/변조/상한·성장 import/계산/DB/CLI0과 원15파일/6root를 수용 조건으로 한다.
+  농장/서명 이력→저장 조회 API/제품 UI는 뒤따르는 자식이며 이번에 G0/수치/농장 승인을 만들지 않는다.
+  [595검사/실제 원 입력·fresh 검증](../research/crop-morphology-input-evidence-20261022.md), 단위59·원9모델/19코드,
+  source1MiB 경계·원15파일과 생장 import/DB/CLI0·6root/정리를 확인했다.
+
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
   실제 WebGL의 연결된 줄기·복엽/잎맥·과실/꽃받침·표면/조명/그림자, 회전·전체/과실/잎 확대,
