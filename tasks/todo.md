@@ -42,9 +42,13 @@
     - [x] **`crop-internode-length-initial-state`** — 같은 곡선의 명시 기준 길이를 고정 수치 오차로 검사하고,
       정규 `F(a)` 길이와 초기 영수증을 분리한다. 불일치/암묵0·곡선 교체를 보류하며 분할 재개/독립 수치를 대사한다.
       새43/기존127·독립 시작/끝16점과 최대 상대차1.362e-14, 원18지문/6root·분할 동일 상태를 확인했다.
-  - [ ] **`crop-phytomer-thermal-events`** — [공통 발달 시계·출현 근거](../research/crop-phytomer-emergence-primary-sources-20261021.md).
+  - [x] **`crop-phytomer-thermal-events`** — [공통 발달 시계·출현 근거](../research/crop-phytomer-emergence-primary-sources-20261021.md).
     기관 나이와 분리한 명시 공통 열적 구간/다음 문턱·양수 phyllochron에서 `(시작,끝]`의 출현 순서를 계산한다.
     최초 phase/개수를 만들지 않고 leaf/truss 분류·실제 품종 계수·UTC 역변환/기관 상태·저장은 별도다.
+    새34/기존170·독립 정수격자8사례/같은 사건·정확 재개/중복0·512/513 hold와6root를 확인했다.
+  - [ ] **`crop-shoot-air-event-timeline`** — 같은 명시 실내 상수 기온 구간과 공통 발달 시계를 문턱 사건에 연결한다.
+    사건의 정확 경과 초/원 UTC 기준·분할 동일성을 대사한다. 소수 초를 반올림해 기관 출현 UTC를 만들지 않는다.
+    새 기관 길이 상태·전체 줄기/저장/3D와 실제 품종/관측은 별도다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).

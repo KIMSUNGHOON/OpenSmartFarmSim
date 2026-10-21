@@ -1,0 +1,629 @@
+{
+  "cases": [
+    {
+      "case_id": "synthetic-before",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "at_age_exact": {
+          "denominator": "2",
+          "numerator": "29",
+          "unit": "degC_day"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 5,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "15",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "10",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-before",
+        "shoot_id": "synthetic-shoot"
+      },
+      "events": [],
+      "inputs": {
+        "end_age_exact": {
+          "denominator": "2",
+          "numerator": "29",
+          "unit": "degC_day"
+        },
+        "input_id": "before",
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "at_age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 5,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "10",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-before",
+          "shoot_id": "synthetic-shoot"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-exact",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "at_age_exact": {
+          "denominator": "1",
+          "numerator": "15",
+          "unit": "degC_day"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 6,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "25",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "10",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-exact",
+        "shoot_id": "synthetic-shoot"
+      },
+      "events": [
+        {
+          "sequence": 5,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          }
+        }
+      ],
+      "inputs": {
+        "end_age_exact": {
+          "denominator": "1",
+          "numerator": "15",
+          "unit": "degC_day"
+        },
+        "input_id": "exact",
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "at_age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 5,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "10",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-exact",
+          "shoot_id": "synthetic-shoot"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-after",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "at_age_exact": {
+          "denominator": "2",
+          "numerator": "31",
+          "unit": "degC_day"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 6,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "25",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "10",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-after",
+        "shoot_id": "synthetic-shoot"
+      },
+      "events": [
+        {
+          "sequence": 5,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          }
+        }
+      ],
+      "inputs": {
+        "end_age_exact": {
+          "denominator": "2",
+          "numerator": "31",
+          "unit": "degC_day"
+        },
+        "input_id": "after",
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "at_age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 5,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "10",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-after",
+          "shoot_id": "synthetic-shoot"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-multiple",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "at_age_exact": {
+          "denominator": "1",
+          "numerator": "55",
+          "unit": "degC_day"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 10,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "65",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "10",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-multiple",
+        "shoot_id": "synthetic-shoot"
+      },
+      "events": [
+        {
+          "sequence": 5,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 6,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "25",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 7,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "35",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 8,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "45",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 9,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "55",
+            "unit": "degC_day"
+          }
+        }
+      ],
+      "inputs": {
+        "end_age_exact": {
+          "denominator": "1",
+          "numerator": "55",
+          "unit": "degC_day"
+        },
+        "input_id": "multiple",
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "at_age_exact": {
+            "denominator": "1",
+            "numerator": "10",
+            "unit": "degC_day"
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 5,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "10",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-multiple",
+          "shoot_id": "synthetic-shoot"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-zero",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "at_age_exact": {
+          "denominator": "1",
+          "numerator": "10",
+          "unit": "degC_day"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 5,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "15",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "10",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-zero",
+        "shoot_id": "synthetic-shoot"
+      },
+      "events": [],
+      "inputs": {
+        "end_age_exact": {
+          "denominator": "1",
+          "numerator": "10",
+          "unit": "degC_day"
+        },
+        "input_id": "zero",
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "at_age_exact": {
+            "denominator": "1",
+            "numerator": "10",
+            "unit": "degC_day"
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 5,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "10",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-zero",
+          "shoot_id": "synthetic-shoot"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-thirds",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "at_age_exact": {
+          "denominator": "6",
+          "numerator": "13",
+          "unit": "degC_day"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 11,
+        "next_threshold_exact": {
+          "denominator": "2",
+          "numerator": "5",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-thirds",
+        "shoot_id": "synthetic-shoot"
+      },
+      "events": [
+        {
+          "sequence": 5,
+          "thermal_age_exact": {
+            "denominator": "2",
+            "numerator": "1",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 6,
+          "thermal_age_exact": {
+            "denominator": "6",
+            "numerator": "5",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 7,
+          "thermal_age_exact": {
+            "denominator": "6",
+            "numerator": "7",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 8,
+          "thermal_age_exact": {
+            "denominator": "2",
+            "numerator": "3",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 9,
+          "thermal_age_exact": {
+            "denominator": "6",
+            "numerator": "11",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 10,
+          "thermal_age_exact": {
+            "denominator": "6",
+            "numerator": "13",
+            "unit": "degC_day"
+          }
+        }
+      ],
+      "inputs": {
+        "end_age_exact": {
+          "denominator": "6",
+          "numerator": "13",
+          "unit": "degC_day"
+        },
+        "input_id": "thirds",
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "at_age_exact": {
+            "denominator": "6",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 5,
+          "next_threshold_exact": {
+            "denominator": "2",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "3",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-thirds",
+          "shoot_id": "synthetic-shoot"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-large-age-tiny-step",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "at_age_exact": {
+          "denominator": "10",
+          "numerator": "90071992547409923",
+          "unit": "degC_day"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 8,
+        "next_threshold_exact": {
+          "denominator": "5",
+          "numerator": "45035996273704962",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "10",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-large-age-tiny-step",
+        "shoot_id": "synthetic-shoot"
+      },
+      "events": [
+        {
+          "sequence": 5,
+          "thermal_age_exact": {
+            "denominator": "10",
+            "numerator": "90071992547409921",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 6,
+          "thermal_age_exact": {
+            "denominator": "5",
+            "numerator": "45035996273704961",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 7,
+          "thermal_age_exact": {
+            "denominator": "10",
+            "numerator": "90071992547409923",
+            "unit": "degC_day"
+          }
+        }
+      ],
+      "inputs": {
+        "end_age_exact": {
+          "denominator": "10",
+          "numerator": "90071992547409923",
+          "unit": "degC_day"
+        },
+        "input_id": "large-age-tiny-step",
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "at_age_exact": {
+            "denominator": "1",
+            "numerator": "9007199254740992",
+            "unit": "degC_day"
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 5,
+          "next_threshold_exact": {
+            "denominator": "10",
+            "numerator": "90071992547409921",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "10",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-large-age-tiny-step",
+          "shoot_id": "synthetic-shoot"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-tiny",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "at_age_exact": {
+          "denominator": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "numerator": "3",
+          "unit": "degC_day"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 8,
+        "next_threshold_exact": {
+          "denominator": "250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-tiny",
+        "shoot_id": "synthetic-shoot"
+      },
+      "events": [
+        {
+          "sequence": 5,
+          "thermal_age_exact": {
+            "denominator": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "numerator": "1",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 6,
+          "thermal_age_exact": {
+            "denominator": "500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "numerator": "1",
+            "unit": "degC_day"
+          }
+        },
+        {
+          "sequence": 7,
+          "thermal_age_exact": {
+            "denominator": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "numerator": "3",
+            "unit": "degC_day"
+          }
+        }
+      ],
+      "inputs": {
+        "end_age_exact": {
+          "denominator": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "numerator": "3",
+          "unit": "degC_day"
+        },
+        "input_id": "tiny",
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "at_age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 5,
+          "next_threshold_exact": {
+            "denominator": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-tiny",
+          "shoot_id": "synthetic-shoot"
+        }
+      }
+    }
+  ],
+  "method": "independent integer grid with iterative enumeration",
+  "origin": "synthetic_math_only",
+  "version": "phytomer-thermal-events-reference-v1"
+}

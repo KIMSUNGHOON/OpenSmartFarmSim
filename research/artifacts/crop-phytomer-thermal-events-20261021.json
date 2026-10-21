@@ -1,0 +1,141 @@
+{
+  "version": "crop-phytomer-thermal-events-evidence-v1",
+  "date": "2026-10-21",
+  "CLI": {
+    "parent_session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "at": "2026-10-21T13:47:52.425Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "context_line_sha256_including_LF": "d43b8c71500f237c2fe4cd60e1874ebda64c3247d870a0e09888be58e76d7077",
+    "recursive_CLI": false
+  },
+  "source_review": "research/crop-phytomer-emergence-primary-sources-20261021.md",
+  "parent_source_sections_rechecked": [
+    "2.1.1",
+    "2.1.3",
+    "2.3"
+  ],
+  "primary_article_sha256": "e3d4b09e1d0e2041d43736d1fd5181442e2fbd851f2434a84a553bdf13422749",
+  "source_hashes": {
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+    "backend/app/crop_morphology_thermal_clock.py": "14d8d01a31c0df4ebc04b8bef6cd663c4e296a575067f4fa4f0cf671590b7b23",
+    "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+    "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+    "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+    "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+    "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+    "backend/app/crop_internode_length.py": "8de3cec6b42b762070dc742012b9cee5247b7fa76c6020e8f8b86fe4b9aa8402",
+    "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+    "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+    "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+    "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+    "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda"
+  },
+  "reference": {
+    "cases": 8,
+    "method": "independent integer common-grid iterative enumeration",
+    "repeated_bytes_equal": true,
+    "exact_event_and_checkpoint_equality": true
+  },
+  "tests": {
+    "new": 34,
+    "retained": 170,
+    "total_passed": 204,
+    "pytest_seconds": 0.57,
+    "RED": "ModuleNotFoundError_before_implementation",
+    "exact_and_between_threshold_split_resume_equal": true,
+    "zero_increment_no_duplicate_event": true,
+    "capacity_512_accept_513_hold": true,
+    "sequence_and_exact_carry_overflow_hold": true,
+    "full_backend_suite": false,
+    "browser_rerun": false
+  },
+  "resource": {
+    "red": {
+      "phase": "red",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 0.7786732599997777,
+      "peak_PID_RSS_bytes": 125870080,
+      "combined_RSS_bytes": 836354048,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "backend/app/crop_morphology_thermal_clock.py": "14d8d01a31c0df4ebc04b8bef6cd663c4e296a575067f4fa4f0cf671590b7b23",
+        "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+        "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+        "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+        "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+        "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+        "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+        "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+        "backend/app/crop_internode_length.py": "8de3cec6b42b762070dc742012b9cee5247b7fa76c6020e8f8b86fe4b9aa8402",
+        "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+        "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+        "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+        "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+        "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+        "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda"
+      },
+      "log_sha256": "25b6341f999ab6112f0ee0e40b5f66a59965c01df3290aa2b7ba0762145f1e91",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "green": {
+      "phase": "green",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.0349753539994708,
+      "peak_PID_RSS_bytes": 125870080,
+      "combined_RSS_bytes": 861122560,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "backend/app/crop_morphology_thermal_clock.py": "14d8d01a31c0df4ebc04b8bef6cd663c4e296a575067f4fa4f0cf671590b7b23",
+        "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+        "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+        "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+        "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+        "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+        "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+        "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+        "backend/app/crop_internode_length.py": "8de3cec6b42b762070dc742012b9cee5247b7fa76c6020e8f8b86fe4b9aa8402",
+        "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+        "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+        "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+        "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+        "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+        "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+        "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda"
+      },
+      "log_sha256": "8a055552c6aaaac7f7496575970ff1c4fcfcb626a5362dca6a052cc7ad7bd4ab",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    }
+  },
+  "deployment": {
+    "new_model_deployed": false,
+    "running_backend_DB_frontends_unchanged": true
+  },
+  "holds": [
+    "forcing linkage/UTC event precision",
+    "initial organs and new internode length state binding",
+    "actual cultivar/leaf-truss classification/independent observations",
+    "immutable authenticated storage and sameUTC 3D",
+    "farm G0-G4, harvest/resources/economics/recommendation"
+  ],
+  "scope": "synthetic generic phytomer thermal-threshold arithmetic only"
+}
