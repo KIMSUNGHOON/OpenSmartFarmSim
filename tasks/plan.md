@@ -3042,3 +3042,9 @@ DB 후보와 새 cycle API/client/3D는 이 SHA 밖이다.
 순수 검사 시간은 구현 공수나 전체 진척률로 환산하지 않는다. 부모/공통 WSL·사용자 적용은 계속 남는다.
 다음 의존성은 닫힌 공개 투영 → 보호 실행 API/runtime → 같은 UTC3D이며, 전체 작기·자원·경제/최종 UI와
 외부 자료/관문의 범위·기존161–308 집중시간의 낮은 신뢰 계획은 유지한다.
+
+**공개 투영의 CO₂ 의존성 검토:** [다음 공개 응답 계약](../contracts/api-crop-greenhouse-co2-prefix-v1.md)은
+원 프로그램이 없는 현재 binding metadata에서 wet/dry를 추정하지 않는다. 원 조회31 수용 뒤 선택 context의
+immutable program bytes를 private owner witness에 결속하고, 기존 CO₂ basis/identity/행 타입으로 투영한다.
+원 payload/선택자와 수치/장부·UTC를 유지하며 프로그램은 공개하지 않는다. 직렬화 후 source/page/권리 검사를
+포함한 실제 수용 다음에 보호 실행 API/runtime → 같은 UTC3D로 이어 간다.
