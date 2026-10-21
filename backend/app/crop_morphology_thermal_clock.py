@@ -13,6 +13,7 @@ import re
 
 
 MODEL_VERSION = 'internode-air-thermal-clock-research-v1'
+AIR_SEGMENT_VERSION = 'piecewise-constant-air-exact-v1'
 STATE_KEYS = {'origin', 'age_basis', 'temperature_basis', 'internode_id',
               'emerged_at', 'at', 'base_temperature', 'age_exact'}
 
@@ -30,7 +31,7 @@ def _identifier(value):
     return type(value) is str and re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}', value)
 
 
-def _utc(value):
+def parse_whole_second_utc(value):
     _need(type(value) is str and re.fullmatch(
         r'[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z', value),
         'TIME_HOLD: whole-second UTC required')
@@ -75,7 +76,7 @@ def normalize_internode_clock_state(*, state):
         and state['temperature_basis'] == 'indoor_air_piecewise_constant',
         'INPUT_HOLD: explicit synthetic internode air-temperature clock required')
     _need(_identifier(state['internode_id']), 'INPUT_HOLD: bounded internode ID required')
-    emerged, at = _utc(state['emerged_at']), _utc(state['at'])
+    emerged, at = parse_whole_second_utc(state['emerged_at']), parse_whole_second_utc(state['at'])
     _need(emerged <= at, 'TIME_HOLD: emergence after checkpoint')
     age = _age(state['age_exact'])
     _need(at != emerged or age == 0, 'INPUT_HOLD: nonzero age at emergence')
@@ -84,28 +85,27 @@ def normalize_internode_clock_state(*, state):
             'age_exact': dict(state['age_exact'])}
 
 
-def advance_internode_thermal_clock(*, inputs):
-    _need(type(inputs) is dict and set(inputs) == {'input_id', 'state', 'segments'},
-        'INPUT_HOLD: closed clock input required')
-    _need(_identifier(inputs['input_id']), 'INPUT_HOLD: bounded input ID required')
-    state = normalize_internode_clock_state(state=inputs['state'])
-    age, at = _age(state['age_exact']), _utc(state['at'])
-    base = state['base_temperature']['value']
-    segments = inputs['segments']
+def integrate_constant_air_segments(*, checkpoint_utc, age_exact, base_temperature, segments):
+    age, at = _age(age_exact), parse_whole_second_utc(checkpoint_utc)
+    base = _temperature(base_temperature)
     _need(type(segments) is list and 1 <= len(segments) <= 512, 'CAPACITY_HOLD: segment count')
-    normalized_segments = []
+    normalized_segments, intervals = [], []
     for segment in segments:
         _need(type(segment) is dict and set(segment) == {'start_utc', 'end_utc', 'air_temperature'},
             'INPUT_HOLD: closed constant-temperature segment required')
-        start, end = _utc(segment['start_utc']), _utc(segment['end_utc'])
+        start, end = parse_whole_second_utc(segment['start_utc']), parse_whole_second_utc(segment['end_utc'])
         _need(start == at and end > start, 'TIME_HOLD: contiguous forward interval required')
         temperature = _temperature(segment['air_temperature'])
         _need(temperature >= base, 'TEMPERATURE_DOMAIN_HOLD: air temperature below explicit base')
         duration = end - start
         seconds = duration.days * 86400 + duration.seconds
-        age += (Fraction.from_float(temperature) - Fraction.from_float(base)) * seconds / 86400
+        before = age
+        difference = Fraction.from_float(temperature) - Fraction.from_float(base)
+        age += difference * seconds / 86400
         at = end
         normalized_segments.append({**segment, 'air_temperature': {'value': temperature, 'unit': 'degC'}})
+        intervals.append({'start_utc': segment['start_utc'], 'end_utc': segment['end_utc'],
+                          'age_start': before, 'age_end': age, 'temperature_difference': difference})
     exact = {'numerator': str(age.numerator), 'denominator': str(age.denominator), 'unit': 'degC_day'}
     _need(max(len(exact['numerator']), len(exact['denominator'])) <= 1024, 'CAPACITY_HOLD: checkpoint age digits')
     try:
@@ -113,11 +113,23 @@ def advance_internode_thermal_clock(*, inputs):
     except OverflowError:
         raise MorphologyClockHold('NUMERIC_HOLD: age overflow') from None
     _need(isfinite(value) and (age == 0 or value > 0), 'NUMERIC_HOLD: positive age not representable')
+    return {'at': segments[-1]['end_utc'], 'age_exact': exact, 'thermal_age': {'value': value, 'unit': 'degC_day'},
+            'base_temperature': {'value': base, 'unit': 'degC'},
+            'normalized_segments': normalized_segments, 'intervals': intervals}
+
+
+def advance_internode_thermal_clock(*, inputs):
+    _need(type(inputs) is dict and set(inputs) == {'input_id', 'state', 'segments'},
+        'INPUT_HOLD: closed clock input required')
+    _need(_identifier(inputs['input_id']), 'INPUT_HOLD: bounded input ID required')
+    state = normalize_internode_clock_state(state=inputs['state'])
+    program = integrate_constant_air_segments(checkpoint_utc=state['at'], age_exact=state['age_exact'],
+        base_temperature=state['base_temperature'], segments=inputs['segments'])
     identity = json.dumps({'model_version': MODEL_VERSION, 'inputs': {
-        'input_id': inputs['input_id'], 'state': state, 'segments': normalized_segments}},
+        'input_id': inputs['input_id'], 'state': state, 'segments': program['normalized_segments']}},
         sort_keys=True, separators=(',', ':'), allow_nan=False).encode()
-    checkpoint = {**state, 'at': segments[-1]['end_utc'], 'age_exact': exact}
+    checkpoint = {**state, 'at': program['at'], 'age_exact': program['age_exact']}
     return {'model_version': MODEL_VERSION, 'scope': 'software_research_only',
             'claim_scope': 'synthetic_crop_math_only', 'gates': 'not_assessed',
             'input_sha256': sha256(identity).hexdigest(), 'checkpoint': checkpoint,
-            'thermal_age': {'value': value, 'unit': 'degC_day'}}
+            'thermal_age': program['thermal_age']}

@@ -1,0 +1,736 @@
+{
+  "cases": [
+    {
+      "case_id": "synthetic-day",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "age_exact": {
+          "denominator": "1",
+          "numerator": "15",
+          "unit": "degC_day"
+        },
+        "at": "2026-10-02T00:00:00Z",
+        "base_temperature": {
+          "unit": "degC",
+          "value": 5.0
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 6,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "20",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "5",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-day",
+        "shoot_id": "synthetic-shoot",
+        "started_at": "2026-10-01T00:00:00Z"
+      },
+      "events": [
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "28800",
+            "unit": "s"
+          },
+          "sequence": 3,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "5",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-01T08:00:00Z"
+        },
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "57600",
+            "unit": "s"
+          },
+          "sequence": 4,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "10",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-01T16:00:00Z"
+        },
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "86400",
+            "unit": "s"
+          },
+          "sequence": 5,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "15",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-02T00:00:00Z"
+        }
+      ],
+      "inputs": {
+        "input_id": "day",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 20
+            },
+            "end_utc": "2026-10-02T00:00:00Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5.0
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 3,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "5",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "5",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-day",
+          "shoot_id": "synthetic-shoot",
+          "started_at": "2026-10-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-flat-first",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "age_exact": {
+          "denominator": "4",
+          "numerator": "5",
+          "unit": "degC_day"
+        },
+        "at": "2026-10-01T03:00:00Z",
+        "base_temperature": {
+          "unit": "degC",
+          "value": 5.0
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 5,
+        "next_threshold_exact": {
+          "denominator": "2",
+          "numerator": "3",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "2",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-flat-first",
+        "shoot_id": "synthetic-shoot",
+        "started_at": "2026-10-01T00:00:00Z"
+      },
+      "events": [
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "6480",
+            "unit": "s"
+          },
+          "sequence": 3,
+          "thermal_age_exact": {
+            "denominator": "2",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-01T01:48:00Z"
+        },
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "9360",
+            "unit": "s"
+          },
+          "sequence": 4,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-01T02:36:00Z"
+        }
+      ],
+      "inputs": {
+        "input_id": "flat-first",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 5
+            },
+            "end_utc": "2026-10-01T01:00:00Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 20
+            },
+            "end_utc": "2026-10-01T03:00:00Z",
+            "start_utc": "2026-10-01T01:00:00Z"
+          }
+        ],
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5.0
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 3,
+          "next_threshold_exact": {
+            "denominator": "2",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "2",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-flat-first",
+          "shoot_id": "synthetic-shoot",
+          "started_at": "2026-10-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-flat-after-boundary",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "age_exact": {
+          "denominator": "1",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "at": "2026-10-01T02:00:00Z",
+        "base_temperature": {
+          "unit": "degC",
+          "value": 0.0
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 4,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "2",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-flat-after-boundary",
+        "shoot_id": "synthetic-shoot",
+        "started_at": "2026-10-01T00:00:00Z"
+      },
+      "events": [
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "3600",
+            "unit": "s"
+          },
+          "sequence": 3,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-01T01:00:00Z"
+        }
+      ],
+      "inputs": {
+        "input_id": "flat-after-boundary",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 24
+            },
+            "end_utc": "2026-10-01T01:00:00Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 0
+            },
+            "end_utc": "2026-10-01T02:00:00Z",
+            "start_utc": "2026-10-01T01:00:00Z"
+          }
+        ],
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 3,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-flat-after-boundary",
+          "shoot_id": "synthetic-shoot",
+          "started_at": "2026-10-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-fractional-second",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "age_exact": {
+          "denominator": "28800",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "at": "2026-10-01T00:00:01Z",
+        "base_temperature": {
+          "unit": "degC",
+          "value": 0.0
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 6,
+        "next_threshold_exact": {
+          "denominator": "21600",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "86400",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-fractional-second",
+        "shoot_id": "synthetic-shoot",
+        "started_at": "2026-10-01T00:00:00Z"
+      },
+      "events": [
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "3",
+            "numerator": "1",
+            "unit": "s"
+          },
+          "sequence": 3,
+          "thermal_age_exact": {
+            "denominator": "86400",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": null
+        },
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "3",
+            "numerator": "2",
+            "unit": "s"
+          },
+          "sequence": 4,
+          "thermal_age_exact": {
+            "denominator": "43200",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": null
+        },
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "s"
+          },
+          "sequence": 5,
+          "thermal_age_exact": {
+            "denominator": "28800",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-01T00:00:01Z"
+        }
+      ],
+      "inputs": {
+        "input_id": "fractional-second",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 3
+            },
+            "end_utc": "2026-10-01T00:00:01Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 3,
+          "next_threshold_exact": {
+            "denominator": "86400",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "86400",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-fractional-second",
+          "shoot_id": "synthetic-shoot",
+          "started_at": "2026-10-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-resume-origin",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "age_exact": {
+          "denominator": "1",
+          "numerator": "2",
+          "unit": "degC_day"
+        },
+        "at": "2026-10-01T02:00:00Z",
+        "base_temperature": {
+          "unit": "degC",
+          "value": 0.0
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 5,
+        "next_threshold_exact": {
+          "denominator": "2",
+          "numerator": "5",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "2",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-resume-origin",
+        "shoot_id": "synthetic-shoot",
+        "started_at": "2026-10-01T00:00:00Z"
+      },
+      "events": [
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "5400",
+            "unit": "s"
+          },
+          "sequence": 3,
+          "thermal_age_exact": {
+            "denominator": "2",
+            "numerator": "3",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-01T01:30:00Z"
+        },
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "7200",
+            "unit": "s"
+          },
+          "sequence": 4,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "2",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2026-10-01T02:00:00Z"
+        }
+      ],
+      "inputs": {
+        "input_id": "resume-origin",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 24
+            },
+            "end_utc": "2026-10-01T02:00:00Z",
+            "start_utc": "2026-10-01T01:00:00Z"
+          }
+        ],
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T01:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 3,
+          "next_threshold_exact": {
+            "denominator": "2",
+            "numerator": "3",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "2",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-resume-origin",
+          "shoot_id": "synthetic-shoot",
+          "started_at": "2026-10-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-zero",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "age_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "degC_day"
+        },
+        "at": "2026-10-01T01:00:00Z",
+        "base_temperature": {
+          "unit": "degC",
+          "value": 5.0
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 3,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-zero",
+        "shoot_id": "synthetic-shoot",
+        "started_at": "2026-10-01T00:00:00Z"
+      },
+      "events": [],
+      "inputs": {
+        "input_id": "zero",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 5
+            },
+            "end_utc": "2026-10-01T01:00:00Z",
+            "start_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2026-10-01T00:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 5.0
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 3,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-zero",
+          "shoot_id": "synthetic-shoot",
+          "started_at": "2026-10-01T00:00:00Z"
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-leap",
+      "checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "age_exact": {
+          "denominator": "1",
+          "numerator": "2",
+          "unit": "degC_day"
+        },
+        "at": "2028-02-29T01:00:00Z",
+        "base_temperature": {
+          "unit": "degC",
+          "value": 0.0
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 5,
+        "next_threshold_exact": {
+          "denominator": "1",
+          "numerator": "3",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "1",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-leap",
+        "shoot_id": "synthetic-shoot",
+        "started_at": "2028-02-28T23:00:00Z"
+      },
+      "events": [
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "3600",
+            "unit": "s"
+          },
+          "sequence": 3,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2028-02-29T00:00:00Z"
+        },
+        {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "7200",
+            "unit": "s"
+          },
+          "sequence": 4,
+          "thermal_age_exact": {
+            "denominator": "1",
+            "numerator": "2",
+            "unit": "degC_day"
+          },
+          "utc_whole_second": "2028-02-29T01:00:00Z"
+        }
+      ],
+      "inputs": {
+        "input_id": "leap",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 24
+            },
+            "end_utc": "2028-02-29T01:00:00Z",
+            "start_utc": "2028-02-28T23:00:00Z"
+          }
+        ],
+        "state": {
+          "age_basis": "since_shoot_development_origin",
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "at": "2028-02-28T23:00:00Z",
+          "base_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          },
+          "development_origin_id": "synthetic-origin",
+          "next_sequence": 3,
+          "next_threshold_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "origin": "synthetic",
+          "phyllochron_exact": {
+            "denominator": "1",
+            "numerator": "1",
+            "unit": "degC_day"
+          },
+          "schedule_id": "synthetic-schedule-leap",
+          "shoot_id": "synthetic-shoot",
+          "started_at": "2028-02-28T23:00:00Z"
+        }
+      }
+    }
+  ],
+  "method": "hand-derived rational ages and elapsed seconds; calendar formatting only",
+  "origin": "synthetic_math_only",
+  "version": "shoot-air-event-timeline-reference-v1"
+}
