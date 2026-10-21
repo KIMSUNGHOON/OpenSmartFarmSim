@@ -1,0 +1,113 @@
+{
+  "schema_version": "declared-leaf-births-acceptance-v1",
+  "new_tests": 38,
+  "related_tests": 94,
+  "reference": {
+    "programs": 5,
+    "independent_area_points": 22,
+    "exact_clocks": 11,
+    "maximum_relative_difference": "1.363659369059527757782527344E-16",
+    "reference_regenerated_exact_bytes": true,
+    "reference_SHA256": "2166f51442745ea91f76476217bd2b3e194159772717466ffaceb653263c13db",
+    "scope": "software_research_only",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed"
+  },
+  "phases": {
+    "RED": {
+      "actual_child_exit": 2,
+      "wall_seconds": 0.6130866809980944,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1000570880,
+      "RSS_samples": 2,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "4e17144b009beea0adbf8a2b420939de29706285fa3d71bc103836afd3cb3435"
+    },
+    "initial31": {
+      "actual_child_exit": 0,
+      "wall_seconds": 0.8622919019981055,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1024589824,
+      "RSS_samples": 3,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "dcfc889e3ada7858cac9e7f3164b52d0ded0ff360708074cc655cc59fe3669e1"
+    },
+    "first_related_failure": {
+      "actual_child_exit": 1,
+      "wall_seconds": 1.9069323709991295,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1017384960,
+      "RSS_samples": 7,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "5117fd29391ec230ad91b21a07054424c84a2b8e5e63a27a26c421d9da2c2e01"
+    },
+    "accepted94": {
+      "actual_child_exit": 0,
+      "wall_seconds": 1.9041997180029284,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 1017745408,
+      "RSS_samples": 7,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "c23d745b1ecca8257e09fe365c08c4f6637955bdb55f3dc0d48e87b8448675cc"
+    },
+    "independent_reference": {
+      "actual_child_exit": 0,
+      "wall_seconds": 0.3451759890012909,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "combined_peak_RSS_bytes": 962179072,
+      "RSS_samples": 1,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "234e27fd1d1753023aa8f64915ef8a8b0536037986b3adf6431e953d30418813"
+    }
+  },
+  "code_and_reference_SHA256": {
+    "backend/app/crop_declared_leaf_births.py": "44068d74541b873bd5459a2893b87c357797639805e1eaa346f1f35880ca2c5f",
+    "backend/tests/test_crop_declared_leaf_births.py": "fca3e46c8d47b76acc9ea14cf9d93b12be5f364608eac55c0a6fb4e3fb048609",
+    "research/crop-declared-leaf-births-reference.py": "8dd4dcf24e68910166f37a4d64b55140ccfa653142a278e2c7dbd87bb9abeadb",
+    "fixtures/crop-declared-leaf-births-reference-v1.json": "2166f51442745ea91f76476217bd2b3e194159772717466ffaceb653263c13db",
+    "contracts/crop-declared-leaf-births-v1.md": "95b317d0f685fb376e826ebf01ff92e76a0b5ee2da2311eec791ce431cf5c929"
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_CLI": 0,
+    "turn_context_timestamp": "2026-10-21T23:23:55.923Z",
+    "raw_context_line_LF_sha256": "7c46f4b94b428fc64ff6bdc09f47f6aa5d758599dc0fdeab89ab60a315e6cc9e"
+  },
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "current_UI_new_birth_model": false,
+  "full_suite": false,
+  "external_holds": [
+    "automatic_leaf_truss_classification_and_emergence_parameters",
+    "initial_new_leaf_measurements_and_cultivar_area_curve",
+    "stem_attachment_existence_at_event",
+    "inventory_storage_API_3D_integration",
+    "independent_local_farm_validation"
+  ]
+}

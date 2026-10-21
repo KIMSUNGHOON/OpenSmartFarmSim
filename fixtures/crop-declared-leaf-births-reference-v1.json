@@ -1,0 +1,682 @@
+{
+  "cases": [
+    {
+      "case_id": "fractional",
+      "expected": [
+        {
+          "age_exact": {
+            "denominator": "21600",
+            "numerator": "259199",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.007310563030228401046078443569583163285313150705788040285243088587696822829810270031610106194882842518",
+          "initial_area_m2": "0.001192029220221175584216801455392038456542086432098232493572937422353779421911927435534134623818393148"
+        },
+        {
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "6",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.007550813375962908864404867397120388879985320673171147798450682566419451419978043654426834061475239630",
+          "initial_area_m2": "0.002384058440442351168433602910784076913084172864196464987145874844707558843823854871068269247636786296"
+        },
+        {
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.003576087660663526545866297129376061964576847476395403717743896242365124559109783533028468603232040108",
+          "initial_area_m2": "0.003576087660663526545866297129376061964576847476395403717743896242365124559109783533028468603232040108"
+        }
+      ],
+      "inputs": {
+        "births": [
+          {
+            "attachment_internode_id": "declared-stem-0",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-0",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.01
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.0011920292202211755
+            },
+            "leaf_id": "declared-birth-0",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          },
+          {
+            "attachment_internode_id": "declared-stem-1",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-1",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.02
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "43200",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.002384058440442351
+            },
+            "leaf_id": "declared-birth-1",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          },
+          {
+            "attachment_internode_id": "declared-stem-2",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-2",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.03
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "86400",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.0035760876606635264
+            },
+            "leaf_id": "declared-birth-2",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          }
+        ],
+        "input_id": "fractional",
+        "origin": "synthetic",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 22.0
+            },
+            "end_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "86400",
+              "unit": "s"
+            },
+            "start_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            }
+          }
+        ],
+        "time_origin_utc": "2026-10-01T00:00:00Z"
+      }
+    },
+    {
+      "case_id": "temperature-boundary",
+      "expected": [
+        {
+          "age_exact": {
+            "denominator": "36",
+            "numerator": "299",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.005190879411960951428980545603208688381210272210732688517841383093781617254830990832175866378686271670",
+          "initial_area_m2": "0.001192029220221175584216801455392038456542086432098232493572937422353779421911927435534134623818393148"
+        },
+        {
+          "age_exact": {
+            "denominator": "4",
+            "numerator": "33",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.01031239831446031278235170018770688951718796336907283527368736504201065612239685891249685561421891558",
+          "initial_area_m2": "0.002384058440442351168433602910784076913084172864196464987145874844707558843823854871068269247636786296"
+        },
+        {
+          "age_exact": {
+            "denominator": "3",
+            "numerator": "22",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.01375288550349600313369912381857826320722462557687294653606412843570819887072992658398836967648554166",
+          "initial_area_m2": "0.003576087660663526545866297129376061964576847476395403717743896242365124559109783533028468603232040108"
+        }
+      ],
+      "inputs": {
+        "births": [
+          {
+            "attachment_internode_id": "declared-stem-0",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-0",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.01
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "1200",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.0011920292202211755
+            },
+            "leaf_id": "declared-birth-0",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          },
+          {
+            "attachment_internode_id": "declared-stem-1",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-1",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.02
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "3600",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.002384058440442351
+            },
+            "leaf_id": "declared-birth-1",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          },
+          {
+            "attachment_internode_id": "declared-stem-2",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-2",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.03
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "7200",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.0035760876606635264
+            },
+            "leaf_id": "declared-birth-2",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          }
+        ],
+        "input_id": "temperature-boundary",
+        "origin": "synthetic",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 12.0
+            },
+            "end_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "3600",
+              "unit": "s"
+            },
+            "start_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            }
+          },
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 32.0
+            },
+            "end_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "7200",
+              "unit": "s"
+            },
+            "start_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "3600",
+              "unit": "s"
+            }
+          },
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 18.0
+            },
+            "end_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "86400",
+              "unit": "s"
+            },
+            "start_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "7200",
+              "unit": "s"
+            }
+          }
+        ],
+        "time_origin_utc": "2026-10-01T00:00:00Z"
+      }
+    },
+    {
+      "case_id": "simultaneous",
+      "expected": [
+        {
+          "age_exact": {
+            "denominator": "36000",
+            "numerator": "463",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.001195409191058326473354031880928759592033592041046204776065306539603092942353774985382433741047572317",
+          "initial_area_m2": "0.001192029220221175584216801455392038456542086432098232493572937422353779421911927435534134623818393148"
+        },
+        {
+          "age_exact": {
+            "denominator": "36000",
+            "numerator": "463",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.002390818382116652946708063761857519184067184082092409552130613079206185884707549970764867482095144634",
+          "initial_area_m2": "0.002384058440442351168433602910784076913084172864196464987145874844707558843823854871068269247636786296"
+        },
+        {
+          "age_exact": {
+            "denominator": "36000",
+            "numerator": "463",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.003586227573174979212691656930053962483645788449819541165928188494992657410512082880556758187431325790",
+          "initial_area_m2": "0.003576087660663526545866297129376061964576847476395403717743896242365124559109783533028468603232040108"
+        }
+      ],
+      "inputs": {
+        "births": [
+          {
+            "attachment_internode_id": "declared-stem-0",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-0",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.01
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "5",
+              "numerator": "37",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.0011920292202211755
+            },
+            "leaf_id": "declared-birth-0",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          },
+          {
+            "attachment_internode_id": "declared-stem-1",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-1",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.02
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "5",
+              "numerator": "37",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.002384058440442351
+            },
+            "leaf_id": "declared-birth-1",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          },
+          {
+            "attachment_internode_id": "declared-stem-2",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-2",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.03
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "5",
+              "numerator": "37",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.0035760876606635264
+            },
+            "leaf_id": "declared-birth-2",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          }
+        ],
+        "input_id": "simultaneous",
+        "origin": "synthetic",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 22.0
+            },
+            "end_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "100",
+              "unit": "s"
+            },
+            "start_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            }
+          }
+        ],
+        "time_origin_utc": "2026-10-01T00:00:00Z"
+      }
+    },
+    {
+      "case_id": "flat",
+      "expected": [
+        {
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.001192029220221175584216801455392038456542086432098232493572937422353779421911927435534134623818393148",
+          "initial_area_m2": "0.001192029220221175584216801455392038456542086432098232493572937422353779421911927435534134623818393148"
+        },
+        {
+          "age_exact": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "degC_day"
+          },
+          "final_area_m2": "0.002384058440442351168433602910784076913084172864196464987145874844707558843823854871068269247636786296",
+          "initial_area_m2": "0.002384058440442351168433602910784076913084172864196464987145874844707558843823854871068269247636786296"
+        }
+      ],
+      "inputs": {
+        "births": [
+          {
+            "attachment_internode_id": "declared-stem-0",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-0",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.01
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.0011920292202211755
+            },
+            "leaf_id": "declared-birth-0",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          },
+          {
+            "attachment_internode_id": "declared-stem-1",
+            "base_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-declared-birth-1",
+              "values": {
+                "inflection_age": {
+                  "unit": "degC_day",
+                  "value": 8.0
+                },
+                "maximum_area": {
+                  "unit": "m2",
+                  "value": 0.02
+                },
+                "steepness": {
+                  "unit": "1/degC_day",
+                  "value": 0.25
+                }
+              }
+            },
+            "emerged_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "86400",
+              "unit": "s"
+            },
+            "initial_area": {
+              "unit": "m2",
+              "value": 0.002384058440442351
+            },
+            "leaf_id": "declared-birth-1",
+            "normalization": "zero_lower_asymptote_sigmoid_v1"
+          }
+        ],
+        "input_id": "flat",
+        "origin": "synthetic",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 10.0
+            },
+            "end_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "86400",
+              "unit": "s"
+            },
+            "start_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            }
+          }
+        ],
+        "time_origin_utc": "2026-10-01T00:00:00Z"
+      }
+    },
+    {
+      "case_id": "no-events",
+      "expected": [],
+      "inputs": {
+        "births": [],
+        "input_id": "no-events",
+        "origin": "synthetic",
+        "segments": [
+          {
+            "air_temperature": {
+              "unit": "degC",
+              "value": 22.0
+            },
+            "end_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "100",
+              "unit": "s"
+            },
+            "start_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            }
+          }
+        ],
+        "time_origin_utc": "2026-10-01T00:00:00Z"
+      }
+    }
+  ],
+  "method": "independent Fraction clock / Decimal100 logistic; no product imports",
+  "origin": "synthetic",
+  "schema_version": "declared-leaf-births-reference-v1"
+}

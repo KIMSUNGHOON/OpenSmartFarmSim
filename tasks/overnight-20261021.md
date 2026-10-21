@@ -89,3 +89,5 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 - [잎 불변 결과/계산 없는 조회](../research/crop-leaf-area-artifact-20261022.md):18pytest+별도fresh/실제12시점·36면적/40blob·17export·7root를 수용했다. 새 typed frontend/저장면적과같은UTC3D를 이어간다.
 
 - [저장 잎 면적3D](../research/leaf-area-stored-replay-20261022.md): CI69/Chromium18·실제 Chrome5선택/최대 면적 상대차6.1362e-15·원 UTC/표/그래프/재생·모바일/유휴/오류0·7root/원178파일을 수용했다. 별도5176/leaf-area-replay.html을 마지막/정지로 유지한다. 다음은 명시 출현 사건의 새 잎 계산 자식이며 실제 품종·원 farm/job 연결/생산·경제는 후속이다.
+
+- [명시 새 잎 출현 계산](../research/crop-declared-leaf-births-20261022.md): 새38/관련94·독립5프로그램/22면적·정확 시계11, 출현 후 기온만/분수 초·끝/동시·분할과512/2MiB·7root를 수용했다. 자동 출현/관리는 미구현이며 사용자 화면은 기존 저장3잎을 유지한다. 다음은 기존/명시 새 잎 목록 결속이다.

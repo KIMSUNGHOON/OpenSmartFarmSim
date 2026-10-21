@@ -40,6 +40,8 @@
   - [x] 명시 초기 면적/한 잎 정확 나이 상태 — [41집중/독립16점](../research/crop-leaf-area-state-20261022.md), 필수 합성 정규화/초기일치·anchor/분할 같은 상태·단위/변조/원7root·자료 보존. 원 초기관측/실제 품종은 미확정이다.
   - [x] 잎 기관별 원점/정확 초·공기 기온 시계와 면적 상태 결속 — [34집중/독립8프로그램·24면적](../research/crop-rational-leaf-area-20261022.md), 원 internode 호출0·분수 초/변온/분할/512·혼합 거부·원7root/자료 보존. 실제 기온/초기관측/관리와 새3D는 별도다.
   - [x] 명시 초기 잎 목록 — [22집중/독립4프로그램·36면적/12나이](../research/crop-leaf-inventory-20261022.md), 원 ID/순서·같은 시점/합계·분할/512·2MiB/overflow·원7root/자료 보존. 실제 줄기 참조 결속은 다음 게시/reader에서 확인한다.
+  - [x] 명시 출현 사건의 새 잎 — [닫힌 입력/정확 반열린 구간 계약](../contracts/crop-declared-leaf-births-v1.md). 입력에 선언된 사건만 나이0/명시 초기 면적으로 만들고 출현 뒤 기온만 전진한다. [새38/관련94·독립5프로그램·22면적/11시계](../research/crop-declared-leaf-births-20261022.md)와 분수 초/경계/동시/분할·상한/입력 불변·7root 보존을 수용했다. 자동 출현/관리·기존 inventory·저장/3D 결속은 별도다.
+  - [ ] 기존/명시 새 잎 목록 결속 — 선행은 위 새 잎 계산과 초기 inventory다. 기존 잎을 같은 구간 전진하고 새 사건만 생성·중복 ID/같은 UTC/시작 경계/합계·분할 재개/512·2MiB와 부착 ID를 검사한다. 기존 v1/저장40blob/사용자 화면은 보존한다. 저장/새 잎3D와 실제 stem 존재·관리·자동 출현은 별도다.
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 선언 목록만 추적한다.
   - [x] 별도 불변 면적 판본/계산 없는 조회·export — [18pytest/실제12시점·36면적/별도 fresh](../research/crop-leaf-area-artifact-20261022.md), 원 stem14blob/12 DTO·40불변 blob/24code·현재 부착/UTC·권리와 fresh import/SQL/CLI/파일쓰기0·17public파일·원7root/자료 보존.
   - [x] 같은 UTC의 잎 면적3D — [CI69/Chromium18·실제 Chrome](../research/leaf-area-stored-replay-20261022.md). strict SDK/원17파일·제작 단면 실제 삼각형 면적/UTC·표/그래프/재생·모바일/유휴·오류0/7root·원178파일을 수용했다. 별도5176/leaf-area-replay.html이며 원 farm/job의 새 잎 계산 적용은 후속이다.
