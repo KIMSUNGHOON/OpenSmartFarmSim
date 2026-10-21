@@ -1,5 +1,26 @@
 # 시스템 재시작을 위한 작업 중단 — 2026-10-21 KST
 
+## 최신 중단 기록 — 2026-10-21T07:15:20.071593Z
+
+사용자의 두 번째 시스템 재시작 요청으로 goal을 **paused**로 전환했다. 새 구현·계산·CI 제출을 중단했다.
+[이번 중단 증거](../research/artifacts/restart-checkpoint-20261021-second.json)가 아래 첫 중단 당시의 상태보다 우선한다.
+
+- 중단 전 HEAD `60bdf32266d5a7a24b2d7c0242fa1d9e14155543`는 원격 `ci/solar-unpaused-normal-20261017`과 같고 작업 트리는 깨끗했다.
+- 보호 실행 HTTP의 [실제 core6](../research/artifacts/api-crop-greenhouse-co2-execution-http-native-core-20261021.json)은 수용했다.
+  나머지 fences8의 [CI39559812248](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39559812248)은 사용자 요청으로 **cancelled**다.
+  업로드된 산출물은 아직 대사하지 않았으며 이 배치와 HTTP 부모·runtime을 수용하지 않았다.
+- 실행 중인 이 프로젝트의 로컬 계산/guard는 없다. 기존 미리보기의 보호5root는 유지했으며
+  OS/WSL 재시작 뒤에는 새 프로세스 식별자를 확인해 기존 DB/원 입력/키로 복구해야 한다.
+  [직전 복구 기록](../research/WSL-post-boot-recovery-20261021.md)과 private handoff를 사용한다.
+- 보존된 legacy 물리 DB는 run-v32 아래이고 현재 서비스 안내는 run-v35다. 두 경로를 혼동하지 않는다.
+  joint는 serve-v31, ventilation은 serve-v17이다. 이전 PID를 종료 대상으로 재사용하지 않는다.
+  인증은 재개 시 현재 시각/실제 만료를 확인한다. 아래 첫 중단의 만료 시각은 현재 갱신 판본의 근거가 아니다.
+- 재개 순서: 기존 서비스·자료 상태 확인 → 취소 CI의 원 산출물 보존/상태 대사 → 미수용 fences8 완료
+  → 보호 runtime/독립 worker → typed web/같은 UTC3D → 사용자 적용. 사용자의 재개 요청 전에는 실행하지 않는다.
+- 새 CO₂ 사용자 적용·전체 작기/자원/경제·최종 UI·독립 농장 검증/관문은 여전히 미완료다.
+
+## 첫 중단 당시의 기록 — 이후 재개로 일부 대체됨
+
 사용자 요청으로 새 계산·CI 실행을 중단하고 goal 일시정지를 요청했다.
 [중단 시점 증거](../research/artifacts/restart-checkpoint-20261021.json)를 따른다.
 

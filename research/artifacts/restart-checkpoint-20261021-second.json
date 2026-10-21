@@ -1,0 +1,34 @@
+{
+  "schema_version": "restart-checkpoint-v2",
+  "recorded_at": "2026-10-21T07:15:20.071593Z",
+  "reason": "explicit_user_request_for_system_restart",
+  "goal_status": "paused",
+  "source_commit": "60bdf32266d5a7a24b2d7c0242fa1d9e14155543",
+  "worktree_clean_before_checkpoint": true,
+  "remote_backup_branch": "ci/solar-unpaused-normal-20261017",
+  "CI": {
+    "run_id": 39559812248,
+    "conclusion": "cancelled",
+    "headSha": "65bb864dd289df6070732b434bf847fdb9c43c6e",
+    "status": "completed",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39559812248",
+    "accepted": false,
+    "reason": "cancelled_at_user_request; artifacts not reconciled"
+  },
+  "last_accepted_native_core": {
+    "run_id": 39558663729,
+    "tests": 6,
+    "evidence": "research/artifacts/api-crop-greenhouse-co2-execution-http-native-core-20261021.json"
+  },
+  "local_owned_calculation_or_guard_live": false,
+  "protected_preview_roots_left_running": 5,
+  "reboot_requires_fresh_process_identities": true,
+  "new_CO2_deployed": false,
+  "real_farm_runs": 0,
+  "next_steps": [
+    "recover existing previews and verify retained databases, inputs and current authentication without reusing old process identities",
+    "preserve and inspect cancelled CI artifacts; complete the outstanding native fences8 without accepting partial results",
+    "only after native acceptance continue explicit runtime and independent worker, then typed web and same-UTC 3D"
+  ],
+  "full_goal_complete": false
+}
