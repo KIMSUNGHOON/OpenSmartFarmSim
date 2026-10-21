@@ -1,0 +1,350 @@
+{
+  "actual_crop_Runs": 0,
+  "cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_context_sha256": "88b892130bd446bdbc3a4d06d7ba58ff7736eb679dd4856efa30c9fad5feb47a"
+  },
+  "code_sha256": {
+    "backend/app/crop_morphology_execution_query.py": "3e0789f99d87766ec4466b96766dcc659a513673ce6a5ce9b9b925484cdf33bb",
+    "backend/tests/morphology_execution_fresh.py": "e6b95f2a60af66df5742aba86fbf2f53a582a2a0f41e294fd24564d96d7665bb",
+    "backend/tests/test_crop_morphology_execution_query.py": "b5616c59a6770c14fa6579dd8f562e8b933b744c01be74815c4cf902b7a1f47a",
+    "backend/tests/test_crop_morphology_execution_query_native.py": "2b10adb8356f0ca9775a9811e3a85c83e79efc54116ddfec9e24e89931b30403"
+  },
+  "controls": {
+    "child_exit": 0,
+    "combined_RSS_bytes": 884740096,
+    "full_suite": false,
+    "hold_reason": null,
+    "log_sha256": "77a33dd1eae4050657fd9b1fe948582d92a3d45214e4019ff78e3058bb71c3b1",
+    "peak_PID_RSS_bytes": 124948480,
+    "phase": "query-controls-v1",
+    "plugin_autoload_disabled": true,
+    "protected_six_roots_live": true,
+    "remaining_owned_children": 0,
+    "sample_interval_seconds": 0.25,
+    "samples": 5,
+    "wall_seconds": 1.0413838449967443
+  },
+  "gates": "not_assessed",
+  "native": {
+    "RSS_samples": 781,
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 1041338368,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "frontend_status": 200,
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "log_sha256": "7cd4242af16aa5420a36af7eebbf8c4818349e90967746e28cc7b408450fb329",
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 6,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 124948480,
+    "source_count": 3166,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 218.4267949250061
+  },
+  "native_SCRAM_passed": 5,
+  "native_private_full_record_sha256": "eabe2f1d7ce9fbd7289c0df7cd05ccb5c1c4c837b76e090bf98705e9b9f57bca",
+  "new_controls_passed": 9,
+  "observations": {
+    "execution-query-current.json": {
+      "database_sha256_before_after": [
+        [
+          "f6728ea13f26af61cdfd221975a3ee405889f0e6d7b7efd3dfc3fb1138d3d03a",
+          25
+        ],
+        [
+          "f6728ea13f26af61cdfd221975a3ee405889f0e6d7b7efd3dfc3fb1138d3d03a",
+          25
+        ]
+      ],
+      "foreign_rights_review_original_scope_late_rejected": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0
+      },
+      "restored_original_result": true
+    },
+    "execution-query-fresh.json": {
+      "database_sha256_before_after": [
+        [
+          "6ab2c92f9dac5c32554c001907af7dcba4fc4250b7a6100ef17d1af97c2de2f9",
+          25
+        ],
+        [
+          "6ab2c92f9dac5c32554c001907af7dcba4fc4250b7a6100ef17d1af97c2de2f9",
+          25
+        ]
+      ],
+      "fresh": {
+        "actual_SCRAM": true,
+        "blocked_import_calls": {
+          "app.crop_internode_elongation": 0,
+          "app.crop_internode_length": 0,
+          "app.crop_internode_length_change": 0,
+          "app.crop_morphology_execution_worker": 0,
+          "app.crop_morphology_signed_producer": 0,
+          "app.crop_morphology_thermal_clock": 0,
+          "app.crop_new_internodes": 0,
+          "app.crop_phytomer_emergence": 0,
+          "app.crop_rational_internode_length": 0,
+          "app.crop_rational_morphology_artifact_producer": 0,
+          "app.crop_rational_morphology_clock": 0,
+          "app.crop_rational_new_internodes": 0,
+          "app.crop_rational_shoot_inventory": 0,
+          "app.crop_shoot_inventory": 0,
+          "app.crop_shoot_timeline": 0
+        },
+        "calculated_at": "2026-10-21T20:37:02.691033Z",
+        "counts_before_after": [
+          [
+            89,
+            94,
+            0,
+            0
+          ],
+          [
+            89,
+            94,
+            0,
+            0
+          ]
+        ],
+        "current_review_revocation_rejected": true,
+        "fresh_exec": true,
+        "job_id": "0f26e72f-be87-4608-9b54-72297eaeb167",
+        "job_write_calls": {
+          "_event": 0,
+          "_insert_publication": 0,
+          "publish": 0,
+          "record_decision": 0,
+          "submit": 0
+        },
+        "new_growth_modules_imported": 0,
+        "numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "original_frame_sha256": [
+          "1f71201fcf52cb15d101ea83c0ec75c55f7e05bfbf1d784f4da7fe17127b123d",
+          "3d39bb95f3db44a423f3cf23a6737009c663e8e0aff78d50d33738b8ea6e5c3b"
+        ],
+        "result_sha256": "13e380067b5f71b02de51fee50689e2d2fcc952ccc557452d7334d642f0a8959"
+      },
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0
+      }
+    },
+    "execution-query-normal.json": {
+      "database_sha256_before_after": [
+        [
+          "1208dbf17ace4fad33633928c38a77f2b2243e969875260c949163e9f201913d",
+          25
+        ],
+        [
+          "1208dbf17ace4fad33633928c38a77f2b2243e969875260c949163e9f201913d",
+          25
+        ]
+      ],
+      "original_12_frame_sha256": [
+        "1f71201fcf52cb15d101ea83c0ec75c55f7e05bfbf1d784f4da7fe17127b123d",
+        "0fc3958a577572bef4a7fa4bd2a9c45d51cff21de9f788087ed47b2c68607ef5",
+        "af69dbecfb768ba4dbd30deb6ce917ccc538d1814bb6b2cbb638019de023ee55",
+        "d6fb3e7aece9f40ec9c62724b3b1bb2c9c743fdd77240620f5364850194102dd",
+        "58d762242cbaedd3a95c1ae83b7b2c0b9058528e200245fd3d91aa5c411b91ba",
+        "5cacedbbf7ce54148ebdc08e03bddf77352e7a4a4f745b2e1cfabbff0658a822",
+        "afc7072d6e8169558ae4f6fb9a8dcf870201f0c6d2f317c175102b0c59cd5350",
+        "61356b919f27c4a8d8bd67598e68651528280328bc2fcfb2e774738c24f50c9c",
+        "21d0cccf134caa915757ed730aef0818606481977c608f815c721b14111669ce",
+        "441ea858acba861ba812165ab542f3ccde983f0b8ac1afd11c908e996d614c3a",
+        "e33e56975b3d4a193c6f6a58221e07e14e7d69632b52ff22ec4fdcccfd54b73f",
+        "3d39bb95f3db44a423f3cf23a6737009c663e8e0aff78d50d33738b8ea6e5c3b"
+      ],
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0
+      },
+      "result": {
+        "binding_sha256": "fa23f3b8ca78e802ac054c7b7f36467d4ec79566868d6b7b76a5d77177c722c7",
+        "calculated_at": "2026-10-21T20:34:27.124238Z",
+        "farm": {
+          "crop_id": "crop-1",
+          "registration_sha256": "51219cd69bc0d81dce38d546aa584ec2306a689d44d61538125601ffc88637c0",
+          "scenario_id": "farm-1",
+          "scenario_revision": "r1"
+        },
+        "input_evidence_sha256": "8ad008483dbe8fb91f94dc033fb39cfaaac87832d37fee6d8020cb421806b662",
+        "numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "program_sha256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3",
+        "result_sha256": "428349230f6551e89d9890d855c5c5b7b897368f4f38524b9000f2b15c054f47",
+        "revision": "r1",
+        "source_sha256": "877ef02b25869c5e099312734aa236613cf1f607daec097a95b4fb54da064490",
+        "study_id": "synthetic-morphology-native-study"
+      },
+      "single_replay_bytes": 35683,
+      "single_replay_seconds": 4.484983567999734
+    },
+    "execution-query-pending-cancel.json": {
+      "actual_independent_cancel_between_reads": true,
+      "next_current_state": "canceled",
+      "pending_not_stale_queued": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0
+      }
+    },
+    "execution-query-replay-late.json": {
+      "database_sha256_before_after": [
+        [
+          "a84f01718febadcd36e6759a5f4cf462eedceae1b430241a17c9d223face1e7e",
+          25
+        ],
+        [
+          "a84f01718febadcd36e6759a5f4cf462eedceae1b430241a17c9d223face1e7e",
+          25
+        ]
+      ],
+      "late_last_frame_rights_rejected_whole_response": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0
+      }
+    }
+  },
+  "reference_controls_passed": 9,
+  "schema_version": "morphology-execution-query-acceptance-v1",
+  "scope": "software_research_only"
+}

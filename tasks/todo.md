@@ -21,11 +21,14 @@
   [제어30/관련653·실제 SCRAM2/fresh](../research/crop-morphology-signed-artifact-20261022.md), 원 root/12프레임·14모듈 import0,
   25표 원 행 SHA·현재/늦은 철회·원15파일/6root와 소유 정리를 확인했다.
 
-- [ ] **`morphology-execution-core`** — [기존 작업/완료 참조 계약](../contracts/crop-morphology-execution-v1.md).
+- [x] **`morphology-execution-core`** — [기존 작업/완료 참조 계약](../contracts/crop-morphology-execution-v1.md).
   - [x] E1 현재 원 입력/binding·intent HMAC/기존 submit의 멱등·commit fence. [제어11/실제 SCRAM2](../research/crop-morphology-execution-admission-20261022.md), 1행/충돌/commit 철회·26계측0/원 표·6root/정리 수용.
   - [x] E2 해당 input_version의 worker·실제 producer/현재성·lease/cancel/원자 opaque 참조/terminal 게시·기존 다른 job 보존. [참조9/실제 SCRAM5](../research/crop-morphology-execution-worker-20261022.md), 실제1계산·원 root/재접수0계산·취소/늦은 권리/만료 게시0·6root/정리 수용.
-  - [ ] E3 같은 job/publication·현재 manifest/frame/원 시각/ID·fresh/현재 철회·조회 계산/쓰기0.
+  - [x] E3 같은 job/publication·현재 manifest/frame/원 시각/ID·fresh/현재 철회·조회 계산/쓰기0. [제어9/실제 SCRAM5](../research/crop-morphology-execution-query-20261022.md), 원12프레임/재생 묶음·25표 원 SHA/15 import/쓰기0·늦은 철회/Pending/6root·정리 수용.
   보호 API와 제품 UI/실제 CLI 전체 경로·독립 자료/관문은 뒤따르는 단계다.
+
+- [ ] **`morphology-execution-http`** — 선행: `morphology-execution-core`. 표준 인증/Scope·현재 같은 tenant/services로 POST 접수/GET 상태·manifest/frame/replay/POST 취소를 연결한다. body/query/권한·늦은 변경·멱등/충돌/현재 권리·원 결과/UTC·실제 SCRAM/HTTPS 및 기본 disabled 조립을 검사한다. 취소는 자료 권리 철회 뒤에도 허용하되 다른 모델의 job은 건드리지 않는다.
+- [ ] **`morphology-execution-web`** — 선행: 위 HTTP. 사용자에게 접수·현재 실제 단계/보류/취소·완료 결과와 같은 UTC의 기존 사실적 3D/표/그래프를 연결한다. 메뉴 이동·새로고침 뒤 같은 job 재조회, 오래된 응답 무시/철회 때 제거·중복 계산0·모바일/실제 브라우저·원 화면/자원 보존이 수용 기준이다. 실제 품종·과실/수확/예측/추천은 별도다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.

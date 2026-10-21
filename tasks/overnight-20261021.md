@@ -61,3 +61,6 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 - [현재 농장 결속](../research/crop-morphology-farm-binding-20261022.md):제어28/실제 SCRAM3·관련623검사, 원 binding/fresh·현재/늦은 철회/DB와6root를 수용했다. 다음은 완료 수치 artifact의 서명·현재 readonly 조회다.
 - [완료 수치 서명/현재 조회](../research/crop-morphology-signed-artifact-20261022.md):제어30/관련653·실제 SCRAM2/fresh, 원 root/12프레임·25표 원 SHA와 import/쓰기0·6root를 수용했다. 다음은 기존 작업 표의 접수/완료 참조→API/제품 UI다.
 - [E1 기존 표 접수](../research/crop-morphology-execution-admission-20261022.md):제어11/실제 SCRAM2·같은1행/commit 철회 rollback·26계측0/6root를 수용했다. E2 worker와 E3 현재 조회를 이어간다.
+
+- [E2 실제 worker](../research/crop-morphology-execution-worker-20261022.md):참조9/실제 SCRAM5·원자 게시/취소·만료·늦은 철회 수용.
+- [E3 현재 query](../research/crop-morphology-execution-query-20261022.md):제어9/실제 SCRAM5·원12프레임/재생 묶음·fresh/현재 철회/동시 cancel·조회 계산/쓰기0 수용. 다음은 보호 HTTP와 사용자 화면이다.

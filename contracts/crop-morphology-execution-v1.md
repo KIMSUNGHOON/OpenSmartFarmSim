@@ -1,7 +1,8 @@
 # 형태 계산의 접수·완료 참조와 현재 조회 — v1
 
 상태: [E1 제어11/실제 SCRAM2](../research/crop-morphology-execution-admission-20261022.md),
-[E2 참조9/실제 SCRAM5](../research/crop-morphology-execution-worker-20261022.md) 수용. E3와 HTTP/UI는 후속이다.
+[E2 참조9/실제 SCRAM5](../research/crop-morphology-execution-worker-20261022.md),
+[E3 제어9/실제 SCRAM5](../research/crop-morphology-execution-query-20261022.md) 수용. HTTP/UI는 후속이다.
 
 선행: [완료 수치 서명/현재 조회](crop-morphology-signed-artifact-v1.md).
 기존 JobStore의 deterministic simulation·jobs/job_attempts/job_events/job_publications/attempt_outcomes를 사용한다.
@@ -37,6 +38,12 @@ AI 전용 attempt_invocations에 가짜 CLI 호출을 넣지 않는다. 완료 �
 같은 job의 닫힌 input·publication/ref/hash를 검증하고 현재 표시 권리를 확인한 뒤 status/manifest/frame을 조회한다.
 원 서명 결과 ID/calculated_at·numerical root/원 DTO를 보존하고 조회 계산/쓰기/CLI0을 요구한다.
 generic job artifact에는 원 crop 값/농장 문서 없이 opaque 참조만 넣는다. 수치는 현재 검사를 통과하는 전용 query로 읽는다.
+`MorphologyExecutionQuery.read(tenant,job_id,view='status'|'manifest'|'frame'|'replay',index=None)`는
+닫힌 `morphology-execution-read-v1` 응답에 실제 job/cancel_requested·관측 시각과 현재 결과를 담는다.
+frame만0이상 정수 index를 받는다. replay는 같은 수치 root의 원 DTO 묶음이며 전체 응답2MiB를 넘으면 보류한다.
+각 원 DTO의 reader 검사를 유지하고 묶음 앞뒤 farm/자료 권리·원 signature/같은 job publication을 검사한다.
+state/publication/event/outcome이 조회 중 바뀌면 Pending으로 재조회한다. 권리 철회는 이전 결과 fallback 없이 보류한다.
+계산 자료의 사용 권리가 철회된 작업의 상태 확인/취소에는 기존 generic job metadata 경로를 쓸 수 있다.
 프로젝트 UI의 접수/재접속과 보호 HTTP는 이 core 수용 뒤 연결한다. 전체 CLI 지역 조사/선정·G0–G4는 별도다.
 
 수용은 접수(권한·commit fence·멱등/충돌/0계산) → worker(정상/hold/취소/lease·원 서명과 원자 게시) →
