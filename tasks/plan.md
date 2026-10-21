@@ -3127,3 +3127,8 @@ core6→fences8로 실행한다. 현재 WSL 부팅 복구와 독립인 hosted �
 **WSL 재시작 복구 수용:** [인증 조회/원 자료·5root](../research/WSL-post-boot-recovery-20261021.md)를 보존했다.
 CO₂ 수집 로그의 원 두2MiB ID를 유지한 출력 수정 뒤 최종232(14+218)/6·8 분할과241bytes 로그를 확인했다.
 다음은 수정 source2ae6684의 실제 core6 CI39558663729 대사→같은 source fences8이며 전체 제품 일정/관문은 유지한다.
+
+**HTTP 실제 core6 수용:** [CI39558663729](../research/api-crop-greenhouse-co2-execution-http-20261021.md)의
+원11산출물/정확한232수집·349지문·접수 retry/진행·취소 ack·권리 철회 뒤 cancel-only·
+normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다음은 같은 source의 fences8이다.
+전체 HTTP/runtime/3D/WSL 적용·후속 M1/M2와 실제 자료 관문은 남는다.

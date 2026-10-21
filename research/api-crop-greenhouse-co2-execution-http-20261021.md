@@ -58,3 +58,18 @@ plugin으로 전체232 ID의 hash/파일별 개수와 native14의 원 ID·분할
 실제 로컬 수집232=신규14+기존218, 큰 ID2개·최대2,097,236bytes를 확인했고 출력은241bytes다.
 4.216087904초·단일170,160,128/합1,005,072,384bytes·FD4→4·원 자료/5root/정리0이다.
 349지문 중 controller만 바뀌고 나머지348·모든 제품/원 fixture는 같다. 실제 hosted native6→8은 후속이다.
+
+## 실제 SCRAM/검증 TLS core6 수용
+
+[CI39558663729](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39558663729)의
+[11개 원 산출물](artifacts/api-crop-greenhouse-co2-execution-http-native-core-20261021.json)을 대사했다.
+최종232 수집은 로컬 기록과 정확히 같고349지문도 preflight/현재와 같다.
+같은 접수 retry·원 진행/UTC·취소 요청/worker ack, 권리 철회 뒤 cancel-only,
+정상/수치 hold의 기존 저장 응답과 closed prefix를 확인했다. 읽기 scope의 원3view/selector/최초 시각·
+공개 원 bytes와 실제32초 wet/dry 전환의 같은 UTC8 forcing→관리→출력을 보존했다.
+제품 조회31계측/CLI/SQL쓰기0·조회 DB 불변과 실제 TLS CA/호스트 검사를 확인했다.
+
+212.412941703초·단일 PID195,297,280/합300,355,584bytes·FD6→6·collect/tests0·
+소유 process/PG/schema/role/임시/passfile0이며 원600초/512MiB PID/1GiB 안이다.
+다음은 같은349 source의 fences8이다. 전체 HTTP 부모·runtime/독립 unpaused worker/같은 UTC3D와
+새 CO₂/WSL 적용·전체 작기/자원/경제·실제 자료/관문은 미완료다.
