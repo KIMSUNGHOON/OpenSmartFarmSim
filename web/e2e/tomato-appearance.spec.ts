@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 test('real geometry renders and camera controls change the WebGL view without crop requests',async({page})=>{
   const errors:string[]=[],api:string[]=[];
   page.on('pageerror',error=>errors.push(error.message));
+  page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
   page.on('request',request=>{if(new URL(request.url()).pathname.startsWith('/v1/'))api.push(request.url());});
   await page.setViewportSize({width:1440,height:1000});
   await page.goto('/crop-appearance.html');
