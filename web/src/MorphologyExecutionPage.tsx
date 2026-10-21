@@ -104,7 +104,7 @@ export default function MorphologyExecutionPage(){
         {pending&&<p>응답이 유실돼도 같은 요청으로 접수를 확인합니다. 확인 전 새 요청을 만들지 않습니다.</p>}
       </article>
       <article className="morph-execution-status" aria-label="서버 계산 상태"><span className="morphology-eyebrow">SERVER EXECUTION</span>
-        <h2 role="status">{busy==='submit'?'새 계산 접수 확인 중':pending?'새 접수 확인 필요':status?.cancel_requested?'취소 요청됨 · 확인 대기':job?stateLabel[job.state]:busy==='connect'?'연결 확인 중':'아직 접수한 계산이 없습니다'}</h2>
+        <div role="status"><h2>{busy==='submit'?'새 계산 접수 확인 중':pending?'새 접수 확인 필요':status?.cancel_requested?'취소 요청됨 · 확인 대기':job?stateLabel[job.state]:busy==='connect'?'연결 확인 중':'아직 접수한 계산이 없습니다'}</h2></div>
         <ol hidden={!!pending}>{['접수','계산','저장 완료'].map((label,index)=><li key={label} aria-current={index===1&&job?.state==='simulating'?'step':undefined}
           data-complete={!!job&&(index===0||job.state==='succeeded')}>
           <span>{index+1}</span>{label}</li>)}</ol>
