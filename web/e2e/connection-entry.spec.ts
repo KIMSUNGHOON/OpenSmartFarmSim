@@ -100,6 +100,7 @@ for(const ventilation of [false,true]){
     await page.getByRole('button',{name:'연결 설정',exact:true}).click();
     await page.getByRole('button',{name:'09 계산 진행 상태',exact:true}).click();
     await expect(page.getByLabel('계산 작업 ID',{exact:true})).toHaveValue('');
+    await expect(page.getByLabel('검토된 계산 접수 파일')).toHaveValue('');
     await expect(page.getByRole('button',{name:'계산 접수',exact:true})).toBeDisabled();
     await page.clock.fastForward(60_000);expect(counts).toEqual({posts:1,reads:1});
   });

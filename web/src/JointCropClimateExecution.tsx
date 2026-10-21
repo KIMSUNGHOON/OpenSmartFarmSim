@@ -35,6 +35,7 @@ export default function JointCropClimateExecution({api,active=true}:{api:Api|nul
   const [submitBusy,setSubmitBusy]=useState(false),[cancelBusy,setCancelBusy]=useState(false),[restart,setRestart]=useState(0);
   const [pageVisible,setPageVisible]=useState(()=>document.visibilityState!=='hidden');
   const visible=active&&pageVisible;
+  const fileInput=useRef<HTMLInputElement>(null);
   const [opened,setOpened]=useState<JointCropClimateLookup|null>(null);
   const [prefix,setPrefix]=useState<JointPrefixSnapshot|null>(null),[prefixObserved,setPrefixObserved]=useState<string|null>(null);
   const [prefixUnavailable,setPrefixUnavailable]=useState(false);
@@ -48,7 +49,7 @@ export default function JointCropClimateExecution({api,active=true}:{api:Api|nul
     setLastObserved(null);setConnection('idle');setSubmitBusy(false);setCancelBusy(false);
     setPrefix(null);setPrefixObserved(null);setPrefixUnavailable(false);prefixDisabled.current=false;
   }
-  useEffect(()=>{reset();setRequest(null);setFields(EMPTY);return()=>{epoch.current++;
+  useEffect(()=>{reset();setRequest(null);setFields(EMPTY);if(fileInput.current)fileInput.current.value='';return()=>{epoch.current++;
     submitAbort.current?.abort();cancelAbort.current?.abort();pollAbort.current?.abort();};},[api]);
   useEffect(()=>{const change=()=>setPageVisible(document.visibilityState!=='hidden');
     document.addEventListener('visibilitychange',change);return()=>document.removeEventListener('visibilitychange',change);},[]);
@@ -155,7 +156,7 @@ export default function JointCropClimateExecution({api,active=true}:{api:Api|nul
       <p>작업을 연결하면 서버 상태·확정 계산 걸음·마지막 확인 시각이 표시됩니다. 개발용 별도 DB의 작업은 이 화면에 자동 표시되지 않습니다.</p>
     </section>}
     <section className="panel"><h2>등록 입력으로 계산 시작</h2><form onSubmit={submit}>
-      <label>검토된 계산 접수 파일<input type="file" accept="application/json,.json" disabled={submitBusy||cancelBusy}
+      <label>검토된 계산 접수 파일<input ref={fileInput} type="file" accept="application/json,.json" disabled={submitBusy||cancelBusy}
         onChange={event=>void chooseFile(event.target.files?.[0])}/></label>
       <p className="crop-caption">서버에 등록된 입력의 접수 JSON을 선택하세요. 원자료·인증 정보는 넣지 않습니다. 자료 권리는 서버에서 다시 확인합니다.</p>
       {request&&<p>선택한 연구: {request.study_id} / {request.revision} · 작물 {request.farm.crop_id}</p>}
