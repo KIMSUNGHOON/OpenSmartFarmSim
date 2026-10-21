@@ -1,5 +1,9 @@
 # OpenSmartFarmSim
 
+**정확 출현 시각의 저장3D — 2026-10-22:** [새 형태 재생](http://localhost:5173/morphology-lab/morphology-rational-replay.html)에서 자체 합성 하루/12시점을 확인합니다.
+원점+분수 초·원 길이/기관 ID를 실제3D·표·그래프/재생과 대사했고 기존 v1/다른 화면을 보존했습니다.
+고정3복엽은 제작 외형이며 실제 품종/한 작기·생산·자원/경제와 제품 통합은 후속입니다. [검증 범위](research/morphology-rational-stored-replay-20261022.md).
+
 **저장 줄기 3D — 2026-10-22:** [형태 재생 화면](http://localhost:5173/morphology-lab/)에서 `저장 결과 재생`을 눌러 확인할 수 있습니다.
 자체 합성12시점의 절간 길이와 같은 UTC의3D·표·그래프를 실제 브라우저에서 대사했습니다. 고정3복엽은 제작 외형이며 실제 품종/한 작기·수확/수익·추천 검증은 후속입니다. [검증/남은 범위](research/morphology-stored-replay-20261022.md).
 

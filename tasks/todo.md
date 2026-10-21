@@ -103,9 +103,11 @@
     별도 프로세스의 원 bytes/단위/UTC·계산/import0·재보관/변조/미지원 보류와 역사 v1/12프레임·6root를 확인한다.
     원점/분수 출현 정보를 잃는 암묵 변환은 금지하며 농장 등록/권리·서명은 별도다.
     [505검사/실제 원3결과·fresh3 DTO](../research/crop-rational-morphology-artifact-20261022.md),9모델/17코드·역사12프레임 bytes/성장12모듈 import0/DB0·6root를 확인했다.
-  - [ ] **`morphology-rational-stored-frame-3d`** — 위 artifact를 계산 없이 export/typed 조회해 같은 저장 UTC의3D·표·그래프에 연결한다.
+  - [x] **`morphology-rational-stored-frame-3d`** — 위 artifact를 계산 없이 export/typed 조회해 같은 저장 UTC의3D·표·그래프에 연결한다.
     정확 출현/길이·기관 ID/합계·첫/끝/재생/모바일과 이전12프레임/원190·223·137파일/6root를 검증한다.
     기존 authored 잎·표면 가정은 분리하며 실제 품종/키·과실/생산량을 추가로 추정하지 않는다.
+    [CI38/브라우저11·실제 native/175 HTTP파일](../research/morphology-rational-stored-replay-20261022.md)에서 원점/분수 초·길이/mesh ID·재생·mobile/GET13·6root와 원190/223/137파일을 확인했다.
+    graphics driver 진단·농장 custody/최종 제품 통합·실제 품종/한 작기 검증은 남는다.
     - [x] **`morphology-rational-public-export`** — [508검사/실제12 DTO·15파일](../research/crop-rational-morphology-export-20261022.md).
       재배포 권리/덮어쓰기 거부·fresh 모델 import/DB0, 새 원 bytes/기존15파일·6root를 확인했다.
       typed frontend/실제 WebGL·배포는 부모의 남은 수용이다.

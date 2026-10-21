@@ -1,6 +1,7 @@
 # 정확 출현 시각의 저장 형태 3D — v2 연구 화면
 
-상태: 구현/수용 전. [공개 v2 export](../research/crop-rational-morphology-export-20261022.md)가 선행이다.
+상태: [CI38/브라우저11·실제 native 수용](../research/morphology-rational-stored-replay-20261022.md).
+[공개 v2 export](../research/crop-rational-morphology-export-20261022.md)가 선행이다.
 현재 authored 복엽/표면·장면과 같은 디자인을 재사용하며 새 프레임의 원 길이/기관 ID만 geometry에 연결한다.
 새 앱/프레임워크·작물 runtime/API·과실 애니메이션을 만들지 않는다.
 

@@ -48,3 +48,9 @@
 - [정확 시각 기관 목록](../research/crop-rational-shoot-inventory-20261022.md):473검사·독립34길이/6합계와 분할12기관 수용. 다음은 새 저장 판본/계산 없는 조회→같은 UTC3D다.
 - [별도 불변 v2/계산 없는 조회](../research/crop-rational-morphology-artifact-20261022.md):505검사·실제3원결과/fresh3 DTO와 역사12프레임/import·DB0 수용. 다음은 export/같은 UTC3D다.
 - [v2 공개 export](../research/crop-rational-morphology-export-20261022.md):508검사·실제12 DTO/15파일·원15파일/import·DB0 수용. 다음은 typed frontend/별도 진입·실제3D/배포다.
+- [정확 출현 저장3D](../research/morphology-rational-stored-replay-20261022.md):CI38/브라우저11·실제 native/175 HTTP파일·원190/223/137파일/6root 보존 수용. 원점/분수 초·원 길이/mesh ID와 재생을 대사했고 창은 마지막/정지로 열어 두었다.
+
+위 첫4실행 확인점은 합성 연구 경로에서 수용했다. 실제 품종/독립 자료와 제품 전체 완료는 별도다.
+오전9시까지 기존 지시에 따라 계속하며, 현재 인증06:37 KST 만료를 근거로 기존 화면 갱신을 준비한다.
+현재 lab alias/index·같은 토큰/키/물리 DB/원 결과를 보존하고 실제 조회/자원을 대사한 뒤 제품 통합 의존성을 점검한다.
+native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이며 이 구현 수용을 기존 전체 goal 완료로 처리하지 않는다.
