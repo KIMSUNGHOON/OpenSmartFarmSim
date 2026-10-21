@@ -1,6 +1,6 @@
 # CO₂ 접수·진행·취소·확정 구간 보호 HTTP — v1 계획
 
-Status: base execution3 implemented; control/regression375 accepted. Explicit prefix3 and native SCRAM/TLS acceptance pending.
+Status: base execution3/control375 and explicit prefix3/control425 implemented. Native SCRAM/TLS14 acceptance pending.
 선행은 [공개 응답110개 전체 수용](api-crop-greenhouse-co2-prefix-v1.md),
 현재 CO₂ admission/checkpoint/worker/query와 [기존 결과 HTTP](api-crop-greenhouse-co2-route-v1.md) 기능이다.
 [기존 Solar HTTP 경계](api-crop-greenhouse-solar-execution-http-v1.md)를 같은 modular FastAPI 앱에 결속한다.

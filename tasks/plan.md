@@ -3115,3 +3115,11 @@ preflight/core/fences/regression의343지문과 고유110 ID를 결속했고 공
 새 계산·CI를 제출하지 않고 [재개 지점](RESTART_HANDOFF_20261021.md)을 저장했다.
 보호 실행 base375는 수용했고 이후 prefix 제어425/native14 수집과 미완성 controller/workflow는
 중단 checkpoint다. 실제 native 수용/부모 체크·새 CO₂ 적용은 미완료로 유지한다.
+
+## 재개 후 CO₂ HTTP native 검증 — 2026-10-21
+
+보존된 prefix 제어425 뒤 [현재349지문/실제 TLS14 준비](../research/api-crop-greenhouse-co2-execution-http-20261021.md)를
+core6→fences8로 실행한다. 현재 WSL 부팅 복구와 독립인 hosted 첫 phase에서 최종14/기존218의
+수집을 검사한 뒤 실제 시험을 실행한다. 원600초/512MiB/1GiB와 모든 사례를 유지한다.
+한 배치가 terminal success이고 원 산출물 대사가 끝난 뒤 다음 배치를 제출한다.
+그 뒤 runtime→typed web/같은 UTC3D→사용자 적용이다. 실제 자료/관문과 전체 M1/M2는 남는다.

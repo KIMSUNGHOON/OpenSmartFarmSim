@@ -7,7 +7,7 @@ on:
         description: Focused CO2 functional evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint, co2-worker-core, co2-worker-consumer, co2-execution-query, co2-execution-query-fences, co2-prefix-core, co2-prefix-fences, co2-prefix-concurrent, co2-prefix-projection-core, co2-prefix-projection-fences, co2-prefix-projection-regression]
+        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint, co2-worker-core, co2-worker-consumer, co2-execution-query, co2-execution-query-fences, co2-prefix-core, co2-prefix-fences, co2-prefix-concurrent, co2-prefix-projection-core, co2-prefix-projection-fences, co2-prefix-projection-regression, co2-execution-http-core, co2-execution-http-fences]
   push:
     branches: [main]
   pull_request:
@@ -204,7 +204,7 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint' || inputs.verification_scope == 'co2-worker-core' || inputs.verification_scope == 'co2-worker-consumer' || inputs.verification_scope == 'co2-execution-query' || inputs.verification_scope == 'co2-execution-query-fences' || inputs.verification_scope == 'co2-prefix-core' || inputs.verification_scope == 'co2-prefix-fences' || inputs.verification_scope == 'co2-prefix-concurrent' || inputs.verification_scope == 'co2-prefix-projection-core' || inputs.verification_scope == 'co2-prefix-projection-fences' || inputs.verification_scope == 'co2-prefix-projection-regression')
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint' || inputs.verification_scope == 'co2-worker-core' || inputs.verification_scope == 'co2-worker-consumer' || inputs.verification_scope == 'co2-execution-query' || inputs.verification_scope == 'co2-execution-query-fences' || inputs.verification_scope == 'co2-prefix-core' || inputs.verification_scope == 'co2-prefix-fences' || inputs.verification_scope == 'co2-prefix-concurrent' || inputs.verification_scope == 'co2-prefix-projection-core' || inputs.verification_scope == 'co2-prefix-projection-fences' || inputs.verification_scope == 'co2-prefix-projection-regression' || inputs.verification_scope == 'co2-execution-http-core' || inputs.verification_scope == 'co2-execution-http-fences')
     name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -253,6 +253,22 @@ jobs:
           name: ${{ inputs.verification_scope }}-${{ github.sha }}
           path: |
             ${{ runner.temp }}/co2-projection-evidence/tests.json
+            ${{ runner.temp }}/co2-projection-evidence/collection.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/database-cleanup.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-lifecycle.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-terminal-succeeded.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-terminal-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-rights-cancel.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-views-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-views-basis-transition.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-late-rights.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-late-page.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-late-witness.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-late-program.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-actor-heartbeat.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-actor-cancel.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-append-False.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-http/native-prefix-append-True.json
             ${{ runner.temp }}/co2-projection-evidence/prefix-projection/pure-original.json
             ${{ runner.temp }}/co2-projection-evidence/prefix-projection/pure-basis-transition.json
             ${{ runner.temp }}/co2-projection-evidence/prefix-projection/schema.json

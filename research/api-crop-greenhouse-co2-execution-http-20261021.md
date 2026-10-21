@@ -29,3 +29,19 @@ OpenAPI 생성만 기존 schema guard가 허용하는 contracts/openapi-v1.json 
 다음은 같은 실행 graph를 명시한 prefix3경로→실제 SCRAM/검증 TLS·원 byte/UTC/계산·조회쓰기0 수용이다.
 이후 runtime/독립 worker→typed web/같은 UTC3D→사용자 적용을 진행한다.
 새 CO₂ 사용자 배포·공통 WSL 용량/전체 작기·자원/경제·최종 UI/실제 CLI 종단 간·실제 농장0/관문은 미완료다.
+
+## 확정 구간 HTTP 제어425 / 실제 TLS14 준비
+
+[중단 checkpoint](artifacts/restart-checkpoint-20261021.json)의 원425검사/20.916533687초·
+단일204,627,968/합868,106,240bytes·원2148/5root/정리0을 보존했다.
+명시된 같은 실행 graph의 prefix3경로·닫힌 선택/64·8/2MiB·현재 권리/identity·전송 해제를 확인했다.
+첫 forwarding fixture4실패는 기존 결과 installer를 완전히 구성하지 않은 단위 조립이어서,
+그 단위 시험의 기존 installer 대역만 보완했다. 실제 전체 graph 검증은 아래 native 단계다.
+
+[최종 source/실행 준비](artifacts/api-crop-greenhouse-co2-execution-http-native-preflight-20261021.json)는
+원 Solar 실제12와 CO₂ basis/늦은 program2의14개를 core6→fences8로 실행한다.
+현재349지문을 고정했고 CI 첫 phase가 최종 native14/기존 co2-http218의 수집·서로 겹치지 않는6/8을
+검증한다. 수집 성공과 실제 실행/수용은 구분한다. 원600초/512MiB PID/1GiB를 유지하며
+의도된 actor/HEAD SQL은 조회 DB 불변과 별도로 검사한다.
+누락 witness는 source/직렬화 전, 늦은 권리/페이지/프로그램은 최종 직렬화 뒤 거부한다.
+실제 SCRAM/TLS 수용 전 HTTP 부모/새 CO₂ 적용은 미완료다.

@@ -291,6 +291,11 @@ def supervise(directory):
         expected = 6 if mode == 'co2-execution-http-core' else 8
     plans = [('tests', [sys.executable, '-B', '-m', 'pytest', *targets,
         '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
+    if execution_http:
+        plans.insert(0, ('collect', [sys.executable, '-B', '-m', 'pytest', '--collect-only', '-q',
+            'tests/test_api_crop_greenhouse_co2_execution_http_native.py',
+            'tests/test_api_crop_greenhouse_co2_route.py', 'tests/test_api_crop_greenhouse_co2_native.py',
+            'tests/test_api_crop_greenhouse_solar_route.py', 'tests/test_api_openapi.py']))
     for status in (() if current or http or admission or checkpoint or worker or consumer or query or prefix or prefix_projection or execution_http else ('completed', 'hold')):
         plans.append(('fresh-'+status, [sys.executable, '-B', str(Path(__file__).resolve()), 'fresh',
             str(directory/('co2-projection-store-'+status+'-fresh-pack.private.json')),
@@ -318,6 +323,19 @@ def supervise(directory):
                     'log_sha256': sha256(log.read_bytes()).hexdigest(),
                     'failed_nodes': [line.split(' - ', 1)[0] for line in lines if line.startswith('FAILED ')]})
                 break
+            if phase == 'collect':
+                collected = [line for line in log.read_text(errors='replace').splitlines()
+                    if line.startswith('tests/') and '::' in line]
+                native_nodes = [n for n in collected if n.startswith('tests/test_api_crop_greenhouse_co2_execution_http_native.py::')]
+                assert len(collected) == len(set(collected)) == 232 and len(native_nodes) == 14
+                batches = {name: [n for n in native_nodes if n.split('::')[1].split('[')[0] in functions]
+                    for name, functions in (('core', EXECUTION_HTTP_CORE), ('fences', EXECUTION_HTTP_FENCES))}
+                assert len(batches['core']) == 6 and len(batches['fences']) == 8
+                assert set(batches['core']).isdisjoint(batches['fences'])
+                save(directory/'collection.json', {'native_cases': 14, 'existing_co2_http_cases': 218,
+                    'native_batches': batches, 'collected_nodeids': collected,
+                    'collection_only_not_runtime_acceptance': True,
+                    'log_sha256': sha256(log.read_bytes()).hexdigest()})
             if phase == 'tests':
                 text = log.read_text(errors='replace')
                 assert re.search(rf'\b{expected} passed\b', text) and ' skipped' not in text
@@ -339,7 +357,8 @@ def supervise(directory):
                         assert record['replies'] and all(r['bytes'] <= 2*1024**2 for r in record['replies'])
                         if name != 'native-rights-cancel':
                             assert len(record['calls']) == 31 and not any(record['calls'].values())
-                            assert record['query_DB_unchanged']
+                            if not name.startswith(('native-prefix-actor-', 'native-prefix-append-')):
+                                assert record['query_DB_unchanged']
                     if core:
                         assert records['native-lifecycle']['same_job_retry'] and records['native-lifecycle']['worker_ack_required']
                         assert records['native-rights-cancel']['source_rights_withdrawn'] and records['native-rights-cancel']['cancel_only_without_metadata']
