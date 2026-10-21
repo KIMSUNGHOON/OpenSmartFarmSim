@@ -1,8 +1,8 @@
 # CO₂ 확정 구간 공개 응답 — 순수 구현/검증
 
-**현재 순수87/실제 SCRAM core7·fences10 수용.** [CI39544290911](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39544290911)의
+**현재 고유110개 전체 공개 응답 수용.** [CI39544290911](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39544290911)의
 [11개 원 산출물·343지문](artifacts/api-crop-greenhouse-co2-prefix-native-core-20261021.json)을 대사했다.
-늦은 변경10도 아래 증거로 수용했다. 독립/회귀93과 전체110 수용·공개 응답 부모/HTTP/runtime/3D는 남는다.
+아래 최종 회귀93과 동일343지문을 대사해 공개 응답 부모를 수용했다. HTTP/runtime/3D와 사용자 적용은 후속이다.
 
 [계약](../contracts/api-crop-greenhouse-co2-prefix-v1.md) · [87검사/원 증거](artifacts/api-crop-greenhouse-co2-prefix-pure-20261021.json).
 
@@ -98,3 +98,23 @@ private/confirmed append2개에서도 선택한 원 페이지·UTC/최초 시각
 현재 실제 공개 native17을 수용했다. 남은93은 순수87 재검증+독립 fresh1+영향 raw5이며 이전87을 중복 합산하지 않는다.
 전체110 전 공개 응답 부모는 미완료다. 이후 보호 실행 HTTP/runtime→같은 UTC3D→WSL/사용자 적용이다.
 전체 작기/자원/경제·실제 자료/관문·최종 UI와 전체 완료일 미정은 유지한다.
+
+## 최종 독립/회귀93 및 공개 응답110 수용
+
+[CI39546601275](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39546601275)의
+[최종 결속 증거](artifacts/api-crop-greenhouse-co2-prefix-20261021.json)는 원15개 산출물·93통과/skip0이다.
+순수83/private source4를 재확인하고 독립 producer→reader1/영향 raw5를 통과했다. 독립 producer는
+원1→9걸음의 tail을 만들고 reader는 선택한 이전 원문(관측 시각 제외)/페이지·UTC/최초 확정 시각을
+그대로 읽었다. create/execute/write scope 없이 원31계측·CLI/SQL쓰기0, owner 후검사/검토 철회 거부를 확인했다.
+이는 실제 별도 프로세스의 합성 계약 검증이며 unpaused runtime/전체 작기·현장 검증이 아니다.
+
+원 raw 회귀는 none/원 sparse 시각·이전 선택과 새 시도·owner witness/늦은 권리·선택 page의
+조회 뒤 변조5개다. 157.841769989초·단일 PID146,636,800/합322,236,416bytes·FD6→6·
+소유 process/PG/schema/role/임시/passfile0이며 원600초/512MiB/1GiB 안이다.
+preflight/core7/fences10/regression93과 수용 시점의343지문이 전부 같다.
+고유110은83+4+실제 공개17+독립1+원 회귀5이며 이전87을 중복 합산하지 않는다.
+
+공개 응답 부모를 수용했다. 다음은 기존65경로/477스키마를 보존하는 보호 접수·진행·취소3경로,
+명시 prefix3경로와 실제 SCRAM/TLS 수용이다. 이후 runtime→typed web/같은 UTC3D→사용자 적용이다.
+공통 WSL 용량/새 CO₂ 사용자 적용·전체 작기/자원/경제·최종 UI/실제 CLI 종단 간·
+독립 농장0건/G0–G4 not_assessed와 전체 완료일 미정은 유지한다.

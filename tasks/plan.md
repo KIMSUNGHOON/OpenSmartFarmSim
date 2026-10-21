@@ -3099,3 +3099,9 @@ core7 → fences10 → regression93(순수87+독립1+raw5)을 같은 source/원 
 late5/사전 witness1·독립 heartbeat/cancel2/원 HEAD append2를 수용했다. 원 UTC/최초 시각·31계측0·
 14산출물과 preflight/core/현재343지문·원 자원/정리를 확인했다. 다음은 독립/회귀93이며
 순수87을 이전 수용과 중복 합산하지 않는다. 전체110 전 부모·HTTP/runtime/3D/사용자 적용은 남는다.
+
+**공개 응답110 전체 수용:** [마지막93/CI39546601275](../research/api-crop-greenhouse-co2-prefix-20261021.md)의
+순수87·독립 producer/readonly reader1·영향 raw5와 원15산출물/31계측0/정리를 확인했다.
+preflight/core/fences/regression의343지문과 고유110 ID를 결속했고 공개 응답 부모를 수용했다.
+보호 HTTP는 원65경로/477스키마 지문을 보존해 base3→명시 prefix3→실제 SCRAM/TLS로 나눈다.
+기존 수치/worker·5서비스는 유지한다. runtime/같은 UTC3D/새 사용자 적용·전체 작기와 M1/M2는 후속이다.
