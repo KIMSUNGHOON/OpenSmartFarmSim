@@ -466,7 +466,7 @@ jobs:
         if: inputs.tomato_leaf
         working-directory: .
         run: |
-          git fetch --no-tags --depth=1 origin 7ff954b
+          git fetch --no-tags --depth=1 origin 7ff954b464a63f829f1f949621a3ec3f4d1623bd
           python3 research/prepare-retained-execution-navigation.py "$RUNNER_TEMP/ossf-legacy-tomato" --tomato-leaf --legacy-frontend
           cd "$RUNNER_TEMP/ossf-legacy-tomato/web"
           npm ci --strict-peer-deps

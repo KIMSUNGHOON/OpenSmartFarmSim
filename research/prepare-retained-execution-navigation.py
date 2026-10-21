@@ -9,7 +9,7 @@ import subprocess
 import tarfile
 
 BASE = '2aa45fa7bc219a02e6a322ca095b0e726fad82da'
-LEGACY_BASE = '7ff954b'
+LEGACY_BASE = '7ff954b464a63f829f1f949621a3ec3f4d1623bd'
 SOURCES = ('src/App.tsx', 'src/CropExecutionWorkspace.tsx',
            'src/JointCropClimateExecution.tsx', 'src/GreenhouseVentilationExecution.tsx')
 OLD = "      {view==='crop-execution'&&<Suspense fallback={<p role=\"status\">계산 상태 화면 준비 중…</p>}><CropExecution api={api}/></Suspense>}"
