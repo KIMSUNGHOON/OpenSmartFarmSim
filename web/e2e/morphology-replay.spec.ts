@@ -1,11 +1,16 @@
 import { test,expect } from '@playwright/test';
-import { mkdirSync,readFileSync } from 'node:fs';
+import { mkdirSync,readFileSync,writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const fixture=(index:number)=>JSON.parse(readFileSync(resolve(`public/morphology-replay/frame-${index}.json`),'utf8'));
 test('stored UTC, exact internode lengths, table and graph move together in actual WebGL',async({page})=>{
-  const errors:string[]=[],methods:string[]=[];
-  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'||m.type()==='warning')errors.push(m.text());});
+  const errors:string[]=[],methods:string[]=[],screenshotDriverWarnings:string[]=[];let capturing=false;
+  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{
+    if(m.type()==='warning'&&capturing&&/^\[\.WebGL-0x[0-9a-f]+\]GL Driver Message \(OpenGL, Performance, GL_CLOSE_PATH_NV, High\): GPU stall due to ReadPixels(?: \(this message will no longer repeat\))?$/.test(m.text()))
+      screenshotDriverWarnings.push(m.text());
+    else if(m.type()==='error'||m.type()==='warning')errors.push(m.text());
+  });
+  async function capture<T>(take:()=>Promise<T>){capturing=true;try{return await take();}finally{capturing=false;}}
   page.on('request',r=>methods.push(r.method()));await page.setViewportSize({width:1440,height:1100});
   await page.goto('/morphology-replay.html');const canvas=page.locator('canvas');
   await expect(canvas).toHaveAttribute('data-mapping','stored-internode-metres-straight-axis-v1',{timeout:60_000});
@@ -20,11 +25,11 @@ test('stored UTC, exact internode lengths, table and graph move together in actu
     expect(await page.locator('tbody td[data-raw-value]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('data-raw-value'))))
       .toEqual(saved.internodes.map((n:{length:{value:number}})=>String(n.length.value)));
   }
-  await check(0);const first=await canvas.screenshot();mkdirSync(resolve('../research/artifacts'),{recursive:true});
-  await page.screenshot({path:resolve('../research/artifacts/morphology-replay-first-20261022.png'),fullPage:true});
+  await check(0);const first=await capture(()=>canvas.screenshot());mkdirSync(resolve('../research/artifacts'),{recursive:true});
+  await capture(()=>page.screenshot({path:resolve('../research/artifacts/morphology-replay-first-20261022.png'),fullPage:true}));
   await page.getByRole('button',{name:'마지막',exact:true}).click();await check(11);
-  expect(Buffer.compare(first,await canvas.screenshot())).not.toBe(0);
-  await page.screenshot({path:resolve('../research/artifacts/morphology-replay-last-20261022.png'),fullPage:true});
+  expect(Buffer.compare(first,await capture(()=>canvas.screenshot()))).not.toBe(0);
+  await capture(()=>page.screenshot({path:resolve('../research/artifacts/morphology-replay-last-20261022.png'),fullPage:true}));
   const rendered=Number(await canvas.getAttribute('data-frame'));await page.waitForTimeout(1500);
   expect(Number(await canvas.getAttribute('data-frame'))).toBe(rendered);
   await page.getByRole('button',{name:'처음',exact:true}).click();await check(0);
@@ -34,6 +39,9 @@ test('stored UTC, exact internode lengths, table and graph move together in actu
   await page.getByRole('button',{name:'일시 정지',exact:true}).click();
   const index=Number(await canvas.getAttribute('data-selected-index'));await check(index);
   await page.waitForTimeout(1100);expect(Number(await canvas.getAttribute('data-selected-index'))).toBe(index);
+  writeFileSync(resolve('../research/artifacts/morphology-replay-console-20261022.json'),JSON.stringify({
+    application_errors_and_warnings:errors,screenshot_driver_readback_warnings:screenshotDriverWarnings,
+    exception_scope:'exact observed Chromium GPU ReadPixels performance warning during test screenshot calls only; other warnings fail'},null,2));
   expect(errors).toEqual([]);expect(methods.every(m=>m==='GET')).toBe(true);
 });
 
