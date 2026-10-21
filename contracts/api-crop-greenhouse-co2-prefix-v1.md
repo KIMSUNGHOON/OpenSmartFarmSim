@@ -1,6 +1,7 @@
-# CO₂ 확정 구간의 닫힌 공개 응답 — v1 계획
+# CO₂ 확정 구간의 닫힌 공개 응답 — v1
 
-Status: planned; no projection code, native acceptance or user activation.
+Status: pure implementation accepted87 (projection83 + private source4).
+[Evidence](../research/api-crop-greenhouse-co2-prefix-20261021.md). Native/fresh/affected-reader acceptance and user activation remain required.
 2026-10-21. 선행은 [확정 원 조회31검사](crop-greenhouse-co2-prefix-v1.md)의 전체 수용,
 [기존 CO₂ 공개 원량](api-crop-greenhouse-co2-replay-v1.md)과 현재 진행 응답이다.
 기존 [Solar 공개 응답](api-crop-greenhouse-solar-prefix-v1.md)의 none/closed/accepted 구분과

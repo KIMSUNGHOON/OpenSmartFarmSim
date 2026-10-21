@@ -51,6 +51,7 @@ class _ReadWitness:
     payload_sha256: str = field(repr=False)
     chosen: dict | None = field(default=None, repr=False)
     observed_head: dict | None = field(default=None, repr=False)
+    program_raw: bytes | None = field(default=None, repr=False)
 
 
 @dataclass(frozen=True)
@@ -152,6 +153,28 @@ class Co2ExecutionPrefixQuery:
         w = self._witness_for(tenant, job_id, record)
         return w is not None and _same_bundle(w.bundle, bundle)
 
+    def _source_program(self, tenant, job_id, record):
+        w = self._witness_for(tenant, job_id, record)
+        if w is None:
+            raise Co2PrefixPending('co2 prefix changed during response')
+        try:
+            payload = json.loads(record.payload_raw)
+            _need(storage._canonical(payload) == record.payload_raw)
+            if w.chosen is None:
+                _need(payload['prefix_status'] in ('none', 'closed')
+                    and payload['manifest'] is None and w.program_raw is None)
+                return None
+            _need(payload['prefix_status'] == 'accepted' and type(w.program_raw) is bytes
+                and 0 < len(w.program_raw) <= custody.continuation.MAX_CONTEXT_BYTES)
+            program = json.loads(w.program_raw)
+            _need(type(program) is dict and storage._canonical(program) == w.program_raw
+                and sha256(w.program_raw).hexdigest() == payload['manifest']['program_sha256'])
+            return program
+        except Co2PrefixHold:
+            raise
+        except Exception:
+            raise Co2PrefixHold('co2 prefix source unavailable') from None
+
     def _after_projection(self, tenant, job_id, record):
         self._guard(tenant)
         w = self._witness_for(tenant, job_id, record)
@@ -159,7 +182,7 @@ class Co2ExecutionPrefixQuery:
             raise Co2PrefixPending('co2 prefix changed during response')
         payload = json.loads(record.payload_raw)
         if w.chosen is None:
-            if payload['selection'] is not None or w.observed_head is not None:
+            if payload['selection'] is not None or w.observed_head is not None or w.program_raw is not None:
                 raise Co2PrefixPending('co2 prefix changed during response')
         elif (type(w.chosen) is not dict or type(w.observed_head) is not dict
                 or not execution._same(payload['selection'], {
@@ -181,14 +204,15 @@ class Co2ExecutionPrefixQuery:
                     self._refresh(conn, tenant, w.bundle, bundle, w.chosen, session, w.observed_head, binding)
                     page = payload['page']
                     try:
-                        checked, _ = self._accepted(session, w.chosen, bundle[1], bundle[0], binding,
+                        checked, _, program_raw = self._accepted(session, w.chosen, bundle[1], bundle[0], binding,
                             'summary' if page is None else page['kind'],
                             0 if page is None else page['start'], None if page is None else page['limit'])
                     except (PermissionError, RolePolicyHold, Co2PrefixPending):
                         raise
                     except Exception:
                         raise Co2PrefixHold('co2 prefix evidence unavailable') from None
-                    _need(execution._same(checked, {k: payload[k] for k in checked}))
+                    _need(program_raw == w.program_raw
+                        and execution._same(checked, {k: payload[k] for k in checked}))
             self.query._current(tenant, value, raw, binding)
         self._guard(tenant)
 
@@ -300,7 +324,7 @@ class Co2ExecutionPrefixQuery:
         session._guard()
         head = self._current_head(session, observed_head, chosen['reason'], previous['reason'], latest['reason'])
         if changed:
-            _, verified = self._accepted(session, latest, latest, after[0], binding, 'summary', 0, None)
+            _, verified, _ = self._accepted(session, latest, latest, after[0], binding, 'summary', 0, None)
             head = self._current_head(session, head, verified)
         if not active and not execution._same(head, observed_head):
             raise Co2PrefixPending('co2 prefix changed during read')
@@ -367,7 +391,7 @@ class Co2ExecutionPrefixQuery:
         return {'selection': {'checkpoint': p, 'checkpoint_recorded_at': execution._utc(chosen['recorded_at']),
                     'checkpoint_attempt': chosen['attempt']},
             'binding': binding, 'manifest': context['manifest'], 'time_binding': header['binding'],
-            'summary': summary if view == 'summary' else None, 'page': page}, head
+            'summary': summary if view == 'summary' else None, 'page': page}, head, storage._canonical(context['program'])
 
     def read(self, tenant, job_id, selector=None, view='summary', start=0, limit=None):
         try:
@@ -409,10 +433,10 @@ class Co2ExecutionPrefixQuery:
                 if chosen is None and view != 'summary':
                     raise Co2PrefixSelectionConflict('co2 prefix selection unavailable')
                 result = dict.fromkeys(('selection', 'binding', 'manifest', 'time_binding', 'summary', 'page'))
-                session = observed_head = None
+                session = observed_head = program_raw = None
                 if chosen is not None:
                     session = opened.enter_context(self._session(tenant, raw, binding_raw))
-                    result, observed_head = self._accepted(session, chosen, latest, job, binding_raw, view, start, limit)
+                    result, observed_head, program_raw = self._accepted(session, chosen, latest, job, binding_raw, view, start, limit)
                 self.query._current(tenant, value, raw, binding_raw)
                 with self.jobs.connect() as probe:
                     probe.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY')
@@ -437,7 +461,7 @@ class Co2ExecutionPrefixQuery:
             self._guard(tenant)
             digest = sha256(payload).hexdigest()
             return PrefixRead(payload, digest, _ReadWitness(self, tenant, job_id, deepcopy(probe_bundle), digest,
-                deepcopy(chosen), deepcopy(observed_head)))
+                deepcopy(chosen), deepcopy(observed_head), program_raw))
         except (PermissionError, RolePolicyHold, Co2PrefixPending, Co2PrefixSelectionConflict, Co2PrefixRequestRejected):
             raise
         except (custody.Co2CustodyPending, execution.Co2ExecutionQueryPending):

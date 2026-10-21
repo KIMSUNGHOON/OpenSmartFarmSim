@@ -3067,3 +3067,13 @@ core13/fences10/concurrent8을 결속했다. 제어7/실제 SCRAM23/독립 프�
 다음 `co2-prefix-projection`은 원 선택 프로그램을 private immutable witness에 결속하고 기존 CO₂ 원량/identity/
 wet-dry 타입으로 투영한다. 해당 source/page 후검사·현재 권리/2MiB·실제 native/독립 및 영향받는 원 reader 회귀를
 수용한 뒤 보호 실행 API/runtime → 같은 UTC3D → WSL/사용자 적용으로 진행한다. 전체 M1/외부 관문은 남는다.
+
+## CO₂ 확정 구간 공개 응답 — 순수87 수용 / native 준비
+
+[순수 구현/증거](../research/api-crop-greenhouse-co2-prefix-20261021.md)로 공개83/private source4를 수용했다.
+원 reader는 program canonical bytes를 private witness에만 묶으며 원 wire·수치/저장/HTTP는 유지한다.
+원 raw31은 이전 source의 수용이다. 이 증강 source의 실제 현재/후검사·독립 회귀는 아직 미수행이다.
+후속은 원 Solar의 실제 DB15/fresh1 의미를 CO₂에 결속하고 source/basis·영향받은 원 reader 회귀를
+추가한다. witness 부재는 프로그램 접근/직렬화 전에 차단해야 하며 late source/page 철회와 구분한다.
+실제 시험 수집 뒤 원600초/512MiB/1GiB 안의 서로 겹치지 않는 배치를 고정한다.
+공개 응답 부모/HTTP/runtime/3D·WSL/사용자 적용 및 기존 전체 작기/자원/경제/자료 관문은 계속 남는다.

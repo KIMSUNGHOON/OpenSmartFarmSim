@@ -1,0 +1,300 @@
+{
+  "schema_version": "co2-prefix-projection-pure-v1",
+  "recorded_at": "2026-10-21T04:12:40.984247+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-21T03:57:19.151Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "9c9ebbb8fa07b4c0e63d49e86e17f2ac7f6b62d1499493db2d27bc920f632127",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "raw31_baseline": {
+    "evidence": "research/artifacts/crop-greenhouse-co2-prefix-20261021.json",
+    "sha256": "584729f35a24a6af4eb05094af5556ac8093280fb8b65acd99bfde7336b72ea6",
+    "prefix_reader_before_extension": "00fd104bf182c64141354a887fd8c9aecdbe5358700fa6a6e06649e552713347"
+  },
+  "source_SHA256": {
+    "backend/app/api_crop_greenhouse_co2_prefix.py": "766ab3e030f96ed9459c09ca45b7eee379a16d4eef4705fafb0286c5996ada95",
+    "backend/app/crop_greenhouse_co2_prefix.py": "03d0c7442d55b4e0ab654c96b4da253fb5cea3d4769e1c754378d5a4c6f275df",
+    "backend/tests/test_api_crop_greenhouse_co2_prefix.py": "460b793a15036a909f51e62237562b13bb3e7078a646af44124e0e461ea32b49",
+    "backend/tests/test_crop_greenhouse_co2_prefix_program_witness.py": "c10c6be03fa5bd5cbfc21633d5d296dd4f4bfcbd66e655806ea4604a20b1aa83"
+  },
+  "red": {
+    "failed": 4,
+    "collection_errors": 1,
+    "reason": "new projection module and private program witness absent",
+    "receipt": {
+      "case": "focused-co2-prefix-projection-red-v1",
+      "terminal_sha256": "b7308af179d9930a5c5f604b407eba60b9889495ad21fd27f3390d7ed6c28722",
+      "pytest_log_sha256": "23b6a2bbdbb5c3224df389219cb79005587404f1c342ae36a5c0e2102e7813ba",
+      "terminal": {
+        "actual_child_exit": 1,
+        "reason": null,
+        "wall_seconds": 1.894391962006921,
+        "single_PID_peak_RSS_bytes": 116215808,
+        "combined_peak_RSS_bytes": 707096576,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "source_count": 2904,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      }
+    }
+  },
+  "first_green_attempt": {
+    "passed": 84,
+    "failed": 3,
+    "reason": "none/closed explicitly require program None; original cases all constant wet/dry; transition case must be actually recomputed",
+    "receipt": {
+      "case": "focused-co2-prefix-projection-green-v1",
+      "terminal_sha256": "4dd475fa4a375d5eaab87e83bcade5d973aace6dae3f558f88c4b885c856eb07",
+      "pytest_log_sha256": "3477da6d2d6a977f239da58a34b9e5049c4979a9318ce9c1aa8f0ade91c4ef15",
+      "terminal": {
+        "actual_child_exit": 1,
+        "reason": null,
+        "wall_seconds": 7.295238250982948,
+        "single_PID_peak_RSS_bytes": 166260736,
+        "combined_peak_RSS_bytes": 763506688,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "source_count": 2905,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      }
+    }
+  },
+  "green_v2": {
+    "passed": 87,
+    "receipt": {
+      "case": "focused-co2-prefix-projection-green-v2",
+      "terminal_sha256": "3671794d68f7c9510aab6920c618b96db6960aca7a43f6af15a5e6dbbda2631e",
+      "pytest_log_sha256": "668acfffb736d3e90573805f40c7d535a5f3c16992c81f3ea1fc81660b363c79",
+      "terminal": {
+        "actual_child_exit": 0,
+        "reason": null,
+        "wall_seconds": 7.5496083539910614,
+        "single_PID_peak_RSS_bytes": 154845184,
+        "combined_peak_RSS_bytes": 768659456,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "source_count": 2905,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      }
+    }
+  },
+  "final_green": {
+    "passed": 87,
+    "projection": 83,
+    "program_witness": 4,
+    "skipped": 0,
+    "receipt": {
+      "case": "focused-co2-prefix-projection-pure-evidence-v3",
+      "terminal_sha256": "e65afd2bb5435e7b9cc315574da9a91ab0a8fd9a84557a90158287fe45752179",
+      "pytest_log_sha256": "8ccf7fbd6c47a91347fdd02acc07a6d6b17fe0c68cf2761bc17230176e86ab6a",
+      "terminal": {
+        "actual_child_exit": 0,
+        "reason": null,
+        "wall_seconds": 7.287013304012362,
+        "single_PID_peak_RSS_bytes": 154763264,
+        "combined_peak_RSS_bytes": 769794048,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "source_count": 2905,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      }
+    },
+    "curated_records": {
+      "schema.json": {
+        "sha256": "bdcc4ad208ed2b554c855c1efa471faf8c8223b46365d942f60c571f8395f6d3",
+        "record": {
+          "actual_serialized_UTF8_cap": 2097152,
+          "array_length": 50,
+          "closed_allowlists": true,
+          "discriminators": [
+            "none",
+            "closed",
+            "accepted"
+          ],
+          "serialization_fault_injection": true
+        }
+      },
+      "pure-basis-transition.json": {
+        "sha256": "8be6df8f86d8771975c39c6b1f82d97ca55344674eca7c5625b99de4de1fbb48",
+        "record": {
+          "all_sample_and_event_basis_matches_original_forcing": true,
+          "basis_by_forcing_index": {
+            "0": "wet",
+            "4": "dry",
+            "8": "wet",
+            "16": "wet"
+          },
+          "calls": {
+            "CLI": 0,
+            "CO2": 0,
+            "NIR": 0,
+            "PAR": 0,
+            "RHS": 0,
+            "SQL_write_attempts": 0,
+            "_put_in_transaction": 0,
+            "advance": 0,
+            "air": 0,
+            "confirm": 0,
+            "event": 0,
+            "gas": 0,
+            "jobs._durable_artifact": 0,
+            "jobs._event": 0,
+            "jobs._insert_publication": 0,
+            "jobs._outcome": 0,
+            "jobs.ack_cancel": 0,
+            "jobs.cancel": 0,
+            "jobs.claim": 0,
+            "jobs.fail": 0,
+            "jobs.renew": 0,
+            "jobs.submit": 0,
+            "net": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "put": 0,
+            "restore": 0,
+            "solar": 0,
+            "start": 0,
+            "step": 0,
+            "ventilation": 0
+          },
+          "changed_input_only": "forcing_program[1].co2.basis= dry",
+          "explicit_32s_owned_program_reexecuted": true,
+          "independent_crop_validation": false,
+          "numeric_coefficients_unchanged": true,
+          "program_sha256": "3ddff3cbfd7ece0e79deeb2a1de79426d47011eca6edd1db75a61d6795b2ef87",
+          "sample_values_units_UTC_preserved": true
+        }
+      },
+      "pure-original.json": {
+        "sha256": "0b99ab8a974e9da8a1529c61ad43bddde3b656bbd5c7d56a286967ff4c7d707c",
+        "record": {
+          "FD_unchanged": true,
+          "calls": {
+            "CLI": 0,
+            "CO2": 0,
+            "NIR": 0,
+            "PAR": 0,
+            "RHS": 0,
+            "SQL_write_attempts": 0,
+            "_put_in_transaction": 0,
+            "advance": 0,
+            "air": 0,
+            "confirm": 0,
+            "event": 0,
+            "gas": 0,
+            "jobs._durable_artifact": 0,
+            "jobs._event": 0,
+            "jobs._insert_publication": 0,
+            "jobs._outcome": 0,
+            "jobs.ack_cancel": 0,
+            "jobs.cancel": 0,
+            "jobs.claim": 0,
+            "jobs.fail": 0,
+            "jobs.renew": 0,
+            "jobs.submit": 0,
+            "net": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "put": 0,
+            "restore": 0,
+            "solar": 0,
+            "start": 0,
+            "step": 0,
+            "ventilation": 0
+          },
+          "original_values_units_UTC": true,
+          "private_fields_absent": true,
+          "response_bytes": {
+            "events": 83702,
+            "samples": 99043,
+            "summary": 9179
+          },
+          "unregistered_pure_fixture_not_current_access": true
+        }
+      }
+    }
+  },
+  "review_output": {
+    "closed_union_none_closed_accepted": true,
+    "original109_state44_transfers17_balances_UTC_preserved": true,
+    "strict_binary64_units_arrays_false_approval_and_no_private_fields": true,
+    "actual_UTF8_cap_bytes": 2097152,
+    "explicit_source_program_hash_and_forcing_index_basis": true,
+    "real_32s_transition_variant_reexecuted_not_relabelled": true,
+    "immutable_owner_bound_source_program_not_in_raw_wire": true,
+    "selected_source_and_page_recheck_implementation_present": true,
+    "original_fixture_or_numeric_kernel_or_store_or_HTTP_modified": false,
+    "original_reader_after_program_extension_native_verified": false,
+    "only_prior_source_pin_changed": [
+      "backend/app/crop_greenhouse_co2_prefix.py"
+    ],
+    "native_next": "none/ready/running/terminal/cancel, late rights/source/page/witness, independent actor/fresh and affected raw read regression"
+  },
+  "pure_accepted": true,
+  "full_projection_accepted": false,
+  "current_read_native_accepted": false,
+  "WSL_capacity_accepted": false,
+  "new_CO2_deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "goal_status": "active"
+}
