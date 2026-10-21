@@ -2375,10 +2375,12 @@
         - [ ] **`co2-execution-worker`** — 위 checkpoint 뒤 원109상태/장부/수지·UTC 정상/hold,
           fresh/SIGKILL 재개·취소/만료·원자 result/link/terminal rollback과 독립 자동 발견을 수용한다.
           기존 loop/다른 판본·원 자료/서비스/상한을 유지한다. 이후 진행 query/HTTP/실행 runtime→typed web/같은 UTC3D다.
-          - [ ] **`co2-worker-core`** — 실제 정상/수치 hold 원 수치/UTC·현재 입력/임대·취소/만료와
+          - [x] **`co2-worker-core`** — 실제 정상/수치 hold 원 수치/UTC·현재 입력/임대·취소/만료와
             result/link/outcome/terminal 원자성·늦은 권리/실행 범위/최종 UPDATE fence와 소유 정리를 수용한다.
             [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-core-preflight-20261021.json)는 로컬9/전체20수집을 확인했다.
-            실제 SCRAM11·정상/hold 원자 저장은 미실행이며 수용 전 체크하지 않는다.
+            [기능 수용](../research/crop-greenhouse-co2-worker-core-20261021.md)의 source0bca8cd/CI39527128812에서
+            20검사·실제 SCRAM11·원 수치/UTC·expiry7+9·원자/늦은 fence rollback·311지문/정리를 수용했다.
+            독립 consumer/fresh/SIGKILL·부모/새 배포·공통 WSL은 미완료다.
           - [ ] **`co2-worker-consumer-restart`** — 위 core 뒤 명시 discovery/loop·기존 소비자 보존,
             독립 정상/hold·fresh 원문/현재 권리·실제 SIGKILL 뒤 확정 HEAD 채택/남은 구간만 계산을 수용한다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
