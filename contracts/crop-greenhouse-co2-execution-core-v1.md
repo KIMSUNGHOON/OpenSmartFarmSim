@@ -6,7 +6,10 @@ Status: admission/checkpoint/worker core functionality accepted; independent con
 독립 자동 발견·fresh/SIGKILL은 후속 자식이며 worker 부모/공통 WSL·새 사용자 적용은 미완료다.
 [consumer 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-consumer-preflight-20261021.json)는
 exact 입력/결과 쌍 등록 뒤 로컬 새17/기존 Solar14=31통과와 전체34수집을 확인했다.
-독립 정상/hold·fresh 원 결과/권리·실제 SIGKILL3경로는 호스팅 검증 전이며 미수용이다.
+독립 정상/hold·fresh 원 결과/권리·실제 SIGKILL3경로는 미수용이다.
+[첫 CI 진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json)은 source68bb182/CI39528616279의
+SIGKILL 재개 node 실패·원 자원/정리 미수용을 보존한다. 시험의 증거 환경변수 누락을 수정했으나
+crash 원인으로 단정하지 않는다. 같은34검사/상한에서 값·비밀 없는 단계/예외 위치 진단을 수집한다.
 [worker core 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-core-preflight-20261021.json)는
 로컬 제어9통과/전체20수집(실제 DB11 미실행)과 원 자료/서비스/상한 보존을 확인했다.
 실제 계산/원자 저장은 위 호스팅 집중 검증으로 수용했으며 자동 발견·독립 프로세스·SIGKILL은 후속 자식이다.

@@ -338,6 +338,9 @@ jobs:
             ${{ runner.temp }}/co2-projection-evidence/consumer/cleanup-hold.json
             ${{ runner.temp }}/co2-projection-evidence/consumer/fresh-crash.json
             ${{ runner.temp }}/co2-projection-evidence/consumer/cleanup-crash.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/failure-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/failure-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/consumer/failure-crash.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: error

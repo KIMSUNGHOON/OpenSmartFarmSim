@@ -10,10 +10,23 @@ import subprocess
 import sys
 import tempfile
 import time
+import traceback
 
 from test_crop_greenhouse_solar_current_fresh import PREPARE as BASE_PREPARE, CLEANUP
 
 ORIGINAL_PREPARE = BASE_PREPARE.replace('crop_greenhouse_solar_result_store', 'crop_greenhouse_co2_result_store')
+
+CHILD_DIAGNOSTICS = '''
+import json,sys,traceback
+def owned_failure(kind,error,tb):
+ chain=[];seen=set()
+ while error is not None and id(error) not in seen and len(chain)<8:
+  seen.add(id(error));chain.append({'type':type(error).__name__,'locations':[
+   {'file':row.filename.rsplit('/',1)[-1],'line':row.lineno,'function':row.name}
+   for row in traceback.extract_tb(error.__traceback__)]});error=error.__context__
+ print(json.dumps({'exception_chain':chain}),file=sys.stderr)
+sys.excepthook=owned_failure
+'''
 
 
 ADMISSION = '''
@@ -137,7 +150,7 @@ print(json.dumps({'unconfirmed_HEAD_result_publication_rows':0,'lease_expired_by
 
 
 def save(name, value):
-    destination = os.environ.get('OSSF_SOLAR_EXECUTION_EVIDENCE')
+    destination = os.environ.get('OSSF_CO2_EXECUTION_EVIDENCE')
     if destination:
         with (Path(destination)/name).open('x') as output:
             os.fchmod(output.fileno(), 0o400)
@@ -171,17 +184,19 @@ def exercise(tmp_path, *, case=None, crash=False):
             'phase':'producer' if crash else 'auto','database':{
                 'admin':f'host={sockets} port={port} dbname=postgres user=ossf_login_admin',
                 'host':'127.0.0.1','port':port,'database':'postgres'}})); config.chmod(0o600)
-        child = None; pidfd = None
+        child = None; pidfd = None; phase = 'prepare'; result = None
         try:
-            first = subprocess.run([sys.executable,'-B','-c',PREPARE,str(config)],
+            first = subprocess.run([sys.executable,'-B','-c',CHILD_DIAGNOSTICS+PREPARE,str(config)],
                 env=env,stdin=subprocess.DEVNULL,capture_output=True,timeout=300)
+            result = first
             assert first.returncode==0, first.stderr.decode()
             prepared=json.loads((tmp_path/'prepared.private.json').read_bytes())
             assert not Path('/proc',str(prepared['PID'])).exists()
             assert all(v==0 for v in prepared['admission_calls'].values())
             prefix=Path(prepared['script']).read_text().split('\nfrom app import crop_greenhouse_co2_result_store as result_model')[0]
-            runner=tmp_path/'worker.private.py';runner.write_text(prefix+WORKER);runner.chmod(0o400)
+            runner=tmp_path/'worker.private.py';runner.write_text(CHILD_DIAGNOSTICS+prefix+WORKER);runner.chmod(0o400)
             if crash:
+                phase = 'producer_before_confirm'; result = None
                 child=subprocess.Popen([sys.executable,'-B',str(runner),prepared['pack']],env=env,
                     stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
                 pidfd=os.pidfd_open(child.pid);deadline=time.monotonic()+180
@@ -190,25 +205,32 @@ def exercise(tmp_path, *, case=None, crash=False):
                     while not selector.select(min(30,max(0,deadline-time.monotonic()))):
                         assert child.poll() is None and time.monotonic()<deadline
                 failed=json.loads(child.stdout.readline(131073));assert failed['PID']==child.pid
+                phase = 'kill_after_HEAD'
                 signal.pidfd_send_signal(pidfd,signal.SIGKILL);_,stderr=child.communicate(timeout=10)
                 assert child.returncode==-9 and not Path('/proc',str(child.pid)).exists(),stderr.decode()
-                expired=subprocess.run([sys.executable,'-B','-c',EXPIRE,str(config)],env=env,
+                phase = 'expire_test_lease'
+                expired=subprocess.run([sys.executable,'-B','-c',CHILD_DIAGNOSTICS+EXPIRE,str(config)],env=env,
                     stdin=subprocess.DEVNULL,capture_output=True,timeout=30)
+                result = expired
                 assert expired.returncode==0,expired.stderr.decode()
                 packed=json.loads(Path(prepared['pack']).read_bytes());packed.update(phase='resume',
                     prefix_steps=failed['progress']['steps'],prefix_head_sha256=failed['progress']['head_sha256'])
                 Path(prepared['pack']).write_text(json.dumps(packed))
+            phase = 'automatic_resume' if crash else 'automatic_worker'; result = None
             second=subprocess.run([sys.executable,'-B',str(runner),prepared['pack']],env=env,
                 stdin=subprocess.DEVNULL,capture_output=True,timeout=300)
+            result = second
             assert second.returncode==0,second.stderr.decode()
             done=json.loads(second.stdout);assert done['automatic_discovery'] and done['unselected_queued']
             assert done['job_id']==prepared['job_id'] and not Path('/proc',str(done['PID'])).exists()
             if crash:assert failed['calls']['step']+done['calls']['step']==16
             read_source=Path(prepared['script']).read_text()
             position=read_source.index("review['status']='revoked'")
-            reader=tmp_path/'reader.private.py';reader.write_text(read_source[:position]+READ_LINK+read_source[position:]);reader.chmod(0o400)
+            reader=tmp_path/'reader.private.py';reader.write_text(CHILD_DIAGNOSTICS+read_source[:position]+READ_LINK+read_source[position:]);reader.chmod(0o400)
+            phase = 'fresh_original_reader'; result = None
             third=subprocess.run([sys.executable,'-B',str(reader),done['completed_pack']],env=env,
                 stdin=subprocess.DEVNULL,capture_output=True,timeout=300)
+            result = third
             assert third.returncode==0,third.stderr.decode()
             read=json.loads(third.stdout);assert all(v==0 for v in read['calls'].values())
             assert not Path('/proc',str(read['PID'])).exists()
@@ -217,17 +239,50 @@ def exercise(tmp_path, *, case=None, crash=False):
             if crash:proof.update(killed=failed,actual_kill_exit=-9,no_prefix_reintegration=True,
                 before_retry=json.loads(expired.stdout))
             save('fresh-'+('crash' if crash else 'hold' if case else 'normal')+'.json',proof)
-            cleanup=subprocess.run([sys.executable,'-B','-c',CLEANUP,str(config)],env=env,
+            phase = 'cleanup'; result = None
+            cleanup=subprocess.run([sys.executable,'-B','-c',CHILD_DIAGNOSTICS+CLEANUP,str(config)],env=env,
                 stdin=subprocess.DEVNULL,capture_output=True,timeout=30)
+            result = cleanup
             assert cleanup.returncode==0,cleanup.stderr.decode()
             save('cleanup-'+('crash' if crash else 'hold' if case else 'normal')+'.json',json.loads(cleanup.stdout))
+        except BaseException as error:
+            diagnostic = {'phase': phase, 'type': type(error).__name__, 'locations': [
+                {'file': row.filename.rsplit('/', 1)[-1], 'line': row.lineno, 'function': row.name}
+                for row in traceback.extract_tb(error.__traceback__)]}
+            if result is not None:
+                diagnostic['child_exit'] = result.returncode
+                try:
+                    parsed = json.loads(result.stderr)
+                    if set(parsed) == {'exception_chain'}:
+                        diagnostic['child_failure'] = parsed
+                except (ValueError, TypeError):
+                    pass
+            elif child is not None:
+                diagnostic['owned_producer_exit'] = child.poll()
+                if child.returncode is not None:
+                    try:
+                        parsed = json.loads(child.stderr.read(65537))
+                        if set(parsed) == {'exception_chain'}:
+                            diagnostic['child_failure'] = parsed
+                    except (ValueError, TypeError):
+                        pass
+            save('failure-'+('crash' if crash else 'hold' if case else 'normal')+'.json', diagnostic)
+            raise
         finally:
-            if child is not None and child.poll() is None:
-                signal.pidfd_send_signal(pidfd,signal.SIGKILL);child.communicate(timeout=10)
-            if pidfd is not None:os.close(pidfd)
-            for passfile in tmp_path.rglob('*.pgpass'):passfile.unlink()
-            subprocess.run([str(binary/'pg_ctl'),'-D',str(data),'-m','fast','-w','-t','10','stop'],
-                check=True,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,timeout=20)
+            try:
+                if child is not None and child.poll() is None:
+                    if pidfd is not None:
+                        signal.pidfd_send_signal(pidfd,signal.SIGKILL)
+                    else:
+                        child.kill()
+                    child.communicate(timeout=10)
+            finally:
+                try:
+                    if pidfd is not None:os.close(pidfd)
+                finally:
+                    for passfile in tmp_path.rglob('*.pgpass'):passfile.unlink()
+                    subprocess.run([str(binary/'pg_ctl'),'-D',str(data),'-m','fast','-w','-t','10','stop'],
+                        check=True,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,timeout=20)
 
 
 def test_independent_auto_normal_and_fresh_original_result(tmp_path):

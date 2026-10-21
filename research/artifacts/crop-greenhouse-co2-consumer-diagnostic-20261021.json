@@ -1,0 +1,258 @@
+{
+  "schema_version": "co2-consumer-diagnostic-v1",
+  "recorded_at": "2026-10-21T01:51:40.327981+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-21T01:42:00.675Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "8f074340398a049d49947c2dc2d526615baac348f552ed64245f68a50983582f",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "first_CI": {
+    "run_id": 39528616279,
+    "source_commit": "68bb182326a9854dcf447477979639c0e6c64e7f",
+    "conclusion": "failure",
+    "records": {
+      "failure.json": {
+        "exit": 1,
+        "failed_nodes": [
+          "FAILED tests/test_crop_greenhouse_co2_execution_fresh.py::test_actual_SIGKILL_after_HEAD_and_automatic_fresh_resume"
+        ],
+        "log_sha256": "febf1cbc8070b71692883d5d90378389fb84b2674109fbb839f040a398241c44",
+        "phase": "tests"
+      },
+      "resource.json": {
+        "FD_before_after": [
+          6,
+          6
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 636,
+        "WSL_capacity_accepted": false,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 285200384,
+        "hosted_only": true,
+        "mode": "co2-worker-consumer",
+        "new_CO2_deployed": false,
+        "owned_non_zombie_remaining": [],
+        "passfiles_before_cleanup": 4,
+        "phase_exits": {
+          "tests": 1
+        },
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 100503552,
+        "source_preserved": true,
+        "temporary_entries_before_cleanup": 0,
+        "wall_seconds": 162.07904543799998
+      }
+    },
+    "artifact_SHA256": {
+      "failure.json": "27b5e5111603cbff00e8c05eecb6b8b2ccfe203746a4dbb001f0528f0582e0eb",
+      "resource.json": "274609f9f264ae4ad2965bb39185a4d9ed5ed93e4b5abeb433590f9cc75989ac"
+    },
+    "failed_GHA_log_sha256": "53862f5bf752e437dc45accecf0bd3f8218ad3dc5f4a05a1fb325b3400f0dc8c",
+    "private_pytest_trace_uploaded": false,
+    "cause": "actual SIGKILL/restart node failed; precise parent/child location absent in original artifacts; not diagnosed yet",
+    "resource_limit_hit": false,
+    "passfiles_before_supervisor_removal": 4,
+    "schema_role_cleanup_receipts": "absent; not accepted"
+  },
+  "source_verified_test_issue": {
+    "old_evidence_variable": "OSSF_SOLAR_EXECUTION_EVIDENCE",
+    "required_and_now_used": "OSSF_CO2_EXECUTION_EVIDENCE",
+    "origin": "family adaptation omitted uppercase environment variable; this explains missing curated case receipts, not yet the crash-node cause"
+  },
+  "diagnostic_changes": [
+    "bounded phase and exception class/file/line/function only; no exception text, locals, DSNs, keys or pack contents",
+    "child exception hook for prepare/worker/expiry/fresh-reader/cleanup and curated failure-normal/hold/crash whitelist",
+    "nested owned-process/passfile/cluster cleanup; Popen-owned cleanup only if pidfd was never acquired; actual crash acceptance still requires pidfd SIGKILL and exit -9"
+  ],
+  "production_source_unchanged_from": "68bb182326a9854dcf447477979639c0e6c64e7f",
+  "changed_source_SHA256": {
+    "backend/tests/test_crop_greenhouse_co2_execution_fresh.py": "38400a2ba9c96264ab72eb253f61ab04d2ded93b3254c88567ace43991743b6c",
+    ".github/workflows/backend-tests.yml": "6ac122d9cbeceb35bd1a37d4466232f62ceab31fb54036e7aead1ed91dc082b7"
+  },
+  "collection": {
+    "total": 34,
+    "new_control": 17,
+    "legacy_solar_control": 14,
+    "native_independent": 3,
+    "terminal": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 41402368,
+          "comm": "python",
+          "pid": 2140179
+        },
+        {
+          "RSS_bytes": 126423040,
+          "comm": "python",
+          "pid": 2140182
+        },
+        {
+          "RSS_bytes": 8912896,
+          "comm": "nginx",
+          "pid": 2140197
+        },
+        {
+          "RSS_bytes": 7491584,
+          "comm": "nginx",
+          "pid": 2144260
+        },
+        {
+          "RSS_bytes": 119857152,
+          "comm": "python",
+          "pid": 2140196
+        },
+        {
+          "RSS_bytes": 18026496,
+          "comm": "postgres",
+          "pid": 2140186
+        },
+        {
+          "RSS_bytes": 6049792,
+          "comm": "postgres",
+          "pid": 2140191
+        },
+        {
+          "RSS_bytes": 7188480,
+          "comm": "postgres",
+          "pid": 2140190
+        },
+        {
+          "RSS_bytes": 4304896,
+          "comm": "postgres",
+          "pid": 2140188
+        },
+        {
+          "RSS_bytes": 6238208,
+          "comm": "postgres",
+          "pid": 2140187
+        },
+        {
+          "RSS_bytes": 5111808,
+          "comm": "postgres",
+          "pid": 2140192
+        },
+        {
+          "RSS_bytes": 37937152,
+          "comm": "python",
+          "pid": 2144194
+        },
+        {
+          "RSS_bytes": 144052224,
+          "comm": "python",
+          "pid": 2144199
+        },
+        {
+          "RSS_bytes": 9097216,
+          "comm": "nginx",
+          "pid": 2144245
+        },
+        {
+          "RSS_bytes": 7475200,
+          "comm": "nginx",
+          "pid": 2144248
+        },
+        {
+          "RSS_bytes": 18354176,
+          "comm": "postgres",
+          "pid": 2144225
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 2144231
+        },
+        {
+          "RSS_bytes": 6062080,
+          "comm": "postgres",
+          "pid": 2144230
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "postgres",
+          "pid": 2144229
+        },
+        {
+          "RSS_bytes": 4509696,
+          "comm": "postgres",
+          "pid": 2144227
+        },
+        {
+          "RSS_bytes": 11710464,
+          "comm": "postgres",
+          "pid": 2144226
+        },
+        {
+          "RSS_bytes": 122941440,
+          "comm": "python",
+          "pid": 2144249
+        },
+        {
+          "RSS_bytes": 107720704,
+          "comm": "python",
+          "pid": 2144255
+        },
+        {
+          "RSS_bytes": 27549696,
+          "comm": "python",
+          "pid": 2252408
+        },
+        {
+          "RSS_bytes": 99758080,
+          "comm": "python",
+          "pid": 2252414
+        }
+      ],
+      "RSS_samples": 5,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 961011712,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "7160989b1ca9585c081138762802c90c39738170c5cc80c0d02297b11d98afd1",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_count": 2869,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.3712307069799863
+    }
+  },
+  "acceptance_assertions_and_caps": "all original34 cases,16 total steps,original bytes/UTC/current revocation,actual pidfd kill,600s/512MiB/1GiB retained",
+  "diagnostic_retry": "pending; no claim that crash cause is fixed",
+  "accepted_core20_unchanged": true,
+  "consumer_accepted": false,
+  "worker_parent_complete": false,
+  "new_CO2_deployed": false,
+  "WSL_capacity_accepted": false,
+  "G0_G4": "not_assessed",
+  "actual_crop_Runs": 0,
+  "full_product_completion": null,
+  "goal_status": "active"
+}
