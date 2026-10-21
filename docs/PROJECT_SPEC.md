@@ -1,5 +1,7 @@
 # OpenSmartFarmSim 제품 명세
 
+**확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
+
 **확정 구간 공개 응답 순수 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 순수83/private source4=87검사를 수용했습니다. 원 값/단위/UTC·실제32초 wet/dry 전환·private program bytes/owner·비공개/2MiB·31계측0/자료·5root 보존을 확인했습니다. 증강 reader의 실제 DB/독립 회귀와 공개 응답 부모는 미수용입니다. 다음은 native/fresh/영향받은 raw 검증→보호 실행 API/runtime→같은 UTC3D입니다. 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 남습니다.
 
 **확정 구간 원 조회31 수용 — 2026-10-21 KST:** [CO₂ 원 조회](../research/crop-greenhouse-co2-prefix-20261021.md)의 core13/fences10/concurrent8=고유31검사를 수용했습니다. 제어7/실제 SCRAM23/독립1·원 값/UTC/최초 시각·동시 원 HEAD/heartbeat/cancel·권리/witness·조회31계측0·지문/정리를 대사했습니다. 첫 실패/수정·core의2시험파일 차이 검토를 보존합니다. 다음은 원 프로그램 결속 공개 투영→보호 실행 API/runtime→같은 UTC3D입니다. 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 남습니다.

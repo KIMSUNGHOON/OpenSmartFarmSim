@@ -1,5 +1,9 @@
 # CO₂ 확정 구간 공개 응답 — 순수 구현/검증
 
+**현재 순수87/실제 SCRAM core7 수용.** [CI39544290911](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39544290911)의
+[11개 원 산출물·343지문](artifacts/api-crop-greenhouse-co2-prefix-native-core-20261021.json)을 대사했다.
+늦은 변경10·독립/회귀93을 포함한 전체110 수용과 공개 응답 부모/HTTP/runtime/3D는 남는다.
+
 [계약](../contracts/api-crop-greenhouse-co2-prefix-v1.md) · [87검사/원 증거](artifacts/api-crop-greenhouse-co2-prefix-pure-20261021.json).
 
 ## 현재 수용 범위
@@ -63,3 +67,18 @@ Pydantic source/모델·reader와 기존 순수4파일은87 수용 후 변경하
 
 최종 수집3.947427427초·단일 PID142,446,592/합746,221,568bytes·FD4→4·원2148/5root/소유 정리0이다.
 수집 성공은 실제 DB 통과가 아니다. 같은 source의 native 수용 뒤 보호 실행 API/runtime → 같은 UTC3D를 이어 간다.
+
+## 실제 core7 수용 — source c22c098
+
+현재3view의 원 선택자/UTC/단위/수치·읽기 scopes·취소 closed, ready0과 정상/수치 hold의
+기존 결과 연결을 확인했다. 원 선택 page 변조를 응답 후검사에서 거부하고 복구했다.
+65개 원 시점의64+1 공개 응답은1,181,201/27,428bytes로 원2MiB 안이며, 원 float64/단위/UTC를 보존했다.
+실제 SCRAM의 선택 프로그램은 원 context.program과 같다. 32초 명시 basis 변형의8걸음 prefix에서
+이전 forcing4의 dry와 같은 UTC8의 새 wet를 event/sample에 일치시켰다. 원 forcing→관리→출력 순서와 같다.
+원 public3응답은9,143/43,694/31,327bytes다. read31계측/CLI/SQL쓰기0·DB 불변·현재 읽기 scopes를 확인했다.
+
+266.29817354초·단일 PID179,318,784/합263,294,976bytes·FD6→6·소유 process/PG/schema/role/임시/passfile0이다.
+원600초/512MiB PID/합1GiB를 지켰고 preflight/현재343지문이 모두 같다.
+그 결과로 증강 reader의 현재/기본 후검사 경계를 실제로 확인했으며, 늦은 변경10·독립1/영향 raw5는 여전히 남는다.
+다음은 같은 source의 fences10 → regression93이다. 마지막93의 순수87은 이전87과 중복 합산하지 않는다.
+공개 응답 부모/HTTP·실제3D/WSL·전체 작기/자원/경제·실제 자료/관문과 전체 완료일은 미완료/미정이다.

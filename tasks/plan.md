@@ -3083,3 +3083,8 @@ wet-dry 타입으로 투영한다. 해당 source/page 후검사·현재 권리/2
 core7 → fences10 → regression93(순수87+독립1+raw5)을 같은 source/원 한도로 실행한다.
 원 Solar DB15/fresh1은 유지하고 CO₂ basis/늦은 program2를 추가했다. 전체110 전 부모는 미완료다.
 원9guard/1423.896초 증거로 나눴고 수집 시간은 구현 공수/남은161–308시간에서 차감하지 않는다.
+
+**공개 core7 수용:** [CI39544290911](../research/api-crop-greenhouse-co2-prefix-20261021.md)의11개 원 산출물·
+실제 SCRAM/선택 program·원 값/UTC/현재3view·ready/normal/hold/64+1·원 page 후검사/31계측0·343지문/정리를 수용했다.
+증강 reader의 기본 경계를 실제로 확인했고 다음은 같은 source fences10 → regression93이다.
+순수87의 재검증을 중복 합산하지 않으며 전체110 전 부모/HTTP/runtime/3D·WSL·후속 제품/관문은 미완료다.
