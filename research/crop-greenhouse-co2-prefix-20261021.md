@@ -30,3 +30,23 @@ job/result 완료가 아님을 확인했다. none/ready/normal/hold와 조회31�
 다음은 전체31개 수용 뒤 닫힌 공개 투영 → 보호 실행 HTTP/runtime → 같은 UTC3D다.
 공통 WSL/사용자 적용·전체 작기/자원/경제/최종 UI·실제 CLI 종단 간·독립 농장 자료/관문은 남는다.
 실제 농장 Run0/G0–G4 not_assessed·새 CO₂ 미배포, 전체 완료일 미정·goal active다.
+
+## Fences 첫 실행 보류와 실제 SCRAM actor 수정
+
+[CI39537946934](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39537946934)의 pytest는 종료0이고
+10개 산출물/정리를 남겼으나 전체 배치는 미수용이다([실패·수정 증거](artifacts/crop-greenhouse-co2-prefix-audit-scram-fix-20261021.json)).
+controller292행에서 감사 행 변경을 시도한 소켓 관리자 연결의 used_password=False를 거부했다.
+제품 조회는 실제 SCRAM/31계측0이며 감사 행 수정·삭제6건과 반환값 fault6종도 거부됐지만,
+이 사실로 전체 postcheck 실패를 성공 처리하지 않는다. tests/provenance 최종 영수증은 없다.
+325.704449701초·단일 PID141,369,344/합227,643,392bytes·FD6→6·소유/임시/passfile/schema·role0이다.
+
+확인한 원인만 수정해 감사 actor를 별도 임시 LOGIN NOINHERIT/NOSUPERUSER role·0600 passfile의
+실제 host SCRAM으로 바꿨다. 원 schema owner로 SET ROLE한 identity와 used_password/require_auth를
+검사하고, 원 audit trigger를 유지한 채6건을 시험한다. actor/membership은 제품 조회 전에 제거하고
+자격증명은 finally에서 지운다. 기존 관리자 비밀번호·제품 권한/모델/원 숫자·검사10개/한도는 그대로다.
+엄격 postcheck는 실제 actor 인증·owner identity·정리를 요구한다. 로컬은 수정1건 수집만 통과했고 native 수용은 남는다.
+
+원 core13 이후338지문 중 변경2개는 이 감사 시험과 해당 fences postcheck다.
+원 core 선택 시험/나머지 정의와 controller의 fences 분기 밖 AST가 동일함을 검토했다.
+336개 source 및 모든 제품 app/수치/저장/기존 API·제어7은 그대로다. 이 변경을 숨기거나 세 배치의
+전체338지문이 같다고 보고하지 않는다. 후속 native 결과는 수정 source와 원 core의 이력에 각각 결속한다.

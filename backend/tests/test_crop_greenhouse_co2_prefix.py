@@ -6,11 +6,13 @@ from hashlib import sha256
 import json
 import os
 from pathlib import Path
+import secrets
 import subprocess
 import sys
 import time
 from uuid import uuid4
 from psycopg.types.json import Jsonb
+from psycopg.conninfo import make_conninfo
 
 import pytest
 
@@ -88,6 +90,47 @@ def writable(value):
     value[4]['scopes'].update({'simulation_execute', 'crop_result_write'})
 
 
+@contextmanager
+def scram_audit_owner(original_login_scope, database, tmp_path):
+    base, policy, _ = original_login_scope
+    role = 'login_audit_probe_' + uuid4().hex
+    password = secrets.token_hex(32)
+    passfile = tmp_path/'audit-probe.pgpass'
+    created = False
+    try:
+        with passfile.open('x') as output:
+            os.fchmod(output.fileno(), 0o600)
+            output.write(f"{database['host']}:{database['port']}:{database['database']}:{role}:{password}\n")
+        with base.connect() as conn:
+            conn.execute("SET LOCAL log_statement='none'")
+            conn.execute("SET LOCAL log_min_duration_statement=-1")
+            conn.execute("SET LOCAL log_min_error_statement='panic'")
+            conn.execute(reference.sql.SQL('CREATE ROLE {} LOGIN NOINHERIT NOSUPERUSER NOCREATEDB '
+                'NOCREATEROLE NOREPLICATION NOBYPASSRLS').format(reference.sql.Identifier(role)))
+            verifier = conn.pgconn.encrypt_password(password.encode(), role.encode(), b'scram-sha-256')
+            conn.execute(reference.sql.SQL('ALTER ROLE {} PASSWORD {}').format(
+                reference.sql.Identifier(role), reference.sql.Literal(verifier.decode())))
+            conn.execute(reference.sql.SQL('GRANT {} TO {}').format(
+                reference.sql.Identifier(policy.owner), reference.sql.Identifier(role)))
+        created = True
+        dsn = make_conninfo(host=database['host'], port=database['port'], dbname=database['database'],
+            user=role, passfile=str(passfile), sslmode='disable')
+        with reference.psycopg.connect(dsn, require_auth='scram-sha-256', autocommit=True,
+                row_factory=reference.psycopg.rows.dict_row) as conn:
+            assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth'] == 'scram-sha-256'
+            conn.execute(reference.sql.SQL('SET ROLE {}').format(reference.sql.Identifier(policy.owner)))
+            identity = conn.execute('SELECT current_user AS owner,session_user AS actor').fetchone()
+            assert identity == {'owner': policy.owner, 'actor': role}
+            yield conn
+    finally:
+        try:
+            if created:
+                with base.connect() as conn:
+                    conn.execute(reference.sql.SQL('DROP ROLE {}').format(reference.sql.Identifier(role)))
+        finally:
+            passfile.unlink(missing_ok=True)
+
+
 def test_missing_unstarted_scope_and_readonly_contract(setup, monkeypatch):
     query, worker, job_id, raw, value = setup
     reference.readonly(value); before=reference.persisted_digest(worker.jobs)
@@ -160,20 +203,19 @@ def test_signed_private_HEAD_rollback_during_read_is_rejected(setup, monkeypatch
 
 
 
-def test_actual_audit_immutability_and_returned_event_faults(setup, login_database, monkeypatch):
+def test_actual_audit_immutability_and_returned_event_faults(setup, login_database, original_login_scope, tmp_path, monkeypatch):
     from datetime import timedelta
     query, worker, job_id, raw, value = setup
     lease = reference.confirm(worker, job_id); _, first = advance(worker, job_id, raw, lease, 2)
     _, previous = advance(worker, job_id, raw, lease, 2)
     pin = {k: first['checkpoint'][k] for k in ('publication_sequence', 'head_sha256', 'proof_sha256')}
     table = worker.jobs._table('job_events'); sql = reference.sql
-    with reference.psycopg.connect(login_database['admin'], row_factory=reference.psycopg.rows.dict_row) as conn:
-        admin_used_password = conn.pgconn.used_password
+    database_rejected = []
+    with scram_audit_owner(original_login_scope, login_database, tmp_path) as conn:
+        actor_used_password = conn.pgconn.used_password
+        actor_require_auth = conn.info.get_parameters()['require_auth']
         originals = {name: conn.execute(sql.SQL('SELECT * FROM {} WHERE event_id=%s').format(table),
             (event['event_id'],)).fetchone() for name, event in (('chosen', first), ('previous', previous))}
-    database_rejected = []
-    with reference.psycopg.connect(login_database['admin'], autocommit=True,
-            row_factory=reference.psycopg.rows.dict_row) as conn:
         for target, row in originals.items():
             for fault in ('time', 'reason', 'delete'):
                 with pytest.raises(reference.psycopg.errors.RaiseException, match='audit rows are immutable'):
@@ -216,7 +258,8 @@ def test_actual_audit_immutability_and_returned_event_faults(setup, login_databa
                 rejected.append({'event': target, 'fault': fault, 'exception': type(error.value).__name__})
     assert read(query, job_id, selector=pin, view='samples')['selection']['checkpoint'] == first['checkpoint']
     save('selected-previous-event-changes', {'actual_audit_trigger_rejections': database_rejected,
-        'fault_admin_used_password': admin_used_password,
+        'fault_actor_used_password': actor_used_password, 'fault_actor_require_auth': actor_require_auth,
+        'fault_actor_owner_session_verified': True, 'temporary_fault_actor_removed_before_query': True,
         'actual_DB_event_rows_unchanged': True, 'reader_faults_are_synthetic_returned_rows': True,
         'reader_rejected': rejected, 'read_calls': calls})
 

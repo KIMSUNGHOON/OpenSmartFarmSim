@@ -289,7 +289,9 @@ def supervise(directory):
                     elif mode == 'co2-prefix-fences':
                         audit = json.loads((folder/'selected-previous-event-changes.json').read_bytes())
                         assert len(audit['actual_audit_trigger_rejections']) == len(audit['reader_rejected']) == 6
-                        assert audit['fault_admin_used_password'] and audit['actual_DB_event_rows_unchanged']
+                        assert audit['fault_actor_used_password'] and audit['fault_actor_require_auth'] == 'scram-sha-256'
+                        assert audit['fault_actor_owner_session_verified'] and audit['temporary_fault_actor_removed_before_query']
+                        assert audit['actual_DB_event_rows_unchanged']
                         late = json.loads((folder/'late-page.json').read_bytes())
                         assert late['selected_page_changed_after_successful_read_rejected'] and late['original_owned_page_restored']
                     else:

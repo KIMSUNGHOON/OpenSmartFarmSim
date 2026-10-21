@@ -5,7 +5,7 @@
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-21T03:19:34.486788Z",
+  "reported_at": "2026-10-21T03:35:26.420454Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,7 +24,7 @@
       "state": "completed"
     },
     {
-      "evidence": "CO₂ 진행 조회35와 확정 구간 core13(제어7/실제 DB6)을 수용했습니다. 원 sparse UTC·65시점/64+1 페이지·none/ready/closed·조회31계측0/338지문·정리를 대사했습니다. 늦은 변경10/동시·독립8과 원 조회 부모는 미수용입니다. 다음은 남은18검사→공개 투영/실행 API→같은 UTC3D이며 새 CO₂/WSL 적용은 남습니다.",
+      "evidence": "CO₂ 진행 조회35/확정 구간 core13은 수용했습니다. 후속 CI39537946934는 pytest 종료0 뒤 감사 actor가 소켓 관리자 인증이어서 증거 검사를 통과하지 못했습니다. 임시 actor를 실제 SCRAM/원 owner identity로 강화했고 같은10개 native 재검증이 남습니다. 원 수치/제품 코드·한도와 미수용 concurrent8/3D·WSL 적용 범위는 유지합니다.",
       "id": "execution_3d",
       "state": "next"
     },

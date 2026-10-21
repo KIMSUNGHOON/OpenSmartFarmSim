@@ -3048,3 +3048,8 @@ DB 후보와 새 cycle API/client/3D는 이 SHA 밖이다.
 immutable program bytes를 private owner witness에 결속하고, 기존 CO₂ basis/identity/행 타입으로 투영한다.
 원 payload/선택자와 수치/장부·UTC를 유지하며 프로그램은 공개하지 않는다. 직렬화 후 source/page/권리 검사를
 포함한 실제 수용 다음에 보호 실행 API/runtime → 같은 UTC3D로 이어 간다.
+
+**Fences 증거 수정:** CI39537946934의 pytest 종료0 뒤 감사 actor의 소켓 관리자 인증이 strict postcheck를
+통과하지 못했다. [실패/수정](../research/crop-greenhouse-co2-prefix-20261021.md)을 보존하고 임시 actor만
+실제 SCRAM/원 owner identity로 강화했다. 수치/제품 source336개·core 선택 시험과 fences 밖 controller AST는
+동일하다. 전체338지문 동등을 주장하지 않으며 실제 같은10개 native 검증 뒤 남은 concurrent8로 이어 간다.

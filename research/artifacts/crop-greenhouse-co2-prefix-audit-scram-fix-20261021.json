@@ -1,0 +1,639 @@
+{
+  "schema_version": "co2-prefix-audit-scram-fix-v1",
+  "recorded_at": "2026-10-21T03:35:26.411616+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-21T03:20:22.988Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "9fbf768fe9263f5f74e5e437ccb1457eebefe5f53c7f9eed37bdf3c78edd9801",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "failed_CI": 39537946934,
+  "failed_source_commit": "3c25fe3e8e68ea9b85a75eb89d713fabd561e51c",
+  "failure": {
+    "phase": "post_pytest_evidence_validation",
+    "location": {
+      "file": "co2_result_projection_hosted.py",
+      "line": 292,
+      "type": "AssertionError"
+    },
+    "pytest_exit": 0,
+    "pytest_expected10_count_check_preceded_failure": true,
+    "audit_fault_actor_used_password": false,
+    "product_query_read_calls31_zero": true,
+    "full_batch_accepted": false
+  },
+  "failed_curated_artifacts": {
+    "resource.json": {
+      "sha256": "d433a28a8a4564c6bcadaca2461d08201c720e557e4fecbc75a7e8e212cc69b3",
+      "record": {
+        "FD_before_after": [
+          6,
+          6
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1266,
+        "WSL_capacity_accepted": false,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 227643392,
+        "hosted_only": true,
+        "mode": "co2-prefix-fences",
+        "new_CO2_deployed": false,
+        "owned_non_zombie_remaining": [],
+        "passfiles_before_cleanup": 0,
+        "phase_exits": {
+          "tests": 0
+        },
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 141369344,
+        "source_preserved": true,
+        "temporary_entries_before_cleanup": 0,
+        "wall_seconds": 325.70444970100004
+      }
+    },
+    "prefix/older.json": {
+      "sha256": "4f5f12d442b30625eebd9a375c7844ff559411c954b02215f7c1d1295e5162ed",
+      "record": {
+        "DB_unchanged": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "earliest_attempt_and_time_preserved": true,
+        "independent_fresh_reader": "separate stdlib sequential process test",
+        "new_publication_sequence": 2,
+        "old_selector": {
+          "head_sha256": "98159b6a4d84ffd3192721c1868af102448af2548b2d213cda74c191e1d0fab3",
+          "proof_sha256": "e1e53b80ba59d5056731dbdc740710a417187032a488b699d242c6b88039944d",
+          "publication_sequence": 1
+        },
+        "private_tail_not_adopted": true
+      }
+    },
+    "prefix/boundaries.json": {
+      "sha256": "213b117e8c48d5528ed73502a39780cc07392003bbbe1631a9372d1b9a18387f",
+      "record": {
+        "DB_unchanged": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "immutable_read_while_writer_locked": true,
+        "invalid_shapes_ranges_limits_rejected": true,
+        "missing_and_unstarted": true,
+        "reader_lock_calls": 0,
+        "unaccepted_selector_rejected": true
+      }
+    },
+    "prefix/private-HEAD-rollback.json": {
+      "sha256": "3b8998145e352cabac5fb482a8ee49993b4fe3e4f7879a124c95d9742faf65c6",
+      "record": {
+        "original_HEAD_restored": true,
+        "read_calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "valid_signed_fork_with_greater_commit_count_rejected": true,
+        "valid_signed_rollback_above_selected_but_behind_observed_rejected": true
+      }
+    },
+    "prefix/selected-previous-event-changes.json": {
+      "sha256": "db7f05ddc9c019a9568a93425dd1291290d7a8bd0843e9b1872b4daad017ad6c",
+      "record": {
+        "actual_DB_event_rows_unchanged": true,
+        "actual_audit_trigger_rejections": [
+          {
+            "event": "chosen",
+            "fault": "time"
+          },
+          {
+            "event": "chosen",
+            "fault": "reason"
+          },
+          {
+            "event": "chosen",
+            "fault": "delete"
+          },
+          {
+            "event": "previous",
+            "fault": "time"
+          },
+          {
+            "event": "previous",
+            "fault": "reason"
+          },
+          {
+            "event": "previous",
+            "fault": "delete"
+          }
+        ],
+        "fault_admin_used_password": false,
+        "read_calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "reader_faults_are_synthetic_returned_rows": true,
+        "reader_rejected": [
+          {
+            "event": "chosen",
+            "exception": "Co2PrefixPending",
+            "fault": "time"
+          },
+          {
+            "event": "chosen",
+            "exception": "Co2PrefixPending",
+            "fault": "reason"
+          },
+          {
+            "event": "chosen",
+            "exception": "Co2PrefixPending",
+            "fault": "delete"
+          },
+          {
+            "event": "previous",
+            "exception": "Co2PrefixPending",
+            "fault": "time"
+          },
+          {
+            "event": "previous",
+            "exception": "Co2PrefixPending",
+            "fault": "reason"
+          },
+          {
+            "event": "previous",
+            "exception": "Co2PrefixPending",
+            "fault": "delete"
+          }
+        ]
+      }
+    },
+    "prefix/database-cleanup.json": {
+      "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+      "record": {
+        "roles": 0,
+        "schemas": 0
+      }
+    },
+    "prefix/rights.json": {
+      "sha256": "fb60696c2043fe0558e8feac3b18d789db747b89280ffa26469c67487bfbfd0b",
+      "record": {
+        "DB_unchanged": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "late_revocation_rejected": true,
+        "read_without_write_or_execute_scope": true,
+        "review_revoked_rejected": true,
+        "scope_rejections": 2,
+        "source_rights_revoked_rejected": true
+      }
+    },
+    "prefix/rollback.json": {
+      "sha256": "32bfd581afed0a8c8363995deef9415758c678d29e2780982368837d54acf63c",
+      "record": {
+        "DB_unchanged": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "old_selector_works_after_HEAD_restored": true,
+        "valid_signed_rollback_rejected_for_latest_and_old_selector": true
+      }
+    },
+    "prefix/tampering.json": {
+      "sha256": "5e4e73ca80b958c100a8ab7302ba00666fff9bc5a9d3c99f3f6b989b96e57354",
+      "record": {
+        "DB_unchanged": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "original_owned_files_restored": true,
+        "rejected": [
+          "intent",
+          "proof",
+          "HEAD",
+          "commit",
+          "sample"
+        ]
+      }
+    },
+    "prefix/late-page.json": {
+      "sha256": "91180fa3531451153da7af375e79dbc5ee6e4faa1e0bc0d707c5377594f0e8f0",
+      "record": {
+        "DB_unchanged": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "original_owned_page_restored": true,
+        "same_original_response_except_observation": true,
+        "selected_page_changed_after_successful_read_rejected": true
+      }
+    },
+    "prefix/cancel.json": {
+      "sha256": "07e329b004d975571bae162dc8cbf2273b6bf31de4a4c2d459181a5182ca42e0",
+      "record": {
+        "DB_unchanged": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "no_partial_or_final_result": true,
+        "request_and_ack_distinguished": true
+      }
+    },
+    "prefix/late-farm-registration.json": {
+      "sha256": "e718d7a4dbaa417831febfbc07b036358dac5aa50ff8c1111bd557af28ee3f34",
+      "record": {
+        "DB_unchanged": true,
+        "actual_SCRAM": true,
+        "calls": {
+          "CLI": 0,
+          "CO2": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_write_attempts": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "air": 0,
+          "confirm": 0,
+          "event": 0,
+          "gas": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "net": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "outer_full_farm_check_rejected_response": true,
+        "recovered_original": true,
+        "synthetic_provider_denial_after_private_page": true
+      }
+    }
+  },
+  "fix": {
+    "temporary_actor": "dedicated LOGIN NOINHERIT NOSUPERUSER role with private0600 passfile",
+    "authentication": "host require_auth=scram-sha-256 and used_password=True",
+    "owner_identity": "SET ROLE original schema owner; verify current_user and session_user",
+    "existing_admin_credentials_modified": false,
+    "audit_trigger_disabled": false,
+    "actor_and_membership_removed_before_product_query": true,
+    "credentials_removed_in_finally": true,
+    "postchecker_requires_actor_scram_owner_identity_and_cleanup": true,
+    "model_storage_query_API_changed": false,
+    "remaining_native_cases_unchanged": 18
+  },
+  "core_compatibility_review": {
+    "changed_test_definitions": [
+      "test_actual_audit_immutability_and_returned_event_faults"
+    ],
+    "added_test_definitions": [
+      "scram_audit_owner"
+    ],
+    "all_original_core_test_definitions_AST_identical": true,
+    "only_added_test_imports": 2,
+    "controller_outside_fences_branch_AST_identical": true,
+    "core_retest_needed_for_changed_behavior": false,
+    "source_SHA256": {
+      "backend/tests/test_crop_greenhouse_co2_prefix.py": "9284a67e8898d1a958f98b4309e83372b9a29f10ea246d4503bd78761900c6bc",
+      "research/co2_result_projection_hosted.py": "43765f82594da2ef71e8de31452b9765ab3a3dd741bb538b2c723fba3b89e839"
+    }
+  },
+  "source_change": {
+    "backend/tests/test_crop_greenhouse_co2_prefix.py": {
+      "core_source_sha256": "282283fbe2fa18ba83e62eb3db5863da8347e2478a94b496543d90cb6ac75ca2",
+      "corrected_sha256": "9284a67e8898d1a958f98b4309e83372b9a29f10ea246d4503bd78761900c6bc"
+    },
+    "research/co2_result_projection_hosted.py": {
+      "core_source_sha256": "82549b2eb3abd46d80ac0b136e4a1308b341340be4818e31f4b5a6cfd39b1d0a",
+      "corrected_sha256": "43765f82594da2ef71e8de31452b9765ab3a3dd741bb538b2c723fba3b89e839"
+    }
+  },
+  "fix_collection": {
+    "count": 1,
+    "guard_case": "focused-co2-prefix-audit-scram-fix-collection-v1",
+    "receipt_sha256": "7f8763ab4a68ab7da705971b9d73931677c2b31f46fe5ce7d94a1c3dc0932b38",
+    "terminal": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 13,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 836415488,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "331cf8640ba1a7f96838b1821ecbdd2741a2950c3b2dd84fbd98a9c2e49d68e8",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 141574144,
+      "source_count": 2899,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 3.435016806004569
+    }
+  },
+  "native_fix_accepted": false,
+  "WSL_capacity_accepted": false,
+  "new_CO2_deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "goal_status": "active"
+}
