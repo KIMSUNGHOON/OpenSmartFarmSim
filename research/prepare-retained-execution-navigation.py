@@ -39,7 +39,8 @@ def main():
         (delivery/'provenance.json').write_text(json.dumps(proof, indent=2)+'\n')
         return
     directory.mkdir()
-    archive = subprocess.check_output(['git', 'archive', BASE, 'web'], cwd=repository)
+    archive = subprocess.check_output(['git', 'archive', BASE, 'web',
+        'research/artifacts/api-crop-replay-reference-20261004.json'], cwd=repository)
     with tarfile.open(fileobj=BytesIO(archive)) as stream:
         stream.extractall(directory, filter='data')
     web = directory/'web'
@@ -61,6 +62,7 @@ def main():
     proof = {'base_commit': BASE, 'fix_commit': subprocess.check_output(
         ['git', 'rev-parse', 'HEAD'], cwd=repository).decode().strip(),
         'changed_files': sorted(changed), 'baseline_sha256': before,
+        'retained_fixture_sha256': pins(directory/'research'/'artifacts'),
         'prepared_sha256': after, 'prepared_src_sha256': pins(web/'src'),
         'canonical_source_sha256': {name: sha256((repository/'web'/name).read_bytes()).hexdigest()
                                     for name in SOURCES},
