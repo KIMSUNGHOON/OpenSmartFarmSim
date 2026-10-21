@@ -45,7 +45,8 @@
   - [x] 저장 줄기와 잎 부착/시각 결속 — 같은 원점/현재 UTC·원 stored stem ID/출현 초를 사용하고 잎이 없는 줄기에 붙거나 줄기 출현 전 잎이 생성되면 hold한다. [새13/관련150·실제 원14blob/12시점·독립52면적/12합계](../research/crop-leaf-stem-binding-20261022.md), 원 ID/분수 출현·advance/DB/쓰기0·현재 원 leaf40blob fresh/7root 보존을 수용했다.
   - [ ] 새 잎 population의 불변 저장/무계산 reader — 기존 원14 stem blob과 별도 새 program/모델·코드/초기/사건/각 population·binding/UTC·원 시각·chain/root를 고정한다. 별도 fresh의 생장 import/계산/SQL/파일쓰기0·원 값/새 잎 수·변조/현재 권리·소유 정리가 수용 기준이다. 공개 export/SDK/새 잎3D와 원 farm/job 게시 결속은 후속이다.
     - [x] producer — [14집중/실제40blob·28code/12binding](../research/crop-leaf-population-artifact-20261022.md), 독립52면적 probe의 원 binding bytes·같은 입력/root/metadata·출현/권리/후기 drift 차단/7root.
-    - [ ] manifest·원 raw/binding의 무계산 조회/별도 fresh·export.
+    - [x] manifest만 무계산 조회 — [12집중/실제 root 별도 fresh](../research/crop-leaf-population-manifest-20261022.md), 원 program/권리/28code·stem/12 descriptor chain/UTC, 생장 import/DB/쓰기0·원40blob/7root.
+    - [ ] 원 raw/binding의 무계산 frame 조회/별도 fresh → 양쪽 재배포 권리 export → strict SDK/같은 UTC의 새 잎 수/면적3D. 원 초기/출현 선언·그 시점 ID/개수/부착·면적/나이·raw/state/binding 투영을 대사하고 재해시한 투영 변조도 거부한다. 현재 manifest 수용으로 frame을 수용했다고 표시하지 않는다.
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 선언 목록만 추적한다.
   - [x] 별도 불변 면적 판본/계산 없는 조회·export — [18pytest/실제12시점·36면적/별도 fresh](../research/crop-leaf-area-artifact-20261022.md), 원 stem14blob/12 DTO·40불변 blob/24code·현재 부착/UTC·권리와 fresh import/SQL/CLI/파일쓰기0·17public파일·원7root/자료 보존.
   - [x] 같은 UTC의 잎 면적3D — [CI69/Chromium18·실제 Chrome](../research/leaf-area-stored-replay-20261022.md). strict SDK/원17파일·제작 단면 실제 삼각형 면적/UTC·표/그래프/재생·모바일/유휴·오류0/7root·원178파일을 수용했다. 별도5176/leaf-area-replay.html이며 원 farm/job의 새 잎 계산 적용은 후속이다.

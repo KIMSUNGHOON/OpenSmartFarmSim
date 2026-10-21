@@ -25,3 +25,11 @@ producer-only 수용: 부재 RED→원12시점/52면적·원 stem14blob과 원 r
 신뢰 root는 계산/권리/관문 증명이 아니며 farm/current rights·서명/worker 통합은 별도다.
 export는 stem과 population 양쪽 재배포 권리를 확인하고 strict SDK→실제 WebGL/표/그래프·새 잎 수/면적을 대사한다.
 실제 Axiany 계수/관측·독립 농장 검증0과 자동 출현/관리·생산/경제·G0–G4는 후속이다.
+
+## 작은 조회 자식: manifest만
+
+`read_leaf_population_manifest`는 완료 root·명시 입력/권리·기존 stem manifest·28개 계산 source 지문 형태와
+완전한 같은 UTC descriptor chain만 검증한다. 생장 모듈을 import하거나 식을 평가하지 않는다.
+단일 root는 신뢰된 호출자 입력이며 실제 현장 증명/서명 권한은 별도다.
+manifest12검사와 실제40blob 별도 fresh의 import/DB/CLI/쓰기0·원 metadata/bytes가 수용 기준이다.
+이 단계는 각 population raw/binding의 원 수치 투영을 검증했다고 주장하지 않는다. frame reader/export는 다음이다.

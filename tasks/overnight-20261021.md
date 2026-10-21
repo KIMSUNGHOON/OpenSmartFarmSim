@@ -97,3 +97,5 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 - [저장 stem의 잎 부착/출현 결속](../research/crop-leaf-stem-binding-20261022.md): 새13/관련150·실제 원14blob/12시점과 독립52면적/12합계·원 권리/시각·7root를 수용했다. 초기3→명시6잎의 계산/부착을 확인했으나 새 불변 population 판본/3D는 미적용이다. 기존 leaf40blob fresh의 연결 차단 지점을 실제 JobStore.connect로 고친 뒤 import/DB/쓰기0·원40blob/12시점을 재확인했다.
 
 - [새 population 불변 producer](../research/crop-leaf-population-artifact-20261022.md):14집중/실제40blob·28code/12binding·독립52면적 probe bytes/같은 입력 같은 root·metadata/늦은 drift 차단·7root 수용. 무계산 manifest/frame 조회·export/새 잎3D는 후속이다.
+
+- [population manifest 무계산 조회](../research/crop-leaf-population-manifest-20261022.md):12집중/실제40blob fresh·원28code/12 descriptor chain/권리·생장 import/DB/쓰기0/7root 수용. 원 raw/binding frame 조회·export/새 잎3D는 다음이다. 23:50 UTC native goal은 여전히 이전 paused이며 사용자 clear 회신과 도구 불일치를 유지했다. 재입력을 요청하지 않고 승인된 시간 범위의 구현을 계속했다.

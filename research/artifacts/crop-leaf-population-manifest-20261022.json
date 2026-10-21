@@ -1,0 +1,77 @@
+{
+  "schema_version": "leaf-population-manifest-acceptance-v1",
+  "tests": 12,
+  "phases": {
+    "RED": {
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 0.6038448649997008,
+      "combined_peak_RSS_bytes": 1009160192,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "RSS_samples": 2,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "dd58ba3ab8c1c776f5cb02c10ff725ada39def6c23cd447adcefeb322e9ee4e3"
+    },
+    "accepted12": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 9.924363307000021,
+      "combined_peak_RSS_bytes": 1025314816,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "RSS_samples": 38,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "7fe1831a940e114088ac3e75a9a1c422475109ed9a3dc81b84f6ddbecd9c631c"
+    },
+    "actual_fresh": {
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.34347810100007337,
+      "combined_peak_RSS_bytes": 967929856,
+      "single_PID_peak_RSS_bytes": 124948480,
+      "RSS_samples": 1,
+      "protected_root_count": 7,
+      "protected_live": true,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "log_sha256": "08f1d5831bb0c669a7a1ea53cb44a13e38c28915093258a295c33d893e328017"
+    }
+  },
+  "fresh": {
+    "manifest_samples": 12,
+    "growth_imports": [],
+    "calls": {
+      "JobStore.connect": 0,
+      "psycopg.connect": 0,
+      "subprocess.run": 0,
+      "subprocess.Popen": 0,
+      "artifact.put": 0,
+      "content_write": 0,
+      "write_open": 0
+    },
+    "original_blob_metadata_and_bytes_preserved": 40
+  },
+  "source_SHA256": {
+    "backend/app/crop_leaf_population_artifact_reader.py": "7bf9fde1b7e9f55def9f07e756e119f39b31b1a30cf70587bbd1779d6cee8e24",
+    "backend/tests/test_crop_leaf_population_manifest.py": "54804f56cd646f7b0244bad3032730e6d07bfae4db278d82c9595346993ec20b",
+    "backend/tests/leaf_population_manifest_fresh.py": "a4e1900930c35aa7be491c132d5cbc7252186c6a9820f83ec7d568b336ecbe6f"
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_CLI": 0
+  },
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "full_suite": false,
+  "raw_frame_reader_accepted": false,
+  "export_and_new_leaf_population_UI_deployed": false
+}
