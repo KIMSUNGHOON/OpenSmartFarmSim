@@ -1,5 +1,10 @@
 # CO₂ 확정 구간 원 조회 — 구현/검증 진행
 
+**현재 core13+fences10=고유23검사 수용.** 원 실패10은 합산하지 않는다.
+[수정 CI39539414514](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39539414514)의
+[14개 원 산출물/기계 증거](artifacts/crop-greenhouse-co2-prefix-fences-20261021.json)를 대사했다.
+독립/동시8과 원 조회 부모·공개 투영/HTTP/3D·WSL/사용자 적용은 아직 미수용이다.
+
 [계약](../contracts/crop-greenhouse-co2-prefix-v1.md) · [사전 증거](artifacts/crop-greenhouse-co2-prefix-preflight-20261021.json).
 
 `Co2ExecutionPrefixQuery`를 기존 Solar의 원 조회/현재 권리·서명 이력/owner witness 경계에서
@@ -50,3 +55,15 @@ controller292행에서 감사 행 변경을 시도한 소켓 관리자 연결의
 원 core 선택 시험/나머지 정의와 controller의 fences 분기 밖 AST가 동일함을 검토했다.
 336개 source 및 모든 제품 app/수치/저장/기존 API·제어7은 그대로다. 이 변경을 숨기거나 세 배치의
 전체338지문이 같다고 보고하지 않는다. 후속 native 결과는 수정 source와 원 core의 이력에 각각 결속한다.
+
+## 수정 fences10 수용 — source1a4a205
+
+실제 host SCRAM의 used_password=True/require_auth·원 owner/session identity를 확인했다.
+감사 행 변경/삭제6건과 별도 반환값 fault6종이 거부됐고 actor/membership/passfile은 제품 조회 전에 제거했다.
+원 signed rollback/fork·미확정 private tail·이전 선택자/재시도·현재/늦은 권리/농장·취소/범위/원 writer lock·
+원 파일 및 조회 뒤 선택 page 변조 거부를 수용했다. 모든 측정 조회31진입점/SQL쓰기0, 실패 파일 복구·소유 정리를 확인했다.
+311.382355944초·단일 PID139,165,696/합223,649,792bytes·FD6→6이며 원 한도 안이다.
+현재338지문을 모두 대사했고 원 core와336개가 같다. 나머지2개의 감사 actor/postcheck 변경과
+core 선택 시험·fences 밖 AST 동일성은 앞선 수정 증거에 결속한다. 제품 코드/수치/저장/API는 같다.
+다음은 원 signed HEAD 공개/heartbeat/cancel·witness/provenance/승인과 독립 producer/reader8검사다.
+현재까지 고유23=제어7/실제 DB16이며 전체 원 조회31/실제3D·전체 작기/자원/경제/외부 관문 수용은 남는다.

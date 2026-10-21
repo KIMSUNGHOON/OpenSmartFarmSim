@@ -3051,5 +3051,11 @@ immutable program bytes를 private owner witness에 결속하고, 기존 CO₂ b
 
 **Fences 증거 수정:** CI39537946934의 pytest 종료0 뒤 감사 actor의 소켓 관리자 인증이 strict postcheck를
 통과하지 못했다. [실패/수정](../research/crop-greenhouse-co2-prefix-20261021.md)을 보존하고 임시 actor만
-실제 SCRAM/원 owner identity로 강화했다. 수치/제품 source336개·core 선택 시험과 fences 밖 controller AST는
+실제 SCRAM/원 owner identity로 강화했다. 원 지문336개와 모든 수치/제품 source·core 선택 시험과 fences 밖 controller AST는
 동일하다. 전체338지문 동등을 주장하지 않으며 실제 같은10개 native 검증 뒤 남은 concurrent8로 이어 간다.
+
+**수정 fences10 수용:** [CI39539414514](../research/crop-greenhouse-co2-prefix-20261021.md)의14개 원 산출물·
+실제 SCRAM/owner actor·감사6/반환 fault6·조회31계측0·원 페이지/권리/lock/정리와 현재338지문을 확인했다.
+원 core와 다른2파일은 actor 시험과 fences 대사이며 core 선택 시험/다른 controller AST 및 나머지336지문은 같다.
+실패10은 합산하지 않고 현재 고유23(제어7/실제 DB16)이다. 다음은 같은 제품/수치 source의
+`co2-prefix-concurrent`8이며, 전체31 뒤 공개 투영 → 보호 실행 API/runtime → 같은 UTC3D 순서를 유지한다.
