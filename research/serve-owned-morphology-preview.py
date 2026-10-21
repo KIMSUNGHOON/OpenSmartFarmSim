@@ -11,8 +11,10 @@ import stat
 import sys
 from threading import Event, Thread
 
-from fastapi import Request, Response
+from fastapi import FastAPI, Request, Response
+from fastapi.exceptions import RequestValidationError
 from starlette.concurrency import run_in_threadpool
+from starlette.responses import JSONResponse
 
 from app import crop_morphology_execution as execution
 from app.crop_morphology_execution_query import MorphologyExecutionQuery
@@ -22,8 +24,6 @@ from app.content_access import ContentAccess
 from app.http_identity import BearerGrant, BearerRegistry, PrincipalMiddleware, current_principal, token_digest
 from app.https_service import HttpsApiService
 from app.job_store import _open_directory_nofollow
-from app.api import create_app, _error
-from app.api_openapi import _SchemaOnlyStores
 from app import api_crop_morphology_execution as wire
 
 # This fixture-only factory keeps the known synthetic market-context verifier outside app defaults.
@@ -56,6 +56,11 @@ def private_raw(value, maximum=2*1024**2):
             return bytes(raw)
         finally: os.close(fd)
     finally: os.close(parent)
+
+
+def _error(status, code, message):
+    return JSONResponse({'error': {'code': code, 'message': message}}, status_code=status,
+        headers={'Cache-Control': 'no-store'})
 
 
 def main():
@@ -107,9 +112,18 @@ def main():
     admission = execution.MorphologyExecutionService(signed, input_resolver=Resolver()); query = MorphologyExecutionQuery(admission)
     worker = MorphologyExecutionWorker(admission, tenant_id=grant.tenant_id)
     loop = DeterministicWorkerLoop(worker, input_versions=frozenset({execution.INPUT_VERSION}), poll_seconds=1, page_size=50)
-    app = create_app(jobs, holds, runs, _SchemaOnlyStores(), principal_provider=provider,
-        thermal_scenario_store=farms.replay.thermal, farm_scenario_service=farms.replay, farm_authoring_service=farms,
-        crop_morphology_execution_service=admission, crop_morphology_execution_query=query)
+    app = FastAPI(title='OpenSmartFarmSim owned morphology preview', version='1', openapi_version='3.1.0')
+    def authorized(*scopes):
+        principal = current_principal()
+        if principal is None: return None, _error(401, 'unauthenticated', 'Authentication required')
+        if not set(scopes) <= principal['scopes']: return None, _error(403, 'forbidden', 'Resource access denied')
+        return principal['tenant_id'], None
+    def access(scopes):
+        return {'security': [{'ServiceBearer': []}], 'x-ossf-required-scopes': list(scopes)}
+    @app.exception_handler(RequestValidationError)
+    async def invalid(*_): return _error(422, 'invalid_request', 'Invalid request')
+    wire.install_morphology_execution_routes(app, jobs=jobs, farms=farms, admission=admission, query=query,
+        principal_provider=provider, authorized_tenant=authorized, error=_error, access=access)
     @app.get('/preview-input', include_in_schema=False)
     async def preview(http_request: Request):
         def identity_ok():
