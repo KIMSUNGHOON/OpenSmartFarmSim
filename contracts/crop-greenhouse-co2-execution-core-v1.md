@@ -1,8 +1,9 @@
 # CO₂·일사 모델의 접수·자동 계산 핵심 — v1
 
-Status: admission implemented; local control4 passed, actual SCRAM13 pending. Checkpoint/worker planned.
-[사전 증거](../research/artifacts/crop-greenhouse-co2-admission-preflight-20261021.json)는 전체17개 수집과
-원 자료/두 UI/5root·자원·정리를 확인했다. 기능 수용 전이며 새 계산/worker/배포는 없다.
+Status: admission functionality accepted; checkpoint/worker planned.
+[접수 기능 수용](../research/crop-greenhouse-co2-admission-20261021.md)은 source43c0a98/CI39520744344의
+17검사·실제 SCRAM13과 원 입력/멱등·접수/취소 rollback·17계측0/정리를 확인했다.
+전체 core/worker·공통 WSL 용량/새 사용자 적용은 미완료다.
 선행은 [명시 조회 runtime 기능 수용](crop-greenhouse-co2-runtime-v1.md)이다.
 [기존 Solar 실행 핵심](crop-greenhouse-solar-execution-core-v1.md)의 임대/현재성/원자 게시 경계를 재사용한다.
 공통 WSL 용량은 사용자 적용 전 조건이며 아래 개발의 별도 중복 장애로 계산하지 않는다.
@@ -21,6 +22,9 @@ Status: admission implemented; local control4 passed, actual SCRAM13 pending. Ch
 2. **확정 checkpoint:** 별도 `Co2ExecutionCheckpointStore`·판본/사건 이름과 원 provenance를 사용한다.
    exact admission/custody/같은 binding·resolver/jobs를 검증한다. 잠금 밖 현재 입력 검증 뒤 짧은 확정
    잠금에서 임대/취소/원 입력/최신 사건을 재확인한다. 중복 확인은 최초 사건/시각을 보존하며 계산0이다.
+   판본은 `joint-co2-solar-execution-checkpoint-v1`, 사건은 `co2_checkpoint_confirmed_v1`이다.
+   원8KiB metadata/저장 commits+2 사건 한도와 signed HEAD ancestry를 유지한다.
+   private reader 종료 뒤 거래 commit 전 현재 execution 권한을 마지막으로 확인한다.
 3. **worker/발견:** exact `Co2ExecutionWorker`/result store와 같은 graph를 사용한다. 구간 전 현재성·
    임대 갱신, 제한된 advance 뒤 독립 checkpoint 확인, 기존 확정 HEAD 채택 뒤 남은 구간만 계산한다.
    원 custody의 현재 읽기 entry와 진행 응답을 버리는 `_advance_for_checkpoint` 경계를 유지한다.

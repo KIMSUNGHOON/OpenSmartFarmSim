@@ -42,7 +42,9 @@ fresh17진입점0·DB 변조/철회·source/선언1µs 경계와 최대 연결34
 원3응답/UTC·늦은 철회12·취소/전송 실패·기존64경로398스키마/294지문·조회17계측/SQL쓰기0·정리를 대사했다.
 [명시 runtime 기능](../research/crop-greenhouse-co2-runtime-20261021.md)의177검사·새 CO₂/기존 Solar 실제 SCRAM/TLS4도 수용했다.
 원12응답/UTC·잘못된 조립18·철회24/취소·기존12설정 판본/302지문과 조회0/정리를 대사했다.
-공통 WSL 용량/부모·새 사용자 적용은 남는다. 다음은 접수/취소→checkpoint→worker/prefix→같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
+[접수·취소 기능](../research/crop-greenhouse-co2-admission-20261021.md)의17검사·실제 SCRAM13도 수용했다.
+원 job/input 멱등/충돌·늦은 변경4종 rollback·취소/늦은 권한·17계측0/305지문·정리를 대사했다.
+core/공통 WSL 용량·새 사용자 적용은 남는다. 다음은 checkpoint→worker/prefix→같은 UTC3D다. 실제 외부 권리/G0 승인은 아니다.
 전체 작기/109상태 저장3D는 아직 미수용이다.
 기공 단위 P03은 hold이며 개발 순서와 분리한다.
 [잔여량 재산정](../tasks/plan.md#전체-잔여-작업량-재산정--2026-10-21-kst)은 합성 통합/실제 CLI G1까지161–308집중시간의

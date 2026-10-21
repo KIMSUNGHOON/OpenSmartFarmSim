@@ -42,7 +42,9 @@ fresh17진입점0·DB 변조/철회·source/선언1µs 경계와 최대 연결34
 원3응답/UTC·늦은 철회12·취소/전송 실패·기존64경로398스키마/294지문·조회17계측/SQL쓰기0·정리를 대사했다.
 [명시 runtime 기능](../research/crop-greenhouse-co2-runtime-20261021.md)의177검사·새 CO₂/기존 Solar 실제 SCRAM/TLS4도 수용했다.
 원12응답/UTC·잘못된 조립18·철회24/취소·기존12설정 판본/302지문과 조회0/정리를 대사했다.
-공통 WSL 용량/부모·새 사용자 적용은 남는다. 다음은 접수/취소→checkpoint→worker/prefix→같은 UTC3D다.
+[접수·취소 기능](../research/crop-greenhouse-co2-admission-20261021.md)의17검사·실제 SCRAM13도 수용했다.
+원 job/input 멱등/충돌·늦은 변경4종 rollback·취소/늦은 권한·17계측0/305지문·정리를 대사했다.
+core/공통 WSL 용량·새 사용자 적용은 남는다. 다음은 checkpoint→worker/prefix→같은 UTC3D다.
 새 저장/API/3D와 실제 품종/농장·관문은 후속이며 기공 단위는 별도 hold다.
 필요한 계산 근거·권리를 대사했으며 UI 용량을 이 계산 개발의 선행으로 추가하지 않는다.
 기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.
