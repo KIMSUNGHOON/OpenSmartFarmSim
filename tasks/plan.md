@@ -217,6 +217,9 @@ hosted 합418,045,952bytes로 공통 WSL 용량/부모·새 사용자 적용은 
 [다음 실행 핵심](../contracts/crop-greenhouse-co2-execution-core-v1.md)은 runtime 기능 수용 뒤 접수/취소→
 확정 checkpoint→worker/독립 발견→진행 query/HTTP/실행 runtime→typed web/같은 UTC3D로 나눈다.
 첫 접수는 계산을 시작하지 않으며 실제 SCRAM 멱등/late 철회 rollback·취소와 조회 부작용/정리가 수용 기준이다.
+[접수 사전 증거](../research/artifacts/crop-greenhouse-co2-admission-preflight-20261021.json)의 로컬4/전체17수집을 통과했다.
+[source43c0a98/CI39520744344](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39520744344)의
+실제 SCRAM13·접수/취소 원자성 검증은 진행 중이며 기능 수용 전이다.
 공통 WSL 장애는 새 사용자 적용 전 남기되 개발 의존성에 중복 추가하지 않는다.
 원 artifact의 검증된 program SHA와 forcing_step_index가 wet/dry metadata의 선행이며 HTTP 입력으로 받지 않는다.
 닫힌 summary/samples/events에서 원109상태·44연속/6사건/17수지·단위/UTC/hold를 보존하고 구 판본/타입·단위/한도 혼합을 거부한다.
