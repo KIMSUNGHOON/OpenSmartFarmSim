@@ -43,3 +43,4 @@
 - [exact-age point](../research/crop-internode-length-point-20261022.md):351검사·독립21점/원16출력/12저장 프레임 대사 수용. 다음은 정확 유리수 출현 상태다.
 - [유리수 기관 시계](../research/crop-rational-morphology-clock-20261022.md):385검사·독립8구간/출현3건→point·분할 checkpoint 수용. 다음은 명시 anchor를 가진 기관 길이 상태다.
 - [유리수 길이 상태](../research/crop-rational-internode-length-state-20261022.md):423검사·독립5길이/분할 state·anchor 수용. 다음은 새 출현→남은 구간→기존 기관 목록이다.
+- [국내 공식 자료 경로](../research/korean-axiany-morphology-sources-20261022.md): 공개 명세/접근·권리 검토. Axiany 원 측정/독립 자료 확보0, 합성 개발과 자료 확보를 병행한다.
