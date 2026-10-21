@@ -1,7 +1,7 @@
 import { useEffect,useRef,useState } from 'react';
 import { ACESFilmicToneMapping,BoxGeometry,Color,DirectionalLight,DoubleSide,HemisphereLight,Mesh,
   MeshPhysicalMaterial,MeshStandardMaterial,PCFSoftShadowMap,PerspectiveCamera,PlaneGeometry,
-  PMREMGenerator,Scene,Vector3,WebGLRenderer,type Material } from 'three';
+  PMREMGenerator,Scene,WebGLRenderer,type Material } from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { createMorphologyGeometry,MORPHOLOGY_MAPPING } from './morphologyGeometry';
