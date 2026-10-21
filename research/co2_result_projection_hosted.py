@@ -29,6 +29,19 @@ RUNTIME_TARGETS = ['tests/test_crop_greenhouse_co2_runtime.py',
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT/'backend'), str(ROOT/'backend/tests')]
+QUERY_PROGRESS = ['test_none_unstarted_cancelled_and_missing_have_no_calculation',
+    'test_checkpoint_original_counts_utc_first_time_survives_heartbeat_and_new_attempt',
+    'test_checkpoint_unconfirmed_descendant_and_real_lock_are_unavailable',
+    'test_terminal_original_result_success_or_numerical_hold_and_fresh_reader',
+    'test_rights_readonly_scopes_and_late_revocation_fail_closed',
+    'test_corrupt_appended_checkpoint_event_rejects_without_mutation']
+QUERY_FENCES = ['test_binding_bad_ids_and_dependency_drift_are_rejected',
+    'test_rights_job_change_during_read_is_pending_without_partial_response',
+    'test_source_rights_revoked_during_serialization_rejects_response',
+    'test_terminal_bundle_faults_reject_without_mutation',
+    'test_checkpoint_lock_is_released_during_followup_checks',
+    'test_checkpoint_changed_after_snapshot_never_returns_partial_response',
+    'test_checkpoint_directory_identity_survives_the_unlocked_interval']
 
 
 def save(path, value):
@@ -102,20 +115,26 @@ def pins():
         'backend/tests/test_crop_greenhouse_co2_result_store.py',
         'backend/tests/test_crop_greenhouse_co2_server_custody.py',
         'backend/tests/test_owned_research_process_scope.py',
-        'research/owned-research-process-scope.py')]
+        'research/owned-research-process-scope.py',
+        'backend/tests/test_crop_greenhouse_co2_execution_query_control.py',
+        'backend/tests/test_crop_greenhouse_co2_execution_query.py',
+        'backend/tests/test_crop_greenhouse_co2_execution_query_fresh.py',
+        'backend/tests/test_crop_solar_custody_file_locks.py')]
     return {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def supervise(directory):
     assert os.environ.get('GITHUB_ACTIONS') == 'true', 'hosted only; preserve WSL previews'
     mode = os.environ.get('OSSF_CO2_VERIFICATION_SCOPE', 'co2-result-projection')
-    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission', 'co2-checkpoint', 'co2-worker-core', 'co2-worker-consumer')
+    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission', 'co2-checkpoint', 'co2-worker-core', 'co2-worker-consumer', 'co2-execution-query', 'co2-execution-query-fences')
     current = mode == 'co2-current-query'
     runtime = mode == 'co2-runtime'
     admission = mode == 'co2-admission'
     checkpoint = mode == 'co2-checkpoint'
     worker = mode == 'co2-worker-core'
     consumer = mode == 'co2-worker-consumer'
+    query_fences = mode == 'co2-execution-query-fences'
+    query = mode in ('co2-execution-query', 'co2-execution-query-fences')
     http = mode in ('co2-http', 'co2-runtime')
     directory.mkdir(mode=0o700)
     spec = importlib.util.spec_from_file_location('co2_projection_scope', ROOT/'research/owned-research-process-scope.py')
@@ -138,6 +157,11 @@ def supervise(directory):
     if consumer:
         target = directory/'consumer'; target.mkdir(mode=0o700)
         env['OSSF_CO2_EXECUTION_EVIDENCE'] = str(target)
+    if query:
+        target = directory/'execution-query'; target.mkdir(mode=0o700)
+        env['OSSF_CO2_EXECUTION_QUERY_EVIDENCE'] = str(target)
+        target = directory/'query-fresh'; target.mkdir(mode=0o700)
+        env['OSSF_CO2_EXECUTION_EVIDENCE'] = str(target)
     if runtime:
         env['OSSF_CO2_RUNTIME_EVIDENCE'] = str(directory/'http')
     if http:
@@ -159,10 +183,13 @@ def supervise(directory):
         targets = ['tests/test_co2_deterministic_work.py', 'tests/test_solar_deterministic_work.py',
             'tests/test_crop_greenhouse_co2_execution_fresh.py',
             'tests/test_owned_research_process_scope.py::test_real_libc_pidfd_signal0_and_owned_cleanup_preserve_protected_tree']
-    expected = 37 if consumer else 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
+    if query:
+        targets = ['tests/test_crop_greenhouse_co2_execution_query.py::'+name for name in (QUERY_FENCES if query_fences else QUERY_PROGRESS)]
+        targets += ['tests/test_crop_greenhouse_co2_execution_query_fresh.py'] if query_fences else ['tests/test_crop_greenhouse_co2_execution_query_control.py']
+    expected = (11 if query_fences else 24) if query else 37 if consumer else 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
     plans = [('tests', [sys.executable, '-B', '-m', 'pytest', *targets,
         '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
-    for status in (() if current or http or admission or checkpoint or worker or consumer else ('completed', 'hold')):
+    for status in (() if current or http or admission or checkpoint or worker or consumer or query else ('completed', 'hold')):
         plans.append(('fresh-'+status, [sys.executable, '-B', str(Path(__file__).resolve()), 'fresh',
             str(directory/('co2-projection-store-'+status+'-fresh-pack.private.json')),
             str(directory/('fresh-'+status+'.json'))]))
@@ -192,7 +219,24 @@ def supervise(directory):
             if phase == 'tests':
                 text = log.read_text(errors='replace')
                 assert re.search(rf'\b{expected} passed\b', text) and ' skipped' not in text
-                if consumer:
+                if query:
+                    folder = directory/'execution-query'
+                    assert json.loads((folder/'database-cleanup.json').read_bytes()) == {'schemas': 0, 'roles': 0}
+                    records = [json.loads(path.read_bytes()) for path in folder.glob('*.json') if path.name != 'database-cleanup.json']
+                    assert len(records) == 9
+                    for record in records:
+                        calls = record.get('calls', record.get('query_calls'))
+                        assert calls and not any(calls.values())
+                        assert record.get('query_database_unchanged') is True or (record.get('separate_actor_cancel') == 1 and record.get('pending_no_partial_response') is True)
+                    if query_fences:
+                        for case in ('normal', 'hold'):
+                            assert json.loads((directory/'query-fresh'/('cleanup-'+case+'.json')).read_bytes()) == {'schemas': 0, 'roles': 0}
+                            record = json.loads((directory/'query-fresh'/('fresh-'+case+'.json')).read_bytes())
+                            read = record['fresh_reader']
+                            assert record['sequential_processes'] and read['actual_scram'] and not any(read['calls'].values())
+                            assert read['same_original_DTO_except_observation_time'] and read['original_first_confirmation_UTC']
+                            assert read['readonly_without_create_execute_write'] and read['review_withdrawal_denied']
+                elif consumer:
                     folder = directory/'consumer'
                     assert len(list(folder.glob('*.json'))) == 6
                     for case in ('normal', 'hold', 'crash'):
@@ -264,7 +308,8 @@ def supervise(directory):
                         assert all(value == 0 for value in result['calls'].values())
                 counts_record = {'passed': expected, 'skipped': 0, 'mode': mode,
                     'pytest_log_sha256': sha256(log.read_bytes()).hexdigest()}
-                counts_record.update({'new_consumer_control': 17, 'legacy_solar_control': 14, 'actual_independent_SCRAM': 3, 'pidfd_libc_regression': 3} if consumer else
+                counts_record.update({'control': 0 if query_fences else 15, 'actual_SCRAM': 9, 'actual_independent_SCRAM': 2 if query_fences else 0} if query else
+                    {'new_consumer_control': 17, 'legacy_solar_control': 14, 'actual_independent_SCRAM': 3, 'pidfd_libc_regression': 3} if consumer else
                     {'control_contract': 9, 'actual_SCRAM': 11} if worker else
                     {'control_contract': 13 if checkpoint else 4, 'actual_SCRAM': 13} if admission or checkpoint else
                     {'control_contract': 173, 'actual_SCRAM_TLS': 4} if runtime else
@@ -304,9 +349,10 @@ def supervise(directory):
         'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
         'source_SHA256': original, 'python': sys.version, 'test_scope': mode,
         'current_query_tested': current or http, 'HTTP_tested': http, 'runtime_tested': runtime, 'admission_tested': admission, 'checkpoint_tested': checkpoint, 'worker_core_tested': worker,
+        'execution_query_tested': query, 'execution_query_fences_tested': query_fences,
         'worker_discovery_independent_restart': 'tested' if consumer else 'not_tested', 'worker_browser': 'not_tested', 'G0_G4': 'not_assessed'})
     print(json.dumps({'accepted_hosted_tests': expected, 'mode': mode,
-        'fresh_registered_readers': 3 if consumer else 0 if http or admission or checkpoint or worker else 2,
+        'fresh_registered_readers': (2 if query_fences else 0) if query else 3 if consumer else 0 if http or admission or checkpoint or worker else 2,
         'native_HTTPS_readers': 4 if runtime else 2 if http else 0,
         'WSL_capacity_accepted': False, 'new_CO2_deployed': False}))
 

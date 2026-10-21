@@ -7,7 +7,7 @@ on:
         description: Focused CO2 functional evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint, co2-worker-core, co2-worker-consumer]
+        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint, co2-worker-core, co2-worker-consumer, co2-execution-query, co2-execution-query-fences]
   push:
     branches: [main]
   pull_request:
@@ -204,7 +204,7 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint' || inputs.verification_scope == 'co2-worker-core' || inputs.verification_scope == 'co2-worker-consumer')
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint' || inputs.verification_scope == 'co2-worker-core' || inputs.verification_scope == 'co2-worker-consumer' || inputs.verification_scope == 'co2-execution-query' || inputs.verification_scope == 'co2-execution-query-fences')
     name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -341,6 +341,31 @@ jobs:
             ${{ runner.temp }}/co2-projection-evidence/consumer/failure-normal.json
             ${{ runner.temp }}/co2-projection-evidence/consumer/failure-hold.json
             ${{ runner.temp }}/co2-projection-evidence/consumer/failure-crash.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/database-cleanup.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/none.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/checkpoint.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/unavailable.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/terminal-completed.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/terminal-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/rights.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/corrupt-extra.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/corrupt-duplicate.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/corrupt-wrong-input.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/binding.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/job-drift.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/serialization-rights.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/terminal-faults.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/lock-False.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/lock-True.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/head-signed_advance.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/head-corrupt.json
+            ${{ runner.temp }}/co2-projection-evidence/execution-query/directory.json
+            ${{ runner.temp }}/co2-projection-evidence/query-fresh/fresh-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/query-fresh/fresh-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/query-fresh/cleanup-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/query-fresh/cleanup-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/query-fresh/failure-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/query-fresh/failure-hold.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: error
