@@ -1,0 +1,181 @@
+{
+  "schema_version": "co2-confirmed-prefix-preflight-v1",
+  "recorded_at": "2026-10-21T03:10:42.298284+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-21T03:04:31.807Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "49a168e3763f1144d1044b43622fc64205f662f6b7ac040a8447064ff9789cad",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "source_SHA256": {
+    "backend/app/crop_greenhouse_co2_prefix.py": "00fd104bf182c64141354a887fd8c9aecdbe5358700fa6a6e06649e552713347",
+    "backend/tests/test_crop_greenhouse_co2_prefix_fresh.py": "c7c3d0208a95aceabcee274e1512f28a68ac97c31fd924ebf5fdf0ffca3bd72f",
+    "backend/tests/test_crop_greenhouse_co2_prefix_concurrent.py": "d2a293daac1be8978374308f3d10e9e8579e0382453f442b5f874de238da6c76",
+    "backend/tests/test_crop_greenhouse_co2_prefix_control.py": "078d79e6f2dc5dea7586580f090cac858ad48af9761f252646f9be95d92cce40",
+    "backend/tests/test_crop_greenhouse_co2_prefix.py": "282283fbe2fa18ba83e62eb3db5863da8347e2478a94b496543d90cb6ac75ca2",
+    "research/co2_result_projection_hosted.py": "82549b2eb3abd46d80ac0b136e4a1308b341340be4818e31f4b5a6cfd39b1d0a",
+    ".github/workflows/backend-tests.yml": "3b78c71beb1b4bd2f71f498fb6f70e360cd96bc08bcceaa5de54f61b94d85f24"
+  },
+  "reference_SHA256": {
+    "backend/app/crop_greenhouse_solar_prefix.py": "5b8e9f84f9b87567177b38a3ffd58e405d3ddfde0b890995ee76cfc74323dec4",
+    "backend/tests/test_crop_greenhouse_solar_prefix.py": "8f52300ef9e4c5d9642167dc8a25f9253b06cd1e68dfff3cf928ee92b7a37ac0",
+    "backend/tests/test_crop_greenhouse_solar_prefix_fresh.py": "4e836ff0032f28bcf08eca68c0e79c518bf81268e4d4c23abaa25aae92e766aa",
+    "backend/tests/test_crop_greenhouse_solar_prefix_concurrent.py": "ddc2138090dcfa3950f5c7d55eee0b9f204f52a07e534e9c28e05332eab43b53"
+  },
+  "red_missing_module": {
+    "guard_case": "focused-co2-prefix-control-red-v1",
+    "terminal_sha256": "1bc8cfa0a9c14f7ba4dc855f29fc23617a33f351b6f95f79e571fbaecabc0e46",
+    "terminal": {
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 0.6014494769915473,
+      "combined_peak_RSS_bytes": 902995968,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_count": 2891,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "pytest_log_sha256": "684eff3b28591a0eae822aacae0bd30a0cc7be66591acc2cdb90620825447442"
+  },
+  "local_control": {
+    "passed": 7,
+    "receipt": {
+      "guard_case": "focused-co2-prefix-control-green-v1",
+      "terminal_sha256": "8e6fd8aff1793ea0b24cac18cae55267573aa50c425cdfd3e5084c97035aa8df",
+      "terminal": {
+        "actual_child_exit": 0,
+        "reason": null,
+        "wall_seconds": 1.3722712529997807,
+        "combined_peak_RSS_bytes": 962162688,
+        "single_PID_peak_RSS_bytes": 144052224,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "source_count": 2895,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      },
+      "pytest_log_sha256": "c356eafbf65977199ed70984da461e590fda849af350e2afa22dad5422d4ba41"
+    }
+  },
+  "dense_software_variant": {
+    "base_case": "weather-multiple",
+    "changed_only": [
+      "step_count=64",
+      "output_steps=0..64"
+    ],
+    "physical_reference_validation_beyond_original32s": false,
+    "result": {
+      "status": "completed",
+      "steps": 64,
+      "samples": 65,
+      "events": 3,
+      "hold": null
+    },
+    "receipt": {
+      "guard_case": "focused-co2-prefix-dense-preflight-v1",
+      "terminal_sha256": "877bd8af234922a12e2faabe047430e95a90e1b3c26690c874c26a1e1662ae74",
+      "terminal": {
+        "actual_child_exit": 0,
+        "reason": null,
+        "wall_seconds": 1.8965469989925623,
+        "combined_peak_RSS_bytes": 907726848,
+        "single_PID_peak_RSS_bytes": 144052224,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "source_count": 2895,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      },
+      "pytest_log_sha256": "419e86acfb4e941bbc059e072168717c2d72d223958811ca82362939f05bdce4"
+    }
+  },
+  "collection": {
+    "total": 31,
+    "control": 7,
+    "actual_SCRAM": 23,
+    "actual_independent_SCRAM": 1,
+    "receipt": {
+      "guard_case": "focused-co2-prefix-collection-v1",
+      "terminal_sha256": "f533d7ad6afffce0689fbb2910396dfd2429b9f60525914b74e5d55c70afe7ba",
+      "terminal": {
+        "actual_child_exit": 0,
+        "reason": null,
+        "wall_seconds": 3.6875961500045378,
+        "combined_peak_RSS_bytes": 1007587328,
+        "single_PID_peak_RSS_bytes": 144052224,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "source_count": 2895,
+        "source_preserved": true,
+        "original_sources_preserved": true,
+        "original_source_entries": 2148,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "preview_source_preserved": true,
+        "preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "joint_preview_assets_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "temporary_PG_directories_remaining": [],
+        "passfiles_remaining": []
+      },
+      "pytest_log_sha256": "7fa054fa005562f0000e471d0278d193b499cea091404c71206076dbf04cb157"
+    }
+  },
+  "planned_disjoint_native_batches": {
+    "co2-prefix-core": 13,
+    "co2-prefix-fences": 10,
+    "co2-prefix-concurrent": 8
+  },
+  "native_acceptance": "not_run",
+  "WSL_capacity_accepted": false,
+  "new_CO2_deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed"
+}

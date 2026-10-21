@@ -1,5 +1,6 @@
 """Bound the closed CO2 projection/current-query verification on hosted CI."""
 import ctypes
+import fcntl
 from datetime import datetime
 from hashlib import sha256
 import importlib.util
@@ -42,6 +43,22 @@ QUERY_FENCES = ['test_binding_bad_ids_and_dependency_drift_are_rejected',
     'test_checkpoint_lock_is_released_during_followup_checks',
     'test_checkpoint_changed_after_snapshot_never_returns_partial_response',
     'test_checkpoint_directory_identity_survives_the_unlocked_interval']
+PREFIX_CORE = ['test_missing_unstarted_scope_and_readonly_contract',
+    'test_running_original_pages_and_sparse_utc',
+    'test_ready_has_no_stored_sample_or_invented_time',
+    'test_dense_64_row_page_terminal_checkpoint_before_publication',
+    'test_terminal_uses_existing_result_and_prefix_is_closed']
+PREFIX_FENCES = ['test_signed_private_HEAD_rollback_during_read_is_rejected',
+    'test_actual_audit_immutability_and_returned_event_faults',
+    'test_older_accepted_after_private_and_confirmed_tails_retry_and_fresh',
+    'test_signed_rollback_behind_latest_acceptance_rejects_old_selector',
+    'test_current_scopes_review_rights_and_late_revocation',
+    'test_late_farm_registration_denial_still_blocks_prefix',
+    'test_cancel_request_and_ack_close_prefix_without_result',
+    'test_selector_bounds_missing_unaccepted_and_actual_lock',
+    'test_original_signed_head_proof_commit_page_tampering_rejected',
+    'test_selected_page_tampered_after_read_is_rejected_before_serialized_response']
+PREFIX_SCOPES = ('co2-prefix-core', 'co2-prefix-fences', 'co2-prefix-concurrent')
 
 
 def save(path, value):
@@ -119,6 +136,19 @@ def pins():
         'backend/tests/test_crop_greenhouse_co2_execution_query_control.py',
         'backend/tests/test_crop_greenhouse_co2_execution_query.py',
         'backend/tests/test_crop_greenhouse_co2_execution_query_fresh.py',
+        'backend/tests/test_crop_greenhouse_co2_prefix_control.py',
+        'backend/tests/test_crop_greenhouse_co2_prefix.py',
+        'backend/tests/test_crop_greenhouse_co2_prefix_concurrent.py',
+        'backend/tests/test_crop_greenhouse_co2_prefix_fresh.py',
+        'backend/tests/test_crop_greenhouse_co2_farm_binding.py',
+        'backend/tests/test_crop_greenhouse_co2_input_evidence.py',
+        'backend/tests/test_crop_greenhouse_co2_continuation.py',
+        'backend/tests/test_crop_greenhouse_co2_program.py',
+        'fixtures/crop-greenhouse-co2-program-reference-cases-v1.json',
+        'fixtures/crop-growth-reference-parameters-v1.json',
+        'fixtures/crop-fruit-cohort-reference-parameters-v1.json',
+        'fixtures/crop-fruit-transport-reference-parameters-v1.json',
+        'fixtures/crop-canopy-exchange-reference-parameters-v1.json',
         'backend/tests/test_crop_solar_custody_file_locks.py')]
     return {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
@@ -126,7 +156,8 @@ def pins():
 def supervise(directory):
     assert os.environ.get('GITHUB_ACTIONS') == 'true', 'hosted only; preserve WSL previews'
     mode = os.environ.get('OSSF_CO2_VERIFICATION_SCOPE', 'co2-result-projection')
-    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission', 'co2-checkpoint', 'co2-worker-core', 'co2-worker-consumer', 'co2-execution-query', 'co2-execution-query-fences')
+    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission', 'co2-checkpoint', 'co2-worker-core', 'co2-worker-consumer', 'co2-execution-query', 'co2-execution-query-fences', *PREFIX_SCOPES)
+    prefix = mode in PREFIX_SCOPES
     current = mode == 'co2-current-query'
     runtime = mode == 'co2-runtime'
     admission = mode == 'co2-admission'
@@ -148,6 +179,17 @@ def supervise(directory):
         MALLOC_ARENA_MAX='2', PYTEST_DISABLE_PLUGIN_AUTOLOAD='1',
         OSSF_TEST_PG_SHARED_BUFFERS_MIB='4', PGOPTIONS='-c work_mem=64kB -c jit=off',
         OSSF_JOINT_PREFIX_SDK_EVIDENCE=str(directory))
+    if prefix:
+        sample_lock = directory/'database-sample-lock.private'; sample_lock.touch(mode=0o600)
+        env['OSSF_OWNED_DATABASE_SAMPLE_LOCK'] = str(sample_lock)
+        raw_sample = scope.sample
+        def sampled():
+            with sample_lock.open('rb') as lock:
+                fcntl.flock(lock, fcntl.LOCK_EX)
+                return raw_sample()
+        scope.sample = sampled
+        for name, variable in (('prefix', 'OSSF_CO2_PREFIX_EVIDENCE'), ('prefix-fresh', 'OSSF_CO2_EXECUTION_EVIDENCE')):
+            target = directory/name; target.mkdir(mode=0o700); env[variable] = str(target)
     for key in ('PYTEST_ADDOPTS', 'PYTEST_PLUGINS', 'PGPASSWORD', 'PGPASSFILE', 'PGSERVICE', 'PGSERVICEFILE'):
         env.pop(key, None)
     if admission or checkpoint or worker:
@@ -186,10 +228,18 @@ def supervise(directory):
     if query:
         targets = ['tests/test_crop_greenhouse_co2_execution_query.py::'+name for name in (QUERY_FENCES if query_fences else QUERY_PROGRESS)]
         targets += ['tests/test_crop_greenhouse_co2_execution_query_fresh.py'] if query_fences else ['tests/test_crop_greenhouse_co2_execution_query_control.py']
+    if prefix:
+        if mode == 'co2-prefix-concurrent':
+            targets = ['tests/test_crop_greenhouse_co2_prefix_concurrent.py', 'tests/test_crop_greenhouse_co2_prefix_fresh.py']
+        else:
+            targets = ['tests/test_crop_greenhouse_co2_prefix.py::'+name
+                for name in (PREFIX_CORE if mode == 'co2-prefix-core' else PREFIX_FENCES)]
+            if mode == 'co2-prefix-core': targets += ['tests/test_crop_greenhouse_co2_prefix_control.py']
     expected = (11 if query_fences else 24) if query else 37 if consumer else 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
+    if prefix: expected = {'co2-prefix-core': 13, 'co2-prefix-fences': 10, 'co2-prefix-concurrent': 8}[mode]
     plans = [('tests', [sys.executable, '-B', '-m', 'pytest', *targets,
         '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
-    for status in (() if current or http or admission or checkpoint or worker or consumer or query else ('completed', 'hold')):
+    for status in (() if current or http or admission or checkpoint or worker or consumer or query or prefix else ('completed', 'hold')):
         plans.append(('fresh-'+status, [sys.executable, '-B', str(Path(__file__).resolve()), 'fresh',
             str(directory/('co2-projection-store-'+status+'-fresh-pack.private.json')),
             str(directory/('fresh-'+status+'.json'))]))
@@ -219,7 +269,42 @@ def supervise(directory):
             if phase == 'tests':
                 text = log.read_text(errors='replace')
                 assert re.search(rf'\b{expected} passed\b', text) and ' skipped' not in text
-                if query:
+                if prefix:
+                    folder = directory/'prefix'
+                    concurrent = mode == 'co2-prefix-concurrent'
+                    cleanup = 'database-cleanup-concurrent.json' if concurrent else 'database-cleanup.json'
+                    assert json.loads((folder/cleanup).read_bytes()) == {'schemas': 0, 'roles': 0}
+                    records = [json.loads(path.read_bytes()) for path in folder.glob('*.json') if path.name != cleanup]
+                    assert len(records) == (7 if concurrent else 6 if mode == 'co2-prefix-core' else 10)
+                    for record in records:
+                        calls = next((record[key] for key in ('calls', 'read_calls', 'parent_product_query_calls', 'product_query_calls') if key in record), None)
+                        assert calls and len(calls) == 31 and not any(calls.values())
+                    if mode == 'co2-prefix-core':
+                        running = json.loads((folder/'running.json').read_bytes())
+                        assert running['actual_scram'] and running['original_values_and_UTC'] and running['DB_unchanged'] and running['FD_unchanged']
+                        dense = json.loads((folder/'dense.json').read_bytes())
+                        assert dense['original_sample_count'] == 65 and dense['page_counts'] == [64, 1]
+                        assert dense['same_original_values_UTC'] and dense['no_result_publication']
+                        assert all(n <= 2*1024**2 for n in dense['page_bytes'])
+                    elif mode == 'co2-prefix-fences':
+                        audit = json.loads((folder/'selected-previous-event-changes.json').read_bytes())
+                        assert len(audit['actual_audit_trigger_rejections']) == len(audit['reader_rejected']) == 6
+                        assert audit['fault_admin_used_password'] and audit['actual_DB_event_rows_unchanged']
+                        late = json.loads((folder/'late-page.json').read_bytes())
+                        assert late['selected_page_changed_after_successful_read_rejected'] and late['original_owned_page_restored']
+                    else:
+                        for confirmed in (False, True):
+                            record = json.loads((folder/('concurrent-original-'+str(confirmed)+'.json')).read_bytes())
+                            assert record['actor']['actual_scram'] and record['same_original_page_binary64_UTC']
+                            assert record['actor_publication_is_precomputed_original_not_new_calculation'] and record['after_projection_witness_checked']
+                        assert json.loads((directory/'prefix-fresh/cleanup-normal.json').read_bytes()) == {'schemas': 0, 'roles': 0}
+                        record = json.loads((directory/'prefix-fresh/fresh-normal.json').read_bytes())
+                        read = record['fresh_reader']
+                        assert record['same_owned_database_and_original_files'] and record['sequential_processes']
+                        assert read['actual_scram'] and len(read['calls']) == 31 and not any(read['calls'].values())
+                        assert read['original_page_values_UTC_and_first_confirmation'] and read['actual_producer_tail_not_mixed_into_old_selector']
+                        assert read['owner_bound_after_projection_checked'] and read['review_withdrawal_denied']
+                elif query:
                     folder = directory/'execution-query'
                     assert json.loads((folder/'database-cleanup.json').read_bytes()) == {'schemas': 0, 'roles': 0}
                     records = [json.loads(path.read_bytes()) for path in folder.glob('*.json') if path.name != 'database-cleanup.json']
@@ -308,7 +393,10 @@ def supervise(directory):
                         assert all(value == 0 for value in result['calls'].values())
                 counts_record = {'passed': expected, 'skipped': 0, 'mode': mode,
                     'pytest_log_sha256': sha256(log.read_bytes()).hexdigest()}
-                counts_record.update({'control': 0 if query_fences else 15, 'actual_SCRAM': 9, 'actual_independent_SCRAM': 2 if query_fences else 0} if query else
+                counts_record.update({'control': 7 if mode == 'co2-prefix-core' else 0,
+                    'actual_SCRAM': 7 if mode == 'co2-prefix-concurrent' else 6 if mode == 'co2-prefix-core' else 10,
+                    'actual_independent_SCRAM': 1 if mode == 'co2-prefix-concurrent' else 0} if prefix else
+                    {'control': 0 if query_fences else 15, 'actual_SCRAM': 9, 'actual_independent_SCRAM': 2 if query_fences else 0} if query else
                     {'new_consumer_control': 17, 'legacy_solar_control': 14, 'actual_independent_SCRAM': 3, 'pidfd_libc_regression': 3} if consumer else
                     {'control_contract': 9, 'actual_SCRAM': 11} if worker else
                     {'control_contract': 13 if checkpoint else 4, 'actual_SCRAM': 13} if admission or checkpoint else
@@ -350,9 +438,10 @@ def supervise(directory):
         'source_SHA256': original, 'python': sys.version, 'test_scope': mode,
         'current_query_tested': current or http, 'HTTP_tested': http, 'runtime_tested': runtime, 'admission_tested': admission, 'checkpoint_tested': checkpoint, 'worker_core_tested': worker,
         'execution_query_tested': query, 'execution_query_fences_tested': query_fences,
+        'confirmed_prefix_tested': mode if prefix else False,
         'worker_discovery_independent_restart': 'tested' if consumer else 'not_tested', 'worker_browser': 'not_tested', 'G0_G4': 'not_assessed'})
     print(json.dumps({'accepted_hosted_tests': expected, 'mode': mode,
-        'fresh_registered_readers': (2 if query_fences else 0) if query else 3 if consumer else 0 if http or admission or checkpoint or worker else 2,
+        'fresh_registered_readers': (1 if mode == 'co2-prefix-concurrent' else 0) if prefix else (2 if query_fences else 0) if query else 3 if consumer else 0 if http or admission or checkpoint or worker else 2,
         'native_HTTPS_readers': 4 if runtime else 2 if http else 0,
         'WSL_capacity_accepted': False, 'new_CO2_deployed': False}))
 

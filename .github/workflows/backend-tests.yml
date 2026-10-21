@@ -7,7 +7,7 @@ on:
         description: Focused CO2 functional evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint, co2-worker-core, co2-worker-consumer, co2-execution-query, co2-execution-query-fences]
+        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission, co2-checkpoint, co2-worker-core, co2-worker-consumer, co2-execution-query, co2-execution-query-fences, co2-prefix-core, co2-prefix-fences, co2-prefix-concurrent]
   push:
     branches: [main]
   pull_request:
@@ -204,7 +204,7 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint' || inputs.verification_scope == 'co2-worker-core' || inputs.verification_scope == 'co2-worker-consumer' || inputs.verification_scope == 'co2-execution-query' || inputs.verification_scope == 'co2-execution-query-fences')
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission' || inputs.verification_scope == 'co2-checkpoint' || inputs.verification_scope == 'co2-worker-core' || inputs.verification_scope == 'co2-worker-consumer' || inputs.verification_scope == 'co2-execution-query' || inputs.verification_scope == 'co2-execution-query-fences' || inputs.verification_scope == 'co2-prefix-core' || inputs.verification_scope == 'co2-prefix-fences' || inputs.verification_scope == 'co2-prefix-concurrent')
     name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -253,6 +253,34 @@ jobs:
           name: ${{ inputs.verification_scope }}-${{ github.sha }}
           path: |
             ${{ runner.temp }}/co2-projection-evidence/tests.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/unstarted.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/running.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/ready.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/dense.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/terminal-succeeded.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/terminal-hold.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/database-cleanup.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/private-HEAD-rollback.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/selected-previous-event-changes.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/older.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/rollback.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/rights.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/late-farm-registration.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/cancel.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/boundaries.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/tampering.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/late-page.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/concurrent-original-False.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/concurrent-original-True.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/concurrent-heartbeat.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/concurrent-cancel.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/witness.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/selected-provenance.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/selected-approval.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix/database-cleanup-concurrent.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix-fresh/fresh-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix-fresh/cleanup-normal.json
+            ${{ runner.temp }}/co2-projection-evidence/prefix-fresh/failure-normal.json
             ${{ runner.temp }}/co2-projection-evidence/resource.json
             ${{ runner.temp }}/co2-projection-evidence/provenance.json
             ${{ runner.temp }}/co2-projection-evidence/failure.json

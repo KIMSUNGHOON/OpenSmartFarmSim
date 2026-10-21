@@ -1,6 +1,7 @@
 # CO₂·일사 계산의 확정 구간 원 조회 — v1
 
-Status: planned; interface review only. No prefix code, public response or user activation accepted.
+Status: implementation pending native acceptance. Pure controls passed; original-page,
+concurrent and fresh-process acceptance remains required. No public response or user activation accepted.
 2026-10-21. native Codex CLI `gpt-6.1-sol / xhigh`의 인터페이스 검토를
 [진행 조회 전체 증거](../research/artifacts/crop-greenhouse-co2-execution-query-20261021.json)에 기록했다.
 선행은 [현재 진행 조회](crop-greenhouse-co2-execution-query-v1.md),
@@ -46,3 +47,18 @@ literal 승인 False·not_assessed, 원109상태/44연속·6사건 장부/17수�
 전체 원 조회 수용 전 부모를 완료하지 않는다. 이후 닫힌 공개 투영/직렬화 후검사→보호 실행 HTTP/runtime→
 typed web/같은 UTC3D→WSL/사용자 적용을 각각 수용한다. 전체 작기/자원/경제·실제 CLI 종단 간·독립 농장
 자료/G0–G4/실제 품종 예측·추천·전체 완료일은 별도이며 이번 계획으로 해제하지 않는다.
+
+## 원 범위를 보존하는 검증 배치
+
+원 Solar 고유23개를 모두 CO₂ 원 authority/프로그램에 결속하고, 조회 뒤 선택 page 변조1개와
+순수 제어7개를 추가한다. 31개 전체의 수용 전 부모를 완료하지 않는다. 원600초·512MiB/PID·합1GiB와
+64/8개·2MiB 페이지를 유지하며 기존 실행2128.864초 증거에 따라 서로 겹치지 않게 나눈다.
+
+- `co2-prefix-core`: 제어7 + 실제 SCRAM6(없는/미시작·running/sparse·ready·dense64+1·normal/hold).
+- `co2-prefix-fences`: 실제 SCRAM10(원 rollback/fork·audit·private/confirmed/retry·권리/농장·취소·bounds/lock·tamper·late page).
+- `co2-prefix-concurrent`: 실제 SCRAM7(미리 계산한 원 HEAD 공개2·heartbeat/cancel2·witness1·반환값 fault2) + 독립 producer/reader1.
+
+밀집 페이지는 기존 CO₂ `weather-multiple`의 계수/사건/forcing을 유지하고64걸음·매 걸음 출력만
+명시한128초 소프트웨어 변형이다. 순수 사전 검사에서65samples/3events·completed를 확인했으며
+원32초의 독립 물리 참조를128초 검증으로 확대하지 않는다. 동시 actor는 원 signed descendant 공개나
+메타데이터 SQL을 수행하며, unpaused 수치 계산 worker의 동시 처리 증거로 세지 않는다.
