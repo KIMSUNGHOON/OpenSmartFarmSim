@@ -1,14 +1,14 @@
 # CO₂·일사 모델의 접수·자동 계산 핵심 — v1
 
-Status: admission functionality accepted; checkpoint implemented/local13 passed, actual13 pending; worker planned.
+Status: admission/checkpoint functionality accepted; worker and independent consumer/restart planned.
 [접수 기능 수용](../research/crop-greenhouse-co2-admission-20261021.md)은 source43c0a98/CI39520744344의
 17검사·실제 SCRAM13과 원 입력/멱등·접수/취소 rollback·17계측0/정리를 확인했다.
 전체 core/worker·공통 WSL 용량/새 사용자 적용은 미완료다.
-[checkpoint 사전 증거](../research/artifacts/crop-greenhouse-co2-checkpoint-preflight-20261021.json)의
-전체26개 수집은 통과했으며 실제 준비/진행/완료/수치 hold와 현재/늦은 fence 검증은 후속이다.
+[checkpoint 기능 수용](../research/crop-greenhouse-co2-checkpoint-20261021.md)은 sourcea8cc095/CI39524881613의
+26검사·실제 SCRAM13·308지문과 원 상태/시각·현재/늦은 fence·계측/정리를 대사했다.
 [첫 CI의 불변성 시험 준비 수정](../research/artifacts/crop-greenhouse-co2-checkpoint-immutable-test-fix-20261021.json)은
 기존 DB의 이력/입력 UPDATE 거부를 보존한다. 잘못된 새 metadata와 최종 읽기 결과의 fault injection은
-실제 DB 변경과 구분하며 같은26개 재검증 전까지 checkpoint는 미수용이다.
+실제 DB 변경과 구분했고 같은26개를 재검증했다.
 선행은 [명시 조회 runtime 기능 수용](crop-greenhouse-co2-runtime-v1.md)이다.
 [기존 Solar 실행 핵심](crop-greenhouse-solar-execution-core-v1.md)의 임대/현재성/원자 게시 경계를 재사용한다.
 공통 WSL 용량은 사용자 적용 전 조건이며 아래 개발의 별도 중복 장애로 계산하지 않는다.
@@ -36,6 +36,9 @@ Status: admission functionality accepted; checkpoint implemented/local13 passed,
    result/link·attempt outcome·terminal은 같은 DB 거래이며 늦은 fence 실패는 부분 결과0이다.
    정상만 publication을 만들고 수치 hold는 원 prefix/사유를 보존한다. 기존 discovery/loop의 닫힌 목록에
    새 판본/정확한 타입만 추가해 ID 수동 전달 없이 소비한다. 다른 선택 판본은 그대로 보존한다.
+   먼저 worker core의 실제 계산/원자 저장을 수용하고, 다음 별도 자식에서 discovery/loop·독립 정상/hold·
+   fresh 읽기/실제 SIGKILL 재개를 검증한다. worker 부모는 둘 다 통과해야 완료한다.
+   terminal UPDATE 뒤 commit 전에도 execution 권한을 마지막으로 확인한다.
 4. **진행/HTTP/화면:** 현재 진행 조회→접수/취소 HTTP→명시 실행 runtime→typed web→같은 UTC3D→
    WSL/사용자 적용을 각각 수용한다. 비공개 파일 HEAD나 접수 성공을 사용자 확정 생장으로 표시하지 않는다.
 

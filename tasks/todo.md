@@ -2365,14 +2365,20 @@
           17검사/실제 SCRAM13·305지문을 대사했다. 접수 기능 수용이며 core/worker·공통 WSL/새 배포는 미완료다.
           실제 SCRAM 접수 멱등/충돌·late 권리/범위·commit rollback, queued/claimed 취소/철회 뒤 취소,
           접수/취소의 context/적분/CLI0·원 DB/입력/사건·FD/소유 정리를 수용한다.
-        - [ ] **`co2-execution-checkpoint`** — 위 접수 뒤 원 custody의 HEAD/provenance·임대/취소/입력 fence,
+        - [x] **`co2-execution-checkpoint`** — 위 접수 뒤 원 custody의 HEAD/provenance·임대/취소/입력 fence,
           중복 사건/시각 보존·현재/late 변경 거부·계산0·실제 DB/소유 정리를 수용한다.
           private reader 종료 뒤 commit 전 execution 권한을 재확인하며 데이터 WRITE 범위로 대체하지 않는다.
           [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-checkpoint-preflight-20261021.json)의 로컬13/전체26수집을 통과했다.
-          실제 SCRAM13·원 HEAD/UTC/최초 시각과 late fence rollback은 미검증이며 worker/새 배포는 미완료다.
+          [기능 수용](../research/crop-greenhouse-co2-checkpoint-20261021.md)의 sourcea8cc095/CI39524881613에서
+          26검사·실제 SCRAM13·원4상태/HEAD/UTC/최초 시각·late fence rollback·17계측0/308지문·정리를 수용했다.
+          첫 실패/불변성 시험 수정은 보존하며 worker/새 배포·공통 WSL은 미완료다.
         - [ ] **`co2-execution-worker`** — 위 checkpoint 뒤 원109상태/장부/수지·UTC 정상/hold,
           fresh/SIGKILL 재개·취소/만료·원자 result/link/terminal rollback과 독립 자동 발견을 수용한다.
           기존 loop/다른 판본·원 자료/서비스/상한을 유지한다. 이후 진행 query/HTTP/실행 runtime→typed web/같은 UTC3D다.
+          - [ ] **`co2-worker-core`** — 실제 정상/수치 hold 원 수치/UTC·현재 입력/임대·취소/만료와
+            result/link/outcome/terminal 원자성·늦은 권리/실행 범위/최종 UPDATE fence와 소유 정리를 수용한다.
+          - [ ] **`co2-worker-consumer-restart`** — 위 core 뒤 명시 discovery/loop·기존 소비자 보존,
+            독립 정상/hold·fresh 원문/현재 권리·실제 SIGKILL 뒤 확정 HEAD 채택/남은 구간만 계산을 수용한다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
