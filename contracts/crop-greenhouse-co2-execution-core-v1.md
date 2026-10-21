@@ -1,33 +1,17 @@
 # CO₂·일사 모델의 접수·자동 계산 핵심 — v1
 
-Status: admission/checkpoint/worker core functionality accepted; independent consumer/restart pending.
-[worker core 기능 수용](../research/crop-greenhouse-co2-worker-core-20261021.md)은 source0bca8cd/CI39527128812의
-20검사·실제 SCRAM11·원 계산/UTC/원자 저장·취소/만료·늦은 fence와311지문/정리를 확인했다.
-독립 자동 발견·fresh/SIGKILL은 후속 자식이며 worker 부모/공통 WSL·새 사용자 적용은 미완료다.
-[consumer 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-consumer-preflight-20261021.json)는
-exact 입력/결과 쌍 등록 뒤 로컬 새17/기존 Solar14=31통과와 전체34수집을 확인했다.
-독립 정상/hold·fresh 원 결과/권리·실제 SIGKILL3경로는 미수용이다.
-[첫 CI 진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json)은 source68bb182/CI39528616279의
-SIGKILL 재개 node 실패·원 자원/정리 미수용을 보존한다. 시험의 증거 환경변수 누락을 수정했으나
-crash 원인으로 단정하지 않는다. 같은34검사/상한에서 값·비밀 없는 단계/예외 위치 진단을 수집한다.
-[진단/수정 증거](../research/artifacts/crop-greenhouse-co2-consumer-pidfd-fix-20261021.json)는 CI39529771606의
-정상/hold 독립 원 조회·현재 철회/정리와 직접 `os.pidfd_open` 호출의 AttributeError 위치를 확인했다.
-기존 canonical libc pidfd 헬퍼를 재사용했고 로컬 실제 호환성3통과/기존34+회귀3=37수집을 확인했다.
-강제 종료/재개는 수정 판본의 호스팅 검증 전이며 전체 consumer/worker 부모는 미수용이다.
-[worker core 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-core-preflight-20261021.json)는
-로컬 제어9통과/전체20수집(실제 DB11 미실행)과 원 자료/서비스/상한 보존을 확인했다.
-실제 계산/원자 저장은 위 호스팅 집중 검증으로 수용했으며 자동 발견·독립 프로세스·SIGKILL은 후속 자식이다.
-[접수 기능 수용](../research/crop-greenhouse-co2-admission-20261021.md)은 source43c0a98/CI39520744344의
-17검사·실제 SCRAM13과 원 입력/멱등·접수/취소 rollback·17계측0/정리를 확인했다.
-전체 core/worker·공통 WSL 용량/새 사용자 적용은 미완료다.
-[checkpoint 기능 수용](../research/crop-greenhouse-co2-checkpoint-20261021.md)은 sourcea8cc095/CI39524881613의
-26검사·실제 SCRAM13·308지문과 원 상태/시각·현재/늦은 fence·계측/정리를 대사했다.
-[첫 CI의 불변성 시험 준비 수정](../research/artifacts/crop-greenhouse-co2-checkpoint-immutable-test-fix-20261021.json)은
-기존 DB의 이력/입력 UPDATE 거부를 보존한다. 잘못된 새 metadata와 최종 읽기 결과의 fault injection은
-실제 DB 변경과 구분했고 같은26개를 재검증했다.
-선행은 [명시 조회 runtime 기능 수용](crop-greenhouse-co2-runtime-v1.md)이다.
-[기존 Solar 실행 핵심](crop-greenhouse-solar-execution-core-v1.md)의 임대/현재성/원자 게시 경계를 재사용한다.
-공통 WSL 용량은 사용자 적용 전 조건이며 아래 개발의 별도 중복 장애로 계산하지 않는다.
+Status: admission/checkpoint/worker functionality accepted; execution query/HTTP/runtime/UI pending.
+[worker core20/실제 SCRAM11](../research/crop-greenhouse-co2-worker-core-20261021.md)과
+[독립 소비자37/실제 SCRAM3](../research/crop-greenhouse-co2-worker-consumer-20261021.md)를 수용했다.
+후자는 source314bc26/CI39530741390의318지문·원 결과/UTC·현재 철회와 실제 libc pidfd SIGKILL−9,
+7걸음 HEAD 채택 시17계측0/start0/남은9걸음·정리를 확인했다. 기존 Solar 선택을 보존했다.
+[접수17](../research/crop-greenhouse-co2-admission-20261021.md)과
+[checkpoint26](../research/crop-greenhouse-co2-checkpoint-20261021.md)의 원 입력·이력/최초 UTC·늦은 fence도 수용했다.
+[checkpoint 시험 수정](../research/artifacts/crop-greenhouse-co2-checkpoint-immutable-test-fix-20261021.json)과
+[consumer 첫 실패/진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json),
+[pidfd 호환 수정](../research/artifacts/crop-greenhouse-co2-consumer-pidfd-fix-20261021.json)을 보존한다.
+다음은 [진행 조회](crop-greenhouse-co2-execution-query-v1.md)이며 공통 WSL 용량/새 사용자 적용은 별도다.
+[기존 Solar 경계](crop-greenhouse-solar-execution-core-v1.md)를 재사용하며 공유 loop/역할·수식은 유지한다.
 
 ## 구현 순서
 

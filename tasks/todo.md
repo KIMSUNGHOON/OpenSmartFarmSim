@@ -2372,7 +2372,7 @@
           [기능 수용](../research/crop-greenhouse-co2-checkpoint-20261021.md)의 sourcea8cc095/CI39524881613에서
           26검사·실제 SCRAM13·원4상태/HEAD/UTC/최초 시각·late fence rollback·17계측0/308지문·정리를 수용했다.
           첫 실패/불변성 시험 수정은 보존하며 worker/새 배포·공통 WSL은 미완료다.
-        - [ ] **`co2-execution-worker`** — 위 checkpoint 뒤 원109상태/장부/수지·UTC 정상/hold,
+        - [x] **`co2-execution-worker`** — 위 checkpoint 뒤 원109상태/장부/수지·UTC 정상/hold,
           fresh/SIGKILL 재개·취소/만료·원자 result/link/terminal rollback과 독립 자동 발견을 수용한다.
           기존 loop/다른 판본·원 자료/서비스/상한을 유지한다. 이후 진행 query/HTTP/실행 runtime→typed web/같은 UTC3D다.
           - [x] **`co2-worker-core`** — 실제 정상/수치 hold 원 수치/UTC·현재 입력/임대·취소/만료와
@@ -2381,13 +2381,12 @@
             [기능 수용](../research/crop-greenhouse-co2-worker-core-20261021.md)의 source0bca8cd/CI39527128812에서
             20검사·실제 SCRAM11·원 수치/UTC·expiry7+9·원자/늦은 fence rollback·311지문/정리를 수용했다.
             독립 consumer/fresh/SIGKILL·부모/새 배포·공통 WSL은 미완료다.
-          - [ ] **`co2-worker-consumer-restart`** — 위 core 뒤 명시 discovery/loop·기존 소비자 보존,
+          - [x] **`co2-worker-consumer-restart`** — 위 core 뒤 명시 discovery/loop·기존 소비자 보존,
             독립 정상/hold·fresh 원문/현재 권리·실제 SIGKILL 뒤 확정 HEAD 채택/남은 구간만 계산을 수용한다.
             [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-consumer-preflight-20261021.json)의 새17/기존 Solar14=31 로컬 제어와 전체34수집을 통과했다.
-            source68bb182/CI39528616279는 SIGKILL 재개 node 실패로 미수용이다. [첫 실패/진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json)을 보존했다.
-            source1175509/CI39529771606에서 정상/hold 독립 원 조회·현재 철회/정리와 직접 pidfd API의 AttributeError를 확인했다.
-            [canonical 헬퍼 연결/실제 호환성3](../research/artifacts/crop-greenhouse-co2-consumer-pidfd-fix-20261021.json) 뒤 source314bc26의
-            [기존34+회귀3=37 CI39530741390](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39530741390)가 진행 중이며 독립 SIGKILL 재개/부모·새 CO₂/WSL은 미수용이다.
+            [독립 기능 수용](../research/crop-greenhouse-co2-worker-consumer-20261021.md)의 source314bc26/CI39530741390에서37개·독립 실제3경로·318지문을 수용했다.
+            정상/hold 자동 발견·다른 Solar queued·fresh 원문/UTC/철회와 실제 libc pidfd SIGKILL−9/7+9·정리를 대사했다.
+            첫 두 실패/수정을 보존하며 공통 WSL/새 CO₂ 적용·전체 작기/자료 관문은 미완료다.
         - [ ] **`co2-execution-query`** — 위 worker 기능 수용 뒤 [진행 조회 계약](../contracts/crop-greenhouse-co2-execution-query-v1.md)의 닫힌 DTO/현재 읽기 경계를 구현한다.
           실제 queued/canceled/확정/heartbeat·원 정상/hold/최초 UTC·읽기 권리/늦은 변경·독립 fresh와 조회 수치/SQL 변경0·정리를 수용한다.
           보호 접수/진행/취소 HTTP·실행 runtime→typed web/같은 UTC3D는 이후다. 공통 WSL 보류는 새 사용자 적용 전에 유지한다.

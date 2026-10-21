@@ -48,7 +48,9 @@ fresh17진입점0·DB 변조/철회·source/선언1µs 경계와 최대 연결34
 원4상태/HEAD·UTC/최초 시각·불변성/늦은 fence·확인 중17계측0/정리를 대사했다.
 [worker core 기능](../research/crop-greenhouse-co2-worker-core-20261021.md)의20검사·실제 SCRAM11도 수용했다.
 원 수치/UTC·정상/hold 원자 저장·취소/expiry7+9·늦은 fence rollback·311지문/정리를 대사했다.
-실행 부모/공통 WSL 용량·새 사용자 적용은 남는다. 다음은 독립 발견/fresh/SIGKILL→진행 API/runtime→같은 UTC3D다.
+[독립 소비자37/실제 SCRAM3](../research/crop-greenhouse-co2-worker-consumer-20261021.md)도 수용했다.
+정상/hold 자동 발견·fresh 원문/UTC/현재 철회와 실제 libc pidfd SIGKILL−9·7+9/318지문·정리를 확인했다.
+worker 기능 부모는 수용했으며 공통 WSL 용량·새 사용자 적용은 남는다. 다음은 진행 query→prefix/보호 실행 API/runtime→같은 UTC3D다.
 새 저장/API/3D와 실제 품종/농장·관문은 후속이며 기공 단위는 별도 hold다.
 필요한 계산 근거·권리를 대사했으며 UI 용량을 이 계산 개발의 선행으로 추가하지 않는다.
 기존 수치/저장3D·원 자료/5root를 보존하고 실제 품종/농장·생산/자원/경제와 관문/전체 완료일은 미완료/미정이다.

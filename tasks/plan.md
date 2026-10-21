@@ -105,7 +105,7 @@ M1+M2의 현재 산술 합은233–450집중시간이나, M2는 필요한 실제
 
 ## 현재 다음 실행 — 2026-10-21
 
-**worker core 수용·consumer 수정 검증 — 2026-10-21 KST:** [core20/실제 SCRAM11](../research/crop-greenhouse-co2-worker-core-20261021.md)은 source0bca8cd/CI39527128812의 원 수치/UTC·정상/hold 원자 저장·취소/expiry7+9·늦은 fence rollback과311지문/정리를 수용했다. 독립 consumer의 [첫 실패/진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json)과 [실제 오류 위치/수정](../research/artifacts/crop-greenhouse-co2-consumer-pidfd-fix-20261021.json)을 보존한다. CI39529771606에서 정상/hold 독립 원 조회·현재 철회·schema/role0과 직접 os.pidfd_open의 AttributeError를 확인했다. 기존 canonical libc pidfd 헬퍼를 연결하고 실제 호환성3/원34+3=37수집 뒤 source314bc26의 [CI39530741390](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39530741390)가 진행 중이다. 실제 SIGKILL/남은 구간 재개와 consumer/worker 부모는 미수용이다. 기능 수용 뒤 [진행 query](../contracts/crop-greenhouse-co2-execution-query-v1.md)→보호 HTTP/runtime→typed web/같은 UTC3D다. 원 공수/낮은 신뢰 달력 창과 자료/WSL/사용자 적용 보류는 유지한다.
+**worker 기능 수용 — 2026-10-21 KST:** [core20/실제 SCRAM11](../research/crop-greenhouse-co2-worker-core-20261021.md)과 [독립 소비자37/실제 SCRAM3](../research/crop-greenhouse-co2-worker-consumer-20261021.md)를 수용했다. source314bc26/CI39530741390의 원 결과/UTC·현재 철회·자동 발견/다른 Solar queued와 실제 libc pidfd SIGKILL−9/7+9·318지문/정리를 대사했다. 첫 두 실패·시험 환경변수/정리/pidfd 호환 수정은 보존했다. 다음은 [진행 query](../contracts/crop-greenhouse-co2-execution-query-v1.md)→확정 prefix/보호 실행 HTTP·runtime→typed web/같은 UTC3D다. worker 기능 수용이며 공통 WSL/새 사용자 적용·전체 작기/자료 관문은 남고 기존 공수/낮은 신뢰 달력 창을 유지한다.
 
 기존 미리보기는 [인증/TLS 실제 갱신·복구](../research/frozen-preview-authentication-renewal-20261021.md)를 수용했다. 다음 준비는 2026-10-21T20:37:14.318934+00:00 이전이다. 실제 만료에 따른 유지 작업이며 현재 핵심 순서 `co2-result-projection`→`co2-current-query`→API/worker/같은 UTC3D를 유지한다.
 
