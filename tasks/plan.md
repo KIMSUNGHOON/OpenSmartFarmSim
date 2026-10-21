@@ -164,6 +164,12 @@ CI 빌드/브라우저와 현재 사용자 서버 적용·직접 시각 검토�
 원 root/program·농장 binding·코드/현재 권리를 결속하고 조회에서 생장 계산을 하지 않는 것이 수용 조건이다.
 실제 품종/잎 식·독립 자료와 결과 등록/API/UI는 별도 미완료다.
 
+다음 [완료 수치 artifact/현재 조회 계약](../contracts/crop-morphology-signed-artifact-v1.md)은 기존 v2 계산/파일을 그대로 사용한다.
+작은 producer/readonly 서명 모듈과 집중/실제 SCRAM/fresh 검증으로 분리하고 DB·실행 큐를 동시에 넓히지 않는다.
+원12프레임/수치 root와 실제 calculated_at·현재 권리/조회 계산0·원 행/6root가 수용 조건이다.
+잠정0.75–2집중시간은 수용된 파일/농장 모듈 재사용과 실제 native 비용을 근거로 한 이 자식만의 작업량이다.
+등록/API/제품 UI와 실제 자료의 확보일은 이 추정에 포함하지 않는다.
+
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.
 데이터셋 판본1·2를 독립 작기로 세지 않으며 다른 품종 계수로 빈칸을 채우지 않는다. 개발과 자료 확보는 병행한다.

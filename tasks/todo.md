@@ -14,6 +14,11 @@
   [제어28/실제 SCRAM3·관련623검사](../research/crop-morphology-farm-binding-20261022.md), 원41,256bytes/fresh·26계측0,
   현재/늦은 철회·실제 DB/권한 변조 거부와 원3,140지문/2,148항목·6root/정리를 확인했다.
 
+- [ ] **`morphology-signed-completed-artifact`** — [원 수치 계산/완료 서명·현재 조회](../contracts/crop-morphology-signed-artifact-v1.md).
+  현재 farm/입력 뒤 실제 v2 producer를 실행하고 원 root/프레임·현재 권리/실제 계산 시각을 새 서명에 결속한다.
+  실제 SCRAM/fresh 조회의 계산/쓰기0·원 ID/UTC·철회/변조/잘못된 초기 상태와 원15파일/행·6root/정리가 수용 조건이다.
+  결과 등록/접수·재개/worker/API·제품 UI와 실제 품종·G0–G4는 별도다.
+
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
   실제 WebGL의 연결된 줄기·복엽/잎맥·과실/꽃받침·표면/조명/그림자, 회전·전체/과실/잎 확대,
