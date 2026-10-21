@@ -128,7 +128,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                crop_greenhouse_solar_execution_service=None, crop_greenhouse_solar_execution_query=None,
                crop_greenhouse_solar_prefix_query=None,
                crop_greenhouse_co2_result_store=None, crop_greenhouse_co2_current_query=None,
-               crop_greenhouse_co2_execution_service=None, crop_greenhouse_co2_execution_query=None) -> FastAPI:
+               crop_greenhouse_co2_execution_service=None, crop_greenhouse_co2_execution_query=None,
+               crop_greenhouse_co2_prefix_query=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -337,6 +338,15 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             raise ValueError('trusted solar execution service required')
         install_solar_prefix_routes(app, jobs=job_store, farms=farm_authoring_service,
             store=crop_greenhouse_solar_result_store, query=crop_greenhouse_solar_prefix_query,
+            principal_provider=principal_provider, authorized_tenant=authorized_tenant,
+            error=_error, access=_access)
+    if crop_greenhouse_co2_prefix_query is not None:
+        from .api_crop_greenhouse_co2_prefix_routes import install_co2_prefix_routes
+        if (crop_greenhouse_co2_execution_service is None or crop_greenhouse_co2_execution_query is None
+                or getattr(crop_greenhouse_co2_prefix_query, 'query', None) is not crop_greenhouse_co2_execution_query):
+            raise ValueError('trusted co2 execution service required')
+        install_co2_prefix_routes(app, jobs=job_store, farms=farm_authoring_service,
+            store=crop_greenhouse_co2_result_store, query=crop_greenhouse_co2_prefix_query,
             principal_provider=principal_provider, authorized_tenant=authorized_tenant,
             error=_error, access=_access)
     install_catalog_routes(app, jobs=job_store, farms=farm_authoring_service,

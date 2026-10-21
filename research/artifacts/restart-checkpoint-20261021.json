@@ -1,0 +1,96 @@
+{
+  "schema_version": "requested-restart-checkpoint-v1",
+  "recorded_at": "2026-10-21T05:16:46.948122+00:00",
+  "reason": "user requested stopping work for system restart",
+  "last_accepted_feature_commit": "9b69418",
+  "prefix_HTTP_controls_passed": 425,
+  "native_cases_collected": 14,
+  "native_SCRAM_TLS_executed": false,
+  "CI_workflow_extension_complete": false,
+  "checkpoint_syntax_only_passed": true,
+  "source_SHA256": {
+    "backend/app/api.py": "481bb4e32abde32adcb41c30d102ea8dcb2128e8d5960afa3cacc43b74b7afaa",
+    "backend/app/api_crop_greenhouse_co2_prefix_routes.py": "28d9b07d1ecd16fa0fab339803a857d4bfe62cce9e97852d15bb0b107d566037",
+    "backend/tests/test_api_crop_greenhouse_co2_prefix_routes.py": "4339f40e843e182c483b185118df4fa246afa525d1e666d8d72b2b2617c6af49",
+    "backend/tests/test_api_crop_greenhouse_co2_execution_http_native.py": "5452b45f1671a07eb7f047b5a455ade9e6e2c578713816990a53dcb5e17a1ae2",
+    "research/co2_result_projection_hosted.py": "81744364c316c7248006d1fbb0dcda8cb806932cc2c74f69375cf573b31b4070"
+  },
+  "checks": {
+    "focused-co2-execution-http-prefix-red-v1": {
+      "terminal_sha256": "cb02aa1c6660e244f6eaaa7abbf74cb313d834f3ae039a99bccf33ee0ec1b163",
+      "log_sha256": "62e8db4c294dbbbeca0e2fec2524f392b79fa3b9da105b9db81a2d6478b3bf94",
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 2.145487840025453,
+      "single_PID_peak_RSS_bytes": 127430656,
+      "combined_peak_RSS_bytes": 677625856,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": []
+    },
+    "focused-co2-execution-http-prefix-green-v1": {
+      "terminal_sha256": "eab2d84180b6476d7bcf2684d3af86cf59db0f1e4e7583ba1a7274baee3b9153",
+      "log_sha256": "c6cd7b89d6330ed3272dad331900edeb2a3b6ee5d60be6dd8fbfee2a6a67999a",
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 4.193310668022605,
+      "single_PID_peak_RSS_bytes": 180723712,
+      "combined_peak_RSS_bytes": 724701184,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": []
+    },
+    "focused-co2-execution-http-prefix-green-v2": {
+      "terminal_sha256": "ec7e9f764ec8b8e7223c91a7e9b5e9ada6d61be450031a3f7bdf092bfcbe0798",
+      "log_sha256": "39768c754454c42d44bb6a6926ef8c94cc4dfc90e5a6be8e61edf8fbcae31256",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 4.2015138900023885,
+      "single_PID_peak_RSS_bytes": 159588352,
+      "combined_peak_RSS_bytes": 721313792,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": []
+    },
+    "focused-co2-execution-http-prefix-regression-v1": {
+      "terminal_sha256": "be0d99054d4c8956c3e341fbb3fcc82edcc9fbcc3c8e8f5b553ef7ab40bb2a1a",
+      "log_sha256": "3b16b7307dec6f3f97b30cc4c6079c8e1f2a86c7cf6a8b98cbafb49feac5668e",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 20.91653368700645,
+      "single_PID_peak_RSS_bytes": 204627968,
+      "combined_peak_RSS_bytes": 868106240,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": []
+    },
+    "focused-co2-execution-http-native-collection-v1": {
+      "terminal_sha256": "27fd7c46a201e70738ee68c4bd6d29bd5c846bff0c80af6d5b0ad394c01c93e2",
+      "log_sha256": "34f13824c022f63a4413648eed9bd6bf5ce5617b30a22c9b2082fbb7ec2fc844",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 3.7642435749876313,
+      "single_PID_peak_RSS_bytes": 146849792,
+      "combined_peak_RSS_bytes": 702853120,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": []
+    }
+  },
+  "known_resume_checks": [
+    "finish workflow scope and curated artifact allowlist for execution-http core6/fences8",
+    "controller query_DB_unchanged requirement must distinguish intentional independent actor/append SQL from read-only queries",
+    "verify inferred old co2-http collection count218 before accepting controller metadata change",
+    "collection14 preceded final receipt-field additions; collect final source again",
+    "do not run a recursive Codex CLI; use gpt-6.1-sol xhigh native session"
+  ],
+  "goal_pause_requested": true,
+  "new_CO2_deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed"
+}

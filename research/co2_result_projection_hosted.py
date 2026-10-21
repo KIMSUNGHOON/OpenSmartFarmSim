@@ -60,6 +60,14 @@ PREFIX_FENCES = ['test_signed_private_HEAD_rollback_during_read_is_rejected',
     'test_selected_page_tampered_after_read_is_rejected_before_serialized_response']
 PREFIX_SCOPES = ('co2-prefix-core', 'co2-prefix-fences', 'co2-prefix-concurrent')
 PREFIX_PROJECTION_SCOPES = ('co2-prefix-projection-core', 'co2-prefix-projection-fences', 'co2-prefix-projection-regression')
+EXECUTION_HTTP_SCOPES = ('co2-execution-http-core', 'co2-execution-http-fences')
+EXECUTION_HTTP_CORE = ['test_native_submit_progress_and_running_cancel',
+    'test_native_terminal_saved_result_and_closed_prefix',
+    'test_native_rights_withdrawal_owner_cancel_without_metadata',
+    'test_native_original_prefix_views_and_selection']
+EXECUTION_HTTP_FENCES = ['test_native_late_prefix_changes_are_withheld',
+    'test_native_independent_change_after_prefix_serialization',
+    'test_native_new_original_HEAD_preserves_selected_HTTP_page']
 PREFIX_PROJECTION_CORE = ['test_selected_page_changed_after_serialization_is_held',
     'test_actual_current_views_scope_and_cancel_without_writes',
     'test_actual_terminal_closed_keeps_existing_result',
@@ -158,6 +166,10 @@ def pins():
         'backend/tests/test_api_crop_greenhouse_co2_prefix.py',
         'backend/tests/test_api_crop_greenhouse_co2_prefix_native.py',
         'backend/tests/test_api_crop_greenhouse_co2_prefix_fresh.py',
+        'backend/tests/test_api_crop_greenhouse_co2_execution_http.py',
+        'backend/tests/test_api_crop_greenhouse_co2_prefix_routes.py',
+        'backend/tests/test_api_crop_greenhouse_co2_execution_http_native.py',
+        'research/artifacts/co2-execution-http-openapi-baseline-20261021.json',
         'backend/tests/test_crop_greenhouse_co2_prefix_program_witness.py',
         'backend/tests/test_crop_greenhouse_co2_farm_binding.py',
         'backend/tests/test_crop_greenhouse_co2_input_evidence.py',
@@ -175,7 +187,8 @@ def pins():
 def supervise(directory):
     assert os.environ.get('GITHUB_ACTIONS') == 'true', 'hosted only; preserve WSL previews'
     mode = os.environ.get('OSSF_CO2_VERIFICATION_SCOPE', 'co2-result-projection')
-    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission', 'co2-checkpoint', 'co2-worker-core', 'co2-worker-consumer', 'co2-execution-query', 'co2-execution-query-fences', *PREFIX_SCOPES, *PREFIX_PROJECTION_SCOPES)
+    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission', 'co2-checkpoint', 'co2-worker-core', 'co2-worker-consumer', 'co2-execution-query', 'co2-execution-query-fences', *PREFIX_SCOPES, *PREFIX_PROJECTION_SCOPES, *EXECUTION_HTTP_SCOPES)
+    execution_http = mode in EXECUTION_HTTP_SCOPES
     prefix = mode in PREFIX_SCOPES
     prefix_projection = mode in PREFIX_PROJECTION_SCOPES
     current = mode == 'co2-current-query'
@@ -199,7 +212,7 @@ def supervise(directory):
         MALLOC_ARENA_MAX='2', PYTEST_DISABLE_PLUGIN_AUTOLOAD='1',
         OSSF_TEST_PG_SHARED_BUFFERS_MIB='4', PGOPTIONS='-c work_mem=64kB -c jit=off',
         OSSF_JOINT_PREFIX_SDK_EVIDENCE=str(directory))
-    if prefix or prefix_projection:
+    if prefix or prefix_projection or execution_http:
         sample_lock = directory/'database-sample-lock.private'; sample_lock.touch(mode=0o600)
         env['OSSF_OWNED_DATABASE_SAMPLE_LOCK'] = str(sample_lock)
         raw_sample = scope.sample
@@ -229,6 +242,10 @@ def supervise(directory):
         env['OSSF_CO2_EXECUTION_EVIDENCE'] = str(target)
     if runtime:
         env['OSSF_CO2_RUNTIME_EVIDENCE'] = str(directory/'http')
+    if execution_http:
+        target = directory/'execution-http'; target.mkdir(mode=0o700)
+        env['OSSF_CO2_EXECUTION_HTTP_EVIDENCE'] = str(target)
+        env['OSSF_CO2_EXECUTION_QUERY_EVIDENCE'] = str(target)
     if http:
         for name, variable in (('http', 'OSSF_CO2_HTTP_EVIDENCE'), ('legacy-solar', 'OSSF_SOLAR_HTTP_EVIDENCE')):
             target = directory/name; target.mkdir(mode=0o700); env[variable] = str(target)
@@ -258,7 +275,7 @@ def supervise(directory):
             targets = ['tests/test_crop_greenhouse_co2_prefix.py::'+name
                 for name in (PREFIX_CORE if mode == 'co2-prefix-core' else PREFIX_FENCES)]
             if mode == 'co2-prefix-core': targets += ['tests/test_crop_greenhouse_co2_prefix_control.py']
-    expected = (11 if query_fences else 24) if query else 37 if consumer else 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
+    expected = (11 if query_fences else 24) if query else 37 if consumer else 20 if worker else 26 if checkpoint else 17 if admission else 177 if runtime else 218 if http else 11 if current else 39
     if prefix: expected = {'co2-prefix-core': 13, 'co2-prefix-fences': 10, 'co2-prefix-concurrent': 8}[mode]
     if prefix_projection:
         if mode == 'co2-prefix-projection-regression':
@@ -268,9 +285,13 @@ def supervise(directory):
             targets = ['tests/test_api_crop_greenhouse_co2_prefix_native.py::'+name for name in
                 (PREFIX_PROJECTION_CORE if mode == 'co2-prefix-projection-core' else PREFIX_PROJECTION_FENCES)]
         expected = {'co2-prefix-projection-core': 7, 'co2-prefix-projection-fences': 10, 'co2-prefix-projection-regression': 93}[mode]
+    if execution_http:
+        targets = ['tests/test_api_crop_greenhouse_co2_execution_http_native.py::'+name
+            for name in (EXECUTION_HTTP_CORE if mode == 'co2-execution-http-core' else EXECUTION_HTTP_FENCES)]
+        expected = 6 if mode == 'co2-execution-http-core' else 8
     plans = [('tests', [sys.executable, '-B', '-m', 'pytest', *targets,
         '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
-    for status in (() if current or http or admission or checkpoint or worker or consumer or query or prefix or prefix_projection else ('completed', 'hold')):
+    for status in (() if current or http or admission or checkpoint or worker or consumer or query or prefix or prefix_projection or execution_http else ('completed', 'hold')):
         plans.append(('fresh-'+status, [sys.executable, '-B', str(Path(__file__).resolve()), 'fresh',
             str(directory/('co2-projection-store-'+status+'-fresh-pack.private.json')),
             str(directory/('fresh-'+status+'.json'))]))
@@ -300,7 +321,51 @@ def supervise(directory):
             if phase == 'tests':
                 text = log.read_text(errors='replace')
                 assert re.search(rf'\b{expected} passed\b', text) and ' skipped' not in text
-                if prefix_projection:
+                if execution_http:
+                    folder = directory/'execution-http'
+                    records = {p.stem: json.loads(p.read_bytes()) for p in folder.glob('*.json')}
+                    core = mode == 'co2-execution-http-core'
+                    names = {'native-lifecycle', 'native-terminal-succeeded', 'native-terminal-hold',
+                        'native-rights-cancel', 'native-prefix-views-normal', 'native-prefix-views-basis-transition'} if core else {
+                        'native-prefix-late-'+fault for fault in ('rights', 'page', 'witness', 'program')}
+                    if not core:
+                        names |= {'native-prefix-actor-heartbeat', 'native-prefix-actor-cancel',
+                            'native-prefix-append-False', 'native-prefix-append-True'}
+                    assert set(records) == names | {'database-cleanup'}
+                    assert records['database-cleanup'] == {'schemas': 0, 'roles': 0}
+                    for name in names:
+                        record = records[name]
+                        assert record['actual_scram'] and record['verified_TLS']
+                        assert record['replies'] and all(r['bytes'] <= 2*1024**2 for r in record['replies'])
+                        if name != 'native-rights-cancel':
+                            assert len(record['calls']) == 31 and not any(record['calls'].values())
+                            assert record['query_DB_unchanged']
+                    if core:
+                        assert records['native-lifecycle']['same_job_retry'] and records['native-lifecycle']['worker_ack_required']
+                        assert records['native-rights-cancel']['source_rights_withdrawn'] and records['native-rights-cancel']['cancel_only_without_metadata']
+                        for state in ('succeeded', 'hold'):
+                            assert records['native-terminal-'+state]['original_progress_and_existing_saved_wire']
+                            assert records['native-terminal-'+state]['closed_prefix']
+                        for case in ('normal', 'basis-transition'):
+                            assert records['native-prefix-views-'+case]['original_projection_bytes']
+                            assert records['native-prefix-views-'+case]['original_values_units_UTC_selector_first_time']
+                            assert records['native-prefix-views-'+case]['selected_program_equals_original_context']
+                        assert records['native-prefix-views-basis-transition']['same_UTC_new_forcing_before_event_and_output']
+                    else:
+                        for fault in ('rights', 'page', 'witness', 'program'):
+                            record = records['native-prefix-late-'+fault]
+                            assert record['serialized_values_withheld'] and record['owned_original_restored']
+                            assert record['after_final_serialization_change_rejected'] is (fault != 'witness')
+                            assert record['missing_witness_denied_before_source'] is (fault == 'witness')
+                        for action in ('heartbeat', 'cancel'):
+                            record = records['native-prefix-actor-'+action]
+                            assert record['actor']['actual_scram'] and record['current_change_handled_after_serialization']
+                            assert record['actor_SQL_is_intentional_test_control']
+                        for confirmed in (False, True):
+                            record = records['native-prefix-append-'+str(confirmed)]
+                            assert record['actor']['actual_scram'] and record['actor']['original_snapshot_event_inserted'] is confirmed
+                            assert record['same_original_page_values_UTC_selector_first_time'] and record['precomputed_original_not_new_numerics']
+                elif prefix_projection:
                     folder = directory/'prefix-projection'
                     records = {path.stem: json.loads(path.read_bytes()) for path in folder.glob('*.json')}
                     regression = mode == 'co2-prefix-projection-regression'
@@ -475,7 +540,8 @@ def supervise(directory):
                         assert all(value == 0 for value in result['calls'].values())
                 counts_record = {'passed': expected, 'skipped': 0, 'mode': mode,
                     'pytest_log_sha256': sha256(log.read_bytes()).hexdigest()}
-                counts_record.update({'pure_projection': 83 if regression else 0, 'private_source_unit': 4 if regression else 0,
+                counts_record.update({'actual_SCRAM_TLS': expected, 'control_contract': 0} if execution_http else
+                    {'pure_projection': 83 if regression else 0, 'private_source_unit': 4 if regression else 0,
                     'actual_SCRAM': 5 if regression else 7 if mode == 'co2-prefix-projection-core' else 10,
                     'actual_independent_SCRAM': 1 if regression else 0} if prefix_projection else
                     {'control': 7 if mode == 'co2-prefix-core' else 0,
@@ -486,7 +552,7 @@ def supervise(directory):
                     {'control_contract': 9, 'actual_SCRAM': 11} if worker else
                     {'control_contract': 13 if checkpoint else 4, 'actual_SCRAM': 13} if admission or checkpoint else
                     {'control_contract': 173, 'actual_SCRAM_TLS': 4} if runtime else
-                    {'pure': 213 if http else 5 if current else 37, 'actual_SCRAM': 6 if current else 2})
+                    {'pure': 216 if http else 5 if current else 37, 'actual_SCRAM': 6 if current else 2})
                 save(directory/'tests.json', counts_record)
     finally:
         scope.signal_owned(signal.SIGTERM)
@@ -521,13 +587,15 @@ def supervise(directory):
     save(directory/'provenance.json', {'source_commit': os.environ['GITHUB_SHA'],
         'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
         'source_SHA256': original, 'python': sys.version, 'test_scope': mode,
-        'current_query_tested': current or http, 'HTTP_tested': http, 'runtime_tested': runtime, 'admission_tested': admission, 'checkpoint_tested': checkpoint, 'worker_core_tested': worker,
+        'current_query_tested': current or http, 'HTTP_tested': http or execution_http, 'runtime_tested': runtime, 'admission_tested': admission, 'checkpoint_tested': checkpoint, 'worker_core_tested': worker,
+        'execution_HTTP_tested': mode if execution_http else False,
         'execution_query_tested': query, 'execution_query_fences_tested': query_fences,
         'confirmed_prefix_tested': mode if prefix else False,
         'confirmed_prefix_public_projection_tested': mode if prefix_projection else False,
         'worker_discovery_independent_restart': 'tested' if consumer else 'not_tested', 'worker_browser': 'not_tested', 'G0_G4': 'not_assessed'})
     print(json.dumps({'accepted_hosted_tests': expected, 'mode': mode,
-        'fresh_registered_readers': (1 if mode == 'co2-prefix-projection-regression' else 0) if prefix_projection else (1 if mode == 'co2-prefix-concurrent' else 0) if prefix else (2 if query_fences else 0) if query else 3 if consumer else 0 if http or admission or checkpoint or worker else 2,
+        'fresh_registered_readers': (1 if mode == 'co2-prefix-projection-regression' else 0) if prefix_projection else (1 if mode == 'co2-prefix-concurrent' else 0) if prefix else (2 if query_fences else 0) if query else 3 if consumer else 0 if http or admission or checkpoint or worker or execution_http else 2,
+        'native_HTTPS_cases': expected if execution_http else 0,
         'native_HTTPS_readers': 4 if runtime else 2 if http else 0,
         'WSL_capacity_accepted': False, 'new_CO2_deployed': False}))
 

@@ -3109,3 +3109,9 @@ preflight/core/fences/regression의343지문과 고유110 ID를 결속했고 공
 **보호 실행 base3 제어 수용:** [집중375검사](../research/api-crop-greenhouse-co2-execution-http-20261021.md)는
 새114/기존 Solar 실행·CO₂ 결과/공통 OpenAPI를 확인했다. 원65경로/477스키마의 지문을 보존해
 68/483 문서를 생성했다. 원 자원/2148항목/5root를 보존했으며 prefix3·실제 SCRAM/TLS 수용과 부모는 후속이다.
+
+## 사용자 요청에 따른 재시작 중단 — 2026-10-21
+
+새 계산·CI를 제출하지 않고 [재개 지점](RESTART_HANDOFF_20261021.md)을 저장했다.
+보호 실행 base375는 수용했고 이후 prefix 제어425/native14 수집과 미완성 controller/workflow는
+중단 checkpoint다. 실제 native 수용/부모 체크·새 CO₂ 적용은 미완료로 유지한다.
