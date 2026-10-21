@@ -15,7 +15,7 @@ export default function LeafAreaReplayPage(){
     return()=>{clearInterval(timer);document.removeEventListener('visibilitychange',hidden);};},[playing,data]);
   const select=(value:number)=>{setPlaying(false);setIndex(value);};
   if(!data)return <main className="morphology-page leaf-area-page"><h1>저장된 잎 면적과 줄기</h1><p role="status">{error?
-    '저장 결과 표시 보류: 원 파일·권리·무결성을 확인할 수 없습니다. 대체 결과는 표시하지 않습니다.':'17개 원 저장 파일을 확인하고 있습니다.'}</p></main>;
+    '저장 결과 표시 보류: 원 파일·권리·무결성을 확인할 수 없습니다. 대체 결과는 표시하지 않습니다.':'저장된 계산 결과를 확인하고 있습니다.'}</p></main>;
   const frame=data.frames[index]!,maximum=Math.max(...data.frames.map(f=>f.stem.tracked_axis_length.value));
   const maximumArea=Math.max(...data.frames.map(f=>f.tracked_leaf_area.value));
   const x=(i:number)=>25+i/(data.frames.length-1)*590,y=(v:number)=>125-v/maximumArea*105;

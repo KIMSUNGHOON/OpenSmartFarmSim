@@ -36,7 +36,7 @@ test('original leaf surfaces, UTC/table/graph, autoplay and idle with no calcula
 
 test('WebGL unavailable retains the original stored table',async({page})=>{
   await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;
-    HTMLCanvasElement.prototype.getContext=function(name,...args){return name==='webgl2'?null:Reflect.apply(original,this,[name,...args]);} as typeof original;});
+    HTMLCanvasElement.prototype.getContext=function(this:HTMLCanvasElement,name,...args){return name==='webgl2'?null:Reflect.apply(original,this,[name,...args]);} as typeof original;});
   await page.setViewportSize({width:390,height:844});await page.goto('/leaf-area-replay.html');
   await expect(page.getByText(/3D 표시 보류: WebGL2/)).toBeVisible();await expect(page.locator('td[data-raw-area]')).toHaveCount(3);
   await page.getByRole('button',{name:'마지막',exact:true}).click();expect(await page.locator('td[data-raw-area]').first().getAttribute('data-raw-area')).toBe(String(stored(11).leaves[0].area.value));
