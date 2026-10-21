@@ -21,6 +21,10 @@ describe('authored tomato appearance (not a crop prediction)',()=>{
     const material=new MeshStandardMaterial(),plant=createTomatoAppearance({leaf:material,stem:material,fruit:material,calyx:material,flower:material});
     expect(plant.root.userData.scope).toBe(APPEARANCE_SCOPE);expect(plant.leafletCount).toBeGreaterThan(60);
     expect(plant.fruitCount).toBeGreaterThan(0);
+    for(let i=0;i<plant.fruitBounds.length;i++)for(let j=i+1;j<plant.fruitBounds.length;j++){
+      const a=plant.fruitBounds[i]!,b=plant.fruitBounds[j]!;
+      expect(a.center.distanceTo(b.center)).toBeGreaterThan(a.radius+b.radius);
+    }
     const size=new Box3().setFromObject(plant.root).getSize(new Vector3());
     expect([size.x,size.y,size.z].every(x=>Number.isFinite(x)&&x>0)).toBe(true);
     const disposed=new Set<string>();plant.root.traverse(object=>{if(object instanceof Mesh)

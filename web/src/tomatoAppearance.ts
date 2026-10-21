@@ -14,7 +14,7 @@ export function tomatoLeafletGeometry():BufferGeometry {
   const rows=48,cols=12;
   for(let i=0;i<=rows;i++){
     const t=i/rows;
-    const lobes=1+.24*Math.sin(t*7*Math.PI-.5)+.07*Math.sin(t*39*Math.PI);
+    const lobes=1+.24*Math.sin(t*7*Math.PI-.5)+.035*Math.sin(t*31*Math.PI);
     const width=Math.pow(Math.sin(t*Math.PI),.86)*.305*lobes;
     for(let j=0;j<=cols;j++){
       const s=j/cols*2-1;
@@ -46,6 +46,7 @@ export function createTomatoAppearance(materials:Materials){
   const root=new Group(),stemParts:BufferGeometry[]=[],leafMatrices:Matrix4[]=[],calyxMatrices:Matrix4[]=[],
     fruitMatrices:Matrix4[]=[],fruitColors:Color[]=[],flowerMatrices:Matrix4[]=[],hairs:number[]=[];
   const owned:BufferGeometry[]=[];
+  const fruitBounds:{center:Vector3;radius:number}[]=[];
   function stem(points:Vector3[],radius:number,hairy=false){
     const curve=new CatmullRomCurve3(points),g=new TubeGeometry(curve,Math.max(8,points.length*7),radius,7,false);
     stemParts.push(g);
@@ -93,6 +94,11 @@ export function createTomatoAppearance(materials:Materials){
       const a=curve.getPoint(.28+k*.085),sign=k%2===0?-1:1;
       const radius=.029-(k*.0011)+.0012*Math.sin(k*3+n);
       const center=a.clone().addScaledVector(side,sign*(.045+.005*(k%3))).add(point(0,-.057,0));
+      for(let attempt=0;fruitBounds.some(b=>b.center.distanceTo(center)<(b.radius+radius*1.1)*1.08);attempt++){
+        if(attempt>=64)throw Error('appearance_fruit_overlap');
+        center.addScaledVector(side,sign*.004).addScaledVector(dir,.001);
+      }
+      fruitBounds.push({center:center.clone(),radius:radius*1.1});
       const top=center.clone().add(point(0,radius*.91,0));
       stem([a,a.clone().lerp(top,.5).add(point(0,.009,0)),top],.00125,true);
       fruitMatrices.push(new Matrix4().compose(center,new Quaternion().setFromAxisAngle(up,k*.74),point(radius,radius*1.1,radius)));
@@ -128,7 +134,7 @@ export function createTomatoAppearance(materials:Materials){
   const hairMaterial=new LineBasicMaterial({color:'#c5d294',transparent:true,opacity:.28});
   root.add(new LineSegments(hairGeometry,hairMaterial));
   root.userData={version:TOMATO_APPEARANCE_VERSION,scope:APPEARANCE_SCOPE};
-  return {root,leafletCount:leaves.count,fruitCount:fruits.count,
+  return {root,leafletCount:leaves.count,fruitCount:fruits.count,fruitBounds,
     trussFocus:trussViews[0]!,leafFocus:point(.05,1.28,.02),
     dispose(){root.removeFromParent();owned.forEach(g=>g.dispose());hairMaterial.dispose();}};
 }

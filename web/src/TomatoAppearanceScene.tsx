@@ -60,7 +60,7 @@ function createView(canvas:HTMLCanvasElement,onFailure:()=>void):View|null {
     camera.lookAt(controls.target);controls.update();canvas.dataset.cameraView=view;schedule();
   }
   try{
-    renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.toneMapping=ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+    renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.toneMapping=ACESFilmicToneMapping;renderer.toneMappingExposure=.9;
     renderer.shadowMap.enabled=true;renderer.shadowMap.type=PCFSoftShadowMap;
     renderer.debug.onShaderError=()=>{throw Error('appearance_shader_unavailable');};
     scene.background=new Color('#e9e9dc');scene.fog=new Fog('#e9e9dc',4,14);
@@ -70,13 +70,13 @@ function createView(canvas:HTMLCanvasElement,onFailure:()=>void):View|null {
     const leaf=material(new MeshPhysicalMaterial({map:textures.leafColor,bumpMap:textures.leafBump,bumpScale:.0011,
       roughness:.69,metalness:0,side:DoubleSide,vertexColors:true,envMapIntensity:.36,
       sheen:.2,sheenColor:new Color('#7f9b39'),sheenRoughness:.9}));
-    const stem=material(new MeshStandardMaterial({color:'#668130',roughness:.77,bumpMap:textures.skinBump,bumpScale:.0002}));
-    const fruit=material(new MeshPhysicalMaterial({roughness:.34,metalness:0,clearcoat:.23,clearcoatRoughness:.36,
-      bumpMap:textures.skinBump,bumpScale:.00011,vertexColors:true,envMapIntensity:.8}));
+    const stem=material(new MeshStandardMaterial({color:'#566e2b',roughness:.86,bumpMap:textures.skinBump,bumpScale:.0002}));
+    const fruit=material(new MeshPhysicalMaterial({roughness:.44,metalness:0,clearcoat:.14,clearcoatRoughness:.36,
+      bumpMap:textures.skinBump,bumpScale:.00016,vertexColors:true,envMapIntensity:.45}));
     const calyx=material(new MeshStandardMaterial({color:'#4e7026',roughness:.85,side:DoubleSide}));
     const flower=material(new MeshStandardMaterial({color:'#f4cc36',roughness:.75,side:DoubleSide}));
     plant=createTomatoAppearance({leaf,stem,fruit,calyx,flower});scene.add(plant.root);
-    const floorMaterial=material(new MeshStandardMaterial({color:'#babbae',roughness:.98}));
+    const floorMaterial=material(new MeshStandardMaterial({color:'#a8ad9a',roughness:.98}));
     const floorShape=new PlaneGeometry(30,30);owned.push(floorShape);const floor=new Mesh(floorShape,floorMaterial);
     floor.rotation.x=-Math.PI/2;floor.position.y=-.045;floor.receiveShadow=true;scene.add(floor);
     const bed=material(new MeshStandardMaterial({color:'#ddddd0',roughness:.94}));
@@ -95,19 +95,18 @@ function createView(canvas:HTMLCanvasElement,onFailure:()=>void):View|null {
     }
     for(const x of [-2,2])box(.035,.035,8,new Vector3(x,3.05,-2.2),frame);
     box(.035,.035,8,new Vector3(0,4.14,-2.2),frame);
-    const backgroundLeaf=material(new MeshStandardMaterial({color:'#71844b',roughness:.9,side:DoubleSide}));
     // Distant meshes reuse the authored geometry. No per-frame growth or wind.
     for(const x of [-1.2,1.2])for(const z of [-2,-3.4,-4.8]){
       const distant=plant.root.clone(true);distant.position.set(x,0,z);distant.rotation.y=z;
-      distant.traverse(object=>{if(object instanceof Mesh){object.castShadow=false;object.receiveShadow=false;if(object.material===leaf)object.material=backgroundLeaf;}});
+      distant.traverse(object=>{if(object instanceof Mesh){object.castShadow=false;object.receiveShadow=false;}});
       scene.add(distant);box(.35,.16,.5,new Vector3(x,-.007,z),bed);
     }
-    scene.add(new HemisphereLight('#f7f9e9','#6b7550',1.6));
-    const sun=new DirectionalLight('#fff3d4',3.3);sun.position.set(-2.4,4,2.2);sun.castShadow=true;
+    scene.add(new HemisphereLight('#f7f9e9','#6b7550',.9));
+    const sun=new DirectionalLight('#fff3d4',2);sun.position.set(-2.4,4,2.2);sun.castShadow=true;
     sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-1.2;sun.shadow.camera.right=1.2;
     sun.shadow.camera.top=2.1;sun.shadow.camera.bottom=-1.3;sun.shadow.camera.near=.1;sun.shadow.camera.far=9;
     sun.shadow.bias=-.00008;sun.shadow.normalBias=.001;sun.target.position.set(0,.8,0);scene.add(sun,sun.target);
-    const rim=new DirectionalLight('#edf5ff',1.1);rim.position.set(1.6,2,-2.5);scene.add(rim);
+    const rim=new DirectionalLight('#edf5ff',.6);rim.position.set(1.6,2,-2.5);scene.add(rim);
     controls=new OrbitControls(camera,canvas);controls.enableDamping=false;controls.enablePan=true;
     controls.minDistance=.15;controls.maxDistance=6;controls.maxPolarAngle=Math.PI*.85;
     controls.addEventListener('change',schedule);observer=new ResizeObserver(schedule);observer.observe(canvas);
