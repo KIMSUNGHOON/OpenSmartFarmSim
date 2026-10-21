@@ -474,7 +474,9 @@ PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수�
 
 [형태/발달 근거 대조](../research/tomato-morphology-primary-sources-20261021.md) 후
 [한 절간 신장률](../contracts/crop-internode-elongation-v1.md)의 합성 순간 계산을49검사로 수용했다.
-열적 시계·초기 길이/적분·마디 출현·저장 연결은 후속이며 현재 탄소 모델이나 사용자 화면을 교체하지 않았다.
+이후 [열적 시계·명시 초기 길이/적분](../research/crop-internode-length-initialization-20261021.md),
+[출현 사건과 기존/새 절간 목록](../research/crop-shoot-internode-inventory-20261022.md)의 합성 계산을272집중검사로 수용했다.
+동일 입력/코드·초기 목록의 불변 저장→같은 UTC3D는 다음이다. 현재 탄소 모델이나 사용자 화면을 교체하지 않았다.
 
 ## 1. 목표와 확인할 사용자 경로
 

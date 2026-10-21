@@ -54,7 +54,7 @@ def _temperature(quantity):
     return value
 
 
-def _age(record):
+def thermal_age_fraction(record):
     _need(type(record) is dict and set(record) == {'numerator', 'denominator', 'unit'},
         'INPUT_HOLD: exact age quantity required')
     _need(record['unit'] == 'degC_day', 'UNIT_HOLD: degree-day age required')
@@ -78,7 +78,7 @@ def normalize_internode_clock_state(*, state):
     _need(_identifier(state['internode_id']), 'INPUT_HOLD: bounded internode ID required')
     emerged, at = parse_whole_second_utc(state['emerged_at']), parse_whole_second_utc(state['at'])
     _need(emerged <= at, 'TIME_HOLD: emergence after checkpoint')
-    age = _age(state['age_exact'])
+    age = thermal_age_fraction(state['age_exact'])
     _need(at != emerged or age == 0, 'INPUT_HOLD: nonzero age at emergence')
     base = _temperature(state['base_temperature'])
     return {**state, 'base_temperature': {'value': base, 'unit': 'degC'},
@@ -86,7 +86,7 @@ def normalize_internode_clock_state(*, state):
 
 
 def integrate_constant_air_segments(*, checkpoint_utc, age_exact, base_temperature, segments):
-    age, at = _age(age_exact), parse_whole_second_utc(checkpoint_utc)
+    age, at = thermal_age_fraction(age_exact), parse_whole_second_utc(checkpoint_utc)
     base = _temperature(base_temperature)
     _need(type(segments) is list and 1 <= len(segments) <= 512, 'CAPACITY_HOLD: segment count')
     normalized_segments, intervals = [], []

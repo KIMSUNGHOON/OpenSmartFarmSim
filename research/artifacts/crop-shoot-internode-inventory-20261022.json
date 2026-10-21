@@ -1,0 +1,436 @@
+{
+  "version": "crop-shoot-internode-inventory-evidence-v1",
+  "date_KST": "2026-10-22",
+  "CLI": {
+    "parent_session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "at": "2026-10-21T14:24:53.698Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "context_line_sha256_including_LF": "f3a7bd0e5d1f0bf932c332e2857ff24ccd12e0d29a801477bc330667c7ec439d",
+    "recursive_CLI": false
+  },
+  "source_review": "research/crop-phytomer-emergence-primary-sources-20261021.md",
+  "source_hashes": {
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+    "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+    "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+    "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+    "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+    "backend/app/crop_internode_length.py": "ff6fef1b7b5b31f25e430b33c91e70a97111f15c7e4713db90e73655f99fa17a",
+    "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+    "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+    "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+    "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+    "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/tests/test_crop_shoot_timeline.py": "4c4f40d68e9fd7f92ca7d576cd5fc33523e3ebff007b93972138a489eab78774",
+    "fixtures/crop-shoot-timeline-reference-v1.json": "370eaceb095b52b98271378d90bc863f16596b0ce6f84dfb136bcfeae9054a0f",
+    "research/crop-shoot-timeline-reference.py": "1f516356a5941f8235f8fa8d8a19bc9179175d802fd7d1d4a81e662e71ffd54d",
+    "backend/app/crop_new_internodes.py": "4fb5b91632289029b334cc2a291f28c10222ed8f54616ee25a16d472483f2ffd",
+    "backend/tests/test_crop_new_internodes.py": "c84cdb5801d5e4f53efa3b9cf1d487ed3d1679bafddde2a0fea3a75f6b7ad6c6",
+    "fixtures/crop-new-internodes-reference-v1.json": "2868d13c92835180ea8ae62b0030949bcfea35274f4f62ef3dd189c81160a594",
+    "research/crop-new-internodes-reference.py": "9cfdafe54b8d85791dcb0061447fd41cf6e78099f4cee9484371df7c2aec56ad",
+    "backend/app/crop_shoot_inventory.py": "b5e04672cc792bf46244b6dc05dcf250285038bf833ecc1086c1b2f43b363939",
+    "backend/tests/test_crop_shoot_inventory.py": "f9469cf8b82839155275d0bc20221a3378b04f9c3933d6a564180853091bb97f",
+    "fixtures/crop-shoot-inventory-reference-v1.json": "63f8633bb5e5d33de523641af7c8c0b58ab9f708864c401b3efc051a0cf323ec",
+    "research/crop-shoot-inventory-reference.py": "c502ffa4d31c88ae175a47f093018a9bc217c87d060b779d68b34cc91b0631cc"
+  },
+  "reference": {
+    "programs": 5,
+    "independent_Decimal800_lengths": 22,
+    "independent_axis_sums": 5,
+    "maximum_length_relative_error": "2.2320951789268663E-16",
+    "maximum_sum_relative_error": "1.6997894839884026E-16",
+    "repeated_bytes_equal": true
+  },
+  "tests": {
+    "new": 22,
+    "retained": 250,
+    "total_passed": 272,
+    "pytest_seconds": 1.51,
+    "RED": "ModuleNotFoundError_before_implementation",
+    "numeric_base_identity_RED": "same value integer/float changed only input fingerprint; fixed normalized timeline base",
+    "split_exact_inventory_and_axis_sum_equal": true,
+    "existing_anchors_and_ages_preserved": true,
+    "512_accept_513_hold": true,
+    "finite_components_sum_overflow_hold": true,
+    "prior_clock_integral_and_length_output_SHA256_unchanged": 34,
+    "full_backend_suite": false,
+    "browser_rerun": false
+  },
+  "resource": {
+    "red": {
+      "phase": "red",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.0374875989982684,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 829022208,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "backend/app/crop_morphology_thermal_clock.py": "08913debec214975e41ce014bb4eeb01aedc8569088b5d33facf0885cb39f1ac",
+        "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+        "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+        "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+        "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+        "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+        "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+        "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+        "backend/app/crop_internode_length.py": "8de3cec6b42b762070dc742012b9cee5247b7fa76c6020e8f8b86fe4b9aa8402",
+        "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+        "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+        "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+        "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+        "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+        "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+        "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda",
+        "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+        "backend/tests/test_crop_shoot_timeline.py": "4c4f40d68e9fd7f92ca7d576cd5fc33523e3ebff007b93972138a489eab78774",
+        "fixtures/crop-shoot-timeline-reference-v1.json": "370eaceb095b52b98271378d90bc863f16596b0ce6f84dfb136bcfeae9054a0f",
+        "research/crop-shoot-timeline-reference.py": "1f516356a5941f8235f8fa8d8a19bc9179175d802fd7d1d4a81e662e71ffd54d",
+        "backend/app/crop_new_internodes.py": "4fb5b91632289029b334cc2a291f28c10222ed8f54616ee25a16d472483f2ffd",
+        "backend/tests/test_crop_new_internodes.py": "c84cdb5801d5e4f53efa3b9cf1d487ed3d1679bafddde2a0fea3a75f6b7ad6c6",
+        "fixtures/crop-new-internodes-reference-v1.json": "2868d13c92835180ea8ae62b0030949bcfea35274f4f62ef3dd189c81160a594",
+        "research/crop-new-internodes-reference.py": "9cfdafe54b8d85791dcb0061447fd41cf6e78099f4cee9484371df7c2aec56ad",
+        "backend/tests/test_crop_shoot_inventory.py": "2caabb3614ae31156eba700d9e2beb5bfe0d27bd1005dfd5ae7a28e2b7b73c8e",
+        "fixtures/crop-shoot-inventory-reference-v1.json": "63f8633bb5e5d33de523641af7c8c0b58ab9f708864c401b3efc051a0cf323ec",
+        "research/crop-shoot-inventory-reference.py": "c502ffa4d31c88ae175a47f093018a9bc217c87d060b779d68b34cc91b0631cc"
+      },
+      "log_sha256": "b7574932cb6a6a48114a1c3c0f936eecf455d61a52fe72273c704c71b061aa15",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "green": {
+      "phase": "green",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.8078628460025357,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 840253440,
+      "samples": 8,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+        "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+        "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+        "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+        "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+        "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+        "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+        "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+        "backend/app/crop_internode_length.py": "ff6fef1b7b5b31f25e430b33c91e70a97111f15c7e4713db90e73655f99fa17a",
+        "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+        "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+        "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+        "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+        "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+        "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+        "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda",
+        "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+        "backend/tests/test_crop_shoot_timeline.py": "4c4f40d68e9fd7f92ca7d576cd5fc33523e3ebff007b93972138a489eab78774",
+        "fixtures/crop-shoot-timeline-reference-v1.json": "370eaceb095b52b98271378d90bc863f16596b0ce6f84dfb136bcfeae9054a0f",
+        "research/crop-shoot-timeline-reference.py": "1f516356a5941f8235f8fa8d8a19bc9179175d802fd7d1d4a81e662e71ffd54d",
+        "backend/app/crop_new_internodes.py": "4fb5b91632289029b334cc2a291f28c10222ed8f54616ee25a16d472483f2ffd",
+        "backend/tests/test_crop_new_internodes.py": "c84cdb5801d5e4f53efa3b9cf1d487ed3d1679bafddde2a0fea3a75f6b7ad6c6",
+        "fixtures/crop-new-internodes-reference-v1.json": "2868d13c92835180ea8ae62b0030949bcfea35274f4f62ef3dd189c81160a594",
+        "research/crop-new-internodes-reference.py": "9cfdafe54b8d85791dcb0061447fd41cf6e78099f4cee9484371df7c2aec56ad",
+        "backend/app/crop_shoot_inventory.py": "8c3be1a03046cab01346c91bf4fa1f391cbc28dd7c4065bdf23ab7875ad1e485",
+        "backend/tests/test_crop_shoot_inventory.py": "2caabb3614ae31156eba700d9e2beb5bfe0d27bd1005dfd5ae7a28e2b7b73c8e",
+        "fixtures/crop-shoot-inventory-reference-v1.json": "63f8633bb5e5d33de523641af7c8c0b58ab9f708864c401b3efc051a0cf323ec",
+        "research/crop-shoot-inventory-reference.py": "c502ffa4d31c88ae175a47f093018a9bc217c87d060b779d68b34cc91b0631cc"
+      },
+      "log_sha256": "27797009992ce7d3c1094cf49bdb63fc0694deaf71a5747a6f6875dd7d945549",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "red-normalization": {
+      "phase": "red-normalization",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 1.0387677459984843,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 837742592,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+        "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+        "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+        "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+        "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+        "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+        "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+        "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+        "backend/app/crop_internode_length.py": "ff6fef1b7b5b31f25e430b33c91e70a97111f15c7e4713db90e73655f99fa17a",
+        "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+        "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+        "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+        "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+        "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+        "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+        "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda",
+        "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+        "backend/tests/test_crop_shoot_timeline.py": "4c4f40d68e9fd7f92ca7d576cd5fc33523e3ebff007b93972138a489eab78774",
+        "fixtures/crop-shoot-timeline-reference-v1.json": "370eaceb095b52b98271378d90bc863f16596b0ce6f84dfb136bcfeae9054a0f",
+        "research/crop-shoot-timeline-reference.py": "1f516356a5941f8235f8fa8d8a19bc9179175d802fd7d1d4a81e662e71ffd54d",
+        "backend/app/crop_new_internodes.py": "4fb5b91632289029b334cc2a291f28c10222ed8f54616ee25a16d472483f2ffd",
+        "backend/tests/test_crop_new_internodes.py": "c84cdb5801d5e4f53efa3b9cf1d487ed3d1679bafddde2a0fea3a75f6b7ad6c6",
+        "fixtures/crop-new-internodes-reference-v1.json": "2868d13c92835180ea8ae62b0030949bcfea35274f4f62ef3dd189c81160a594",
+        "research/crop-new-internodes-reference.py": "9cfdafe54b8d85791dcb0061447fd41cf6e78099f4cee9484371df7c2aec56ad",
+        "backend/app/crop_shoot_inventory.py": "8c3be1a03046cab01346c91bf4fa1f391cbc28dd7c4065bdf23ab7875ad1e485",
+        "backend/tests/test_crop_shoot_inventory.py": "f9469cf8b82839155275d0bc20221a3378b04f9c3933d6a564180853091bb97f",
+        "fixtures/crop-shoot-inventory-reference-v1.json": "63f8633bb5e5d33de523641af7c8c0b58ab9f708864c401b3efc051a0cf323ec",
+        "research/crop-shoot-inventory-reference.py": "c502ffa4d31c88ae175a47f093018a9bc217c87d060b779d68b34cc91b0631cc"
+      },
+      "log_sha256": "3884ca039c5a550807b8c39479f03030d56326da1390bbc02fc1537563bf4bb3",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "green-final": {
+      "phase": "green-final",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.8087802339978225,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 837033984,
+      "samples": 8,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "source_pins": {
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+        "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+        "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+        "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+        "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+        "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+        "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+        "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+        "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+        "backend/app/crop_internode_length.py": "ff6fef1b7b5b31f25e430b33c91e70a97111f15c7e4713db90e73655f99fa17a",
+        "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+        "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+        "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+        "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+        "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+        "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+        "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda",
+        "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+        "backend/tests/test_crop_shoot_timeline.py": "4c4f40d68e9fd7f92ca7d576cd5fc33523e3ebff007b93972138a489eab78774",
+        "fixtures/crop-shoot-timeline-reference-v1.json": "370eaceb095b52b98271378d90bc863f16596b0ce6f84dfb136bcfeae9054a0f",
+        "research/crop-shoot-timeline-reference.py": "1f516356a5941f8235f8fa8d8a19bc9179175d802fd7d1d4a81e662e71ffd54d",
+        "backend/app/crop_new_internodes.py": "4fb5b91632289029b334cc2a291f28c10222ed8f54616ee25a16d472483f2ffd",
+        "backend/tests/test_crop_new_internodes.py": "c84cdb5801d5e4f53efa3b9cf1d487ed3d1679bafddde2a0fea3a75f6b7ad6c6",
+        "fixtures/crop-new-internodes-reference-v1.json": "2868d13c92835180ea8ae62b0030949bcfea35274f4f62ef3dd189c81160a594",
+        "research/crop-new-internodes-reference.py": "9cfdafe54b8d85791dcb0061447fd41cf6e78099f4cee9484371df7c2aec56ad",
+        "backend/app/crop_shoot_inventory.py": "b5e04672cc792bf46244b6dc05dcf250285038bf833ecc1086c1b2f43b363939",
+        "backend/tests/test_crop_shoot_inventory.py": "f9469cf8b82839155275d0bc20221a3378b04f9c3933d6a564180853091bb97f",
+        "fixtures/crop-shoot-inventory-reference-v1.json": "63f8633bb5e5d33de523641af7c8c0b58ab9f708864c401b3efc051a0cf323ec",
+        "research/crop-shoot-inventory-reference.py": "c502ffa4d31c88ae175a47f093018a9bc217c87d060b779d68b34cc91b0631cc"
+      },
+      "log_sha256": "204d4a2e12fe3612b73253189563c6a7357b335b387e2e46f2d5c8433431e408",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    }
+  },
+  "points": [
+    {
+      "case_id": "synthetic-day-existing-3",
+      "sequence": 0,
+      "relative_error": "3.1742905799435617E-17"
+    },
+    {
+      "case_id": "synthetic-day-existing-3",
+      "sequence": 1,
+      "relative_error": "3.1742905799435617E-17"
+    },
+    {
+      "case_id": "synthetic-day-existing-3",
+      "sequence": 2,
+      "relative_error": "3.1742905799435617E-17"
+    },
+    {
+      "case_id": "synthetic-day-existing-3",
+      "sequence": 3,
+      "relative_error": "5.7488614007286097E-17"
+    },
+    {
+      "case_id": "synthetic-day-existing-3",
+      "sequence": 4,
+      "relative_error": "1.7344281825389826E-16"
+    },
+    {
+      "case_id": "synthetic-day-existing-3",
+      "sequence": 5,
+      "relative_error": "6.2379315380736015E-17"
+    },
+    {
+      "case_id": "synthetic-flat-first-existing-3",
+      "sequence": 0,
+      "relative_error": "2.2320951789268663E-16"
+    },
+    {
+      "case_id": "synthetic-flat-first-existing-3",
+      "sequence": 1,
+      "relative_error": "2.2320951789268663E-16"
+    },
+    {
+      "case_id": "synthetic-flat-first-existing-3",
+      "sequence": 2,
+      "relative_error": "2.2320951789268663E-16"
+    },
+    {
+      "case_id": "synthetic-flat-first-existing-3",
+      "sequence": 3,
+      "relative_error": "1.3687217461557718E-17"
+    },
+    {
+      "case_id": "synthetic-flat-first-existing-3",
+      "sequence": 4,
+      "relative_error": "7.0928018925568334E-17"
+    },
+    {
+      "case_id": "synthetic-zero-existing-3",
+      "sequence": 0,
+      "relative_error": "6.2379315380736015E-17"
+    },
+    {
+      "case_id": "synthetic-zero-existing-3",
+      "sequence": 1,
+      "relative_error": "6.2379315380736015E-17"
+    },
+    {
+      "case_id": "synthetic-zero-existing-3",
+      "sequence": 2,
+      "relative_error": "6.2379315380736015E-17"
+    },
+    {
+      "case_id": "synthetic-resume-origin-existing-3",
+      "sequence": 0,
+      "relative_error": "6.2925745876426152E-17"
+    },
+    {
+      "case_id": "synthetic-resume-origin-existing-3",
+      "sequence": 1,
+      "relative_error": "6.2925745876426152E-17"
+    },
+    {
+      "case_id": "synthetic-resume-origin-existing-3",
+      "sequence": 2,
+      "relative_error": "6.2925745876426152E-17"
+    },
+    {
+      "case_id": "synthetic-resume-origin-existing-3",
+      "sequence": 3,
+      "relative_error": "2.6503520712945739E-17"
+    },
+    {
+      "case_id": "synthetic-resume-origin-existing-3",
+      "sequence": 4,
+      "relative_error": "6.2379315380736015E-17"
+    },
+    {
+      "case_id": "synthetic-day-existing-0",
+      "sequence": 3,
+      "relative_error": "5.7488614007286097E-17"
+    },
+    {
+      "case_id": "synthetic-day-existing-0",
+      "sequence": 4,
+      "relative_error": "1.7344281825389826E-16"
+    },
+    {
+      "case_id": "synthetic-day-existing-0",
+      "sequence": 5,
+      "relative_error": "6.2379315380736015E-17"
+    }
+  ],
+  "sums": [
+    {
+      "case_id": "synthetic-day-existing-3",
+      "tracked_axis_length": {
+        "value": 0.13413312724033077,
+        "unit": "m"
+      },
+      "relative_error": "2.5449253971232071E-17",
+      "input_sha256": "67177127cbdc1db55b067b7b820d46a8a69bbed7b336f7c3452042a50b4e0243"
+    },
+    {
+      "case_id": "synthetic-flat-first-existing-3",
+      "tracked_axis_length": {
+        "value": 0.07457839690230374,
+        "unit": "m"
+      },
+      "relative_error": "1.6997894839884026E-16",
+      "input_sha256": "7a3661720403ead9656d73b3893b5943002a160abe972211a962a612888fa19b"
+    },
+    {
+      "case_id": "synthetic-zero-existing-3",
+      "tracked_axis_length": {
+        "value": 0.04291305192796232,
+        "unit": "m"
+      },
+      "relative_error": "1.0280346136990661E-16",
+      "input_sha256": "773fb12d35c3957470aae8df90a4a06af99496c7bb62bb4c4f78380a7b8d4c34"
+    },
+    {
+      "case_id": "synthetic-resume-origin-existing-3",
+      "tracked_axis_length": {
+        "value": 0.07576574350568749,
+        "unit": "m"
+      },
+      "relative_error": "2.3124384285516199E-17",
+      "input_sha256": "78394d1d4a0af485e21ac3a215532d5bf228e72a98de753885c4f0e494c6cdd7"
+    },
+    {
+      "case_id": "synthetic-day-existing-0",
+      "tracked_axis_length": {
+        "value": 0.0539610772632196,
+        "unit": "m"
+      },
+      "relative_error": "8.2464235895232229E-17",
+      "input_sha256": "6d340701a850aada5f43258f586de1d60e527ccd47eff5a06b7ba63cdbd348b3"
+    }
+  ],
+  "deployment": {
+    "new_model_deployed": false,
+    "running_backend_DB_frontends_unchanged": true
+  },
+  "holds": [
+    "immutable authenticated stored inventory and read-only replay",
+    "sameUTC 3D / explicit geometry scope",
+    "fractional emergence unsupported by whole-second internode clock",
+    "actual cultivar/rank-specific curves and initial inventory/independent observations",
+    "farm G0-G4, harvest/resources/economics/recommendation"
+  ],
+  "scope": "synthetic explicit tracked internode inventory and axis length sum, not actual plant height or production",
+  "status_publication": {
+    "reported_at": "2026-10-21T15:11:58.599449Z",
+    "SHA256": "0226024164c4993eb43eeabdc4c510ae99e9c0786128b88b157d194338005f40",
+    "HTTP_both200_same_bytes_no_store": true,
+    "both_HTML_unchanged": true,
+    "frozen_ventilation_files_preserved": 2173,
+    "browser_rerun": false
+  }
+}

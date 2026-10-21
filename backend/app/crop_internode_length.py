@@ -102,7 +102,7 @@ def initialize_internode_length(*, inputs):
     return _envelope(state, {'operation': 'initialize', 'input_id': inputs['input_id'], 'state': state})
 
 
-def _checked_state(state):
+def normalize_internode_length_state(*, state):
     _need(type(state) is dict and set(state) == STATE_KEYS and state['model_version'] == MODEL_VERSION,
           'STATE_HOLD: closed supported length state required')
     clock, curve, curve_hash = _normalized(state['clock_state'], state['curve'])
@@ -132,7 +132,7 @@ def advance_internode_length(*, inputs):
     _need(type(inputs) is dict and set(inputs) == {'input_id', 'state', 'segments'},
           'INPUT_HOLD: closed advance input required')
     _identifier(inputs['input_id'])
-    state = _checked_state(inputs['state'])
+    state = normalize_internode_length_state(state=inputs['state'])
     try:
         change = calculate_internode_length_change(inputs={
             'input_id': inputs['input_id'], 'clock_state': state['clock_state'],
