@@ -7,7 +7,7 @@ test('stored UTC, exact internode lengths, table and graph move together in actu
   const errors:string[]=[],methods:string[]=[],driverWarnings:{text:string;during_screenshot:boolean}[]=[];let capturing=false;
   await page.addInitScript(()=>{
     let count=0;const read=WebGL2RenderingContext.prototype.readPixels;
-    WebGL2RenderingContext.prototype.readPixels=function(this:WebGL2RenderingContext,...args:Parameters<typeof read>){
+    WebGL2RenderingContext.prototype.readPixels=function(this:WebGL2RenderingContext,...args:unknown[]){
       count++;return Reflect.apply(read,this,args);
     };
     Object.defineProperty(window,'__morphologyApplicationReadbacks',{value:()=>count});
