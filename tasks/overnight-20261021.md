@@ -77,3 +77,5 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 - [실제 실행/성장3D](../research/morphology-execution-live-20261022.md): CI50/Chromium16·실제 HTTP 접수2/취소1/자동 완료1·원12시점/메뉴/reload/현재 철회와 새 API·PG cold restart/25표 원 SHA·추가POST0을 수용했다. 원6/기존 화면·WSL 상한을 보존했다. 사용자 Chrome을 마지막/정지로 유지하며 다음은 잎의 식/차원·초기조건을 먼저 확인하는 한 기관 계산 자식이다.
 
 - [잎 순간 면적 확장률](../research/crop-leaf-expansion-rate-20261022.md): 저자 고정 구현/원문·차원을 대조하고51집중/독립20점·재생성/7root 보존을 수용했다. 현재 면적·원3D는 유지하며 명시 구간 면적 변화량→초기/기관 시계/목록→불변 저장/같은 UTC3D를 뒤따르는 단계로 고정했다.
+
+- [잎 구간 면적 변화량](../research/crop-leaf-area-change-20261022.md): 새31/관련82·독립10사례와 정확 작은 나이 차/분할합·7root 보존을 수용했다. 초기조건/한 잎 상태→기관 시계·명시 목록/불변 저장/같은 UTC3D는 별도다.
