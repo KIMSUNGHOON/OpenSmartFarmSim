@@ -1,6 +1,6 @@
 # 저장된 잎 면적과 같은 UTC의 제작 3D — 연구 v1
 
-상태: 구현/수용 전. [불변 잎·줄기 결과](crop-leaf-area-artifact-v1.md)의 public17파일만 읽는 별도 화면이다.
+상태: [자체 합성 저장/같은 UTC3D 수용](../research/leaf-area-stored-replay-20261022.md). [불변 잎·줄기 결과](crop-leaf-area-artifact-v1.md)의 public17파일만 읽는 별도 화면이다.
 원 farm/job API·기존5176/다른 화면은 유지한다. 새로운 실제 품종/관문·생산/수익/작물 선정 수용이 아니다.
 
 - SDK는 고정 root/index의 원 bytes SHA, 입력/원 stem root/input·각 frame bytes와 닫힌 모델/단위·선언 ID/원 UTC를 검증한다.

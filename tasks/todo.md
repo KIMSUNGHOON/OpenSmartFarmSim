@@ -42,7 +42,7 @@
   - [x] 명시 초기 잎 목록 — [22집중/독립4프로그램·36면적/12나이](../research/crop-leaf-inventory-20261022.md), 원 ID/순서·같은 시점/합계·분할/512·2MiB/overflow·원7root/자료 보존. 실제 줄기 참조 결속은 다음 게시/reader에서 확인한다.
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 선언 목록만 추적한다.
   - [x] 별도 불변 면적 판본/계산 없는 조회·export — [18pytest/실제12시점·36면적/별도 fresh](../research/crop-leaf-area-artifact-20261022.md), 원 stem14blob/12 DTO·40불변 blob/24code·현재 부착/UTC·권리와 fresh import/SQL/CLI/파일쓰기0·17public파일·원7root/자료 보존.
-  - [ ] 같은 UTC의 잎 면적3D — public 원값/strict SDK와 제작 단면 삼각형 면적·실제 WebGL/표/그래프·모바일/유휴·현재 UI 보존을 대사한다. 현재5176에 새 잎 모델을 적용한 것은 아니다.
+  - [x] 같은 UTC의 잎 면적3D — [CI69/Chromium18·실제 Chrome](../research/leaf-area-stored-replay-20261022.md). strict SDK/원17파일·제작 단면 실제 삼각형 면적/UTC·표/그래프/재생·모바일/유휴·오류0/7root·원178파일을 수용했다. 별도5176/leaf-area-replay.html이며 원 farm/job의 새 잎 계산 적용은 후속이다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.

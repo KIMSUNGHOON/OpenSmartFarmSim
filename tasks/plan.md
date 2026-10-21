@@ -3385,3 +3385,5 @@ CO₂ 수집 로그의 원 두2MiB ID를 유지한 출력 수정 뒤 최종232(1
 원11산출물/정확한232수집·349지문·접수 retry/진행·취소 ack·권리 철회 뒤 cancel-only·
 normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다음은 같은 source의 fences8이다.
 전체 HTTP/runtime/3D/WSL 적용·후속 M1/M2와 실제 자료 관문은 남는다.
+
+**잎 저장3D 수용 — 2026-10-22:** [실제 화면/검증](../research/leaf-area-stored-replay-20261022.md)의 원12시점/3선언 잎을 public17파일→strict SDK→원 면적과 같은 UTC3D/표/그래프에 연결했다. CI69/Chromium18·실제 Chrome5시점 대사/모바일·원178파일/7root를 확인했다. 다음 한 단계는 명시 출현 사건→해당 잎의 나이0/초기 면적→남은 기온 구간 계산이다. 자동 leaf/truss 분류·phyllochron 계수, 관리/노화와 원 farm/job의 새 잎 모델 게시 조건은 분리한다. 실제 Axiany/독립 자료0과 전체 완료일 미정은 유지한다.
