@@ -152,6 +152,12 @@ CI 빌드/브라우저와 현재 사용자 서버 적용·직접 시각 검토�
 원15파일/6root를 보존했으며 수치 초기 조건을 검증했다고 주장하지 않는다.
 다음 농장 결속은 현재 FarmAuthoringService/Scope·기존 자료 권리 경계를 대조해 별도 작은 계약으로 고정한다.
 
+그 [농장 결속 계약](../contracts/crop-morphology-farm-binding-v1.md)은 기존 등록/권한을 재사용한다.
+현재 SourceRecord를 과거 판단에 소급시키지 않고 등록 decision과 input evidence의 decision을 같게 고정한다.
+추적 한 shoot/원 모델 구간·현재 권리의 실제 SCRAM/fresh 거부·원 행/6root 수용 뒤 서명 producer 이력으로 간다.
+별도 모델/결속·집중 test/fixture 조립과 실제 native 검증에1–3집중시간을 잠정 배정한다.
+기존 서비스 수명은 종료까지 유지되는 것으로 검토했으며 새 DB/API/사용자 적용의 날짜는 이 비용/자료 상태 뒤 갱신한다.
+
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.
 데이터셋 판본1·2를 독립 작기로 세지 않으며 다른 품종 계수로 빈칸을 채우지 않는다. 개발과 자료 확보는 병행한다.

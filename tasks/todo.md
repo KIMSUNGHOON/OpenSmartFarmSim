@@ -7,6 +7,11 @@
   [595검사/실제 원 입력·fresh 검증](../research/crop-morphology-input-evidence-20261022.md), 단위59·원9모델/19코드,
   source1MiB 경계·원15파일과 생장 import/DB/CLI0·6root/정리를 확인했다.
 
+- [ ] **`morphology-current-farm-binding`** — [등록 농장/현재 권리 계약](../contracts/crop-morphology-farm-binding-v1.md).
+  실제 FarmAuthoringService·SCRAM/Scopes와 같은 판단 시각의 원 입력/provenance·원점/기간/추적 shoot를 결속한다.
+  prepare/current/read/write·fresh 원 bytes, 가용 시각/점유·현재/늦은 철회와 원 행/15파일/6root·계산/쓰기0·정리를 확인한다.
+  retrospective 합성 재생을 과거 예측으로 표시하지 않는다. 수치 서명 이력·DB/API/제품 UI는 다음 자식이다.
+
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
   실제 WebGL의 연결된 줄기·복엽/잎맥·과실/꽃받침·표면/조명/그림자, 회전·전체/과실/잎 확대,
