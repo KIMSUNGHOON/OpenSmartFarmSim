@@ -5,7 +5,7 @@
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-21T01:54:12.820888Z",
+  "reported_at": "2026-10-21T02:03:35.897378Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,7 +24,7 @@
       "state": "completed"
     },
     {
-      "evidence": "worker core20/실제 SCRAM11 수용은 유지합니다. 독립 CI39528616279는 SIGKILL 재개 검사에서 실패했습니다. 증거 환경변수/정리를 수정하고 값 없는 오류 위치 진단을 추가한 같은34검사의 CI39529771606가 진행 중입니다. 독립 재개·새 CO₂/WSL 적용은 미수용이며 이후 진행 API→같은 UTC3D입니다.",
+      "evidence": "worker core20 수용 유지. 독립 정상/hold의 원 결과·UTC/현재 철회·정리를 확인했습니다. SIGKILL 시험의 직접 pidfd API 오류를 기존 libc 호환 헬퍼로 수정했고 실제 호환성3통과입니다. 기존34+회귀3=37의 CI39530741390가 진행 중이며 강제 종료 재개·새 CO₂/WSL 적용은 미수용입니다. 이후 진행 API→같은 UTC3D입니다.",
       "id": "execution_3d",
       "state": "next"
     },

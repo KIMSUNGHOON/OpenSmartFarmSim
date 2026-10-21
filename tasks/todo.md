@@ -2385,7 +2385,12 @@
             독립 정상/hold·fresh 원문/현재 권리·실제 SIGKILL 뒤 확정 HEAD 채택/남은 구간만 계산을 수용한다.
             [구현 사전 증거](../research/artifacts/crop-greenhouse-co2-worker-consumer-preflight-20261021.json)의 새17/기존 Solar14=31 로컬 제어와 전체34수집을 통과했다.
             source68bb182/CI39528616279는 SIGKILL 재개 node 실패로 미수용이다. [첫 실패/진단](../research/artifacts/crop-greenhouse-co2-consumer-diagnostic-20261021.json)을 보존했다.
-            source1175509의 [같은34검사 진단 CI39529771606](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39529771606)가 진행 중이며 crash 원인·독립 재개/부모·새 CO₂/WSL은 미수용이다.
+            source1175509/CI39529771606에서 정상/hold 독립 원 조회·현재 철회/정리와 직접 pidfd API의 AttributeError를 확인했다.
+            [canonical 헬퍼 연결/실제 호환성3](../research/artifacts/crop-greenhouse-co2-consumer-pidfd-fix-20261021.json) 뒤 source314bc26의
+            [기존34+회귀3=37 CI39530741390](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39530741390)가 진행 중이며 독립 SIGKILL 재개/부모·새 CO₂/WSL은 미수용이다.
+        - [ ] **`co2-execution-query`** — 위 worker 기능 수용 뒤 [진행 조회 계약](../contracts/crop-greenhouse-co2-execution-query-v1.md)의 닫힌 DTO/현재 읽기 경계를 구현한다.
+          실제 queued/canceled/확정/heartbeat·원 정상/hold/최초 UTC·읽기 권리/늦은 변경·독립 fresh와 조회 수치/SQL 변경0·정리를 수용한다.
+          보호 접수/진행/취소 HTTP·실행 runtime→typed web/같은 UTC3D는 이후다. 공통 WSL 보류는 새 사용자 적용 전에 유지한다.
     - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
       main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
