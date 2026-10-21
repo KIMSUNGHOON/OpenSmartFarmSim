@@ -1,0 +1,216 @@
+{
+  "recorded_at": "2026-10-21T01:41:07.997571+00:00",
+  "accepted_core": {
+    "source_commit": "0bca8cd6ed0855efbb5dcd4fd0a613c662eeadfe",
+    "CI": 39527128812,
+    "passed": 20,
+    "actual_SCRAM": 11
+  },
+  "pending_consumer": {
+    "source_commit": "68bb182326a9854dcf447477979639c0e6c64e7f",
+    "CI": 39528616279,
+    "local_passed": 31,
+    "collected": 34,
+    "actual_independent_required": 3,
+    "accepted": false
+  },
+  "publication": {
+    "terminal_sha256": "a129802b851453e53a8215ab37b5af13b32e344761bc6241f52a2a6b73f28528",
+    "receipts": [
+      {
+        "HTTP": [
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5173,
+            "status": 200
+          },
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5174,
+            "status": 200
+          }
+        ],
+        "UI_code_changed": false,
+        "browser_rerun": false,
+        "reported_at": "2026-10-21T01:40:40.747336Z",
+        "source_sha256": "dd715455a3e3115f999f8628d5e8965d4be120038b34f7e93c8baff7c82f2fa5"
+      },
+      {
+        "retained_ventilation_frozen_source_preserved": true,
+        "files": 2173
+      },
+      {
+        "current_HTML_matches_frozen_entry_both_ports": true,
+        "browser_DOM_rerun": false
+      }
+    ],
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 41394176,
+          "comm": "python",
+          "pid": 2140179
+        },
+        {
+          "RSS_bytes": 126423040,
+          "comm": "python",
+          "pid": 2140182
+        },
+        {
+          "RSS_bytes": 8912896,
+          "comm": "nginx",
+          "pid": 2140197
+        },
+        {
+          "RSS_bytes": 7491584,
+          "comm": "nginx",
+          "pid": 2144260
+        },
+        {
+          "RSS_bytes": 122974208,
+          "comm": "python",
+          "pid": 2140196
+        },
+        {
+          "RSS_bytes": 18026496,
+          "comm": "postgres",
+          "pid": 2140186
+        },
+        {
+          "RSS_bytes": 6049792,
+          "comm": "postgres",
+          "pid": 2140191
+        },
+        {
+          "RSS_bytes": 7188480,
+          "comm": "postgres",
+          "pid": 2140190
+        },
+        {
+          "RSS_bytes": 4304896,
+          "comm": "postgres",
+          "pid": 2140188
+        },
+        {
+          "RSS_bytes": 6238208,
+          "comm": "postgres",
+          "pid": 2140187
+        },
+        {
+          "RSS_bytes": 5111808,
+          "comm": "postgres",
+          "pid": 2140192
+        },
+        {
+          "RSS_bytes": 37937152,
+          "comm": "python",
+          "pid": 2144194
+        },
+        {
+          "RSS_bytes": 144052224,
+          "comm": "python",
+          "pid": 2144199
+        },
+        {
+          "RSS_bytes": 9097216,
+          "comm": "nginx",
+          "pid": 2144245
+        },
+        {
+          "RSS_bytes": 7475200,
+          "comm": "nginx",
+          "pid": 2144248
+        },
+        {
+          "RSS_bytes": 18354176,
+          "comm": "postgres",
+          "pid": 2144225
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 2144231
+        },
+        {
+          "RSS_bytes": 6062080,
+          "comm": "postgres",
+          "pid": 2144230
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "postgres",
+          "pid": 2144229
+        },
+        {
+          "RSS_bytes": 4509696,
+          "comm": "postgres",
+          "pid": 2144227
+        },
+        {
+          "RSS_bytes": 11710464,
+          "comm": "postgres",
+          "pid": 2144226
+        },
+        {
+          "RSS_bytes": 122548224,
+          "comm": "python",
+          "pid": 2144249
+        },
+        {
+          "RSS_bytes": 107720704,
+          "comm": "python",
+          "pid": 2144255
+        },
+        {
+          "RSS_bytes": 27664384,
+          "comm": "python",
+          "pid": 2249421
+        },
+        {
+          "RSS_bytes": 8556544,
+          "comm": "python",
+          "pid": 2249426
+        }
+      ],
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 872640512,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "7812aeaf080ae9ddeab9b8e349574e3ffbb6a5039e936198679f1be792b0060e",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "source_count": 2867,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.34197525298804976
+    }
+  },
+  "full_product_completion": null,
+  "goal_status": "active"
+}
