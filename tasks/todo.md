@@ -60,14 +60,15 @@
       같은 공통 나이−출현 나이/원 UTC·중복/누락·분할 상태/길이 합계를 대사한다. 합계는 추적된 축 길이이며 실제 키로 표시하지 않는다.
       새22/기존250·독립22길이/5합계·원34지문, 분할 동일 state·512/513/합계 overflow·6root를 확인했다.
       초기 목록/변경 이력의 인증은 저장 후속이며 실제 식물 키/생산 검증으로 세지 않는다.
-  - [ ] **`crop-morphology-immutable-replay`** — 같은 입력/코드·계수/초기 목록과 기관별 원 UTC·정확 나이/길이/축 합계를 불변 저장한다.
+  - [x] **`crop-morphology-immutable-replay`** — 같은 입력/코드·계수/초기 목록과 기관별 원 UTC·정확 나이/길이/축 합계를 불변 저장한다.
     조회의 계산0·입력/단계 hash·분할 재개/변조 보류와 독립 재조회·원6서비스를 확인한 뒤 같은 UTC3D에 연결한다.
     합성 연구 상태를 검증된 품종/생산 Run으로 게시하지 않는다.
     - [x] **`morphology-artifact-private-files`** — [기존 JobStore 파일 운송 수용](../research/crop-morphology-artifact-io-20261022.md).
       새14/기존272·원 bytes/별도 프로세스·동일 재보관/배타 writer·DB0·metadata/경로 변조/FD0와6root를 확인했다.
-    - [ ] **`morphology-artifact-producer-reader`** — 합성 입력/코드·초기 목록·단계 hash와 신뢰 root를 보관하고 원 상태를 typed 조회한다.
+    - [x] **`morphology-artifact-producer-reader`** — 합성 입력/코드·초기 목록·단계 hash와 신뢰 root를 보관하고 원 상태를 typed 조회한다.
       독립 프로세스/원 단위·UTC·값, 조회의 모델 호출0·변조/미지원 거부와 재생 동일성을 확인한다.
-      농장 등록/현재 권리·서명 custody와 제품 게시 수용은 별도다.
+      [새26/기존286=312검사](../research/crop-morphology-research-artifact-20261022.md)로 원 값/UTC·chain/같은 root/파일, fresh import0·모델/DB0와6root를 확인했다.
+      농장 등록/현재 권리·서명 custody와 제품 게시 수용·중단 producer 자동 재개는 별도다.
 
 
 - [x] **`execution-menu-navigation-retention`** — [사용자 보고/원인/검증 기록](../research/execution-navigation-retention-20261021.md).

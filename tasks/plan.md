@@ -74,6 +74,10 @@ UTC 역변환→새 기관 상태→저장→같은 시점3D는 별도 수용한
 이는 농장/테넌트 게시 권한을 대신하지 않으며 기존 FarmAuthoringService의 현재 권리·서명 연결은 제품 수용의 별도 조건이다.
 같은 UTC3D는 먼저 권리가 명확한 자체 합성 연구 artifact의 범위에서 검증한다.
 
+[합성 불변 artifact/typed 조회](../research/crop-morphology-research-artifact-20261022.md)는 새26/기존286=312검사로 수용했다.
+원 초기/단계/코드·UTC와 같은 root/파일, fresh 생장 import0·조회 모델/DB0를 확인했다.
+다음은 이 자체 합성 결과의 같은 UTC3D이며 농장 승인/현재 권리·서명/실제 자료는 별도다.
+
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.
 데이터셋 판본1·2를 독립 작기로 세지 않으며 다른 품종 계수로 빈칸을 채우지 않는다. 개발과 자료 확보는 병행한다.
