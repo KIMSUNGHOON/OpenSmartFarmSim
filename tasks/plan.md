@@ -223,8 +223,11 @@ hosted 합418,045,952bytes로 공통 WSL 용량/부모·새 사용자 적용은 
 [기능 증거](../research/crop-greenhouse-co2-admission-20261021.md)의305지문을 대사했다. 의도한 job/event SQL쓰기는 있다.
 다음은 별도 checkpoint의 원 HEAD/provenance/UTC·중복 시각과 private reader 종료 뒤 현재 execution 권한 fence다.
 [checkpoint 사전 증거](../research/artifacts/crop-greenhouse-co2-checkpoint-preflight-20261021.json)의 로컬13/전체26수집을 통과했다.
-[source8faa5b6/CI39523075575](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39523075575)의
-실제 SCRAM13·준비/진행/완료/수치 hold·현재/늦은 fence 검증은 진행 중이며 기능 수용 전이다.
+[source8faa5b6/첫 CI39523075575](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39523075575)는
+기존 불변 이력 UPDATE를 시도한 시험 준비에서 실패했다. [독립 DB 재현/시험 수정](../research/artifacts/crop-greenhouse-co2-checkpoint-immutable-test-fix-20261021.json)으로
+원 DB 보호와7개 부분 실제 경로 증거를 보존했다. 제품 코드는 유지하고 같은26개를
+[sourcea8cc095/CI39524881613](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39524881613)에서 재검증 중이며
+전체 기능 수용은 미완료다.
 core/worker·공통 WSL 용량/새 사용자 적용은 미완료다.
 공통 WSL 장애는 새 사용자 적용 전 남기되 개발 의존성에 중복 추가하지 않는다.
 원 artifact의 검증된 program SHA와 forcing_step_index가 wet/dry metadata의 선행이며 HTTP 입력으로 받지 않는다.
