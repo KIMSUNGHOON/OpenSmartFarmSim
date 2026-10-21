@@ -1,0 +1,472 @@
+{
+  "schema_version": "rational-new-internodes-acceptance-v1",
+  "reported_at_utc": "2026-10-21T17:22:14.478086+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_UTC": "2026-10-21T17:10:18.348Z",
+    "raw_context_line_sha256_including_LF": "5526a54be912f5b35fd915207ccc6e23df739988ade22e360e634c67fd3a433b",
+    "recursive_CLI": false
+  },
+  "source_pins": {
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/tests/test_crop_internode_elongation.py": "4c3b9dc1fe6c38fd39eeea851da36b2cdb64659916f49f8cfeaea7df01a61002",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/tests/test_crop_morphology_thermal_clock.py": "1dad705251728d1d5201f97a781087fe5712386dc621d0541559a459abfdbda2",
+    "fixtures/crop-morphology-thermal-clock-reference-v1.json": "4fbf814ec2e63b6867415f38138315224269523b1242b6a8227fa7e107d22b92",
+    "research/crop-morphology-thermal-clock-reference.py": "e16e77dfd0cceb7bafb62ecda5d1472dbf607f988a599da2bdb378ef48542188",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/tests/test_crop_internode_length_change.py": "df0513a460ca3c9a73d0734fd3dcd835122bd8167407cbf56f176f238eae894b",
+    "fixtures/crop-internode-length-change-reference-v1.json": "ae653b6e062f12b439b68bf66cb5897b967153f7fc0f5fe7b88ed130067f0e8a",
+    "research/crop-internode-length-change-reference.py": "04a8d3581e6e198dc9402ee8ed99be168d939ff6ad11568a9abaccdee4442382",
+    "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+    "backend/tests/test_crop_internode_length.py": "2ee524ad19323d9cb93fe6c95770ddf3fa84f2d02cea7ff700b4fbc6c483dce6",
+    "fixtures/crop-internode-length-state-reference-v1.json": "27d38ad2cd4171ac6a7e66172587ca8dc764126c7154ef177e8e18b53f7595d2",
+    "research/crop-internode-length-state-reference.py": "d0c42e49857eafd16c89b9cedc7aa9e8bb0446295b4629d0ba977fd12556f074",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/tests/test_crop_phytomer_emergence.py": "5f8f9e6a4febbed9b08f06aa9a7e316d889c505376049e0a4d1bcfaaaeeeb2ec",
+    "fixtures/crop-phytomer-events-reference-v1.json": "8eefd0c0c7f99788f59a7372c6624584263a63fc3a89065914194efb5fbffd8d",
+    "research/crop-phytomer-events-reference.py": "a21157730abe9aa5974a8dbf1fa310d6049ba0e7268e610fca70903786de6bda",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/tests/test_crop_shoot_timeline.py": "4c4f40d68e9fd7f92ca7d576cd5fc33523e3ebff007b93972138a489eab78774",
+    "fixtures/crop-shoot-timeline-reference-v1.json": "370eaceb095b52b98271378d90bc863f16596b0ce6f84dfb136bcfeae9054a0f",
+    "research/crop-shoot-timeline-reference.py": "1f516356a5941f8235f8fa8d8a19bc9179175d802fd7d1d4a81e662e71ffd54d",
+    "backend/app/crop_new_internodes.py": "4fb5b91632289029b334cc2a291f28c10222ed8f54616ee25a16d472483f2ffd",
+    "backend/tests/test_crop_new_internodes.py": "c84cdb5801d5e4f53efa3b9cf1d487ed3d1679bafddde2a0fea3a75f6b7ad6c6",
+    "fixtures/crop-new-internodes-reference-v1.json": "2868d13c92835180ea8ae62b0030949bcfea35274f4f62ef3dd189c81160a594",
+    "research/crop-new-internodes-reference.py": "9cfdafe54b8d85791dcb0061447fd41cf6e78099f4cee9484371df7c2aec56ad",
+    "backend/app/crop_shoot_inventory.py": "b5e04672cc792bf46244b6dc05dcf250285038bf833ecc1086c1b2f43b363939",
+    "backend/tests/test_crop_shoot_inventory.py": "f9469cf8b82839155275d0bc20221a3378b04f9c3933d6a564180853091bb97f",
+    "fixtures/crop-shoot-inventory-reference-v1.json": "63f8633bb5e5d33de523641af7c8c0b58ab9f708864c401b3efc051a0cf323ec",
+    "research/crop-shoot-inventory-reference.py": "c502ffa4d31c88ae175a47f093018a9bc217c87d060b779d68b34cc91b0631cc",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/tests/test_crop_morphology_artifact_io.py": "3e55daa66eab6af051b54157588f23325632d57110772bfd7948155ec9907e61",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/crop_morphology_artifact_producer.py": "16fd1c30087f662f4406b1f66512a65665fc7ad6b96fa2b62cbf64c47f2d2264",
+    "backend/tests/test_crop_morphology_research_artifact.py": "f6a1e82e7e2db4bf2d3b63c26a947c448f128e6f2349bbf690da74b2925fe911",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+    "backend/tests/test_crop_morphology_public_export.py": "9b1aaf30547c7678a5e1775a42f51878639f31a2e207a36293d17b69cf000b46",
+    "research/export-morphology-replay.py": "af52fb7438bcb62680b3d03287c2186b8b850cae8bf7a7e9e64437599b1c6a07",
+    "backend/tests/test_crop_internode_length_point.py": "5f36fe52b63ff0a53f8e699487542d3615c4f3253385c579e34dbc9a5fc2fa36",
+    "research/crop-internode-length-point-reference.py": "6b792378f687c3e5ce010daa1fbb8eee1c68e84832f1c59747b425b9d43eafc5",
+    "fixtures/crop-internode-length-point-reference-v1.json": "9a1e4b57e0ae3c0407af9ab64dbbaf2585d752e57cb75f5f0aeb4ab4b7baab98",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/tests/test_crop_rational_morphology_clock.py": "56d5ec338e33cab8f1d3ae6b66762bd330395c599ee864d39f9623c341a0cfa1",
+    "backend/app/crop_rational_internode_length.py": "423e6737cc77773d3ffdb8ab45d4aa37d106947b4222f2a6ecede839caae8a9b",
+    "backend/tests/test_crop_rational_internode_length.py": "65cc39e67f046fb918d6ea73ee2c867ed13ec3630f4d3444b1a2885996e52468",
+    "backend/app/crop_rational_new_internodes.py": "76a59f191ca7f03902ce0db9cbdf6da8cf0c2fd792532d6830a669a0899472f5",
+    "backend/tests/test_crop_rational_new_internodes.py": "1c05e0f70c1580cd0f675515bfcaa81765102d7eda7adcdbefac19e00854ae4d"
+  },
+  "tests": {
+    "new": 27,
+    "retained": 423,
+    "passed": 450,
+    "pytest_seconds": 5.87,
+    "RED": "missing module import",
+    "full_backend_suite": false,
+    "browser_rerun": false,
+    "new_deployment": false
+  },
+  "verification": {
+    "whole_second_programs": 6,
+    "whole_second_ids_and_lengths_identical": 10,
+    "fractional_programs": 2,
+    "independent_length_points": 22,
+    "maximum_relative_difference": "2.54833866E-16",
+    "cases": [
+      {
+        "case_id": "synthetic-day",
+        "sequence": 3,
+        "expected_length_m_decimal": "0.021891062856762758546729445158041599232714481782164509927459090220141176435812182092631901553526501443392278965748351463026399442076616008631765442095331279006208652061570743019795661256541557678914952382150022301727854685196692365123901688742355192036659624702090831922680922585469786522523742291079900914435739072100079318651168056439178324821223134722662001397939016097263380246498782107328000999322296813772393537570422380031357151301674528362938161857231406966642922673587165115496534377301355413653984497083408760760340985979543220868621082811535714709520013819607346521905053028474682075034501696725279938524674881579641337107355788442802236360945215465522840698324593661662810989576566308717874688871303560961667687816813573205209475050300346709876053280329927951685773244545725578897507476281",
+        "actual_length": {
+          "value": 0.021891062856762757,
+          "unit": "m"
+        },
+        "relative_difference": "5.74886140E-17"
+      },
+      {
+        "case_id": "synthetic-day",
+        "sequence": 4,
+        "expected_length_m_decimal": "0.017765663763802734236949068134295749037321754428795005605817905589244478383113419940436969947018389301682181161995715430887129231815487015699510654534653278276270458714720444783254127536348802825686370333567877394641608829224392555838861394894808863466410207883855257728267404757254265217074021470480310333902026069748846400776088509362686996253969708219936856154671449734027585441822262946493845861567225472125160254771319463540184652267027571736708813847549021186516233950606096017675114251812270616507694856008175008788808424498108818272506220715063715863277078899289374454770314146979075346068803776410356535305658812357018437220848672415475384766852695310217706081707090196097936927250655822445821624690023846620271887553028825767149837861844224142207241208872434273491052663257416976266126002866",
+        "actual_length": {
+          "value": 0.017765663763802737,
+          "unit": "m"
+        },
+        "relative_difference": "1.73442818E-16"
+      },
+      {
+        "case_id": "synthetic-day",
+        "sequence": 5,
+        "expected_length_m_decimal": "0.014304350642654104784669637082456048616649928800562308720892344335028776554076428943233533989296999244350255152124630077759209824674712421612344513949444955118166728582398203376438945731176203399693015544117415735371899271710479811205225843571707079543278024854802997346682213635554591697171639482891192864863619786500213652116969450377374050408689251223727736827346873858716310268415976765085505392697475707712845924300288978149568797699341143695886299550105729549978922117995679522040373876876061173282076343616032692535595518767340536593064587954204155427140228474802571632978478647306846424201297779549768654970172233243261608683132202042671615458040660703267882931217594735369173945157615473421253507917708901046369610615268575314481553114902057758474009960548663083906533160199981451386153308957",
+        "actual_length": {
+          "value": 0.014304350642654106,
+          "unit": "m"
+        },
+        "relative_difference": "6.23793154E-17"
+      },
+      {
+        "case_id": "synthetic-flat-first",
+        "sequence": 3,
+        "expected_length_m_decimal": "0.014783609377369755077677452477525425888881370277122549817758976695549930764929045572274297547243596301454217066914358340825750639053480328495952454017722914643195558629179346996858126459610804741659967514089423874676055311749884665528260943468187614843610740558352494728431330988436694343154833947389157789791361929365912326628228362471262682995244838643827170653776607686151456803950530234628381005213790129747799827227327132373339804419545403257791868660606607507336054616677823124330579980721780312712981287826845547194185429715048815471692979677723793683999353827225231242304256588080917102169839797101076708896769996093011076879714789901334810061653903555272721882759766628461514161715650077558868681963589366438737590230824858484058289964625863458042232645204958135571267136513289956580677271920",
+        "actual_length": {
+          "value": 0.014783609377369755,
+          "unit": "m"
+        },
+        "relative_difference": "1.36872175E-17"
+      },
+      {
+        "case_id": "synthetic-flat-first",
+        "sequence": 4,
+        "expected_length_m_decimal": "0.014462592184286343647879643876978753716411674550326982620975349461810090527678372380729779312861318181415647882048210481584330884327056349525246827684629012480816443908569462175500281272345649613661849637891805261464114273479470515999029143269018436355877758088476227978514129927143430884662822702411759809870148682967732743353805060678751726337706848790252910663659724138272681157212485268602229413256186855314347019489912674144601449089747210701561485663971566204455435633723307599474317223391592360200652272961832348945602645551004222922385716903271754205087469753856119525349996818862786466465671001585279920489024692084312404974453468920283004411646774770979389591675734451203450304226920052087952188228127994989167456966884732978612243895680725910125458783267987067774483220899674621165859007858",
+        "actual_length": {
+          "value": 0.014462592184286345,
+          "unit": "m"
+        },
+        "relative_difference": "7.09280189E-17"
+      },
+      {
+        "case_id": "synthetic-flat-after-boundary",
+        "sequence": 3,
+        "expected_length_m_decimal": "0.014304350642654104784669637082456048616649928800562308720892344335028776554076428943233533989296999244350255152124630077759209824674712421612344513949444955118166728582398203376438945731176203399693015544117415735371899271710479811205225843571707079543278024854802997346682213635554591697171639482891192864863619786500213652116969450377374050408689251223727736827346873858716310268415976765085505392697475707712845924300288978149568797699341143695886299550105729549978922117995679522040373876876061173282076343616032692535595518767340536593064587954204155427140228474802571632978478647306846424201297779549768654970172233243261608683132202042671615458040660703267882931217594735369173945157615473421253507917708901046369610615268575314481553114902057758474009960548663083906533160199981451386153308957",
+        "actual_length": {
+          "value": 0.014304350642654106,
+          "unit": "m"
+        },
+        "relative_difference": "6.23793154E-17"
+      },
+      {
+        "case_id": "synthetic-resume-origin",
+        "sequence": 3,
+        "expected_length_m_decimal": "0.014622342092354164612775451566382366661081115618901325921868047397368050575996321546297161330497253277033416298133720682361714526875502239820331712848618764712259688381276868780821973336825827992704301337066248003416746083144561067420909301339889212186960600323148893064048189729768599077247839768656520553214110091798295850530204094692474111783082797852664957611885272766453691278563086828987435840892242028286988515448799212715220331163829057255362329700053791339598468756815094115271870006097128262647686290634084092616674113135269821042513286656662624700931748211612410594991047646356234397793637642688880107967825660676110804894836658968969383767240419181237216271316570830434266044078730870683825787341849327074583529772496101751173435616766684155423225903208671814913005819016810451779087639783",
+        "actual_length": {
+          "value": 0.014622342092354164,
+          "unit": "m"
+        },
+        "relative_difference": "2.65035207E-17"
+      },
+      {
+        "case_id": "synthetic-resume-origin",
+        "sequence": 4,
+        "expected_length_m_decimal": "0.014304350642654104784669637082456048616649928800562308720892344335028776554076428943233533989296999244350255152124630077759209824674712421612344513949444955118166728582398203376438945731176203399693015544117415735371899271710479811205225843571707079543278024854802997346682213635554591697171639482891192864863619786500213652116969450377374050408689251223727736827346873858716310268415976765085505392697475707712845924300288978149568797699341143695886299550105729549978922117995679522040373876876061173282076343616032692535595518767340536593064587954204155427140228474802571632978478647306846424201297779549768654970172233243261608683132202042671615458040660703267882931217594735369173945157615473421253507917708901046369610615268575314481553114902057758474009960548663083906533160199981451386153308957",
+        "actual_length": {
+          "value": 0.014304350642654106,
+          "unit": "m"
+        },
+        "relative_difference": "6.23793154E-17"
+      },
+      {
+        "case_id": "synthetic-leap",
+        "sequence": 3,
+        "expected_length_m_decimal": "0.014946402982489968620524064331340127868751746700488017592722891989082365783652114093285621349589696167407340922611625544396642869153378549792500179344784028528897434532469224957838283160316008020997921799434710301146607221614784196557005363748302584183118187009765217896617732438697392028938998681373280637325419571743517463549214818571152267318921030946996516050369742402740282294472732202932511197804220166238184684116906610772494840621752720130544574292348769464555739825942617096361115924347286932316017156384883505661717050170335528892114658967402845111773362726955978409211954039901090229340238752792878477932787731364469945752138694176361199187651603816587522690738944183324966684576823801544361068857279320876097119503938459020226882308256154432528581099553479767208500120240179846534390616805",
+        "actual_length": {
+          "value": 0.014946402982489965,
+          "unit": "m"
+        },
+        "relative_difference": "2.16973215E-16"
+      },
+      {
+        "case_id": "synthetic-leap",
+        "sequence": 4,
+        "expected_length_m_decimal": "0.014304350642654104784669637082456048616649928800562308720892344335028776554076428943233533989296999244350255152124630077759209824674712421612344513949444955118166728582398203376438945731176203399693015544117415735371899271710479811205225843571707079543278024854802997346682213635554591697171639482891192864863619786500213652116969450377374050408689251223727736827346873858716310268415976765085505392697475707712845924300288978149568797699341143695886299550105729549978922117995679522040373876876061173282076343616032692535595518767340536593064587954204155427140228474802571632978478647306846424201297779549768654970172233243261608683132202042671615458040660703267882931217594735369173945157615473421253507917708901046369610615268575314481553114902057758474009960548663083906533160199981451386153308957",
+        "actual_length": {
+          "value": 0.014304350642654106,
+          "unit": "m"
+        },
+        "relative_difference": "6.23793154E-17"
+      },
+      {
+        "case_id": "fractional",
+        "sequence": 3,
+        "birth_seconds_exact": {
+          "numerator": "1",
+          "denominator": "3",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "43200",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043652251029489667117550590",
+        "actual_length": {
+          "value": 0.01430436522510295,
+          "unit": "m"
+        },
+        "relative_difference": "4.49926443E-17",
+        "program_input_sha256": "3f9a6970e0557ac6be53e96fe26552f1d58ad99eadf85d992d547f0bea803e2a"
+      },
+      {
+        "case_id": "fractional",
+        "sequence": 4,
+        "birth_seconds_exact": {
+          "numerator": "2",
+          "denominator": "3",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "86400",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043579338769201184500728207",
+        "actual_length": {
+          "value": 0.014304357933876922,
+          "unit": "m"
+        },
+        "relative_difference": "1.42516499E-16",
+        "program_input_sha256": "3f9a6970e0557ac6be53e96fe26552f1d58ad99eadf85d992d547f0bea803e2a"
+      },
+      {
+        "case_id": "fractional",
+        "sequence": 5,
+        "birth_seconds_exact": {
+          "numerator": "1",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "0",
+          "denominator": "1",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043506426541047846696370825",
+        "actual_length": {
+          "value": 0.014304350642654106,
+          "unit": "m"
+        },
+        "relative_difference": "6.23793154E-17",
+        "program_input_sha256": "3f9a6970e0557ac6be53e96fe26552f1d58ad99eadf85d992d547f0bea803e2a"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 3,
+        "birth_seconds_exact": {
+          "numerator": "1",
+          "denominator": "3",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "10800",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143044089725266059109876563370",
+        "actual_length": {
+          "value": 0.014304408972526604,
+          "unit": "m"
+        },
+        "relative_difference": "1.51308349E-16",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 4,
+        "birth_seconds_exact": {
+          "numerator": "2",
+          "denominator": "3",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "7",
+          "denominator": "86400",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143044016812812959568636357908",
+        "actual_length": {
+          "value": 0.014304401681281297,
+          "unit": "m"
+        },
+        "relative_difference": "4.33285949E-17",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 5,
+        "birth_seconds_exact": {
+          "numerator": "1",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "14400",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043943900391995226422487196",
+        "actual_length": {
+          "value": 0.0143043943900392,
+          "unit": "m"
+        },
+        "relative_difference": "5.99261410E-17",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 6,
+        "birth_seconds_exact": {
+          "numerator": "13",
+          "denominator": "6",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "17280",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043870988003166074199313269",
+        "actual_length": {
+          "value": 0.014304387098800315,
+          "unit": "m"
+        },
+        "relative_difference": "1.01452816E-16",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 7,
+        "birth_seconds_exact": {
+          "numerator": "7",
+          "denominator": "3",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "21600",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043798075646472102931195365",
+        "actual_length": {
+          "value": 0.014304379807564648,
+          "unit": "m"
+        },
+        "relative_difference": "4.43433817E-17",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 8,
+        "birth_seconds_exact": {
+          "numerator": "5",
+          "denominator": "2",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "28800",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043725163321913303582489924",
+        "actual_length": {
+          "value": 0.014304372516332195,
+          "unit": "m"
+        },
+        "relative_difference": "2.54833866E-16",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 9,
+        "birth_seconds_exact": {
+          "numerator": "8",
+          "denominator": "3",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "43200",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043652251029489667117550590",
+        "actual_length": {
+          "value": 0.01430436522510295,
+          "unit": "m"
+        },
+        "relative_difference": "4.49926443E-17",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 10,
+        "birth_seconds_exact": {
+          "numerator": "17",
+          "denominator": "6",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "1",
+          "denominator": "86400",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043579338769201184500728207",
+        "actual_length": {
+          "value": 0.014304357933876922,
+          "unit": "m"
+        },
+        "relative_difference": "1.42516499E-16",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      },
+      {
+        "case_id": "variable-flat",
+        "sequence": 11,
+        "birth_seconds_exact": {
+          "numerator": "3",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "expected_age_exact": {
+          "numerator": "0",
+          "denominator": "1",
+          "unit": "degC_day"
+        },
+        "expected_length_m_decimal": "0.0143043506426541047846696370825",
+        "actual_length": {
+          "value": 0.014304350642654106,
+          "unit": "m"
+        },
+        "relative_difference": "6.23793154E-17",
+        "program_input_sha256": "41a0e00e485189576cbaebb288caaf99c26facdbb22155c55a8b48a6892ce583"
+      }
+    ]
+  },
+  "resource": {
+    "focused": {
+      "phase": "green",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 6.189950400999805,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 893865984,
+      "samples": 25,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "a189041d9a439f2df6e10c5097d17ebe7d5cb89330a454140112d49b8f543178",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    },
+    "independent": {
+      "phase": "verify",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.2670523959968705,
+      "peak_PID_RSS_bytes": 124559360,
+      "combined_RSS_bytes": 782991360,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "protected_six_roots_live": true,
+      "remaining_owned_children": 0,
+      "log_sha256": "c914f8e65db6b985e8e0673617319874f950c922eede5253fd56a623aa4b8c81",
+      "plugin_autoload_disabled": true,
+      "full_suite": false
+    }
+  },
+  "limitations": [
+    "synthetic new internodes only; no existing inventory/custody",
+    "generic phytomer not inferred leaf/flower/yield",
+    "v1 fractional emergence hold and historical artifact unchanged",
+    "actual cultivar coefficients and independent farm measurements0",
+    "G0_G4 not_assessed"
+  ]
+}
