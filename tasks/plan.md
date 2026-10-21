@@ -209,6 +209,9 @@ hosted 합433,242,112bytes이며 공통 WSL 용량/HTTP 부모와 새 사용자 
 [명시 읽기 runtime 계약](../contracts/crop-greenhouse-co2-runtime-v1.md)은 기존 직접 config/loader의
 암묵적 CO₂ True 거부를 보존하는 별도 판본/서버 읽기 동의와 같은 두 factory/graph·키/역할 검증을 계획한다.
 보호 HTTP 기능 수용 뒤 시작하며 원 파일 helper를 바꾸거나 계산/등록/worker를 자동 시작하지 않는다.
+[구현 사전 증거](../research/artifacts/crop-greenhouse-co2-runtime-preflight-20261021.json)의 로컬77/전체177수집을 통과했다.
+[source8c1ba5d/CI39518527650](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39518527650)에서
+새 CO₂/기존 Solar 실제 SCRAM/TLS4와 기존 설정/공통 runtime을 검증 중이며 기능 수용 전이다.
 원 artifact의 검증된 program SHA와 forcing_step_index가 wet/dry metadata의 선행이며 HTTP 입력으로 받지 않는다.
 닫힌 summary/samples/events에서 원109상태·44연속/6사건/17수지·단위/UTC/hold를 보존하고 구 판본/타입·단위/한도 혼합을 거부한다.
 같은 현재 읽기 세션과 직렬화 뒤 권리/DB/HEAD 재확인, 실제 SCRAM/fresh 원 응답·조회 계산/쓰기0·5root/자원/정리를 수용한다.
