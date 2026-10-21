@@ -64,3 +64,5 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 
 - [E2 실제 worker](../research/crop-morphology-execution-worker-20261022.md):참조9/실제 SCRAM5·원자 게시/취소·만료·늦은 철회 수용.
 - [E3 현재 query](../research/crop-morphology-execution-query-20261022.md):제어9/실제 SCRAM5·원12프레임/재생 묶음·fresh/현재 철회/동시 cancel·조회 계산/쓰기0 수용. 다음은 보호 HTTP와 사용자 화면이다.
+
+- [보호 HTTP](../research/api-crop-morphology-execution-20261022.md):제어27/OpenAPI·Scope89·실제 SCRAM/TLS2·원12 DTO/취소·늦은 만료/409 수용.1GiB 중단 뒤 같은 검사 분할 통과·6root/정리. 다음 자동 consumer/runtime과 UI다.

@@ -193,6 +193,10 @@ E1은0.5–1.25, E2/E3는1–2.5집중시간의 낮은 신뢰 계획이다. 보�
 그 뒤 사용자 화면은 접수/재접속·실제 상태·현재 저장3D/표/그래프·취소/철회/모바일/실제 브라우저(잠정1–2집중시간)다.
 이는 기존 E1–E3/화면 재사용과 관측된 native 비용에 기초한 낮은 신뢰 작업량이며 외부 자료 확보일·전체 제품 완료일을 뜻하지 않는다.
 
+**보호 HTTP 수용 — 2026-10-22:** [제어27/기존 포함 OpenAPI·Scope89·실제 SCRAM/TLS2](../research/api-crop-morphology-execution-20261022.md)로 표준 조립의6경로·원12 DTO/UTC/계산 없는 현재 조회·취소/늦은 만료/409·25표/6root와 정리를 확인했다. 단일 회귀1GiB 중단 뒤 같은 검사의 fresh 프로세스 분할을 수용했으며 전체 backend gate는 별도다.
+다음은 기존 deterministic discovery/loop의 정확한 형태 판본/worker 등록과 합성 검토용 runtime → 접수/상태·저장3D UI다. 실제 연구 입력 목록·일반 운영 설정/계정·G4는 별도 수용한다.
+
+
 
 [Axiany 독립 자료 경로 재조사](../research/axiany-morphology-independent-data-20261022.md)는 공개 주별 집계와
 개별 초기 절간/출현·phyllochron/기준온도·길이 계수/독립 작기 미확보를 구분했다.

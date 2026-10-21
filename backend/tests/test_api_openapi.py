@@ -25,9 +25,16 @@ from app.farm_authored_review import REVIEW_SCOPES as FARM_AUTHORED_REVIEW_SCOPE
 from app import api_openapi
 from test_http_identity import request
 from app.api_crop_climate_joint_execution import SUBMIT_SCOPES as JOINT_SUBMIT_SCOPES, PROGRESS_SCOPES as JOINT_PROGRESS_SCOPES
+from app import api_crop_morphology_execution as morphology
 
 
 OPERATIONS = {
+    ('/v1/crop-morphology-executions','post'): ('submitMorphologyExecution',list(morphology.SUBMIT_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-morphology-execution','get'): ('getMorphologyExecution',list(morphology.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-morphology-execution/manifest','get'): ('getMorphologyExecutionManifest',list(morphology.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-morphology-execution/frames/{index}','get'): ('getMorphologyExecutionFrame',list(morphology.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-morphology-execution/replay','get'): ('getMorphologyExecutionReplay',list(morphology.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-morphology-execution/cancel','post'): ('cancelMorphologyExecution',list(morphology.CANCEL_SCOPES)),
     ('/v1/crop-greenhouse-co2-executions','post'): ('submitGreenhouseCo2Execution',list(JOINT_SUBMIT_SCOPES)),
     ('/v1/jobs/{job_id}/crop-greenhouse-co2-execution','get'): ('getGreenhouseCo2Execution',list(JOINT_PROGRESS_SCOPES)),
     ('/v1/jobs/{job_id}/crop-greenhouse-co2-execution/cancel','post'): ('cancelGreenhouseCo2Execution',['cancel']),
@@ -242,6 +249,7 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
     principal = {"authenticated": True, "tenant_id": "tenant-a", "scopes": set()}
     app = create_app(stores, stores, stores, stores, principal_provider=lambda: principal, break_even_store=stores)
     path = (path.replace("{job_id}", "00000000-0000-4000-8000-000000000001")
+        .replace("{index}", "0")
         .replace("{research_job_id}", "00000000-0000-4000-8000-000000000003")
         .replace("{collection_job_id}", "00000000-0000-4000-8000-000000000004")
         .replace("{candidate_id}", "c"*64)

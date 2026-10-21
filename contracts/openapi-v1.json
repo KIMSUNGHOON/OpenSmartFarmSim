@@ -1773,6 +1773,59 @@
         "title": "CalculationServerDependencies",
         "type": "object"
       },
+      "Cancellation": {
+        "additionalProperties": false,
+        "properties": {
+          "cancel_accepted": {
+            "title": "Cancel Accepted",
+            "type": "boolean"
+          },
+          "cancel_requested": {
+            "title": "Cancel Requested",
+            "type": "boolean"
+          },
+          "claim_scope": {
+            "const": "synthetic_crop_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "gates": {
+            "const": "not_assessed",
+            "title": "Gates",
+            "type": "string"
+          },
+          "job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "observed_at": {
+            "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d(?:\\.\\d{1,6})?Z$",
+            "title": "Observed At",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "morphology-execution-cancel-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "scope": {
+            "const": "software_research_only",
+            "title": "Scope",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scope",
+          "claim_scope",
+          "gates",
+          "schema_version",
+          "observed_at",
+          "job",
+          "cancel_requested",
+          "cancel_accepted"
+        ],
+        "title": "Cancellation",
+        "type": "object"
+      },
       "Co2AirFlows": {
         "additionalProperties": false,
         "properties": {
@@ -9553,81 +9606,6 @@
         "title": "ExecutionCounts",
         "type": "object"
       },
-      "ExecutionRead": {
-        "additionalProperties": false,
-        "properties": {
-          "G0_G4": {
-            "const": "not_assessed",
-            "title": "G0 G4",
-            "type": "string"
-          },
-          "cancel_requested": {
-            "title": "Cancel Requested",
-            "type": "boolean"
-          },
-          "checkpoint": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ExecutionCheckpoint"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "checkpoint_status": {
-            "enum": [
-              "none",
-              "current",
-              "unavailable"
-            ],
-            "title": "Checkpoint Status",
-            "type": "string"
-          },
-          "job": {
-            "$ref": "#/components/schemas/JobStatus"
-          },
-          "observed_at": {
-            "format": "date-time",
-            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
-            "title": "Observed At",
-            "type": "string"
-          },
-          "result": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ExecutionResult"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "scope": {
-            "const": "synthetic_joint_crop_climate_math_only",
-            "title": "Scope",
-            "type": "string"
-          },
-          "version": {
-            "const": "joint-crop-climate-execution-query-v1",
-            "title": "Version",
-            "type": "string"
-          }
-        },
-        "required": [
-          "version",
-          "scope",
-          "G0_G4",
-          "job",
-          "cancel_requested",
-          "observed_at",
-          "checkpoint_status",
-          "checkpoint",
-          "result"
-        ],
-        "title": "ExecutionRead",
-        "type": "object"
-      },
       "ExecutionResult": {
         "additionalProperties": false,
         "properties": {
@@ -9704,42 +9682,6 @@
           "zone_id"
         ],
         "title": "ExecutionResultFarm",
-        "type": "object"
-      },
-      "Farm": {
-        "additionalProperties": false,
-        "properties": {
-          "crop_id": {
-            "maxLength": 200,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-            "title": "Crop Id",
-            "type": "string"
-          },
-          "registration_sha256": {
-            "pattern": "^[0-9a-f]{64}$",
-            "title": "Registration Sha256",
-            "type": "string"
-          },
-          "scenario_id": {
-            "maxLength": 200,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-            "title": "Scenario Id",
-            "type": "string"
-          },
-          "scenario_revision": {
-            "maxLength": 200,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-            "title": "Scenario Revision",
-            "type": "string"
-          }
-        },
-        "required": [
-          "scenario_id",
-          "scenario_revision",
-          "registration_sha256",
-          "crop_id"
-        ],
-        "title": "Farm",
         "type": "object"
       },
       "FarmAuthoringActivity": {
@@ -10187,7 +10129,7 @@
         "additionalProperties": false,
         "properties": {
           "farm": {
-            "$ref": "#/components/schemas/Farm"
+            "$ref": "#/components/schemas/app__api_crop_harvest_replay__Farm"
           },
           "items": {
             "items": {
@@ -10370,7 +10312,7 @@
         "additionalProperties": false,
         "properties": {
           "farm": {
-            "$ref": "#/components/schemas/Farm"
+            "$ref": "#/components/schemas/app__api_crop_harvest_replay__Farm"
           },
           "items": {
             "items": {
@@ -10558,7 +10500,7 @@
         "additionalProperties": false,
         "properties": {
           "farm": {
-            "$ref": "#/components/schemas/Farm"
+            "$ref": "#/components/schemas/app__api_crop_harvest_replay__Farm"
           },
           "page": {
             "anyOf": [
@@ -12461,6 +12403,7 @@
         "title": "JointTransfers",
         "type": "object"
       },
+      "JsonValue": {},
       "KindTotals": {
         "additionalProperties": false,
         "properties": {
@@ -13353,7 +13296,7 @@
         "additionalProperties": false,
         "properties": {
           "farm": {
-            "$ref": "#/components/schemas/Farm"
+            "$ref": "#/components/schemas/app__api_crop_harvest_replay__Farm"
           },
           "items": {
             "items": {
@@ -14522,6 +14465,79 @@
           "cohorts"
         ],
         "title": "Removal",
+        "type": "object"
+      },
+      "ResultSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "binding_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Binding Sha256",
+            "type": "string"
+          },
+          "calculated_at": {
+            "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d(?:\\.\\d{1,6})?Z$",
+            "title": "Calculated At",
+            "type": "string"
+          },
+          "farm": {
+            "$ref": "#/components/schemas/app__api_crop_morphology_execution__Farm"
+          },
+          "input_evidence_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Input Evidence Sha256",
+            "type": "string"
+          },
+          "numerical_root_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Numerical Root Sha256",
+            "type": "string"
+          },
+          "profile_applicability": {
+            "const": "unvalidated_for_registered_crop",
+            "title": "Profile Applicability",
+            "type": "string"
+          },
+          "program_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Program Sha256",
+            "type": "string"
+          },
+          "result_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Result Sha256",
+            "type": "string"
+          },
+          "revision": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Revision",
+            "type": "string"
+          },
+          "source_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Source Sha256",
+            "type": "string"
+          },
+          "study_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Study Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "result_sha256",
+          "numerical_root_sha256",
+          "calculated_at",
+          "study_id",
+          "revision",
+          "farm",
+          "profile_applicability",
+          "binding_sha256",
+          "program_sha256",
+          "source_sha256",
+          "input_evidence_sha256"
+        ],
+        "title": "ResultSummary",
         "type": "object"
       },
       "Return": {
@@ -23539,6 +23555,254 @@
         ],
         "title": "ZeroDeclaration",
         "type": "object"
+      },
+      "app__api_crop_climate_joint_execution__ExecutionRead": {
+        "additionalProperties": false,
+        "properties": {
+          "G0_G4": {
+            "const": "not_assessed",
+            "title": "G0 G4",
+            "type": "string"
+          },
+          "cancel_requested": {
+            "title": "Cancel Requested",
+            "type": "boolean"
+          },
+          "checkpoint": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExecutionCheckpoint"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "checkpoint_status": {
+            "enum": [
+              "none",
+              "current",
+              "unavailable"
+            ],
+            "title": "Checkpoint Status",
+            "type": "string"
+          },
+          "job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Observed At",
+            "type": "string"
+          },
+          "result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExecutionResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "scope": {
+            "const": "synthetic_joint_crop_climate_math_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "version": {
+            "const": "joint-crop-climate-execution-query-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "scope",
+          "G0_G4",
+          "job",
+          "cancel_requested",
+          "observed_at",
+          "checkpoint_status",
+          "checkpoint",
+          "result"
+        ],
+        "title": "ExecutionRead",
+        "type": "object"
+      },
+      "app__api_crop_harvest_replay__Farm": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Crop Id",
+            "type": "string"
+          },
+          "registration_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registration Sha256",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario_revision",
+          "registration_sha256",
+          "crop_id"
+        ],
+        "title": "Farm",
+        "type": "object"
+      },
+      "app__api_crop_morphology_execution__ExecutionRead": {
+        "additionalProperties": false,
+        "properties": {
+          "cancel_requested": {
+            "title": "Cancel Requested",
+            "type": "boolean"
+          },
+          "claim_scope": {
+            "const": "synthetic_crop_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "frame": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Frame"
+          },
+          "gates": {
+            "const": "not_assessed",
+            "title": "Gates",
+            "type": "string"
+          },
+          "job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "manifest": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Manifest"
+          },
+          "observed_at": {
+            "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d(?:\\.\\d{1,6})?Z$",
+            "title": "Observed At",
+            "type": "string"
+          },
+          "replay": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Replay"
+          },
+          "result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResultSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schema_version": {
+            "const": "morphology-execution-read-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "scope": {
+            "const": "software_research_only",
+            "title": "Scope",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scope",
+          "claim_scope",
+          "gates",
+          "schema_version",
+          "observed_at",
+          "job",
+          "cancel_requested",
+          "result",
+          "manifest",
+          "frame",
+          "replay"
+        ],
+        "title": "ExecutionRead",
+        "type": "object"
+      },
+      "app__api_crop_morphology_execution__Farm": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Crop Id",
+            "type": "string"
+          },
+          "registration_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registration Sha256",
+            "type": "string"
+          },
+          "scenario_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario_revision",
+          "registration_sha256",
+          "crop_id"
+        ],
+        "title": "Farm",
+        "type": "object"
       }
     },
     "securitySchemes": {
@@ -27739,6 +28003,290 @@
           "market_source_read",
           "market_candidate_read",
           "crop_result_read"
+        ]
+      }
+    },
+    "/v1/crop-morphology-executions": {
+      "post": {
+        "operationId": "submitMorphologyExecution",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "farm": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "crop_id": {
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Crop Id",
+                        "type": "string"
+                      },
+                      "registration_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Registration Sha256",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "scenario_revision": {
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Revision",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "scenario_id",
+                      "scenario_revision",
+                      "registration_sha256",
+                      "crop_id"
+                    ],
+                    "title": "Farm",
+                    "type": "object"
+                  },
+                  "input": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Evidence Sha256",
+                        "type": "string"
+                      },
+                      "program_id": {
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Program Id",
+                        "type": "string"
+                      },
+                      "program_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Program Sha256",
+                        "type": "string"
+                      },
+                      "schema_version": {
+                        "const": "morphology-input-source-v1",
+                        "title": "Schema Version",
+                        "type": "string"
+                      },
+                      "source_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Source Sha256",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schema_version",
+                      "program_id",
+                      "program_sha256",
+                      "source_sha256",
+                      "evidence_sha256"
+                    ],
+                    "title": "Input",
+                    "type": "object"
+                  },
+                  "revision": {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Revision",
+                    "type": "string"
+                  },
+                  "rights": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "access": {
+                        "title": "Access",
+                        "type": "boolean"
+                      },
+                      "available_at": {
+                        "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d(?:\\.\\d{1,6})?Z$",
+                        "title": "Available At",
+                        "type": "string"
+                      },
+                      "declaration_id": {
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Declaration Id",
+                        "type": "string"
+                      },
+                      "display": {
+                        "title": "Display",
+                        "type": "boolean"
+                      },
+                      "input_source_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Input Source Sha256",
+                        "type": "string"
+                      },
+                      "ownership_asserted": {
+                        "title": "Ownership Asserted",
+                        "type": "boolean"
+                      },
+                      "redistribute": {
+                        "title": "Redistribute",
+                        "type": "boolean"
+                      },
+                      "revision": {
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Revision",
+                        "type": "string"
+                      },
+                      "schema_version": {
+                        "const": "morphology-input-rights-v1",
+                        "title": "Schema Version",
+                        "type": "string"
+                      },
+                      "store": {
+                        "title": "Store",
+                        "type": "boolean"
+                      },
+                      "transform": {
+                        "title": "Transform",
+                        "type": "boolean"
+                      },
+                      "use": {
+                        "title": "Use",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "schema_version",
+                      "declaration_id",
+                      "revision",
+                      "input_source_sha256",
+                      "available_at",
+                      "redistribute",
+                      "ownership_asserted",
+                      "access",
+                      "store",
+                      "transform",
+                      "use",
+                      "display"
+                    ],
+                    "title": "Rights",
+                    "type": "object"
+                  },
+                  "study_id": {
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Study Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "study_id",
+                  "revision",
+                  "farm",
+                  "input",
+                  "rights"
+                ],
+                "title": "ExecutionRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Submit",
+        "x-ossf-max-body-bytes": 65536,
+        "x-ossf-required-scopes": [
+          "simulation_create",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read",
+          "crop_result_write"
         ]
       }
     },
@@ -32841,7 +33389,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExecutionRead"
+                  "$ref": "#/components/schemas/app__api_crop_climate_joint_execution__ExecutionRead"
                 }
               }
             },
@@ -33798,6 +34346,597 @@
         "summary": "Cancel",
         "x-ossf-required-scopes": [
           "cancel"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/crop-morphology-execution": {
+      "get": {
+        "operationId": "getMorphologyExecution",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/app__api_crop_morphology_execution__ExecutionRead"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Status",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/crop-morphology-execution/cancel": {
+      "post": {
+        "operationId": "cancelMorphologyExecution",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cancellation"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Cancel",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "cancel"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/crop-morphology-execution/frames/{index}": {
+      "get": {
+        "operationId": "getMorphologyExecutionFrame",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "title": "Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "index",
+            "required": true,
+            "schema": {
+              "pattern": "^(0|[1-9][0-9]{0,8})$",
+              "title": "Index",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/app__api_crop_morphology_execution__ExecutionRead"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Frame",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/crop-morphology-execution/manifest": {
+      "get": {
+        "operationId": "getMorphologyExecutionManifest",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/app__api_crop_morphology_execution__ExecutionRead"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Manifest",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/crop-morphology-execution/replay": {
+      "get": {
+        "operationId": "getMorphologyExecutionReplay",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/app__api_crop_morphology_execution__ExecutionRead"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Replay",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
         ]
       }
     },

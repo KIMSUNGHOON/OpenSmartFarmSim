@@ -36,7 +36,7 @@ from test_thermal_publisher import input_raws
 import test_crop_morphology_input_evidence as inputs
 
 
-def create_farm(login_scope,monkeypatch,decision_at):
+def create_farm(login_scope,monkeypatch,decision_at, *, principal_provider_factory=None):
     import test_economics, test_economics_settlement, test_market_scenario
     for module in (test_economics,test_economics_settlement,test_market_scenario,seed):
         monkeypatch.setattr(module, "DECISION", decision_at)
@@ -48,7 +48,8 @@ def create_farm(login_scope,monkeypatch,decision_at):
     req=MarketScenarioRequest.model_validate_json(_json(req)).model_dump(mode='json')
     principal['scopes'].update({'metadata','market_source_read','market_source_write','decision_context_read',
         'location_create','thermal_scenario_write'}|set(FARM_WRITE_SCOPES)|set(REPLAY_WRITE_SCOPES)|set(OWNED_SCOPES))
-    provider=lambda:principal;kw={'runtime_identity':identity,'principal_provider':provider}
+    provider=(lambda:principal) if principal_provider_factory is None else principal_provider_factory(principal)
+    kw={'runtime_identity':identity,'principal_provider':provider}
     jobs=JobStore(dsns['authority'],policy.schema,base.artifact_root,audit_runtime_grants=True,**kw)
     sources=MarketSourceStore(dsns['authority'],policy.schema,**kw)
     groups={'economic_scenario':(values.scenarios,EconomicScenario),'economic_input':(values.records,OwnedEconomicRecord),
