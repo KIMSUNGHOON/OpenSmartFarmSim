@@ -1,6 +1,8 @@
 # CO₂·일사 모델의 접수·자동 계산 핵심 — v1
 
-Status: planned; implementation and actual SCRAM acceptance pending.
+Status: admission implemented; local control4 passed, actual SCRAM13 pending. Checkpoint/worker planned.
+[사전 증거](../research/artifacts/crop-greenhouse-co2-admission-preflight-20261021.json)는 전체17개 수집과
+원 자료/두 UI/5root·자원·정리를 확인했다. 기능 수용 전이며 새 계산/worker/배포는 없다.
 선행은 [명시 조회 runtime 기능 수용](crop-greenhouse-co2-runtime-v1.md)이다.
 [기존 Solar 실행 핵심](crop-greenhouse-solar-execution-core-v1.md)의 임대/현재성/원자 게시 경계를 재사용한다.
 공통 WSL 용량은 사용자 적용 전 조건이며 아래 개발의 별도 중복 장애로 계산하지 않는다.
@@ -14,6 +16,8 @@ Status: planned; implementation and actual SCRAM acceptance pending.
    입력/권리·계정/범위·원 bytes를 다시 검사해 접수 중 철회 시 작업/사건/내용을 모두 rollback한다.
    접수는 적분/context 생성·결과 등록/worker를 실행하지 않는다. 취소는 원 입력 판본/tenant·현재 cancel
    범위로 제한하고 자료 이용권 철회 뒤에도 가능해야 한다. queued는 canceled, 실행 중은 cancel_requested다.
+   기존 job의 원64KiB 요청/입력 한도를 유지한다. 취소는 자체 계약/code 지문도 검사하되 철회된 자료의
+   binding.current를 호출하지 않는다. claimed 시험의 ack는 기존 JobStore이며 CO₂ worker 수용이 아니다.
 2. **확정 checkpoint:** 별도 `Co2ExecutionCheckpointStore`·판본/사건 이름과 원 provenance를 사용한다.
    exact admission/custody/같은 binding·resolver/jobs를 검증한다. 잠금 밖 현재 입력 검증 뒤 짧은 확정
    잠금에서 임대/취소/원 입력/최신 사건을 재확인한다. 중복 확인은 최초 사건/시각을 보존하며 계산0이다.

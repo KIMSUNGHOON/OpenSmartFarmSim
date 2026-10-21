@@ -7,7 +7,7 @@ on:
         description: Focused CO2 read evidence is separate from the full backend gate
         type: choice
         default: all
-        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime]
+        options: [all, co2-result-projection, co2-current-query, co2-http, co2-runtime, co2-admission]
   push:
     branches: [main]
   pull_request:
@@ -204,7 +204,7 @@ jobs:
           PY
 
   co2_result_projection:
-    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime')
+    if: github.event_name == 'workflow_dispatch' && (inputs.verification_scope == 'co2-result-projection' || inputs.verification_scope == 'co2-current-query' || inputs.verification_scope == 'co2-http' || inputs.verification_scope == 'co2-runtime' || inputs.verification_scope == 'co2-admission')
     name: Focused ${{ inputs.verification_scope }} (separate from full backend gate)
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -292,6 +292,20 @@ jobs:
             ${{ runner.temp }}/co2-projection-evidence/co2-roles-operator-compatibility.json
             ${{ runner.temp }}/co2-projection-evidence/co2-roles-runtime-default.json
             ${{ runner.temp }}/co2-projection-evidence/co2-roles-database-cleanup.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/admission.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/late-rights.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/late-scope.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/late-review.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/late-resolver.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/current-denied.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/cancel-False.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/cancel-True.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/cancel-rollback-False.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/cancel-rollback-True.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/cancel-contract-INPUT_VERSION.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/cancel-contract-INTENT_DOMAIN.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/cancel-contract-CODE_SHA256.json
+            ${{ runner.temp }}/co2-projection-evidence/admission/database-cleanup.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: error

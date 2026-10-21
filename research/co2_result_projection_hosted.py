@@ -89,16 +89,19 @@ def pins():
         'backend/tests/test_crop_greenhouse_solar_runtime.py',
         'backend/tests/test_crop_greenhouse_solar_runtime_native.py',
         'backend/tests/test_crop_greenhouse_co2_result_roles.py',
-        'backend/tests/test_api_runtime.py', 'backend/tests/test_operator_config.py')]
+        'backend/tests/test_api_runtime.py', 'backend/tests/test_operator_config.py',
+        'backend/tests/test_crop_greenhouse_co2_execution.py',
+        'backend/tests/test_crop_greenhouse_co2_execution_store.py')]
     return {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
 def supervise(directory):
     assert os.environ.get('GITHUB_ACTIONS') == 'true', 'hosted only; preserve WSL previews'
     mode = os.environ.get('OSSF_CO2_VERIFICATION_SCOPE', 'co2-result-projection')
-    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime')
+    assert mode in ('co2-result-projection', 'co2-current-query', 'co2-http', 'co2-runtime', 'co2-admission')
     current = mode == 'co2-current-query'
     runtime = mode == 'co2-runtime'
+    admission = mode == 'co2-admission'
     http = mode in ('co2-http', 'co2-runtime')
     directory.mkdir(mode=0o700)
     spec = importlib.util.spec_from_file_location('co2_projection_scope', ROOT/'research/owned-research-process-scope.py')
@@ -114,6 +117,9 @@ def supervise(directory):
         OSSF_JOINT_PREFIX_SDK_EVIDENCE=str(directory))
     for key in ('PYTEST_ADDOPTS', 'PYTEST_PLUGINS', 'PGPASSWORD', 'PGPASSFILE', 'PGSERVICE', 'PGSERVICEFILE'):
         env.pop(key, None)
+    if admission:
+        target = directory/'admission'; target.mkdir(mode=0o700)
+        env['OSSF_CO2_ADMISSION_EVIDENCE'] = str(target)
     if runtime:
         env['OSSF_CO2_RUNTIME_EVIDENCE'] = str(directory/'http')
     if http:
@@ -125,10 +131,12 @@ def supervise(directory):
         targets = ['tests/test_api_crop_greenhouse_co2_route.py', 'tests/test_api_crop_greenhouse_co2_native.py',
             'tests/test_api_crop_greenhouse_solar_route.py', 'tests/test_api_openapi.py']
     if runtime: targets = RUNTIME_TARGETS
-    expected = 177 if runtime else 215 if http else 11 if current else 39
+    if admission:
+        targets = ['tests/test_crop_greenhouse_co2_execution.py', 'tests/test_crop_greenhouse_co2_execution_store.py']
+    expected = 17 if admission else 177 if runtime else 215 if http else 11 if current else 39
     plans = [('tests', [sys.executable, '-B', '-m', 'pytest', *targets,
         '-q', '-rf', '--tb=short', '--maxfail=1', '--basetemp', str(directory/'pytest')])]
-    for status in (() if current or http else ('completed', 'hold')):
+    for status in (() if current or http or admission else ('completed', 'hold')):
         plans.append(('fresh-'+status, [sys.executable, '-B', str(Path(__file__).resolve()), 'fresh',
             str(directory/('co2-projection-store-'+status+'-fresh-pack.private.json')),
             str(directory/('fresh-'+status+'.json'))]))
@@ -158,7 +166,11 @@ def supervise(directory):
             if phase == 'tests':
                 text = log.read_text(errors='replace')
                 assert re.search(rf'\b{expected} passed\b', text) and ' skipped' not in text
-                if http:
+                if admission:
+                    assert json.loads((directory/'admission/database-cleanup.json').read_bytes()) == {'schemas': 0, 'roles': 0}
+                    records = [json.loads(path.read_bytes()) for path in (directory/'admission').glob('*.json') if path.name != 'database-cleanup.json']
+                    assert len(records) == 13 and all(value['actual_scram'] and len(value['calls']) == 17 and not any(value['calls'].values()) for value in records)
+                elif http:
                     for status in ('completed', 'hold'):
                         assert json.loads((directory/'http'/('database-cleanup-'+status+'.json')).read_bytes()) == {'schemas': 0, 'roles': 0}
                         native = json.loads((directory/'http'/('native-'+status+'.json')).read_bytes())
@@ -187,7 +199,8 @@ def supervise(directory):
                         assert all(value == 0 for value in result['calls'].values())
                 counts_record = {'passed': expected, 'skipped': 0, 'mode': mode,
                     'pytest_log_sha256': sha256(log.read_bytes()).hexdigest()}
-                counts_record.update({'control_contract': 173, 'actual_SCRAM_TLS': 4} if runtime else
+                counts_record.update({'control_contract': 4, 'actual_SCRAM': 13} if admission else
+                    {'control_contract': 173, 'actual_SCRAM_TLS': 4} if runtime else
                     {'pure': 213 if http else 5 if current else 37, 'actual_SCRAM': 6 if current else 2})
                 save(directory/'tests.json', counts_record)
     finally:
@@ -223,9 +236,9 @@ def supervise(directory):
     save(directory/'provenance.json', {'source_commit': os.environ['GITHUB_SHA'],
         'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
         'source_SHA256': original, 'python': sys.version, 'test_scope': mode,
-        'current_query_tested': current or http, 'HTTP_tested': http, 'runtime_tested': runtime, 'worker_browser': 'not_tested', 'G0_G4': 'not_assessed'})
+        'current_query_tested': current or http, 'HTTP_tested': http, 'runtime_tested': runtime, 'admission_tested': admission, 'worker_browser': 'not_tested', 'G0_G4': 'not_assessed'})
     print(json.dumps({'accepted_hosted_tests': expected, 'mode': mode,
-        'fresh_registered_readers': 0 if http else 2, 'native_HTTPS_readers': 4 if runtime else 2 if http else 0,
+        'fresh_registered_readers': 0 if http or admission else 2, 'native_HTTPS_readers': 4 if runtime else 2 if http else 0,
         'WSL_capacity_accepted': False, 'new_CO2_deployed': False}))
 
 

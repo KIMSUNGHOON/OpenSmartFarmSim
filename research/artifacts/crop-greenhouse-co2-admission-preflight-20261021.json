@@ -1,0 +1,102 @@
+{
+  "schema_version": "co2-admission-preflight-v1",
+  "recorded_at": "2026-10-21T00:19:18.885264+00:00",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-21T00:01:24.109Z",
+    "raw_line_sha256": "cfe1b39254a96f9bcf05f1f46d262fc69f1cf4d145cdf450737648c16ce02cfc",
+    "recursive_CLI": false,
+    "subagents": false
+  },
+  "reference_file": "backend/app/crop_greenhouse_solar_execution.py",
+  "reference_sha256": "4a47a3d877850428fba1aec031ba59827d3d5270992e46f90903cf0a0e8ea5de",
+  "source_sha256": {
+    "backend/app/crop_greenhouse_co2_execution.py": "15c13a69dcee33257e6e9deb127b4826dc6a2759795272280a4039a2e68e5f7c",
+    "backend/tests/test_crop_greenhouse_co2_execution.py": "66d09c80f10c801d4399b874acb428a7d67720f236cfcc6379ef8c8e92efc4f8",
+    "backend/tests/test_crop_greenhouse_co2_execution_store.py": "1bc540de048784b9b0a5693b55cae52ac3db435f64e215432671eee6d5a5ba88",
+    "research/co2_result_projection_hosted.py": "aa23a4b2890a648cfddbcb45ddb964de33880ae46b863994b65dc4b520ee470d",
+    ".github/workflows/backend-tests.yml": "1e48013a7c9ca3ec51a2b0b77546a384ab4d0f24b2f15db1e36bcde26a1abdb8"
+  },
+  "guard_receipts": {
+    "focused-co2-admission-red-v1": {
+      "terminal_sha256": "a497b696660a82f6d51e5865d498fcb8cd1b97e8c247a3bae2b18078a4231f76",
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 0.8564348230138421,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 941535232,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-co2-admission-control-green-v1": {
+      "terminal_sha256": "154a89477d9fe2a1b58793ed1f747e8ef22590370e5988a08856468d5628a486",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.3728743210085668,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 985968640,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-co2-admission-final-collection-v2": {
+      "terminal_sha256": "567824c4e7e9d287b7137094cdb52703f7184d81d17b978de31fc301c27345fe",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.1498280669911765,
+      "single_PID_peak_RSS_bytes": 144052224,
+      "combined_peak_RSS_bytes": 980520960,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    }
+  },
+  "local_control_passed": 4,
+  "collected": 17,
+  "actual_SCRAM_required": 13,
+  "actual_SCRAM_local": "not_run_preserve_known_shared_WSL_hold",
+  "source_request_MAX_bytes": 65536,
+  "job_envelope_MAX_bytes": 65536,
+  "review_output": "Implement the reviewed Co2 admission/cancellation child after accepted runtime177. The service is a family-specific adaptation of existing Solar execution with joint-co2-solar-execution-input-v1 and separate intent domain; it stores only original closed request/farm binding and current resolver version in existing simulation jobs. It rechecks current rights/scopes/input at transactional commit guard, and cancellation uses current owner cancel scope independently of revoked data rights. The new cancel additionally checks its own contract/code hash without calling revoked data binding, preserving exact jobs/principal pointers. Four closed-authority controls pass locally and final17 cases collect; thirteen actual SCRAM cases still require hosted verification of original immutable input/idempotency/conflict, late rights/scope/review/resolver rollback, queued/claimed scoped cancel and late cancel scope rollback, changed own contract denial and seventeen numeric/CLI entries zero. Claimed cancel uses only existing JobStore ack in tests; no Co2 worker/discovery/runtime execution/HTTP/new3D is implemented. Preserve original caps, data/previews, shared WSL/parents/user activation and G0-G4 holds. No source coefficients/grants/new schema adopted.",
+  "review_output_sha256": "df2761e33db81112c1d47a9ca38bd15309fb9e6b7d2f9bd46f4e8dfcc819a39c",
+  "functional_admission_accepted": false,
+  "worker_implemented": false,
+  "new_CO2_deployed": false,
+  "shared_WSL_capacity_accepted": false,
+  "full_backend_CI": "not_run",
+  "new_browser_DOM_WebGL": "not_run",
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed"
+}
