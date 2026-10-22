@@ -47,7 +47,7 @@
     - [x] producer — [14집중/실제40blob·28code/12binding](../research/crop-leaf-population-artifact-20261022.md), 독립52면적 probe의 원 binding bytes·같은 입력/root/metadata·출현/권리/후기 drift 차단/7root.
     - [x] manifest만 무계산 조회 — [12집중/실제 root 별도 fresh](../research/crop-leaf-population-manifest-20261022.md), 원 program/권리/28code·stem/12 descriptor chain/UTC, 생장 import/DB/쓰기0·원40blob/7root.
     - [x] 원 raw/binding의 무계산 frame 조회/별도 fresh — [18집중/실제12시점·독립52면적/12합계](../research/crop-leaf-population-frame-20261023.md). 원 초기/출현 선언·그 시점 ID/개수/부착·면적/나이·raw/state/binding, 재해시한 투영 변조와 import/DB/쓰기0·FD4→4/원40blob·2,148항목을 수용했다. 현재 생존 root1/종료6을 구분했다.
-    - [ ] 양쪽 재배포 권리 export — 원 program/root/stem/각 frame/index의 원 bytes·SHA/권리·기존 export 보존.
+    - [x] 양쪽 재배포 권리 export — [3집중/실제17파일](../research/crop-leaf-population-export-20261023.md). 원 program/root/stem/각 frame/index의 원 bytes·SHA와 양쪽 False 거부/기존 export 미덮기·현재1root/원2,148항목을 수용했다.
     - [ ] strict SDK/같은 UTC의 새 잎 수/면적3D — 실제 원12시점의3→6잎/면적·표/그래프/모바일/유휴·원 화면과 필요한 runtime 복구.
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 선언 목록만 추적한다.
   - [x] 별도 불변 면적 판본/계산 없는 조회·export — [18pytest/실제12시점·36면적/별도 fresh](../research/crop-leaf-area-artifact-20261022.md), 원 stem14blob/12 DTO·40불변 blob/24code·현재 부착/UTC·권리와 fresh import/SQL/CLI/파일쓰기0·17public파일·원7root/자료 보존.

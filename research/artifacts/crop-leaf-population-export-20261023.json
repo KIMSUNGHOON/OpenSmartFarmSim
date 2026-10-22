@@ -1,0 +1,187 @@
+{
+  "schema_version": "leaf-population-export-acceptance-v1",
+  "tests": 3,
+  "actual_export": {
+    "artifact_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+    "frames": 12,
+    "index_sha256": "78f1f6c828b5af0935ee09a60a92375659e3525e428781f88ed21b489e79f388",
+    "public_files": 17
+  },
+  "public_files": [
+    {
+      "path": "web/public/leaf-population-replay/stem-root.json",
+      "bytes": 8643,
+      "sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-6.json",
+      "bytes": 4105,
+      "sha256": "03245e9f4b660b9091eb8e341fa949232dc9b5a5e1275a387e69d32bea9025a4"
+    },
+    {
+      "path": "web/public/leaf-population-replay/input.json",
+      "bytes": 5600,
+      "sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-0.json",
+      "bytes": 3291,
+      "sha256": "fcefe2e2383f1aa5501fd5fefd04e5c080cd7cec969ff2965f26aa54c7935c43"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-1.json",
+      "bytes": 3284,
+      "sha256": "45d5bd034c82526e5d6a40262b88513a4d78c2babd4b8f46caec41e3be4638e3"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-2.json",
+      "bytes": 3277,
+      "sha256": "8c38f03abca8f78fd954a5b12e7282330460e512e995ab6807cd8731e26954fa"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-3.json",
+      "bytes": 4089,
+      "sha256": "b62ad62b42471daa6b2a6bd4d13616af1cfe66647ec61cd8abbd01889fcec09f"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-5.json",
+      "bytes": 4082,
+      "sha256": "97df4a2345553b52b529ae8fe4e30df687b0c8e0db5cd3fd727ff8d9b8bc43ce"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-10.json",
+      "bytes": 5731,
+      "sha256": "394b14dd24d5568b1afe015b667ada74a11dccb8cd94ad0faad678e5b4603cac"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-9.json",
+      "bytes": 4896,
+      "sha256": "431a7417a427c087e3136bfcb2e6a945b1d58fb55f0a35c01b59c0eb79c8fc1f"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-4.json",
+      "bytes": 4093,
+      "sha256": "9e5b9ba8bde8e4f7ad866ace63c475c79df4e568b2ecffd1c7305016c4cff13b"
+    },
+    {
+      "path": "web/public/leaf-population-replay/root.json",
+      "bytes": 12247,
+      "sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-8.json",
+      "bytes": 4901,
+      "sha256": "b76ffb65f95199b01e47cd27b610693a97d30f326642ae412ebdd1a58d8c7f19"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-11.json",
+      "bytes": 5710,
+      "sha256": "31ab076ef11e39af789d8ff1612e814c42a27949a70d19ef36d3cd744d9b9ec6"
+    },
+    {
+      "path": "web/public/leaf-population-replay/index.json",
+      "bytes": 6726,
+      "sha256": "78f1f6c828b5af0935ee09a60a92375659e3525e428781f88ed21b489e79f388"
+    },
+    {
+      "path": "web/public/leaf-population-replay/stem-input.json",
+      "bytes": 6719,
+      "sha256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3"
+    },
+    {
+      "path": "web/public/leaf-population-replay/frame-7.json",
+      "bytes": 4897,
+      "sha256": "a7d72d063ba2206f18576ea79f8a1a33e02bc1fefe1f4b95fe15b1edd5ae5531"
+    }
+  ],
+  "phases": {
+    "export-red-v1": {
+      "observed_at_UTC": "2026-10-22T22:56:17.461758Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 5.0972256870009005,
+      "PID_peak_RSS_bytes": 68505600,
+      "combined_peak_RSS_bytes": 95125504,
+      "samples": 19,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2447,
+      "source_preserved": true,
+      "source_count": 3310,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "86c3665bd98a3bf26e7b10e1f5bcc962169d9ce14ee08f6954ed86c4f6306f7d",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "export-green-v1": {
+      "observed_at_UTC": "2026-10-22T22:57:14.893623Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 5.570166678982787,
+      "PID_peak_RSS_bytes": 67317760,
+      "combined_peak_RSS_bytes": 94253056,
+      "samples": 21,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2447,
+      "source_preserved": true,
+      "source_count": 3311,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "2d90834e9428828ee1d9fe3d7eaa63dc7750829c5fc8aaeb196fce4fc676be57",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "export-actual-v1": {
+      "observed_at_UTC": "2026-10-22T22:59:22.873159Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.8284107740037143,
+      "PID_peak_RSS_bytes": 24354816,
+      "combined_peak_RSS_bytes": 28172288,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2447,
+      "source_preserved": true,
+      "source_count": 3311,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "7dad7280c9cca3ec1a2aaf3068ffef371c7cc80668c9fbbdc60422d03e218e71",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "scope": "software_research_only",
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_CLI": 0
+  },
+  "new_UI_deployment": false,
+  "full_suite": false
+}

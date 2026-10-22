@@ -1,0 +1,1 @@
+export const LEAF_POPULATION_FIXTURE={"artifact_sha256":"9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077","index_sha256":"78f1f6c828b5af0935ee09a60a92375659e3525e428781f88ed21b489e79f388","frames":12} as const;
