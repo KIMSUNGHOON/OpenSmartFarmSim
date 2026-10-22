@@ -1,5 +1,9 @@
 # OpenSmartFarmSim
 
+**재개 상태 — 2026-10-23 KST:** goal 활성화/계속 지시와 정확 native `gpt-6.1-sol / xhigh`를 확인했습니다. 현재 외형5175만 실행 중이며 이전5173/5174/5176은 종료 상태입니다. 저장된 새 population의 시점별 무계산 조회→export/새 잎3D를 계속하고 해당 미리보기를 복구합니다. [이전 검증과 실제 재개 관측](research/overnight-checkpoint-20261022.md).
+
+**새 잎 계산/저장 현황 — 2026-10-22:** [명시3→6잎의 계산·원 줄기 결속](research/crop-leaf-stem-binding-20261022.md), [별도40blob 저장](research/crop-leaf-population-artifact-20261022.md)과 [무계산 manifest 조회](research/crop-leaf-population-manifest-20261022.md)를 수용했습니다. 새 잎의 시점별 조회/export/3D는 다음이며 아래 사용자 화면은 초기3잎 저장본입니다.
+
 **저장 잎 면적의 3D 연결 — 2026-10-22:** [잎 면적 재생](http://localhost:5176/leaf-area-replay.html)에서 같은 원 UTC의 계산 면적·줄기를 실제 잎3D/표/그래프로 확인합니다.
 자체 합성12시점/선언3잎이며 현재 농장 작업 결과와 분리된 연구 화면입니다. 실제 품종/새 잎·과실/생산·마진/추천은 후속입니다. [검증·화면](research/leaf-area-stored-replay-20261022.md).
 

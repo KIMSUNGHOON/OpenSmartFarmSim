@@ -1,6 +1,6 @@
 # 기존 잎과 명시 새 잎의 목록 — 연구 v1
 
-상태: [새43/관련137·독립26면적 수용](../research/crop-leaf-population-20261022.md). [초기 inventory](crop-leaf-inventory-v1.md)가 아니라 [명시 출현](crop-declared-leaf-births-v1.md) 뒤의 새 판본이다.
+상태: [새43/관련137·독립26면적 수용](../research/crop-leaf-population-20261022.md). [초기 inventory](crop-declared-leaf-inventory-v1.md)가 아니라 [명시 출현](crop-declared-leaf-births-v1.md) 뒤의 새 판본이다.
 기존 v1/원40blob·사용자 화면은 유지한다. 자동 출현·관리/노화·품종 분류/예측은 없다.
 
 `initialize_leaf_population`은 input_id/initial_inventory만 받으며 기존 초기 inventory 입력을 그대로 초기화한다.
