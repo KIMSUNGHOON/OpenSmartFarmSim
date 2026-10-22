@@ -1,41 +1,45 @@
 import { useEffect,useState } from 'react';
 import MorphologyScene from './MorphologyScene';
 import { loadLeafAreaReplay,type LeafAreaReplay } from './leafAreaReplay';
+import { loadLeafPopulationReplay,type LeafPopulationReplay } from './leafPopulationReplay';
 import './MorphologyReplayPage.css';
 import './LeafAreaReplayPage.css';
 
-export default function LeafAreaReplayPage(){
-  const [data,setData]=useState<LeafAreaReplay|null>(null),[error,setError]=useState(false),[index,setIndex]=useState(0),[playing,setPlaying]=useState(false);
-  useEffect(()=>{const controller=new AbortController();let active=true;
-    loadLeafAreaReplay(controller.signal).then(value=>{if(active)setData(value);},()=>{if(active)setError(true);});
-    return()=>{active=false;controller.abort();};},[]);
+export default function LeafAreaReplayPage({population=false}:{population?:boolean}={}){
+  const [loaded,setLoaded]=useState<{population:boolean;data:LeafAreaReplay|LeafPopulationReplay}|null>(null),[error,setError]=useState(false),[index,setIndex]=useState(0),[playing,setPlaying]=useState(false);
+  const data=loaded?.population===population?loaded.data:null;
+  const title=population?'저장된 출현 잎과 줄기':'저장된 잎 면적과 줄기',directory=population?'./leaf-population-replay':'./leaf-area-replay';
+  useEffect(()=>{const controller=new AbortController();let active=true;setError(false);setIndex(0);setPlaying(false);
+    const load=population?loadLeafPopulationReplay:loadLeafAreaReplay;
+    load(controller.signal).then(value=>{if(active)setLoaded({population,data:value});},()=>{if(active)setError(true);});
+    return()=>{active=false;controller.abort();};},[population]);
   useEffect(()=>{if(!playing||!data)return;
     const timer=window.setInterval(()=>setIndex(value=>{if(value+1>=data.frames.length){setPlaying(false);return value;}return value+1;}),900);
     const hidden=()=>{if(document.hidden)setPlaying(false);};document.addEventListener('visibilitychange',hidden);
     return()=>{clearInterval(timer);document.removeEventListener('visibilitychange',hidden);};},[playing,data]);
   const select=(value:number)=>{setPlaying(false);setIndex(value);};
-  if(!data)return <main className="morphology-page leaf-area-page"><h1>저장된 잎 면적과 줄기</h1><p role="status">{error?
+  if(!data)return <main className="morphology-page leaf-area-page"><h1>{title}</h1><p role="status">{error?
     '저장 결과 표시 보류: 원 파일·권리·무결성을 확인할 수 없습니다. 대체 결과는 표시하지 않습니다.':'저장된 계산 결과를 확인하고 있습니다.'}</p></main>;
   const frame=data.frames[index]!,maximum=Math.max(...data.frames.map(f=>f.stem.tracked_axis_length.value));
   const maximumArea=Math.max(...data.frames.map(f=>f.tracked_leaf_area.value));
   const x=(i:number)=>25+i/(data.frames.length-1)*590,y=(v:number)=>125-v/maximumArea*105;
-  return <main className="morphology-page leaf-area-page" data-selected-at={frame.at} data-selected-index={index} data-artifact-sha256={data.artifact_sha256}>
+  return <main className="morphology-page leaf-area-page" data-selected-at={frame.at} data-selected-index={index} data-artifact-sha256={data.artifact_sha256} data-source={population?'population':'initial'}>
     <header className="morphology-header"><div><span className="morphology-eyebrow">OPEN SMART FARM SIMULATOR / STORED LEAF AREA</span>
-      <h1>저장된 잎 면적과 줄기</h1><p>기온 → 잎별 나이 → 면적 계산 → 같은 시점의 3D</p></div>
+      <h1>{title}</h1><p>{population?'명시 출현 → 잎별 기온 적산 → 면적 계산 → 같은 시점의 3D':'기온 → 잎별 나이 → 면적 계산 → 같은 시점의 3D'}</p></div>
       <a href="./morphology-execution.html">계산 작업으로 ↗</a></header>
     <p className="morphology-scope">별도 자체 합성 입력 · 저장 결과 재생 · 실제 품종·농장 검증 전 · 생산·수익·작물 추천 미제공</p>
     <div className="morphology-layout"><MorphologyScene frame={frame.stem} maximum={maximum} leafBinding={frame}/>
       <aside className="morphology-summary" data-selected-at={frame.at} aria-label="선택한 저장 시점">
         <span className="morphology-eyebrow">SELECTED MODEL TIME</span><h2><time dateTime={frame.at}>{frame.at.replace('T',' ').replace('Z',' UTC')}</time></h2>
         <dl><div><dt>추적 잎 면적 합계</dt><dd data-total-area={frame.tracked_leaf_area.value}>{frame.tracked_leaf_area.value.toFixed(6)} <small>m²</small></dd></div>
-          <div><dt>선언한 잎</dt><dd>{frame.tracked_leaf_count} <small>개</small></dd></div><div><dt>저장 시점</dt><dd>{index+1} <small>/ {data.frames.length}</small></dd></div></dl>
+          <div><dt>{population?'그 시점의 선언 잎':'선언한 잎'}</dt><dd>{frame.tracked_leaf_count} <small>개</small></dd></div><div><dt>저장 시점</dt><dd>{index+1} <small>/ {data.frames.length}</small></dd></div></dl>
         <p>각 잎의 면적은 원 저장 계산값입니다. 제작한 단면 소엽 삼각형 면적에 대응합니다. 새 계산이나 중간값을 생성하지 않습니다.</p>
-        <p>잎 수는 초기 입력의 선언입니다. 길이·폭·각도·소엽 수·잎자루/표면은 제작 가정이며 실제 품종 형태의 예측이 아닙니다.</p>
+        <p>{population?'잎 수는 초기 목록과 입력에 명시한 출현 사건입니다.':'잎 수는 초기 입력의 선언입니다.'} 길이·폭·각도·소엽 수·잎자루/표면은 제작 가정이며 실제 품종 형태의 예측이 아닙니다.</p>
         <p>원 줄기 길이 합계 <strong>{frame.stem.tracked_axis_length.value.toFixed(6)} m</strong> · 실제 식물 키와 다릅니다.</p>
         <details><summary>원 입력과 저장 지문</summary><p className="morphology-hash">leaf artifact {data.artifact_sha256}<br/>leaf result {frame.result_sha256}<br/>stem artifact {frame.stem.artifact_sha256}</p>
           <p>합성 정규화·초기 면적과 모델/코드를 명시했습니다. 실제 Axiany 계수·초기 관측과 독립 농장 검증은 미확보입니다.</p>
-          <a href="./leaf-area-replay/input.json">원 잎 입력</a> · <a href="./leaf-area-replay/root.json">모델·코드/상태 지문</a> ·
-          <a href="./leaf-area-replay/stem-input.json">원 줄기 입력</a></details>
+          <a href={`${directory}/input.json`}>원 잎 입력</a> · <a href={`${directory}/root.json`}>모델·코드/상태 지문</a> ·
+          <a href={`${directory}/stem-input.json`}>원 줄기 입력</a></details>
       </aside></div>
     <section className="morphology-timeline" aria-label="저장 시점 재생"><div className="morphology-controls">
       <button onClick={()=>{if(!playing&&index===data.frames.length-1)setIndex(0);setPlaying(!playing);}}>{playing?'일시 정지':'저장 결과 재생'}</button>
@@ -50,7 +54,7 @@ export default function LeafAreaReplayPage(){
         <polyline fill="none" stroke="#729361" strokeWidth="2" points={data.frames.map((f,i)=>`${x(i)},${y(f.tracked_leaf_area.value)}`).join(' ')}/>
         {data.frames.map((f,i)=><circle key={f.at} cx={x(i)} cy={y(f.tracked_leaf_area.value)} r={i===index?6:3} fill={i===index?'#224d33':'#93a884'}/>)}
         <text x="25" y="150">첫 저장 시점</text><text x="540" y="150">마지막 시점</text></svg>
-      <p className="leaf-area-note">초기부터 선언한 잎만 추적합니다. 새 잎 출현·적엽·노화·과실/숙기·수확은 이 결과에 포함하지 않습니다.</p></section>
+      <p className="leaf-area-note">{population?'초기 잎과 입력에 명시한 새 잎만 추적합니다. 자동 출현 예측·적엽·노화·과실/숙기·수확은 포함하지 않습니다.':'초기부터 선언한 잎만 추적합니다. 새 잎 출현·적엽·노화·과실/숙기·수확은 이 결과에 포함하지 않습니다.'}</p></section>
       <section className="morphology-table leaf-area-table" data-selected-at={frame.at}><h2>같은 시점의 원 잎 면적</h2>
         <div className="morphology-table-scroll"><table><caption>{frame.at} · m² 단위 원 저장값</caption><thead><tr>
           <th scope="col">잎 ID</th><th scope="col">면적 (m²)</th><th scope="col">정확 열적 나이 (°C·day)</th></tr></thead>

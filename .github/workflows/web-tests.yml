@@ -432,7 +432,7 @@ jobs:
       - run: npm install --global npm@11.16.0
       - run: npm ci --strict-peer-deps
       - run: npm run typecheck
-      - run: npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/tomatoCycleLeafReplay.test.ts src/morphologyReplay.test.ts src/morphologyGeometry.test.ts src/morphologyRationalReplay.test.ts src/morphologyExecution.test.ts src/leafAreaReplay.test.ts src/leafAreaGeometry.test.ts
+      - run: npm run test -- src/tomatoAppearance.test.ts src/tomatoLeafReplay.test.ts src/tomatoCycleLeafReplay.test.ts src/morphologyReplay.test.ts src/morphologyGeometry.test.ts src/morphologyRationalReplay.test.ts src/morphologyExecution.test.ts src/leafAreaReplay.test.ts src/leafAreaGeometry.test.ts src/leafPopulationReplay.test.ts
       - run: npx --no-install vite build --config vite.crop-appearance.config.ts
       - run: npm audit --audit-level=high
       - run: npx --no-install playwright install --with-deps chromium
