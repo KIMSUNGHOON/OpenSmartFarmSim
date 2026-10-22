@@ -1,0 +1,198 @@
+{
+  "schema_version": "leaf-population-frame-acceptance-v1",
+  "tests": 18,
+  "scope": "software_research_only",
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "actual_reference": {
+    "frames": 12,
+    "area_and_exact_age_points": 52,
+    "independent_totals": 12,
+    "counts": [
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      6,
+      6
+    ],
+    "maximum_relative_difference": "2.091828640520987272107272641600186621720310730040966676671749472636159140831886810565564469773794500E-16",
+    "original_binding_12_sha256_equal": true,
+    "DTO_sha256": [
+      "fcefe2e2383f1aa5501fd5fefd04e5c080cd7cec969ff2965f26aa54c7935c43",
+      "45d5bd034c82526e5d6a40262b88513a4d78c2babd4b8f46caec41e3be4638e3",
+      "8c38f03abca8f78fd954a5b12e7282330460e512e995ab6807cd8731e26954fa",
+      "b62ad62b42471daa6b2a6bd4d13616af1cfe66647ec61cd8abbd01889fcec09f",
+      "9e5b9ba8bde8e4f7ad866ace63c475c79df4e568b2ecffd1c7305016c4cff13b",
+      "97df4a2345553b52b529ae8fe4e30df687b0c8e0db5cd3fd727ff8d9b8bc43ce",
+      "03245e9f4b660b9091eb8e341fa949232dc9b5a5e1275a387e69d32bea9025a4",
+      "a7d72d063ba2206f18576ea79f8a1a33e02bc1fefe1f4b95fe15b1edd5ae5531",
+      "b76ffb65f95199b01e47cd27b610693a97d30f326642ae412ebdd1a58d8c7f19",
+      "431a7417a427c087e3136bfcb2e6a945b1d58fb55f0a35c01b59c0eb79c8fc1f",
+      "394b14dd24d5568b1afe015b667ada74a11dccb8cd94ad0faad678e5b4603cac",
+      "31ab076ef11e39af789d8ff1612e814c42a27949a70d19ef36d3cd744d9b9ec6"
+    ],
+    "scope": "software_research_only",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed"
+  },
+  "fresh": {
+    "frames": 12,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "invalid_index_closed": true,
+    "growth_imports": [],
+    "calls": {
+      "JobStore.connect": 0,
+      "psycopg.connect": 0,
+      "subprocess.run": 0,
+      "subprocess.Popen": 0,
+      "artifact.put": 0,
+      "content_write": 0,
+      "write_open": 0
+    },
+    "original_blob_metadata_and_bytes_preserved": 40
+  },
+  "phases": {
+    "frame-red-v1": {
+      "observed_at_UTC": "2026-10-22T22:47:26.600658Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.3404035580169875,
+      "PID_peak_RSS_bytes": 70389760,
+      "combined_peak_RSS_bytes": 96862208,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2447,
+      "source_preserved": true,
+      "source_count": 3306,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e3757103662977b663e2196bd923782c22c63d3102b1323fccd3d6fd11a76911",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "frame-green-v1": {
+      "observed_at_UTC": "2026-10-22T22:49:06.577320Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 20.642385037004715,
+      "PID_peak_RSS_bytes": 66691072,
+      "combined_peak_RSS_bytes": 93237248,
+      "samples": 81,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2447,
+      "source_preserved": true,
+      "source_count": 3306,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "f1d42ea4d34cb39cafb523d091103fa858413ec336c97aa4c5268c7a785366cb",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "frame-actual-reference-v1": {
+      "observed_at_UTC": "2026-10-22T22:50:30.340211Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.8342720929940697,
+      "PID_peak_RSS_bytes": 24252416,
+      "combined_peak_RSS_bytes": 28069888,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2447,
+      "source_preserved": true,
+      "source_count": 3307,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "5c596c7014348cf97abdc1ed56012e7fd7a36f40b6461aa0474fa1a2f4a7ac2f",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "frame-fresh-fd-v2": {
+      "observed_at_UTC": "2026-10-22T22:53:15.954002Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.8137192490103189,
+      "PID_peak_RSS_bytes": 24420352,
+      "combined_peak_RSS_bytes": 28237824,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2447,
+      "source_preserved": true,
+      "source_count": 3307,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "7e52f2ea37b167f6387ea4f8d6b97c7476ab9396e4b7c49c992c6e7f99e8ec87",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "source_SHA256": {
+    "backend/app/crop_leaf_population_artifact_reader.py": "01cb52fcd382e34d0e9a70caebff06d250c7d2a2839e5aa4ec0d056643a978d1",
+    "backend/tests/test_crop_leaf_population_frame.py": "c2a1dfa2d1070a6de8ba62e750bbefb0ccb28d3bc05e923d8ee7ab1aaf653a2a",
+    "backend/tests/leaf_population_frame_fresh.py": "cb199d1b851bee601b206edb0647e4776906782215dafcda972478830d3d91b2"
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_CLI": 0,
+    "turn_context_timestamp": "2026-10-22T22:41:25.037Z",
+    "raw_context_line_LF_sha256": "25b58d3591e715a5194bd9f70668e7264e386a586478f636e1336d92bc74da31"
+  },
+  "historical_original_2148_metadata_and_hash_mismatches": 0,
+  "runtime_state": {
+    "old_root_count": 7,
+    "live_roots_now": 1,
+    "appearance_5175_live": true,
+    "other_six_PIDs_and_5173_5174_5176_sockets_missing": true
+  },
+  "full_backend_or_web_suite": false,
+  "new_UI_deployment": false,
+  "holds": [
+    "export and strict SDK/new leaf 3D",
+    "required local runtime recovery",
+    "current farm signed job integration",
+    "actual cultivar parameters and independent farm measurements",
+    "production resources economics autonomous crop selection and G0-G4"
+  ]
+}

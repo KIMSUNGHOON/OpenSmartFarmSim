@@ -1,0 +1,52 @@
+from hashlib import sha256
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from app.content_access import ContentAccess
+from app.crop_leaf_population_artifact_reader import read_leaf_population_frame
+from app.crop_morphology_artifact_reader import _canonical
+from app.crop_morphology_artifact_io import MorphologyBlobStore,MorphologyArtifactHold
+from app.job_store import JobStore
+import psycopg
+
+calls={'JobStore.connect':0,'psycopg.connect':0,'subprocess.run':0,'subprocess.Popen':0,
+       'artifact.put':0,'content_write':0,'write_open':0}
+def forbidden(name):
+    def fail(*a,**kw):calls[name]+=1;raise AssertionError('read-only boundary crossed')
+    return fail
+JobStore.connect=forbidden('JobStore.connect');psycopg.connect=forbidden('psycopg.connect')
+subprocess.run=forbidden('subprocess.run');subprocess.Popen=forbidden('subprocess.Popen')
+MorphologyBlobStore.put=forbidden('artifact.put');JobStore._durable_content=forbidden('content_write')
+original_open=os.open
+def readonly_open(path,flags,*a,**kw):
+    if flags&(os.O_WRONLY|os.O_RDWR|os.O_CREAT|os.O_TRUNC|os.O_APPEND):
+        calls['write_open']+=1;raise AssertionError('write open in reader')
+    return original_open(path,flags,*a,**kw)
+os.open=readonly_open
+p=json.loads(Path(sys.argv[1]).read_bytes());access=ContentAccess(os.getuid(),os.getgid())
+def snapshot():
+    result={}
+    for f in Path(p['directory']).iterdir():
+        s=f.stat();result[f.name]=[s.st_dev,s.st_ino,s.st_uid,s.st_gid,s.st_mode,s.st_nlink,s.st_size,s.st_mtime_ns,s.st_ctime_ns,sha256(f.read_bytes()).hexdigest()]
+    return result
+before=snapshot();fd_before=len(os.listdir("/proc/self/fd"))
+for index,expected in enumerate(p['expected']):
+    value=read_leaf_population_frame(Path(p['directory']),access,p['root'],index=index)
+    assert sha256(_canonical(value)).hexdigest()==expected
+forbidden_modules={'app.'+name for name in ('crop_leaf_expansion','crop_leaf_area_change','crop_leaf_area',
+ 'crop_rational_leaf_area','crop_leaf_inventory','crop_declared_leaf_births','crop_leaf_population','crop_leaf_stem_binding',
+ 'crop_leaf_population_artifact_producer','crop_leaf_artifact_producer','crop_internode_elongation','crop_internode_length',
+ 'crop_internode_length_change','crop_morphology_thermal_clock','crop_rational_morphology_clock','crop_rational_internode_length',
+ 'crop_rational_new_internodes','crop_rational_shoot_inventory','crop_shoot_inventory','crop_shoot_timeline','crop_phytomer_emergence')}
+growth=sorted(forbidden_modules.intersection(sys.modules))
+assert not growth
+assert before==snapshot()
+try:read_leaf_population_frame(Path(p["directory"]),access,p["root"],index=-1)
+except MorphologyArtifactHold:pass
+else:raise AssertionError("invalid index accepted")
+fd_after=len(os.listdir("/proc/self/fd"));assert fd_before==fd_after
+print(json.dumps({'frames':len(p['expected']),'controller_FD_before_after':[fd_before,fd_after],'invalid_index_closed':True,'growth_imports':growth,'calls':calls,'original_blob_metadata_and_bytes_preserved':len(before)}))

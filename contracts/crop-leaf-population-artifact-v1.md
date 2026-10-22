@@ -33,3 +33,15 @@ export는 stem과 population 양쪽 재배포 권리를 확인하고 strict SDK�
 단일 root는 신뢰된 호출자 입력이며 실제 현장 증명/서명 권한은 별도다.
 manifest12검사와 실제40blob 별도 fresh의 import/DB/CLI/쓰기0·원 metadata/bytes가 수용 기준이다.
 이 단계는 각 population raw/binding의 원 수치 투영을 검증했다고 주장하지 않는다. frame reader/export는 다음이다.
+
+## 시점별 원 수치 조회
+
+`read_leaf_population_frame(..., index=정수)`는 같은 신뢰 root의 manifest/원 program·숫자 result/state 지문,
+원 stem DTO와 binding의 원 bytes를 대사한다. 초기 목록과 그 시점까지의 명시 출현 목록을 원 program에 결속하고
+같은 ID/원점/출현·현재 정확 초/나이/curve hash·초기 면적 영수증·면적 단위/범위/개수와 이번 사건 수를 검사한다.
+원 binding은 저장 result에서 계산 없는 투영으로 만든 기대 bytes와 같아야 한다. 재해시한 투영 변조도 거부한다.
+반환 `leaf-population-replay-frame-v1`은 원 artifact/result/binding/input SHA·index/UTC·잎 개수/면적·원 stem/각 leaf를 담는다.
+면적/나이를 새 식으로 계산하거나 중간 시점·곡선 값을 만들지 않는다. 신뢰 root가 계산 증명이라는 뜻은 아니다.
+별도 fresh의 생장/producer import·식 평가·SQL/CLI/파일쓰기0, 원40blob metadata/bytes 및 원12시점/52면적 대사가 수용 조건이다.
+현재2026-10-23에는 과거6서비스가 종료됐고5175만 생존했다. 이 집중 조회 검증은 실제 생존 root와 원 저장물/WSL 상한을 보호한다.
+과거7root 생존을 현재 검증의 전제로 표시하지 않는다. export/SDK/새 잎3D 및 필요한 runtime 복구는 후속이다.
