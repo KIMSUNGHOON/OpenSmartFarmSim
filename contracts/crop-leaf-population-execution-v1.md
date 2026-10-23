@@ -6,7 +6,7 @@
 선행은 [signed leaf 계산/조회](crop-leaf-population-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 사용하며 새 큐/표·역할은 추가하지 않는다.
 [기존 자동 consumer33제어/실제 SCRAM1](../research/leaf-population-automatic-consumer-20261023.md)도 수용했다.
-[보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)와 [소유 조립15검사](../research/owned-leaf-population-preview-20261023.md)도 수용했다. 사용자 runtime 배포·화면은 후속 수용이다.
+[보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)와 [소유 조립15검사](../research/owned-leaf-population-preview-20261023.md)도 수용했다. [사용자 API 기능 연결/저장 복구](../research/leaf-population-execution-live-20261023.md)도 검증했다. 계산 중 동일 retry30초/504 때문에 전체 runtime는 미수용이며 화면 연결은 후속이다.
 
 ## E1 접수
 

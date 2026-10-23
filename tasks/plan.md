@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 [농장/parent 결속35/fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했고 [leaf 서명 결과38/fresh](../research/crop-leaf-population-signed-artifact-20261023.md)를 수용했고 E1–E3·기존 consumer에 이어 [보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)도 수용했다. [소유 runtime 조립15검사](../research/owned-leaf-population-preview-20261023.md)도 수용했다. 다음은 사용자 불변 배포→strict SDK/같은 job의 제품3D다. 소유 시험의 단일30초는 통과했고 공통 U1/사용자 배포는 미수용이다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
+**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 [농장/parent 결속35/fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했고 [leaf 서명 결과38/fresh](../research/crop-leaf-population-signed-artifact-20261023.md)를 수용했고 E1–E3·기존 consumer에 이어 [보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)도 수용했다. [소유 runtime 조립15검사](../research/owned-leaf-population-preview-20261023.md)도 수용했다. [사용자 leaf API 기능 연결](../research/leaf-population-execution-live-20261023.md)도 검증했다. 다음은 strict SDK/같은 job의 제품3D이며 계산 중 동일 retry30초/504와 부모 runtime 미완료를 유지한다. 소유 시험의 단일30초는 통과했고 공통 U1/사용자 배포는 미수용이다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
 
 **최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
@@ -3561,3 +3561,27 @@ backend/app/OpenAPI·모델 계산은 변경하지 않았다. 실제 요청 최�
 임의 진행률이나 출현/성장 애니메이션을 계산 상태로 제공하지 않는다.
 최종 사실감 R2/첫 셰이더 경고·실제 품종/초기관측·독립 작기0, 한 작기/생산·자원/경제/자율 선정과 G0–G4는 남는다.
 현재5176은 기존 저장 합성 연구 재생이며 전체 제품 완료 날짜는 미정이다.
+
+
+## 사용자 leaf API 기능 연결과 30초 보류 — 2026-10-23
+
+[실제 사용자 경로](../research/leaf-population-execution-live-20261023.md)의 접수/저장 복구·현재 철회/취소·cold restart를 확인했다.
+새 소유 합성 DB/키·더 늦은 retrospective farm/실제 완료 parent와 source4f1f523의820파일을 고정했다.
+5176의 leaf URI만 별도 검증 TLS upstream으로 연결하고 기존 줄기 URI/저장소와5175/5176을 보존했다.
+완료 attempt1·원12frame/52면적·parent, 양쪽25표 원 행/18parent·2,469항목, 같은 DB·키 restart/POST0을 대사했다.
+첫 관측의 계산 중 동일 POST30.028101초/504는 미수용이며 실제 원인은 아직 분리하지 않았다.
+완료 뒤 같은 job 복구/재요청이 통과한 것으로 앞선 실패를 대체하지 않는다. 기존30초/현재성·권리 검사를 유지한다.
+위3–6h 배포 계획 중 기능 연결은 실제 증거로 대체하고, **부모 runtime/계산 중 retry 예산·U1은 미완료**로 유지한다.
+
+SDK/제품3D **개발 착수 조건**은 현재 API의 원 값/lineage·현재 권리·저장 복원 검증이다.
+이 조건은 확보했다. 다음은 strict SDK45–90분 + 같은-job UI75–150분 + 실제 HTTP/browser·메뉴/reload·철회 제거90–180분 +
+기록30–60분 = **4–8집중시간**의 낮은 신뢰 분해를 유지한다. 실제 API를 사용하고 새 leaf job을 이전 static fixture로 대체하지 않는다.
+원 요청/Job ID·최초 계산 시각을 보존하고 미확정 접수/503·504/다른 메뉴·재연결을 명시적으로 다룬다.
+실행 중에는 실제 state/경과 시간만, 완료 뒤에는 같은 저장 UTC/기관·면적/줄기를 표시한다.
+
+동시 retry30초는 별도 미완료 자식이다. 첫 측정 분해는 현재 입력·actor/Scope·같은 원 job을 고정한 재현/구간 계측60–120분이다.
+이는 수정 완료 예상이 아니다. DB wait/현재 검증/CPU 중 원인을 실제 관측으로 구분한 뒤 수정 공수를 갱신한다.
+필요한 최소 변경을 택하되 기존 source4f1f523/현재 결과의 재조회를 보존할 판본 경계를 먼저 확인한다.
+독립 실제 동시 retry202/같은 job·원 결과/attempt1·현재/늦은 철회/취소와 원 자료/자원 보존을 통과해야 해당 자식을 체크한다.
+전체 runtime/운영 수용은 이 예산과 원 수용 기준을 모두 충족한 뒤 평가한다. 개발 착수와 게시/운영 수용 조건은 다르며 G0–G4는 유지한다.
+현재 화면은 기존 저장 합성 연구 재생, 실제 품종·독립 작기0/Run0·생산/자원/경제/자율 선정·R2/경고와 전체 완료 날짜는 미완료/미정이다.
