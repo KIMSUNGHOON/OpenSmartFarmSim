@@ -1,6 +1,8 @@
 # 자동 출현 원 입력의 접수·멱등성 — v1
 
-상태: [E1 신규13/순수185·실제 SCRAM2 수용](../research/crop-leaf-appearance-execution-admission-20261024.md). E2/E3는 구현/수용 전. 선행은 [appearance 서버 계산/현재 조회](crop-leaf-appearance-signed-artifact-v1.md)다.
+상태: [E1 신규13/순수185·실제 SCRAM2 수용](../research/crop-leaf-appearance-execution-admission-20261024.md).
+E2는 참조9/순수·관련203·실제 SCRAM9로 수용했다. E3는 구현/수용 전.
+선행은 [appearance 서버 계산/현재 조회](crop-leaf-appearance-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 재사용한다.
 새 큐/표·역할이나 수치 모델/원 결과·사용자 runtime 변경은 없다.
 
@@ -27,3 +29,22 @@ E2는 정확 tenant/input_version의 worker가 실제 signed producer1회와 lea
 같은 거래에서 opaque 참조·publication/outcome/events/terminal을 게시해야 한다.
 E3는 그 원 job/publication/참조·현재 signed 결과의 status/manifest/frame/replay를 읽어야 한다.
 E2/E3·자동 loop/보호 HTTP/같은 job3D, 실제 품종/자료·G0–G4 수용은 접수 성공과 별도다.
+
+## E2 실제 계산과 원자 게시
+
+`LeafAppearanceExecutionWorker(service,tenant_id=...,lease_seconds=600).run_once(job_id)`는
+명시한 tenant/appearance input_version의 simulation만 claim한다. 현재 원 입력/parent·binding과
+live lease/cancel을 확인한 뒤 실제 signed appearance producer를 job 잠금 밖에서 실행한다.
+시작 사건의 planned_outputs는 현재 binding에 결속된 원 parent manifest의 samples에서 읽는다.
+새 appearance manifest의 sample_count를 parent의 samples로 오인하지 않는다.
+
+완료 결과의 현재 서명/binding과 원 입력·권리/검토·lease/cancel을 게시 전후에 확인한다.
+기존 거래 안에서 publication·결과/성공 events·attempt outcome·terminal을 함께 저장한다.
+`leaf-appearance-execution-result-link-v1`은 원 job/input/result에 결속된4KiB 이내 참조이며
+원자료·수치 프레임·키를 담지 않는다. publication은 별도 appearance 판본/worker code/attempt를 대사한다.
+새 큐/표·역할이나 CLI invocation을 만들지 않는다.
+
+완료 재실행은 계산하지 않는다. 취소/만료/늦은 변경으로 private signed/참조 파일이 남아도
+publication·성공 사건·조회 가능한 결과 참조를 게시하지 않는다. 만료 시 unclosed는 완료나
+자동 재개 수용이 아니다. 계산 중 프레임/checkpoint 재개와 기존 자동 consumer의 명시 등록,
+E3 현재 조회·보호 API/runtime/같은 job3D는 별도 단계다.
