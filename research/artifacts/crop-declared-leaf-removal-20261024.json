@@ -1,0 +1,625 @@
+{
+  "schema_version": "declared-leaf-removal-point-acceptance-v1",
+  "accepted_at_UTC": "2026-10-23T23:45:00.909247+00:00",
+  "implementation_commit": "034b12e2cf3a5295785ff85ac40fb2c1ee95baec",
+  "scope": "synthetic exact-checkpoint whole-leaf removal only; not time advancement or crop management prediction",
+  "native_CLI": {
+    "timestamp": "2026-10-23T23:29:44.751Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "3d778e857abc538e9e4585e8c16f882146cbf090c72e2ac1773b30c523ac8969",
+    "recursive_CLI_invocations": 0
+  },
+  "source_sha256": {
+    "backend/app/crop_declared_leaf_removal.py": "6c413da01262d2599a875be273328c264782b52a57edbb0b7e89c270386ac1a0",
+    "backend/tests/test_crop_declared_leaf_removal.py": "c5fe4c7fc544587987c94811e8461cc89c7b800b3dbaaeac132e389d12b1f6cb"
+  },
+  "tests": {
+    "new_controls": 63,
+    "related_controls": 137,
+    "unique_final_controls": 200,
+    "initial15_not_counted_again": true,
+    "expected_missing_module_RED_collection_errors": 1,
+    "unexpected_failures": 0
+  },
+  "fresh_consumer": {
+    "passed": true,
+    "source_root": "77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a",
+    "source_program_redistribution_allowed": true,
+    "frames": 12,
+    "reference_leaf_areas": 47,
+    "rows": [
+      {
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "before_count": 3,
+        "active_count": 1,
+        "removed_count": 2,
+        "active_area_m2": 0.00032334576391792507,
+        "removed_area_m2": 0.00064669152783585,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.0009700372917537751,
+        "exact_input_float_area_sum": {
+          "numerator": "35788059325872429",
+          "denominator": "36893488147419103232",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "745584569289009",
+          "denominator": "2305843009213693952",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "23858706217248285",
+          "denominator": "36893488147419103232",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "before_count": 3,
+        "active_count": 1,
+        "removed_count": 2,
+        "active_area_m2": 0.0004311416875930873,
+        "removed_area_m2": 0.0008622833751861746,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.0012934250627792618,
+        "exact_input_float_area_sum": {
+          "numerator": "11929740555805377",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "3976580185268459",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "3976580185268459",
+          "denominator": "4611686018427387904",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 2,
+        "at": "2026-10-01T06:00:00Z",
+        "before_count": 3,
+        "active_count": 1,
+        "removed_count": 2,
+        "active_area_m2": 0.0005628112148582876,
+        "removed_area_m2": 0.0011256224297165752,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.001688433644574863,
+        "exact_input_float_area_sum": {
+          "numerator": "31146103326913171",
+          "denominator": "18446744073709551616",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "5191017221152195",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "20764068884608781",
+          "denominator": "18446744073709551616",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 3,
+        "at": "2026-10-01T08:00:00Z",
+        "before_count": 4,
+        "active_count": 2,
+        "removed_count": 2,
+        "active_area_m2": 0.0016117467971007106,
+        "removed_area_m2": 0.0007440114178143072,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.0023557582149150175,
+        "exact_input_float_area_sum": {
+          "numerator": "86912137780152391",
+          "denominator": "36893488147419103232",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "7432870169434471",
+          "denominator": "4611686018427387904",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "27449176424676623",
+          "denominator": "36893488147419103232",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 4,
+        "at": "2026-10-01T10:00:00Z",
+        "before_count": 4,
+        "active_count": 2,
+        "removed_count": 2,
+        "active_area_m2": 0.001993309908455424,
+        "removed_area_m2": 0.0009427666197017548,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.0029360765281571787,
+        "exact_input_float_area_sum": {
+          "numerator": "27080526147870577",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "18385038870433311",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "4347743638718633",
+          "denominator": "4611686018427387904",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 5,
+        "at": "2026-10-01T12:00:00Z",
+        "before_count": 4,
+        "active_count": 2,
+        "removed_count": 2,
+        "active_area_m2": 0.002390442180181903,
+        "removed_area_m2": 0.001164441579759192,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.003554883759941095,
+        "exact_input_float_area_sum": {
+          "numerator": "65576030931419723",
+          "denominator": "18446744073709551616",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "11023968780203965",
+          "denominator": "4611686018427387904",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "21480155810603863",
+          "denominator": "18446744073709551616",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 6,
+        "at": "2026-10-01T14:00:00Z",
+        "before_count": 4,
+        "active_count": 2,
+        "removed_count": 2,
+        "active_area_m2": 0.002778979841723002,
+        "removed_area_m2": 0.0014007749145639515,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.004179754756286953,
+        "exact_input_float_area_sum": {
+          "numerator": "77102866280095671",
+          "denominator": "18446744073709551616",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "3203945620391381",
+          "denominator": "1152921504606846976",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "25839736353833575",
+          "denominator": "18446744073709551616",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 7,
+        "at": "2026-10-01T16:00:00Z",
+        "before_count": 4,
+        "active_count": 2,
+        "removed_count": 2,
+        "active_area_m2": 0.0031367667778443332,
+        "removed_area_m2": 0.0016415609189803734,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.004778327696824707,
+        "exact_input_float_area_sum": {
+          "numerator": "44072294061821685",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "904111468278265",
+          "denominator": "288230376151711744",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "15140727076917205",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 8,
+        "at": "2026-10-01T18:00:00Z",
+        "before_count": 4,
+        "active_count": 2,
+        "removed_count": 2,
+        "active_area_m2": 0.003448321393886819,
+        "removed_area_m2": 0.001876010591044416,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.005324331984931235,
+        "exact_input_float_area_sum": {
+          "numerator": "12277073686186559",
+          "denominator": "2305843009213693952",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "3975643889807971",
+          "denominator": "1152921504606846976",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "4325785906570617",
+          "denominator": "2305843009213693952",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 9,
+        "at": "2026-10-01T20:00:00Z",
+        "before_count": 4,
+        "active_count": 2,
+        "removed_count": 2,
+        "active_area_m2": 0.0037066809550669565,
+        "removed_area_m2": 0.002094166485571184,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.00580084744063814,
+        "exact_input_float_area_sum": {
+          "numerator": "53503374074042417",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "17094048735253359",
+          "denominator": "4611686018427387904",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "19315276603535699",
+          "denominator": "9223372036854775808",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 10,
+        "at": "2026-10-01T22:00:00Z",
+        "before_count": 5,
+        "active_count": 3,
+        "removed_count": 2,
+        "active_area_m2": 0.004896492813704893,
+        "removed_area_m2": 0.001507205457615998,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.006403698271320891,
+        "exact_input_float_area_sum": {
+          "numerator": "236254766272625507",
+          "denominator": "36893488147419103232",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "22581087448293037",
+          "denominator": "4611686018427387904",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "55606066686281211",
+          "denominator": "36893488147419103232",
+          "unit": "m2"
+        }
+      },
+      {
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "before_count": 5,
+        "active_count": 3,
+        "removed_count": 2,
+        "active_area_m2": 0.005167515275899015,
+        "removed_area_m2": 0.0016306140883608703,
+        "exact_input_float_area_partition": true,
+        "all_removed_empty": true,
+        "same_time_split_same_state": true,
+        "snapshot_area_m2": 0.006798129364259885,
+        "exact_input_float_area_sum": {
+          "numerator": "7837709535154495",
+          "denominator": "1152921504606846976",
+          "unit": "m2"
+        },
+        "exact_active_area_sum": {
+          "numerator": "23830957947873433",
+          "denominator": "4611686018427387904",
+          "unit": "m2"
+        },
+        "exact_removed_area_sum": {
+          "numerator": "7519880192744547",
+          "denominator": "4611686018427387904",
+          "unit": "m2"
+        }
+      }
+    ],
+    "DB_CLI_process_import_attempts": [],
+    "growth_forcing_advance_calls": 0,
+    "only_owned_probe_file_writes": true,
+    "real_crop_or_gate_validation": false,
+    "independent_reference": "public owned appearance replay frames; exact rational sums of binary64 input areas, not biological measurements"
+  },
+  "preservation": {
+    "passed": true,
+    "same_source_blob_metadata": 52,
+    "same_original_code_pins": 33,
+    "source_family": "leaf-appearance-research-artifact-v1",
+    "source_program_redistribution_allowed": true
+  },
+  "guard_phases": {
+    "leaf-removal-point-red-v1": {
+      "observed_at_UTC": "2026-10-23T23:33:26.259558Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.1466885169793386,
+      "PID_peak_RSS_bytes": 104906752,
+      "combined_peak_RSS_bytes": 562675712,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3571,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "dcc3b57c4c3454f11fb65e6d398ca2d56006095ffbd6f7d18ce2f4c1e0c4ce21",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-removal-point-green-v1": {
+      "observed_at_UTC": "2026-10-23T23:34:32.268327Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.3844978929846548,
+      "PID_peak_RSS_bytes": 104906752,
+      "combined_peak_RSS_bytes": 585785344,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3572,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e1775867ed883bcb9659d608c1864c408e09eb6b9e29ffa8e40a287078254e03",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-removal-point-fences-v1": {
+      "observed_at_UTC": "2026-10-23T23:36:54.099342Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 5.773540592985228,
+      "PID_peak_RSS_bytes": 104906752,
+      "combined_peak_RSS_bytes": 588025856,
+      "samples": 21,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3572,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d5c9386323ec5950f86a8d987edfe4a5545fbf6b51f847296a4583e4099a4cff",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-removal-point-fresh-v1": {
+      "observed_at_UTC": "2026-10-23T23:40:02.200900Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.1676429130020551,
+      "PID_peak_RSS_bytes": 104906752,
+      "combined_peak_RSS_bytes": 532955136,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3572,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "11e930114f7f242e89a49541bd6e47bd6a74253162ef31efc82d55721ddde870",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-removal-point-record-check-v1": {
+      "observed_at_UTC": "2026-10-23T23:47:33.466943Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.8935373589920346,
+      "PID_peak_RSS_bytes": 104906752,
+      "combined_peak_RSS_bytes": 530673664,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3575,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ff1f4dbafb273a11a33fc4b404524dfb8d82fe1d8943d6dcf0e7a496683bbaae",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "resource": {
+    "sampling_seconds": 0.25,
+    "maximum_PID_RSS_bytes": 104906752,
+    "maximum_combined_RSS_bytes": 588025856,
+    "protected_roots": 4,
+    "PID_limit_bytes": 536870912,
+    "combined_limit_bytes": 1073741824,
+    "whole_WSL_host_capacity_claim": false
+  },
+  "source_rights": {
+    "root": "77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a",
+    "owner_declaration": "owned-automatic-leaf-appearance-20261023",
+    "redistribute": true,
+    "real_data_adoption": false,
+    "source_primary_research": "research/crop-declared-leaf-removal-primary-sources-20261024.md",
+    "source_product_id": "77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a",
+    "source_URI": "web/public/leaf-appearance-replay/index.json and owned immutable numerical blobs",
+    "observation_time": null,
+    "observation_time_reason": "synthetic model clock; no measurements",
+    "publication_time": null,
+    "publication_time_reason": "not independently measured; original declaration time recorded separately",
+    "declaration_time_UTC": "2026-10-23T14:17:50Z",
+    "available_at": null,
+    "available_at_reason": "not verified for historical forecast eligibility",
+    "retrieval_completion_upper_bound_UTC": "2026-10-23T23:40:02.200900Z",
+    "retrieval_kind": "local owned immutable file read",
+    "vintage": "content-addressed original root; source code SHA pinned",
+    "units": "m2 per tracked leaf; exact rational seconds from original UTC",
+    "QC": "root/result/state SHA and33code pins; normalized identities/clocks; independent exact sums of public binary64 input areas",
+    "use": true,
+    "display": true,
+    "store": true,
+    "transform": true,
+    "reviewer": "native Codex CLI gpt-6.1-sol/xhigh; self software QC, no independent agricultural approval"
+  },
+  "backend_full_suite_run": false,
+  "new_hosted_CI_run": false,
+  "user_runtime_modified": false,
+  "UI_modified": false,
+  "new_dependencies": 0,
+  "holds": {
+    "forcing_birth_integration": true,
+    "new_storage_API_3D": true,
+    "real_cultivar_independent_local_cycles": 0,
+    "production_resources_economics_market_ranking": true,
+    "R2": true,
+    "G0_G4": "not_assessed",
+    "full_goal_complete": false
+  },
+  "legacy_code_sha256": {
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_declared_leaf_births.py": "44068d74541b873bd5459a2893b87c357797639805e1eaa346f1f35880ca2c5f",
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/app/crop_leaf_appearance_artifact_producer.py": "8ebb37d304d58bc72ce038606b1de61d10458e7027f059ff3a6c0c47849a1c19",
+    "backend/app/crop_leaf_appearance_preparation.py": "83d49881ea6a7ccc2dcc5c046e44c4d6a42967ac78b1946fb7f8c4c25bcf9bcf",
+    "backend/app/crop_leaf_appearance_program.py": "0e0e41b5df09078b2991aa0e35b3182dd40093db7940f8febc4bfab68b236e0d",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_artifact_producer.py": "7eb364f22da682d2d225ce234f224bab4d375c4295b637d3325f8dfb2acc534a",
+    "backend/app/crop_leaf_artifact_reader.py": "d591c184d69e7fe632504f4abc13d321a2903c7a92fd617257e0cd71910981d8",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_leaf_inventory.py": "f38f064e70c869a76a0a00b916548904b72b9aa92f105d17c1afd22bd3ad576d",
+    "backend/app/crop_leaf_population.py": "b37bbee59c20778f38506d157644d87c91cd8fe2cf1ca54e9842bb8c10eabd09",
+    "backend/app/crop_leaf_population_artifact_producer.py": "334351cae7505ed4b35e867831ac28ed7d873e3965f54fea3bada4c7269d61ab",
+    "backend/app/crop_leaf_stem_binding.py": "2b57a8b009fceb83a2d23c3356d9e0792576111a50445f8b7a071ae9cf759673",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/app/crop_phytomer_kind.py": "56e4f69d72a3f38b3fa96668556ca1673b44db63bf46ea900274a0aac847e18f",
+    "backend/app/crop_rational_internode_length.py": "423e6737cc77773d3ffdb8ab45d4aa37d106947b4222f2a6ecede839caae8a9b",
+    "backend/app/crop_rational_leaf_area.py": "2eea8499a9caae569580f66b0f89ac8711a06d5cf7993be047d013850ba434a0",
+    "backend/app/crop_rational_morphology_artifact_producer.py": "92b367462510ee7a7868e8952647ed5008d4d8849c900357f09f27df17215f06",
+    "backend/app/crop_rational_morphology_artifact_reader.py": "3de1502abca94613d1c55cb37568236ce164665d577aa06090d36d5842d5e44b",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/app/crop_rational_new_internodes.py": "76a59f191ca7f03902ce0db9cbdf6da8cf0c2fd792532d6830a669a0899472f5",
+    "backend/app/crop_rational_shoot_inventory.py": "42f66f8e22723cbfa674e879f74255389db8d76e008ef30a9fb24a5a38057625",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/app/crop_stored_shoot_leaf_birth_inputs.py": "d8e59fdf99156694d424dad4f392fd880fac9b059984f1d9144ee0f61417a5f4",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8"
+  },
+  "reference_frame_sha256": {
+    "0": "fb81f1ed5ef8ca96f30bbc08fcd539017366fa93d8cd367c7aa9c3abd8d20dba",
+    "1": "f217ef1a2cf8104c85e7a4fee3f450568adaf76d816d1b239de34f092c335692",
+    "2": "26ad4c2aed785a1bfdb5bcbb5744e0b31939f35540ad1ebdcc80d04b6762426d",
+    "3": "2ee1cc08789708f32557a9728ff1934126e59aff422ba942fd069dcfd46062b3",
+    "4": "e7fa7c93805c3908792d6cc0a9b50014035e1e0231321fd4e18287de99551096",
+    "5": "c289b775a72c19b350a42884fb9e6083619fd9cbad623e00eb354331b4d4a14e",
+    "6": "d16a02048ef2a31bce8ff7178db8919a0b4be4768bbb0b22b47ec7e0569b019d",
+    "7": "6f6017c9c3fe2fc7649be49fcf7bdebd96025540e10620073da034d0f474ba31",
+    "8": "097aff8440c04eb3e08274d58864fc090a497f4915ce9e769f0c5e6508d7b4c1",
+    "9": "2f57bbd98163747c70756e22b2a093a4b0cf7976ae657a9c38bc459e5ae8e7c4",
+    "10": "94459ebec748fd5cad2f8f8752e0af9cc4a9ff467f1533a6624e2bc8f057906a",
+    "11": "a2c374c3a95d7310d9b5d5c7d85ea85f357aee53f1d047ca98b026223453593e"
+  },
+  "document_checks": {
+    "passed": true,
+    "runtime_code_SHA_matches": 2,
+    "public_ledger_rows": 12,
+    "public_exact_partitions": 12,
+    "local_links_including_repeats": 3330,
+    "actual_crop_gate_claims": false
+  }
+}

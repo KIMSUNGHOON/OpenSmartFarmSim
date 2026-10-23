@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**미리보기 현재성 — 2026-10-24 KST:** [실제 정책 잎 실행 화면](../research/leaf-appearance-execution-web-20261024.md)의 새 계산→원12시점/47면적3D·현재 취소/철회·메뉴/reload와 최종 CI를 수용했다. 원 세 물리 DB/25표·키/token/source·기존262화면 파일을 보존했다. 인증 종료는2026-10-25 06:17 KST 설정이며 미래 가동률/G4 증거가 아니다. 다음은 명시 제거의 면적 장부이며 실제 품종/독립 작기0·R2/전체 생산·경제/추천 관문은 후속이다.
+**미리보기 현재성 — 2026-10-24 KST:** [정책 잎 실행 화면](../research/leaf-appearance-execution-web-20261024.md)은 기존 실제 작업/저장3D를 유지한다. 새 [같은 시점 제거 커널](../research/crop-declared-leaf-removal-20261024.md)은200검사/원12시점·47면적을 수용한 별도 연구 모듈이며 runtime/새3D에 미적용이다. 다음은 forcing 안 정확 제거 시각과 마지막 상태다. 기존4root/원52blob·33code를 보존했고 인증 종료는2026-10-25 06:17 KST 설정이다. 실제 품종/독립 작기0·R2/생산·경제/추천/운영 관문과 전체 완료 날짜는 미정이다.
 
 **작물 계산/3D 현재 — 2026-10-23 KST:** [새 잎 재생](http://localhost:5176/leaf-population-replay.html)의 자체 합성12시점/명시3→6잎을 원 UTC의3D·면적/줄기·표/그래프로 연결했습니다. [검증 기록](../research/leaf-population-stored-replay-20261023.md)에 CI85/Chromium20·실제 Chrome12시점/52면적, 기존25표/205파일 보존과 첫 렌더링 셰이더 경고1을 기록했습니다.5176 API/웹과5175는 실행 중이며 이전5173/5174는 종료 상태입니다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)도 수용했습니다. [농장/parent 결속35·fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했습니다. [leaf 서명 결과38/fresh](../research/crop-leaf-population-signed-artifact-20261023.md)도 수용했습니다. 새 모델은 사용자 미배포이며 다음은 기존 jobs 표 접수/자동 worker→보호 API→같은 작업의 제품3D입니다. 실제 품종/독립 자료0·한 작기/생산·자원/경제·자율 선정·최종 사실감 R2/G0–G4와 전체 완료일 미정을 유지합니다. 아래는 당시 검증 기록입니다.
 

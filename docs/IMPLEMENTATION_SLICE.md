@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-24 KST:** [실제 정책 잎 계산→3D](../research/leaf-appearance-execution-web-20261024.md)를 수용했습니다. 전체 웹2150/311·집중35브라우저, 실제 새 작업의12시점/47면적·취소/철회·메뉴/reload를 확인했습니다. [현재 화면](http://localhost:5176/leaf-appearance-execution.html?job_id=9dbcca83-3b81-4171-862d-2953a0698eb6&frame=11)을 전용 Chrome에 열었습니다. 원 세 DB/키·기존 화면을 보존했고 다음은 명시 잎 제거의 순수 면적 수지입니다. 인증 종료는2026-10-25 06:17 KST 설정입니다. 실제 품종/독립 작기0·생산/자원/경제·시장/자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
+**현재 — 2026-10-24 KST:** [명시 잎 제거의 같은 시점 커널](../research/crop-declared-leaf-removal-20261024.md)을 새63/관련137·총200검사와 실제 저장12시점/47면적·fresh 대사로 수용했습니다. 원52blob/33code·기존4root/화면을 보존했습니다. [현재 UI](http://localhost:5176/leaf-appearance-execution.html?job_id=9dbcca83-3b81-4171-862d-2953a0698eb6&frame=11)는 이전 정책 잎 생장이며 새 제거는 미적용입니다. 다음은 한 잎의 forcing 구간 안 제거 시각/마지막 상태 계산입니다. 인증 종료는2026-10-25 06:17 KST 설정입니다. 실제 품종/독립 작기0·생산/자원/경제·시장/자율 선정·R2/G0–G4와 전체 완료일은 미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

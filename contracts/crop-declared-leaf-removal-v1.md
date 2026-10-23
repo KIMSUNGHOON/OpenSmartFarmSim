@@ -1,6 +1,6 @@
 # 같은 시점의 명시 전체 잎 제거 — 연구 v1
 
-상태: 계약/검증 중. [원문 경계](../research/crop-declared-leaf-removal-primary-sources-20261024.md)와
+상태: [200검사/실제 저장 상태 수용](../research/crop-declared-leaf-removal-20261024.md). [원문 경계](../research/crop-declared-leaf-removal-primary-sources-20261024.md)와
 [기존 population](crop-leaf-population-v1.md)을 사용한다. 기존 판본·사용자 runtime은 변경하지 않는다.
 
 `initialize_leaf_removal(inputs={input_id,population_state})`는 기존 정규화기로 검증한 같은 시점의
