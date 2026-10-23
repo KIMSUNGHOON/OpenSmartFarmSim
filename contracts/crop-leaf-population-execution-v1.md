@@ -5,7 +5,8 @@
 [E3 집중16/실제 SCRAM6·fresh](../research/crop-leaf-population-execution-query-20261023.md)도 수용했다.
 선행은 [signed leaf 계산/조회](crop-leaf-population-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 사용하며 새 큐/표·역할은 추가하지 않는다.
-자동 consumer 및 보호 HTTP/사용자 화면은 후속 수용이다.
+[기존 자동 consumer33제어/실제 SCRAM1](../research/leaf-population-automatic-consumer-20261023.md)도 수용했다.
+[보호 HTTP](api-crop-leaf-population-execution-v1.md)/runtime·사용자 화면은 후속 수용이다.
 
 ## E1 접수
 
@@ -50,3 +51,10 @@ E1 수용: intent/판본·원 byte bound/키·resolver·원 참조 변조 거부
 실제 SCRAM의 같은 접수1행·충돌/현재 조회·read/write 권한과 source/parent·늦은 commit 철회 rollback,
 생장/producer/CLI0·기존 parent/leaf 결과 행/파일·원2서비스/WSL 상한·소유 정리다.
 실제 품종/자료와 G0–G4, E2/E3·제품 전체 수용을 접수 성공으로 대신하지 않는다.
+
+## 기존 자동 consumer
+
+정확 LeafPopulationExecutionWorker/Outcome와 leaf-population-execution-input-v1을 기존
+DeterministicWorkerLoop와 discovery에 명시 등록한다. 기본 구성에서 실행하지 않으며 선택 판본은 비어 있거나 혼합일 수 없다.
+실제 discovery→계산1회/원자 완료·원12frame, 다른 queued 모델/완료 재선택0·현재 권한과 소유 정리를 수용했다.
+operator factory/runtime 배포·보호 HTTP/같은 job3D와 실제 자료 관문은 별도다.

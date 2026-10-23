@@ -3490,3 +3490,15 @@ signed replay24.58초/E1 입력 read12.70초의 중첩과 HTTP30초 예산을 �
 등록/계약30–60분 + 집중/실제 DB30–60분 + 기록15–30분 = **1.25–2.5집중시간**의 낮은 신뢰 작업량이다.
 이후 보호 API/TLS/runtime에서 실제30초 요청 예산·취소/전송을 검증하고 strict SDK→같은 job3D/메뉴·재접속 복원을 잇는다.
 새 leaf core 미배포·실제 품종/독립 작기0·생산/자원·경제/자율 선정·최종 사실감/경고와 전체 완료 날짜 미정을 유지한다.
+
+**기존 자동 consumer 수용 — 2026-10-23:** [새10/기존23 제어·실제 SCRAM1](../research/leaf-population-automatic-consumer-20261023.md)로
+정확 leaf worker/outcome·v1을 기존 loop와 discovery에 등록하고 실제1계산/원12frame·parent/완료 재선택0을 확인했다.
+다른 queued/25표 원 행 SHA·48성장/CLI0·원2root/자료/WSL·소유 정리를 수용했다.
+처음 worker mapping만 추가했을 때의 discovery 판본 누락/제어·native 실패와 양쪽 명시 등록 수정을 보존했다.
+위1.25–2.5h consumer 계획은 실제 수용으로 대체하며 새 큐/표/역할은 추가하지 않았다.
+다음 [보호 HTTP 계약](../contracts/api-crop-leaf-population-execution-v1.md)의 새6경로/typed 입력·응답과
+현재 인증/권리·같은 jobs/farm/parent/provider graph·멱등/취소·실제 SCRAM/TLS를 검증한다.
+기존 OpenAPI/Scope 지문을 먼저 기록하고 내부26–29초에 대한 실제30초 요청 예산·늦은 만료/전송/취소를 확인한다.
+API/Scope·OpenAPI 조립60–120분 + 제어/실제 SCRAM·TLS90–180분 + 기록30–60분 = **3–6집중시간**의 낮은 신뢰 작업량이다.
+실제 비용/검증 뒤 갱신하며 이후 명시 runtime→strict SDK/같은 job3D·메뉴/재접속 복원을 잇는다.
+사용자 runtime 미배포·실제 품종/독립 작기0·생산/자원·경제/자율 선정·최종 사실감과 전체 완료 날짜 미정을 유지한다.
