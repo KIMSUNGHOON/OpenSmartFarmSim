@@ -1,6 +1,6 @@
 # 저장 줄기의 출현 사건→잎 생성 입력 — 연구 v1
 
-상태: 합성 입력 작성 소프트웨어 구현.
+상태: [신규42/관련248·총290검사와 실제 원14blob 수용](../research/crop-stored-shoot-leaf-birth-inputs-20261023.md).
 선행은 [분류 커널](crop-phytomer-kind-v1.md),
 [정확 출현 시각](crop-shoot-air-event-timeline-v1.md),
 [원 줄기 저장 v2](crop-rational-morphology-artifact-v2.md)와

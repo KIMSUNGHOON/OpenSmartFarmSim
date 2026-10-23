@@ -1,0 +1,560 @@
+{
+  "schema_version": "crop-stored-shoot-leaf-birth-inputs-evidence-v1",
+  "observed_at_UTC": "2026-10-23T13:43:30.743797+00:00",
+  "scope": "software_research_only",
+  "claim_scope": "synthetic_crop_math_only",
+  "status": "input_builder_accepted_no_new_program_storage_or_user_deployment",
+  "native_model": {
+    "timestamp": "2026-10-23T13:08:48.200Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "5f4aa974c8e2a04eb20c3bd373beebd4a4ecae8a0c6fb639dcb350a114c04b00",
+    "recursive_CLI": 0
+  },
+  "new_tests_passed": 42,
+  "related_existing_tests_passed": 248,
+  "focused_total_unique_tests": 290,
+  "new_pytest_seconds": 2.69,
+  "related_pytest_seconds": 9.29,
+  "independent_exact_times": 12,
+  "independent_Decimal100_areas_and_ages": 11,
+  "stored_split_boundaries": 5,
+  "actual_maximum_events_and_leaf_inputs": 512,
+  "invalid513_source_refused": true,
+  "original_14blob_probe": {
+    "passed": true,
+    "model_version": "stored-shoot-leaf-birth-inputs-research-v1",
+    "scope": "software_research_only",
+    "claim_scope": "synthetic_crop_math_only",
+    "G0_G4": "not_assessed",
+    "original_stem_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+    "original_files": 14,
+    "original_metadata_bytes_before_after_sha256": "1ec27fc730641f9b245bf779ae03370e452a3c56901af405726015b4728e4566",
+    "source_program_sha256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3",
+    "source_redistribution_asserted": true,
+    "same_original_14_files_metadata_and_bytes": true,
+    "input_unchanged": true,
+    "growth_DB_CLI_write_entry_calls": {
+      "app.crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+      "app.crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+      "app.crop_rational_internode_length.advance_rational_internode_length": 0,
+      "app.crop_rational_leaf_area.advance_rational_leaf_area": 0,
+      "app.crop_leaf_population.advance_leaf_population": 0,
+      "app.crop_declared_leaf_births.create_declared_leaves": 0,
+      "MorphologyBlobStore.put": 0,
+      "JobStore.connect": 0,
+      "psycopg.connect": 0,
+      "subprocess.run": 0,
+      "subprocess.Popen": 0
+    },
+    "actual_original_root_calls": 13,
+    "exact_events": 3,
+    "new_leaf_input_declarations": 2,
+    "whole_and_12_intervals_same_declarations_and_ids": true,
+    "interval_event_counts": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "interval_leaf_counts": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "inputs": {
+      "input_id": "owned-original-shoot-derived-births",
+      "policy": {
+        "origin": "synthetic",
+        "sequence_basis": "explicit_emergence_schedule",
+        "policy_id": "owned-explicit-phase",
+        "shoot_id": "synthetic-shoot",
+        "schedule_id": "synthetic-schedule-fractional-second",
+        "first_generative_sequence": 4,
+        "vegetative_between_generative": 2
+      },
+      "leaf_profile": {
+        "curve": {
+          "origin": "synthetic",
+          "profile_id": "synthetic-leaf-curve-0",
+          "values": {
+            "inflection_age": {
+              "unit": "degC_day",
+              "value": 8
+            },
+            "maximum_area": {
+              "unit": "m2",
+              "value": 0.0015
+            },
+            "steepness": {
+              "unit": "1/degC_day",
+              "value": 0.25
+            }
+          }
+        },
+        "normalization": "zero_lower_asymptote_sigmoid_v1",
+        "initial_area": {
+          "unit": "m2",
+          "value": 0.00017880438303317635
+        },
+        "base_temperature": {
+          "value": 5,
+          "unit": "degC"
+        }
+      }
+    },
+    "result": {
+      "model_version": "stored-shoot-leaf-birth-inputs-research-v1",
+      "scope": "software_research_only",
+      "claim_scope": "synthetic_crop_math_only",
+      "gates": "not_assessed",
+      "model_versions": {
+        "stem": "morphology-research-artifact-v2",
+        "timeline": "shoot-air-phytomer-timeline-research-v1",
+        "kind": "phytomer-kind-research-v1",
+        "air_adapter": "whole-second-utc-to-rational-air-segments-research-v1",
+        "leaf": "leaf-rational-air-area-state-research-v1",
+        "declared_births": "declared-leaf-births-research-v1"
+      },
+      "input_sha256": "e0ed72b0c948b8053df8ebe1b3712e84ac860137df7ae1bc5c19595f4435af1b",
+      "stem_artifact_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+      "stem_program_sha256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3",
+      "start_index": -1,
+      "end_index": 11,
+      "start_state_sha256": "71443aa09ddbcf2f2dde0c2863d454ce0ed959f2688ba24a02ff34ab02c5ca3c",
+      "end_state_sha256": "60c305c15604495445fe9f3f4e3fde4a61c029a323d796077c48fc8021e09b9d",
+      "timeline_input_sha256": "a40a56640d7e798cf110ad5d1ebea50848326903aca8d11380a41b80b2691dff",
+      "policy_sha256": "16570ecd3d00b080bbefd9570bd4a2f2f0c12fc72657b46db624d3e4484534c0",
+      "leaf_profile_sha256": "73ce4d5eac8a7cf89d9b09302a18ce18dcfa21a9a862eee63131257529c8b11e",
+      "policy": {
+        "origin": "synthetic",
+        "sequence_basis": "explicit_emergence_schedule",
+        "policy_id": "owned-explicit-phase",
+        "shoot_id": "synthetic-shoot",
+        "schedule_id": "synthetic-schedule-fractional-second",
+        "first_generative_sequence": 4,
+        "vegetative_between_generative": 2
+      },
+      "time_origin_utc": "2026-10-01T00:00:00Z",
+      "timeline_checkpoint": {
+        "age_basis": "since_shoot_development_origin",
+        "age_exact": {
+          "numerator": "17",
+          "denominator": "1",
+          "unit": "degC_day"
+        },
+        "at": "2026-10-02T00:00:00Z",
+        "base_temperature": {
+          "value": 5.0,
+          "unit": "degC"
+        },
+        "development_origin_id": "synthetic-origin",
+        "next_sequence": 6,
+        "next_threshold_exact": {
+          "numerator": "20",
+          "denominator": "1",
+          "unit": "degC_day"
+        },
+        "origin": "synthetic",
+        "phyllochron_exact": {
+          "denominator": "1",
+          "numerator": "5",
+          "unit": "degC_day"
+        },
+        "schedule_id": "synthetic-schedule-fractional-second",
+        "shoot_id": "synthetic-shoot",
+        "started_at": "2026-10-01T00:00:00Z"
+      },
+      "start_elapsed_seconds_exact": {
+        "numerator": "0",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "end_elapsed_seconds_exact": {
+        "numerator": "86400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "events": [
+        {
+          "sequence": 3,
+          "thermal_age_exact": {
+            "numerator": "5",
+            "denominator": "1",
+            "unit": "degC_day"
+          },
+          "elapsed_seconds_exact": {
+            "numerator": "432000",
+            "denominator": "17",
+            "unit": "s"
+          },
+          "utc_whole_second": null,
+          "kind": "vegetative",
+          "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+          "leaf_id": "leaf:ae721258350e7977873e98f843511291036ee762eab185279a3a82ec3fd37d35"
+        },
+        {
+          "sequence": 4,
+          "thermal_age_exact": {
+            "numerator": "10",
+            "denominator": "1",
+            "unit": "degC_day"
+          },
+          "elapsed_seconds_exact": {
+            "numerator": "864000",
+            "denominator": "17",
+            "unit": "s"
+          },
+          "utc_whole_second": null,
+          "kind": "generative",
+          "attachment_internode_id": "internode:e21306f6c52c259c1c900e08b61934b5a55eb4a87f322c24a2bad2e1e00276e5",
+          "leaf_id": null
+        },
+        {
+          "sequence": 5,
+          "thermal_age_exact": {
+            "numerator": "15",
+            "denominator": "1",
+            "unit": "degC_day"
+          },
+          "elapsed_seconds_exact": {
+            "numerator": "1296000",
+            "denominator": "17",
+            "unit": "s"
+          },
+          "utc_whole_second": null,
+          "kind": "vegetative",
+          "attachment_internode_id": "internode:5f3fe4b8f4f3f54b289880beb7ea9e235a0f211904d38ea1c207f3d8fcba00f0",
+          "leaf_id": "leaf:25b4eb9bb71023324e985d55edcdb9748d9df4e82b598440e7891bf1c19cd82a"
+        }
+      ],
+      "leaf_inputs": {
+        "input_id": "owned-original-shoot-derived-births",
+        "origin": "synthetic",
+        "time_origin_utc": "2026-10-01T00:00:00Z",
+        "segments": [
+          {
+            "start_elapsed_seconds_exact": {
+              "numerator": "0",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "end_elapsed_seconds_exact": {
+              "numerator": "86400",
+              "denominator": "1",
+              "unit": "s"
+            },
+            "air_temperature": {
+              "value": 22.0,
+              "unit": "degC"
+            }
+          }
+        ],
+        "births": [
+          {
+            "leaf_id": "leaf:ae721258350e7977873e98f843511291036ee762eab185279a3a82ec3fd37d35",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "432000",
+              "denominator": "17",
+              "unit": "s"
+            },
+            "base_temperature": {
+              "value": 5.0,
+              "unit": "degC"
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-leaf-curve-0",
+              "values": {
+                "inflection_age": {
+                  "value": 8.0,
+                  "unit": "degC_day"
+                },
+                "maximum_area": {
+                  "value": 0.0015,
+                  "unit": "m2"
+                },
+                "steepness": {
+                  "value": 0.25,
+                  "unit": "1/degC_day"
+                }
+              }
+            },
+            "normalization": "zero_lower_asymptote_sigmoid_v1",
+            "initial_area": {
+              "value": 0.00017880438303317635,
+              "unit": "m2"
+            }
+          },
+          {
+            "leaf_id": "leaf:25b4eb9bb71023324e985d55edcdb9748d9df4e82b598440e7891bf1c19cd82a",
+            "attachment_internode_id": "internode:5f3fe4b8f4f3f54b289880beb7ea9e235a0f211904d38ea1c207f3d8fcba00f0",
+            "emerged_elapsed_seconds_exact": {
+              "numerator": "1296000",
+              "denominator": "17",
+              "unit": "s"
+            },
+            "base_temperature": {
+              "value": 5.0,
+              "unit": "degC"
+            },
+            "curve": {
+              "origin": "synthetic",
+              "profile_id": "synthetic-leaf-curve-0",
+              "values": {
+                "inflection_age": {
+                  "value": 8.0,
+                  "unit": "degC_day"
+                },
+                "maximum_area": {
+                  "value": 0.0015,
+                  "unit": "m2"
+                },
+                "steepness": {
+                  "value": 0.25,
+                  "unit": "1/degC_day"
+                }
+              }
+            },
+            "normalization": "zero_lower_asymptote_sigmoid_v1",
+            "initial_area": {
+              "value": 0.00017880438303317635,
+              "unit": "m2"
+            }
+          }
+        ]
+      }
+    },
+    "user_runtime_or_DB_changed": false,
+    "actual_farm_Runs": 0,
+    "independent_local_crop_cycles": 0
+  },
+  "original_probe_private_sha256": "526e577d4c45b15f100c39788d56d690ed282cbb70e8ddff4ea9a4a3e93b6995",
+  "original_stem17_code_pins_match_current": true,
+  "source_sha256": {
+    "backend/app/crop_stored_shoot_leaf_birth_inputs.py": "d8e59fdf99156694d424dad4f392fd880fac9b059984f1d9144ee0f61417a5f4",
+    "backend/tests/test_crop_stored_shoot_leaf_birth_inputs.py": "142fff94c44e2eb9d6cb7d0888d2eeb5c20c7d8cd48cb768c653808c935b0243",
+    "contracts/crop-stored-shoot-leaf-birth-inputs-v1.md": "ff95835d9f1478031161615c40becd90f5b4ee02d9c26ef6d52af737c063339a",
+    "research/crop-stored-shoot-leaf-birth-inputs-20261023.md": "343d84d1951a80f15e2a7ef657d333f24f967474e4e056547f1899aacc24e8a7"
+  },
+  "reused_source_sha256": {
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/app/crop_rational_internode_length.py": "423e6737cc77773d3ffdb8ab45d4aa37d106947b4222f2a6ecede839caae8a9b",
+    "backend/app/crop_rational_morphology_artifact_producer.py": "92b367462510ee7a7868e8952647ed5008d4d8849c900357f09f27df17215f06",
+    "backend/app/crop_rational_morphology_artifact_reader.py": "3de1502abca94613d1c55cb37568236ce164665d577aa06090d36d5842d5e44b",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/app/crop_rational_new_internodes.py": "76a59f191ca7f03902ce0db9cbdf6da8cf0c2fd792532d6830a669a0899472f5",
+    "backend/app/crop_rational_shoot_inventory.py": "42f66f8e22723cbfa674e879f74255389db8d76e008ef30a9fb24a5a38057625",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+    "backend/app/crop_phytomer_kind.py": "56e4f69d72a3f38b3fa96668556ca1673b44db63bf46ea900274a0aac847e18f",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_rational_leaf_area.py": "2eea8499a9caae569580f66b0f89ac8711a06d5cf7993be047d013850ba434a0",
+    "backend/app/crop_declared_leaf_births.py": "44068d74541b873bd5459a2893b87c357797639805e1eaa346f1f35880ca2c5f"
+  },
+  "phases": {
+    "leaf-birth-inputs-red-v1": {
+      "observed_at_UTC": "2026-10-23T13:22:20.675754Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.4334574840031564,
+      "PID_peak_RSS_bytes": 98697216,
+      "combined_peak_RSS_bytes": 406024192,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3433,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "af37c9201b6b5785a0e05581891741fa150c9e73cd035939968f61c93a21a9f8",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-birth-inputs-green-v1": {
+      "observed_at_UTC": "2026-10-23T13:25:34.135968Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 3.205236526002409,
+      "PID_peak_RSS_bytes": 98697216,
+      "combined_peak_RSS_bytes": 433033216,
+      "samples": 11,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3434,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "5c256e29f4f24f56cd6af5860368f7517c328e2517ca02534629579795342ddf",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-birth-inputs-green-v2": {
+      "observed_at_UTC": "2026-10-23T13:28:23.961984Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 3.733398603013484,
+      "PID_peak_RSS_bytes": 98697216,
+      "combined_peak_RSS_bytes": 432246784,
+      "samples": 13,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3434,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "edf9df3488042fc54f226d88844baffd230e4b835109dfd89c920146fc5c0c06",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-birth-inputs-regression-v1": {
+      "observed_at_UTC": "2026-10-23T13:33:23.898370Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 10.395200352999382,
+      "PID_peak_RSS_bytes": 99971072,
+      "combined_peak_RSS_bytes": 448765952,
+      "samples": 39,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3434,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "3c4070a155932e28861e8c5fdb0844bcfd9a13401ef44e772cb6a324d33f8391",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-birth-inputs-original-v1": {
+      "observed_at_UTC": "2026-10-23T13:35:48.793473Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.1978567219921388,
+      "PID_peak_RSS_bytes": 98697216,
+      "combined_peak_RSS_bytes": 388456448,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3434,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "639f5819ce6a1a1f70750f651c94cee9e58936ce4e62b5b060fc16d4a45f142e",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "first_failed_GREEN": {
+    "new_tests_then": 36,
+    "passed": 9,
+    "failed": 27,
+    "product_error": "exception_class_imported_from_wrong_reader_module",
+    "test_setup_error": "rehashed_manifest_needed_UTF8_canonical_JSON",
+    "corrected_before_acceptance": true
+  },
+  "review": {
+    "correctness": "same_original_timeline_checkpoint_events_parentIDs_and_independent_numerics",
+    "architecture": "one_new_input_builder_reusing_existing_readers_and_kernels_no_old_source_change",
+    "security": "closed_inputs_original_rights_hashes_postchecks_readonly_fences_no_credentials",
+    "performance": "bounded512x512_temperature_checks_2MiB_WSLLimits_only_focused_observation",
+    "testing": "42_new_248_existing_original13_calls_no_normal_performance_or_crop_validation_claim"
+  },
+  "new_agricultural_data_or_coefficients_adopted": 0,
+  "new_library": false,
+  "old_numeric_and_signed_worker_API_sources_changed": false,
+  "user_runtime_or_DB_changed": false,
+  "full_backend_suite": false,
+  "new_hosted_CI": false,
+  "new_browser_test": false,
+  "actual_farm_Runs": 0,
+  "independent_local_crop_cycles": 0,
+  "G0_G4": "not_assessed",
+  "next": "closed_automatic_appearance_program_initial_leaf_policy_scope_and_derivation_evidence",
+  "next_estimate_focused_hours": [
+    2,
+    4
+  ],
+  "remaining": [
+    "initial_leaf_inventory_policy_consistency",
+    "new_immutable_producer_reader_and_same_UTC_3D",
+    "management_area_balance",
+    "cultivar_data_and_independent_validation",
+    "production_resources_Decimal_economics",
+    "macro_supply_demand_and_autonomous_comparison",
+    "final_realism_R2_and_full_product_UI"
+  ],
+  "implementation_commit": "a5bd776b09c832ccb9f77ed10673148a632a1fff"
+}
