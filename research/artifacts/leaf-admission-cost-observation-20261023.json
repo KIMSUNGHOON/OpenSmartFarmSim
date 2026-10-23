@@ -1,0 +1,86 @@
+{
+  "diagnostic_only": true,
+  "normal_deadline_acceptance": false,
+  "source_base_commit": "ffd67220a77851fffb46cfcbf9ebc218bf9ab4c9",
+  "native_model": {
+    "timestamp": "2026-10-23T10:43:15.369Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "fe05173d583b9e416162be1565dda9ebd3af2a255a5c41d4345380fc623c8ae9",
+    "recursive_CLI": 0
+  },
+  "terminal": {
+    "observed_at_UTC": "2026-10-23T10:43:26.744852Z",
+    "child_exit": 0,
+    "hold_reason": null,
+    "wall_seconds": 73.60290983799496,
+    "PID_peak_RSS_bytes": 128487424,
+    "combined_peak_RSS_bytes": 561737728,
+    "samples": 281,
+    "sample_interval_seconds": 0.25,
+    "optional_resource_root_count": 0,
+    "live_protected_roots": 3,
+    "protected_live": true,
+    "historical_six_terminated_before_phase": true,
+    "current_2148_originals_and_artifacts_static_entries_preserved": true,
+    "watched_entries": 2481,
+    "source_preserved": true,
+    "source_count": 3416,
+    "owned_remaining": 0,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "log_sha256": "8a02e891d89c547cea13a5bd2762c13c1125ceb307c481cb770991a3c0f9e830",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed",
+    "full_suite": false
+  },
+  "request_status": null,
+  "client_error": "TimeoutError",
+  "client_deadline_seconds": 30,
+  "client_seconds_including_TLS_startup": 30.168403296003817,
+  "server_seconds_with_profiler": 38.85434235498542,
+  "server_final_state": "queued",
+  "POST_count": 1,
+  "retry_count": 0,
+  "worker_started": false,
+  "profile_raw_sha256": "f5e6d3b222b1bac8eca064272b17c99c3654984be4c2dd98d0f376390cf6f819",
+  "admission_code_sha256": "9a2132f2309ee73f5b272baf01d25c280944b2f4845f7058f1af4ff1c0a8632b",
+  "counts": [
+    {
+      "file": "crop_leaf_population_execution.py",
+      "name": "verify",
+      "calls": 1
+    },
+    {
+      "file": "crop_leaf_population_execution.py",
+      "name": "current_input",
+      "calls": 1
+    },
+    {
+      "file": "farm_authoring_storage.py",
+      "name": "read_registration",
+      "calls": 64
+    },
+    {
+      "file": "farm_authoring_storage.py",
+      "name": "_prepare",
+      "calls": 64
+    },
+    {
+      "file": "connection.py",
+      "name": "execute",
+      "calls": 33022
+    }
+  ],
+  "first_probe_collection_failure": {
+    "cause": "dotted private test module filename",
+    "HTTP_requests": 0,
+    "DB_fixtures": 0,
+    "preserved": true
+  },
+  "actual_farm_Runs": 0,
+  "G0_G4": "not_assessed",
+  "decision": "evaluate existing request-local farm registration scope at HTTP and owned-input callbacks; keep signed core hashes"
+}

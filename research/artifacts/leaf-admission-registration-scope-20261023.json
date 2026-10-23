@@ -1,0 +1,2284 @@
+{
+  "observed_at_UTC": "2026-10-23T11:24:48.733550+00:00",
+  "scope": "software_research_only",
+  "status": "software160_and_frozen_old_result_input_HTTPS_accepted_user_rollout_pending",
+  "native_model": {
+    "timestamp": "2026-10-23T10:43:15.369Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "fe05173d583b9e416162be1565dda9ebd3af2a255a5c41d4345380fc623c8ae9",
+    "recursive_CLI": 0
+  },
+  "focused_tests_passed": 160,
+  "HTTP_ASGI_and_owned_controls": 57,
+  "OpenAPI_scope_controls": 95,
+  "actual_native_SCRAM_TLS_tests": 8,
+  "phases": {
+    "admission-controls-v1": {
+      "passed": 57,
+      "observed_at_UTC": "2026-10-23T10:55:39.958528Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 3.201478313014377,
+      "PID_peak_RSS_bytes": 114782208,
+      "combined_peak_RSS_bytes": 462462976,
+      "samples": 11,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3419,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "7368cc64d2d34e0bfd1b370413941bab97ff3cb87d883626d43646d2d9a90122",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "admission-native-v1": {
+      "passed": 2,
+      "observed_at_UTC": "2026-10-23T11:00:50.985502Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 207.5933033929905,
+      "PID_peak_RSS_bytes": 151195648,
+      "combined_peak_RSS_bytes": 587702272,
+      "samples": 792,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3419,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "aeefa3dff995576b9c5079367681c2718521ecc55337f0b21d2145ba0354cca7",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "admission-HTTPS-regression-v1": {
+      "passed": 3,
+      "observed_at_UTC": "2026-10-23T11:07:57.453026Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 419.9780090719869,
+      "PID_peak_RSS_bytes": 182538240,
+      "combined_peak_RSS_bytes": 595697664,
+      "samples": 1575,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3419,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "070b4b02d82294aa0b6710be4ba7e5b0b98c978843b3e98b030e9f04629e3e4e",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "admission-owned-normal-v1": {
+      "passed": 1,
+      "observed_at_UTC": "2026-10-23T11:12:05.812584Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 247.67584742498002,
+      "PID_peak_RSS_bytes": 114827264,
+      "combined_peak_RSS_bytes": 651300864,
+      "samples": 934,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3419,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "47dd982b7077e37978fac23121ce2dcf81d1459625c1bbaabfd0a47b4c03ea39",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "admission-owned-fences-v1": {
+      "passed": 2,
+      "observed_at_UTC": "2026-10-23T11:13:55.651176Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 109.17031965102069,
+      "PID_peak_RSS_bytes": 115363840,
+      "combined_peak_RSS_bytes": 646520832,
+      "samples": 417,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3419,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "0cdd0ff1449ec881876ef43e1c9ebf2d3e23c4d3145692e4be3cda68a31032fd",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "admission-OpenAPI-v1": {
+      "passed": 95,
+      "observed_at_UTC": "2026-10-23T11:17:59.198518Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 241.83826684200903,
+      "PID_peak_RSS_bytes": 181817344,
+      "combined_peak_RSS_bytes": 639791104,
+      "samples": 939,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3419,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "15c6cb1d166d2ca42f1f1efd2af6fdaf587465b781ab8ba2bbeffd6ba318e130",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "proofs": {
+    "leaf-admission-registration-scope-native-normal.json": {
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "actual_farm_Runs": 0,
+      "certificate_verified": true,
+      "counts_before_after": [
+        {
+          "attempt_outcomes": 1,
+          "crop_cycle_research_results": 0,
+          "job_attempts": 1,
+          "job_events": 94,
+          "job_publications": 1,
+          "jobs": 89,
+          "thermal_g1_runs": 0
+        },
+        {
+          "attempt_outcomes": 1,
+          "crop_cycle_research_results": 0,
+          "job_attempts": 1,
+          "job_events": 95,
+          "job_publications": 1,
+          "jobs": 90,
+          "thermal_g1_runs": 0
+        }
+      ],
+      "growth_worker_producer_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0,
+        "leaf_signed_producer": 0,
+        "leaf_worker": 0
+      },
+      "input_sha256": "1ef72beac18a39ef80b52f8a752f27c7938fc320cc8502a968e5833dfcf0d794",
+      "job_id": "ce944095-833b-4e36-b056-a8d6c4aa1648",
+      "original_parent_and_fixture_files_preserved": true,
+      "request_scopes": [
+        {
+          "current_registration_reads": 64,
+          "current_source_reads": 4864,
+          "ordered_source_trace_per_registration": [
+            [
+              "tenant-1",
+              "economic_scenario",
+              "scenario-1",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_scenario",
+              "scenario-1",
+              "r1",
+              true
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "h",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "p",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "s",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "price",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "collection",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "discount",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "setoff-amount",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "production-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "production-rate",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "production-paid",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "separate-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "separate-rate",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "separate-paid",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "fee-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "fee-amount",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "opening-cash",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "opening-receivable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "opening-refund-payable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "opening-operating-payable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-cull_disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-opening_inventory",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-returns",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-fixed_costs",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-depreciation",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-assets",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-grants",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-asset_disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-taxes",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-capex",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-loan_draws",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-principal_payments",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-interest_payments",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-debt_accounts",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "settlement_evidence",
+              "self-authored-settlement-1",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "joint_shock",
+              "joint-1",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "joint_shock",
+              "joint-1",
+              "r1",
+              true
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "h",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "p",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "s",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "price",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "collection",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "discount",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "setoff-amount",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "production-q",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "production-rate",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "production-paid",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "separate-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "separate-rate",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "separate-paid",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "fee-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "fee-amount",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "opening-cash",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "opening-receivable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "opening-refund-payable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "opening-operating-payable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-cull_disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-opening_inventory",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-returns",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-fixed_costs",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-depreciation",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-assets",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-grants",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-asset_disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-taxes",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-capex",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-loan_draws",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-principal_payments",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-interest_payments",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-debt_accounts",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "cap-kg",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "settlement_applicability",
+              "binding-1",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "settlement_evidence",
+              "self-authored-settlement-1",
+              "r2",
+              false
+            ]
+          ],
+          "registration_reconstructions": 1,
+          "request": "first_admission",
+          "single_request_witness": true,
+          "source_owned_connection_closed": true,
+          "witness_inactive_after_response": true
+        },
+        {
+          "current_registration_reads": 64,
+          "current_source_reads": 4864,
+          "ordered_source_trace_per_registration": [
+            [
+              "tenant-1",
+              "economic_scenario",
+              "scenario-1",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_scenario",
+              "scenario-1",
+              "r1",
+              true
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "h",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "p",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "s",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "price",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "collection",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "discount",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "setoff-amount",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "production-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "production-rate",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "production-paid",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "separate-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "separate-rate",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "separate-paid",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "fee-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "fee-amount",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "opening-cash",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "opening-receivable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "opening-refund-payable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "opening-operating-payable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-cull_disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-opening_inventory",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-returns",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-fixed_costs",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-depreciation",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-assets",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-grants",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-asset_disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-taxes",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-capex",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-loan_draws",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-principal_payments",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-interest_payments",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "economic_input",
+              "zero-debt_accounts",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "settlement_evidence",
+              "self-authored-settlement-1",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "joint_shock",
+              "joint-1",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "joint_shock",
+              "joint-1",
+              "r1",
+              true
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "h",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "p",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "s",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "price",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "collection",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "discount",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "setoff-amount",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "production-q",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "production-rate",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "production-paid",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "separate-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "separate-rate",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "separate-paid",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "fee-q",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "fee-amount",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "opening-cash",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "opening-receivable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "opening-refund-payable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "opening-operating-payable",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-cull_disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-opening_inventory",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-returns",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-fixed_costs",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-depreciation",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-assets",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-grants",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-asset_disposals",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-taxes",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-capex",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-loan_draws",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-principal_payments",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-interest_payments",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "zero-debt_accounts",
+              "r1",
+              false
+            ],
+            [
+              "tenant-1",
+              "input_rights",
+              "cap-kg",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "settlement_applicability",
+              "binding-1",
+              "r2",
+              false
+            ],
+            [
+              "tenant-1",
+              "settlement_evidence",
+              "self-authored-settlement-1",
+              "r2",
+              false
+            ]
+          ],
+          "registration_reconstructions": 1,
+          "request": "identical_retry",
+          "single_request_witness": true,
+          "source_owned_connection_closed": true,
+          "witness_inactive_after_response": true
+        }
+      ],
+      "requests": [
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.323496034980053,
+          "status": 202
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.418984318996081,
+          "status": 202
+        }
+      ],
+      "retained_25_table_rows_sha256": "ef38cb0c9d160887bfa0f0f0b0598f92eb447cb0fc943b64c51716725f7d7156",
+      "same_job_and_original_input_bytes": true
+    },
+    "leaf-admission-registration-scope-native-late.json": {
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "actual_farm_Runs": 0,
+      "certificate_verified": true,
+      "commit_guard_faults": [
+        {
+          "all_25_table_rows_restored": "3b7a4f77c04734665a574457bbe0197468919abf20780699520738cf6c1676ec",
+          "failed_scope_inactive_and_connection_closed": true,
+          "late_fault": "source",
+          "mutation": {
+            "changed_payload_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+            "kind": "input_rights",
+            "original_payload_sha256": "426bf649504b282f3b6c72a51f09f58e7d91d701dca975ad92efc6905863246e",
+            "record_id": "h",
+            "revision": "r2"
+          },
+          "ordinary_read_and_identical_retry_original_job": true,
+          "original_input_sha256": "1aeab611b8a9d60c1980e0e6c5a817068c7801a000a97a740aa0c41e7bb9ab51",
+          "original_registration_witness_populated_at_commit_guard": true,
+          "status": 422
+        },
+        {
+          "all_25_table_rows_restored": "3b7a4f77c04734665a574457bbe0197468919abf20780699520738cf6c1676ec",
+          "failed_scope_inactive_and_connection_closed": true,
+          "late_fault": "grant",
+          "mutation": {
+            "excess_authority_grant": "UPDATE",
+            "table": "market_source_records"
+          },
+          "ordinary_read_and_identical_retry_original_job": true,
+          "original_input_sha256": "1aeab611b8a9d60c1980e0e6c5a817068c7801a000a97a740aa0c41e7bb9ab51",
+          "original_registration_witness_populated_at_commit_guard": true,
+          "status": 422
+        },
+        {
+          "all_25_table_rows_restored": "3b7a4f77c04734665a574457bbe0197468919abf20780699520738cf6c1676ec",
+          "failed_scope_inactive_and_connection_closed": true,
+          "late_fault": "expiry",
+          "mutation": {
+            "reference_clock_expired_before_current_input": true
+          },
+          "ordinary_read_and_identical_retry_original_job": true,
+          "original_input_sha256": "1aeab611b8a9d60c1980e0e6c5a817068c7801a000a97a740aa0c41e7bb9ab51",
+          "original_registration_witness_populated_at_commit_guard": true,
+          "status": 401
+        }
+      ],
+      "database_sha256_before_after": [
+        [
+          "3b7a4f77c04734665a574457bbe0197468919abf20780699520738cf6c1676ec",
+          25
+        ],
+        [
+          "3b7a4f77c04734665a574457bbe0197468919abf20780699520738cf6c1676ec",
+          25
+        ]
+      ],
+      "growth_worker_producer_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0,
+        "leaf_signed_producer": 0,
+        "leaf_worker": 0
+      },
+      "job_id": "376f0f91-2ce7-40bd-bbe1-d6be2c2684c1",
+      "original_parent_and_fixture_files_preserved": true,
+      "prepared_unpublished_immutable_bindings_permitted": true,
+      "requests": [
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.326484923018143,
+          "status": 202
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 6.973141240014229,
+          "status": 422
+        },
+        {
+          "bytes": 521,
+          "path": "/v1/jobs/376f0f91-2ce7-40bd-bbe1-d6be2c2684c1/crop-leaf-population-execution",
+          "seconds": 13.67955920699751,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.332202949008206,
+          "status": 202
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 6.804312817985192,
+          "status": 422
+        },
+        {
+          "bytes": 521,
+          "path": "/v1/jobs/376f0f91-2ce7-40bd-bbe1-d6be2c2684c1/crop-leaf-population-execution",
+          "seconds": 13.369726384989917,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.298052299011033,
+          "status": 202
+        },
+        {
+          "bytes": 72,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 6.771510277001653,
+          "status": 401
+        },
+        {
+          "bytes": 521,
+          "path": "/v1/jobs/376f0f91-2ce7-40bd-bbe1-d6be2c2684c1/crop-leaf-population-execution",
+          "seconds": 13.37695052701747,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.217149567004526,
+          "status": 202
+        }
+      ]
+    },
+    "leaf_population-HTTP-normal.json": {
+      "actual_SCRAM": true,
+      "certificate_verified": true,
+      "database_sha256_before_after": [
+        [
+          "0747f9867b12185a72fb60e57aaedea8558a9ffbc8ea9e2011be366469d8c11e",
+          25
+        ],
+        [
+          "0747f9867b12185a72fb60e57aaedea8558a9ffbc8ea9e2011be366469d8c11e",
+          25
+        ]
+      ],
+      "original_12_frames": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0
+      },
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 0.004861052992055193,
+          "status": 401
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.257598497992149,
+          "status": 202
+        },
+        {
+          "bytes": 521,
+          "path": "/v1/jobs/da51f590-108f-47b9-924a-b1f56ae57457/crop-leaf-population-execution",
+          "seconds": 13.052540685981512,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.393300569994608,
+          "status": 202
+        },
+        {
+          "bytes": 87,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 6.859713076002663,
+          "status": 409
+        },
+        {
+          "bytes": 67660,
+          "path": "/v1/jobs/da51f590-108f-47b9-924a-b1f56ae57457/crop-leaf-population-execution/replay",
+          "seconds": 13.267023951018928,
+          "status": 200
+        },
+        {
+          "bytes": 8807,
+          "path": "/v1/jobs/da51f590-108f-47b9-924a-b1f56ae57457/crop-leaf-population-execution/frames/11",
+          "seconds": 13.072881917003542,
+          "status": 200
+        },
+        {
+          "bytes": 15268,
+          "path": "/v1/jobs/da51f590-108f-47b9-924a-b1f56ae57457/crop-leaf-population-execution/manifest",
+          "seconds": 13.400877598993247,
+          "status": 200
+        },
+        {
+          "bytes": 1691,
+          "path": "/v1/jobs/da51f590-108f-47b9-924a-b1f56ae57457/crop-leaf-population-execution",
+          "seconds": 13.122558153001592,
+          "status": 200
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/jobs/da51f590-108f-47b9-924a-b1f56ae57457/crop-leaf-population-execution/replay",
+          "seconds": 3.5508912619843613,
+          "status": 422
+        }
+      ],
+      "result": {
+        "binding_sha256": "2768c8821762a78f6cb29ef6366e02b209b0ea605281a53b86d0a71af89535f5",
+        "calculated_at": "2026-10-23T11:03:01.906414Z",
+        "farm": {
+          "crop_id": "crop-1",
+          "registration_sha256": "98cc47790262976aaf88f8cb22b6346183f39ec4e8539cf6c7bff9dd8164473d",
+          "scenario_id": "farm-1",
+          "scenario_revision": "r1"
+        },
+        "input_evidence_sha256": "f28715c22b57224ab20805fea097da237169093327a6dbc8d5dcea641eb400a2",
+        "normalization": "per_tracked_shoot",
+        "numerical_root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+        "parent_calculated_at": "2026-10-23T11:01:17.386523Z",
+        "parent_job_id": "8ca446ac-c4d2-403b-aedc-1e5ce8f57c30",
+        "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "parent_result_sha256": "e5ef49c5e0ace136fbbd976bf9fef08450dba971784fad8369694b10b430086b",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+        "result_sha256": "3ed0599fa7c0cb93db7185dce1344cf84da158ab23bddb3ecee66b05088ffe80",
+        "revision": "r1",
+        "source_sha256": "53e28b88d9095ee9a29b340e5965b5e1603de8237585ed3309222c566be351d9",
+        "study_id": "owned-native-leaf-study"
+      },
+      "same_job_idempotency": true
+    },
+    "leaf_population-HTTP-cancel-expiry.json": {
+      "cancel_after_data_rights_withdrawal": true,
+      "canceled_no_result": true,
+      "expired_registry_denied": true,
+      "late_HTTP_expiry_denied": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0
+      },
+      "requests": [
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.488709308992838,
+          "status": 202
+        },
+        {
+          "bytes": 72,
+          "path": "/v1/jobs/1e4b42fb-5854-441f-937b-783328abe814/crop-leaf-population-execution",
+          "seconds": 14.208929968997836,
+          "status": 401
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/jobs/1e4b42fb-5854-441f-937b-783328abe814/crop-leaf-population-execution",
+          "seconds": 3.8227202480193228,
+          "status": 422
+        },
+        {
+          "bytes": 508,
+          "path": "/v1/jobs/1e4b42fb-5854-441f-937b-783328abe814/crop-leaf-population-execution/cancel",
+          "seconds": 0.10570719401584938,
+          "status": 200
+        },
+        {
+          "bytes": 540,
+          "path": "/v1/jobs/1e4b42fb-5854-441f-937b-783328abe814/crop-leaf-population-execution",
+          "seconds": 13.438333641010104,
+          "status": 200
+        },
+        {
+          "bytes": 72,
+          "path": "/v1/jobs/1e4b42fb-5854-441f-937b-783328abe814/crop-leaf-population-execution",
+          "seconds": 0.0027349540032446384,
+          "status": 401
+        }
+      ]
+    },
+    "leaf_population-HTTP-late-input-parent.json": {
+      "database_sha256_before_after": [
+        [
+          "cee8ea762939ec439ee398fe446b28bd046373f552a2ad5db7b9f5091db3e006",
+          25
+        ],
+        [
+          "cee8ea762939ec439ee398fe446b28bd046373f552a2ad5db7b9f5091db3e006",
+          25
+        ]
+      ],
+      "late_parent_review_revocation_rejected": true,
+      "late_resolver_source_rejected": true,
+      "parent_review_restored": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0
+      },
+      "requests": [
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.506028249015799,
+          "status": 202
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/jobs/28b02cbc-7cd6-4912-a18c-35dc5755fbfc/crop-leaf-population-execution",
+          "seconds": 6.781070192024345,
+          "status": 422
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/jobs/28b02cbc-7cd6-4912-a18c-35dc5755fbfc/crop-leaf-population-execution",
+          "seconds": 7.129894514015177,
+          "status": 422
+        }
+      ]
+    },
+    "leaf-preview-executable-normal.json": {
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "actual_farm_Runs": 0,
+      "both_exact_consumers": true,
+      "certificate_verified": true,
+      "cold_restart_POST_count": 0,
+      "one_completed_attempt": true,
+      "original_12_frames": true,
+      "original_52_leaf_areas": 52,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.006773326022084802,
+          "status": 401
+        },
+        {
+          "bytes": 1389,
+          "path": "/leaf-preview-input",
+          "seconds": 13.532972974004224,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.63816804799717,
+          "status": 202
+        },
+        {
+          "bytes": 67660,
+          "path": "/v1/jobs/ba7e50a3-7584-4eb7-ab37-c803ada8798d/crop-leaf-population-execution/replay",
+          "seconds": 13.650965957000153,
+          "status": 200
+        },
+        {
+          "bytes": 1364,
+          "path": "/v1/jobs/1e243f54-ba21-4a1f-83a5-d0b2896eb37f/crop-morphology-execution",
+          "seconds": 5.624131553020561,
+          "status": 200
+        },
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.006670137983746827,
+          "status": 401
+        },
+        {
+          "bytes": 67660,
+          "path": "/v1/jobs/ba7e50a3-7584-4eb7-ab37-c803ada8798d/crop-leaf-population-execution/replay",
+          "seconds": 13.535250683984486,
+          "status": 200
+        }
+      ],
+      "result": {
+        "binding_sha256": "b49ca23c0149bba0cd2e4a3fc731f4dcf91577da988d806caae4c4eacecfd287",
+        "calculated_at": "2026-10-23T11:09:46.488349Z",
+        "farm": {
+          "crop_id": "crop-1",
+          "registration_sha256": "7f33c653dfafcb94baf1638b32c1aa98e7c13bfaed523bc9e55f65e7f2d15e5e",
+          "scenario_id": "farm-1",
+          "scenario_revision": "r1"
+        },
+        "input_evidence_sha256": "57c786aff0706c6d110837eefe281f726ca78fbe34f3dc94e92dba09d6819219",
+        "normalization": "per_tracked_shoot",
+        "numerical_root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+        "parent_calculated_at": "2026-10-23T11:08:18.412228Z",
+        "parent_job_id": "1e243f54-ba21-4a1f-83a5-d0b2896eb37f",
+        "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "parent_result_sha256": "8f7b05cf51932539f464fe1fbb7d33d99a3df4b8448f60dcb7b65131a9053a78",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+        "result_sha256": "7a82eb8411466e1a5b6a9521502a5d24a0791f1f1734deb52875776d290cc4e3",
+        "revision": "r1",
+        "source_sha256": "53e28b88d9095ee9a29b340e5965b5e1603de8237585ed3309222c566be351d9",
+        "study_id": "owned-native-leaf-study"
+      },
+      "retained_25_table_rows_sha256": "eebe9b60598d73fc879e8d1bd8bb658e49eaccff6212c233ece68964c844ead2",
+      "same_result_after_cold_restart": true,
+      "user_runtime_deployed": false
+    },
+    "leaf-preview-executable-holds.json": {
+      "actual_SCRAM": true,
+      "cancel_after_rights_withdrawal": true,
+      "certificate_verified": true,
+      "current_rights_and_source_file_holds": true,
+      "no_publication": true,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.0058094909763894975,
+          "status": 401
+        },
+        {
+          "bytes": 95,
+          "path": "/leaf-preview-input",
+          "seconds": 3.5824407530017197,
+          "status": 422
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 3.683793038013391,
+          "status": 422
+        },
+        {
+          "bytes": 95,
+          "path": "/leaf-preview-input",
+          "seconds": 0.009126363001996651,
+          "status": 422
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 13.633017735002795,
+          "status": 202
+        },
+        {
+          "bytes": 508,
+          "path": "/v1/jobs/0cb7e5bf-05ec-4336-a0ff-c07f331fbb62/crop-leaf-population-execution/cancel",
+          "seconds": 0.09642976298346184,
+          "status": 200
+        },
+        {
+          "bytes": 540,
+          "path": "/v1/jobs/0cb7e5bf-05ec-4336-a0ff-c07f331fbb62/crop-leaf-population-execution",
+          "seconds": 13.627465526020387,
+          "status": 200
+        }
+      ],
+      "retained_25_table_rows_sha256": "517b2248cc7939adfbca254b5579f0a8de3b43333a6017f5c58b912ae39768c2",
+      "user_runtime_deployed": false
+    },
+    "leaf-preview-executable-default.json": {
+      "SIGINT_joined_all_consumers": true,
+      "actual_SCRAM": true,
+      "certificate_verified": true,
+      "leaf_option_missing_not_exposed": true,
+      "one_original_stem_consumer": true,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.004454542999155819,
+          "status": 401
+        },
+        {
+          "bytes": 1150,
+          "path": "/preview-input",
+          "seconds": 1.8434612669807393,
+          "status": 200
+        },
+        {
+          "bytes": 22,
+          "path": "/leaf-preview-input",
+          "seconds": 0.003404082002816722,
+          "status": 404
+        },
+        {
+          "bytes": 1364,
+          "path": "/v1/jobs/894a480d-362f-4fdd-ad8f-da8539d3eb7a/crop-morphology-execution",
+          "seconds": 5.623352779017296,
+          "status": 200
+        }
+      ],
+      "retained_25_table_rows_sha256": "c584690b4ac532aa126c956afaf54a50edd3d5b877e4285c6d95069ae56d9c43",
+      "user_runtime_deployed": false
+    }
+  },
+  "frozen_source_preflight": {
+    "observed_at_UTC": "2026-10-23T11:19:36.206730+00:00",
+    "passed": true,
+    "actual_SCRAM": true,
+    "certificate_verified_HTTPS": true,
+    "isolated_HTTP_port": true,
+    "runtime_workers_started": false,
+    "original_live_runtime_source_modified": false,
+    "candidate_source_files": 820,
+    "same_original_result": {
+      "binding_sha256": "ab55deffb2f6522dbaa0180bf58847e9deb62e030465ec9af6534c9cc34d23b2",
+      "calculated_at": "2026-10-23T07:35:56.497012Z",
+      "farm": {
+        "crop_id": "crop-1",
+        "registration_sha256": "77e6e3c5c78acda2e286228dc2cb7e028fa1e3d6686d80295c0e621673b78b8c",
+        "scenario_id": "farm-1",
+        "scenario_revision": "r1"
+      },
+      "input_evidence_sha256": "0991d6a97ccb2c6cf64eecfacca8a4e3ec633d791c84f63019f5dafc032da6a8",
+      "normalization": "per_tracked_shoot",
+      "numerical_root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+      "parent_calculated_at": "2026-10-23T05:39:25.597999Z",
+      "parent_job_id": "d324b89d-d065-43f3-8074-d65f9bd8c190",
+      "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+      "parent_result_sha256": "d0b8d881ec0bef297360120e7026a6c1e04d0fb1bba717acb23e95160311d5bf",
+      "profile_applicability": "unvalidated_for_registered_crop",
+      "program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+      "result_sha256": "aa62ffd413f73e5f14eacc9071b73edd87b7b43bec6103c870a106c59d06fd3b",
+      "revision": "r1",
+      "source_sha256": "53e28b88d9095ee9a29b340e5965b5e1603de8237585ed3309222c566be351d9",
+      "study_id": "leaf-951d3047-cc36-4149-9f3f-b0e3018f9293"
+    },
+    "original_12_frames_52_areas": true,
+    "all_product_requests_within_30_seconds": true,
+    "owned_input_metadata_same": true,
+    "POST_count": 0,
+    "requests": [
+      {
+        "path": "/v1/jobs/ea2d7704-7219-4819-a059-afd7951982cc/crop-leaf-population-execution",
+        "status": 401,
+        "seconds": 0.00422963997698389,
+        "bytes": 72,
+        "raw_sha256": "229598df10066d3767750c6c30c29a808879ae9116213edcb781f0985c91252c"
+      },
+      {
+        "path": "/leaf-preview-input",
+        "status": 200,
+        "seconds": 13.2430624650151,
+        "bytes": 1413,
+        "raw_sha256": "af191425e49c3346038396146e7d8f5e2a6dc842f638151841486abdd1db2924"
+      },
+      {
+        "path": "/v1/jobs/ea2d7704-7219-4819-a059-afd7951982cc/crop-leaf-population-execution",
+        "status": 200,
+        "seconds": 13.527430922986241,
+        "bytes": 1709,
+        "raw_sha256": "a84160fe0fe7a89e3e7c70af03d365062630c3b41c3858502c483de496ba16f3"
+      },
+      {
+        "path": "/v1/jobs/ea2d7704-7219-4819-a059-afd7951982cc/crop-leaf-population-execution/replay",
+        "status": 200,
+        "seconds": 13.613803540007211,
+        "bytes": 67696,
+        "raw_sha256": "e5792c44f6b791ab788c051bf16539812f446ba1ef274bcd5dcca574ce78800d"
+      },
+      {
+        "path": "/v1/jobs/ea2d7704-7219-4819-a059-afd7951982cc/crop-leaf-population-execution/frames/0",
+        "status": 200,
+        "seconds": 13.373839487991063,
+        "bytes": 6424,
+        "raw_sha256": "052665e0f19a8c4ba187bf93ac91ca613a2e0f90b009f7ca49e2330ec73893b5"
+      },
+      {
+        "path": "/v1/jobs/ea2d7704-7219-4819-a059-afd7951982cc/crop-leaf-population-execution/frames/11",
+        "status": 200,
+        "seconds": 13.458159232017351,
+        "bytes": 8843,
+        "raw_sha256": "06a67657e86e701bc1cf3f81542a61513fa4265b4e34e9ed0162fc5a351e577a"
+      },
+      {
+        "path": "/v1/jobs/ea2d7704-7219-4819-a059-afd7951982cc/crop-leaf-population-execution/manifest",
+        "status": 200,
+        "seconds": 13.287627523997799,
+        "bytes": 15304,
+        "raw_sha256": "410776b6fa2e51396c0a1a3807dff2bed7ffd5f0e1a267de64ef499800453ebf"
+      },
+      {
+        "path": "/v1/jobs/74cb550e-8e75-49ed-b166-be7bcacb5631/crop-leaf-population-execution",
+        "status": 200,
+        "seconds": 13.470261405018391,
+        "bytes": 540,
+        "raw_sha256": "539e0625cd6e0e8a235f9bff5ef4bc9ed7e148c79de9efbbe7fccb31cefce858"
+      }
+    ],
+    "application_25_tables_before_after_sha256": "586fa1a1fe090e84997ab2a9b93ae059d618bdd52aa7f8f3f232193a48203797",
+    "signed_files_preserved": 66,
+    "growth_CLI_calls": {
+      "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+      "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+      "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+      "crop_rational_internode_length.initialize_rational_internode_length": 0,
+      "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+      "crop_rational_internode_length.advance_rational_internode_length": 0,
+      "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+      "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+      "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+      "crop_new_internodes.create_internodes_from_shoot_events": 0,
+      "crop_shoot_timeline.advance_shoot_event_timeline": 0,
+      "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+      "crop_internode_length.calculate_internode_length_point": 0,
+      "crop_internode_length.initialize_internode_length": 0,
+      "crop_internode_length.normalize_internode_length_state": 0,
+      "crop_internode_length.advance_internode_length": 0,
+      "crop_internode_length_change.normalize_internode_curve": 0,
+      "crop_internode_length_change.calculate_internode_length_change": 0,
+      "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+      "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+      "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+      "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+      "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+      "crop_internode_elongation.calculate_internode_elongation": 0,
+      "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+      "CLI": 0,
+      "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+      "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+      "crop_leaf_area_change.calculate_leaf_area_change": 0,
+      "crop_leaf_area.calculate_leaf_area_point": 0,
+      "crop_leaf_area.initialize_leaf_area": 0,
+      "crop_leaf_area.normalize_leaf_area_state": 0,
+      "crop_leaf_area.advance_leaf_area": 0,
+      "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+      "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+      "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+      "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+      "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+      "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+      "crop_leaf_inventory.initialize_leaf_inventory": 0,
+      "crop_leaf_inventory.advance_leaf_inventory": 0,
+      "crop_declared_leaf_births.create_declared_leaves": 0,
+      "crop_leaf_population.normalize_leaf_population_state": 0,
+      "crop_leaf_population.initialize_leaf_population": 0,
+      "crop_leaf_population.advance_leaf_population": 0,
+      "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+      "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+      "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0
+    },
+    "persistent_writes": {
+      "submit": 0,
+      "publish": 0,
+      "record_decision": 0,
+      "_insert_publication": 0,
+      "_event": 0,
+      "_durable_content": 0,
+      "artifact.put": 0
+    },
+    "SQL_writes": [],
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed"
+  },
+  "frozen_source_preflight_terminal": {
+    "observed_at_UTC": "2026-10-23T11:19:37.278335Z",
+    "child_exit": 0,
+    "hold_reason": null,
+    "wall_seconds": 96.51374967300217,
+    "PID_peak_RSS_bytes": 106258432,
+    "combined_peak_RSS_bytes": 492126208,
+    "samples": 374,
+    "sample_interval_seconds": 0.25,
+    "optional_resource_root_count": 0,
+    "live_protected_roots": 3,
+    "protected_live": true,
+    "historical_six_terminated_before_phase": true,
+    "current_2148_originals_and_artifacts_static_entries_preserved": true,
+    "watched_entries": 2481,
+    "source_preserved": true,
+    "source_count": 3419,
+    "owned_remaining": 0,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "log_sha256": "e76a24819b43c1d2df687ae8c6dc01aa6e66833afb94a34b3dbddfedfbf456ad",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed",
+    "full_suite": false
+  },
+  "source_sha256": {
+    "backend/app/api_crop_leaf_population_execution.py": "5e8cc84fc75edcd9cc11d2ea6e81c8a4072b73ba3c041f33cb294eb23d4b4e54",
+    "research/owned_leaf_population_preview.py": "56865c906199b838c89a757b5dfa01f3a95196e695888844d7ad0af2c32d533c",
+    "backend/tests/test_api_crop_leaf_population_execution.py": "a51a2ea1050a9a4612569df8d7cb1537decab3a5281fbed22671b940593ca5e1",
+    "backend/tests/test_leaf_admission_registration_scope_native.py": "6bb96468bb62a9c0b0312fa0e8a7c529d6d4be760cb4748ee82bceb8682caa99"
+  },
+  "unchanged_signed_admission_code_sha256": "9a2132f2309ee73f5b272baf01d25c280944b2f4845f7058f1af4ff1c0a8632b",
+  "query_source_unchanged": true,
+  "all_numeric_and_signed_authority_sources_unchanged": true,
+  "source_snapshot_files": 820,
+  "snapshot_changed_from_query_version": [
+    "backend/app/api_crop_leaf_population_execution.py",
+    "research/owned_leaf_population_preview.py"
+  ],
+  "fresh_current_source_reads_per_admission": 4864,
+  "registration_reconstructions_per_request": 1,
+  "baseline_diagnostic": "research/artifacts/leaf-admission-cost-observation-20261023.json",
+  "normal_client_deadline_seconds": 30,
+  "new_user_runtime_applied": false,
+  "worker_concurrent_identical_POST30s_accepted": false,
+  "current_SDK_new_automatic_job3D_accepted": false,
+  "review": {
+    "correctness": "validated server tenant/farm, exact existing graph; original submit and commit_guard retained",
+    "architecture": "only caller scopes; old intent/signed fingerprints kept; no new service or dependency",
+    "security": "all current source reads, rights/scopes and rollback fences retained; no cross-request cache; fixed public errors",
+    "performance": "actual first/retry202 13.3/13.4 seconds; metadata13.5 seconds; no increased timeout"
+  },
+  "full_backend_suite": false,
+  "new_hosted_CI_this_slice": false,
+  "web_source_changed": false,
+  "actual_farm_Runs": 0,
+  "independent_local_crop_cycles": 0,
+  "G0_G4": "not_assessed",
+  "remaining": [
+    "user immutable rollout with same database and keys",
+    "actual worker-concurrent same POST within30s",
+    "current SDK input to one new job automatic3D without manual recovery",
+    "real cultivar/farm validation, production/resources/Decimal economics/autonomous choice and R2/cold warning"
+  ],
+  "implementation_commit": "6bad7dd501195a07b15e1fc810aae9d50e7ebee6",
+  "snapshot_descriptor": {
+    "base_commit": "4f1f523bf816e629f964e2edb3e55f7e48a01a79",
+    "query_commit": "7d9c2899341d22ba5d783f5fba79c97bc8bc6269",
+    "caller_commit": "6bad7dd501195a07b15e1fc810aae9d50e7ebee6",
+    "all_executable_sources_match_caller_commit": true,
+    "preserved_historical_contracts": [
+      "contracts/crop-leaf-population-execution-v1.md"
+    ],
+    "full_checkout": false
+  }
+}
