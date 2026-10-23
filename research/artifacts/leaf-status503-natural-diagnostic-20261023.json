@@ -1,0 +1,550 @@
+{
+  "G0_G4": "not_assessed",
+  "HTTP503_reproduced": true,
+  "POST_count": 1,
+  "actual_PG_settings": {
+    "max_connections": "12",
+    "shared_buffers": "4MB",
+    "superuser_reserved_connections": "3"
+  },
+  "actual_SCRAM": true,
+  "actual_farm_Runs": 0,
+  "all_observed_HTTP503_are_query_Pending": true,
+  "certificate_verified_TLS": true,
+  "completed_attempt_count": 1,
+  "diagnostic_only": true,
+  "independent_owned_executable_automatic_consumers": true,
+  "job_id": "42ac77b5-f6d7-4f07-a6e4-fc02319e0d78",
+  "normal_performance_acceptance": false,
+  "original_12_frames_52_areas": true,
+  "previous_live_two503_cause": "not_established_by_this_trial",
+  "private_request_or_SQL_logged": false,
+  "query_observations": [
+    {
+      "after_attempt": 1,
+      "after_state": "simulating",
+      "before_attempt": 0,
+      "before_state": "queued",
+      "bundle_reads": 2,
+      "changed_job_columns": [
+        "attempt_count",
+        "lease_token",
+        "lease_until",
+        "state",
+        "updated_at"
+      ],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {},
+      "event_kinds_before": {},
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "LeafPopulationExecutionQueryPending",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 18.04144197999267,
+      "sequence": 1,
+      "started_monotonic": 191881.725333399,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "simulating",
+      "before_attempt": 1,
+      "before_state": "simulating",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 18.3958064429753,
+      "sequence": 2,
+      "started_monotonic": 191904.781355909,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "simulating",
+      "before_attempt": 1,
+      "before_state": "simulating",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 18.188241127005313,
+      "sequence": 3,
+      "started_monotonic": 191926.725498223,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "simulating",
+      "before_attempt": 1,
+      "before_state": "simulating",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 18.361946954013547,
+      "sequence": 4,
+      "started_monotonic": 191948.444955964,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "simulating",
+      "before_attempt": 1,
+      "before_state": "simulating",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 18.18609091299004,
+      "sequence": 5,
+      "started_monotonic": 191970.328912538,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "simulating",
+      "before_attempt": 1,
+      "before_state": "simulating",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 18.17435795298661,
+      "sequence": 6,
+      "started_monotonic": 191992.061023615,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "simulating",
+      "before_attempt": 1,
+      "before_state": "simulating",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 18.13517983397469,
+      "sequence": 7,
+      "started_monotonic": 192013.762983657,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "simulating",
+      "before_attempt": 1,
+      "before_state": "simulating",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 18.242417711007874,
+      "sequence": 8,
+      "started_monotonic": 192035.43868942,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "succeeded",
+      "before_attempt": 1,
+      "before_state": "simulating",
+      "bundle_reads": 2,
+      "changed_job_columns": [
+        "lease_token",
+        "lease_until",
+        "state",
+        "updated_at"
+      ],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1,
+        "leaf_population_result_registered_v1": 1,
+        "succeeded": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1
+      },
+      "events_changed": true,
+      "invocations_changed": false,
+      "outcome": "LeafPopulationExecutionQueryPending",
+      "outcomes_changed": true,
+      "publications_changed": true,
+      "seconds": 15.66988103199401,
+      "sequence": 9,
+      "started_monotonic": 192057.250284379,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "succeeded",
+      "before_attempt": 1,
+      "before_state": "succeeded",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1,
+        "leaf_population_result_registered_v1": 1,
+        "succeeded": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1,
+        "leaf_population_result_registered_v1": 1,
+        "succeeded": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 13.340983305999544,
+      "sequence": 10,
+      "started_monotonic": 192077.931826097,
+      "view": "status"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "succeeded",
+      "before_attempt": 1,
+      "before_state": "succeeded",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1,
+        "leaf_population_result_registered_v1": 1,
+        "succeeded": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1,
+        "leaf_population_result_registered_v1": 1,
+        "succeeded": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 13.567426911002258,
+      "sequence": 11,
+      "started_monotonic": 192091.289394188,
+      "view": "replay"
+    },
+    {
+      "after_attempt": 1,
+      "after_state": "succeeded",
+      "before_attempt": 1,
+      "before_state": "succeeded",
+      "bundle_reads": 2,
+      "changed_job_columns": [],
+      "event": "owned_leaf_query_diagnostic",
+      "event_kinds_after": {
+        "leaf_population_calculation_started_v1": 1,
+        "leaf_population_result_registered_v1": 1,
+        "succeeded": 1
+      },
+      "event_kinds_before": {
+        "leaf_population_calculation_started_v1": 1,
+        "leaf_population_result_registered_v1": 1,
+        "succeeded": 1
+      },
+      "events_changed": false,
+      "invocations_changed": false,
+      "outcome": "returned",
+      "outcomes_changed": false,
+      "publications_changed": false,
+      "seconds": 13.150954137003282,
+      "sequence": 12,
+      "started_monotonic": 192104.914036136,
+      "view": "status"
+    }
+  ],
+  "reads_before_after25_tables_unchanged": true,
+  "requests": [
+    {
+      "bytes": 72,
+      "path": "/leaf-preview-input",
+      "seconds": 0.006825481017585844,
+      "status": 401
+    },
+    {
+      "bytes": 237,
+      "path": "/v1/crop-leaf-population-executions",
+      "seconds": 13.42182662099367,
+      "status": 202
+    },
+    {
+      "bytes": 108,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 18.05141012900276,
+      "status": 503
+    },
+    {
+      "bytes": 525,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 18.434308866009815,
+      "status": 200
+    },
+    {
+      "bytes": 525,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 18.225217797007645,
+      "status": 200
+    },
+    {
+      "bytes": 525,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 18.386522532993695,
+      "status": 200
+    },
+    {
+      "bytes": 525,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 18.205709884001408,
+      "status": 200
+    },
+    {
+      "bytes": 525,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 18.22130112198647,
+      "status": 200
+    },
+    {
+      "bytes": 525,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 18.161895444005495,
+      "status": 200
+    },
+    {
+      "bytes": 525,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 18.280067624989897,
+      "status": 200
+    },
+    {
+      "bytes": 108,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 15.730417657003272,
+      "status": 503
+    },
+    {
+      "bytes": 1691,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 13.357948029995896,
+      "status": 200
+    },
+    {
+      "bytes": 67660,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution/replay",
+      "seconds": 13.584619205008494,
+      "status": 200
+    },
+    {
+      "bytes": 1691,
+      "path": "/v1/jobs/42ac77b5-f6d7-4f07-a6e4-fc02319e0d78/crop-leaf-population-execution",
+      "seconds": 13.166357165988302,
+      "status": 200
+    }
+  ],
+  "result": {
+    "binding_sha256": "cfc8a4368310c185634288c39ae19d698ce4ea9108fd11bf7998125f268d13d6",
+    "calculated_at": "2026-10-23T12:52:52.081856Z",
+    "farm": {
+      "crop_id": "crop-1",
+      "registration_sha256": "b715168571e690fe525eb36620195918b551c13f209323fc82a4e8f5409767b9",
+      "scenario_id": "farm-1",
+      "scenario_revision": "r1"
+    },
+    "input_evidence_sha256": "e652187b9b4b12c5f161ef3851b6e86e36c2cda7fcee298ca56960b35d5dcf80",
+    "normalization": "per_tracked_shoot",
+    "numerical_root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+    "parent_calculated_at": "2026-10-23T12:51:27.362037Z",
+    "parent_job_id": "eb8a101a-8c62-4c19-86ad-09d7149a2d98",
+    "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+    "parent_result_sha256": "ffb40810ca808d071f3c4e830874e2ebda7816bef8bce9bb4dc0ac002927465e",
+    "profile_applicability": "unvalidated_for_registered_crop",
+    "program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+    "result_sha256": "b86a8098314b05e0fcc737ef2ea36cc6481d57dbb9d001b91085e1fa79c4d71e",
+    "revision": "r1",
+    "source_sha256": "53e28b88d9095ee9a29b340e5965b5e1603de8237585ed3309222c566be351d9",
+    "study_id": "owned-native-leaf-study"
+  },
+  "retained25_excluding_newjob_before_after": true,
+  "status_results": [
+    {
+      "state": null,
+      "status": 503
+    },
+    {
+      "state": "simulating",
+      "status": 200
+    },
+    {
+      "state": "simulating",
+      "status": 200
+    },
+    {
+      "state": "simulating",
+      "status": 200
+    },
+    {
+      "state": "simulating",
+      "status": 200
+    },
+    {
+      "state": "simulating",
+      "status": 200
+    },
+    {
+      "state": "simulating",
+      "status": 200
+    },
+    {
+      "state": "simulating",
+      "status": 200
+    },
+    {
+      "state": null,
+      "status": 503
+    },
+    {
+      "state": "succeeded",
+      "status": 200
+    }
+  ],
+  "synthetic_fixture": true,
+  "unknown_error_observed": false,
+  "worker_pauses_or_barriers": false,
+  "schema_version": "leaf-status503-natural-diagnostic-evidence-v1",
+  "observed_at_UTC": "2026-10-23T12:55:57.067512Z",
+  "native_model": {
+    "timestamp": "2026-10-23T10:43:15.369Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "fe05173d583b9e416162be1565dda9ebd3af2a255a5c41d4345380fc623c8ae9",
+    "recursive_CLI": 0
+  },
+  "guard": {
+    "observed_at_UTC": "2026-10-23T12:55:57.067512Z",
+    "child_exit": 0,
+    "hold_reason": null,
+    "wall_seconds": 284.3655104879872,
+    "PID_peak_RSS_bytes": 99299328,
+    "combined_peak_RSS_bytes": 644116480,
+    "samples": 1073,
+    "sample_interval_seconds": 0.25,
+    "optional_resource_root_count": 0,
+    "live_protected_roots": 3,
+    "protected_live": true,
+    "historical_six_terminated_before_phase": true,
+    "current_2148_originals_and_artifacts_static_entries_preserved": true,
+    "watched_entries": 2481,
+    "source_preserved": true,
+    "source_count": 3425,
+    "owned_remaining": 0,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "log_sha256": "fa3ea426698a130fa8e857454e4eefd0dea70ef5becb47c0ba5688e29a721014",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed",
+    "full_suite": false
+  },
+  "private_proof_sha256": "6b706a8bffba4dd6815bb21d6c167a78a58367e09d603b21bf572e83718f0e29",
+  "observer_source_sha256": {
+    "leaf_status503_bootstrap_v3.private.py": "1bf2a891375e52fb8c6a39b22a4ac2736975757bb4becefd5b3303f629969212",
+    "test_leaf_status503_diagnostic_v3.py": "2be3d9a95acfef6273257af5bd4baf824c249f0c1a95a0f809abb2fe295e50b6"
+  },
+  "failed_observer_setup": [
+    {
+      "phase": "v1",
+      "failure": "JobStore_used_as_configuration_mapping",
+      "before_POST": true,
+      "source_and_originals_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "phase": "v2",
+      "failure": "dict_row_SHOW_result_accessed_by_integer",
+      "before_POST": true,
+      "source_and_originals_preserved": true,
+      "owned_remaining": 0
+    }
+  ],
+  "product_code_changed": false,
+  "user_runtime_or_DB_changed": false,
+  "new_hosted_CI": false,
+  "full_backend_suite": false
+}

@@ -53,7 +53,7 @@ shared_buffers4MiB·HTTP30초/2MiB·WSL512MiB/PID/합1GiB는 유지했다.
 해당 v8 PG 로그의 FATAL/ERROR는0이지만 이것만으로 원인을 확정할 수 없다.
 현재 query는 읽는 동안 job bundle이 달라질 때 Pending을 내고, HTTP는 Pending/그 밖의 내부 오류를
 같은503으로 투영한다. 본문을 얻지 못한 두 응답을 사후에 특정 Pending으로 확정하지 않는다.
-다음 작은 진단은 별도 합성 새 작업의 실제 무중단 worker/상태 조회에서 예외 분류와 요청 시점을
+당시 다음 작은 진단은 별도 합성 새 작업의 실제 무중단 worker/상태 조회에서 예외 분류와 요청 시점을
 비공개 값 없이 대조하는 것이다. 필요한 수정은 관측 뒤에만 별도 제안한다.
 원 사용자 경로/시간/현재 권리·수치 코드와 생산 관문은 유지하며 운영/clean console은 계속 보류한다.
 
@@ -78,3 +78,25 @@ Windows Chrome 메모리는 WSL 합계에 포함하지 않았다.
 **1.5–3집중시간**으로 배정한다. 검토 전 구현 완료 날짜를 확정하지 않는다.
 Axiany 실제 계수/forcing·독립 작기 확보0은 합성 개발과 병행한다.
 생산/자원/경제·수급/거시·자율 작물 비교·최종 사실감 R2/제품 UI·G0–G4는 미완료이며 전체 완료일은 미정이다.
+
+
+## 별도 실제503 분류 진단
+
+[독립 진단 증거](artifacts/leaf-status503-natural-diagnostic-20261023.json)를 수용했다.
+별도 SCRAM·검증 TLS/owned 실행 파일과 정상 자동 consumer에서 새 합성 작업을 한 번 접수했다.
+PG12/reserved3/4MiB·HTTP30초와 현재 수치/worker·조회 소스를 유지하고 별도 observer만 적용했다.
+관측은 예외 종류·두 원 bundle의 상태/변경 열 이름·사건 종류/건수뿐이며 원 입력·키/토큰/SQL은 기록하지 않았다.
+인위적 worker 정지/장벽이나 추가 DB 조회를 넣지 않았다.
+
+상태 조회10개 중 두503은 각각 `LeafPopulationExecutionQueryPending`과 일대일 대응했다.
+첫 조회는 queued→simulating/attempt0→1, 두 번째는 simulating→succeeded와 원자 결과/사건/완료 참조 변경이었다.
+그 밖의 일반 내부 오류는0이며 이후200/완료 attempt1·원12frame/52면적을 확인했다.
+별도 진단 요청 최대18.435초는 계측 실행 관측이며 정상 성능 수용으로 더하지 않는다.
+완료 뒤 읽기 전후25표와 새 job 제외 원25표가 같았고 실제 실행/PG·역할/스키마를 정리했다.
+
+첫 두 observer 준비 오류(JobStore/config 혼동, dict-row SHOW 접근)는 executable/POST 전 실패로 보존했다.
+최종 guard284.366초·합산 RSS644,116,480bytes/소유 잔류0·FD4→4·원3root/2,481항목/소스를 보존했다.
+사용자 runtime/DB/화면과 제품 코드는 변경하지 않았다. 전체 backend/새 hosted CI도 실행하지 않았다.
+이 진단은 정상 상태 전환에서의 Pending과 복구를 설명하지만 이전 사용자 두 응답을 사후 확정하지 않는다.
+기존 제한 GET 복구와 원자 현재성 검사를 유지하며 추가 기반 변경은 하지 않는다.
+위0.75–1.5시간 진단 계획은 실제 수용으로 대체하고 다음 작물 계산/출현 정책을 진행한다.
