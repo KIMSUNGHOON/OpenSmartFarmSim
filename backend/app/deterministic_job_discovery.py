@@ -22,6 +22,7 @@ INPUT_VERSIONS = frozenset({
     'joint-co2-solar-execution-input-v1',
     'morphology-execution-input-v1',
     'leaf-population-execution-input-v1',
+    'leaf-appearance-execution-input-v1',
 })
 
 

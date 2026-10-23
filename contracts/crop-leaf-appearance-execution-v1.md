@@ -3,6 +3,7 @@
 상태: [E1 신규13/순수185·실제 SCRAM2 수용](../research/crop-leaf-appearance-execution-admission-20261024.md).
 E2는 [참조9/순수·관련203·실제 SCRAM9](../research/crop-leaf-appearance-execution-worker-20261024.md)로 수용했다.
 E3는 [신규25/순수·관련244·실제 SCRAM7과 독립 fresh](../research/crop-leaf-appearance-execution-query-20261024.md)로 수용했다.
+기존 자동 consumer 연결도 신규12/제어·관련148·실제 SCRAM1로 수용했다.
 선행은 [appearance 서버 계산/현재 조회](crop-leaf-appearance-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 재사용한다.
 새 큐/표·역할이나 수치 모델/원 결과·사용자 runtime 변경은 없다.
@@ -69,3 +70,15 @@ status/manifest도 마지막 시점이 원 기간 끝에 해당하는지 확인�
 등록 읽기 scope는 요청 내부에 한정되며 요청 간 권리 cache를 만들지 않는다.
 내부 단독 관측은 HTTP30초/U1 수용과 구분한다. 자동 consumer의 정확 판본/worker/outcome 등록,
 보호 API/runtime·같은 job3D·메뉴/reload와 실제 자료/G0–G4는 후속이다.
+
+## 기존 자동 consumer 연결
+
+leaf-appearance-execution-input-v1과 정확 LeafAppearanceExecutionWorker/LeafAppearanceExecutionOutcome을
+기존 discovery 허용 목록과 DeterministicWorkerLoop에 명시 등록한다.
+구성은 비어 있거나 다른 모델/혼합 판본일 수 없으며 기본 구성에서 실행하지 않는다.
+기존 전경 명령은 operator factory를 요구한다. 구성 생성 자체는 계산을 시작하지 않는다.
+다른 타입/다른 job/미종결 outcome은 종료 메타데이터로 게시하지 않는다.
+
+실제 discovery→1계산/원자 완료·같은 원12frame/47면적과 현재 두 Scope 철회 거부,
+다른 두 queued 판본/원25표 행·parent18파일 보존·완료 재선택0을 확인했다.
+새 큐/서비스나 수치 모델은 추가하지 않았다. 보호 API/owned runtime·같은 job3D는 후속이다.
