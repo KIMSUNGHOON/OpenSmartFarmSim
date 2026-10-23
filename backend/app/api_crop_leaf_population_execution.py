@@ -1,4 +1,5 @@
 """Authenticated leaf_population admission, current stored reads, and cancellation."""
+from contextlib import nullcontext
 from datetime import datetime, timezone
 from hashlib import sha256
 import json
@@ -215,7 +216,13 @@ def install_leaf_population_execution_routes(app, *, jobs, admission, query, pri
             raw = current.execution.signed.reader._canonical(body.model_dump(mode='json'))
         except JsonRequestRejected as exc: return error(exc.status, exc.code, exc.message)
         except (ClientDisconnect, ValueError, UnicodeError, RecursionError): return error(422, 'invalid_request', 'Invalid request')
-        def action(): return jobs_public.public_job_status(admission.submit(tenant, raw)).model_dump(mode='json')
+        def action():
+            current_farms = admission.authority.farm_binding.farms.farms
+            ref = body.farm
+            scope = (current_farms.registration_read_scope(tenant, ref.scenario_id, ref.scenario_revision,
+                ref.registration_sha256) if current_farms._registration_read.get() is None else nullcontext())
+            with scope:
+                return jobs_public.public_job_status(admission.submit(tenant, raw)).model_dump(mode='json')
         return await invoke(tenant, SUBMIT_SCOPES, action, jobs_public.JobStatus, 202)
 
     async def read(request, job_id, view, index=None):

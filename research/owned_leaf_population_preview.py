@@ -1,4 +1,5 @@
 """Explicit owned synthetic leaf dependencies for the existing preview server."""
+from contextlib import nullcontext
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -110,12 +111,17 @@ def attach_leaf_population(app, *, config, parent_query, tenant_id, read_private
                 if chunk: return error(422, 'invalid_request', 'Invalid request')
         except ClientDisconnect: return error(422, 'invalid_request', 'Invalid request')
         def current():
-            packet = admission._resolve(tenant, config['request'])
-            first = binding.prepare(tenant, request_raw, **packet)
-            value = {'schema_version': 'owned-leaf-population-preview-input-v1', **execution.signed.FLAGS,
-                'label': config['label'], 'request': json.loads(request_raw)}
-            if binding.current(tenant, request_raw, first, **packet, write=True) != first: raise ValueError()
-            return execution.signed.reader._canonical(value)
+            farms = parent.farm_binding.farms
+            ref = config['request']['farm']
+            scope = (farms.registration_read_scope(tenant, ref['scenario_id'], ref['scenario_revision'],
+                ref['registration_sha256']) if farms._registration_read.get() is None else nullcontext())
+            with scope:
+                packet = admission._resolve(tenant, config['request'])
+                first = binding.prepare(tenant, request_raw, **packet)
+                value = {'schema_version': 'owned-leaf-population-preview-input-v1', **execution.signed.FLAGS,
+                    'label': config['label'], 'request': json.loads(request_raw)}
+                if binding.current(tenant, request_raw, first, **packet, write=True) != first: raise ValueError()
+                return execution.signed.reader._canonical(value)
         raw = None; failure = None
         try: raw = await run_in_threadpool(current)
         except PermissionError: failure = error(403, 'forbidden', 'Owned preview access denied')

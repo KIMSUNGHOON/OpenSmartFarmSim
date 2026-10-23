@@ -1,5 +1,7 @@
 """Authenticated leaf-population HTTP transport controls; stubs are not DB/TLS proof."""
 import asyncio
+from contextlib import contextmanager
+from contextvars import ContextVar
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 import importlib
@@ -78,6 +80,17 @@ def assembly(route, monkeypatch, *, scopes=None):
     monkeypatch.setattr(admission, '_binding', lambda: None); monkeypatch.setattr(query, '_binding', lambda: None)
     state = {'calls': [], 'error': None, 'hook': None}; row = {'job_id': JOB, 'stage': 'simulation', 'state': 'queued',
         'attempt_count': 0, 'max_attempts': 3, 'created_at': NOW, 'updated_at': NOW, 'reason': None}
+    farms = SimpleNamespace(_registration_read=ContextVar('owned_HTTP_registration', default=None), entered=[], exited=[])
+    @contextmanager
+    def registration_scope(*args):
+        assert farms._registration_read.get() is None
+        token = farms._registration_read.set(args); farms.entered.append(args)
+        try: yield
+        finally:
+            farms._registration_read.reset(token); farms.exited.append(args)
+    farms.registration_read_scope = registration_scope
+    admission.authority = SimpleNamespace(farm_binding=SimpleNamespace(farms=SimpleNamespace(farms=farms)))
+    state['farms'] = farms
     def submit(tenant, raw):
         state['calls'].append(('submit', tenant, json.loads(raw)))
         if state['hook']: state['hook']()
@@ -113,6 +126,30 @@ def test_valid_admission_is_queued_and_never_calculates(route, monkeypatch):
     assert state['calls'][0][1] == 'tenant-1' and headers[b'cache-control'] == b'no-store'
 
 
+@pytest.mark.parametrize('failure,status', [(None,202), (execution.LeafPopulationExecutionHold,422),
+    (PermissionError,403), (execution.JobIntentConflict,409), (RuntimeError,503)])
+def test_admission_uses_verified_request_scope_and_closes_on_every_outcome(route, monkeypatch, failure, status):
+    app, state = assembly(route, monkeypatch); farms = state['farms']; observed = []
+    state['hook'] = lambda: observed.append(farms._registration_read.get())
+    if failure is not None: state['error'] = failure('private source detail')
+    result, value, _ = call(app)
+    ref = BODY['farm']; expected = ('tenant-1', ref['scenario_id'], ref['scenario_revision'], ref['registration_sha256'])
+    assert result == status and 'private' not in json.dumps(value)
+    assert observed == farms.entered == farms.exited == [expected]
+    assert farms._registration_read.get() is None and current_principal() is None
+
+
+def test_admission_reuses_existing_registration_scope_without_nesting(route, monkeypatch):
+    app, state = assembly(route, monkeypatch); farms = state['farms']; observed = []
+    state['hook'] = lambda: observed.append(farms._registration_read.get())
+    ref = BODY['farm']; expected = ('tenant-1', ref['scenario_id'], ref['scenario_revision'], ref['registration_sha256'])
+    with farms.registration_read_scope(*expected):
+        assert call(app)[0] == 202
+        assert observed == farms.entered == [expected] and farms.exited == []
+        assert farms._registration_read.get() == expected
+    assert farms.exited == [expected] and farms._registration_read.get() is None
+
+
 @pytest.mark.parametrize('fault', ['extra', 'missing', 'rights', 'redistribute', 'source', 'duplicate', 'nan', 'utf8', 'size', 'query', 'parent_missing', 'parent_job', 'parent_extra'])
 def test_bad_request_never_dispatches(route, monkeypatch, fault):
     app, state = assembly(route, monkeypatch); body = deepcopy(BODY); query = b''; expected = 422
@@ -131,6 +168,7 @@ def test_bad_request_never_dispatches(route, monkeypatch, fault):
     elif fault == 'size': raw = b'x'*65537; expected = 413
     elif fault == 'query': query = b'tenant_id=foreign'
     assert call(app, body=raw, query=query)[0] == expected and state['calls'] == []
+    assert state['farms'].entered == state['farms'].exited == []
 
 
 def test_missing_auth_scope_and_disabled_have_no_dispatch(route, monkeypatch):
