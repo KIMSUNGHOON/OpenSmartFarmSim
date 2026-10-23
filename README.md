@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**실행 화면 현재 — 2026-10-23 KST:** [새 잎 실행 화면](http://localhost:5176/leaf-population-execution.html)에 strict SDK/상태·접수 보존·같은 UTC의 3D를 연결했습니다. [검증/보류](research/leaf-population-execution-web-20261023.md)에서 단위53·브라우저14/타입·빌드, 실제 UI 접수2/취소1·완료1을 확인합니다. 새 완료 결과의 현재 조회가 기존30초를 넘으므로 현재 SDK의 전체 live UI 경로는 미수용입니다. 원인 관측과 기존 농장 등록 읽기 scope 후보의34.921/31.862→13.782/13.961초 비교를 기록했고 제품 backend는 변경하지 않았습니다. 다음은 후보의 현재성/철회·동시성 검증→최소 적용/독립 HTTPS→새 작업3D입니다. 실제 품종/독립 작기0·생산/자원/경제·자율 선정·최종 사실감 R2/G0–G4와 전체 완료일은 미완료/미정입니다.
+**실행 화면 현재 — 2026-10-23 KST:** [새 잎 실행 화면](http://localhost:5176/leaf-population-execution.html)에서 기존 실제 UI 접수 완료 작업의 저장3D/12시점·메뉴/reload와 현재 권리 철회 제거·원복을 확인했습니다. [조회 수정/65검사·실제 HTTPS/Chrome·보류](research/leaf-population-query-registration-scope-20261023.md)에서 재구성64→1/현재 원천4,864회 유지와 실제 화면 조회13.8–13.9초·POST0, 원 DB/키·결과 보존을 확인합니다. 별도 불변 snapshot의 query만7d9c289로 적용했습니다. 입력 확인/첫 접수 POST와 계산 중 동일 retry30초·새 계산→자동3D는 미수용입니다. 다음은 접수 비용 관측→최소 수정→기존30초·현재성/같은 job·새 자동3D 검증입니다. 실제 품종/독립 작기0·생산/자원/경제·자율 선정·최종 사실감 R2/G0–G4와 전체 완료일은 미완료/미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

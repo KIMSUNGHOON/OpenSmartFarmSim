@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 [농장/parent 결속35/fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했고 [leaf 서명 결과38/fresh](../research/crop-leaf-population-signed-artifact-20261023.md)를 수용했고 E1–E3·기존 consumer에 이어 [보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)도 수용했다. [소유 runtime 조립15검사](../research/owned-leaf-population-preview-20261023.md)도 수용했다. [사용자 leaf API 기능 연결](../research/leaf-population-execution-live-20261023.md)도 검증했다. 다음은 strict SDK/같은 job의 제품3D이며 계산 중 동일 retry30초/504와 부모 runtime 미완료를 유지한다. 소유 시험의 단일30초는 통과했고 공통 U1/사용자 배포는 미수용이다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
+**2026-10-23 현재:** [현재 조회/실제 저장 job3D 수용](../research/leaf-population-query-registration-scope-20261023.md):65검사·별도 실제 HTTPS7응답과 같은 origin의 실제 Chrome12시점/메뉴/reload/권리 철회·복원/POST0을 확인했습니다. 원 DB·키·결과와 기존 화면을 보존해 query 코드7d9c289만 별도 snapshot에 적용했고 보호3root가 생존합니다. 다음 한 단계는 입력 확인/첫 접수 POST30초와 기존 계산 중 retry504의 비용 관측→최소 수정→새 계산 자동3D 수용입니다. 최종 사실감 R2/첫 cold 경고·생산/자원/경제·자율 선정·실제 품종/독립 작기0/G0–G4와 전체 완료일은 미완료/미정입니다. native goal은 이전 전체 objective의 active이며 현재 정확 모델은 gpt-6.1-sol/xhigh입니다.
 
 **최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
@@ -3589,6 +3589,8 @@ SDK/제품3D **개발 착수 조건**은 현재 API의 원 값/lineage·현재 �
 
 ## 실행 SDK/3D 화면의 소프트웨어 수용과 조회 지연 — 2026-10-23
 
+이 절은 당시 관측이다. 후속 조회 수정·기존 저장 job UI 수용과 다음 접수 작업은 아래 절을 따른다.
+
 [현재 관측](../research/leaf-population-execution-web-20261023.md)의53단위/14브라우저·타입/별도 build와 같은 웹 source의 전체 CI39925213943/단위2,008·브라우저296·타입/build/audit를 수용했다. 원 CI15분 취소/292번째 시작은 실패로 보존하고 실측에 따라 CI job만20분으로 조정했다.
 실제 UI 접수2/취소1과 새 서버 완료 attempt1을 확인했으나, 현재 SDK의 새 완료 status가30초를 넘었다.
 미완료 replay를 요청하던 SDK 결함은 status→완료 replay로 수정했고 모의 서버도 실제 계약에 맞춰 고쳤다.
@@ -3614,3 +3616,27 @@ observed_at 외 전체 status/원 결과·최초 시각 및25표 원 행과 종�
 이는 사용자 UI 조회를 위한 직접 의존성이며 일반 운영 기반 확장을 추가한 일정이 아니다.
 생산량→자원→경제/수급·거시→후보 비교·자율 선정의 기존 순서와 독립 현장 자료 병행 경로를 유지한다.
 실제 품종/독립 작기0·승인 farm Run0·G0–G4/전체 완료일 미정이며 native goal은 이전 objective의 active다.
+
+## 현재 저장 job UI 수용 뒤의 접수 단계 — 2026-10-23
+
+[조회 수정/실제 화면·실패](../research/leaf-population-query-registration-scope-20261023.md)에서
+65집중검사와 별도 실제 HTTPS7응답, 사용자 origin의 현재 SDK12시점/메뉴/reload·실제 철회/원복을 수용했다.
+query 코드7d9c289를 원4f1f523 기반의 별도 frozen snapshot에 적용했다. 기존 입력/DB/키·결과/URL을 보존했다.
+접수부터 수동 복구 없는 새 자동3D까지의 부모 수용은 미완료다.
+
+다음 한 단계는 **입력 확인/첫 접수·동일 retry의30초**다.
+
+1. 첫 인증 POST가 query GET 전에30초를 넘긴 실제 native 실패와 전체 입력 health 실패를 기준선으로 보존한다.
+   같은 원 요청/actor·원예산에서 접수의 중복 등록 재구성/원천 확인·SQL/대기 비용을 한 번 관측한다.
+2. 관측으로 정당화된 가장 작은 호출 경계를 정한다. 이미 저장된 intent·서명 결과의 코드 결속을 조사하고
+   현재 조회가 가능한 원 판본을 보존한다. query 수정의 시간 개선을 접수 개선으로 간주하지 않는다.
+3. 해당 최소 변경의 native/HTTP 반례와 원자 접수·409·취소를 검증한다. 최초 입력 확인/202와 worker 계산 중
+   동일 요청202/같은 job·attempt1·원12frame/52면적이 각각30초 내여야 한다. 늦은 변경은 게시하지 않아야 한다.
+4. 현재 SDK에서 한 번 접수→실제 자동 완료3D·같은 UTC/메뉴/reload·현재 철회/원복을 수동 복구 없이 대사한다.
+   기존 화면/원 결과/WSL 보존과 소유 정리까지 확인한 후 해당 자식만 체크한다.
+
+산출물은 접수 비용 관측/근거와 작은 변경·같은 판본의 실제 HTTP 기록·사용자 새 작업의3D다.
+관측/설계0.5–1.5집중시간, 최소 구현/반례1–3시간, 실제 HTTP/worker/UI1–2시간의
+**2.5–6.5집중시간**으로 잠정 추정한다. 접수 관측 전의 낮은 신뢰 작업량이며 완료 날짜를 보장하지 않는다.
+독립 현장 자료0과 생산량→자원→경제/수급·거시→후보 비교·자율 선정, R2/첫 cold 경고는 병행/후속 의존성이다.
+이 개발 수용을 G0–G4·실제 품종/추천 승인으로 올리지 않으며 전체 제품 완료일은 미정이다.

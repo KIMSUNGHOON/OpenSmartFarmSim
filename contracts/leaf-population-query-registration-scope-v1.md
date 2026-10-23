@@ -1,6 +1,6 @@
 # Leaf 현재 조회의 농장 등록 읽기 범위 — 후보 v1
 
-상태: **조회 소프트웨어65검사·별도 실제 HTTPS 수용, 사용자 적용/UI와 접수30초는 후속**.
+상태: **조회 소프트웨어65검사·실제 HTTPS·기존 저장 작업 UI 수용, 접수30초/새 자동3D는 후속**.
 [검증·실패·보류](../research/leaf-population-query-registration-scope-20261023.md)를 확인한다.
 [실제 지연·연구 비교](../research/leaf-population-execution-web-20261023.md)의 다음 작은 수정이다.
 [기존 E3](crop-leaf-population-execution-v1.md)와 [보호 HTTP](api-crop-leaf-population-execution-v1.md)의
@@ -54,4 +54,5 @@ scope 안에서도 원 query의 전후 `_guard/_intent/_bundle`, 두 signed `_lo
 현재 변경11종/다른 등록3종·기존 경합/fresh와 별도 실제 HTTPS의 원 결과 조회를 확인했다.
 제품 query 소스는 최소 수정했고 frozen source의 나머지819파일은 원 판본과 같다.
 기존 native HTTPS 정상 시험은 leaf GET 전에 첫 접수 POST30초 초과로 실패했다.
-사용자 적용·현재 SDK UI와 접수/동일 retry30초는 남아 있으며 부모 runtime 수용을 유지 보류한다.
+별도 불변 snapshot의 query 코드만 적용해 현재 SDK의 기존 저장 job3D/메뉴/reload·실제 철회/원복을 수용했다.
+접수/동일 retry30초와 새 계산의 자동3D는 남아 있으며 부모 runtime 수용을 유지 보류한다.
