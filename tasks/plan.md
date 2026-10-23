@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. 다음 한 단계는 leaf 입력의 출처/현재 검토 증거이며 아래 후속 의존성을 따른다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
+**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 다음 한 단계는 현재 농장/완료 parent stem 결과 결속이다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
 
 **최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
@@ -3426,3 +3426,12 @@ normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다�
 후속 DB/worker 조립의 실제 분해와 자료 확보 뒤 전체 날짜를 갱신한다. 실제 Axiany/독립 작기 확보0이므로
 예측·추천 게시와 전체 제품 완료 날짜는 미정이며 기존 G0–G4를 유지한다.
 이전 오전9시 마감은2026-10-22에 경과한 기록이고 현재 재개 지시의 종료 시각으로 재사용하지 않는다.
+
+
+**입력 자식 수용 — 2026-10-23:** [52집중/별도 fresh](../research/crop-leaf-population-input-evidence-20261023.md)로
+원43단위·parent 입력 증거/현재 검토와31code·재배포 False/변조/철회를 대사했다.
+마지막 parent 검토 중 leaf 철회 반례를 재현·수정했고, 최종 생장 import/DB/CLI/쓰기0·FD/원40blob·2root를 보존했다.
+위 첫 입력 자식의2.5–5h 추정은 실제 수용으로 대체한다. 다음 farm 자식은 계약/결속2–3h,
+실제 SCRAM/반례1–2h, 늦은 변경/보존1–2h, 검토/기록0.5–1h = **4.5–8집중시간**의 잠정 작업량이다.
+기존 parent 서비스/원 완료 결과 재사용이 전제이며 실제 DB 확인 후 갱신한다. 새 모듈은 현재5176에 미배포다.
+독립 실제 자료/작기0·생산/경제/자율 선정 및 전체 완료 날짜 미정은 유지한다.

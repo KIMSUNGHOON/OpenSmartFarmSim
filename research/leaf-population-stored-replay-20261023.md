@@ -88,3 +88,8 @@ kit의 plant/graph raster 교체는 실제 WebGL·원 저장값 SVG·회전/재�
 실제 Axiany 계수/초기 관측·독립 농장 작기0이므로 전체 완료 날짜는 미정이다.
 한 작기/탄소·생산/자원·경제·자율 작물 선정과 G0–G4는 이 화면으로 수용하지 않는다.
 정확 native `gpt-6.1-sol / xhigh`와 재귀 CLI0을 위 기계 증거에 기록했다.
+
+
+**후속 수용:** [leaf 입력 증거52/fresh](crop-leaf-population-input-evidence-20261023.md)를 수용했다.
+위 첫 자식 추정은 그 실제 수용으로 대체하며 다음은 현재 농장/완료 stem 결과 결속이다.
+새 증거 모듈은 아직 사용자 runtime에 배포하지 않았다.

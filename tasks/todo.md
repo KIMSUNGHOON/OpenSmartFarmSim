@@ -50,7 +50,7 @@
     - [x] 양쪽 재배포 권리 export — [3집중/실제17파일](../research/crop-leaf-population-export-20261023.md). 원 program/root/stem/각 frame/index의 원 bytes·SHA와 양쪽 False 거부/기존 export 미덮기·현재1root/원2,148항목을 수용했다.
     - [x] strict SDK/같은 UTC의 새 잎 수/면적3D 기능 — [CI85/Chromium20·실제 Chrome12시점/52면적](../research/leaf-population-stored-replay-20261023.md). 원17GET/POST0·삼각형 상대차7.31e-15 미만·UTC/표/그래프/재생/모바일/유휴를 확인했다. 원 DB/25표/205파일을 보존해5176을 복구했고 현재5175/5176의2root를 대사했다. native cold 경고0/최종 디자인 R2와 원 farm/job 통합은 후속이다.
     - [ ] 새 프로필 첫 렌더링의 GPU 셰이더 정밀도 경고 — 원 경고/strict 검사 실패를 보존했다. 원인/환경을 확인한 수정 뒤 같은 cold 조건과 원 수치/UTC·실제3D를 대사한다. 반복 검사의 경고0을 cold 통과로 세지 않는다.
-  - [ ] leaf 입력 출처/현재 검토 증거 — [다음 단계/수용 기준](plan.md#새-잎의-농장-통합--2026-10-23). 원 leaf program/모든 단위·SourceRecord/현재 검토와 parent stem 입력 증거를 결속한다. 재배포 금지/현재·늦은 철회·rehash 변조 거부·fresh 생장 import/계산/DB/CLI/쓰기0·원 파일/FD를 확인한다.
+  - [x] leaf 입력 출처/현재 검토 증거 — [52집중/fresh](../research/crop-leaf-population-input-evidence-20261023.md). 원43단위/parent 증거·31code와 재배포 False·현재/늦은 철회/재해시 변조를 수용했다. 마지막 parent 검토 중 leaf 철회 반례를 재현·수정했다. fresh 생장 import/DB/프로세스/쓰기9진입0·FD4→4/원40blob/2root를 대사했다. parent stem root 승인·농장/current binding·수치 초기 검증/G0–G4는 별도다.
   - [ ] 현재 농장/원 stem 완료 결과와 leaf 결속 — 같은 tenant/farm/crop/기간·현재 scope, parent job/서명/원 stem root·양쪽 권리/출처·동시 변경을 실제 DB에서 검증한다.
   - [ ] leaf 서명 결과·명시 자동 worker — 접수 멱등/실제1계산·불변 원자 게시/취소·재시작·늦은 철회·현재 무계산 조회를 검증한다.
   - [ ] leaf 원 job/API/제품3D — 같은 원 UTC/ID/면적, 메뉴/reload 복원·철회 제거/구 화면/모바일·실제 브라우저/WSL 상한을 검증한다.
