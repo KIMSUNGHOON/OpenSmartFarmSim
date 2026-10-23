@@ -1,8 +1,23 @@
 # 구현 순서
 
-**2026-10-23 현재:** [새 잎 실행 화면](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)에서 입력 확인→한 번 접수→실제 자동 계산→같은 저장 잎·줄기3D를 수동 복구 없이 확인했습니다. [실제 동작·보존·남은 범위](../research/leaf-admission-live-automatic-20261023.md): 첫202 13.306초/계산 중 같은 POST 18.169초·동일 job/attempt1, 메뉴·reload·권리 철회/복원과 같은 DB/키 cold restart 뒤12시점/52면적을 대사했습니다. query7d9c289/호출부6bad7dd의 별도820파일 판본이며 원 입력/DB/키·URL과 WSL 상한을 보존했습니다. 새 UI의 일시적503 두 건은 자동 GET 재조회로 회복했지만 원인·운영 무오류 수용은 보류합니다. 별도 합성 진단에서는 상태 전환의 Pending503 두 건과 정상 복구를 대사했습니다. [잎/화방 순번 분류67검사](../research/crop-phytomer-kind-20261023.md)와 [원 줄기→잎 입력290검사](../research/crop-stored-shoot-leaf-birth-inputs-20261023.md)를 수용했습니다. [자동 출현 program315검사](../research/crop-leaf-appearance-program-20261023.md)와 같은 입력의 기존 계산12시점/47면적 호환도 수용했습니다. [불변 producer349검사](../research/crop-leaf-appearance-artifact-20261023.md)와 실제43blob/원12시점·47면적도 수용했습니다. [무계산 조회436검사](../research/crop-leaf-appearance-reader-20261024.md)와 실제43파일/fresh12시점·47면적도 수용했습니다. [공개 export183검사](../research/crop-leaf-appearance-export-20261024.md)와 실제20파일/동일 two fresh도 수용했습니다. [strict SDK106검사](../research/leaf-appearance-sdk-20261024.md)와 타입/별도 번들·실제 HTTP20GET/원12 DTO도 수용했습니다. 현재 화면은 기존 작업이며 다음은 새 source의 같은 UTC3D/실제 browser입니다. 실제 품종/독립 작기0·생산/자원/경제·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미완료/미정입니다.
+**2026-10-24 현재:** [정책 기반 잎 3D](http://localhost:5176/leaf-appearance-replay.html)에서 `저장 결과 재생`으로 자체 합성 정책의3→5잎을 확인합니다. [화면·수용 증거](../research/leaf-appearance-stored-replay-20261024.md): 실제 Chrome12시점/47면적·같은 UTC/표/그래프, 회전/확대·재생/정지·모바일·메뉴/reload를 확인했습니다. 전체 웹 CI2,082단위/299브라우저·타입/build/audit high gate를 통과했고 기존5176/DB/키를 보존해 새23파일만 추가했습니다. 기존 [농장 작업 화면](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)은 명시3→6잎의 별도 완료 결과입니다. 다음은 새 자동 정책 입력의 현재 검토→농장/서명/worker→같은 job3D 연결입니다. 실제 품종·국내 독립 작기0, 관리/생산·자원/경제·자율 선정·R2/첫 cold 경고·G0–G4는 후속이며 전체 완료일은 미정입니다.
 
-**최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
+## 자동 정책의 연구 화면 이후 — 2026-10-24
+
+[저장 3D 수용](../research/leaf-appearance-stored-replay-20261024.md)으로 별도 연구 재생을 마쳤다.
+새 appearance source는 outer 정책/초기 위치/프로필을 포함하므로 기존 population 입력 증거의 원 선언 검토만으로
+농장 자동 실행에 게시할 수 없다. 기존 수치/부착 검증과 저장·사용자 화면을 재사용하며 새 기반 서비스는 추가하지 않는다.
+
+1. **다음 자식: 원 입력의 현재 출처/단위 검토.** 새 outer 원 bytes·원 stem 입력/decision UTC·닫힌 출처/권리·모델/코드와 모든 unit을 결속한다. rehash/현재·늦은 철회·혼합/시각을 거부하고 별도 fresh의 생장 import/계산·DB·CLI·쓰기0, 원 지문/3root/WSL·소유 정리를 확인한다.
+2. 현재 농장/완료 stem 결과와 결속→새 서명/자동 worker→같은 job의 보호 API/기존3D. 단계별 실제 접수/완료·원 UTC/ID/면적·현재 철회·메뉴/reload를 확인한다. 기존 job/result/DB/키·기존3→6잎 화면을 보존한다.
+3. 기관 출현/관리의 면적·기관 수지→생산량/자원→Decimal 경제·시장/거시/수급·자율 비교는 기존 계산 의존성과 독립 자료 관문을 유지한다. 각 새 수치와 3D의 결속을 별도 수용한다.
+
+다음 자식은 경계 대조/구현1–2h + 반례/fresh1–2h + 검토/기록0.5–1h = **2.5–5집중시간**의 낮은 신뢰 작업량이다.
+후속 DB/worker/API/UI와 자료 확보 시간은 포함하지 않는다. 국내 독립 작기0이므로 전체 완료 날짜는 미정이다.
+실제 품종/독립 자료 확보는 개발과 병행하며 G0–G4·예측/마진/추천 게시의 선행 조건은 유지한다.
+기존 goal은 도구상 active이며 새 goal 교체 완료로 표시하지 않는다. 아래는 날짜별 이전 기록이다.
+
+**이전 마감 기록 — 2026-10-22 오전9시:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
 **사용자 실행 지시 — 2026-10-21:** [10월22일 오전9시까지의 작업 순서](overnight-20261021.md)를 적용한다.
 기존 goal의 도구상 교체는 미완료 상태 거부로 아직 반영되지 않았다. 실제 활성화와 구현 진행을 구분해 기록한다.

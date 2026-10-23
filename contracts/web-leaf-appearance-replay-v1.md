@@ -1,6 +1,6 @@
 # 정책 기반 잎 출현과 같은 UTC3D — 연구 v1
 
-상태: 구현/수용 전. [strict SDK](web-leaf-appearance-sdk-v1.md)의 원20파일/12 DTO만 사용한다.
+상태: [자체 합성 연구 UI 기능 수용](../research/leaf-appearance-stored-replay-20261024.md). [strict SDK](web-leaf-appearance-sdk-v1.md)의 원20파일/12 DTO만 사용한다.
 새 leaf-appearance-replay.html entry에서 기존 LeafAreaReplayPage/MorphologyScene/geometry를 재사용한다.
 계산한 잎 수/면적·부착/UTC를 실제 소엽 삼각형 면적에 연결하며 모델을 다시 실행하거나 중간 생장/과실을 만들지 않는다.
 기존 초기 잎/명시3→6잎/실행 job·API·DB/키와 URL은 보존한다.

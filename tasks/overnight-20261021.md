@@ -114,3 +114,11 @@ create_goal 재시도도 unfinished goal 오류로 거부됐다. 새 목표 교�
 [leaf E1 접수14검사](../research/crop-leaf-population-execution-admission-20261023.md)를 수용했고
 다음은 E2 자동 계산/원자 게시→E3 현재 조회→보호 API/runtime·같은 job3D다.
 위10월22일 오전9시 기한은 경과한 기록이며 현재 재개의 종료 시각이 아니다.
+
+
+**2026-10-24 02:00:52 KST 재확인:** get_goal은 이전 전체 objective의 active를 반환했다.
+사용자의 clear 완료 회신을 다시 받았지만 도구에 새 목표가 등록됐다고 표시하지 않는다.
+기한이 지난10월22일 오전9시 초안을 새 미래 기한으로 재사용하지 않고 재입력을 요청하지 않는다.
+[정책 기반 저장3D](../research/leaf-appearance-stored-replay-20261024.md)를 실제 UI·전체 웹 CI로 수용했고
+현재 의존성/다음 자식은 [10월24일 계획](plan.md#자동-정책의-연구-화면-이후--2026-10-24)을 따른다.
+전체 제품 goal은 미완료이며 정확 native 모델/effort는 gpt-6.1-sol/xhigh·재귀 CLI0이다.
