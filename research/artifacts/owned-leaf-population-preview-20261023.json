@@ -1,0 +1,454 @@
+{
+  "G0_G4": "not_assessed",
+  "U1_capacity_accepted": false,
+  "actual_executable_SCRAM_TLS_tests": 3,
+  "actual_farm_Runs": 0,
+  "all_backend_app_and_OpenAPI_unchanged_from": "62d3f90b0905aa6fb509c05e9a81ff395adefb87",
+  "browser_this_slice": false,
+  "cleanup": {
+    "native-default-v1": {
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "native-holds-v1": {
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "native-normal-v1": {
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "native-normal-v2": {
+      "roles_after": 0,
+      "schemas_after": 0
+    }
+  },
+  "control_tests": 12,
+  "failed_first_native_witness": {
+    "accepted_as_pass": false,
+    "all_owned_scratch_objects_cleaned": true,
+    "before_fix_exit": 1,
+    "fixed": "caller signal handler sets stop; both exact worker loops joined; previous handlers restored",
+    "returncode": -15,
+    "stage": "owned child shutdown"
+  },
+  "full_backend_suite": false,
+  "hosted_CI_this_slice": false,
+  "independent_local_crop_cycles": 0,
+  "maximum_actual_request_seconds": 28.752848626987543,
+  "module_deployed_to_user_runtime": false,
+  "native_model": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_including_LF_sha256": "7f6da691a4a9bc61ff47f74e90521a9e29cf34c578b00370acc6369c79882b4b",
+    "recursive_CLI": 0,
+    "timestamp": "2026-10-23T04:57:14.703Z"
+  },
+  "next": "Protected immutable user deployment with separate later retrospective farm and actual matching parent, preserving old jobs/data; strict SDK/same-job3D/navigation restoration afterward",
+  "observed_at_UTC": "2026-10-23T05:23:43.178510+00:00",
+  "observed_latest_web_CI": {
+    "conclusion": "success",
+    "head": "7d3d4d5b2c9742f4b79b81c61446ad55f64711c9",
+    "run_id": 39870510699,
+    "this_source": false
+  },
+  "proofs": {
+    "default": {
+      "SIGINT_joined_all_consumers": true,
+      "actual_SCRAM": true,
+      "certificate_verified": true,
+      "leaf_option_missing_not_exposed": true,
+      "one_original_stem_consumer": true,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.0033587979851290584,
+          "status": 401
+        },
+        {
+          "bytes": 1150,
+          "path": "/preview-input",
+          "seconds": 1.7075449329859111,
+          "status": 200
+        },
+        {
+          "bytes": 22,
+          "path": "/leaf-preview-input",
+          "seconds": 0.0037110339908394963,
+          "status": 404
+        },
+        {
+          "bytes": 1364,
+          "path": "/v1/jobs/0ff08d24-5a8f-49ea-aae7-814b5e869004/crop-morphology-execution",
+          "seconds": 5.138614052993944,
+          "status": 200
+        }
+      ],
+      "retained_25_table_rows_sha256": "e6f6c629c38fa3349dab1a9b22650c7ca0ff09c7deb1f28d9d14a59697cb14c5",
+      "user_runtime_deployed": false
+    },
+    "holds": {
+      "actual_SCRAM": true,
+      "cancel_after_rights_withdrawal": true,
+      "certificate_verified": true,
+      "current_rights_and_source_file_holds": true,
+      "no_publication": true,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.004556385014439002,
+          "status": 401
+        },
+        {
+          "bytes": 95,
+          "path": "/leaf-preview-input",
+          "seconds": 6.865386378020048,
+          "status": 422
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 6.747170447022654,
+          "status": 422
+        },
+        {
+          "bytes": 95,
+          "path": "/leaf-preview-input",
+          "seconds": 0.00943319100770168,
+          "status": 422
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 27.90843552601291,
+          "status": 202
+        },
+        {
+          "bytes": 508,
+          "path": "/v1/jobs/e63fab0a-158e-4087-b124-9bb7a53a6b03/crop-leaf-population-execution/cancel",
+          "seconds": 0.09055572500801645,
+          "status": 200
+        },
+        {
+          "bytes": 540,
+          "path": "/v1/jobs/e63fab0a-158e-4087-b124-9bb7a53a6b03/crop-leaf-population-execution",
+          "seconds": 28.28925738800899,
+          "status": 200
+        }
+      ],
+      "retained_25_table_rows_sha256": "bf4ae950c6515a219e301979400575209e0dc6aa5749d9eeff8fd47015b42258",
+      "user_runtime_deployed": false
+    },
+    "normal": {
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "actual_farm_Runs": 0,
+      "both_exact_consumers": true,
+      "certificate_verified": true,
+      "cold_restart_POST_count": 0,
+      "one_completed_attempt": true,
+      "original_12_frames": true,
+      "original_52_leaf_areas": 52,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.004361634986707941,
+          "status": 401
+        },
+        {
+          "bytes": 1389,
+          "path": "/leaf-preview-input",
+          "seconds": 28.469030803011265,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 28.357243672013283,
+          "status": 202
+        },
+        {
+          "bytes": 67660,
+          "path": "/v1/jobs/04e537fd-b200-4440-a1d0-7cf4d35aed7b/crop-leaf-population-execution/replay",
+          "seconds": 28.373346334003145,
+          "status": 200
+        },
+        {
+          "bytes": 1364,
+          "path": "/v1/jobs/6b65d510-0600-4e0b-a065-1bab8ca136e8/crop-morphology-execution",
+          "seconds": 5.0925378760148305,
+          "status": 200
+        },
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.0032355249859392643,
+          "status": 401
+        },
+        {
+          "bytes": 67660,
+          "path": "/v1/jobs/04e537fd-b200-4440-a1d0-7cf4d35aed7b/crop-leaf-population-execution/replay",
+          "seconds": 28.752848626987543,
+          "status": 200
+        }
+      ],
+      "result": {
+        "binding_sha256": "c61c4010ba189d30125ee2edbd7eac7143fb4a6a6db1ab468de731c4faedd91c",
+        "calculated_at": "2026-10-23T05:15:16.883895Z",
+        "farm": {
+          "crop_id": "crop-1",
+          "registration_sha256": "b1518d66763c377ee6d333726d65d0df0a1a6d7b3cf2f332b36a774060256e08",
+          "scenario_id": "farm-1",
+          "scenario_revision": "r1"
+        },
+        "input_evidence_sha256": "5784336a3267427541813db3e69434d353403ba96125eb26697a2d605e9ed3ea",
+        "normalization": "per_tracked_shoot",
+        "numerical_root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+        "parent_calculated_at": "2026-10-23T05:13:23.517607Z",
+        "parent_job_id": "6b65d510-0600-4e0b-a065-1bab8ca136e8",
+        "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "parent_result_sha256": "d4bea64c066e09d5399907557c685fd9b7c7dc2f02e54cdaea81867d865c7ff5",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+        "result_sha256": "f79f8c17f379515c6b597a5f9c35bd4b3e3780ff81b4f526118b5eba30cc0ad5",
+        "revision": "r1",
+        "source_sha256": "53e28b88d9095ee9a29b340e5965b5e1603de8237585ed3309222c566be351d9",
+        "study_id": "owned-native-leaf-study"
+      },
+      "retained_25_table_rows_sha256": "6f4b2bcfe01b3be7c2e27cab3741f07779061b93636ecf034bc3fce224dd4aa8",
+      "same_result_after_cold_restart": true,
+      "user_runtime_deployed": false
+    }
+  },
+  "resource_phases": {
+    "controls-final-v1": {
+      "G0_G4": "not_assessed",
+      "PID_peak_RSS_bytes": 107499520,
+      "actual_farm_Runs": 0,
+      "child_exit": 0,
+      "combined_peak_RSS_bytes": 305188864,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "full_suite": false,
+      "historical_six_terminated_before_phase": true,
+      "hold_reason": null,
+      "live_protected_roots": 2,
+      "log_sha256": "46e6fc977d906a98e034839cb7320ceea899e77400005b8ac9464cdee8640bb8",
+      "observed_at_UTC": "2026-10-23T05:22:48.991979Z",
+      "owned_remaining": 0,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 7,
+      "source_count": 3396,
+      "source_preserved": true,
+      "wall_seconds": 2.128035297995666,
+      "watched_entries": 2469
+    },
+    "controls-green-v1": {
+      "G0_G4": "not_assessed",
+      "PID_peak_RSS_bytes": 103378944,
+      "actual_farm_Runs": 0,
+      "child_exit": 0,
+      "combined_peak_RSS_bytes": 301133824,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "full_suite": false,
+      "historical_six_terminated_before_phase": true,
+      "hold_reason": null,
+      "live_protected_roots": 2,
+      "log_sha256": "ead6ea1b45858fc3310646eaf3a52de2766c76a38864c6f36e0c8fd4e2fb10a3",
+      "observed_at_UTC": "2026-10-23T05:03:16.202533Z",
+      "owned_remaining": 0,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 7,
+      "source_count": 3395,
+      "source_preserved": true,
+      "wall_seconds": 2.157541766006034,
+      "watched_entries": 2469
+    },
+    "controls-red-module-v1": {
+      "G0_G4": "not_assessed",
+      "PID_peak_RSS_bytes": 107188224,
+      "actual_farm_Runs": 0,
+      "child_exit": 2,
+      "combined_peak_RSS_bytes": 305057792,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "full_suite": false,
+      "historical_six_terminated_before_phase": true,
+      "hold_reason": null,
+      "live_protected_roots": 2,
+      "log_sha256": "604e5eb4ff64fa9943699ee6e6016a8195e1efb4e750c58fd2d9f0dba674320d",
+      "observed_at_UTC": "2026-10-23T05:02:17.181132Z",
+      "owned_remaining": 0,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 6,
+      "source_count": 3394,
+      "source_preserved": true,
+      "wall_seconds": 1.8932451260043308,
+      "watched_entries": 2469
+    },
+    "controls-red-v1": {
+      "G0_G4": "not_assessed",
+      "PID_peak_RSS_bytes": 93954048,
+      "actual_farm_Runs": 0,
+      "child_exit": 4,
+      "combined_peak_RSS_bytes": 276406272,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "full_suite": false,
+      "historical_six_terminated_before_phase": true,
+      "hold_reason": null,
+      "live_protected_roots": 2,
+      "log_sha256": "106609bea61460cfebf26b9d6491644c4b479cd2a84ce174715817b1d8e13695",
+      "observed_at_UTC": "2026-10-23T04:59:21.858128Z",
+      "owned_remaining": 0,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 3,
+      "source_count": 3393,
+      "source_preserved": true,
+      "wall_seconds": 1.1388470270030666,
+      "watched_entries": 2469
+    },
+    "native-default-v1": {
+      "G0_G4": "not_assessed",
+      "PID_peak_RSS_bytes": 114225152,
+      "actual_farm_Runs": 0,
+      "child_exit": 0,
+      "combined_peak_RSS_bytes": 471715840,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "full_suite": false,
+      "historical_six_terminated_before_phase": true,
+      "hold_reason": null,
+      "live_protected_roots": 2,
+      "log_sha256": "cc14f73082ed942a2cf84a9f04cd929bce4c78e73b289b563bc500ddf6e223de",
+      "observed_at_UTC": "2026-10-23T05:21:57.623052Z",
+      "owned_remaining": 0,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 153,
+      "source_count": 3396,
+      "source_preserved": true,
+      "wall_seconds": 39.64909487898694,
+      "watched_entries": 2469
+    },
+    "native-holds-v1": {
+      "G0_G4": "not_assessed",
+      "PID_peak_RSS_bytes": 114737152,
+      "actual_farm_Runs": 0,
+      "child_exit": 0,
+      "combined_peak_RSS_bytes": 492703744,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "full_suite": false,
+      "historical_six_terminated_before_phase": true,
+      "hold_reason": null,
+      "live_protected_roots": 2,
+      "log_sha256": "e23081a7ce4281391f6eab9c6d65714cfe95187cd1265989454a7993aaffaf9b",
+      "observed_at_UTC": "2026-10-23T05:19:58.884204Z",
+      "owned_remaining": 0,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 398,
+      "source_count": 3396,
+      "source_preserved": true,
+      "wall_seconds": 103.40120536999893,
+      "watched_entries": 2469
+    },
+    "native-normal-v1": {
+      "G0_G4": "not_assessed",
+      "PID_peak_RSS_bytes": 131588096,
+      "actual_farm_Runs": 0,
+      "child_exit": 1,
+      "combined_peak_RSS_bytes": 504340480,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "full_suite": false,
+      "historical_six_terminated_before_phase": true,
+      "hold_reason": null,
+      "live_protected_roots": 2,
+      "log_sha256": "0a9e06dacc7738a039cbe44c37533a847947ea24a731a2e76653ae8870e73fac",
+      "observed_at_UTC": "2026-10-23T05:10:36.467459Z",
+      "owned_remaining": 0,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 1005,
+      "source_count": 3396,
+      "source_preserved": true,
+      "wall_seconds": 264.557055562007,
+      "watched_entries": 2469
+    },
+    "native-normal-v2": {
+      "G0_G4": "not_assessed",
+      "PID_peak_RSS_bytes": 114724864,
+      "actual_farm_Runs": 0,
+      "child_exit": 0,
+      "combined_peak_RSS_bytes": 497827840,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "full_suite": false,
+      "historical_six_terminated_before_phase": true,
+      "hold_reason": null,
+      "live_protected_roots": 2,
+      "log_sha256": "693a08ffad0f15e7558ce757d197acb4e94d41567aef3aa089757393b4d3e773",
+      "observed_at_UTC": "2026-10-23T05:18:02.367748Z",
+      "owned_remaining": 0,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "samples": 1127,
+      "source_count": 3396,
+      "source_preserved": true,
+      "wall_seconds": 297.80494092201116,
+      "watched_entries": 2469
+    }
+  },
+  "scope": "software_research_only",
+  "single_request_budget_seconds": 30,
+  "software_reference": {
+    "installed_capture_signals_sha256": "e1bbcd4770d1c8877454c17466d7bb229ec2cb9776e12703830ff64fc024758f",
+    "installed_server_py_sha256": "c1be9d133467a42ab88d7168e408ef5a90257661a901899426214a3d1fc2d026",
+    "installed_version": "0.54.0",
+    "retrieved_at_UTC": "2026-10-23T05:23:43.178510+00:00",
+    "review": "Original handlers restored, then captured signals raised again; a caller handler permits owned-thread cleanup.",
+    "source_url": "https://github.com/Kludex/uvicorn/blob/0.54.0/uvicorn/server.py"
+  },
+  "source_sha256": {
+    "backend/tests/test_owned_leaf_population_preview.py": "61d0bf617d62ab29d7e0ae60fefcd429ce6c260ad6ae9864bd905cdd202e8e54",
+    "backend/tests/test_owned_leaf_population_preview_native.py": "4117b6865a703878ce833085776860503af8d54c72439b5d750fdd33ac8a9c62",
+    "research/owned_leaf_population_preview.py": "b1738b40a0b8a80a301021bd00526aecaed434f80d945590e44fe7c5a93c699c",
+    "research/serve-owned-morphology-preview.py": "41468002ba8c49b3f52bae084d6eb416a7952c69e542bdaa3e8fccb9e996a302"
+  },
+  "total_unique_focused_tests": 15,
+  "user_leaf_jobs_published": 0
+}

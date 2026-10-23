@@ -7,6 +7,7 @@ from hashlib import sha256
 import json
 import os
 from pathlib import Path
+import signal
 import stat
 import sys
 from threading import Event, Thread
@@ -124,6 +125,12 @@ def main():
     async def invalid(*_): return _error(422, 'invalid_request', 'Invalid request')
     wire.install_morphology_execution_routes(app, jobs=jobs, farms=farms, admission=admission, query=query,
         principal_provider=provider, authorized_tenant=authorized, error=_error, access=access)
+    loops = [loop]
+    if p.get('leaf_population') is not None:
+        from owned_leaf_population_preview import attach_leaf_population
+        leaf_loop = attach_leaf_population(app, config=p['leaf_population'], parent_query=query,
+            tenant_id=grant.tenant_id, read_private=private_raw, authorized=authorized, access=access, error=_error)
+        loops.append(leaf_loop)
     @app.get('/preview-input', include_in_schema=False)
     async def preview(http_request: Request):
         def identity_ok():
@@ -147,20 +154,35 @@ def main():
         return Response(raw, media_type='application/json', headers={'Cache-Control':'no-store'})
     service = HttpsApiService(PrincipalMiddleware(app, registry), p['TLS']['certificate'], p['TLS']['key'], port=p['TLS']['port'])
     server = service.server(); stop = Event()
-    def consume():
+    def consume(current_loop):
         token = background.set(True)
         try:
-            loop.run(stop, emit=lambda event: print(json.dumps(event, sort_keys=True), flush=True))
+            current_loop.run(stop, emit=lambda event: print(json.dumps(event, sort_keys=True), flush=True))
         except Exception:
+            stop.set()
             print('{"event":"consumer_hold","scope":"software_research_only"}', flush=True); server.should_exit = True
         finally: background.reset(token)
-    consumer = Thread(target=consume, daemon=True); consumer.start()
-    print(json.dumps({'event':'owned_preview_starting','config_sha256':sha256(config_raw).hexdigest(),
-        'scope':'software_research_only','gates':'not_assessed','actual_farm_Runs':0}), flush=True)
-    try: server.run()
+    consumers = [Thread(target=consume, args=(current_loop,), daemon=True) for current_loop in loops]
+    def stop_service(*_):
+        stop.set(); server.should_exit = True
+    previous_signals = {sig:signal.signal(sig, stop_service) for sig in (signal.SIGINT, signal.SIGTERM)}
+    try:
+        for consumer in consumers: consumer.start()
+        print(json.dumps({'event':'owned_preview_starting','config_sha256':sha256(config_raw).hexdigest(),
+            'consumer_input_versions': sorted(v for current_loop in loops for v in current_loop.discovery.input_versions),
+            'scope':'software_research_only','gates':'not_assessed','actual_farm_Runs':0}), flush=True)
+        server.run()
     finally:
-        stop.set(); consumer.join(30)
-        if consumer.is_alive(): raise RuntimeError('owned consumer shutdown incomplete')
+        stop.set()
+        try:
+            for consumer in consumers:
+                if consumer.ident is not None: consumer.join(30)
+        finally:
+            for sig, handler in previous_signals.items(): signal.signal(sig, handler)
+        stopped = not any(consumer.is_alive() for consumer in consumers)
+        print(json.dumps({'event':'owned_preview_stopped','consumers_stopped':stopped,
+            'consumer_count':len(consumers)}), flush=True)
+        if not stopped: raise RuntimeError('owned consumer shutdown incomplete')
 
 
 if __name__ == '__main__':

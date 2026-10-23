@@ -6,7 +6,7 @@
 선행은 [signed leaf 계산/조회](crop-leaf-population-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 사용하며 새 큐/표·역할은 추가하지 않는다.
 [기존 자동 consumer33제어/실제 SCRAM1](../research/leaf-population-automatic-consumer-20261023.md)도 수용했다.
-[보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)도 수용했다. runtime·사용자 화면은 후속 수용이다.
+[보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)와 [소유 조립15검사](../research/owned-leaf-population-preview-20261023.md)도 수용했다. 사용자 runtime 배포·화면은 후속 수용이다.
 
 ## E1 접수
 
@@ -58,3 +58,18 @@ E1 수용: intent/판본·원 byte bound/키·resolver·원 참조 변조 거부
 DeterministicWorkerLoop와 discovery에 명시 등록한다. 기본 구성에서 실행하지 않으며 선택 판본은 비어 있거나 혼합일 수 없다.
 실제 discovery→계산1회/원자 완료·원12frame, 다른 queued 모델/완료 재선택0·현재 권한과 소유 정리를 수용했다.
 operator factory/runtime 배포·보호 HTTP/같은 job3D와 실제 자료 관문은 별도다.
+
+
+## 선택적 소유 미리보기 조립
+
+연구 도구의 leaf_population 옵션은 owned-leaf-population-preview-v1이다. 필수 설정은 request/label,
+input_key_file/review_file/rights_file·issuer_id/key_id, program_raw/source_raw/evidence_raw의 packet_files,
+별도 signed directory/key_file/issuer_id/key_id다. 사용자 HTTP는 이 설정/경로나 key를 받지 않는다.
+기존 parent query의 같은 jobs/provider/farm/입력 authority와 정확한 기존 leaf worker loop에 결속한다.
+원 줄기 loop를 유지하고 현재 BearerRegistry 유효성의 background principal을 사용한다.
+옵션 부재는 기존 연구 서버의 줄기 경로만 유지하며 표준 create_app의 기본 비활성503 계약은 그대로다.
+
+GET /leaf-preview-input은 빈 body/query·현재 SUBMIT_SCOPES와 같은 tenant를 요구한다.
+양 끝의 현재 binding 뒤 owned-leaf-population-preview-input-v1/합성 FLAGS·label/request만 no-store로 반환한다.
+정확한 요청은 위 보호 접수 API에 제출한다. 이 endpoint는 일반 작물 선택이나 승인 입력 목록이 아니다.
+소유 실행 파일의 실제 검사와 사용자 불변 배포/3D 수용을 구분한다.

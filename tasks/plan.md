@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 [농장/parent 결속35/fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했고 [leaf 서명 결과38/fresh](../research/crop-leaf-population-signed-artifact-20261023.md)를 수용했고 E1–E3·기존 consumer에 이어 [보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)도 수용했다. 다음은 명시 runtime→strict SDK/같은 job의 제품3D다. 소유 시험의 단일30초는 통과했고 공통 U1/사용자 배포는 미수용이다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
+**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 [농장/parent 결속35/fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했고 [leaf 서명 결과38/fresh](../research/crop-leaf-population-signed-artifact-20261023.md)를 수용했고 E1–E3·기존 consumer에 이어 [보호 HTTP137검사](../research/api-crop-leaf-population-execution-20261023.md)도 수용했다. [소유 runtime 조립15검사](../research/owned-leaf-population-preview-20261023.md)도 수용했다. 다음은 사용자 불변 배포→strict SDK/같은 job의 제품3D다. 소유 시험의 단일30초는 통과했고 공통 U1/사용자 배포는 미수용이다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
 
 **최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
@@ -3536,3 +3536,28 @@ retrospective 합성 farm과 그 farm에서 실제 계산된 parent를 생성하
 그 뒤 전체 작기/생산 계산→자원→경제/수급·거시/후보 비교와 자율 선정 순서를 유지한다.
 실제 Axiany 매개변수/초기관측·독립 현장 자료 확보는 병행하며 개발 착수와 G2/G3 게시 관문을 구분한다.
 실제 독립 작기0/승인 farm Run0·최종 사실감 R2/첫 셰이더 경고·G0–G4/전체 완료일 미정을 유지한다.
+
+
+## 소유 leaf runtime 조립 수용 — 2026-10-23
+
+[제어12·실제 실행 파일/SCRAM·검증 TLS3=15고유검사](../research/owned-leaf-population-preview-20261023.md)를 수용했다.
+선택적 보호 설정/원 참조·현재 파일 권리와 같은 parent/jobs/provider/farm graph, 정확한 두 기존 worker loop를 연결했다.
+실제 접수→자동 완료 attempt1→원12frame/52면적·parent, 같은 DB/키 cold restart의 동일 결과/최초 시각·POST0을 확인했다.
+파일 철회/원본 변경 hold·철회 뒤 취소/게시0, 기본 줄기 전용 모드와 원25표 행 SHA/2root/자료/정리를 보존했다.
+첫 SIGTERM-15 실패는 미수용으로 보존했고 호출자 handler와 loop join을 수정해 실제 SIGTERM/cold·SIGINT를 통과했다.
+backend/app/OpenAPI·모델 계산은 변경하지 않았다. 실제 요청 최장28.752849초는30초 안이지만 U1/G4는 미수용이다.
+위 runtime 분해의 **조립/별도 시험 DB 실행**만 완료했다. 사용자 불변 배포·일반 운영 설정·제품 UI는 미완료다.
+
+다음 사용자 배포의 남은 분해는 보호 자료/새 source snapshot 준비60–120분,
+실제 사용자 TLS 접수·자동 완료/재조회/철회·재시작/원복·원 자료 대사90–180분,
+기록/연결 검토30–60분 = **3–6집중시간**의 낮은 신뢰 추정이다.
+기존 과거 farm/job의 decision을 바꾸거나 새 leaf source를 소급 부착하지 않는다.
+별도 더 늦은 판단의 retrospective 합성 farm·그 farm의 실제 완료 parent와 적용 scope를 준비하고,
+기존 작업/DB·키와 두 사용자 화면을 보존한 증거를 먼저 확보한다. 준비 중 의존성이 드러나면 실제 작업량으로 갱신한다.
+
+이후 strict SDK45–90분 + 기존 사실적 잎 renderer를 쓰는 같은-job UI75–150분 +
+실제 HTTP/browser·메뉴/reload/재연결/철회 제거90–180분 + 기록30–60분 = **4–8집중시간**의 낮은 신뢰 분해다.
+입력 확인/접수는 실제 서버 응답 대기, 실행 중은 실제 job state와 경과 시간, 완료는 같은 저장 root/UTC/기관/면적을 표시한다.
+임의 진행률이나 출현/성장 애니메이션을 계산 상태로 제공하지 않는다.
+최종 사실감 R2/첫 셰이더 경고·실제 품종/초기관측·독립 작기0, 한 작기/생산·자원/경제/자율 선정과 G0–G4는 남는다.
+현재5176은 기존 저장 합성 연구 재생이며 전체 제품 완료 날짜는 미정이다.
