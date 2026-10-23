@@ -1,0 +1,854 @@
+{
+  "observed_at_UTC": "2026-10-22T23:58:00.847576+00:00",
+  "scope": "software_research_only",
+  "source_commit": "7d3d4d5b2c9742f4b79b81c61446ad55f64711c9",
+  "CI_run": 39870510699,
+  "CI_success": true,
+  "typecheck": true,
+  "unit_tests": 85,
+  "Chromium_tests": 20,
+  "full_backend_or_web_suite": false,
+  "audit_high_gate_passed": true,
+  "audit_moderate_remaining": 2,
+  "URL": "http://localhost:5176/leaf-population-replay.html",
+  "artifact_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+  "index_sha256": "78f1f6c828b5af0935ee09a60a92375659e3525e428781f88ed21b489e79f388",
+  "SDK_fixture_GETs": 17,
+  "POSTs": 0,
+  "browser_growth_calculations": 0,
+  "native_warm": {
+    "actual_HTTP_no_interception": true,
+    "actual_WebGL": true,
+    "checks": [
+      {
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "leaf_count": 3,
+        "result_sha256": "8a1188ab25f8fb1cdd5e79609d0b2c59be5a27a222e3f9623f6416827e160ae6",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0002425093229384438
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.00032334576391792523
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.00040418220489740563
+          }
+        ],
+        "maximum_relative_error": 1.609475369298915e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "leaf_count": 3,
+        "result_sha256": "a54759a5a10d1fcf8a0fb420456bf836a020649a9974ae2c20fa93fde98f6b19",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0003233562656948159
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.00043114168759308773
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0005389271094913602
+          }
+        ],
+        "maximum_relative_error": 2.0117788721164487e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 2,
+        "at": "2026-10-01T06:00:00Z",
+        "leaf_count": 3,
+        "result_sha256": "699411698e40f5fdf5751ffc28bc84d874b0f293fb7dbe20f1e67c78680509e8",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.00042210841114371546
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.0005628112148582877
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0007035140185728622
+          }
+        ],
+        "maximum_relative_error": 3.852809410553412e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 3,
+        "at": "2026-10-01T08:00:00Z",
+        "leaf_count": 4,
+        "result_sha256": "a8bbb1620e492049c1cc9fba7c05531d075e8f1e97dbd567aa6a858f5b4970ee",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0005372489323669058
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.0007163319098225356
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.000895414887278175
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.00020676248544740394
+          }
+        ],
+        "maximum_relative_error": 4.23793222294325e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 4,
+        "at": "2026-10-01T10:00:00Z",
+        "leaf_count": 4,
+        "result_sha256": "81b4a06557e20673bc636fde4048810720d2160a18028580619597e8abf21b56",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.000664436636151811
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.0008859155148690799
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0011073943935863513
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.00027832998354994663
+          }
+        ],
+        "maximum_relative_error": 4.7321085700782934e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 5,
+        "at": "2026-10-01T12:00:00Z",
+        "leaf_count": 4,
+        "result_sha256": "e9ac6107ebc3f1ee2ee36e07df4bc8c61e2aa7ec27088078a2cfd7fceaac339c",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.000796814060060637
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.0010624187467475129
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.00132802343343439
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.00036762751969855745
+          }
+        ],
+        "maximum_relative_error": 3.265611570367122e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 6,
+        "at": "2026-10-01T14:00:00Z",
+        "leaf_count": 4,
+        "result_sha256": "dac28431213a70081339a4701eac9cbf5f6bfd7f90e4723fb8e9a43eab96e775",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0009263266139076706
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.001235102151876891
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0015438776898461153
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.00047444830065628354
+          }
+        ],
+        "maximum_relative_error": 3.394252365204486e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 7,
+        "at": "2026-10-01T16:00:00Z",
+        "leaf_count": 5,
+        "result_sha256": "717ad9d0d9aa054c48753e9cab3f6c2d5c314f0686ae54a192af129b8456e8e3",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0010455889259481108
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.0013941185679308132
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.001742648209913524
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.0005959719930322646
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-1",
+            "attachment_internode_id": "internode:e21306f6c52c259c1c900e08b61934b5a55eb4a87f322c24a2bad2e1e00276e5",
+            "area_m2": 0.00023830365732137307
+          }
+        ],
+        "maximum_relative_error": 3.638433299421209e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 8,
+        "at": "2026-10-01T18:00:00Z",
+        "leaf_count": 5,
+        "result_sha256": "4651fcdd5c0ad9466bfe69ba40b337e383c0924ee332000302caceefd1080a94",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0011494404646289404
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.0015325872861719175
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0019157341077149057
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.0007265701264154774
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-1",
+            "attachment_internode_id": "internode:e21306f6c52c259c1c900e08b61934b5a55eb4a87f322c24a2bad2e1e00276e5",
+            "area_m2": 0.0003181032065356579
+          }
+        ],
+        "maximum_relative_error": 3.2824871547110153e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 9,
+        "at": "2026-10-01T20:00:00Z",
+        "leaf_count": 5,
+        "result_sha256": "02453084a955a0b0236230fca8c9b15315735c19baf51cfe0cb1472d33db6bf9",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0012355603183556532
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.001647413757807546
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0020592671972594176
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.0008586061672155331
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-1",
+            "attachment_internode_id": "internode:e21306f6c52c259c1c900e08b61934b5a55eb4a87f322c24a2bad2e1e00276e5",
+            "area_m2": 0.0004158180200531661
+          }
+        ],
+        "maximum_relative_error": 7.300708330464573e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 10,
+        "at": "2026-10-01T22:00:00Z",
+        "leaf_count": 6,
+        "result_sha256": "febd268fef30fd08c90d68d03f1b838370b30be2f70669b900a3d7e8a70d2895",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0013041288209595888
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.001738838427946117
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0021735480349326457
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.0009841063508261407
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-1",
+            "attachment_internode_id": "internode:e21306f6c52c259c1c900e08b61934b5a55eb4a87f322c24a2bad2e1e00276e5",
+            "area_m2": 0.0005300865085073571
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-2",
+            "attachment_internode_id": "internode:5f3fe4b8f4f3f54b289880beb7ea9e235a0f211904d38ea1c207f3d8fcba00f0",
+            "area_m2": 0.00020307663665641292
+          }
+        ],
+        "maximum_relative_error": 4.406849611631262e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "leaf_count": 6,
+        "result_sha256": "d3208aedbbd3dc117327dd8fbd2413e19b67e5c7fee7121edf2426ee59fca083",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0013569758026513376
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.0018093010702017848
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0022616263377522403
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.0010965878679450147
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-1",
+            "attachment_internode_id": "internode:e21306f6c52c259c1c900e08b61934b5a55eb4a87f322c24a2bad2e1e00276e5",
+            "area_m2": 0.0006567352486713026
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-2",
+            "attachment_internode_id": "internode:5f3fe4b8f4f3f54b289880beb7ea9e235a0f211904d38ea1c207f3d8fcba00f0",
+            "area_m2": 0.00027363828570953593
+          }
+        ],
+        "maximum_relative_error": 6.723195640234054e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "leaf_count": 3,
+        "result_sha256": "8a1188ab25f8fb1cdd5e79609d0b2c59be5a27a222e3f9623f6416827e160ae6",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0002425093229384438
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.00032334576391792523
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.00040418220489740563
+          }
+        ],
+        "maximum_relative_error": 1.609475369298915e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "leaf_count": 3,
+        "result_sha256": "a54759a5a10d1fcf8a0fb420456bf836a020649a9974ae2c20fa93fde98f6b19",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0003233562656948159
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.00043114168759308773
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0005389271094913602
+          }
+        ],
+        "maximum_relative_error": 2.0117788721164487e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "leaf_count": 3,
+        "result_sha256": "a54759a5a10d1fcf8a0fb420456bf836a020649a9974ae2c20fa93fde98f6b19",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0003233562656948159
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.00043114168759308773
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0005389271094913602
+          }
+        ],
+        "maximum_relative_error": 2.0117788721164487e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      },
+      {
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "leaf_count": 6,
+        "result_sha256": "d3208aedbbd3dc117327dd8fbd2413e19b67e5c7fee7121edf2426ee59fca083",
+        "measured_areas": [
+          {
+            "leaf_id": "declared-leaf-0",
+            "attachment_internode_id": "synthetic-initial-0",
+            "area_m2": 0.0013569758026513376
+          },
+          {
+            "leaf_id": "declared-leaf-1",
+            "attachment_internode_id": "synthetic-initial-1",
+            "area_m2": 0.0018093010702017848
+          },
+          {
+            "leaf_id": "declared-leaf-2",
+            "attachment_internode_id": "synthetic-initial-2",
+            "area_m2": 0.0022616263377522403
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-0",
+            "attachment_internode_id": "internode:149353162853f546360b4df2dbf2554526645aa18ad982ed850e22052e645a98",
+            "area_m2": 0.0010965878679450147
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-1",
+            "attachment_internode_id": "internode:e21306f6c52c259c1c900e08b61934b5a55eb4a87f322c24a2bad2e1e00276e5",
+            "area_m2": 0.0006567352486713026
+          },
+          {
+            "leaf_id": "explicit-followup-leaf-2",
+            "attachment_internode_id": "internode:5f3fe4b8f4f3f54b289880beb7ea9e235a0f211904d38ea1c207f3d8fcba00f0",
+            "area_m2": 0.00027363828570953593
+          }
+        ],
+        "maximum_relative_error": 6.723195640234054e-15,
+        "all_UTC_table_and_exact_age_checks": true
+      }
+    ],
+    "unique_frames": 12,
+    "unique_leaf_areas": 52,
+    "first_ready_ms": 595,
+    "maximum_relative_error": 7.300708330464573e-15,
+    "first_last_canvas_different": true,
+    "replay_zero_then_advances_and_pauses": true,
+    "idle_frame_counter_unchanged": true,
+    "mobile_no_horizontal_overflow": true,
+    "accessibility_heading_controls_and_table": true,
+    "application_errors": [],
+    "console_diagnostics": [],
+    "POSTs": 0,
+    "API_requests": 0,
+    "fixture_GETs": 17,
+    "other_tabs_preserved": true,
+    "last_frame_left_open_paused": true,
+    "Windows_memory_in_WSL_budget": false,
+    "scope": "software_research_only",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed"
+  },
+  "native_cold": {
+    "strict_check_exit": 1,
+    "application_errors": [],
+    "console_warnings": [
+      "THREE.WebGLProgram: Program Info Log: (210,81-129): warning X4122: sum of 0.996094 and -2.98545e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accurately in double precision\n(210,82-106): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.66644e-018 cannot be represented accurately in double precision\n(210,82-106): warning X4122: sum of 1 and -1.66644e-018 cannot be represented accurately in double precision"
+    ],
+    "non200": [],
+    "mobile_last_six_leaves_screenshot_recorded": true,
+    "all_checks_completed_before_console_assertion": true,
+    "zero_warning_cold_acceptance": false
+  },
+  "runtime": {
+    "original_table_count": 25,
+    "all_original_25_table_rows_identical": true,
+    "schema_rowset_SHA256": "02711ef673b441d2f1d6d01f27421bb2f8e296703fe882d03725c8d3f5fdbe87",
+    "new_POSTs": 0,
+    "same_input_keys_and_DB": true,
+    "legacy_5173_5174_not_restarted": true,
+    "live_5175_5176": true,
+    "frozen_backend_source_files_unchanged": 772,
+    "bearer_grant_expires_at_UTC": "2026-10-23T23:12:03.383520+00:00"
+  },
+  "deployment": {
+    "new_files": [
+      {
+        "path": "leaf-population-replay.html",
+        "SHA256": "1a6ea998cd61704cbf875f1d6452628059d5a24981ba0d3a8c7ca25037db5c21",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/stem-root.json",
+        "SHA256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-6.json",
+        "SHA256": "03245e9f4b660b9091eb8e341fa949232dc9b5a5e1275a387e69d32bea9025a4",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/input.json",
+        "SHA256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-0.json",
+        "SHA256": "fcefe2e2383f1aa5501fd5fefd04e5c080cd7cec969ff2965f26aa54c7935c43",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-1.json",
+        "SHA256": "45d5bd034c82526e5d6a40262b88513a4d78c2babd4b8f46caec41e3be4638e3",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-2.json",
+        "SHA256": "8c38f03abca8f78fd954a5b12e7282330460e512e995ab6807cd8731e26954fa",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-3.json",
+        "SHA256": "b62ad62b42471daa6b2a6bd4d13616af1cfe66647ec61cd8abbd01889fcec09f",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-5.json",
+        "SHA256": "97df4a2345553b52b529ae8fe4e30df687b0c8e0db5cd3fd727ff8d9b8bc43ce",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-10.json",
+        "SHA256": "394b14dd24d5568b1afe015b667ada74a11dccb8cd94ad0faad678e5b4603cac",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-9.json",
+        "SHA256": "431a7417a427c087e3136bfcb2e6a945b1d58fb55f0a35c01b59c0eb79c8fc1f",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-4.json",
+        "SHA256": "9e5b9ba8bde8e4f7ad866ace63c475c79df4e568b2ecffd1c7305016c4cff13b",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/root.json",
+        "SHA256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-8.json",
+        "SHA256": "b76ffb65f95199b01e47cd27b610693a97d30f326642ae412ebdd1a58d8c7f19",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-11.json",
+        "SHA256": "31ab076ef11e39af789d8ff1612e814c42a27949a70d19ef36d3cd744d9b9ec6",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/index.json",
+        "SHA256": "78f1f6c828b5af0935ee09a60a92375659e3525e428781f88ed21b489e79f388",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/stem-input.json",
+        "SHA256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "leaf-population-replay/frame-7.json",
+        "SHA256": "a7d72d063ba2206f18576ea79f8a1a33e02bc1fefe1f4b95fe15b1edd5ae5531",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "assets/leafPopulation-vc_MXHV1.js",
+        "SHA256": "040cad8667d2440e3c366aa6aa51a174b449fcbf53b79dfe3d6c5ce826a6ad89",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "assets/leafArea-C1ZAYtjg.js",
+        "SHA256": "6860ebae758ed79f1d5c827e7cf3d3f2c252b7612a53373bb1f8b5374a80ac31",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "assets/LeafAreaReplayPage-D3kjkjgE.js",
+        "SHA256": "71ec97f937cc62f8ae5daeae66bca5b9c91a4747e37a57d571f8d3b2c8f5730c",
+        "HTTP": 200,
+        "no_store": true
+      },
+      {
+        "path": "assets/LeafAreaReplayPage-CZha5vhi.css",
+        "SHA256": "0103b530ad3d997eee3e45d02dd098207af838cca4155e800cc2a9362c0513b9",
+        "HTTP": 200,
+        "no_store": true
+      }
+    ],
+    "old_205_metadata_and_bytes_preserved": true,
+    "old_entry_files_preserved": [
+      "morphology-rational-replay.html",
+      "development-status.json",
+      "leaf-area-replay.html",
+      "morphology-execution.html",
+      "crop-appearance.html",
+      "morphology-replay.html"
+    ]
+  },
+  "12ui": {
+    "capture_convert_and_plan_settled": true,
+    "dom_coverage": 0.6666666666666666,
+    "design_coverage": 0.78125,
+    "gate": "passed",
+    "first_monorepo_path_failure_preserved": true,
+    "durable_repo_mismatch_attempt_preserved": true,
+    "correct_web_root_and_last_frame_recovery": true,
+    "existing_conversion_reused_without_new_purchase": true,
+    "live_WebGL_and_dynamic_SVG_retained": true,
+    "token_or_raster_plan_applied": false,
+    "final_fidelity_R2_accepted": false,
+    "reason": "Image-derived raster replacements and static three-leaf content conflict with required live WebGL, six-leaf stored data, dynamic graph and requested controls; original source CSS is unchanged."
+  },
+  "WSL_phases": {
+    "CI-download-v1": {
+      "child_exit": 0,
+      "wall_seconds": 11.01596249997965,
+      "PID_peak_RSS_bytes": 93691904,
+      "combined_peak_RSS_bytes": 253722624,
+      "samples": 42,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "deploy-v1": {
+      "child_exit": 0,
+      "wall_seconds": 0.8088246120023541,
+      "PID_peak_RSS_bytes": 93691904,
+      "combined_peak_RSS_bytes": 205144064,
+      "samples": 2,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "native-all-frames-v2": {
+      "child_exit": 1,
+      "wall_seconds": 8.23911912800395,
+      "PID_peak_RSS_bytes": 93691904,
+      "combined_peak_RSS_bytes": 206032896,
+      "samples": 31,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "native-diagnostics-v3": {
+      "child_exit": 0,
+      "wall_seconds": 7.151330576976761,
+      "PID_peak_RSS_bytes": 93691904,
+      "combined_peak_RSS_bytes": 193372160,
+      "samples": 27,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "native-cold-all-frames-v4": {
+      "child_exit": 1,
+      "wall_seconds": 8.710747553996043,
+      "PID_peak_RSS_bytes": 93822976,
+      "combined_peak_RSS_bytes": 193359872,
+      "samples": 33,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "runtime-verify-v2": {
+      "child_exit": 0,
+      "wall_seconds": 9.970703603990842,
+      "PID_peak_RSS_bytes": 93585408,
+      "combined_peak_RSS_bytes": 252928000,
+      "samples": 38,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "12ui-capture-v1": {
+      "child_exit": 0,
+      "wall_seconds": 4.171382920991164,
+      "PID_peak_RSS_bytes": 214073344,
+      "combined_peak_RSS_bytes": 983171072,
+      "samples": 15,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "12ui-close-v1": {
+      "child_exit": 1,
+      "wall_seconds": 367.1290903489862,
+      "PID_peak_RSS_bytes": 133005312,
+      "combined_peak_RSS_bytes": 323883008,
+      "samples": 1443,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "12ui-plan-recovery-v2": {
+      "child_exit": 1,
+      "wall_seconds": 1.0792615589743946,
+      "PID_peak_RSS_bytes": 96923648,
+      "combined_peak_RSS_bytes": 288092160,
+      "samples": 3,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    },
+    "12ui-aligned-close-v3": {
+      "child_exit": 0,
+      "wall_seconds": 4.175163612992037,
+      "PID_peak_RSS_bytes": 251772928,
+      "combined_peak_RSS_bytes": 1034874880,
+      "samples": 15,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "owned_remaining": 0,
+      "source_preserved": true
+    }
+  },
+  "Windows_Node_Chrome_in_WSL_memory_budget": false,
+  "WSL_common_capacity_accepted": false,
+  "exact_native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_at": "2026-10-22T23:48:39.918Z",
+    "raw_line_including_LF_sha256": "29f4564c80abe72c277b674a44c6270b9b9be66d795b31df6729916316c52af3",
+    "recursive_CLI_invocations": 0
+  },
+  "actual_farm_Runs": 0,
+  "independent_local_crop_cycles": 0,
+  "G0_G4": "not_assessed",
+  "remaining": [
+    "registered farm and current parent stem/leaf rights",
+    "signed population result and automatic worker",
+    "product job/API/UI integration",
+    "cold native GPU warning",
+    "final realistic cultivar appearance R2",
+    "actual cultivar parameters and independent local measurements",
+    "whole crop cycle production/resources/economics/autonomous recommendation"
+  ]
+}

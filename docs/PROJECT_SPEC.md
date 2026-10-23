@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**작물 계산/3D 현재 수용 — 2026-10-22 KST:** [성장 실험실](http://localhost:5176/)의 실제 접수/자동 계산→저장 줄기3D와 [별도 잎 면적 재생](http://localhost:5176/leaf-area-replay.html)의 저장12시점·선언3잎 면적/실제 삼각형·표/그래프를 수용했습니다([화면·검증](../research/leaf-area-stored-replay-20261022.md)). [명시 새 잎/목록·원 stem 결속](../research/crop-leaf-stem-binding-20261022.md)은 관련150검사·실제52면적/12합계로 수용했고 [새 불변40blob/producer14](../research/crop-leaf-population-artifact-20261022.md)와 [manifest-only12/fresh](../research/crop-leaf-population-manifest-20261022.md)를 확인했습니다. 새3→6잎 계산의 frame 무계산 조회·export/같은 UTC3D 및 원 farm/job 통합은 후속이며 현재 UI는 초기3잎 저장본입니다. 실제 Axiany 계수/초기관측·독립 농장 자료0, 한 작기/탄소·자원/경제·자율 작물 선정·G0–G4와 전체 완료일 미정을 유지합니다. 아래 이전 상태는 당시 기록입니다.
+**작물 계산/3D 현재 — 2026-10-23 KST:** [새 잎 재생](http://localhost:5176/leaf-population-replay.html)의 자체 합성12시점/명시3→6잎을 원 UTC의3D·면적/줄기·표/그래프로 연결했습니다. [검증 기록](../research/leaf-population-stored-replay-20261023.md)에 CI85/Chromium20·실제 Chrome12시점/52면적, 기존25표/205파일 보존과 첫 렌더링 셰이더 경고1을 기록했습니다.5176 API/웹과5175는 실행 중이며 이전5173/5174는 종료 상태입니다. 다음은 leaf 입력 출처/현재 검토→현재 농장/원 stem 완료 결과→서명/자동 worker→같은 작업의 제품3D입니다. 실제 품종/독립 자료0·한 작기/생산·자원/경제·자율 선정·최종 사실감 R2/G0–G4와 전체 완료일 미정을 유지합니다. 아래는 당시 검증 기록입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

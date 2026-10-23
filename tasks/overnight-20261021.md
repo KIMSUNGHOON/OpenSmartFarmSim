@@ -99,3 +99,13 @@ native goal은 앞의 paused/교체 도구 부재 상태가 마지막 관측이�
 - [새 population 불변 producer](../research/crop-leaf-population-artifact-20261022.md):14집중/실제40blob·28code/12binding·독립52면적 probe bytes/같은 입력 같은 root·metadata/늦은 drift 차단·7root 수용. 무계산 manifest/frame 조회·export/새 잎3D는 후속이다.
 
 - [population manifest 무계산 조회](../research/crop-leaf-population-manifest-20261022.md):12집중/실제40blob fresh·원28code/12 descriptor chain/권리·생장 import/DB/쓰기0/7root 수용. 원 raw/binding frame 조회·export/새 잎3D는 다음이다. 23:50 UTC native goal은 여전히 이전 paused이며 사용자 clear 회신과 도구 불일치를 유지했다. 재입력을 요청하지 않고 승인된 시간 범위의 구현을 계속했다.
+
+
+## 2026-10-23 재개 관측
+
+사용자의 clear 완료 회신과 별도로 실제 get_goal은 이전 전체 objective의 **active**를 반환했다.
+create_goal 재시도도 unfinished goal 오류로 거부됐다. 새 목표 교체 완료로 표시하지 않으며
+재입력을 반복 요청하지 않는다. 현재 정확 모델은 최근 사용자/AGENTS 지시의 gpt-6.1-sol/xhigh다.
+현재 구현/다음 수용은 [10월23일 계획](plan.md#새-잎의-농장-통합--2026-10-23)과
+[화면/검증](../research/leaf-population-stored-replay-20261023.md)을 따른다.
+위10월22일 오전9시 기한은 경과한 기록이며 현재 재개의 종료 시각이 아니다.

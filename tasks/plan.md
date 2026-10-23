@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-23 재개:** native goal active를 확인했다. 이전 goal 교체 불가/paused 기록은 당시 관측이다. 현재 모델/노력은 최근 사용자 지시와 AGENTS.md의 gpt-6.1-sol/xhigh를 따른다. 과거7root 중5175만 생존하며 다른6root/socket은 종료됐다. 원 저장물/코드를 보존하고 아래 frame 조회→export/새 잎3D·필요 runtime 복구를 진행한다.
+**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. 다음 한 단계는 leaf 입력의 출처/현재 검토 증거이며 아래 후속 의존성을 따른다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
 
 **최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
@@ -3403,3 +3403,26 @@ normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다�
 [2026-10-23 시점별 population 조회](../research/crop-leaf-population-frame-20261023.md)는18집중·실제12시점/52면적/12합계·fresh의 import/DB/쓰기0·FD/원40blob으로 수용했다. 다음은 양쪽 재배포 권리 export→strict SDK/새 잎3D와 필요한5176 runtime 복구다. 현재외형5175만 생존하며 과거7root 통과를 현재 생존으로 사용하지 않는다. 실제 품종/독립자료·원 farm/job·전체 완료일은 후속이다.
 
 [2026-10-23 population export](../research/crop-leaf-population-export-20261023.md)는3집중/실제17파일·양쪽 재배포 권리/원 bytes/기존 출력 보존으로 수용했다. compiled root/index 지문과 public 파일을 준비했고 다음은 strict SDK/같은 UTC의 새 잎 수·면적3D와 필요한5176 runtime 복구다. 미배포 상태를 유지한다.
+
+
+## 새 잎의 농장 통합 — 2026-10-23
+
+[연구 UI 기능 수용과 남은 경고/디자인](../research/leaf-population-stored-replay-20261023.md)을 기준으로
+독립 농장 자료 확보와 다음 소프트웨어 개발을 병행한다.
+
+1. **입력 출처/현재 검토:** leaf 원 program·원 단위/시각/QC/권리와 parent stem 입력의 증거/현재 검토를 결속한다.
+   수용: 정상 bytes/metadata·재배포 금지 보존, rehash 뒤 변조/현재·늦은 철회 거부,
+   발급/검증의 생장 import·계산/DB/CLI/쓰기0 및 별도 fresh의 원 파일/FD 보존.
+   이 단계의 stem root는 식별자이며 수치 결과 승인으로 취급하지 않는다.
+2. **농장/부모 결과:** 기존 등록 farm·crop/기간·현재 scope와 완료된 parent stem job/서명 결과를 대사한다.
+   동일 farm/입력/원 UTC·부착 ID, 양쪽 현재 사용/표시 권리와 늦은 철회·다른 tenant/결과 거부를 실제 DB에서 확인한다.
+3. **서명/자동 worker:** 명시 모델 판본의 접수/멱등·실제1회 계산·불변 population 원자 게시,
+   취소/만료/재시작/권리 철회와 원 stem 결과 보존을 확인한다.
+4. **같은 작업의 제품3D:** 현재 인증 API/strict SDK가 원 job/result/UTC를 읽고 메뉴/reload 후 복원한다.
+   철회 때 장면·수치를 제거하고 기존 입력/화면·실제 브라우저/모바일·WSL 상한을 대사한다.
+
+첫 입력 증거 자식은 설계/구현1–2h + 반례/fresh1–2h + 검토/기록0.5–1h = **2.5–5집중시간**의
+낮은 신뢰 추정이다. 기존 stem 경계 재사용이 전제이며 전체 통합 완료일의 추정은 아니다.
+후속 DB/worker 조립의 실제 분해와 자료 확보 뒤 전체 날짜를 갱신한다. 실제 Axiany/독립 작기 확보0이므로
+예측·추천 게시와 전체 제품 완료 날짜는 미정이며 기존 G0–G4를 유지한다.
+이전 오전9시 마감은2026-10-22에 경과한 기록이고 현재 재개 지시의 종료 시각으로 재사용하지 않는다.
