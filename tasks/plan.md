@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-23 현재:** [새 잎 실행 화면](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)에서 입력 확인→한 번 접수→실제 자동 계산→같은 저장 잎·줄기3D를 수동 복구 없이 확인했습니다. [실제 동작·보존·남은 범위](../research/leaf-admission-live-automatic-20261023.md): 첫202 13.306초/계산 중 같은 POST 18.169초·동일 job/attempt1, 메뉴·reload·권리 철회/복원과 같은 DB/키 cold restart 뒤12시점/52면적을 대사했습니다. query7d9c289/호출부6bad7dd의 별도820파일 판본이며 원 입력/DB/키·URL과 WSL 상한을 보존했습니다. 새 UI의 일시적503 두 건은 자동 GET 재조회로 회복했지만 원인·운영 무오류 수용은 보류합니다. 별도 합성 진단에서는 상태 전환의 Pending503 두 건과 정상 복구를 대사했습니다. [잎/화방 순번 분류67검사](../research/crop-phytomer-kind-20261023.md)와 [원 줄기→잎 입력290검사](../research/crop-stored-shoot-leaf-birth-inputs-20261023.md)를 수용했습니다. [자동 출현 program315검사](../research/crop-leaf-appearance-program-20261023.md)와 같은 입력의 기존 계산12시점/47면적 호환도 수용했습니다. [불변 producer349검사](../research/crop-leaf-appearance-artifact-20261023.md)와 실제43blob/원12시점·47면적도 수용했습니다. [무계산 조회436검사](../research/crop-leaf-appearance-reader-20261024.md)와 실제43파일/fresh12시점·47면적도 수용했습니다. [공개 export183검사](../research/crop-leaf-appearance-export-20261024.md)와 실제20파일/동일 two fresh도 수용했습니다. 현재 화면은 기존 작업이며 다음은 새 root의 strict SDK→같은 UTC3D입니다. 실제 품종/독립 작기0·생산/자원/경제·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미완료/미정입니다.
+**2026-10-23 현재:** [새 잎 실행 화면](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)에서 입력 확인→한 번 접수→실제 자동 계산→같은 저장 잎·줄기3D를 수동 복구 없이 확인했습니다. [실제 동작·보존·남은 범위](../research/leaf-admission-live-automatic-20261023.md): 첫202 13.306초/계산 중 같은 POST 18.169초·동일 job/attempt1, 메뉴·reload·권리 철회/복원과 같은 DB/키 cold restart 뒤12시점/52면적을 대사했습니다. query7d9c289/호출부6bad7dd의 별도820파일 판본이며 원 입력/DB/키·URL과 WSL 상한을 보존했습니다. 새 UI의 일시적503 두 건은 자동 GET 재조회로 회복했지만 원인·운영 무오류 수용은 보류합니다. 별도 합성 진단에서는 상태 전환의 Pending503 두 건과 정상 복구를 대사했습니다. [잎/화방 순번 분류67검사](../research/crop-phytomer-kind-20261023.md)와 [원 줄기→잎 입력290검사](../research/crop-stored-shoot-leaf-birth-inputs-20261023.md)를 수용했습니다. [자동 출현 program315검사](../research/crop-leaf-appearance-program-20261023.md)와 같은 입력의 기존 계산12시점/47면적 호환도 수용했습니다. [불변 producer349검사](../research/crop-leaf-appearance-artifact-20261023.md)와 실제43blob/원12시점·47면적도 수용했습니다. [무계산 조회436검사](../research/crop-leaf-appearance-reader-20261024.md)와 실제43파일/fresh12시점·47면적도 수용했습니다. [공개 export183검사](../research/crop-leaf-appearance-export-20261024.md)와 실제20파일/동일 two fresh도 수용했습니다. [strict SDK106검사](../research/leaf-appearance-sdk-20261024.md)와 타입/별도 번들·실제 HTTP20GET/원12 DTO도 수용했습니다. 현재 화면은 기존 작업이며 다음은 새 source의 같은 UTC3D/실제 browser입니다. 실제 품종/독립 작기0·생산/자원/경제·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미완료/미정입니다.
 
 **최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
@@ -3761,3 +3761,15 @@ API+worker와 UI+worker는 별도 실제 부하이며 세 부하 동시/U1/G4 �
 계약/메타데이터0.25–0.5h + decoder0.5–1h + fixture/거부 검사·기록0.25–0.5h = **1–2집중시간**의 낮은 신뢰 작업량이다.
 그 뒤 기존 geometry/재생 UI→새 entry/실제 browser·사용자 URL/WSL을 잇는다. UI/기동1–2.5h 초안은 해당 계약의 실제 분해 뒤 갱신한다.
 실제 품종/독립 작기0·farm/current 권리/서명/worker·관리/생산/자원/Decimal 경제·거시/수급·자율 비교와G0–G4/전체 완료일 미정은 유지한다.
+
+
+**자동 출현 strict SDK 수용 — 2026-10-24 KST:** [신규53/관련53·106검사/타입/별도 번들·실제 HTTP](../research/leaf-appearance-sdk-20261024.md)로
+원20파일/root/index·33코드/정책/선언·원 DTO/UTC를 묶었다. 실제 Node native fetch의 GET20/POST0·원12 DTO/47면적·3→5잎,
+source20/old17/original43metadata·원3root/WSL/소유 잔여0을 대사했다. 타입3오류를 수정했고 프로세스 전용 heap384에서 전체 타입 검사가 통과했다.
+위1–2h SDK 추정은 실제 수용으로 대체한다. 새 browser/WebGL·사용자 적용은 아직 미수용이다.
+다음은 **LeafAreaReplayPage/MorphologyScene의 새 source/새 entry와 같은 UTC3D**다. providedReplay/재생/표·그래프·geometry를 재사용하고
+새 root/정책 의미·선택 시점을 유지한다. 원12시점/47면적·부착/ID·UTC·3→5잎과 실제 삼각형 면적·모바일/유휴/재생/중단·WebGL 대체,
+메뉴/reload·권리/누락/오류 때 제거·기존 화면/자료/WSL/소유 정리가 수용 기준이다.
+page/source·표시/상태0.5–1h + geometry 타입/새 entry0.5–1h + 빌드/집중 회귀·실제 browser0.5–1.5h = **1.5–3.5집중시간**의 낮은 신뢰 작업량이다.
+기존 props/geometry·소유 미리보기/실제 browser 접근이 전제이며 이전1–2.5h UI 초안을 이 실제 분해로 갱신한다.
+현재 UI/runtime·DB/키는 유지했다. farm/current 권리·서명/worker와 실제 품종/독립 작기0·생산/자원/Decimal 경제·거시/수급/자율 비교·G0–G4/전체 완료일 미정은 유지한다.

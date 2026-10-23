@@ -1,0 +1,607 @@
+{
+  "schema_version": "leaf-appearance-sdk-evidence-v1",
+  "scope": "software_research_only",
+  "claim_scope": "synthetic_crop_math_only",
+  "G0_G4": "not_assessed",
+  "native_session": {
+    "timestamp": "2026-10-23T15:48:23.853Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "1657572a080cdd90ad97353e4f5dedad9eae8f4686babffe3e64522e301ff50d",
+    "recursive_CLI_invocations": 0,
+    "previous_goal_turn": "progress: export183; original43/old17preserved; public20files126865bytes and same2fresh"
+  },
+  "focused_tests": {
+    "new": 53,
+    "related": 53,
+    "unique_total": 106,
+    "final_batches": [
+      {
+        "files": [
+          "leafAppearanceReplay.test.ts",
+          "leafPopulationReplay.test.ts",
+          "leafAreaReplay.test.ts",
+          "morphologyReplay.test.ts"
+        ],
+        "passed": 90
+      },
+      {
+        "files": [
+          "morphologyRationalReplay.test.ts"
+        ],
+        "passed": 16
+      }
+    ]
+  },
+  "phase_receipts": {
+    "leaf-appearance-sdk-red-v1": {
+      "observed_at_UTC": "2026-10-23T15:54:17.724140Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 1.4311970050039236,
+      "PID_peak_RSS_bytes": 207024128,
+      "combined_peak_RSS_bytes": 576102400,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3482,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "8f03820720f80cf44f2579ccec5035a05abd4ad8af562fa7cfc545c1e4cfbef7",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-sdk-green-v1": {
+      "observed_at_UTC": "2026-10-23T15:58:39.164448Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.6364822479954455,
+      "PID_peak_RSS_bytes": 225234944,
+      "combined_peak_RSS_bytes": 616497152,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3483,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "0b50269ac0303b79d63de22fe1454635453d0e20a2994a893a353f56461a4309",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-sdk-typecheck-v1": {
+      "observed_at_UTC": "2026-10-23T16:00:03.615016Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 1.898962777981069,
+      "PID_peak_RSS_bytes": 518443008,
+      "combined_peak_RSS_bytes": 880795648,
+      "samples": 6,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3483,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "849bf318a404f52b5285fae0dd9d3d8cae99db39642dfacc66ddaa7d4acaa243",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-sdk-typecheck-v2": {
+      "observed_at_UTC": "2026-10-23T16:02:09.668144Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.9220154090144206,
+      "PID_peak_RSS_bytes": 430526464,
+      "combined_peak_RSS_bytes": 793214976,
+      "samples": 6,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3483,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-sdk-final-regression-v1": {
+      "observed_at_UTC": "2026-10-23T16:03:18.177870Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.1793974559986964,
+      "PID_peak_RSS_bytes": 236507136,
+      "combined_peak_RSS_bytes": 610242560,
+      "samples": 7,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3483,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "967ce61792e8cca4684eb04aaba425bb11cc6080409eaddeef6ce33e65ffcace",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-sdk-rational-regression-v1": {
+      "observed_at_UTC": "2026-10-23T16:04:26.673244Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.422064568992937,
+      "PID_peak_RSS_bytes": 204292096,
+      "combined_peak_RSS_bytes": 563888128,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3483,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "bc0e1422d0d58021a7d79a95435e0d59ebc97507273c8a5afe03bd7fdca035f8",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-sdk-bundle-v1": {
+      "observed_at_UTC": "2026-10-23T16:06:05.106405Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.141065019997768,
+      "PID_peak_RSS_bytes": 143417344,
+      "combined_peak_RSS_bytes": 437170176,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3483,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e6f9e92261f67b0d23fa36005ac83080dd808a146ef94e81cd9db26e52c4fa6a",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-sdk-http-original-v1": {
+      "observed_at_UTC": "2026-10-23T16:06:40.528784Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.39264902099967,
+      "PID_peak_RSS_bytes": 83898368,
+      "combined_peak_RSS_bytes": 315146240,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3483,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "7bc9c0fab688f4f4a61c5c44d8b32531bf0d2e76f059be93cdc1eb7c27e12660",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "actual_HTTP": {
+    "passed": true,
+    "scope": "software_research_only",
+    "G0_G4": "not_assessed",
+    "client": {
+      "passed": true,
+      "root": "77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a",
+      "requests": [
+        {
+          "path": "./leaf-appearance-replay/index.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/root.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/input.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/preparation.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/generated-input.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/population-root.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/stem-root.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/stem-input.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-0.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-1.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-2.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-3.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-4.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-5.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-6.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-7.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-8.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-9.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-10.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        },
+        {
+          "path": "./leaf-appearance-replay/frame-11.json",
+          "method": "GET",
+          "cache": "no-store",
+          "redirect": "error",
+          "credentials": "omit"
+        }
+      ],
+      "frames": 12,
+      "areas": 47,
+      "counts": [
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5
+      ],
+      "all12_DTOs_equal_original": true,
+      "policy": {
+        "first_generative_sequence": 4,
+        "origin": "synthetic",
+        "policy_id": "owned-explicit-phase",
+        "schedule_id": "synthetic-schedule-fractional-second",
+        "sequence_basis": "explicit_emergence_schedule",
+        "shoot_id": "synthetic-shoot",
+        "vegetative_between_generative": 2
+      },
+      "scope": "software_research_only",
+      "gates": "not_assessed",
+      "browser_or_WebGL_verified": false
+    },
+    "server_requests": [
+      {
+        "method": "GET",
+        "name": "index.json",
+        "sha256": "86b2146daa37ecc68b0be086a80bc3212a03f6cc6a18a17e4d44049d8ba1a928",
+        "bytes": 7141
+      },
+      {
+        "method": "GET",
+        "name": "root.json",
+        "sha256": "77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a",
+        "bytes": 6156
+      },
+      {
+        "method": "GET",
+        "name": "input.json",
+        "sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "bytes": 4470
+      },
+      {
+        "method": "GET",
+        "name": "preparation.json",
+        "sha256": "a09cd9f32a7c9ef69191eb26c6fa8a0a4353027bb3811a1cca514d07d0e490aa",
+        "bytes": 16095
+      },
+      {
+        "method": "GET",
+        "name": "generated-input.json",
+        "sha256": "1c8f9666d6f716a355a9c05e047a282babd948e6d246a9810f45e2114dc81b4f",
+        "bytes": 5121
+      },
+      {
+        "method": "GET",
+        "name": "population-root.json",
+        "sha256": "94224ddcac4cdbb46eb2ba4cd1318fdaf71c14550128e570ce90fc60e3334285",
+        "bytes": 12255
+      },
+      {
+        "method": "GET",
+        "name": "stem-root.json",
+        "sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "bytes": 8643
+      },
+      {
+        "method": "GET",
+        "name": "stem-input.json",
+        "sha256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3",
+        "bytes": 6719
+      },
+      {
+        "method": "GET",
+        "name": "frame-0.json",
+        "sha256": "fb81f1ed5ef8ca96f30bbc08fcd539017366fa93d8cd367c7aa9c3abd8d20dba",
+        "bytes": 4087
+      },
+      {
+        "method": "GET",
+        "name": "frame-1.json",
+        "sha256": "f217ef1a2cf8104c85e7a4fee3f450568adaf76d816d1b239de34f092c335692",
+        "bytes": 4080
+      },
+      {
+        "method": "GET",
+        "name": "frame-2.json",
+        "sha256": "26ad4c2aed785a1bfdb5bcbb5744e0b31939f35540ad1ebdcc80d04b6762426d",
+        "bytes": 4073
+      },
+      {
+        "method": "GET",
+        "name": "frame-3.json",
+        "sha256": "2ee1cc08789708f32557a9728ff1934126e59aff422ba942fd069dcfd46062b3",
+        "bytes": 4930
+      },
+      {
+        "method": "GET",
+        "name": "frame-4.json",
+        "sha256": "e7fa7c93805c3908792d6cc0a9b50014035e1e0231321fd4e18287de99551096",
+        "bytes": 4934
+      },
+      {
+        "method": "GET",
+        "name": "frame-5.json",
+        "sha256": "c289b775a72c19b350a42884fb9e6083619fd9cbad623e00eb354331b4d4a14e",
+        "bytes": 4923
+      },
+      {
+        "method": "GET",
+        "name": "frame-6.json",
+        "sha256": "d16a02048ef2a31bce8ff7178db8919a0b4be4768bbb0b22b47ec7e0569b019d",
+        "bytes": 4946
+      },
+      {
+        "method": "GET",
+        "name": "frame-7.json",
+        "sha256": "6f6017c9c3fe2fc7649be49fcf7bdebd96025540e10620073da034d0f474ba31",
+        "bytes": 5311
+      },
+      {
+        "method": "GET",
+        "name": "frame-8.json",
+        "sha256": "097aff8440c04eb3e08274d58864fc090a497f4915ce9e769f0c5e6508d7b4c1",
+        "bytes": 5314
+      },
+      {
+        "method": "GET",
+        "name": "frame-9.json",
+        "sha256": "2f57bbd98163747c70756e22b2a093a4b0cf7976ae657a9c38bc459e5ae8e7c4",
+        "bytes": 5308
+      },
+      {
+        "method": "GET",
+        "name": "frame-10.json",
+        "sha256": "94459ebec748fd5cad2f8f8752e0af9cc4a9ff467f1533a6624e2bc8f057906a",
+        "bytes": 6189
+      },
+      {
+        "method": "GET",
+        "name": "frame-11.json",
+        "sha256": "a2c374c3a95d7310d9b5d5c7d85ea85f357aee53f1d047ca98b026223453593e",
+        "bytes": 6170
+      }
+    ],
+    "GET_count": 20,
+    "POST_count": 0,
+    "root": "77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a",
+    "index_sha256": "86b2146daa37ecc68b0be086a80bc3212a03f6cc6a18a17e4d44049d8ba1a928",
+    "public20_metadata_preserved": true,
+    "old17_metadata_preserved": true,
+    "original43_metadata_preserved": true,
+    "isolated_bundle_bytes": 34222,
+    "isolated_bundle_sha256": "fd05e1f4e7d01e40851d05e18c1154ba0815704e72fc8e741c39d9858635411b",
+    "node_relative_base_URL_adapter": true,
+    "browser_WebGL_or_product_runtime_verified": false,
+    "user_runtime_or_DB_changed": false,
+    "actual_farm_Runs": 0,
+    "independent_local_crop_cycles": 0
+  },
+  "actual_private_proof_sha256": "3e12676c87ab1aa28e309073f1c8acb2be35aadb842e96af65599edbe2135749",
+  "correction": "Typecheck v1 found one test key-index assertion and two digest-property narrowings missing; corrected in source. Typecheck v2 uses process-only NODE_OPTIONS max-old-space-size384; final unit106 and isolated bundle/actualHTTP use the corrected source.",
+  "source_sha256": {
+    "web/src/leafAppearanceReplay.ts": "8afc420163553952e0739cf6ddbf01cbba64dac1fe7fc099a93780128634bd24",
+    "web/src/leafAppearanceReplayFixture.ts": "fb12f3ea6ff3236eaea02208b577c19870425dea023de19101ecfa2fd1ecb352",
+    "web/src/leafAppearanceReplay.test.ts": "891c00231aceffa3c1f109ebbdeba128b8c036db072c6b7601804e840e8a8d88"
+  },
+  "not_run": [
+    "new browser/WebGL",
+    "new UI entry/geometry integration",
+    "product API/worker activation",
+    "full frontend browser/unit suite",
+    "full application build",
+    "new hosted CI"
+  ],
+  "holds": [
+    "sameUTC3D UI and actual browser/user URL",
+    "current farm/custody/worker for this program",
+    "actual cultivar/independent local cycles zero",
+    "management/production/resources/Decimal economics/macro/supply-demand/autonomous comparison",
+    "R2/firstcold shader warning",
+    "G0-G4 and overall completion date"
+  ],
+  "implementation_commit": "ada8795053863b2a016d14a507bb7f4a7cb3e2cd",
+  "static_verification": {
+    "source_evidence_hashes": 3,
+    "compiled_code_pins": 33,
+    "compiled_declarations": 5,
+    "unique_tests": 106,
+    "actual_GET": 20,
+    "actual_POST": 0,
+    "areas": 47,
+    "local_links": 3071,
+    "anchors": 94,
+    "credential_pattern_matches": 0,
+    "git_diff_check": true
+  }
+}
