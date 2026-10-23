@@ -2,7 +2,7 @@ import {test,expect,type Page} from '@playwright/test';
 import {appearanceFlags,appearanceJobId,appearancePreview,appearanceResponse,appearanceToken} from './leaf-appearance-execution-fixture';
 
 async function setup(page:Page){
-  const state={phase:'queued',submissions:[] as string[],lost:false,denied:0,transientReads:0,cancels:0,delay:0,requests:[] as string[]};
+  const state={phase:'queued',submissions:[] as string[],lost:false,denied:0,transientReads:0,cancels:0,cancelFlag:false,delay:0,requests:[] as string[]};
   await page.addInitScript(token=>{if(sessionStorage.getItem('ossf-leaf-appearance-token-v1')===null)sessionStorage.setItem('ossf-leaf-appearance-token-v1',token);},appearanceToken);
   await page.route('**/leaf-appearance-preview-input',route=>route.fulfill({json:appearancePreview(),headers:{'Cache-Control':'no-store'}}));
   await page.route('**/v1/**',async route=>{
@@ -14,7 +14,7 @@ async function setup(page:Page){
     }
     if(path.endsWith('/cancel')){state.phase='canceled';state.cancels++;
       return route.fulfill({json:{schema_version:'leaf-appearance-execution-cancel-v1',...appearanceFlags,
-        observed_at:'2026-10-23T19:02:00Z',job:{...appearanceResponse().job,state:'canceled'},cancel_requested:true,cancel_accepted:true},headers:{'Cache-Control':'no-store'}});}
+        observed_at:'2026-10-23T19:02:00Z',job:{...appearanceResponse().job,state:'canceled',attempt_count:state.cancelFlag?1:0},cancel_requested:state.cancelFlag,cancel_accepted:true},headers:{'Cache-Control':'no-store'}});}
     if(state.denied)return route.fulfill({status:state.denied});
     if(state.transientReads>0){state.transientReads--;return route.fulfill({status:503});}
     if(new RegExp(`^/v1/jobs/(?:${appearanceJobId}|33333333-3333-4333-8333-333333333333)/crop-leaf-appearance-execution(?:/replay)?$`).test(path)){
@@ -79,6 +79,11 @@ test('cancel interrupts an in-flight state read and shows only server cancellati
   await expect(page.getByRole('button',{name:'취소 요청',exact:true})).toBeEnabled();await page.getByRole('button',{name:'취소 요청',exact:true}).click();
   await expect(page.locator('.leaf-execution')).toHaveAttribute('data-job-state','canceled');
   expect(state.cancels).toBe(1);await expect(page.getByRole('heading',{name:'계산 취소됨',exact:true})).toBeVisible();await expect(page.locator('canvas,table')).toHaveCount(0);
+});
+test('terminal cancellation is displayed even when the server retains its cancellation flag',async({page})=>{
+  const state=await setup(page);state.cancelFlag=true;await page.getByRole('button',{name:'계산 시작',exact:true}).click();
+  await expect(page.getByRole('button',{name:'취소 요청',exact:true})).toBeEnabled();await page.getByRole('button',{name:'취소 요청',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'계산 취소됨',exact:true})).toBeVisible();await expect(page.locator('canvas,table')).toHaveCount(0);
 });
 test('mobile fallback preserves stored leaf values and fits viewport',async({page})=>{
   await page.setViewportSize({width:390,height:844});await page.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;

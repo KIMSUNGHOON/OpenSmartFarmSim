@@ -205,8 +205,9 @@ export function createLeafAppearanceExecutionClient(token:string){
   },
   async cancel(id:string,signal:AbortSignal){
    const value=shape(await request(path(id)+'/cancel',signal,'POST'),['schema_version',...Object.keys(FLAGS),'observed_at','job','cancel_requested','cancel_accepted']);flags(value);stamp(value.observed_at);
-   need(value.schema_version==='leaf-appearance-execution-cancel-v1'&&typeof value.cancel_requested==='boolean'&&typeof value.cancel_accepted==='boolean'&&(!value.cancel_accepted||value.cancel_requested));
-   return {job:job(value.job,id),cancel_requested:value.cancel_requested,cancel_accepted:value.cancel_accepted};
+   const currentJob=job(value.job,id);
+   need(value.schema_version==='leaf-appearance-execution-cancel-v1'&&typeof value.cancel_requested==='boolean'&&typeof value.cancel_accepted==='boolean'&&(!value.cancel_accepted||value.cancel_requested||currentJob.state==='canceled'));
+   return {job:currentJob,cancel_requested:value.cancel_requested,cancel_accepted:value.cancel_accepted};
   },
   async preview(signal:AbortSignal){
    const value=shape(await request('/leaf-appearance-preview-input',signal),['schema_version',...Object.keys(FLAGS),'label','request']);flags(value);

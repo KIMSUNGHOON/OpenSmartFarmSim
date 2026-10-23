@@ -5,6 +5,8 @@
 [저장 연구 SDK](web-leaf-appearance-sdk-v1.md)와 기존 실행 client/화면은 보존한다.
 
 `createLeafAppearanceExecutionClient(token)`은 preview/submit/status/observe/manifest/frame/replay/cancel을 제공한다.
+즉시 취소된 작업은 `canceled / cancel_accepted=true / cancel_requested=false`로 수용한다.
+취소 수락이면서 미종결이면 서버의 pending cancellation flag를 요구한다.
 인증된 같은 출처의 appearance 경로만 사용하며 닫힌 request/JobStatus·현재 읽기/cancel envelope를 검사한다.
 Bearer·no-store/redirect=error/credentials=omit, UTF-8/JSON·응답2MiB와 각 요청30초·caller abort를 유지한다.
 다른 family/추가 필드·단위/부착/시각/식별자·완료 전 결과를 거부한다. POST의 자동 재시도는 없다.

@@ -99,9 +99,18 @@ it.each(['summary','index','digest','extra'])('rejects invalid signed frame %s',
  vi.stubGlobal('fetch',vi.fn().mockResolvedValueOnce(json(appearanceManifestResponse())).mockResolvedValueOnce(json(f)));
  await expect(createLeafAppearanceExecutionClient(appearanceToken).frame(appearanceJobId,0,signal())).rejects.toThrow();
 });
-it('reads current cancel envelope for matching job',async()=>{
- vi.stubGlobal('fetch',vi.fn(async()=>json({schema_version:'leaf-appearance-execution-cancel-v1',...appearanceFlags,observed_at:'2026-10-23T19:02:00Z',job:{...appearanceResponse().job,state:'canceled'},cancel_requested:true,cancel_accepted:true})));
- expect((await createLeafAppearanceExecutionClient(appearanceToken).cancel(appearanceJobId,signal())).job.state).toBe('canceled');
+it.each(['canceled','simulating'])('reads current cancel envelope for matching job in %s',async(state)=>{
+ vi.stubGlobal('fetch',vi.fn(async()=>json({schema_version:'leaf-appearance-execution-cancel-v1',...appearanceFlags,observed_at:'2026-10-23T19:02:00Z',job:{...appearanceResponse().job,state},cancel_requested:true,cancel_accepted:true})));
+ expect((await createLeafAppearanceExecutionClient(appearanceToken).cancel(appearanceJobId,signal())).job.state).toBe(state);
+});
+it('accepts actual immediate queued cancellation with no pending cancellation flag',async()=>{
+ vi.stubGlobal('fetch',vi.fn(async()=>json({schema_version:'leaf-appearance-execution-cancel-v1',...appearanceFlags,observed_at:'2026-10-23T22:58:00Z',job:{...appearanceResponse().job,state:'canceled',attempt_count:0},cancel_requested:false,cancel_accepted:true})));
+ const value=await createLeafAppearanceExecutionClient(appearanceToken).cancel(appearanceJobId,signal());
+ expect(value).toMatchObject({job:{state:'canceled',attempt_count:0},cancel_requested:false,cancel_accepted:true});
+});
+it('rejects accepted cancellation with neither terminal cancellation nor a pending request',async()=>{
+ vi.stubGlobal('fetch',vi.fn(async()=>json({schema_version:'leaf-appearance-execution-cancel-v1',...appearanceFlags,observed_at:'2026-10-23T22:58:00Z',job:{...appearanceResponse().job,state:'queued',attempt_count:0},cancel_requested:false,cancel_accepted:true})));
+ await expect(createLeafAppearanceExecutionClient(appearanceToken).cancel(appearanceJobId,signal())).rejects.toThrow();
 });
 it('bounds response stream at2MiB and cancels more reads',async()=>{
  let canceled=false;const stream=new ReadableStream({pull(c){c.enqueue(new Uint8Array(2*1024**2+1));},cancel(){canceled=true;}});vi.stubGlobal('fetch',vi.fn(async()=>new Response(stream,{headers:{'Content-Type':'application/json','Cache-Control':'no-store'}})));

@@ -15,6 +15,8 @@ provided replay만 표시하고 static 연구 fixture로 대체하지 않는다.
 실제 queued/simulating/succeeded/hold/failed/canceled와 응답 대기 시간만 보여 주며 임의 완료율은 없다.
 현재 권리/인증·연결/무결성 거부 때 결과 장면/수치를 제거하고 같은 ID 재조회를 제공한다.
 조회 503의 제한된 GET retry와504/접수 오류의 명시 확인을 구분한다. 기존 요청별30초 예산을 유지한다.
+대기 작업의 즉시 취소는 `canceled / cancel_accepted=true / cancel_requested=false`도 정상 응답이다.
+실행 중 취소 요청과 완료된 취소를 구분해 종결 상태를 표시한다.
 
 수용은 focused type/unit/browser와 필요한 CI, 실제 같은 job/원12시점·47면적/UTC·mesh/table/chart,
 새 실제 접수/자동 완료·취소·메뉴/reload/재연결/추가 POST0, 현재 권리 철회 제거,
