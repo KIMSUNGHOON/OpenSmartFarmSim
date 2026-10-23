@@ -1,6 +1,6 @@
 # 자동 출현 원 입력의 출처·현재 검토 — v1
 
-상태: 구현/수용 전. [저장 3D](web-leaf-appearance-replay-v1.md) 뒤의 농장 연결 첫 자식이다.
+상태: [신규71/관련319·390검사와 원 source/fresh 수용](../research/crop-leaf-appearance-input-evidence-20261024.md). [저장 3D](web-leaf-appearance-replay-v1.md) 뒤의 농장 연결 첫 자식이다.
 기존 population 입력 증거는 생성한 선언을 검토하며 원 appearance 정책/초기 위치/프로필의 검토를 대신하지 않는다.
 새 검증기는 기존 생장·준비·producer/reader·원 지문/결과/서버를 변경하지 않는다.
 

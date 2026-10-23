@@ -89,6 +89,7 @@ print(json.dumps({'program_sha256':result.program_sha256, 'source_sha256':result
     'policy_sha256':metadata['policy_sha256'], 'initial_bindings_sha256':metadata['initial_bindings_sha256'],
     'initial_leaf_count':metadata['initial_leaf_count'], 'initial_node_count':metadata['initial_node_count'],
     'parent_program_sha256':metadata['parent_stem_program_sha256'], 'code_count':len(model._PINNED),
+    'code_sha256':dict(model._PINNED), 'model_versions':dict(model._MODELS),
     'stem_artifact_root_verified':False, 'rights_or_gate_approval':False, 'revocation_held':True,
     'growth_import_attempts':imports, 'calls':calls, 'FD_before_after':[fd_before,fd_after],
     'original_metadata_and_bytes_preserved':len(before), 'actual_farm_Runs':0, 'G0_G4':'not_assessed'}))
