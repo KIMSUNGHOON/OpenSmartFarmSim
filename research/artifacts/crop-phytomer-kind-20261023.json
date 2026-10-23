@@ -1,0 +1,148 @@
+{
+  "schema_version": "crop-phytomer-kind-evidence-v1",
+  "observed_at_UTC": "2026-10-23T13:05:58.847788+00:00",
+  "scope": "software_research_only",
+  "claim_scope": "synthetic_crop_math_only",
+  "status": "pure_classification_accepted_no_appearance_adapter_or_user_deployment",
+  "native_model": {
+    "timestamp": "2026-10-23T12:34:53.310Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "9958c366e0052a3361be0b6172dada007b371538b6a1758b040179900692066a",
+    "recursive_CLI": 0
+  },
+  "RED_expected": "ModuleNotFoundError_app.crop_phytomer_kind",
+  "new_tests_passed": 67,
+  "related_existing_tests_passed": 115,
+  "focused_total_passed": 182,
+  "pytest_seconds": 2.66,
+  "independent_counter": {
+    "policies": 6,
+    "classified_positions": 270,
+    "uses_remainder_operator": false
+  },
+  "hand_enumerated_positions": 14,
+  "split_batches_per_policy": 3,
+  "maximum_batch": 512,
+  "policy_parameters_adopted_from_cultivar": 0,
+  "source_sha256": {
+    "backend/app/crop_phytomer_kind.py": "56e4f69d72a3f38b3fa96668556ca1673b44db63bf46ea900274a0aac847e18f",
+    "backend/tests/test_crop_phytomer_kind.py": "703b8598326e0f711333b2e17b946dd9a00c0b4c6710e17ac930b5fddedfc2d0",
+    "contracts/crop-phytomer-kind-v1.md": "d13705756a9510d8b851569a0040094ae5bafca7942abf8be565e8a513fbdac0",
+    "research/crop-phytomer-kind-20261023.md": "9cc11b107a0e3ce9a16175b23eb1ac3d78e71c24d55b4871f19b6a7aa14e13b8"
+  },
+  "existing_executable_sources_unchanged_sha256": {
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/app/crop_declared_leaf_births.py": "44068d74541b873bd5459a2893b87c357797639805e1eaa346f1f35880ca2c5f",
+    "backend/app/crop_leaf_population.py": "b37bbee59c20778f38506d157644d87c91cd8fe2cf1ca54e9842bb8c10eabd09",
+    "backend/app/api_crop_leaf_population_execution.py": "5e8cc84fc75edcd9cc11d2ea6e81c8a4072b73ba3c041f33cb294eb23d4b4e54",
+    "backend/app/crop_leaf_population_execution_query.py": "606c145bffb3c2019a5ed1fe3da9fe0825e24cb4a60583081903229ac72c5357",
+    "backend/app/crop_leaf_population_execution_worker.py": "5f0411ceea317a016dd0e6b3c7097a60c4063a7294ea580354254ca7b6f05d93"
+  },
+  "guards": {
+    "phytomer-kind-red-v1": {
+      "observed_at_UTC": "2026-10-23T13:00:55.937324Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.1690663789922837,
+      "PID_peak_RSS_bytes": 98697216,
+      "combined_peak_RSS_bytes": 394526720,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3428,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "936299dfd273dced58352e3eb60dc5b27dc94d752f458da7d9e6e8f97278a703",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "phytomer-kind-green-v1": {
+      "observed_at_UTC": "2026-10-23T13:02:09.153217Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 3.7617201340035535,
+      "PID_peak_RSS_bytes": 98697216,
+      "combined_peak_RSS_bytes": 428703744,
+      "samples": 13,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3429,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "c07f4b030141868aa993647e6f47f31c3790dbc500e53d6974d0e22227e89669",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "source_review": {
+    "URL": "https://academic.oup.com/insilicoplants/article/7/2/diaf022/8342854",
+    "DOI": "10.1093/insilicoplants/diaf022",
+    "sections": [
+      "2.1.1",
+      "2.1.3"
+    ],
+    "published": "2025-11-26",
+    "publication_revision": "2025-12-08",
+    "observation_time": null,
+    "reported_observation_period": "NPEC2021",
+    "available_at": null,
+    "article_retrieved_at_UTC": "2026-10-21T12:08:58.938525Z",
+    "article_raw_bytes": 449439,
+    "article_raw_sha256": "e3d4b09e1d0e2041d43736d1fd5181442e2fbd851f2434a84a553bdf13422749",
+    "supplement_retrieved_at_UTC": "2026-10-21T13:53:01.764497Z",
+    "supplement_raw_bytes": 1057600,
+    "supplement_raw_sha256": "ce01dd7c054adb7039304f00a37380c4bfe6776161ca47e0da49fcba430c7e51",
+    "QC": "cached_hash_and_architectural_definitions_rechecked_not_parameter_or_measurement_QC",
+    "units": "dimensionless_explicit_sequence_counts",
+    "article_rights": "CC_BY_4_0_with_attribution",
+    "article_raw_copied_to_repository": false,
+    "author_code_CSV_rights": "not_adopted",
+    "author_code_coefficients_copied_or_executed": false,
+    "new_source_downloads": 0,
+    "latest_access_attempts": {
+      "publisher": 500,
+      "institutional_repository": 403
+    },
+    "reviewer": "current_native_Codex_gpt-6.1-sol_xhigh",
+    "independent_approval_reviewer": null
+  },
+  "runtime_deployed": false,
+  "user_runtime_or_DB_changed": false,
+  "new_library": false,
+  "full_backend_suite": false,
+  "new_hosted_CI": false,
+  "actual_farm_Runs": 0,
+  "independent_local_crop_cycles": 0,
+  "G0_G4": "not_assessed",
+  "next": "exact_appearance_timeline_and_stem_binding_to_explicit_leaf_birth_inputs",
+  "remaining": [
+    "cultivar_parameters_forcing_and_independent_validation",
+    "automatic_leaf_creation_adapter",
+    "leaf_management",
+    "immutable_new_version_and_same_UTC_3D",
+    "production_resources_Decimal_economics",
+    "macro_supply_demand_and_autonomous_comparison",
+    "final_realism_R2_and_product_UI"
+  ]
+}

@@ -75,6 +75,8 @@
     - [x] 최소 query 수정·65집중검사/독립 실제 HTTPS·사용자 기존 결과 UI — 원 job의 검증된 farm ref/기존 범위만 사용한다. 재구성64→1·현재 등록64/원천4,864회 유지, 도중11변경/다른 ref3·마지막 frame 뒤4변경·독립 취소/완료 Pending/fresh·계산/쓰기0을 확인했다. 별도 snapshot의 같은 원 DB/키·7 HTTPS응답15.3–15.6초와 실제 SDK 기존 job 조회13.8–13.9초·UI/철회/원복을 수용했다. 첫 POST30초 실패는 당시 이력이고 후속 접수/새 자동3D 기능 수용을 따른다. 공통 운영 용량/관문은 별도다.
   - [x] 실제 자동 경로의 status503 분류 진단 — [별도 정상 worker의 실제2건](../research/leaf-admission-live-automatic-20261023.md#별도-실제503-분류-진단). 독립 owned 실행 파일/SCRAM·검증 TLS·PG12/4MiB에서 상태 조회10개 중503 두 건이 정확 Pending(queued→simulating/완료 전환)임을 대사했다. 이후200/같은12frame·52면적/attempt1·POST1, 원25표/3root/소스·WSL/정리를 확인했다. 계측 실행이며 정상 성능·이전 사용자 두 응답의 사후 원인 확정·운영/G4 수용은 아니다. 두 observer 준비 오류는 접수 전 실패로 보존했다.
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 목록과 명시 출현 사건만 추적하며 자동 출현/관리는 후속이다.
+    - [x] 명시 순번의 영양/생식 분류 — [신규67/관련115·총182검사](../research/crop-phytomer-kind-20261023.md). 필수 첫 생식 순번/간격·같은 정책의 분할, 독립 상태 카운터270위치/손 나열14·큰 순번/512경계와 닫힌 입력/지문/원3root·WSL·정리를 확인했다. 새 관측/계수·잎 생성/사용자 적용은0이다.
+    - [ ] exact 출현/줄기→분류된 잎 생성 입력 — 기존 timeline의 shoot/schedule·순번/분수 초와 원 줄기 ID·출현 시각을 결속한다. 영양 위치만 명시 curve/기준온도/정규화·초기 면적의 잎 입력으로 만들며 생식 위치는 제외한다. 안정 ID·분할 동일/중복0·독립 생성 목록과 혼합/누락/시각 역전 거부·원 수치/자료·WSL 보존이 수용 기준이다. 저장/현재 권리/새3D와 실제 품종·G0–G4는 뒤따른다.
   - [x] 별도 불변 면적 판본/계산 없는 조회·export — [18pytest/실제12시점·36면적/별도 fresh](../research/crop-leaf-area-artifact-20261022.md), 원 stem14blob/12 DTO·40불변 blob/24code·현재 부착/UTC·권리와 fresh import/SQL/CLI/파일쓰기0·17public파일·원7root/자료 보존.
   - [x] 같은 UTC의 잎 면적3D — [CI69/Chromium18·실제 Chrome](../research/leaf-area-stored-replay-20261022.md). strict SDK/원17파일·제작 단면 실제 삼각형 면적/UTC·표/그래프/재생·모바일/유휴·오류0/7root·원178파일을 수용했다. 별도5176/leaf-area-replay.html이며 원 farm/job의 새 잎 계산 적용은 후속이다.
 
