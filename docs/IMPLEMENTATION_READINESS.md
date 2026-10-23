@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**미리보기 현재성 — 2026-10-24 KST:** [인증/TLS 갱신](../research/preview-finite-lifetime-renewal-20261024.md)의 제한 전환 뒤 같은 세 물리 DB/25표·원 결과·키/token/source와 현재 검증 TLS/기존 화면을 확인했다. 공통 인증 종료는2026-10-25 06:17 KST 설정이며 미래 가동률/G4 증거가 아니다. 새 정책 잎 API는 연결됐고 strict 실행 SDK/같은 job3D와 실제 자료 관문은 후속이다.
+
 **작물 계산/3D 현재 — 2026-10-23 KST:** [새 잎 재생](http://localhost:5176/leaf-population-replay.html)의 자체 합성12시점/명시3→6잎을 원 UTC의3D·면적/줄기·표/그래프로 연결했습니다. [검증 기록](../research/leaf-population-stored-replay-20261023.md)에 CI85/Chromium20·실제 Chrome12시점/52면적, 기존25표/205파일 보존과 첫 렌더링 셰이더 경고1을 기록했습니다.5176 API/웹과5175는 실행 중이며 이전5173/5174는 종료 상태입니다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)도 수용했습니다. [농장/parent 결속35·fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했습니다. [leaf 서명 결과38/fresh](../research/crop-leaf-population-signed-artifact-20261023.md)도 수용했습니다. 새 모델은 사용자 미배포이며 다음은 기존 jobs 표 접수/자동 worker→보호 API→같은 작업의 제품3D입니다. 실제 품종/독립 자료0·한 작기/생산·자원/경제·자율 선정·최종 사실감 R2/G0–G4와 전체 완료일 미정을 유지합니다. 아래는 당시 검증 기록입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.

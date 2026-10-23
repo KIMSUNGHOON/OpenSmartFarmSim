@@ -1,0 +1,332 @@
+{
+  "schema_version": "preview-finite-lifetime-renewal-acceptance-v1",
+  "scope": "owned local preview continuity only; unchanged simulation source/data; no uptime or gate claim",
+  "observed_at_UTC": "2026-10-23T21:55:23.880830+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-23T21:40:08.273Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "856b387b69bb438f85038587f60226828b2cd811f555a903654aacc0be198088",
+    "recursive_CLI_invocations": 0
+  },
+  "recursive_CLI_invocations": 0,
+  "native_verification": {
+    "three_databases_all25rows_same": true,
+    "same_three_physical_database_directories": true,
+    "same_three_results_replays_and_first_calculated_at": true,
+    "same_original_inputs_reviews_rights_keys_tokens": true,
+    "preserved_private_files": 44,
+    "preserved_source_files": 2444,
+    "preserved_artifact_files": 183,
+    "preserved_password_files": 3,
+    "old_config_files_unchanged": true,
+    "only_old2grant_times_and_TLS_certificate_path_changed": true,
+    "appearance_grant_and_TLS_unchanged": true,
+    "shared_grant_expires_at": "2026-10-24T21:17:48.213594+00:00",
+    "new_grant_seconds": 84821.310524,
+    "all_grants_at_most_24h": true,
+    "all_certificates_beyond_grant_end": true,
+    "actual_SCRAM": true,
+    "gateway_TLS_verification_retained": true,
+    "gateway_30s_budget_retained": true,
+    "requests": [
+      {
+        "path": "/v1/jobs/66b8c06d-7137-42d2-b141-e9d39bc230c4/crop-morphology-execution/replay",
+        "status": 200,
+        "bytes": 35711,
+        "seconds": 4.875223184004426,
+        "same_result_and_first_calculated_at": true,
+        "same_replay": true
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution/replay",
+        "status": 200,
+        "bytes": 67696,
+        "seconds": 11.664235055999598,
+        "same_result_and_first_calculated_at": true,
+        "same_replay": true
+      },
+      {
+        "path": "/v1/jobs/1b4cd63a-d6b1-4924-90c4-22be4b50c7d3/crop-leaf-appearance-execution/replay",
+        "status": 200,
+        "bytes": 69504,
+        "seconds": 12.12950643399381,
+        "same_result_and_first_calculated_at": true,
+        "same_replay": true
+      }
+    ],
+    "direct_TLS_requests": [
+      {
+        "path": "/preview-input",
+        "status": 200,
+        "seconds": 1.5282852700038347,
+        "peer_certificate_matches_new_config": true,
+        "certificate_verified": true,
+        "current_input_same": true
+      },
+      {
+        "path": "/leaf-preview-input",
+        "status": 200,
+        "seconds": 11.436518261994934,
+        "peer_certificate_matches_new_config": true,
+        "certificate_verified": true,
+        "current_input_same": true
+      },
+      {
+        "path": "/leaf-appearance-preview-input",
+        "status": 200,
+        "seconds": 11.47002178200637,
+        "peer_certificate_matches_new_config": true,
+        "certificate_verified": true,
+        "current_input_same": true
+      }
+    ],
+    "unrelated_trust_rejected": 3,
+    "pages": [
+      {
+        "port": 5176,
+        "path": "/",
+        "status": 200
+      },
+      {
+        "port": 5176,
+        "path": "/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511",
+        "status": 200
+      },
+      {
+        "port": 5176,
+        "path": "/leaf-appearance-replay.html?artifact=77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a&frame=11",
+        "status": 200
+      },
+      {
+        "port": 5175,
+        "path": "/crop-appearance.html",
+        "status": 200
+      }
+    ],
+    "POST_count": 0,
+    "rollback_executed": false,
+    "future_uptime_claim": false,
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed",
+    "full_goal_complete": false
+  },
+  "handoff": {
+    "started_at_UTC": "2026-10-23T21:48:06.634830+00:00",
+    "scope": "controlled finite owned preview lifetime handoff",
+    "success": true,
+    "rollback_started": false,
+    "old_database_keys_inputs_source_unchanged": true,
+    "POST_count": 0,
+    "finished_at_UTC": "2026-10-23T21:48:43.802255+00:00",
+    "wall_seconds": 35.916374639986316,
+    "PID_peak_RSS_bytes": 99045376,
+    "combined_peak_RSS_bytes": 541974528,
+    "samples": 146,
+    "sample_interval_seconds": 0.25,
+    "static_root_preserved": true,
+    "active_versions": {
+      "gateway": "renewal-v1",
+      "population": "renewal-v1",
+      "appearance": "renewal-v1"
+    },
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "new_controllers_kept_running_intentionally": 3,
+    "full_goal_complete": false,
+    "events": [
+      {
+        "phase": "owned_stopped",
+        "role": "appearance",
+        "version": "v3",
+        "owned_remaining": 0
+      },
+      {
+        "phase": "owned_stopped",
+        "role": "population",
+        "version": "v10",
+        "owned_remaining": 0
+      },
+      {
+        "phase": "owned_stopped",
+        "role": "gateway",
+        "version": "v2",
+        "owned_remaining": 0
+      },
+      {
+        "phase": "new_finite_grants_and_TLS_selected",
+        "maximum_grant_seconds": 86400,
+        "shared_expires_at": "2026-10-24T21:17:48.213594+00:00"
+      },
+      {
+        "phase": "owned_ready",
+        "role": "gateway",
+        "version": "renewal-v1",
+        "health": {
+          "done": true,
+          "ok": true,
+          "HTTP_status": 200,
+          "certificate_verified": true,
+          "request_metadata_same": true
+        }
+      },
+      {
+        "phase": "owned_ready",
+        "role": "population",
+        "version": "renewal-v1",
+        "health": {
+          "done": true,
+          "ok": true,
+          "HTTP_status": 200,
+          "certificate_verified": true,
+          "current_original_result_same": true,
+          "request_seconds": 11.528228726994712
+        }
+      },
+      {
+        "phase": "owned_ready",
+        "role": "appearance",
+        "version": "renewal-v1",
+        "health": {
+          "done": true,
+          "ok": true,
+          "HTTP_status": 200,
+          "certificate_verified": true,
+          "current_input_same": true,
+          "request_seconds": 11.426083495025523
+        }
+      }
+    ]
+  },
+  "phase_terminal": {
+    "preview-renewal-snapshot-v1": {
+      "observed_at_UTC": "2026-10-23T21:44:00.509232Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 30.786238171014702,
+      "PID_peak_RSS_bytes": 99045376,
+      "combined_peak_RSS_bytes": 591388672,
+      "samples": 118,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3552,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "da95f7116870a7ebc9b9a43aba083fd0223793f94af869370e67ec545ee6af77",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "preview-renewal-prepare-v1": {
+      "observed_at_UTC": "2026-10-23T21:45:07.815187Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.094683974981308,
+      "PID_peak_RSS_bytes": 99045376,
+      "combined_peak_RSS_bytes": 517062656,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3552,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "70bd6d5efbc95c7e4e4b796f6290f1f3a94013abca6cbbe846e0c351e278d7be",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "preview-renewal-after-v1": {
+      "observed_at_UTC": "2026-10-23T21:51:33.827735Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 54.59646058399812,
+      "PID_peak_RSS_bytes": 98947072,
+      "combined_peak_RSS_bytes": 630358016,
+      "samples": 210,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3552,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "b196ae5b07e42e9ef6df8ba480b3704c298ebdeec3b53f73bd501985070dca0b",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "initial_system_interpreter_failure_before_mutation": {
+    "failure": "system interpreter lacked psycopg",
+    "before_any_service_mutation": true,
+    "correction": "use repository locked backend virtualenv",
+    "server_model_source_changed": false
+  },
+  "prepared_new_grants": 2,
+  "unchanged_appearance_grant": true,
+  "new_certificates_same_private_keys": 2,
+  "over24h_constructor_counterexamples_rejected": 2,
+  "shared_configured_expiry_UTC": "2026-10-24T21:17:48.213594+00:00",
+  "verification_JSON_requests": {
+    "count": 9,
+    "maximum_seconds": 12.434641987987561,
+    "budget_seconds": 30,
+    "all200": true
+  },
+  "resources": {
+    "sample_interval_seconds": 0.25,
+    "combined_peak_RSS_bytes": 630358016,
+    "PID_peak_RSS_bytes": 99045376,
+    "PID_limit_bytes": 536870912,
+    "combined_limit_bytes": 1073741824,
+    "steady_owned_protected_roots": 4,
+    "original_static_root_preserved": true,
+    "original2_504watched_entries_preserved": true,
+    "all_controller_FD_before_after": [
+      4,
+      4
+    ]
+  },
+  "existing_code_source_preserved": true,
+  "new_backend_or_frontend_code": false,
+  "full_backend_suite": false,
+  "hosted_CI": false,
+  "browser_test": false,
+  "rollback_prepared": true,
+  "rollback_executed": false,
+  "rollback_acceptance_claim": false,
+  "strict_execution_SDK_connected": false,
+  "same_job_3D_connected": false,
+  "in_flight_same_POST_retry_accepted": false,
+  "actual_farm_Runs": 0,
+  "independent_local_cycles": 0,
+  "G0_G4": "not_assessed",
+  "full_goal_complete": false
+}

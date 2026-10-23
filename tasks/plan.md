@@ -1,6 +1,6 @@
 # 구현 순서
 
-**현재 — 2026-10-24 KST:** [정책 기반 잎 API](../research/leaf-appearance-execution-live-20261024.md)를5176에 연결해 실제 자동 완료·원12시점/47면적·현재 철회/취소와 같은 DB/키의 재시작/추가 POST0을 확인했습니다. [현재 3D](http://localhost:5176/leaf-appearance-replay.html)는 별도 저장 연구 재생이며 새 job의 실행 SDK/3D 연결은 후속입니다. 기존 두 DB/결과·화면을 보존했습니다. 다음은 실제08:12 인증/08:17 TLS 만료에 따른 제한된 갱신→strict SDK→같은 job3D입니다. 실제 품종/독립 국내 작기0, 관리·생산/자원/경제·시장 거시/수급·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
+**현재 — 2026-10-24 KST:** [정책 기반 잎 API](../research/leaf-appearance-execution-live-20261024.md)는5176에서 실제 자동 완료·원12시점/47면적·현재 철회/취소와 같은 재시작 결과를 확인했습니다. [인증/TLS 갱신](../research/preview-finite-lifetime-renewal-20261024.md) 뒤 세 DB/키/원 결과와 기존 화면을 보존했고 공통 인증 종료는2026-10-25 06:17 KST로 설정했습니다. [현재 3D](http://localhost:5176/leaf-appearance-replay.html)는 별도 저장 연구 재생이며 다음은 strict 실행 SDK→같은 job의 사실적3D입니다. 실제 품종/독립 국내 작기0, 관리·생산/자원/경제·시장 거시/수급·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
 
 ## 자동 정책의 연구 화면 이후 — 2026-10-24
 
@@ -18,11 +18,11 @@
 8. **appearance 보호 HTTP 수용.** [제어·계약193/실제 SCRAM·검증 TLS3, 고유196검사](../research/api-crop-leaf-appearance-execution-20261024.md): 같은 graph/인증·권리의6경로·닫힌 요청/응답, 실제 접수/멱등·409/원 완료12frame/47면적·취소/늦은 만료·원본/parent 검토 변경을 대사했다. 기존80경로/492스키마·Scope와 이전12소스가 같고19요청 최대11.9466초/조회 계산·DB/객체/파일쓰기0·원25표/3root/WSL/소유 정리를 수용했다. 사용자 runtime/같은 job3D·계산 중 재접수/동시 U1은 미수용이다.
 9. **owned appearance runtime 조립 수용.** [제어24/새 native3·기존 native1, 고유28검사](../research/owned-leaf-appearance-preview-20261024.md): 명시 옵션·별도 메타데이터/같은 graph·정확 consumer의 실제 자동 완료 attempt1/원12frame·47면적/parent와 같은 결과/최초 시각의 cold restart/추가 POST0을 확인했다. 현재 파일 hold/권리 철회 뒤 취소·기본 모드 SIGINT/원 loop와 기존52면적 자동 완료/cold를 보존했다. 증거 이름 충돌의 첫 teardown 실패/수정·최종 재검증을 보존하고 원25표/18source·3root/WSL/소유 정리를 수용했다. 사용자 runtime/원 DB·키·UI는 미변경이다.
 10. **사용자 appearance API 기능 연결 수용.** [실제 접수/자동 완료·현재 철회/취소·cold](../research/leaf-appearance-execution-live-20261024.md): 불변852source·16시 이후 별도 합성 farm/완료 parent, 같은 job의 원12frame/47면적·최초 시각/parent와 cold POST0을 대사했다. 기존2DB/결과·3HTML/3root·원2,504항목을 보존했다.31JSON 요청 최대16.423429초/계산 중 snapshot5033회는 같은 ID로 재조회했으며 progressNone/임의 완료율0이다. 초기 grant 기간/observer import 실패와 수정·최종 관측을 보존했다. SDK/같은 job3D·동시 retry/U1은 별도다.
-    **다음 짧은 자식: 실제 만료의 갱신.** 기존 인증08:12 KST/줄기 TLS08:17 KST 만료를 직접 확인했다. 새 연결과 기존 화면 유지에 필요한 범위만 수행한다. 세 DB/원25표·키/token/동결 source/결과 snapshot→≤24시간 grant·필요 TLS 새 판본→의존성 순서의 제한된 stop/start/같은 현재 결과·원 파일 대사/소유 정리가 수용 기준이다. 인증/Scope·인증서 검증을 유지하고 그 뒤 SDK/3D를 계속한다.
+    **실제 만료의 제한 갱신 수용.** [같은 세 DB/원 결과·현재 TLS 대사](../research/preview-finite-lifetime-renewal-20261024.md): 원 token/Scope·개인 키·입력/권리/검토/44파일·2,444source/183artifact·PG 암호3파일과 세 물리 DB25표의 원 행을 보존했다. 새 두 grant는24시간 상한 안/공통2026-10-25 06:17 KST 종료이며 두 인증서는 원 개인 키를 재사용했다. 의존성 순서의35.916초 전환·세 current result/직접 TLS·반례3/HTML4·POST0/9JSON 최대12.434642초·4root/WSL/소유 종료를 확인했다. 최초 인터프리터 import 실패는 변경 전 기록이며 rollback은 미실행이다. 이제 실행 SDK/같은 job3D를 진행한다.
 11. **제품 연결:** strict 실행 SDK의 닫힌 요청/상태/결과·다른 family/변조 거부→같은 job의 사실적 잎3D·UTC/표/그래프→메뉴/reload·재연결/현재 철회 제거·실제 Chrome를 각각 수용한다. 현재 저장 연구 재생의 static artifact로 실행 결과를 대체하지 않는다.
 12. 기관 출현/관리의 면적·기관 수지→생산량/자원→Decimal 경제·시장/거시/수급·자율 비교는 기존 계산 의존성과 독립 자료 관문을 유지한다. 각 새 수치와 3D의 결속을 별도 수용한다.
 
-이전 사용자 적용80–140분 예상은 21:16:50–21:34:53 UTC의 구현/최종 검증과 별도 기록 실측으로 대체했다. 실제 만료 갱신은 snapshot/설정5–10분 + 제한된 재시작/현재 대사10–20분 + 기록5–10분 = **20–40집중분**의 낮은 신뢰 추정이다. 이후 SDK/화면·동시 retry/자료 확보는 제외하며 전체 완료 날짜는 독립 자료가 없어 미정이다.
+이전 유효기간 갱신20–40분 예상은 실제 snapshot/설정·35.916초 전환·54.596초 대사와 기록 실적으로 대체했다. 다음 strict 실행 SDK는 기존 client178행/시험107행·appearance decoder146행과 실제 응답 대조10–20분 + 새 형식/client15–30분 + focused type/unit·실제 응답 probe15–30분 = **40–80집중분**의 낮은 신뢰 추정이다. 새 UI/실제 Chrome·동시 retry/자료 확보는 제외하며 전체 완료 날짜는 독립 자료가 없어 미정이다.
 실제 품종/독립 자료 확보는 개발과 병행하며 G0–G4·예측/마진/추천 게시의 선행 조건은 유지한다.
 기존 goal은 도구상 active이며 새 goal 교체 완료로 표시하지 않는다. 아래는 날짜별 이전 기록이다.
 
