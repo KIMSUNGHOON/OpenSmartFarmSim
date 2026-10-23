@@ -1,6 +1,6 @@
 # 자동 출현 입력과 현재 농장·완료 줄기 작업 — v1
 
-상태: 구현/수용 전. 선행은 [원 appearance 입력 증거](crop-leaf-appearance-input-evidence-v1.md)와
+상태: [순수304/실제 SCRAM2·독립 fresh 수용](../research/crop-leaf-appearance-farm-binding-20261024.md). 선행은 [원 appearance 입력 증거](crop-leaf-appearance-input-evidence-v1.md)와
 기존 [완료 morphology 조회](crop-morphology-execution-v1.md)다.
 원 정책/초기 위치/프로필을 생성된 잎 선언으로 대신하지 않고 같은 농장/완료 parent에 결속한다.
 

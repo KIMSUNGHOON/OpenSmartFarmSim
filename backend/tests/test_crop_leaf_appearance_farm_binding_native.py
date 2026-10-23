@@ -34,6 +34,9 @@ import morphology_farm_factory as factory
 pytestmark=pytest.mark.parametrize('login_scope',[{'market_calculation':True,'market_source_storage':True,
     'thermal_scenario_storage':True,'break_even_calculation':True,'crop_cycle_result_storage':True}],indirect=True)
 
+BINDING_JOB_WRITES={k:0 for k in ('submit','publish','record_decision','_insert_publication','_event','_durable_content')}
+BINDING_SQL_WRITES=[]
+
 
 class LeafRights:
     policy_version='owned-leaf-appearance-input-rights-test-v1'
@@ -101,18 +104,36 @@ def forbid_growth(monkeypatch):
 def setup(login_scope,tmp_path,monkeypatch):
     values=registered_leaf_services(login_scope,tmp_path,monkeypatch)
     calls=forbid_growth(monkeypatch)
+    for key in BINDING_JOB_WRITES:BINDING_JOB_WRITES[key]=0
+    BINDING_SQL_WRITES.clear()
     yield (*values,calls)
-    assert not any(calls.values())
+    assert not any(calls.values()) and not any(BINDING_JOB_WRITES.values()) and not BINDING_SQL_WRITES
+
+
+def readonly_binding(value, operation, *args, **kwargs):
+    with pytest.MonkeyPatch.context() as patch:
+        for name in BINDING_JOB_WRITES:
+            def blocked(*args,_name=name,**kwargs):
+                BINDING_JOB_WRITES[_name]+=1;raise AssertionError('binding attempted a job write')
+            patch.setattr(type(value[0].jobs),name,blocked)
+        original=psycopg.Cursor.execute
+        def execute(self,statement,*args,**kwargs):
+            text=statement if type(statement) is str else statement.as_string(self.connection)
+            if re.match(r'^\s*(INSERT|UPDATE|DELETE|MERGE|CREATE|ALTER|DROP|TRUNCATE|GRANT|REVOKE|COPY|CALL|DO)\b',text,re.I):
+                BINDING_SQL_WRITES.append(text.split()[0]);raise AssertionError('binding attempted persistent SQL write')
+            return original(self,statement,*args,**kwargs)
+        patch.setattr(psycopg.Cursor,'execute',execute)
+        return operation(*args,**kwargs)
 
 
 def prepare(value):
     service,body,packet,*_=value
-    return service.prepare('tenant-1',model.farms.documents._canonical(body),**packet)
+    return readonly_binding(value,service.prepare,'tenant-1',model.farms.documents._canonical(body),**packet)
 
 
 def current(value,raw,*,write=False,body=None,tenant='tenant-1'):
     service,original,packet,*_=value
-    return service.current(tenant,model.farms.documents._canonical(original if body is None else body),raw,**packet,write=write)
+    return readonly_binding(value,service.current,tenant,model.farms.documents._canonical(original if body is None else body),raw,**packet,write=write)
 
 
 def test_actual_registered_completed_parent_read_write_and_fresh(setup,login_scope,tmp_path,monkeypatch):
@@ -249,4 +270,5 @@ def test_current_parent_leaf_scopes_registration_and_late_changes(setup,login_sc
     factory.save('leaf-binding-fences.json',{'cases':cases,'both_source_reviews_rights_revoked_rejected':True,
         'parent_calculation_right_required':True,'actual_excess_database_grant_rejected':True,
         'rehash_registration_corruption_rejected_in_owned_scratch_DB':True,
-        'restored_original_binding':True,'database_before_after':[before,schema_hash(base)],'growth_CLI_calls':calls})
+        'restored_original_binding':True,'database_before_after':[before,schema_hash(base)],'growth_CLI_calls':calls,
+        'binding_job_write_calls':dict(BINDING_JOB_WRITES),'binding_persistent_SQL_write_calls':list(BINDING_SQL_WRITES)})
