@@ -1,6 +1,7 @@
 # Leaf 입력 확인·접수의 등록 읽기 범위 — 후보 v1
 
-상태: **소프트웨어160검사·새 판본의 기존 결과/입력 HTTPS 수용, 사용자 적용/동시 retry/새 자동3D 전**.
+상태: **소프트웨어160검사와 사용자 적용/동시 retry/새 자동3D 기능 수용**.
+[실제 화면·재시작 증거와 일시적503 보류](../research/leaf-admission-live-automatic-20261023.md)를 확인한다.
 [증거·남은 범위](../research/leaf-admission-registration-scope-20261023.md)를 확인한다.
 [기존 보호 HTTP](api-crop-leaf-population-execution-v1.md),
 [현재 조회 범위](leaf-population-query-registration-scope-v1.md)와

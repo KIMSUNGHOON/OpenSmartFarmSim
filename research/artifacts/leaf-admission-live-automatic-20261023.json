@@ -1,0 +1,563 @@
+{
+  "schema_version": "leaf-admission-live-automatic-evidence-v1",
+  "observed_at_UTC": "2026-10-23T12:38:23.035785+00:00",
+  "scope": "software_research_only",
+  "claim_scope": "owned_synthetic_crop_math_and_stored_3D_only",
+  "status": "functional_live_path_accepted_transient_503_cause_pending",
+  "native_model": {
+    "timestamp": "2026-10-23T10:43:15.369Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "fe05173d583b9e416162be1565dda9ebd3af2a255a5c41d4345380fc623c8ae9",
+    "recursive_CLI": 0
+  },
+  "implementation_commit": "6bad7dd501195a07b15e1fc810aae9d50e7ebee6",
+  "preceding_software_evidence": "research/artifacts/leaf-admission-registration-scope-20261023.json",
+  "source_snapshot": {
+    "files": 820,
+    "base_commit": "4f1f523bf816e629f964e2edb3e55f7e48a01a79",
+    "query_commit": "7d9c2899341d22ba5d783f5fba79c97bc8bc6269",
+    "caller_commit": "6bad7dd501195a07b15e1fc810aae9d50e7ebee6",
+    "all_executable_sources_match_caller_commit": true,
+    "historical_contract_retained": "contracts/crop-leaf-population-execution-v1.md",
+    "full_checkout": false
+  },
+  "runtime": {
+    "same_database_inputs_keys_TLS_auth": true,
+    "gateway_origin": "http://localhost:5176",
+    "gateway_upstream_certificate_verified_TLS": true,
+    "external_browser_to_gateway_TLS": false,
+    "max_connections_previous": 8,
+    "superuser_reserved_connections": 3,
+    "ordinary_slots_previous": 5,
+    "max_connections_current": 12,
+    "shared_buffers_MiB": 4,
+    "HTTP_deadline_seconds": 30,
+    "new_library": false,
+    "full_runtime_health_or_G4_accepted": false
+  },
+  "API_concurrent_retry": {
+    "POST_count": 2,
+    "normal_unpaused": true,
+    "UI_polling_during_this_API_test": false,
+    "job_id": "16b95f72-7812-4585-b88c-f5f16472efa0",
+    "worker_before_retry": {
+      "state": "simulating",
+      "attempt_count": 1
+    },
+    "worker_after_retry": {
+      "state": "simulating",
+      "attempt_count": 1
+    },
+    "same_job_returned_while_worker_active": true,
+    "terminal_job": {
+      "state": "succeeded",
+      "attempt_count": 1
+    },
+    "result": {
+      "binding_sha256": "fb2af9a1cbc6ebe4d2a29cd0dcb3a3a5fdd0440a1a6ce4c38e08e69197ac86e3",
+      "calculated_at": "2026-10-23T12:10:53.628697Z",
+      "farm": {
+        "crop_id": "crop-1",
+        "registration_sha256": "77e6e3c5c78acda2e286228dc2cb7e028fa1e3d6686d80295c0e621673b78b8c",
+        "scenario_id": "farm-1",
+        "scenario_revision": "r1"
+      },
+      "input_evidence_sha256": "0991d6a97ccb2c6cf64eecfacca8a4e3ec633d791c84f63019f5dafc032da6a8",
+      "normalization": "per_tracked_shoot",
+      "numerical_root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+      "parent_calculated_at": "2026-10-23T05:39:25.597999Z",
+      "parent_job_id": "d324b89d-d065-43f3-8074-d65f9bd8c190",
+      "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+      "parent_result_sha256": "d0b8d881ec0bef297360120e7026a6c1e04d0fb1bba717acb23e95160311d5bf",
+      "profile_applicability": "unvalidated_for_registered_crop",
+      "program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+      "result_sha256": "486456e07833877c0024e9bd94b46beba6785be213fc8bb87d66de5cf5f3971d",
+      "revision": "r1",
+      "source_sha256": "53e28b88d9095ee9a29b340e5965b5e1603de8237585ed3309222c566be351d9",
+      "study_id": "live-scoped-admission-f232040a9aac463dba52451d48609328"
+    },
+    "original_12_frames_52_areas": true,
+    "HTTP_requests": [
+      {
+        "method": "GET",
+        "path": "/leaf-preview-input",
+        "status": 200,
+        "seconds": 13.089139589021215,
+        "bytes": 1413,
+        "HTTP_code_sha256": null,
+        "raw_sha256": "af191425e49c3346038396146e7d8f5e2a6dc842f638151841486abdd1db2924"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/crop-leaf-population-executions",
+        "status": 202,
+        "seconds": 13.3058815250115,
+        "bytes": 237,
+        "HTTP_code_sha256": "5e8cc84fc75edcd9cc11d2ea6e81c8a4072b73ba3c041f33cb294eb23d4b4e54",
+        "raw_sha256": "f3e166b07e7c3e862055627fe83dd1b6070511a6d0d52dc8cd79de0f8e0920b2"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/crop-leaf-population-executions",
+        "status": 202,
+        "seconds": 18.1685178889893,
+        "bytes": 241,
+        "HTTP_code_sha256": "5e8cc84fc75edcd9cc11d2ea6e81c8a4072b73ba3c041f33cb294eb23d4b4e54",
+        "raw_sha256": "ff6bd98328e57865351d2b48bd3164caf456f1d58c2e1368f0893a83593fa255"
+      },
+      {
+        "method": "GET",
+        "path": "/v1/jobs/16b95f72-7812-4585-b88c-f5f16472efa0/crop-leaf-population-execution/replay",
+        "status": 200,
+        "seconds": 13.399402568000369,
+        "bytes": 67722,
+        "HTTP_code_sha256": "5e8cc84fc75edcd9cc11d2ea6e81c8a4072b73ba3c041f33cb294eb23d4b4e54",
+        "raw_sha256": "9af219a42749706fba357b74667c9a14a4ac25d005de44122f711060ef9f009c"
+      }
+    ],
+    "HTTP_code_sha256": "5e8cc84fc75edcd9cc11d2ea6e81c8a4072b73ba3c041f33cb294eb23d4b4e54"
+  },
+  "automatic_new_UI_job": {
+    "job_id": "74693d03-9259-4f07-83a5-39063c8bb511",
+    "POST_count": 1,
+    "manual_recovery": false,
+    "automatic_new_job_to_3D_without_manual_recovery": true,
+    "result": {
+      "binding_sha256": "f0b471ea800c876a9ffeac539a6d8cefaf209c1e22c9bbadbbad07c0e93fbe85",
+      "calculated_at": "2026-10-23T12:14:20.682065Z",
+      "farm": {
+        "crop_id": "crop-1",
+        "registration_sha256": "77e6e3c5c78acda2e286228dc2cb7e028fa1e3d6686d80295c0e621673b78b8c",
+        "scenario_id": "farm-1",
+        "scenario_revision": "r1"
+      },
+      "input_evidence_sha256": "0991d6a97ccb2c6cf64eecfacca8a4e3ec633d791c84f63019f5dafc032da6a8",
+      "normalization": "per_tracked_shoot",
+      "numerical_root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+      "parent_calculated_at": "2026-10-23T05:39:25.597999Z",
+      "parent_job_id": "d324b89d-d065-43f3-8074-d65f9bd8c190",
+      "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+      "parent_result_sha256": "d0b8d881ec0bef297360120e7026a6c1e04d0fb1bba717acb23e95160311d5bf",
+      "profile_applicability": "unvalidated_for_registered_crop",
+      "program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+      "result_sha256": "259e19d6182a8c68bda92eb7da1e6c879a027722a94ed8d0cb7529c770d4f381",
+      "revision": "r1",
+      "source_sha256": "53e28b88d9095ee9a29b340e5965b5e1603de8237585ed3309222c566be351d9",
+      "study_id": "leaf-aabd724b-04df-4ae1-a8f7-4f7a356ac39f"
+    },
+    "original_first_areas": true,
+    "reload_same_result_and_frame_no_POST": true,
+    "response_statuses_and_states": [
+      {
+        "path": "/v1/crop-leaf-population-executions",
+        "status": 202,
+        "state": "queued"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 503,
+        "body_unavailable": true
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "simulating"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "simulating"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "simulating"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "simulating"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "simulating"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "simulating"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "simulating"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 503,
+        "body_unavailable": true
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "succeeded"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution/replay",
+        "status": 200,
+        "state": "succeeded"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "state": "succeeded"
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution/replay",
+        "status": 200,
+        "state": "succeeded"
+      }
+    ],
+    "JS_errors": 0,
+    "console_HTTP503_errors": 2,
+    "observed_hold_messages": [
+      "서버 응답을 확인하지 못해 표시를 보류합니다. 접수 응답이 없으면 같은 요청으로 다시 확인해 주세요."
+    ],
+    "automatic_GET503_retry_recovered": true,
+    "HTTP503_cause": "not_established",
+    "PG_v8_FATAL_count": 0,
+    "PG_v8_ERROR_count": 0,
+    "clean_console_acceptance": false,
+    "simultaneous_external_identical_POST_during_UI": false
+  },
+  "current_rights": {
+    "actual_statuses": [
+      422,
+      200,
+      200
+    ],
+    "denial_clears_canvas_table_chart": true,
+    "restored_same_job_root_and_last_frame": true,
+    "POST_count": 0,
+    "same_original_policy_bytes": true,
+    "original_policy_bytes_sha256": "d85df049ddbb5e62b4a8d51b3f8904bc79c1ad6ea4a31105d72168e9dc75a5fc",
+    "422_body_unavailable_recorded": true
+  },
+  "cold_restart": {
+    "same_data_keys_code_auth_and_slots12": true,
+    "leaf_all25_before_sha256": "12ed8ed1618e3ae7a2f323445573b1e08222e71c0eaa0b1ad763ae57c9665ab5",
+    "original_all25_before_sha256": "019e364edb56ca32cf6504f3262ad9d8edc99e9b7f7887641a2d713b6f5e9867",
+    "all_four_new_jobs_succeeded_attempt1": true,
+    "known_new_job_ids": [
+      "5991b58e-fede-424a-a8f8-fc0cf7054d0d",
+      "310ea1f6-330a-4e82-b3f2-9229e7c7dc7b",
+      "16b95f72-7812-4585-b88c-f5f16472efa0",
+      "74693d03-9259-4f07-83a5-39063c8bb511"
+    ],
+    "original_signed_files": 74,
+    "POST_count": 0,
+    "all_25_tables_after_sha256": "12ed8ed1618e3ae7a2f323445573b1e08222e71c0eaa0b1ad763ae57c9665ab5",
+    "original_rows_preserved": true,
+    "all_original_files_and_keys_preserved": true
+  },
+  "cold_browser": {
+    "job_id": "74693d03-9259-4f07-83a5-39063c8bb511",
+    "result_sha256": "259e19d6182a8c68bda92eb7da1e6c879a027722a94ed8d0cb7529c770d4f381",
+    "calculated_at": "2026-10-23T12:14:20.682065Z",
+    "frames": 12,
+    "leaf_areas": 52,
+    "checks": [
+      {
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "leaf_count": 3,
+        "maximum_relative_area_difference": 1.609475369298915e-15
+      },
+      {
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "leaf_count": 3,
+        "maximum_relative_area_difference": 2.0117788721164487e-15
+      },
+      {
+        "index": 2,
+        "at": "2026-10-01T06:00:00Z",
+        "leaf_count": 3,
+        "maximum_relative_area_difference": 3.852809410553412e-15
+      },
+      {
+        "index": 3,
+        "at": "2026-10-01T08:00:00Z",
+        "leaf_count": 4,
+        "maximum_relative_area_difference": 4.23793222294325e-15
+      },
+      {
+        "index": 4,
+        "at": "2026-10-01T10:00:00Z",
+        "leaf_count": 4,
+        "maximum_relative_area_difference": 4.7321085700782934e-15
+      },
+      {
+        "index": 5,
+        "at": "2026-10-01T12:00:00Z",
+        "leaf_count": 4,
+        "maximum_relative_area_difference": 3.265611570367122e-15
+      },
+      {
+        "index": 6,
+        "at": "2026-10-01T14:00:00Z",
+        "leaf_count": 4,
+        "maximum_relative_area_difference": 3.394252365204486e-15
+      },
+      {
+        "index": 7,
+        "at": "2026-10-01T16:00:00Z",
+        "leaf_count": 5,
+        "maximum_relative_area_difference": 3.638433299421209e-15
+      },
+      {
+        "index": 8,
+        "at": "2026-10-01T18:00:00Z",
+        "leaf_count": 5,
+        "maximum_relative_area_difference": 3.2824871547110153e-15
+      },
+      {
+        "index": 9,
+        "at": "2026-10-01T20:00:00Z",
+        "leaf_count": 5,
+        "maximum_relative_area_difference": 7.300708330464573e-15
+      },
+      {
+        "index": 10,
+        "at": "2026-10-01T22:00:00Z",
+        "leaf_count": 6,
+        "maximum_relative_area_difference": 4.406849611631262e-15
+      },
+      {
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "leaf_count": 6,
+        "maximum_relative_area_difference": 6.723195640234054e-15
+      }
+    ],
+    "maximum_relative_triangle_area_difference": 7.300708330464573e-15,
+    "actual_HTTP_no_interception": true,
+    "POST_count": 0,
+    "menu_reload_same_frame": true,
+    "reload_same_result_no_POST": true,
+    "autoplay_stored_frames": true,
+    "idle_renderer_stops": true,
+    "mobile_no_overflow": true,
+    "JS_errors": 0,
+    "console_entries": 0,
+    "fresh_profile_GPU_shader_warning_test": false,
+    "left_open_last_paused": true,
+    "Windows_memory_in_WSL_total": false,
+    "HTTP": [
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "seconds": 13.827957
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution/replay",
+        "status": 200,
+        "seconds": 13.607615
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution",
+        "status": 200,
+        "seconds": 13.570898
+      },
+      {
+        "path": "/v1/jobs/74693d03-9259-4f07-83a5-39063c8bb511/crop-leaf-population-execution/replay",
+        "status": 200,
+        "seconds": 13.627953
+      }
+    ]
+  },
+  "preservation": {
+    "retained_original_leaf_25tables_excluding_four_new_jobs_sha256": "586fa1a1fe090e84997ab2a9b93ae059d618bdd52aa7f8f3f232193a48203797",
+    "original_stem_25tables_sha256": "019e364edb56ca32cf6504f3262ad9d8edc99e9b7f7887641a2d713b6f5e9867",
+    "new_signed_files_append_only": true,
+    "current_signed_files_at_cold": 74,
+    "old_stored_result_preserved": true,
+    "old_URLs_and_two_service_roots_preserved": true
+  },
+  "live_phase_guards": {
+    "live-admission-concurrent-v4": {
+      "observed_at_UTC": "2026-10-23T12:12:51.005152Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 192.18819635899854,
+      "PID_peak_RSS_bytes": 100605952,
+      "combined_peak_RSS_bytes": 477335552,
+      "samples": 737,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3421,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d45277d57063c14f5dedf4b3e63c2b079f2f74075feac85b5c7296652cc0545d",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "live-new-job-browser-v1": {
+      "observed_at_UTC": "2026-10-23T12:17:40.273255Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 283.83289318400784,
+      "PID_peak_RSS_bytes": 101392384,
+      "combined_peak_RSS_bytes": 417779712,
+      "samples": 1085,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3421,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "f69a1c7e05a6654dc220df42ca6affd5cf379d2caf827e682c44bc1f6be891fd",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "live-new-job-rights-v1": {
+      "observed_at_UTC": "2026-10-23T12:22:40.019310Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 60.49154210599954,
+      "PID_peak_RSS_bytes": 101752832,
+      "combined_peak_RSS_bytes": 403095552,
+      "samples": 234,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3421,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "dc9e4401f8bd6d66aa8f0dda9874f5daa6f71e1e17c4cfcd66522160e3d5aa48",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "live-cold-new-job-browser-v1": {
+      "observed_at_UTC": "2026-10-23T12:31:56.848666Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 61.18984016199829,
+      "PID_peak_RSS_bytes": 98832384,
+      "combined_peak_RSS_bytes": 386945024,
+      "samples": 237,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2481,
+      "source_preserved": true,
+      "source_count": 3421,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "677a6c6d5644f56afb9cd68912ba0b153c683e9d293a539d1c463cdb719c72b9",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "limits": {
+    "PID_RSS_bytes": 536870912,
+    "combined_WSL_RSS_bytes": 1073741824,
+    "phase_seconds": 600,
+    "sample_seconds": 0.25,
+    "log_bytes": 4194304
+  },
+  "earlier_failed_observations": [
+    {
+      "name": "API_v1",
+      "failure": "observer_expected_running_instead_of_simulating",
+      "POST_count": 1,
+      "job_retained_succeeded_attempt1": true
+    },
+    {
+      "name": "API_v2",
+      "failure": "observer_output_path_collision_before_POST",
+      "POST_count": 0
+    },
+    {
+      "name": "API_v3",
+      "failure": "success_header_assertion_prevented_HTTP_status_capture",
+      "PG_reserved_slot_exhaustion": true,
+      "HTTP_status": "not_captured",
+      "job_retained_succeeded_attempt1": true
+    }
+  ],
+  "private_proof_sha256": {
+    "live-admission-concurrent-v4.private.json": "14f95f7090c940b24b6ba93eef5ec41b9236b5352df31757093a5668a1e3c178",
+    "native-new-job-scope-v1.private.json": "cc300507a66d178a09cf99b4fcbbb4c98071aaa361257d3771f4078c0b2906b3",
+    "native-rights-v4.private.json": "9e0458e00a96c06358fd32ea9c3d936ce5f6f04f9549e24e6f24db9f055d9920",
+    "native-rights-coordinator-v4.private.json": "411bdb2fee353a9ae47924f7a0fd92db6ec6a47b1f96a2010fbba39b31b9b91a",
+    "cold-admission-v1.private.json": "a1397bbb36bd494fc6fc52b378d2376aa6fb0740a98ba8fe44e425241a82ce08",
+    "native-cold-new-job-v1.private.json": "ef962fc45779fece4142895ee8bbd9cc7e0bf9a467445e07b307b792a00a46be",
+    "connection-capacity-v1.private.json": "1baa40b5ac97b02f05ebe5b0bcb88819eb7b2393ce9528d34bc530d505e74431",
+    "admission-rollout-v1.private.json": "fa14d400417f2aeae8b9e5faac841fb1a157f84effaa67c518a1ae34c476e970",
+    "admission-capacity-rollout-v1.private.json": "5c5a9d9f821440a0734f60fec491912f9091ce48bea52020fdb9d7dd93f29c77"
+  },
+  "full_backend_suite_this_slice": false,
+  "new_hosted_CI_this_slice": false,
+  "web_source_changed": false,
+  "prior_same_web_CI": {
+    "run_id": 39925213943,
+    "unit": 2008,
+    "browser": 296,
+    "passed": true
+  },
+  "actual_farm_Runs": 0,
+  "independent_local_crop_cycles": 0,
+  "G0_G4": "not_assessed",
+  "remaining": [
+    "transient_status503_cause_and_production_clean_console",
+    "fresh_profile_GPU_shader_warning",
+    "final_realism_R2",
+    "automatic_leaf_emergence_and_management_model",
+    "cultivar_forcing_parameters_and_independent_cycles",
+    "harvest_resource_economic_integration",
+    "macro_supply_demand_and_autonomous_crop_comparison",
+    "final_product_UI_and_G4"
+  ],
+  "screenshots": {
+    "leaf-new-job-automatic-first-20261023.png": "44d582088ffd06ee74daee99feaa5224fcccf607e6cc8dd31323d28b06a02101",
+    "leaf-new-job-automatic-last-20261023.png": "782dbbd82a89803a110a4c7987e38d183548502f95491b00f573067d498389d9"
+  }
+}

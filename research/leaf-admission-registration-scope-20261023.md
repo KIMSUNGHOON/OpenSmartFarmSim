@@ -1,6 +1,8 @@
 # Leaf 입력 확인·접수 범위 검증 — 2026-10-23
 
-상태: **소프트웨어160검사·새 frozen 판본의 기존 결과/입력 확인 HTTPS 수용, 사용자 적용 전**.
+상태: **소프트웨어160검사 수용. 이후 사용자 적용/동시 retry/새 자동3D·재시작까지 기능 수용**.
+[후속 실제 화면·일시적503 보류](leaf-admission-live-automatic-20261023.md)를 확인한다.
+아래 시험/적용 전 관측은 당시 이력이다.
 [계약](../contracts/leaf-admission-registration-scope-v1.md),
 [기계 증거](artifacts/leaf-admission-registration-scope-20261023.json)와
 [기존 저장 job의 실제3D](leaf-population-query-registration-scope-20261023.md)를 함께 확인한다.
@@ -56,7 +58,7 @@ PID 최대182,538,240bytes·합산 최대651,300,864bytes를 확인했다.
 전체 backend/새 hosted CI/새 사용자 browser는 아직 실행하지 않았다. 웹 코드는 바꾸지 않았다.
 판단은 현재 native CLI gpt-6.1-sol/xhigh의 turn_context 기록이며 재귀 CLI0이다.
 
-다음은 같은 원 DB/키·원 결과를 보존한 새 판본 적용→실제 worker 계산 중 동일 POST30초/같은 job·attempt1→
+이 기록 당시 다음은 같은 원 DB/키·원 결과를 보존한 새 판본 적용→실제 worker 계산 중 동일 POST30초/같은 job·attempt1→
 현재 SDK의 입력 확인/한 접수/자동 저장3D·메뉴/reload/실제 권리 제거/원복이다.
 이 사용자 적용/동시 요청/새 자동 UI가 통과하기 전 부모 runtime 체크를 완료하지 않는다.
 실제 품종/독립 작기0·생산/자원/경제·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미완료/미정이다.

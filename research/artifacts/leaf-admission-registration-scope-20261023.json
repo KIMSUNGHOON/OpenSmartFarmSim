@@ -1,7 +1,7 @@
 {
   "observed_at_UTC": "2026-10-23T11:24:48.733550+00:00",
   "scope": "software_research_only",
-  "status": "software160_and_frozen_old_result_input_HTTPS_accepted_user_rollout_pending",
+  "status": "software160_and_live_functional_automatic_3D_accepted_transient503_cause_pending",
   "native_model": {
     "timestamp": "2026-10-23T10:43:15.369Z",
     "model": "gpt-6.1-sol",
@@ -2249,9 +2249,9 @@
   "registration_reconstructions_per_request": 1,
   "baseline_diagnostic": "research/artifacts/leaf-admission-cost-observation-20261023.json",
   "normal_client_deadline_seconds": 30,
-  "new_user_runtime_applied": false,
-  "worker_concurrent_identical_POST30s_accepted": false,
-  "current_SDK_new_automatic_job3D_accepted": false,
+  "new_user_runtime_applied": true,
+  "worker_concurrent_identical_POST30s_accepted": true,
+  "current_SDK_new_automatic_job3D_accepted": true,
   "review": {
     "correctness": "validated server tenant/farm, exact existing graph; original submit and commit_guard retained",
     "architecture": "only caller scopes; old intent/signed fingerprints kept; no new service or dependency",
@@ -2265,10 +2265,14 @@
   "independent_local_crop_cycles": 0,
   "G0_G4": "not_assessed",
   "remaining": [
-    "user immutable rollout with same database and keys",
-    "actual worker-concurrent same POST within30s",
-    "current SDK input to one new job automatic3D without manual recovery",
-    "real cultivar/farm validation, production/resources/Decimal economics/autonomous choice and R2/cold warning"
+    "transient_status503_cause_and_production_clean_console",
+    "fresh_profile_GPU_shader_warning",
+    "final_realism_R2",
+    "automatic_leaf_emergence_and_management_model",
+    "cultivar_forcing_parameters_and_independent_cycles",
+    "harvest_resource_economic_integration",
+    "macro_supply_demand_and_autonomous_crop_comparison",
+    "final_product_UI_and_G4"
   ],
   "implementation_commit": "6bad7dd501195a07b15e1fc810aae9d50e7ebee6",
   "snapshot_descriptor": {
@@ -2280,5 +2284,7 @@
       "contracts/crop-leaf-population-execution-v1.md"
     ],
     "full_checkout": false
-  }
+  },
+  "live_evidence": "research/artifacts/leaf-admission-live-automatic-20261023.json",
+  "production_clean_console_accepted": false
 }

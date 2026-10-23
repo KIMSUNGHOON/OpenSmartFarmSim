@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**실행 화면 현재 — 2026-10-23 KST:** [새 잎 실행 화면](http://localhost:5176/leaf-population-execution.html)에서 기존 실제 UI 접수 완료 작업의 저장3D/12시점·메뉴/reload와 현재 권리 철회 제거·원복을 확인했습니다. [조회 수정/65검사·실제 HTTPS/Chrome·보류](../research/leaf-population-query-registration-scope-20261023.md)에서 재구성64→1/현재 원천4,864회 유지와 실제 화면 조회13.8–13.9초·POST0, 원 DB/키·결과 보존을 확인합니다. 별도 불변 snapshot의 query만7d9c289로 적용했습니다. 입력 확인/첫 접수 POST와 계산 중 동일 retry30초·새 계산→자동3D는 미수용입니다. 다음은 접수 비용 관측→최소 수정→기존30초·현재성/같은 job·새 자동3D 검증입니다. 실제 품종/독립 작기0·생산/자원/경제·자율 선정·최종 사실감 R2/G0–G4와 전체 완료일은 미완료/미정입니다.
+**실행 화면 현재 — 2026-10-23 KST:** [새 잎 실행 화면](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)에서 입력 확인→한 번 접수→실제 자동 계산→같은 저장 잎·줄기3D를 수동 복구 없이 확인했습니다. [실제 동작·보존·남은 범위](../research/leaf-admission-live-automatic-20261023.md): 첫202 13.306초/계산 중 같은 POST 18.169초·동일 job/attempt1, 메뉴·reload·권리 철회/복원과 같은 DB/키 cold restart 뒤12시점/52면적을 대사했습니다. query7d9c289/호출부6bad7dd의 별도820파일 판본이며 원 입력/DB/키·URL과 WSL 상한을 보존했습니다. 새 UI의 일시적503 두 건은 자동 GET 재조회로 회복했지만 원인·운영 무오류 수용은 보류합니다. 다음은 작은503 분류 진단과 잎 출현/관리 모델의 근거·수용 분해입니다. 실제 품종/독립 작기0·생산/자원/경제·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미완료/미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
