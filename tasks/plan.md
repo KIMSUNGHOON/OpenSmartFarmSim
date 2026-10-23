@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 [농장/parent 결속35/fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했고 다음은 leaf 결과의 서명·현재 무계산 조회다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
+**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 [농장/parent 결속35/fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했고 [leaf 서명 결과38/fresh](../research/crop-leaf-population-signed-artifact-20261023.md)를 수용했고 다음은 기존 jobs 표의 E1 leaf 접수다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
 
 **최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
@@ -3445,3 +3445,13 @@ normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다�
 **4.5–8집중시간**의 낮은 신뢰 작업량이다. 이후 명시 worker→보호 API→같은 job의 제품3D 순서를 유지한다.
 단일 내부 read13.92초는 향후 중첩 검증/HTTP·polling 비용 검토의 근거이며 속도/공통 용량 수용은 아니다.
 새 모듈의 사용자 미배포·실제 품종/독립 작기0·최종 사실감/경고와 전체 완료일 미정을 유지한다.
+
+
+**서명 자식 수용 — 2026-10-23:** [38집중/실제 SCRAM·fresh](../research/crop-leaf-population-signed-artifact-20261023.md)로
+실제1회 leaf producer/원40blob·12frame/52면적과 parent lineage/최초 계산 시각·서명/현재 조회를 결속했다.
+독립 프로세스의 manifest/frame/replay에서 생장/producer/worker import·계산/CLI·DB/파일쓰기0,
+원 parent18/leaf44파일·25시험표/FD·원2root/정리를 확인했다. 계산 뒤/서명 저장 뒤/마지막 frame 뒤 철회를 차단했다.
+위4.5–8h 서명 추정은 실제 수용으로 대체한다. 다음은 **E1 접수/멱등 → E2 worker/원자 참조 게시 → E3 현재 조회**다.
+E1은 계약/구현1–2h + 제어1–2h + 실제 SCRAM/반례1–2h + 기록0.5h = **3.5–6.5집중시간**의 낮은 신뢰 작업량이다.
+그 뒤 보호 API→같은 job의 실제3D/메뉴·재접속 복원을 잇는다. 내부 재생 단일 관측24.58초는 HTTP30초/중첩 query·polling 검토 근거이며 U1 수용이 아니다.
+새 signed 모델 미배포/leaf job0·실제 품종/독립 작기0·최종 사실감/경고와 전체 완료일 미정을 유지한다.

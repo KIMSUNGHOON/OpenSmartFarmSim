@@ -43,8 +43,7 @@ class LeafRights:
             and declaration['input_source_sha256']==source and use in ('research_calculation','research_display')
 
 
-@pytest.fixture
-def setup(login_scope,tmp_path,monkeypatch):
+def registered_leaf_services(login_scope,tmp_path,monkeypatch):
     parent_raw,parent_source=stem_inputs.prepared();parent_review=stem_inputs.review(parent_source)
     parent_authority=stem_inputs.authority(model.evidence.stem,parent_source,lambda _:deepcopy(parent_review))
     parent_args={**stem_inputs.arguments(parent_raw,parent_source),'decision_at':leaf_inputs.DECISION}
@@ -80,6 +79,10 @@ def setup(login_scope,tmp_path,monkeypatch):
         'rights':{'schema_version':model.RIGHTS_VERSION,'declaration_id':'owned-leaf-source','revision':'r1',
             'input_source_sha256':sha256(source).hexdigest(),'available_at':'2026-10-22T00:00:00Z','redistribute':False,
             **{k:True for k in ('ownership_asserted','access','store','transform','use','display')}}}
+    return service,body,packet,parent_body,parent_packet,review,parent_review,principal,rights,parent_rights
+
+
+def forbid_growth(monkeypatch):
     calls=factory.forbid_growth(monkeypatch)
     for name in ('crop_leaf_expansion','crop_leaf_area_change','crop_leaf_area','crop_rational_leaf_area',
                  'crop_leaf_inventory','crop_declared_leaf_births','crop_leaf_population','crop_leaf_stem_binding',
@@ -90,7 +93,14 @@ def setup(login_scope,tmp_path,monkeypatch):
                 label=name+'.'+key;calls[label]=0
                 def fail(*args,_label=label,**kwargs):calls[_label]+=1;raise AssertionError('binding called growth')
                 monkeypatch.setattr(module,key,fail)
-    yield service,body,packet,parent_body,parent_packet,review,parent_review,principal,rights,parent_rights,calls
+    return calls
+
+
+@pytest.fixture
+def setup(login_scope,tmp_path,monkeypatch):
+    values=registered_leaf_services(login_scope,tmp_path,monkeypatch)
+    calls=forbid_growth(monkeypatch)
+    yield (*values,calls)
     assert not any(calls.values())
 
 

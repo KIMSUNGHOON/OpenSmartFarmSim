@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
-**실행 상태:** 기존 DB/키·입력/저장 결과를 보존해5176 API/웹을 복구했습니다. 외형5175도 실행 중이며 **이전5173/5174는 종료 상태**입니다. 아래 날짜별5173/5174 기록은 과거 검증입니다. [새 잎 입력 증거52/fresh](research/crop-leaf-population-input-evidence-20261023.md)도 수용했습니다. [농장·완료 줄기 결과 결속35/fresh](research/crop-leaf-population-farm-binding-20261023.md)도 별도 실제 DB에서 수용했습니다. 새 결속은 사용자 runtime에 미배포이며 다음은 leaf 결과 서명·현재 조회→자동 worker→같은 작업의 제품3D입니다. 실제 품종/독립 자료0·전체 작기/생산·자원/경제·자율 선정과 최종 사실감 R2는 후속이며 전체 완료일은 미정입니다. native goal은 이전 전체 목표로 active이고 교체 도구의 미완료 거부가 지속됩니다. 현재 정확 모델은 gpt-6.1-sol/xhigh입니다.
+**실행 상태:** 기존 DB/키·입력/저장 결과를 보존해5176 API/웹을 복구했습니다. 외형5175도 실행 중이며 **이전5173/5174는 종료 상태**입니다. 아래 날짜별5173/5174 기록은 과거 검증입니다. [새 잎 입력 증거52/fresh](research/crop-leaf-population-input-evidence-20261023.md)도 수용했습니다. [농장·완료 줄기 결과 결속35/fresh](research/crop-leaf-population-farm-binding-20261023.md)도 별도 실제 DB에서 수용했습니다. [leaf 서명 결과38/fresh](research/crop-leaf-population-signed-artifact-20261023.md)도 수용했습니다. 새 모델은 사용자 runtime에 미배포이며 다음은 기존 jobs 표 접수/자동 worker→보호 API→같은 작업의 제품3D입니다. 실제 품종/독립 자료0·전체 작기/생산·자원/경제·자율 선정과 최종 사실감 R2는 후속이며 전체 완료일은 미정입니다. native goal은 이전 전체 목표로 active이고 교체 도구의 미완료 거부가 지속됩니다. 현재 정확 모델은 gpt-6.1-sol/xhigh입니다.
 
 **저장 잎 면적의 3D 연결 — 2026-10-22:** [잎 면적 재생](http://localhost:5176/leaf-area-replay.html)에서 같은 원 UTC의 계산 면적·줄기를 실제 잎3D/표/그래프로 확인합니다.
 자체 합성12시점/선언3잎이며 현재 농장 작업 결과와 분리된 연구 화면입니다. 실제 품종/새 잎·과실/생산·마진/추천은 후속입니다. [검증·화면](research/leaf-area-stored-replay-20261022.md).

@@ -1,0 +1,402 @@
+{
+  "observed_at_UTC": "2026-10-23T01:30:27.216519+00:00",
+  "scope": "software_research_only",
+  "focused_control_tests": 36,
+  "actual_SCRAM_tests": 2,
+  "total_focused_tests": 38,
+  "full_backend_suite": false,
+  "hosted_CI_this_slice": false,
+  "source_sha256": {
+    "backend/app/crop_leaf_population_signed_artifact.py": "5f5b2c27bb82caf731a96df5230f29a5399c28be4cac3926fbbbe334ad29bd6b",
+    "backend/app/crop_leaf_population_signed_producer.py": "11712e7c4953f78ebf1b32b9402bf3a7dedf722f9e9b80efb5c670ac57ed5050",
+    "backend/tests/test_crop_leaf_population_signed_artifact.py": "c98ac7326fe077fd01a4df83d0e7d3d6ad37e5a30abce1131023de188184f9f5",
+    "backend/tests/test_crop_leaf_population_signed_artifact_native.py": "a47300aa3ef7340d54e9523350d8739e4dba6352c334e53cbe7cc3b8c3fc3c0b",
+    "backend/tests/leaf_population_signed_fresh.py": "0a10df741d05a8a7853cef889e21b50d98d3667975dff75a77ff5e320520a166",
+    "backend/tests/test_crop_leaf_population_farm_binding_native.py": "8d57b523977ac4c5904a129b65307c967a6899acc119b186a89634e358a037c6"
+  },
+  "preceding_31_source_files_unchanged": true,
+  "preceding_farm_production_code_unchanged": true,
+  "shared_test_fixture_assembly_extracted": true,
+  "default_farm_test_growth_blocking_retained": true,
+  "normal": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "calculated_at": "2026-10-23T01:22:44.843933Z",
+    "database_before_after": [
+      [
+        "dcbe3cce0f4d991738c983278126ded24c00a0a0aa8ba6376037b41300ef0b19",
+        25
+      ],
+      [
+        "dcbe3cce0f4d991738c983278126ded24c00a0a0aa8ba6376037b41300ef0b19",
+        25
+      ]
+    ],
+    "fresh": {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "actual_farm_Runs": 0,
+      "calculated_at": "2026-10-23T01:22:44.843933Z",
+      "calls": {
+        "_durable_content": 0,
+        "_event": 0,
+        "_insert_publication": 0,
+        "artifact.put": 0,
+        "builtins.write_open": 0,
+        "io.write_open": 0,
+        "os.write_open": 0,
+        "publish": 0,
+        "record_decision": 0,
+        "submit": 0,
+        "subprocess.Popen": 0,
+        "subprocess.run": 0
+      },
+      "counts_before_after": [
+        [
+          89,
+          94,
+          0,
+          0
+        ],
+        [
+          89,
+          94,
+          0,
+          0
+        ]
+      ],
+      "fresh_valid_frame_indices": [
+        0,
+        11
+      ],
+      "fresh_valid_modes": [
+        "manifest",
+        "frame",
+        "replay"
+      ],
+      "growth_import_attempts": [],
+      "leaf_and_parent_review_revocation_rejected": true,
+      "original_frame_sha256": [
+        "fcefe2e2383f1aa5501fd5fefd04e5c080cd7cec969ff2965f26aa54c7935c43",
+        "45d5bd034c82526e5d6a40262b88513a4d78c2babd4b8f46caec41e3be4638e3",
+        "8c38f03abca8f78fd954a5b12e7282330460e512e995ab6807cd8731e26954fa",
+        "b62ad62b42471daa6b2a6bd4d13616af1cfe66647ec61cd8abbd01889fcec09f",
+        "9e5b9ba8bde8e4f7ad866ace63c475c79df4e568b2ecffd1c7305016c4cff13b",
+        "97df4a2345553b52b529ae8fe4e30df687b0c8e0db5cd3fd727ff8d9b8bc43ce",
+        "03245e9f4b660b9091eb8e341fa949232dc9b5a5e1275a387e69d32bea9025a4",
+        "a7d72d063ba2206f18576ea79f8a1a33e02bc1fefe1f4b95fe15b1edd5ae5531",
+        "b76ffb65f95199b01e47cd27b610693a97d30f326642ae412ebdd1a58d8c7f19",
+        "431a7417a427c087e3136bfcb2e6a945b1d58fb55f0a35c01b59c0eb79c8fc1f",
+        "394b14dd24d5568b1afe015b667ada74a11dccb8cd94ad0faad678e5b4603cac",
+        "31ab076ef11e39af789d8ff1612e814c42a27949a70d19ef36d3cd744d9b9ec6"
+      ],
+      "original_leaf_files": 44,
+      "original_parent_files": 18,
+      "parent_result_sha256": "9bb0332ce80f1fc2bc711db4b17377158df21bdb28da8d6c124abde8e778f627",
+      "persistent_SQL_write_calls": [],
+      "result_sha256": "5341db1bec537bd24c035b1d3e175a80ea8b6ef79cab30deb69b6454bb04feac",
+      "root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+      "seed_pytest_HTTP_app_imports": 0
+    },
+    "growth_CLI_calls": {
+      "CLI": 0,
+      "crop_declared_leaf_births.create_declared_leaves": 0,
+      "crop_internode_elongation.calculate_internode_elongation": 0,
+      "crop_internode_length.advance_internode_length": 0,
+      "crop_internode_length.calculate_internode_length_point": 0,
+      "crop_internode_length.initialize_internode_length": 0,
+      "crop_internode_length.normalize_internode_length_state": 0,
+      "crop_internode_length_change.calculate_internode_length_change": 0,
+      "crop_internode_length_change.normalize_internode_curve": 0,
+      "crop_leaf_area.advance_leaf_area": 0,
+      "crop_leaf_area.calculate_leaf_area_point": 0,
+      "crop_leaf_area.initialize_leaf_area": 0,
+      "crop_leaf_area.normalize_leaf_area_state": 0,
+      "crop_leaf_area_change.calculate_leaf_area_change": 0,
+      "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+      "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+      "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+      "crop_leaf_inventory.advance_leaf_inventory": 0,
+      "crop_leaf_inventory.initialize_leaf_inventory": 0,
+      "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+      "crop_leaf_population.advance_leaf_population": 0,
+      "crop_leaf_population.initialize_leaf_population": 0,
+      "crop_leaf_population.normalize_leaf_population_state": 0,
+      "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+      "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+      "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+      "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+      "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+      "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+      "crop_new_internodes.create_internodes_from_shoot_events": 0,
+      "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+      "crop_rational_internode_length.advance_rational_internode_length": 0,
+      "crop_rational_internode_length.initialize_rational_internode_length": 0,
+      "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+      "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+      "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+      "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+      "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+      "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+      "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+      "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+      "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+      "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+      "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+      "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+      "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+      "crop_shoot_timeline.advance_shoot_event_timeline": 0,
+      "leaf_population_top_producer": 0
+    },
+    "job_write_calls": {
+      "_durable_content": 0,
+      "_event": 0,
+      "_insert_publication": 0,
+      "artifact.put": 0,
+      "publish": 0,
+      "record_decision": 0,
+      "submit": 0
+    },
+    "one_numeric_producer_call": 1,
+    "original_frame_sha256": [
+      "fcefe2e2383f1aa5501fd5fefd04e5c080cd7cec969ff2965f26aa54c7935c43",
+      "45d5bd034c82526e5d6a40262b88513a4d78c2babd4b8f46caec41e3be4638e3",
+      "8c38f03abca8f78fd954a5b12e7282330460e512e995ab6807cd8731e26954fa",
+      "b62ad62b42471daa6b2a6bd4d13616af1cfe66647ec61cd8abbd01889fcec09f",
+      "9e5b9ba8bde8e4f7ad866ace63c475c79df4e568b2ecffd1c7305016c4cff13b",
+      "97df4a2345553b52b529ae8fe4e30df687b0c8e0db5cd3fd727ff8d9b8bc43ce",
+      "03245e9f4b660b9091eb8e341fa949232dc9b5a5e1275a387e69d32bea9025a4",
+      "a7d72d063ba2206f18576ea79f8a1a33e02bc1fefe1f4b95fe15b1edd5ae5531",
+      "b76ffb65f95199b01e47cd27b610693a97d30f326642ae412ebdd1a58d8c7f19",
+      "431a7417a427c087e3136bfcb2e6a945b1d58fb55f0a35c01b59c0eb79c8fc1f",
+      "394b14dd24d5568b1afe015b667ada74a11dccb8cd94ad0faad678e5b4603cac",
+      "31ab076ef11e39af789d8ff1612e814c42a27949a70d19ef36d3cd744d9b9ec6"
+    ],
+    "original_leaf_files": 44,
+    "original_parent_files": 18,
+    "parent_job_id": "5f1ded4f-3e40-44a9-9b46-a7e61ea9d5dd",
+    "parent_result_sha256": "9bb0332ce80f1fc2bc711db4b17377158df21bdb28da8d6c124abde8e778f627",
+    "persistent_SQL_write_calls": [],
+    "result_sha256": "5341db1bec537bd24c035b1d3e175a80ea8b6ef79cab30deb69b6454bb04feac",
+    "root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+    "single_query_seconds": {
+      "manifest": 24.543462639005156,
+      "replay": 24.57560907700099
+    }
+  },
+  "fences": {
+    "both_reviews_and_rights_revoked_rejected": true,
+    "cases": [
+      "last-frame-review-revoked",
+      "after-numeric-no-result-ID",
+      "after-private-signed-write-no-result-ID"
+    ],
+    "database_before_after": [
+      [
+        "81c7a35dc8e13e341e8addf412b36f6cba046b9981239ca737482bc3642cd4d4",
+        25
+      ],
+      [
+        "81c7a35dc8e13e341e8addf412b36f6cba046b9981239ca737482bc3642cd4d4",
+        25
+      ]
+    ],
+    "foreign_and_current_scope_rejected": true,
+    "no_partial_replay_or_new_result_ID": true,
+    "one_private_unpublished_signed_blob_retained": true,
+    "original_result_restored": true
+  },
+  "WSL_phases": {
+    "controls-red-v1": {
+      "observed_at_UTC": "2026-10-23T00:56:54.605179Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 1.3115125850017648,
+      "PID_peak_RSS_bytes": 94216192,
+      "combined_peak_RSS_bytes": 265359360,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2469,
+      "source_preserved": true,
+      "source_count": 3359,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e97f27b3a68289ae6fffcd23b2eba0ff4bb8b18dfa6f1714af9bc11a4b68164c",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "controls-green-v1": {
+      "observed_at_UTC": "2026-10-23T00:59:36.348465Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 42.99908008298371,
+      "PID_peak_RSS_bytes": 94216192,
+      "combined_peak_RSS_bytes": 297684992,
+      "samples": 168,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2469,
+      "source_preserved": true,
+      "source_count": 3361,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "25aa6ee5fd655341999e5d160fb9724ba410b345c76d5926cc314f768e0199ad",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "controls-green-v2": {
+      "observed_at_UTC": "2026-10-23T01:02:57.340024Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 52.80991145299049,
+      "PID_peak_RSS_bytes": 103301120,
+      "combined_peak_RSS_bytes": 301412352,
+      "samples": 207,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2469,
+      "source_preserved": true,
+      "source_count": 3361,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "23953988bb3b59adf80aed4cadcdfa7ad4bc67a5dd8079512be3bb54c0d1a028",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "native-normal-v1": {
+      "observed_at_UTC": "2026-10-23T01:13:58.683767Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 199.4916025279963,
+      "PID_peak_RSS_bytes": 102346752,
+      "combined_peak_RSS_bytes": 430776320,
+      "samples": 766,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2469,
+      "source_preserved": true,
+      "source_count": 3363,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d184ab583e808d1c156d14dad1e87988277a6371662ada728938848291ee1cfd",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "native-fences-v1": {
+      "observed_at_UTC": "2026-10-23T01:19:01.255490Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 164.97599748999346,
+      "PID_peak_RSS_bytes": 102301696,
+      "combined_peak_RSS_bytes": 369659904,
+      "samples": 636,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2469,
+      "source_preserved": true,
+      "source_count": 3363,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e1008ecc8728dfd7db4df2799a3bf94a1607bff95b479f72c706e4d420dfbf11",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "native-normal-v2": {
+      "observed_at_UTC": "2026-10-23T01:26:28.427845Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 269.37147384198033,
+      "PID_peak_RSS_bytes": 102457344,
+      "combined_peak_RSS_bytes": 432320512,
+      "samples": 1030,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2469,
+      "source_preserved": true,
+      "source_count": 3363,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e32be4290d47e0031fa1f765cb6c609cae0ebf1ac77ee76c320db67125655994",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "owned_schema_role_cleanup": {
+    "native-normal-v1": {
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "native-fences-v1": {
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "native-normal-v2": {
+      "roles_after": 0,
+      "schemas_after": 0
+    }
+  },
+  "guard_sha256": "5fecfaf5683f75eeff07039b1cb916095f8c1cf579943e9a60cdadca82aac0da",
+  "exact_native_CLI": {
+    "timestamp": "2026-10-23T00:50:15.964Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "801b9b3db455eeba5d8207abb5d49c4b484c57f23304a591475041d1292b7175",
+    "recursive_CLI": 0
+  },
+  "old_5175_5176_protected": true,
+  "current_user_preview": "http://localhost:5176/leaf-population-replay.html",
+  "new_signed_model_deployed": false,
+  "leaf_execution_worker_integrated": false,
+  "HTTP_latency_or_common_capacity_accepted": false,
+  "actual_farm_Runs": 0,
+  "independent_local_cycles": 0,
+  "G0_G4": "not_assessed",
+  "next": "E1 leaf admission in the existing jobs table, E2 atomic signed result publication, E3 current query; then protected API and same-job 3D"
+}

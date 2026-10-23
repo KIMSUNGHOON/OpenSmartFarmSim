@@ -53,8 +53,11 @@
   - [x] leaf 입력 출처/현재 검토 증거 — [52집중/fresh](../research/crop-leaf-population-input-evidence-20261023.md). 원43단위/parent 증거·31code와 재배포 False·현재/늦은 철회/재해시 변조를 수용했다. 마지막 parent 검토 중 leaf 철회 반례를 재현·수정했다. fresh 생장 import/DB/프로세스/쓰기9진입0·FD4→4/원40blob/2root를 대사했다. parent stem root 승인·농장/current binding·수치 초기 검증/G0–G4는 별도다.
   - [x] 현재 농장/원 stem 완료 결과와 leaf 결속 — [순수33/실제 SCRAM2·fresh](../research/crop-leaf-population-farm-binding-20261023.md). 별도 더 늦은 decision의 farm/실제 완료 parent job·서명/root/원 시각과43단위/양쪽 현재 계산·표시 권리를 대사했다. 취소/미완료/다른결과·tenant/crop, 늦은 철회·실제 권한/rehash 등록 변조 거부, prepare/read/write SQL·작업쓰기0·fresh import0/FD/18파일·25표/원2root/정리를 수용했다. 사용자 runtime은 미배포이며 실제 품종·G0–G4는 별도다.
   - [ ] leaf 서명 결과·명시 자동 worker — 현재 farm/parent 결속을 소비하고 원 stem 결과를 보존한다.
-    - [ ] leaf 불변 수치 결과의 서명/현재 무계산 조회 — [다음 자식 수용](../research/crop-leaf-population-farm-binding-20261023.md#사용자-산출물과-다음-단계). 1회 producer/원40blob·12frame/초기·출현·code/원 시각·전후 현재 철회와 서명/root 변조 거부·fresh 생장 import/계산·DB쓰기/파일쓰기0·원 parent/소유 정리.
-    - [ ] 기존 작업 표/명시 leaf 판본의 접수·자동 worker — 멱등/1계산·불변 원자 게시/취소·만료·재시작·늦은 철회와 현재 무계산 조회.
+    - [x] leaf 불변 수치 결과의 서명/현재 무계산 조회 — [집중36/실제 SCRAM2·fresh](../research/crop-leaf-population-signed-artifact-20261023.md). 1회 producer/원40blob·12frame/52면적·parent job/result/root/원 시각·서명/현재 철회·원본 변조/잘못된 초기 면적 거부를 수용했다. fresh 세 모드·성장/worker import/계산·CLI·DB/파일쓰기0·FD4→4/parent18·leaf44파일/25표·원2root/정리를 대사했다. 새로운 leaf job/worker/API/UI와 실제 품종 관문은 별도다.
+    - [ ] 기존 작업 표/명시 leaf 판본의 접수·자동 worker — 새 큐/표 없이 기존 작업 이력과 서명 결과 참조를 사용한다.
+      - [ ] E1 leaf 현재 입력/parent 결속·intent HMAC/기존 submit 멱등·commit 철회 rollback·계산/CLI0.
+      - [ ] E2 명시 leaf worker/실제1계산·현재성·lease/cancel/원자 opaque 참조·terminal 게시·다른 queued 모델 보존.
+      - [ ] E3 같은 job/publication·현재 manifest/frame/replay/원 시각·fresh/현재 철회·조회 계산/쓰기0.
   - [ ] leaf 원 job/API/제품3D — 같은 원 UTC/ID/면적, 메뉴/reload 복원·철회 제거/구 화면/모바일·실제 브라우저/WSL 상한을 검증한다.
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 목록과 명시 출현 사건만 추적하며 자동 출현/관리는 후속이다.
   - [x] 별도 불변 면적 판본/계산 없는 조회·export — [18pytest/실제12시점·36면적/별도 fresh](../research/crop-leaf-area-artifact-20261022.md), 원 stem14blob/12 DTO·40불변 blob/24code·현재 부착/UTC·권리와 fresh import/SQL/CLI/파일쓰기0·17public파일·원7root/자료 보존.
