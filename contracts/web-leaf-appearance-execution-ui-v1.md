@@ -1,6 +1,6 @@
 # 정책 기반 잎 실행 화면 — v1
 
-상태: 구현/검증 중. 선행은 [실행 SDK](web-leaf-appearance-execution-v1.md)와
+상태: [실제 UI/CI 기능 수용](../research/leaf-appearance-execution-web-20261024.md). 선행은 [실행 SDK](web-leaf-appearance-execution-v1.md)와
 [현재 API](../research/leaf-appearance-execution-live-20261024.md)다.
 기존 실행 화면/재생·작물 외형과 CSS/geometry를 재사용한다.
 

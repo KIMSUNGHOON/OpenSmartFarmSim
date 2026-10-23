@@ -1,5 +1,7 @@
 # 2026-10-22 오전9시까지의 실행
 
+**현재 후속 — 2026-10-24:** [실제 정책 잎 계산→3D 수용](../research/leaf-appearance-execution-web-20261024.md)과 [다음 명시 제거 경계](../research/crop-declared-leaf-removal-primary-sources-20261024.md)를 기록했다. 아래2026-10-22 09:00은 당시 기한이며 새 날짜로 바꾸지 않는다. native goal은 여전히 기존 전체 목표로 active이며 교체 완료로 표시하지 않는다.
+
 사용자 지시: 현재 goal 교체, **2026-10-22 09:00 KST / 2026-10-22 00:00 UTC**까지 진행.
 제품 범위·관문은 [PROJECT_SPEC](../docs/PROJECT_SPEC.md), 구현 의존성과 수용은
 [plan](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)과 [todo](todo.md)를 따른다.
