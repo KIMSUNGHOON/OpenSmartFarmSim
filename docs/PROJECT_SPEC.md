@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-24 KST:** [정책 기반 잎 API](../research/leaf-appearance-execution-live-20261024.md)는5176에서 실제 자동 완료·원12시점/47면적·현재 철회/취소와 같은 재시작 결과를 확인했습니다. [인증/TLS 갱신](../research/preview-finite-lifetime-renewal-20261024.md) 뒤 세 DB/키/원 결과와 기존 화면을 보존했고 공통 인증 종료는2026-10-25 06:17 KST로 설정했습니다. [현재 3D](http://localhost:5176/leaf-appearance-replay.html)는 별도 저장 연구 재생이며 다음은 strict 실행 SDK→같은 job의 사실적3D입니다. 실제 품종/독립 국내 작기0, 관리·생산/자원/경제·시장 거시/수급·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
+**현재 — 2026-10-24 KST:** [정책 기반 잎 API](../research/leaf-appearance-execution-live-20261024.md)에 이어 [strict 실행 SDK](../research/leaf-appearance-execution-sdk-20261024.md)의164검사·전체 타입/번들·실제GET10/원12시점·47면적을 수용했습니다. 같은 세 DB/키/원 결과·기존 화면을 보존했습니다. [현재 3D](http://localhost:5176/leaf-appearance-replay.html)는 별도 저장 연구 재생이며 다음은 같은 실제 job의 사실적3D·표/그래프와 메뉴/reload·현재 철회 제거입니다. 인증 종료는2026-10-25 06:17 KST 설정입니다. 실제 품종/독립 국내 작기0, 관리·생산/자원/경제·시장 거시/수급·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

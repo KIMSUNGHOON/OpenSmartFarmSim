@@ -1,6 +1,6 @@
 # 구현 순서
 
-**현재 — 2026-10-24 KST:** [정책 기반 잎 API](../research/leaf-appearance-execution-live-20261024.md)는5176에서 실제 자동 완료·원12시점/47면적·현재 철회/취소와 같은 재시작 결과를 확인했습니다. [인증/TLS 갱신](../research/preview-finite-lifetime-renewal-20261024.md) 뒤 세 DB/키/원 결과와 기존 화면을 보존했고 공통 인증 종료는2026-10-25 06:17 KST로 설정했습니다. [현재 3D](http://localhost:5176/leaf-appearance-replay.html)는 별도 저장 연구 재생이며 다음은 strict 실행 SDK→같은 job의 사실적3D입니다. 실제 품종/독립 국내 작기0, 관리·생산/자원/경제·시장 거시/수급·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
+**현재 — 2026-10-24 KST:** [정책 기반 잎 API](../research/leaf-appearance-execution-live-20261024.md)에 이어 [strict 실행 SDK](../research/leaf-appearance-execution-sdk-20261024.md)의164검사·전체 타입/번들·실제GET10/원12시점·47면적을 수용했습니다. 같은 세 DB/키/원 결과·기존 화면을 보존했습니다. [현재 3D](http://localhost:5176/leaf-appearance-replay.html)는 별도 저장 연구 재생이며 다음은 같은 실제 job의 사실적3D·표/그래프와 메뉴/reload·현재 철회 제거입니다. 인증 종료는2026-10-25 06:17 KST 설정입니다. 실제 품종/독립 국내 작기0, 관리·생산/자원/경제·시장 거시/수급·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
 
 ## 자동 정책의 연구 화면 이후 — 2026-10-24
 
@@ -19,10 +19,11 @@
 9. **owned appearance runtime 조립 수용.** [제어24/새 native3·기존 native1, 고유28검사](../research/owned-leaf-appearance-preview-20261024.md): 명시 옵션·별도 메타데이터/같은 graph·정확 consumer의 실제 자동 완료 attempt1/원12frame·47면적/parent와 같은 결과/최초 시각의 cold restart/추가 POST0을 확인했다. 현재 파일 hold/권리 철회 뒤 취소·기본 모드 SIGINT/원 loop와 기존52면적 자동 완료/cold를 보존했다. 증거 이름 충돌의 첫 teardown 실패/수정·최종 재검증을 보존하고 원25표/18source·3root/WSL/소유 정리를 수용했다. 사용자 runtime/원 DB·키·UI는 미변경이다.
 10. **사용자 appearance API 기능 연결 수용.** [실제 접수/자동 완료·현재 철회/취소·cold](../research/leaf-appearance-execution-live-20261024.md): 불변852source·16시 이후 별도 합성 farm/완료 parent, 같은 job의 원12frame/47면적·최초 시각/parent와 cold POST0을 대사했다. 기존2DB/결과·3HTML/3root·원2,504항목을 보존했다.31JSON 요청 최대16.423429초/계산 중 snapshot5033회는 같은 ID로 재조회했으며 progressNone/임의 완료율0이다. 초기 grant 기간/observer import 실패와 수정·최종 관측을 보존했다. SDK/같은 job3D·동시 retry/U1은 별도다.
     **실제 만료의 제한 갱신 수용.** [같은 세 DB/원 결과·현재 TLS 대사](../research/preview-finite-lifetime-renewal-20261024.md): 원 token/Scope·개인 키·입력/권리/검토/44파일·2,444source/183artifact·PG 암호3파일과 세 물리 DB25표의 원 행을 보존했다. 새 두 grant는24시간 상한 안/공통2026-10-25 06:17 KST 종료이며 두 인증서는 원 개인 키를 재사용했다. 의존성 순서의35.916초 전환·세 current result/직접 TLS·반례3/HTML4·POST0/9JSON 최대12.434642초·4root/WSL/소유 종료를 확인했다. 최초 인터프리터 import 실패는 변경 전 기록이며 rollback은 미실행이다. 이제 실행 SDK/같은 job3D를 진행한다.
-11. **제품 연결:** strict 실행 SDK의 닫힌 요청/상태/결과·다른 family/변조 거부→같은 job의 사실적 잎3D·UTC/표/그래프→메뉴/reload·재연결/현재 철회 제거·실제 Chrome를 각각 수용한다. 현재 저장 연구 재생의 static artifact로 실행 결과를 대체하지 않는다.
+11. **strict 실행 SDK 수용.** [신규65/관련99·고유164/전체 타입·SDK 번들·실제GET10](../research/leaf-appearance-execution-sdk-20261024.md): 현재 source/부모·동일 job/result/manifest·12시점/47면적/UTC/최초 시각과 첫/마지막 server frame SHA를 보존했다. 다른 모델/변조·drift/늦은 기관·현재422/503·2MiB/abort/POST retry0과 원 세 DB25표/2,673파일·원5web source/4root/WSL/소유 정리를 확인했다. 고정 fixture 대신 현재 API를 읽으며 기존 사용자 화면은 미변경이다.
+    **다음 자식: 같은 job의 사실적인3D/실행 화면.** 기존 실행 페이지128행/공통 재생83행과 수용된 geometry를 재사용해 새 entry/별도 저장 키·job/frame URL/같은 토큰을 결속한다. 실제 같은 job/result/UTC·기관 ID/잎 삼각형 면적과 표/그래프·재생, 메뉴/reload·재연결/추가 POST0, 실제 새 queued/simulating/succeeded/취소와 pending request 유지, 현재 철회·오류의 장면/수치 제거·모바일/실제 Chrome·기존 화면/DB/키/4root·WSL 보존이 수용 기준이다. API에 없는 정책 수치/임의 완료율과 static fixture 대체를 사용하지 않는다.
 12. 기관 출현/관리의 면적·기관 수지→생산량/자원→Decimal 경제·시장/거시/수급·자율 비교는 기존 계산 의존성과 독립 자료 관문을 유지한다. 각 새 수치와 3D의 결속을 별도 수용한다.
 
-이전 유효기간 갱신20–40분 예상은 실제 snapshot/설정·35.916초 전환·54.596초 대사와 기록 실적으로 대체했다. 다음 strict 실행 SDK는 기존 client178행/시험107행·appearance decoder146행과 실제 응답 대조10–20분 + 새 형식/client15–30분 + focused type/unit·실제 응답 probe15–30분 = **40–80집중분**의 낮은 신뢰 추정이다. 새 UI/실제 Chrome·동시 retry/자료 확보는 제외하며 전체 완료 날짜는 독립 자료가 없어 미정이다.
+이전 SDK40–80분 예상은 위 집중/타입/번들·실제120.799초 probe와 최종 반례 검토/기록 실적으로 대체했다. 다음 사용자3D 연결은 페이지/상태·entry20–35분 + CI/실제 Chrome·원 값/철회·보존40–65분 + 불변 배포/기록10–20분 = **70–120집중분**의 낮은 신뢰 추정이다. 실제 작기·자료 확보/최종 R2는 제외하며 전체 완료 날짜는 독립 자료가 없어 미정이다.
 실제 품종/독립 자료 확보는 개발과 병행하며 G0–G4·예측/마진/추천 게시의 선행 조건은 유지한다.
 기존 goal은 도구상 active이며 새 goal 교체 완료로 표시하지 않는다. 아래는 날짜별 이전 기록이다.
 
