@@ -4,7 +4,7 @@
 E2는 [참조9/순수·관련203·실제 SCRAM9](../research/crop-leaf-appearance-execution-worker-20261024.md)로 수용했다.
 E3는 [신규25/순수·관련244·실제 SCRAM7과 독립 fresh](../research/crop-leaf-appearance-execution-query-20261024.md)로 수용했다.
 기존 자동 consumer 연결도 [신규12/제어·관련148·실제 SCRAM1](../research/leaf-appearance-automatic-consumer-20261024.md)로 수용했다.
-[보호 HTTP196검사](../research/api-crop-leaf-appearance-execution-20261024.md)도 기능 수용했다. owned runtime/사용자 적용·같은 job3D와 계산 중 동시 U1은 후속이다.
+[보호 HTTP196검사](../research/api-crop-leaf-appearance-execution-20261024.md)와 [소유 runtime28검사](../research/owned-leaf-appearance-preview-20261024.md)를 기능 수용했다. 사용자 적용·같은 job3D와 계산 중 동시 U1은 후속이다.
 선행은 [appearance 서버 계산/현재 조회](crop-leaf-appearance-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 재사용한다.
 새 큐/표·역할이나 수치 모델/원 결과·사용자 runtime 변경은 없다.
@@ -83,3 +83,30 @@ leaf-appearance-execution-input-v1과 정확 LeafAppearanceExecutionWorker/LeafA
 실제 discovery→1계산/원자 완료·같은 원12frame/47면적과 현재 두 Scope 철회 거부,
 다른 두 queued 판본/원25표 행·parent18파일 보존·완료 재선택0을 확인했다.
 새 큐/서비스나 수치 모델은 추가하지 않았다. 보호 API/owned runtime·같은 job3D는 후속이다.
+
+
+## 소유 appearance runtime 조립
+
+기존 연구용 serve-owned-morphology-preview.py의 명시적 leaf_appearance 옵션은
+owned-leaf-appearance-preview-v1의 닫힌 request/label·입력 키/현재 검토/권리 파일·issuer/key ID·
+program/source/evidence packet_files와 signed(directory/key_file/issuer_id/key_id)를 받는다.
+절대 경로만 받고 부분/추가/미래 설정은 private 파일을 읽기 전에 거부한다.
+미설정 시 원 줄기 전용 모드/경로/작업자1개를 유지한다.
+
+같은 parent query의 jobs/provider/farm·stem 입력 authority를 재사용하고 별도 signed authority,
+appearance service/query와 정확한 appearance input_version/worker loop를 명시 조립한다.
+원 줄기 loop와 기존 leaf_population 옵션/경로는 보존한다. 새 큐/표·역할·의존 패키지는 없다.
+resolver는 tenant/정확한 원 참조를 확인하고 매 호출 원 파일을 읽는다.
+현재 rights 파일은 정확한 선언/source·허용 상태와 계산/표시 목적만 허용한다.
+background principal의 현재 BearerRegistry 유효성 검사와 원 HTTP30초 예산을 유지한다.
+
+/leaf-appearance-preview-input은 현재 인증/접수 Scope와 양 끝 binding을 검사해
+owned-leaf-appearance-preview-input-v1의 닫힌 요청/표시 이름·합성 FLAGS만 반환한다.
+기존 /leaf-preview-input을 변경하지 않는다. 본문/query를 거부하고 no-store를 유지한다.
+이는 소유 합성 선택 메타데이터이며 지역별 조사/일반 작물 선택이나 승인 자료가 아니다.
+
+수용 증거는 별도16시 decision의 합성 farm/완료 parent 아래 실제 실행 파일·SCRAM·검증 TLS의
+자동 완료 attempt1/원12frame·47면적/parent·같은 결과와 최초 시각의 cold restart/추가 POST0,
+현재 rights/source 철회·취소/미게시, 기본 모드 SIGINT와 기존52면적 자동 실행/cold restart다.
+제어24+새 native3+기존 native1=고유28검사이며 각 원25표/파일·3root/WSL·소유 정리를 확인했다.
+사용자 runtime 배포/strict SDK/같은 job3D와 계산 중 retry·동시 U1/실제 자료·G0–G4는 별도다.

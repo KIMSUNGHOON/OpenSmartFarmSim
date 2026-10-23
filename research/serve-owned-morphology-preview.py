@@ -131,6 +131,11 @@ def main():
         leaf_loop = attach_leaf_population(app, config=p['leaf_population'], parent_query=query,
             tenant_id=grant.tenant_id, read_private=private_raw, authorized=authorized, access=access, error=_error)
         loops.append(leaf_loop)
+    if p.get('leaf_appearance') is not None:
+        from owned_leaf_appearance_preview import attach_leaf_appearance
+        appearance_loop = attach_leaf_appearance(app, config=p['leaf_appearance'], parent_query=query,
+            tenant_id=grant.tenant_id, read_private=private_raw, authorized=authorized, access=access, error=_error)
+        loops.append(appearance_loop)
     @app.get('/preview-input', include_in_schema=False)
     async def preview(http_request: Request):
         def identity_ok():
