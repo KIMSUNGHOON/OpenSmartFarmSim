@@ -3455,3 +3455,15 @@ normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다�
 E1은 계약/구현1–2h + 제어1–2h + 실제 SCRAM/반례1–2h + 기록0.5h = **3.5–6.5집중시간**의 낮은 신뢰 작업량이다.
 그 뒤 보호 API→같은 job의 실제3D/메뉴·재접속 복원을 잇는다. 내부 재생 단일 관측24.58초는 HTTP30초/중첩 query·polling 검토 근거이며 U1 수용이 아니다.
 새 signed 모델 미배포/leaf job0·실제 품종/독립 작기0·최종 사실감/경고와 전체 완료일 미정을 유지한다.
+
+**E1 접수 수용 — 2026-10-23:** [제어12/실제 SCRAM2](../research/crop-leaf-population-execution-admission-20261023.md)로
+원 parent/farm·입력/binding·별도 intent HMAC/판본과 같은1job/event·변경 충돌·현재 read를 확인했다.
+INSERT 뒤6철회/변경은25표 원 SHA/건수 그대로 rollback됐고49생장/producer/CLI 진입0,
+원 parent18파일·2root/자료/WSL 상한/정리를 수용했다. 위3.5–6.5h E1 계획은 실제 수용으로 대체한다.
+다음 E2는 명시 leaf 판본만 claim → 잠금 밖 실제1계산 → 현재 입력/lease/cancel 전후 확인 →
+같은 거래의 opaque 참조/publication/outcome/events·terminal 게시다. 다른 queued 모델 보존·취소/만료/늦은 철회 게시0이 수용 기준이다.
+구현/원자 게시 검토45–90분 + 실제 DB 정상/취소/임대·변경45–90분 + 기록15–30분 =
+**1.75–3.5집중시간**의 낮은 신뢰 작업량이다. 기존 worker 재사용이 전제이고 실제 검사 뒤 갱신한다.
+이후 E3 현재 조회→보호 HTTP/runtime→같은 job의 제품3D/메뉴·재접속 복원을 잇는다.
+E1 submit 단일26.60초/read12.70초와 signed replay24.58초는 HTTP30초/중첩 검증 예산의 확인 대상이다.
+새 모델 미배포·실제 품종/독립 작기0·최종 사실감과 전체 완료 날짜 미정을 유지한다.

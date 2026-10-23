@@ -55,7 +55,7 @@
   - [ ] leaf 서명 결과·명시 자동 worker — 현재 farm/parent 결속을 소비하고 원 stem 결과를 보존한다.
     - [x] leaf 불변 수치 결과의 서명/현재 무계산 조회 — [집중36/실제 SCRAM2·fresh](../research/crop-leaf-population-signed-artifact-20261023.md). 1회 producer/원40blob·12frame/52면적·parent job/result/root/원 시각·서명/현재 철회·원본 변조/잘못된 초기 면적 거부를 수용했다. fresh 세 모드·성장/worker import/계산·CLI·DB/파일쓰기0·FD4→4/parent18·leaf44파일/25표·원2root/정리를 대사했다. 새로운 leaf job/worker/API/UI와 실제 품종 관문은 별도다.
     - [ ] 기존 작업 표/명시 leaf 판본의 접수·자동 worker — 새 큐/표 없이 기존 작업 이력과 서명 결과 참조를 사용한다.
-      - [ ] E1 leaf 현재 입력/parent 결속·intent HMAC/기존 submit 멱등·commit 철회 rollback·계산/CLI0.
+      - [x] E1 leaf 현재 입력/parent 결속·intent HMAC/기존 submit 멱등·commit 철회 rollback·계산/CLI0. [제어12/실제 SCRAM2](../research/crop-leaf-population-execution-admission-20261023.md): 같은1job/event·변경 충돌/현재 read·삽입 뒤6철회 rollback,49계측0·25표 원 행/parent18파일·원2root/정리를 수용했다. 사용자 runtime 미배포다.
       - [ ] E2 명시 leaf worker/실제1계산·현재성·lease/cancel/원자 opaque 참조·terminal 게시·다른 queued 모델 보존.
       - [ ] E3 같은 job/publication·현재 manifest/frame/replay/원 시각·fresh/현재 철회·조회 계산/쓰기0.
   - [ ] leaf 원 job/API/제품3D — 같은 원 UTC/ID/면적, 메뉴/reload 복원·철회 제거/구 화면/모바일·실제 브라우저/WSL 상한을 검증한다.

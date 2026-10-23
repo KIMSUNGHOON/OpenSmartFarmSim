@@ -108,4 +108,9 @@ create_goal 재시도도 unfinished goal 오류로 거부됐다. 새 목표 교�
 재입력을 반복 요청하지 않는다. 현재 정확 모델은 최근 사용자/AGENTS 지시의 gpt-6.1-sol/xhigh다.
 현재 구현/다음 수용은 [10월23일 계획](plan.md#새-잎의-농장-통합--2026-10-23)과
 [화면/검증](../research/leaf-population-stored-replay-20261023.md)을 따른다.
+
+**2026-10-23 E1 접수 확인:** clear 완료 회신 후 새 등록도 unfinished goal 오류로 거부됐고
+도구는 이전 전체 목표 active를 반환했다. 교체 완료로 표시하지 않는다.
+[leaf E1 접수14검사](../research/crop-leaf-population-execution-admission-20261023.md)를 수용했고
+다음은 E2 자동 계산/원자 게시→E3 현재 조회→보호 API/runtime·같은 job3D다.
 위10월22일 오전9시 기한은 경과한 기록이며 현재 재개의 종료 시각이 아니다.
