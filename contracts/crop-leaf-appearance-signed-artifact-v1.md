@@ -1,6 +1,6 @@
 # 자동 출현 원 수치 결과의 서버 계산·서명/현재 조회 — v1
 
-상태: 구현/수용 전. 선행은 [현재 farm/완료 parent 결속](crop-leaf-appearance-farm-binding-v1.md)과
+상태: [신규56/관련227·실제 SCRAM2/fresh 수용](../research/crop-leaf-appearance-signed-artifact-20261024.md). 선행은 [현재 farm/완료 parent 결속](crop-leaf-appearance-farm-binding-v1.md)과
 [원 appearance 저장/reader](crop-leaf-appearance-reader-v1.md)다.
 
 `LeafAppearanceArtifactAuthority`는 정확한 appearance farm binding·별도 소유 directory/ContentAccess와
