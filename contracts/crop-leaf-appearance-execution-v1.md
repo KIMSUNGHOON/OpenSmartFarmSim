@@ -1,7 +1,8 @@
 # 자동 출현 원 입력의 접수·멱등성 — v1
 
 상태: [E1 신규13/순수185·실제 SCRAM2 수용](../research/crop-leaf-appearance-execution-admission-20261024.md).
-E2는 [참조9/순수·관련203·실제 SCRAM9](../research/crop-leaf-appearance-execution-worker-20261024.md)로 수용했다. E3는 구현/수용 전.
+E2는 [참조9/순수·관련203·실제 SCRAM9](../research/crop-leaf-appearance-execution-worker-20261024.md)로 수용했다.
+E3는 신규25/순수·관련244·실제 SCRAM7과 독립 fresh로 수용했다.
 선행은 [appearance 서버 계산/현재 조회](crop-leaf-appearance-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 재사용한다.
 새 큐/표·역할이나 수치 모델/원 결과·사용자 runtime 변경은 없다.
@@ -48,3 +49,23 @@ live lease/cancel을 확인한 뒤 실제 signed appearance producer를 job 잠�
 publication·성공 사건·조회 가능한 결과 참조를 게시하지 않는다. 만료 시 unclosed는 완료나
 자동 재개 수용이 아니다. 계산 중 프레임/checkpoint 재개와 기존 자동 consumer의 명시 등록,
 E3 현재 조회·보호 API/runtime/같은 job3D는 별도 단계다.
+
+## E3 같은 작업의 현재 조회
+
+`LeafAppearanceExecutionQuery.read(tenant,job_id,view='status'|'manifest'|'frame'|'replay',index=None)`는
+닫힌 leaf-appearance-execution-read-v1/합성 FLAGS에 실제 job/cancel_requested·관측 시각과 원 parent lineage를 담는다.
+frame만0이상 정수 index를 받고 전체 응답은2MiB 이내다. 조회에서 계산·CLI·작업/SQL·파일쓰기는 하지 않는다.
+
+원 job/input/publication/outcome/events/invocations를 한 SQL statement의 같은 snapshot으로 읽는다.
+원자 publication·현재 attempt/시작/성공·worker 판본·CLI 비위조 증거와 opaque 참조를 대사한다.
+원 job과 signed 결과의 request/binding·parent·최초 시각을 유지하고 현재 양쪽 권리/검토를 전후 확인한다.
+job input의 intent HMAC/현재 resolver 원 bytes도 조회 양 끝에서 검사한다.
+완료 결과는 signed authority의 원 _load를 전후 실행하며 그 사이에 원 manifest/frame reader와 출처 결속을 확인한다.
+새 sample_count로 재생하고 선택 frame·마지막 frame의 원 기간은 signed._frame_scope로 검사한다.
+status/manifest도 마지막 시점이 원 기간 끝에 해당하는지 확인한다.
+
+미완료 status는 현재 입력을 전후 검사하며 원 DB 묶음이 바뀌면 Pending으로 재조회한다.
+원 result/root/calculated_at·UTC/12frame/47면적을 재계산 없이 유지하고 철회 때 부분 응답/fallback 없이 보류한다.
+등록 읽기 scope는 요청 내부에 한정되며 요청 간 권리 cache를 만들지 않는다.
+내부 단독 관측은 HTTP30초/U1 수용과 구분한다. 자동 consumer의 정확 판본/worker/outcome 등록,
+보호 API/runtime·같은 job3D·메뉴/reload와 실제 자료/G0–G4는 후속이다.
