@@ -3585,3 +3585,32 @@ SDK/제품3D **개발 착수 조건**은 현재 API의 원 값/lineage·현재 �
 독립 실제 동시 retry202/같은 job·원 결과/attempt1·현재/늦은 철회/취소와 원 자료/자원 보존을 통과해야 해당 자식을 체크한다.
 전체 runtime/운영 수용은 이 예산과 원 수용 기준을 모두 충족한 뒤 평가한다. 개발 착수와 게시/운영 수용 조건은 다르며 G0–G4는 유지한다.
 현재 화면은 기존 저장 합성 연구 재생, 실제 품종·독립 작기0/Run0·생산/자원/경제/자율 선정·R2/경고와 전체 완료 날짜는 미완료/미정이다.
+
+
+## 실행 SDK/3D 화면의 소프트웨어 수용과 조회 지연 — 2026-10-23
+
+[현재 관측](../research/leaf-population-execution-web-20261023.md)의53단위/14브라우저·타입/별도 build와 같은 웹 source의 전체 CI39925213943/단위2,008·브라우저296·타입/build/audit를 수용했다. 원 CI15분 취소/292번째 시작은 실패로 보존하고 실측에 따라 CI job만20분으로 조정했다.
+실제 UI 접수2/취소1과 새 서버 완료 attempt1을 확인했으나, 현재 SDK의 새 완료 status가30초를 넘었다.
+미완료 replay를 요청하던 SDK 결함은 status→완료 replay로 수정했고 모의 서버도 실제 계약에 맞춰 고쳤다.
+이전 완료 replay만의 native12시점/52면적 통과를 수정 SDK의 전체 live 수용으로 세지 않는다.
+root `/`/기존 줄기와 static 잎 재생·원227자산/25표·backend4f1f523/820파일을 보존했다.
+새 실행 HTML은 별도 preview이며 UI/runtime 부모·계산 중 동일 retry30초·R2/첫 cold 경고는 미완료다.
+
+독립 진단은 완료 status의 parent/농장 등록64재구성과33,055SQL/1,423role audit를 관측했다.
+기존 등록 읽기 scope를 호출 바깥에 적용한 연구 전용 순서 비교는
+original34.921→scoped13.782→scoped13.961→original31.862초였고,
+observed_at 외 전체 status/원 결과·최초 시각 및25표 원 행과 종료된 scope를 보존했다.
+별도 shadow leaf 권리의 첫 확인 뒤/마지막 frame 뒤 철회4경우는 양쪽이 함께 거부·scope 종료했다.
+원 live 권리 파일은 보존했고 다른 source/등록/parent/actor·동시성/HTTP 동등성은 미검증, backend 제품 수정0이다.
+
+다음 한 단계는 [작은 후보 계약](../contracts/leaf-population-query-registration-scope-v1.md)의 반례 검사다. 기존 E3/보호 HTTP의 같은 actor/Scope/입력/원30초를 유지한다.
+1. 현재 등록 범위를 정확한 farm/ref에 제한하고, 늦은 권리·입력/등록/parent 변경과 취소/완료 경합을 원 경로와 대조한다.
+2. 현재 권한/원 bytes 재확인을 유지한 최소 query 수정과 독립 E3/HTTP 검사를 수용한다. 기존 결과를 읽을 source 경계를 확인한다.
+3. 별도 새 source의 동일 DB/키로 실제 status/replay·원 결과/최초 시각/25표와 원 worker/job 보존을 대사한다.
+4. 현재 SDK의 실제 새 작업→완료3D·메뉴/reload/권리 거부 제거·복원을 검증한다. 계산 중 POST retry30초도 별도 재검증한다.
+
+후보/반례·회귀1–3집중시간 + 실제 DB/HTTPS1–3시간 + source/배포·UI/원복 대사2–3시간 =
+**4–9집중시간**의 낮은 신뢰 추정이다. 후보가 현재성 동등성을 만족하지 못하면 재산정하며 완료 날짜를 약속하지 않는다.
+이는 사용자 UI 조회를 위한 직접 의존성이며 일반 운영 기반 확장을 추가한 일정이 아니다.
+생산량→자원→경제/수급·거시→후보 비교·자율 선정의 기존 순서와 독립 현장 자료 병행 경로를 유지한다.
+실제 품종/독립 작기0·승인 farm Run0·G0–G4/전체 완료일 미정이며 native goal은 이전 objective의 active다.
