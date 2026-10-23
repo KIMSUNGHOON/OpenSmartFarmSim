@@ -4,11 +4,12 @@ import { loadLeafAreaReplay,type LeafAreaReplay } from './leafAreaReplay';
 import { loadLeafPopulationReplay,type LeafPopulationReplay } from './leafPopulationReplay';
 import { loadLeafAppearanceReplay,type LeafAppearanceReplay } from './leafAppearanceReplay';
 import { readAppearanceReplayIndex,appearanceReplayURL } from './leafAppearanceReplayLocation';
+import type {LeafAppearanceExecutionReplay} from './leafAppearanceExecution';
 import './MorphologyReplayPage.css';
 import './LeafAreaReplayPage.css';
 
 type Source='initial'|'population'|'appearance';
-type Replay=LeafAreaReplay|LeafPopulationReplay|LeafAppearanceReplay;
+type Replay=(LeafAreaReplay|LeafPopulationReplay|LeafAppearanceReplay|LeafAppearanceExecutionReplay)&{policy?:LeafAppearanceReplay['policy']};
 export default function LeafAreaReplayPage({population=false,source,providedReplay,paused=false,embedded=false,initialIndex=0,onIndexChange}:{population?:boolean;source?:Source;
   providedReplay?:Replay;paused?:boolean;embedded?:boolean;initialIndex?:number;onIndexChange?:(index:number)=>void}={}){
   const kind=source??(population?'population':'initial'),appearance=kind==='appearance',hasBirths=kind!=='initial';
@@ -52,7 +53,7 @@ export default function LeafAreaReplayPage({population=false,source,providedRepl
         <p>원 줄기 길이 합계 <strong>{frame.stem.tracked_axis_length.value.toFixed(6)} m</strong> · 실제 식물 키와 다릅니다.</p>
         <details><summary>원 입력과 저장 지문</summary><p className="morphology-hash">leaf artifact {data.artifact_sha256}<br/>leaf result {frame.result_sha256}<br/>stem artifact {frame.stem.artifact_sha256}</p>
           <p>합성 정규화·초기 면적과 모델/코드를 명시했습니다. 실제 Axiany 계수·초기 관측과 독립 농장 검증은 미확보입니다.</p>
-          {appearance&&'policy'in data&&<p>합성 출현 정책: 첫 생식 순번 {data.policy.first_generative_sequence} (0부터), 생식 위치 사이 영양 위치 {data.policy.vegetative_between_generative}개. 실제 품종 기준이 아닙니다.</p>}
+          {appearance&&data.policy&&<p>합성 출현 정책: 첫 생식 순번 {data.policy.first_generative_sequence} (0부터), 생식 위치 사이 영양 위치 {data.policy.vegetative_between_generative}개. 실제 품종 기준이 아닙니다.</p>}
           {!providedReplay&&<><a href={`${directory}/input.json`}>원 잎 입력</a> · <a href={`${directory}/root.json`}>모델·코드/상태 지문</a> ·
           <a href={`${directory}/stem-input.json`}>원 줄기 입력</a></>}</details>
       </aside></div>
