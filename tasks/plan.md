@@ -3479,3 +3479,14 @@ E1 submit 단일26.60초/read12.70초와 signed replay24.58초는 HTTP30초/중�
 signed replay24.58초/E1 입력 read12.70초의 중첩과 HTTP30초 예산을 실제 검사해 갱신한다.
 현재 deterministic_work.WORKERS에 leaf worker/outcome이 없으므로 **E3→기존 foreground consumer의 정확 등록/실제 discovery 검증→보호 API/runtime→같은 job3D** 순서를 명시한다.
 새 큐/역할/서비스는 필요하지 않다. 사용자 worker 미배포·독립 실제 작기0·생산/경제/자율 선정·최종 사실감/경고와 전체 완료 날짜 미정은 유지한다.
+
+**E3 현재 query 수용 — 2026-10-23:** [집중16/실제 SCRAM6·fresh](../research/crop-leaf-population-execution-query-20261023.md)로
+같은 job/input/publication/outcome/events·원12frame/52면적·parent/최초 시각과 모든 조회 모드를 대사했다.
+원 signed `_load`의 전후 현재성 경계/원 reader와 양 끝 원 resolver·intent 검증을 유지한다.
+실제 동시 완료의5SELECT 혼합→hold 반례를 한 SQL snapshot으로 고쳐 Pending을 확인하고 같은 최종 소스로 전부 재검증했다.
+현재/마지막 frame 뒤4변경·실제 cancel, 48성장/CLI·7쓰기0/fresh import·13쓰기0·FD/25표/parent18·leaf44파일·원2root/정리를 수용했다.
+위2–4h E3 계획은 실제 수용으로 대체한다. 최종 내부26.44–29.15초/67,660bytes이며 HTTP30초·U1은 미수용이다.
+다음은 기존 foreground consumer의 정확 leaf worker/outcome·판본 등록→실제 discovery/1계산·완료 재선택0/다른 queued 모델 보존·현재 scope/같은 graph·정리다.
+등록/계약30–60분 + 집중/실제 DB30–60분 + 기록15–30분 = **1.25–2.5집중시간**의 낮은 신뢰 작업량이다.
+이후 보호 API/TLS/runtime에서 실제30초 요청 예산·취소/전송을 검증하고 strict SDK→같은 job3D/메뉴·재접속 복원을 잇는다.
+새 leaf core 미배포·실제 품종/독립 작기0·생산/자원·경제/자율 선정·최종 사실감/경고와 전체 완료 날짜 미정을 유지한다.

@@ -57,7 +57,7 @@
     - [ ] 기존 작업 표/명시 leaf 판본의 접수·자동 worker — 새 큐/표 없이 기존 작업 이력과 서명 결과 참조를 사용한다.
       - [x] E1 leaf 현재 입력/parent 결속·intent HMAC/기존 submit 멱등·commit 철회 rollback·계산/CLI0. [제어12/실제 SCRAM2](../research/crop-leaf-population-execution-admission-20261023.md): 같은1job/event·변경 충돌/현재 read·삽입 뒤6철회 rollback,49계측0·25표 원 행/parent18파일·원2root/정리를 수용했다. 사용자 runtime 미배포다.
       - [x] E2 명시 leaf worker/실제1계산·현재성·lease/cancel/원자 opaque 참조·terminal 게시·다른 queued 모델 보존. [참조9/실제 SCRAM7](../research/crop-leaf-population-execution-worker-20261023.md): 원12frame/52면적·parent/371bytes 참조·동일 완료 재계산0, 현재 hold49계측0·늦은5변경 게시0·25표 원 행/parent18파일·원2root/정리를 수용했다. 첫 시험의 lease 갱신 이벤트 개수 누락/수정과 사용자 미배포를 유지한다.
-      - [ ] E3 같은 job/publication·현재 manifest/frame/replay/원 시각·fresh/현재 철회·조회 계산/쓰기0.
+      - [x] E3 같은 job/publication·현재 manifest/frame/replay/원 시각·fresh/현재 철회·조회 계산/쓰기0. [집중16/실제 SCRAM6·fresh](../research/crop-leaf-population-execution-query-20261023.md): 원12frame/52면적·parent/최초 시각, 현재/마지막 frame 뒤4변경 거부와 실제 cancel/동시 완료 Pending을 수용했다. 5SELECT 혼합→hold 반례를 재현해 한 SQL snapshot으로 수정하고 같은 최종 source로 모두 재검증했다. 48성장/CLI·7쓰기0/fresh import·13쓰기0·25표/parent18·leaf44파일/2root·정리를 확인했다. 내부26–29초/HTTP30초·U1과 사용자 배포는 미수용이다.
       - [ ] 기존 foreground consumer — 선행 E3. 현재 WORKERS에 새 leaf type/outcome이 없으므로 정확 판본을 명시 등록한다. 실제 discovery→1계산·완료 재선택0/다른 queued 모델 보존·동일 graph/현재 scope와 소유 정리를 검증한다. 새 큐/서비스는 추가하지 않는다.
   - [ ] leaf 원 job/API/제품3D — 같은 원 UTC/ID/면적, 메뉴/reload 복원·철회 제거/구 화면/모바일·실제 브라우저/WSL 상한을 검증한다.
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 목록과 명시 출현 사건만 추적하며 자동 출현/관리는 후속이다.

@@ -2,9 +2,10 @@
 
 상태: [E1 제어12/실제 SCRAM2](../research/crop-leaf-population-execution-admission-20261023.md) 수용.
 [E2 참조9/실제 SCRAM7](../research/crop-leaf-population-execution-worker-20261023.md)도 수용했다.
+[E3 집중16/실제 SCRAM6·fresh](../research/crop-leaf-population-execution-query-20261023.md)도 수용했다.
 선행은 [signed leaf 계산/조회](crop-leaf-population-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 사용하며 새 큐/표·역할은 추가하지 않는다.
-E3·자동 consumer 및 보호 HTTP/사용자 화면은 후속 수용이다.
+자동 consumer 및 보호 HTTP/사용자 화면은 후속 수용이다.
 
 ## E1 접수
 
@@ -23,7 +24,7 @@ study/revision의 versioned idempotency key로 같은 요청은 같은1행/job�
 write=True는 현재 계산 권리도 요구한다. 조회는 새 simulation_create 권한 없이 가능하되 현재 read scope를 유지한다.
 resolver/authority/code·원 입력/판본/parent 또는 현재 권리 불일치에는 대체 입력을 사용하지 않는다.
 
-## E2 worker와 E3 후속
+## E2 worker와 E3 현재 조회
 
 E2는 정확 tenant/input_version만 claim하고 실제 signed producer1회·lease/cancel/current input을
 게시 전후 확인해 같은 거래에서 opaque 참조/publication/outcome/events·terminal을 게시한다.
@@ -35,6 +36,14 @@ publication/version·worker code·attempt와 실제 시작/완료 사건을 대�
 이 v1의 계산 중 프레임/checkpoint 재개·기존 foreground consumer의 정확 worker/outcome 등록은 별도다.
 E3는 실제 job/publication/opaque 참조·현재 signed 결과를 대사해 status/manifest/frame/replay를 제공한다.
 원 result/root/계산 시각·UTC/12frame을 유지하고 조회에서 계산/쓰기/CLI0, 철회 때 fallback 없이 보류한다.
+`LeafPopulationExecutionQuery.read(tenant,job_id,view='status'|'manifest'|'frame'|'replay',index=None)`는
+닫힌 `leaf-population-execution-read-v1` 응답에 실제 job/cancel_requested·관측 시각과 원 parent lineage를 담는다.
+완료 응답은 동일 signed authority의 원 `_load`를 전후 실행하며 그 사이에 원 manifest/frame reader·출처 결속을 검증한다.
+같은 payload/binding/packet과 양쪽 현재 권리·검토를 대사하며, 별도 중복 public reader 호출이나 요청 간 권리 cache를 만들지 않는다.
+job input의 intent HMAC/현재 resolver 원 bytes는 조회 양 끝에서 확인한다. 미완료 status는 현재 입력 결속을 전후 검증한다.
+job/publication/events/outcomes/invocations는 한 SQL statement의 같은 snapshot으로 읽는다.
+원자 publication/시도·원 job/input/시작·완료/CLI 비위조 증거를 확인하고 전후 DB 묶음이 바뀌면 Pending으로 재조회한다.
+frame만0이상 정수 index를 받고, 전체 응답은2MiB 이내다. 실제 HTTP30초 예산은 별도 전송 검증 전까지 미수용이다.
 이후 보호 API/runtime·같은 job의 실제3D·메뉴/reload 복원을 수용한다.
 
 E1 수용: intent/판본·원 byte bound/키·resolver·원 참조 변조 거부,
