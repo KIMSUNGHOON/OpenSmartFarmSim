@@ -1,6 +1,6 @@
 # 초기 잎/정책을 묶는 자동 출현 program — 연구 v1
 
-상태: 합성 source program/준비 소프트웨어 구현.
+상태: [신규46/관련269·총315검사와 원본 준비/호환 계산 수용](../research/crop-leaf-appearance-program-20261023.md).
 [원 출현→잎 입력](crop-stored-shoot-leaf-birth-inputs-v1.md) 뒤의
 합성 program 작성 단계다. 기존 저장/서명/worker와 완료 결과는 보존한다.
 

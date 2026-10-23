@@ -77,8 +77,11 @@
   - [ ] 새 잎 출현/관리 — 잎/소엽·phytomer 분류/적엽·노화 정책과 자료를 확보한 범위만 별도 구현한다. 현재는 초기 목록과 명시 출현 사건만 추적하며 자동 출현/관리는 후속이다.
     - [x] 명시 순번의 영양/생식 분류 — [신규67/관련115·총182검사](../research/crop-phytomer-kind-20261023.md). 필수 첫 생식 순번/간격·같은 정책의 분할, 독립 상태 카운터270위치/손 나열14·큰 순번/512경계와 닫힌 입력/지문/원3root·WSL·정리를 확인했다. 새 관측/계수·잎 생성/사용자 적용은0이다.
     - [x] exact 출현/줄기→분류된 잎 생성 입력 — [신규42/관련248·총290검사](../research/crop-stored-shoot-leaf-birth-inputs-20261023.md). 실제 원14blob/17코드에서 전체+12구간의3사건/영양2선언·같은 ID/정확 초와 원본 보존을 확인했다. 독립 시각12/나이·면적11,5저장 경계 분할의 같은 선언/최종 population·512/513/2MiB·재해시/도중 변경 거부와 생장/DB/CLI/쓰기0·3root/WSL/정리를 수용했다. 초기 전체 정책/자동 program·저장/현재 farm 권리/새3D는 후속이다.
-    - [ ] 자동 출현 program·초기 잎 정책 대사 — 원 root/초기 잎 목록/필수 권리·분류 정책/프로필을 닫힌 입력으로 고정한다. 원 초기 줄기의 영양 위치와 leaf ID/부착·시각을 대사하고 누락/중복·생식 위치의 잎·다른 origin을 보류한다. 같은 program의 전체 선언/해시·원 변환 출처/모델 지문과 분할 일치·권리/원본 변경 거부/원 자료·WSL 보존이 수용 기준이다.
+    - [x] 자동 출현 program·초기 잎 정책 대사 — [신규46/관련269·총315검사](../research/crop-leaf-appearance-program-20261023.md). 원 초기 영양 위치/고유 leaf·부착/출현/clock과1–512 전체 program·필수 권리/32code/원17code를 결속했다. fresh parser 생장 import/DB/CLI/쓰기0, 도중 code/중간 blob/권리 거부, 원14blob의2회 같은 준비/3초기+2새 선언과 실제 기존v1 계산40blob/12시점·독립47면적/마지막5잎을 수용했다. 원 source/생성 fixtures를 같은 canonical bytes로 보존했다. 새 outer manifest/reader·3D/사용자 적용은 후속이다.
     - [ ] 자동 출현 program의 불변 계산/무계산 reader→같은 UTC3D — 원 초기/정책/프로필/전체 선언과 계산 root·모델/코드/권리를 한 별도 불변 판본으로 묶는다. 실제 producer/fresh reader의 같은 원 수치/UTC·변조/철회·조회 재계산0 뒤 strict SDK/실제3D·메뉴/reload·현재 권리 제거를 확인한다. 기존 완료 job/result·화면은 보존하며 실제 품종·생산/추천 관문은 별도다.
+      - [ ] 원 source/준비/생성·계산의 불변 producer — 같은 source bytes/32code·실제 생성 program과 기존v1 계산 root/12시점·47면적을 새 completed manifest에 결속한다. 같은 입력의 같은 root·기존14/계산40파일 보존과 늦은 권리/원본/code/부분 저장 때 completed root0·소유 정리/WSL이 수용 기준이다.
+      - [ ] 새 root의 무계산 manifest/frame reader — 원 source program/권리·준비/초기/정책/선언·생성 program/계산 root/원 UTC·수치의 일관성을 검사한다. 원 projection bytes·변조/권리 거부와 fresh의 생장 import/새 출현/기온적분/면적식/DB/CLI/쓰기0을 확인한다.
+      - [ ] 새 typed SDK/같은 UTC3D — 검증된 새 root/원 frame만 읽고 원 ID/UTC·면적/잎 수·표/그래프·재생/유휴·모바일과 실제 browser를 대사한다. 출처 구분/권리 제거/원 UI 보존 후 해당 자식만 수용한다.
   - [x] 별도 불변 면적 판본/계산 없는 조회·export — [18pytest/실제12시점·36면적/별도 fresh](../research/crop-leaf-area-artifact-20261022.md), 원 stem14blob/12 DTO·40불변 blob/24code·현재 부착/UTC·권리와 fresh import/SQL/CLI/파일쓰기0·17public파일·원7root/자료 보존.
   - [x] 같은 UTC의 잎 면적3D — [CI69/Chromium18·실제 Chrome](../research/leaf-area-stored-replay-20261022.md). strict SDK/원17파일·제작 단면 실제 삼각형 면적/UTC·표/그래프/재생·모바일/유휴·오류0/7root·원178파일을 수용했다. 별도5176/leaf-area-replay.html이며 원 farm/job의 새 잎 계산 적용은 후속이다.
 
