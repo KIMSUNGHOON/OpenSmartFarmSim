@@ -1,0 +1,769 @@
+{
+  "schema_version": "api-crop-leaf-appearance-execution-acceptance-v1",
+  "scope": "owned synthetic software acceptance; authenticated API only; no crop prediction or G0–G4 promotion",
+  "implementation_commit": "b7effd42b196e7956b7d57748b2ba942b160987e",
+  "native_CLI": {
+    "timestamp": "2026-10-23T20:03:08.350Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "c3c803d7104049c0dd93ecab77ad570cdde7167fcc5ee4e6c99db6e7f1b1af33",
+    "recursive_CLI_invocations": 0
+  },
+  "recursive_CLI_invocations": 0,
+  "tests": {
+    "new_HTTP_controls": 47,
+    "OpenAPI_Scope_controls": 101,
+    "existing_HTTP_controls": 45,
+    "controls_final_total": 193,
+    "actual_SCRAM_verified_TLS": 3,
+    "unique_accepted": 196,
+    "expected_RED_missing_module_errors": 45,
+    "unexpected_failures": 0
+  },
+  "compatibility": {
+    "before": {
+      "paths": 80,
+      "operations": 84,
+      "schemas": 492,
+      "openapi_sha256": "6860cee6135f76facf903bd9ad46d6ac3ccd86513f63de6b5d5c8d32ce39457a",
+      "scope_sha256": "32fd85def32ef5bc32afe5aa513b311c025dbfc89cc9532a66c032ade07ea425"
+    },
+    "after": {
+      "paths": 86,
+      "operations": 90,
+      "schemas": 496,
+      "openapi_sha256": "0e11529b00649f47acd825c7ac69835f03209fd668ac3d665590f0d5debefd5b",
+      "scope_sha256": "9f758eb7a2f4003e10a54c084400d65baa9fa7ed89697dfcc0932d9291ec48fa"
+    },
+    "all_existing_path_objects_equal": true,
+    "all_existing_schema_objects_equal": true,
+    "all_existing_scope_objects_equal": true,
+    "added_paths": [
+      "/v1/crop-leaf-appearance-executions",
+      "/v1/jobs/{job_id}/crop-leaf-appearance-execution",
+      "/v1/jobs/{job_id}/crop-leaf-appearance-execution/cancel",
+      "/v1/jobs/{job_id}/crop-leaf-appearance-execution/frames/{index}",
+      "/v1/jobs/{job_id}/crop-leaf-appearance-execution/manifest",
+      "/v1/jobs/{job_id}/crop-leaf-appearance-execution/replay"
+    ],
+    "added_schemas": [
+      "LeafAppearanceCancellation",
+      "LeafAppearanceExecutionRead",
+      "LeafAppearanceFarm",
+      "LeafAppearanceResultSummary"
+    ],
+    "prior_E2_E3_consumer_source_sha256_verified": {
+      "backend/app/crop_leaf_appearance_execution_result.py": "e0d33a4828039c4541b175fe0d18fc25a37e76b022ef44ac85c3bb8b7ccc5e7e",
+      "backend/app/crop_leaf_appearance_execution_worker.py": "d09662aad36a24a85e9d1e99d812bf1ef1405b1b5e79775623e92abaadba4deb",
+      "backend/tests/test_crop_leaf_appearance_execution_result.py": "d55c4e17f38164ef3b3afce9a1a670a6691bab36817e3b05b8108bf89f098f07",
+      "backend/tests/test_crop_leaf_appearance_execution_worker_native.py": "1f8723b0c3e5854d575f18ff23c31c32ebab2e7c35430e199738a91dc26714cc",
+      "backend/app/crop_leaf_appearance_execution_query.py": "39534642498d55b2cd4fba2e8b59935fc3d9dbbf08adc623c9307c5c151c0442",
+      "backend/tests/test_crop_leaf_appearance_execution_query.py": "ffe3a6b775f5a9b130aee3a7d1bb325864ceee47ac977287404613f140b23690",
+      "backend/tests/test_crop_leaf_appearance_execution_query_native.py": "420da8678985c9be391c07eac4674eceb29a12f6b19dadc87db564e7f6711eec",
+      "backend/tests/leaf_appearance_execution_fresh.py": "143d64419d37c6513c8eb0e879c27f2a388ea202842651fc8d40087f30332cda",
+      "backend/app/deterministic_work.py": "5fbf6457d02a7d8d2e7231622b98ac1627d5f5032c58029726a8ad522c7ec79d",
+      "backend/app/deterministic_job_discovery.py": "cceff7d3b172dfc913777dac0192a4cfcc05857d83334ed489441492c5cb6f6b",
+      "backend/tests/test_leaf_appearance_deterministic_work.py": "f954ace54eeee2dea59e86db47bba94c940c945ef9184ca07061e44bc8f7bef2",
+      "backend/tests/test_leaf_appearance_deterministic_work_native.py": "73e1f2c7ded738e5ec77859f84f012b04a6a454ab2f454b9ef094a8b42359a13"
+    },
+    "old_HTTP_module_unchanged": true
+  },
+  "native_evidence": {
+    "leaf_appearance-HTTP-query-audit-test_actual_https_admission_worker_and_current_replay_original_values": {
+      "file_write_calls": {
+        "builtins.open": 0,
+        "io.open": 0,
+        "os.open": 0
+      },
+      "growth_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_appearance_artifact_producer.produce_leaf_appearance_artifact": 0,
+        "crop_leaf_appearance_preparation.prepare_leaf_appearance_program": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_phytomer_kind.classify_phytomer_sequences": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0,
+        "crop_stored_shoot_leaf_birth_inputs.build_leaf_birth_inputs_from_stored_shoot": 0
+      },
+      "job_artifact_write_calls": {
+        "_durable_artifact": 0,
+        "_durable_content": 0,
+        "_event": 0,
+        "_insert_publication": 0,
+        "artifact.put": 0,
+        "publish": 0,
+        "record_decision": 0,
+        "submit": 0
+      },
+      "persistent_SQL_write_calls": []
+    },
+    "leaf_appearance-HTTP-normal": {
+      "actual_SCRAM": true,
+      "certificate_verified": true,
+      "database_sha256_before_after": [
+        [
+          "619782d3857e16a9ed6b7e52c26d3b3d1e43364eff0d28aa33ea6a2c59956488",
+          25
+        ],
+        [
+          "619782d3857e16a9ed6b7e52c26d3b3d1e43364eff0d28aa33ea6a2c59956488",
+          25
+        ]
+      ],
+      "original_12_frames": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_appearance_artifact_producer.produce_leaf_appearance_artifact": 0,
+        "crop_leaf_appearance_preparation.prepare_leaf_appearance_program": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_phytomer_kind.classify_phytomer_sequences": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0,
+        "crop_stored_shoot_leaf_birth_inputs.build_leaf_birth_inputs_from_stored_shoot": 0
+      },
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 0.004611398006090894,
+          "status": 401
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 11.40013897101744,
+          "status": 202
+        },
+        {
+          "bytes": 521,
+          "path": "/v1/jobs/25e2a7f9-6ace-4e40-8d3e-b0455ba53139/crop-leaf-appearance-execution",
+          "seconds": 11.634889959997963,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 11.381983320985455,
+          "status": 202
+        },
+        {
+          "bytes": 87,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 5.7926361879799515,
+          "status": 409
+        },
+        {
+          "bytes": 69478,
+          "path": "/v1/jobs/25e2a7f9-6ace-4e40-8d3e-b0455ba53139/crop-leaf-appearance-execution/replay",
+          "seconds": 11.94659916299861,
+          "status": 200
+        },
+        {
+          "bytes": 9267,
+          "path": "/v1/jobs/25e2a7f9-6ace-4e40-8d3e-b0455ba53139/crop-leaf-appearance-execution/frames/11",
+          "seconds": 11.54151659499621,
+          "status": 200
+        },
+        {
+          "bytes": 9177,
+          "path": "/v1/jobs/25e2a7f9-6ace-4e40-8d3e-b0455ba53139/crop-leaf-appearance-execution/manifest",
+          "seconds": 11.557131951005431,
+          "status": 200
+        },
+        {
+          "bytes": 1691,
+          "path": "/v1/jobs/25e2a7f9-6ace-4e40-8d3e-b0455ba53139/crop-leaf-appearance-execution",
+          "seconds": 11.595611105003627,
+          "status": 200
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/jobs/25e2a7f9-6ace-4e40-8d3e-b0455ba53139/crop-leaf-appearance-execution/replay",
+          "seconds": 3.0325936329900287,
+          "status": 422
+        }
+      ],
+      "result": {
+        "binding_sha256": "0b75e3b727391d62b4d6904a3f98b0c82df43478ee48fb2262b5e7ab862e68ff",
+        "calculated_at": "2026-10-23T20:18:00.623286Z",
+        "farm": {
+          "crop_id": "crop-1",
+          "registration_sha256": "503cd9cd35588ad82dad8b7c77d5dbbd62c94ec75b5f8e4f26d9ada3ce23b63d",
+          "scenario_id": "farm-1",
+          "scenario_revision": "r1"
+        },
+        "input_evidence_sha256": "38ad0139ef5a9a9c232deee88d623bb441878a2f9a36f4aa85d1a63327b156fb",
+        "normalization": "per_tracked_shoot",
+        "numerical_root_sha256": "77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a",
+        "parent_calculated_at": "2026-10-23T20:16:26.115697Z",
+        "parent_job_id": "650859d5-bda1-48ab-be92-6ee4785efd2a",
+        "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "parent_result_sha256": "32c5577ea6e866ddc1ae958a30e664328f6d435f3c51525b6d387ae3fec96415",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "result_sha256": "d15a088163c89046c4aeb4a4b2dcad9292d3fb943911c22d0fdb97ac4b7fea5d",
+        "revision": "r1",
+        "source_sha256": "27d9783a892288c142ae69b1199806600ddbe74ac568e937b4d6b07169dde6b8",
+        "study_id": "owned-native-leaf-study"
+      },
+      "same_job_idempotency": true
+    },
+    "leaf_appearance-HTTP-late-input-parent": {
+      "database_sha256_before_after": [
+        [
+          "9e1e2515dcf576fc6bb95c478c573533b3ac61f61e4fbd2f6b8f45bbb1e7fd48",
+          25
+        ],
+        [
+          "9e1e2515dcf576fc6bb95c478c573533b3ac61f61e4fbd2f6b8f45bbb1e7fd48",
+          25
+        ]
+      ],
+      "late_parent_review_revocation_rejected": true,
+      "late_resolver_source_rejected": true,
+      "parent_review_restored": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_appearance_artifact_producer.produce_leaf_appearance_artifact": 0,
+        "crop_leaf_appearance_preparation.prepare_leaf_appearance_program": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_phytomer_kind.classify_phytomer_sequences": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0,
+        "crop_stored_shoot_leaf_birth_inputs.build_leaf_birth_inputs_from_stored_shoot": 0
+      },
+      "requests": [
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 11.400350116018672,
+          "status": 202
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/jobs/0f97e733-7965-42ae-a598-ce9772327619/crop-leaf-appearance-execution",
+          "seconds": 5.973881224024808,
+          "status": 422
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/jobs/0f97e733-7965-42ae-a598-ce9772327619/crop-leaf-appearance-execution",
+          "seconds": 6.487310434982646,
+          "status": 422
+        }
+      ]
+    },
+    "leaf_appearance-HTTP-query-audit-test_actual_cancel_after_rights_withdrawal_and_late_http_expiry": {
+      "file_write_calls": {
+        "builtins.open": 0,
+        "io.open": 0,
+        "os.open": 0
+      },
+      "growth_CLI_calls": {
+        "CLI": 0
+      },
+      "job_artifact_write_calls": {
+        "_durable_artifact": 0,
+        "_durable_content": 0,
+        "_event": 0,
+        "_insert_publication": 0,
+        "artifact.put": 0,
+        "publish": 0,
+        "record_decision": 0,
+        "submit": 0
+      },
+      "persistent_SQL_write_calls": []
+    },
+    "leaf_appearance-HTTP-query-audit-test_actual_https_late_input_and_parent_change_reject_payload": {
+      "file_write_calls": {
+        "builtins.open": 0,
+        "io.open": 0,
+        "os.open": 0
+      },
+      "growth_CLI_calls": {
+        "CLI": 0
+      },
+      "job_artifact_write_calls": {
+        "_durable_artifact": 0,
+        "_durable_content": 0,
+        "_event": 0,
+        "_insert_publication": 0,
+        "artifact.put": 0,
+        "publish": 0,
+        "record_decision": 0,
+        "submit": 0
+      },
+      "persistent_SQL_write_calls": []
+    },
+    "leaf_appearance-HTTP-cancel-expiry": {
+      "cancel_after_data_rights_withdrawal": true,
+      "canceled_no_result": true,
+      "expired_registry_denied": true,
+      "late_HTTP_expiry_denied": true,
+      "query_growth_CLI_calls": {
+        "CLI": 0,
+        "crop_declared_leaf_births.create_declared_leaves": 0,
+        "crop_internode_elongation.calculate_internode_elongation": 0,
+        "crop_internode_length.advance_internode_length": 0,
+        "crop_internode_length.calculate_internode_length_point": 0,
+        "crop_internode_length.initialize_internode_length": 0,
+        "crop_internode_length.normalize_internode_length_state": 0,
+        "crop_internode_length_change.calculate_internode_length_change": 0,
+        "crop_internode_length_change.normalize_internode_curve": 0,
+        "crop_leaf_appearance_artifact_producer.produce_leaf_appearance_artifact": 0,
+        "crop_leaf_appearance_preparation.prepare_leaf_appearance_program": 0,
+        "crop_leaf_area.advance_leaf_area": 0,
+        "crop_leaf_area.calculate_leaf_area_point": 0,
+        "crop_leaf_area.initialize_leaf_area": 0,
+        "crop_leaf_area.normalize_leaf_area_state": 0,
+        "crop_leaf_area_change.calculate_leaf_area_change": 0,
+        "crop_leaf_area_change.normalize_leaf_area_curve": 0,
+        "crop_leaf_artifact_producer.produce_leaf_area_artifact": 0,
+        "crop_leaf_expansion.calculate_leaf_expansion_rate": 0,
+        "crop_leaf_inventory.advance_leaf_inventory": 0,
+        "crop_leaf_inventory.initialize_leaf_inventory": 0,
+        "crop_leaf_inventory.normalize_leaf_inventory_state": 0,
+        "crop_leaf_population.advance_leaf_population": 0,
+        "crop_leaf_population.initialize_leaf_population": 0,
+        "crop_leaf_population.normalize_leaf_population_state": 0,
+        "crop_leaf_population_artifact_producer.produce_leaf_population_artifact": 0,
+        "crop_leaf_stem_binding.bind_leaf_population_to_stored_stem": 0,
+        "crop_morphology_thermal_clock.advance_internode_thermal_clock": 0,
+        "crop_morphology_thermal_clock.integrate_constant_air_segments": 0,
+        "crop_morphology_thermal_clock.normalize_internode_clock_state": 0,
+        "crop_morphology_thermal_clock.parse_whole_second_utc": 0,
+        "crop_morphology_thermal_clock.thermal_age_fraction": 0,
+        "crop_new_internodes.create_internodes_from_shoot_events": 0,
+        "crop_phytomer_emergence.advance_phytomer_emergence": 0,
+        "crop_phytomer_kind.classify_phytomer_sequences": 0,
+        "crop_rational_internode_length.advance_rational_internode_length": 0,
+        "crop_rational_internode_length.initialize_rational_internode_length": 0,
+        "crop_rational_internode_length.normalize_rational_internode_length_state": 0,
+        "crop_rational_leaf_area.advance_leaf_thermal_clock": 0,
+        "crop_rational_leaf_area.advance_rational_leaf_area": 0,
+        "crop_rational_leaf_area.initialize_rational_leaf_area": 0,
+        "crop_rational_leaf_area.normalize_leaf_thermal_clock_state": 0,
+        "crop_rational_leaf_area.normalize_rational_leaf_area_state": 0,
+        "crop_rational_morphology_artifact_producer.produce_rational_morphology_artifact": 0,
+        "crop_rational_morphology_clock.advance_rational_internode_thermal_clock": 0,
+        "crop_rational_morphology_clock.normalize_rational_internode_clock_state": 0,
+        "crop_rational_new_internodes.create_rational_internodes_from_shoot_events": 0,
+        "crop_rational_new_internodes.rational_air_segments_from_utc": 0,
+        "crop_rational_shoot_inventory.advance_rational_shoot_internode_inventory": 0,
+        "crop_shoot_inventory.advance_shoot_internode_inventory": 0,
+        "crop_shoot_timeline.advance_shoot_event_timeline": 0,
+        "crop_stored_shoot_leaf_birth_inputs.build_leaf_birth_inputs_from_stored_shoot": 0
+      },
+      "requests": [
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 11.40145612298511,
+          "status": 202
+        },
+        {
+          "bytes": 72,
+          "path": "/v1/jobs/3490d3bf-f991-4f17-81a8-bd9088cdbc1b/crop-leaf-appearance-execution",
+          "seconds": 11.628721304994542,
+          "status": 401
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/jobs/3490d3bf-f991-4f17-81a8-bd9088cdbc1b/crop-leaf-appearance-execution",
+          "seconds": 3.027179540018551,
+          "status": 422
+        },
+        {
+          "bytes": 508,
+          "path": "/v1/jobs/3490d3bf-f991-4f17-81a8-bd9088cdbc1b/crop-leaf-appearance-execution/cancel",
+          "seconds": 0.09872201798134483,
+          "status": 200
+        },
+        {
+          "bytes": 540,
+          "path": "/v1/jobs/3490d3bf-f991-4f17-81a8-bd9088cdbc1b/crop-leaf-appearance-execution",
+          "seconds": 11.553993816982256,
+          "status": 200
+        },
+        {
+          "bytes": 72,
+          "path": "/v1/jobs/3490d3bf-f991-4f17-81a8-bd9088cdbc1b/crop-leaf-appearance-execution",
+          "seconds": 0.002791003993479535,
+          "status": 401
+        }
+      ]
+    }
+  },
+  "cleanup": {
+    "native-normal": {
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "native-fences": {
+      "roles_after": 0,
+      "schemas_after": 0
+    }
+  },
+  "requests": {
+    "count": 19,
+    "maximum_seconds": 11.94659916299861,
+    "all_within_existing_30_seconds": true,
+    "timeout_increased": false,
+    "concurrent_U1_or_same_submit_retry_during_calculation_accepted": false
+  },
+  "phases": {
+    "baseline": {
+      "terminal_sha256": "7980975ea28e14c223bbec0dfbfb5304a6f3143a8e1eaf96ce00c00615ce08fe",
+      "observed_at_UTC": "2026-10-23T20:05:43.611255Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 3.6578508379752748,
+      "PID_peak_RSS_bytes": 116793344,
+      "combined_peak_RSS_bytes": 417062912,
+      "samples": 13,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3539,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "21be7a0afdeb53f30f975882196f94f4bdf9557766b9d1a229b2d4cc1e4beb2b",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "red": {
+      "terminal_sha256": "772d29144bd404604d14191f69d4fe5d227e89ec93f70639e039e627787f02f2",
+      "observed_at_UTC": "2026-10-23T20:07:03.944675Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 2.1144335879944265,
+      "PID_peak_RSS_bytes": 90726400,
+      "combined_peak_RSS_bytes": 406437888,
+      "samples": 7,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3542,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "2b7b66ca7e4a6ea0735a7943d6f25be8e3c19be492e8be3b21d6ec326c308f0f",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "green": {
+      "terminal_sha256": "2ece40e688ba67b98289627caacf04c9f64f1f7ab98b40195329ada49c546552",
+      "observed_at_UTC": "2026-10-23T20:14:48.113649Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 234.19049040801474,
+      "PID_peak_RSS_bytes": 176832512,
+      "combined_peak_RSS_bytes": 586919936,
+      "samples": 913,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3543,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "fbdb71fd75774bef9493496ab2cf5a92f71b512596f5e260aaaa3b9818f3599a",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "native-normal": {
+      "terminal_sha256": "40c5a5f67c43d04df426d248229e2b73ea498a2e50170ad7d951a505aab6af8b",
+      "observed_at_UTC": "2026-10-23T20:20:25.099896Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 246.98390452598687,
+      "PID_peak_RSS_bytes": 149585920,
+      "combined_peak_RSS_bytes": 547119104,
+      "samples": 943,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3543,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "4ac39acac83534d1237e894b22b9bd4fa0d425c65bb0aa88feee6b029f02066d",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "native-fences": {
+      "terminal_sha256": "b2d66b4ae4cefc0c6f3e290feff09e00cd03a49e3b65293f5ce92903f3374726",
+      "observed_at_UTC": "2026-10-23T20:23:25.050812Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 118.16411000900553,
+      "PID_peak_RSS_bytes": 151224320,
+      "combined_peak_RSS_bytes": 541159424,
+      "samples": 454,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3543,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "8d4cf241b95a7396b16c773d4bac26a830fdd3dbf8b7da652a31e8e31ebc9c17",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "related": {
+      "terminal_sha256": "d252cbc8cf05a8dcea9dcaa0b28cb6d96945e204726f41497b367f1c3e62471e",
+      "observed_at_UTC": "2026-10-23T20:26:00.644546Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.370347309013596,
+      "PID_peak_RSS_bytes": 105140224,
+      "combined_peak_RSS_bytes": 406925312,
+      "samples": 8,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3543,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "f131dc22a60b1bd7fffacc649ca2a10ef8b25d511f92373ba909fe3fd7415d70",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "compatibility": {
+      "terminal_sha256": "f51f5c1058f5e9b8aa893344f384b1d7bf7d9c26dad913fc0035905ecc1be1d6",
+      "observed_at_UTC": "2026-10-23T20:28:27.688711Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 3.641319507994922,
+      "PID_peak_RSS_bytes": 112627712,
+      "combined_peak_RSS_bytes": 412872704,
+      "samples": 13,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3543,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "61867e5a1fe523be6faa8f7b3d6c6fb8cfa402a5a564b0a309792fefdd4f921a",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "source_sha256": {
+    "backend/app/api.py": "b9ac6a41e88c13a3fae8e4308916acb774e4d71b20212f081c7dd33bbc9a76c4",
+    "backend/app/api_crop_leaf_appearance_execution.py": "492348c95f6e72052beca610a4b44ea0bceb1061c5cf39ebfbb2d1771b8f1b09",
+    "backend/tests/test_api_crop_leaf_appearance_execution.py": "8cd9318df57cd954ad08af0a262d9d28a2cd05a830ca61e42d6d6b5f99a6c484",
+    "backend/tests/test_api_crop_leaf_appearance_execution_native.py": "63430e9c4f245f2905a0ed38d9ae45f1312255d0e613b52fcaff534edf3c0b29",
+    "backend/tests/test_api_openapi.py": "def6855e2fa14d59f5097f75fca9eacf471336644a136f9868b05fc2acf63cf2",
+    "contracts/openapi-v1.json": "0e11529b00649f47acd825c7ac69835f03209fd668ac3d665590f0d5debefd5b"
+  },
+  "new_product_tables_roles_queues_services_or_dependencies": 0,
+  "existing_numeric_inputs_models_UI_DB_keys_services_changed": false,
+  "user_runtime_deployed": false,
+  "full_backend_or_hosted_CI_or_browser_run": false,
+  "actual_farm_Runs": 0,
+  "independent_local_crop_cycles": 0,
+  "G0_G4": "not_assessed",
+  "holds": [
+    "owned runtime/automatic consumer assembly and live user activation",
+    "strict SDK/same job3D/menu/reload/browser acceptance",
+    "calculation concurrent requests/same submit retry/common U1/G4",
+    "real cultivar and independent local cycles",
+    "management/production/resources/Decimal economics/macro/supply-demand/autonomous comparison",
+    "R2 realism and first cold shader warning",
+    "actual runtime CLI G1/G0–G4"
+  ],
+  "full_goal_complete": false
+}

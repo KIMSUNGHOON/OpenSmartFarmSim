@@ -1,6 +1,6 @@
 # 자동 출현 계산의 보호 HTTP — v1
 
-상태: 신규 HTTP47/OpenAPI·Scope101/기존 HTTP45와 실제 SCRAM·검증 TLS3, 고유196검사로 기능 수용했다.
+상태: [신규 HTTP47/OpenAPI·Scope101/기존 HTTP45와 실제 SCRAM·검증 TLS3, 고유196검사](../research/api-crop-leaf-appearance-execution-20261024.md)로 기능 수용했다.
 사용자 runtime/같은 job3D·계산 중 재접수/동시 U1은 후속이다. 선행은 [appearance E1–E3/자동 consumer](crop-leaf-appearance-execution-v1.md)다.
 기존 인증/Scope·create_app의 선택적 service/query를 확장한다. 기본 비활성503이며 부분 조립은 거부한다.
 같은 jobs/provider/admission/query·farm/완료 parent graph를 요구한다. tenant는 서버가 결정한다.

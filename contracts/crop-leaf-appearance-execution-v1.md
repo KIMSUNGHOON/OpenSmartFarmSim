@@ -4,6 +4,7 @@
 E2는 [참조9/순수·관련203·실제 SCRAM9](../research/crop-leaf-appearance-execution-worker-20261024.md)로 수용했다.
 E3는 [신규25/순수·관련244·실제 SCRAM7과 독립 fresh](../research/crop-leaf-appearance-execution-query-20261024.md)로 수용했다.
 기존 자동 consumer 연결도 [신규12/제어·관련148·실제 SCRAM1](../research/leaf-appearance-automatic-consumer-20261024.md)로 수용했다.
+[보호 HTTP196검사](../research/api-crop-leaf-appearance-execution-20261024.md)도 기능 수용했다. owned runtime/사용자 적용·같은 job3D와 계산 중 동시 U1은 후속이다.
 선행은 [appearance 서버 계산/현재 조회](crop-leaf-appearance-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 재사용한다.
 새 큐/표·역할이나 수치 모델/원 결과·사용자 runtime 변경은 없다.
