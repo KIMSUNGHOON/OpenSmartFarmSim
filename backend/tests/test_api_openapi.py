@@ -27,9 +27,16 @@ from test_http_identity import request
 from app.api_crop_climate_joint_execution import SUBMIT_SCOPES as JOINT_SUBMIT_SCOPES, PROGRESS_SCOPES as JOINT_PROGRESS_SCOPES
 from app import api_crop_morphology_execution as morphology
 from app import api_crop_leaf_population_execution as leaf_population
+from app import api_crop_leaf_appearance_execution as leaf_appearance
 
 
 OPERATIONS = {
+    ('/v1/crop-leaf-appearance-executions','post'): ('submitLeafAppearanceExecution',list(leaf_appearance.SUBMIT_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-appearance-execution','get'): ('getLeafAppearanceExecution',list(leaf_appearance.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-appearance-execution/manifest','get'): ('getLeafAppearanceExecutionManifest',list(leaf_appearance.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-appearance-execution/frames/{index}','get'): ('getLeafAppearanceExecutionFrame',list(leaf_appearance.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-appearance-execution/replay','get'): ('getLeafAppearanceExecutionReplay',list(leaf_appearance.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-appearance-execution/cancel','post'): ('cancelLeafAppearanceExecution',list(leaf_appearance.CANCEL_SCOPES)),
     ('/v1/crop-leaf-population-executions','post'): ('submitLeafPopulationExecution',list(leaf_population.SUBMIT_SCOPES)),
     ('/v1/jobs/{job_id}/crop-leaf-population-execution','get'): ('getLeafPopulationExecution',list(leaf_population.READ_SCOPES)),
     ('/v1/jobs/{job_id}/crop-leaf-population-execution/manifest','get'): ('getLeafPopulationExecutionManifest',list(leaf_population.READ_SCOPES)),
