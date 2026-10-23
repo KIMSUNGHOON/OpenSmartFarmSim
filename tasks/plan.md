@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 다음 한 단계는 현재 농장/완료 parent stem 결과 결속이다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
+**2026-10-23 현재:** [새 잎3D/실제 runtime 검증](../research/leaf-population-stored-replay-20261023.md)으로 frame reader→export→strict SDK/명시3→6잎의 연구 UI 기능을 수용했다. 기존 DB/키/25표·205파일을 보존해5176을 복구했고5175와 함께2root가 생존한다.5173/5174는 종료 상태다. 첫 native cold 셰이더 경고·최종 디자인 R2는 미수용이다. [leaf 입력 증거52/fresh](../research/crop-leaf-population-input-evidence-20261023.md)를 수용했고 [농장/parent 결속35/fresh](../research/crop-leaf-population-farm-binding-20261023.md)도 수용했고 다음은 leaf 결과의 서명·현재 무계산 조회다. goal은 기존 전체 목표로 active이고 교체 거부는 유지되며 현재 모델은 gpt-6.1-sol/xhigh다.
 
 **최신 재개 지점 — 2026-10-22 오전9시 작업 마감:** 사용자 화면은 저장 초기3잎 면적3D입니다. 새3→6잎 계산/원 줄기 결속·불변40blob/manifest-only 조회까지 수용했고, 다음은 원 raw/binding의 무계산 frame 조회→export→같은 UTC 새 잎3D입니다. [검증·현재 화면·외부 의존성](../research/overnight-checkpoint-20261022.md)을 먼저 확인합니다. 아래는 단계별 이전 기록입니다.
 
@@ -3410,11 +3410,11 @@ normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다�
 [연구 UI 기능 수용과 남은 경고/디자인](../research/leaf-population-stored-replay-20261023.md)을 기준으로
 독립 농장 자료 확보와 다음 소프트웨어 개발을 병행한다.
 
-1. **입력 출처/현재 검토:** leaf 원 program·원 단위/시각/QC/권리와 parent stem 입력의 증거/현재 검토를 결속한다.
+1. **입력 출처/현재 검토 (수용):** leaf 원 program·원 단위/시각/QC/권리와 parent stem 입력의 증거/현재 검토를 결속한다.
    수용: 정상 bytes/metadata·재배포 금지 보존, rehash 뒤 변조/현재·늦은 철회 거부,
    발급/검증의 생장 import·계산/DB/CLI/쓰기0 및 별도 fresh의 원 파일/FD 보존.
    이 단계의 stem root는 식별자이며 수치 결과 승인으로 취급하지 않는다.
-2. **농장/부모 결과:** 기존 등록 farm·crop/기간·현재 scope와 완료된 parent stem job/서명 결과를 대사한다.
+2. **농장/부모 결과 (수용):** 기존 등록 farm·crop/기간·현재 scope와 완료된 parent stem job/서명 결과를 대사한다.
    동일 farm/입력/원 UTC·부착 ID, 양쪽 현재 사용/표시 권리와 늦은 철회·다른 tenant/결과 거부를 실제 DB에서 확인한다.
 3. **서명/자동 worker:** 명시 모델 판본의 접수/멱등·실제1회 계산·불변 population 원자 게시,
    취소/만료/재시작/권리 철회와 원 stem 결과 보존을 확인한다.
@@ -3435,3 +3435,13 @@ normal/hold 원 저장·3view/basis/UTC·31계측0/정리를 수용했다. 다�
 실제 SCRAM/반례1–2h, 늦은 변경/보존1–2h, 검토/기록0.5–1h = **4.5–8집중시간**의 잠정 작업량이다.
 기존 parent 서비스/원 완료 결과 재사용이 전제이며 실제 DB 확인 후 갱신한다. 새 모듈은 현재5176에 미배포다.
 독립 실제 자료/작기0·생산/경제/자율 선정 및 전체 완료 날짜 미정은 유지한다.
+
+
+**farm 자식 수용 — 2026-10-23:** [35집중/실제 SCRAM·fresh](../research/crop-leaf-population-farm-binding-20261023.md)로
+더 늦은 판단의 별도 등록 farm/실제 완료 parent·서명/원 root를 leaf 입력에 결속했다. 기존 과거 decision의 작업에
+나중 자료를 소급 연결하지 않았다. 현재/늦은 양쪽 권리·검토·권한/등록 변조, prepare/read/write의 계산/CLI/SQL쓰기0,
+원18signed파일/25시험표·기존2root/원 자료·소유 정리를 수용했다. 기존4.5–8h 추정은 이 실제 수용으로 대체한다.
+다음 서명 자식은 계약/저장1–2h + producer/reader2–3h + 변조/철회·fresh1–2h + 기록0.5–1h =
+**4.5–8집중시간**의 낮은 신뢰 작업량이다. 이후 명시 worker→보호 API→같은 job의 제품3D 순서를 유지한다.
+단일 내부 read13.92초는 향후 중첩 검증/HTTP·polling 비용 검토의 근거이며 속도/공통 용량 수용은 아니다.
+새 모듈의 사용자 미배포·실제 품종/독립 작기0·최종 사실감/경고와 전체 완료일 미정을 유지한다.
