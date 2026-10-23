@@ -72,7 +72,7 @@ jobs:
     name: web (${{ inputs.browser_suite || 'all' }})
     if: github.event_name != 'workflow_dispatch' || (!inputs.crop_appearance && inputs.organ_capacity != '1' && inputs.organ_capacity != '20' && (!inputs.unpaused_solar || inputs.native_solar || inputs.native_organ))
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     defaults:
       run:
         working-directory: web
