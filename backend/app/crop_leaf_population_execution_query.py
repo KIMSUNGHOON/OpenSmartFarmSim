@@ -1,5 +1,6 @@
 """Read only published leaf population jobs; never import numerical workers/producers."""
 from datetime import datetime, timezone
+from contextlib import nullcontext
 from functools import wraps
 from hashlib import sha256
 from pathlib import Path
@@ -159,28 +160,33 @@ class LeafPopulationExecutionQuery:
         _need((view == 'frame' and type(index) is int and index >= 0) or (view != 'frame' and index is None))
         self._guard(tenant); before = self._bundle(tenant, job_id); job = before[0]
         original = self._intent(tenant, job['input_bytes']); value, packet = original
-        proof = frame = replay = current = None
-        if job['state'] == 'succeeded':
-            proof, frame, replay = self._completed(tenant, before, value, view, index)
-        else:
-            _need(view == 'status' and not before[1]
-                and not any(e['kind'] in (result.RESULT_EVENT_KIND, 'succeeded') for e in before[2]))
-            current = self.service.current_input(tenant, job['input_bytes'])
-            _need(current[0] == value and current[2] == packet)
-        self._guard(tenant)
-        _need(self._intent(tenant, job['input_bytes']) == original)
-        if current is not None:
-            _need(self.service.current_input(tenant, job['input_bytes']) == current)
-        after = self._bundle(tenant, job_id)
-        if before != after:
-            raise LeafPopulationExecutionQueryPending('leaf population execution changed; retry current read')
-        self._guard(tenant)
-        summary = None if proof is None else {k: proof[k] for k in ('result_sha256', 'numerical_root_sha256', 'calculated_at',
-            'study_id', 'revision', 'farm', 'profile_applicability', 'binding_sha256', 'program_sha256',
-            'source_sha256', 'input_evidence_sha256', 'normalization', 'parent_job_id',
-            'parent_result_sha256', 'parent_numerical_root_sha256', 'parent_calculated_at')}
-        response = {'schema_version': VERSION, **_FLAGS, 'observed_at': execution.signed.parent_signed._stamp(datetime.now(timezone.utc)),
-            'job': public_job_status(job).model_dump(mode='json'), 'cancel_requested': job['cancel_requested'], 'result': summary,
-            'manifest': proof if view == 'manifest' else None, 'frame': frame, 'replay': replay}
-        _need(len(execution.signed.reader._canonical(response)) <= execution.signed.RETURN_MAX)
-        return response
+        farms = self.service.authority.farm_binding.parent_authority.farm_binding.farms
+        ref = value['request']['farm']
+        scope = (farms.registration_read_scope(tenant, ref['scenario_id'], ref['scenario_revision'],
+            ref['registration_sha256']) if farms._registration_read.get() is None else nullcontext())
+        with scope:
+            proof = frame = replay = current = None
+            if job['state'] == 'succeeded':
+                proof, frame, replay = self._completed(tenant, before, value, view, index)
+            else:
+                _need(view == 'status' and not before[1]
+                    and not any(e['kind'] in (result.RESULT_EVENT_KIND, 'succeeded') for e in before[2]))
+                current = self.service.current_input(tenant, job['input_bytes'])
+                _need(current[0] == value and current[2] == packet)
+            self._guard(tenant)
+            _need(self._intent(tenant, job['input_bytes']) == original)
+            if current is not None:
+                _need(self.service.current_input(tenant, job['input_bytes']) == current)
+            after = self._bundle(tenant, job_id)
+            if before != after:
+                raise LeafPopulationExecutionQueryPending('leaf population execution changed; retry current read')
+            self._guard(tenant)
+            summary = None if proof is None else {k: proof[k] for k in ('result_sha256', 'numerical_root_sha256', 'calculated_at',
+                'study_id', 'revision', 'farm', 'profile_applicability', 'binding_sha256', 'program_sha256',
+                'source_sha256', 'input_evidence_sha256', 'normalization', 'parent_job_id',
+                'parent_result_sha256', 'parent_numerical_root_sha256', 'parent_calculated_at')}
+            response = {'schema_version': VERSION, **_FLAGS, 'observed_at': execution.signed.parent_signed._stamp(datetime.now(timezone.utc)),
+                'job': public_job_status(job).model_dump(mode='json'), 'cancel_requested': job['cancel_requested'], 'result': summary,
+                'manifest': proof if view == 'manifest' else None, 'frame': frame, 'replay': replay}
+            _need(len(execution.signed.reader._canonical(response)) <= execution.signed.RETURN_MAX)
+            return response
