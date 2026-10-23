@@ -1,0 +1,525 @@
+{
+  "schema_version": "owned-leaf-appearance-preview-acceptance-v1",
+  "scope": "owned synthetic executable assembly only; user runtime not deployed; no crop prediction or gate promotion",
+  "implementation_commit": "2f16c2e95c02eca8bab67ab5b1d45aaa428fe2f1",
+  "native_CLI": {
+    "timestamp": "2026-10-23T20:41:43.946Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "bb78783c79096b2703b8d14ade45269f27b0c3152a82bbd4201435ba72649c26",
+    "recursive_CLI_invocations": 0
+  },
+  "native_CLI_final_review": {
+    "timestamp": "2026-10-23T21:04:54.892Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "8535a74b2132fb9402dd0894567a24ff3fad8840712ad583930832606309a211",
+    "recursive_CLI_invocations": 0
+  },
+  "recursive_CLI_invocations": 0,
+  "tests": {
+    "new_controls": 12,
+    "existing_controls": 12,
+    "new_actual_SCRAM_verified_TLS": 3,
+    "existing_actual_SCRAM_verified_TLS": 1,
+    "unique_accepted": 28,
+    "expected_RED_collection_error": 1,
+    "initial_native_teardown_evidence_filename_collision": 1,
+    "final_failures": 0
+  },
+  "native_evidence": {
+    "appearance_normal": {
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "actual_farm_Runs": 0,
+      "both_exact_consumers": true,
+      "certificate_verified": true,
+      "cold_restart_POST_count": 0,
+      "one_completed_attempt": true,
+      "original_12_frames": true,
+      "original_47_leaf_areas": 47,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-appearance-preview-input",
+          "seconds": 0.00439894400187768,
+          "status": 401
+        },
+        {
+          "bytes": 1399,
+          "path": "/leaf-appearance-preview-input",
+          "seconds": 11.579893768997863,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 11.681615909998072,
+          "status": 202
+        },
+        {
+          "bytes": 69478,
+          "path": "/v1/jobs/370af727-7bd3-4133-8da3-eaf688069307/crop-leaf-appearance-execution/replay",
+          "seconds": 12.430921199993463,
+          "status": 200
+        },
+        {
+          "bytes": 1364,
+          "path": "/v1/jobs/6ab80505-94dc-448a-b314-dc6ac814dacf/crop-morphology-execution",
+          "seconds": 4.799025686981622,
+          "status": 200
+        },
+        {
+          "bytes": 72,
+          "path": "/leaf-appearance-preview-input",
+          "seconds": 0.011715524015016854,
+          "status": 401
+        },
+        {
+          "bytes": 69478,
+          "path": "/v1/jobs/370af727-7bd3-4133-8da3-eaf688069307/crop-leaf-appearance-execution/replay",
+          "seconds": 11.816331095003989,
+          "status": 200
+        }
+      ],
+      "result": {
+        "binding_sha256": "9846d9d4f3da65e02d6e2b8e4f05ee09beaaf836ff0f00662b482239ef44a5eb",
+        "calculated_at": "2026-10-23T21:07:23.667972Z",
+        "farm": {
+          "crop_id": "crop-1",
+          "registration_sha256": "fc304f94017ae90800aaffc942e02e7342c29022966c59faf0a94ef352ff6f5f",
+          "scenario_id": "farm-1",
+          "scenario_revision": "r1"
+        },
+        "input_evidence_sha256": "85a94d975873daf01df945ed16d4a29960ba7b9489289cacbcd076edc3f317ff",
+        "normalization": "per_tracked_shoot",
+        "numerical_root_sha256": "77c3ffcab5f02b0dab132530a3f4c278db07dd18a258633bb4b148c18f5e423a",
+        "parent_calculated_at": "2026-10-23T21:06:04.137333Z",
+        "parent_job_id": "6ab80505-94dc-448a-b314-dc6ac814dacf",
+        "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "parent_result_sha256": "a5e1feae9bf59e43603a4a21bd7ef02a73e7045890cd9fac5d10646924aadac5",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "result_sha256": "2f8130a955099abbc2457c2184a2808cf848e22c2f28b51e00d72aa44b61f695",
+        "revision": "r1",
+        "source_sha256": "27d9783a892288c142ae69b1199806600ddbe74ac568e937b4d6b07169dde6b8",
+        "study_id": "owned-native-leaf-study"
+      },
+      "retained_25_table_rows_sha256": "c071e930230e0548eda1909be8c23ec60c9d82e661f517f7a5c91510d8edaeba",
+      "same_result_after_cold_restart": true,
+      "user_runtime_deployed": false
+    },
+    "appearance_holds": {
+      "actual_SCRAM": true,
+      "cancel_after_rights_withdrawal": true,
+      "certificate_verified": true,
+      "current_rights_and_source_file_holds": true,
+      "no_publication": true,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-appearance-preview-input",
+          "seconds": 0.004673163988627493,
+          "status": 401
+        },
+        {
+          "bytes": 95,
+          "path": "/leaf-appearance-preview-input",
+          "seconds": 3.317639754997799,
+          "status": 422
+        },
+        {
+          "bytes": 99,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 3.03580016901833,
+          "status": 422
+        },
+        {
+          "bytes": 95,
+          "path": "/leaf-appearance-preview-input",
+          "seconds": 0.02408831098000519,
+          "status": 422
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-appearance-executions",
+          "seconds": 11.348288689012406,
+          "status": 202
+        },
+        {
+          "bytes": 508,
+          "path": "/v1/jobs/fd8a2a78-96ab-4a60-8bee-860b89cd62a7/crop-leaf-appearance-execution/cancel",
+          "seconds": 0.08202816799166612,
+          "status": 200
+        },
+        {
+          "bytes": 540,
+          "path": "/v1/jobs/fd8a2a78-96ab-4a60-8bee-860b89cd62a7/crop-leaf-appearance-execution",
+          "seconds": 11.709604478004621,
+          "status": 200
+        }
+      ],
+      "retained_25_table_rows_sha256": "1f82be70952ab4b4ea94e3a9987c1136475d7d40520e9dc01bb081471070bdd8",
+      "user_runtime_deployed": false
+    },
+    "default_stem": {
+      "SIGINT_joined_all_consumers": true,
+      "actual_SCRAM": true,
+      "certificate_verified": true,
+      "leaf_option_missing_not_exposed": true,
+      "one_original_stem_consumer": true,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-appearance-preview-input",
+          "seconds": 0.0037702219851780683,
+          "status": 401
+        },
+        {
+          "bytes": 1150,
+          "path": "/preview-input",
+          "seconds": 1.6047223999921698,
+          "status": 200
+        },
+        {
+          "bytes": 22,
+          "path": "/leaf-appearance-preview-input",
+          "seconds": 0.002740046998951584,
+          "status": 404
+        },
+        {
+          "bytes": 1364,
+          "path": "/v1/jobs/9a684fce-70ae-4f7b-acbf-79b674675ebd/crop-morphology-execution",
+          "seconds": 4.767573983990587,
+          "status": 200
+        }
+      ],
+      "retained_25_table_rows_sha256": "8a13e18a55854849ead2c31a7608399d54a1bd6a34890146c80a4290645fae9f",
+      "user_runtime_deployed": false
+    },
+    "existing_population_normal": {
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "actual_farm_Runs": 0,
+      "both_exact_consumers": true,
+      "certificate_verified": true,
+      "cold_restart_POST_count": 0,
+      "one_completed_attempt": true,
+      "original_12_frames": true,
+      "original_52_leaf_areas": 52,
+      "requests": [
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.004619376006303355,
+          "status": 401
+        },
+        {
+          "bytes": 1389,
+          "path": "/leaf-preview-input",
+          "seconds": 11.672848254005658,
+          "status": 200
+        },
+        {
+          "bytes": 237,
+          "path": "/v1/crop-leaf-population-executions",
+          "seconds": 11.395606259990018,
+          "status": 202
+        },
+        {
+          "bytes": 67660,
+          "path": "/v1/jobs/6f8f49c4-d021-4be7-9954-2dae867a0d21/crop-leaf-population-execution/replay",
+          "seconds": 11.653678202012088,
+          "status": 200
+        },
+        {
+          "bytes": 1364,
+          "path": "/v1/jobs/1b527cb4-886c-436a-8e45-29c99fa548b0/crop-morphology-execution",
+          "seconds": 4.795372319989838,
+          "status": 200
+        },
+        {
+          "bytes": 72,
+          "path": "/leaf-preview-input",
+          "seconds": 0.004878582985838875,
+          "status": 401
+        },
+        {
+          "bytes": 67660,
+          "path": "/v1/jobs/6f8f49c4-d021-4be7-9954-2dae867a0d21/crop-leaf-population-execution/replay",
+          "seconds": 11.779330018995097,
+          "status": 200
+        }
+      ],
+      "result": {
+        "binding_sha256": "804194dd47754c12b129432c750350ce5be0b65389424e1057da7a011cf2975b",
+        "calculated_at": "2026-10-23T21:12:48.771764Z",
+        "farm": {
+          "crop_id": "crop-1",
+          "registration_sha256": "1880a18e0605594be8b5cdd1ef72e5dcea34f8c68f2795ba4638981c9de556d7",
+          "scenario_id": "farm-1",
+          "scenario_revision": "r1"
+        },
+        "input_evidence_sha256": "20bff4004492471a2ab0e4ec15035e1affb3bf8dee9a9db101aae0ec840c06da",
+        "normalization": "per_tracked_shoot",
+        "numerical_root_sha256": "9b156ea33c87af66681a05df3a6630ae85c8f346a57d3d81b2c3f5c4525fc077",
+        "parent_calculated_at": "2026-10-23T21:11:31.722782Z",
+        "parent_job_id": "1b527cb4-886c-436a-8e45-29c99fa548b0",
+        "parent_numerical_root_sha256": "436ed27cde92465c4aad93e1fc0ac52bc03027861b22fd80b15e80683dac0e4a",
+        "parent_result_sha256": "f009ff2a7477d55fef02628a81d25cff268e2656eb35d8a78101c6ae63416659",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "program_sha256": "4f3f9a441a0598fe44ea8c76f9ba9529c8d6661f9e25331319fb4a3f54bda4e0",
+        "result_sha256": "fd9b767c6d645515b45e527de3000ded4c76de683b4efe31cdf83fc011217de5",
+        "revision": "r1",
+        "source_sha256": "53e28b88d9095ee9a29b340e5965b5e1603de8237585ed3309222c566be351d9",
+        "study_id": "owned-native-leaf-study"
+      },
+      "retained_25_table_rows_sha256": "6599a7b5fc1da1799e4d7902a9f888ad04a8db95bfb8203e39b88a67ba4fb48e",
+      "same_result_after_cold_restart": true,
+      "user_runtime_deployed": false
+    }
+  },
+  "requests": {
+    "count": 25,
+    "maximum_seconds": 12.430921199993463,
+    "client_budget_seconds": 30,
+    "budget_increased": false,
+    "in_flight_same_POST_retry_accepted": false,
+    "U1_accepted": false
+  },
+  "compatibility": {
+    "prior_pinned_sources": {
+      "backend/app/api.py": "b9ac6a41e88c13a3fae8e4308916acb774e4d71b20212f081c7dd33bbc9a76c4",
+      "backend/app/api_crop_leaf_appearance_execution.py": "492348c95f6e72052beca610a4b44ea0bceb1061c5cf39ebfbb2d1771b8f1b09",
+      "backend/tests/test_api_crop_leaf_appearance_execution.py": "8cd9318df57cd954ad08af0a262d9d28a2cd05a830ca61e42d6d6b5f99a6c484",
+      "backend/tests/test_api_crop_leaf_appearance_execution_native.py": "63430e9c4f245f2905a0ed38d9ae45f1312255d0e613b52fcaff534edf3c0b29",
+      "backend/tests/test_api_openapi.py": "def6855e2fa14d59f5097f75fca9eacf471336644a136f9868b05fc2acf63cf2",
+      "contracts/openapi-v1.json": "0e11529b00649f47acd825c7ac69835f03209fd668ac3d665590f0d5debefd5b",
+      "backend/app/crop_leaf_appearance_execution_result.py": "e0d33a4828039c4541b175fe0d18fc25a37e76b022ef44ac85c3bb8b7ccc5e7e",
+      "backend/app/crop_leaf_appearance_execution_worker.py": "d09662aad36a24a85e9d1e99d812bf1ef1405b1b5e79775623e92abaadba4deb",
+      "backend/tests/test_crop_leaf_appearance_execution_result.py": "d55c4e17f38164ef3b3afce9a1a670a6691bab36817e3b05b8108bf89f098f07",
+      "backend/tests/test_crop_leaf_appearance_execution_worker_native.py": "1f8723b0c3e5854d575f18ff23c31c32ebab2e7c35430e199738a91dc26714cc",
+      "backend/app/crop_leaf_appearance_execution_query.py": "39534642498d55b2cd4fba2e8b59935fc3d9dbbf08adc623c9307c5c151c0442",
+      "backend/tests/test_crop_leaf_appearance_execution_query.py": "ffe3a6b775f5a9b130aee3a7d1bb325864ceee47ac977287404613f140b23690",
+      "backend/tests/test_crop_leaf_appearance_execution_query_native.py": "420da8678985c9be391c07eac4674eceb29a12f6b19dadc87db564e7f6711eec",
+      "backend/tests/leaf_appearance_execution_fresh.py": "143d64419d37c6513c8eb0e879c27f2a388ea202842651fc8d40087f30332cda",
+      "backend/app/deterministic_work.py": "5fbf6457d02a7d8d2e7231622b98ac1627d5f5032c58029726a8ad522c7ec79d",
+      "backend/app/deterministic_job_discovery.py": "cceff7d3b172dfc913777dac0192a4cfcc05857d83334ed489441492c5cb6f6b",
+      "backend/tests/test_leaf_appearance_deterministic_work.py": "f954ace54eeee2dea59e86db47bba94c940c945ef9184ca07061e44bc8f7bef2",
+      "backend/tests/test_leaf_appearance_deterministic_work_native.py": "73e1f2c7ded738e5ec77859f84f012b04a6a454ab2f454b9ef094a8b42359a13"
+    },
+    "old_preview_unchanged": true
+  },
+  "phase_terminal": {
+    "leaf-appearance-runtime-red-v1": {
+      "observed_at_UTC": "2026-10-23T20:45:05.142101Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.8521862489869818,
+      "PID_peak_RSS_bytes": 95158272,
+      "combined_peak_RSS_bytes": 395460608,
+      "samples": 6,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3547,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "f3d7bb4315f4c6a9a2e6a35d0844dc0d5f2919a3362901658f9495400f452ccb",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-runtime-green-v1": {
+      "observed_at_UTC": "2026-10-23T20:48:59.200291Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.1206975969835185,
+      "PID_peak_RSS_bytes": 125579264,
+      "combined_peak_RSS_bytes": 426033152,
+      "samples": 7,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3548,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "c1f6b36c20b7603f0531fbcd68b37b018a829ccc60e66a6773bd43286c5a7092",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-runtime-native-normal-v1": {
+      "observed_at_UTC": "2026-10-23T20:55:11.960805Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 213.374934477004,
+      "PID_peak_RSS_bytes": 115159040,
+      "combined_peak_RSS_bytes": 618262528,
+      "samples": 812,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3548,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d4bc12c6ac61c6b6498989743186d860b2f6e76c51a6ac1b154e8bc965cd5c01",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-runtime-native-fences-legacy-v1": {
+      "observed_at_UTC": "2026-10-23T21:01:49.455510Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 303.52249462500913,
+      "PID_peak_RSS_bytes": 150732800,
+      "combined_peak_RSS_bytes": 627511296,
+      "samples": 1151,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3548,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "9f3c0affc5e0f3c65fc0cd6859995b174d0d01f6354e6d2ab3845e1a0ea65d15",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-runtime-native-normal-v2": {
+      "observed_at_UTC": "2026-10-23T21:09:28.183503Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 212.73274929900072,
+      "PID_peak_RSS_bytes": 115310592,
+      "combined_peak_RSS_bytes": 616640512,
+      "samples": 812,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3548,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ab7aed2a1143bbaf24a3779eba523c65ba572e89340506f06e4f51b7df7ec14a",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-appearance-runtime-native-fences-legacy-v2": {
+      "observed_at_UTC": "2026-10-23T21:14:54.164539Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 302.658866607002,
+      "PID_peak_RSS_bytes": 117035008,
+      "combined_peak_RSS_bytes": 620462080,
+      "samples": 1147,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 3,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2504,
+      "source_preserved": true,
+      "source_count": 3548,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "5c9bfd58f218dd46ef1ea9176c25c2e0cca4b1e3dc2ee1e0518b8e1769ad5b3e",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "final_database_cleanup": {
+    "leaf-appearance-runtime-native-normal-v2": {
+      "appearance-preview-database-cleanup.json": {
+        "roles_after": 0,
+        "schemas_after": 0
+      }
+    },
+    "leaf-appearance-runtime-native-fences-legacy-v2": {
+      "appearance-preview-database-cleanup.json": {
+        "roles_after": 0,
+        "schemas_after": 0
+      },
+      "signed-database-cleanup.json": {
+        "roles_after": 0,
+        "schemas_after": 0
+      }
+    }
+  },
+  "resources": {
+    "sample_interval_seconds": 0.25,
+    "PID_peak_RSS_bytes": 150732800,
+    "combined_peak_RSS_bytes": 627511296,
+    "PID_limit_bytes": 536870912,
+    "combined_limit_bytes": 1073741824,
+    "watched_entries": 2504,
+    "protected_roots": 3,
+    "all_preserved": true,
+    "owned_remaining": 0,
+    "controller_FD_before_after": [
+      4,
+      4
+    ]
+  },
+  "source_sha256": {
+    "research/serve-owned-morphology-preview.py": "4a0c4d609f8ab7564cf309236ae39d61298725be1c5d17f4111af852fbbdd433",
+    "research/owned_leaf_appearance_preview.py": "856e8ac12b45b124e40b42ae0d5d5c28b72a9a3c3ae8f67a7d3298b5cb892780",
+    "backend/tests/test_owned_leaf_appearance_preview.py": "7dcaa212318097ec764fa9b75f1c99db118e05c8b6a8467a9d2b298b390e5c26",
+    "backend/tests/test_owned_leaf_appearance_preview_native.py": "67a2e62bbaa574968c968f4782a1ca9b6b5bebf42c03bcfc43285a90c70c96e0",
+    "contracts/crop-leaf-appearance-execution-v1.md": "550d402e8b3f3630b2cbc2644f35ea47d2f1b2701c2e965c2c933f97ba4506b6"
+  },
+  "user_runtime_deployed": false,
+  "full_backend_suite": false,
+  "hosted_CI": false,
+  "browser_test": false,
+  "actual_farm_Runs": 0,
+  "independent_local_cycles": 0,
+  "G0_G4": "not_assessed",
+  "full_goal_complete": false
+}

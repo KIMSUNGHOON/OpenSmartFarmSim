@@ -1,6 +1,6 @@
 # 구현 순서
 
-**현재 — 2026-10-24 KST:** [정책 기반 잎 3D](http://localhost:5176/leaf-appearance-replay.html)는 자체 합성3→5잎의 저장12시점/47면적을 재생합니다. 새 정책의 입력 검토·농장 결속·서명·E1–E3·자동 consumer 뒤 [보호 HTTP196검사](../research/api-crop-leaf-appearance-execution-20261024.md)도 수용했습니다. [계약/의존성](../contracts/crop-leaf-appearance-execution-v1.md)을 따르며 새 기능은 사용자 runtime에 미배포입니다. 다음은 owned runtime 조립→사용자 적용/strict SDK/같은 job3D입니다. 기존 [명시3→6잎 자동 작업](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)과 DB/키/서비스는 유지했습니다. 실제 품종/국내 독립 작기0, 관리·생산/자원/경제·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
+**현재 — 2026-10-24 KST:** [정책 기반 잎 3D](http://localhost:5176/leaf-appearance-replay.html)는 자체 합성3→5잎의 저장12시점/47면적을 재생합니다. 새 정책의 입력 검토·농장 결속·서명·E1–E3·자동 consumer·보호 HTTP 뒤 [소유 runtime28검사](../research/owned-leaf-appearance-preview-20261024.md)도 수용했습니다. 실제 자동 완료·같은 결과의 cold restart/추가 POST0·현재 철회/취소와 기존 모델52면적을 대사했습니다. 새 기능의 사용자 적용→strict SDK/같은 job3D가 다음이며 현재 화면은 저장 연구 재생입니다. 기존 [명시3→6잎 자동 작업](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)과 DB/키·서비스는 유지했습니다. 실제 품종/국내 독립 작기0, 관리·생산/자원/경제·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
 
 ## 자동 정책의 연구 화면 이후 — 2026-10-24
 
@@ -16,11 +16,12 @@
 6. **E3 같은 작업의 현재 조회 수용.** [신규25/순수244·실제 SCRAM7과 독립 fresh](../research/crop-leaf-appearance-execution-query-20261024.md): 같은 원 job/result/root/calculated_at·parent/UTC/12frame/47면적과 현재/늦은5변경·독립 취소/완료의 Pending·게시 불변성을 대사했다. 조회의52생장/CLI·8쓰기/SQL0, fresh32금지 import/13쓰기0·원25표/파일/FD4→4·3root/WSL/DB·역할/소유 정리를 수용했다. 내부 단독11.37–11.85초는 HTTP30/U1 수용과 구분하며 사용자 runtime/원 DB·키/UI는 유지했다.
 7. **기존 자동 consumer 연결 수용.** [신규12/제어·관련148·실제 SCRAM1](../research/leaf-appearance-automatic-consumer-20261024.md): 정확 판본/worker/outcome을 기존 discovery/loop에 등록했다. 실제 발견→계산1회/원자 완료·원12frame/47면적과 현재 두 scope 철회 거부·다른 두 queued 모델/25표 원 행/parent18파일 보존·완료 scan50+37/선택0·생장/CLI0·3root/WSL/소유 정리를 확인했다. 기본 비활성/operator factory를 유지하고 사용자 runtime/원 DB·키/UI와 이전 E2/E3의8소스를 보존했다.
 8. **appearance 보호 HTTP 수용.** [제어·계약193/실제 SCRAM·검증 TLS3, 고유196검사](../research/api-crop-leaf-appearance-execution-20261024.md): 같은 graph/인증·권리의6경로·닫힌 요청/응답, 실제 접수/멱등·409/원 완료12frame/47면적·취소/늦은 만료·원본/parent 검토 변경을 대사했다. 기존80경로/492스키마·Scope와 이전12소스가 같고19요청 최대11.9466초/조회 계산·DB/객체/파일쓰기0·원25표/3root/WSL/소유 정리를 수용했다. 사용자 runtime/같은 job3D·계산 중 재접수/동시 U1은 미수용이다.
-9. **다음 자식: owned appearance runtime 조립/기능.** 기존 preview에 resolver/현재 검토·권리/서명 authority·service/query와 정확 consumer를 옵션으로 조립한다. 새 source를 과거 farm/parent에 소급하지 않고16시 이후 decision의 별도 합성 farm/완료 parent를 사용한다. 실제 API 접수→자동 발견/계산→같은 저장 결과/취소·현재 철회와 원 행/파일·DB/키/기존 화면·3root/WSL/소유 정리가 수용 기준이다. 기본 비활성·현재 인증을 유지하고 계산 중 재접수/동시 U1은 별도 실측한다. 이후 사용자 적용→strict SDK/같은 job3D·UTC/표/그래프·메뉴/reload·실제 브라우저다.
-10. 기관 출현/관리의 면적·기관 수지→생산량/자원→Decimal 경제·시장/거시/수급·자율 비교는 기존 계산 의존성과 독립 자료 관문을 유지한다. 각 새 수치와 3D의 결속을 별도 수용한다.
+9. **owned appearance runtime 조립 수용.** [제어24/새 native3·기존 native1, 고유28검사](../research/owned-leaf-appearance-preview-20261024.md): 명시 옵션·별도 메타데이터/같은 graph·정확 consumer의 실제 자동 완료 attempt1/원12frame·47면적/parent와 같은 결과/최초 시각의 cold restart/추가 POST0을 확인했다. 현재 파일 hold/권리 철회 뒤 취소·기본 모드 SIGINT/원 loop와 기존52면적 자동 완료/cold를 보존했다. 증거 이름 충돌의 첫 teardown 실패/수정·최종 재검증을 보존하고 원25표/18source·3root/WSL/소유 정리를 수용했다. 사용자 runtime/원 DB·키·UI는 미변경이다.
+10. **다음 자식: 사용자 appearance API 적용.** 검증 source의 불변 복사·새16시 이후 합성 farm/실제 완료 parent·보호 파일/키와 현재 인증을 준비한다. 기존 gateway의 새 appearance 경로만 별도 upstream에 연결한다. 실제 사용자 endpoint의 접수→자동 완료/원12frame·47면적/parent, 현재 철회/취소·복원, 동일 DB/키의 cold restart/같은 결과·최초 시각/추가 POST0, 원 DB25표/키/완료 결과·기존 화면/3root·WSL 보존이 수용 기준이다. 기존30초 예산·계산 중 retry/U1 보류를 유지한다.
+11. **제품 연결:** strict 실행 SDK의 닫힌 요청/상태/결과·다른 family/변조 거부→같은 job의 사실적 잎3D·UTC/표/그래프→메뉴/reload·재연결/현재 철회 제거·실제 Chrome를 각각 수용한다. 현재 저장 연구 재생의 static artifact로 실행 결과를 대체하지 않는다.
+12. 기관 출현/관리의 면적·기관 수지→생산량/자원→Decimal 경제·시장/거시/수급·자율 비교는 기존 계산 의존성과 독립 자료 관문을 유지한다. 각 새 수치와 3D의 결속을 별도 수용한다.
 
-이전 입력/farm/서명/E1/E2/E3/consumer/API 예상은 위 실적으로 대체했다. 다음 runtime은 조립25–50분 + 실제 자동 API/취소·현재성/보존25–50분 + 기록10–20분 = **60–120집중분**의 낮은 신뢰 작업량이다. 기존 preview/consumer를 재사용하며 새 source의 현재성과 기존 데이터/인증을 유지한다.
-후속 사용자 적용/SDK/UI와 자료 확보 시간은 포함하지 않는다. 국내 독립 작기0이므로 전체 완료 날짜는 미정이다.
+이전 조립60–120분 예상은 위 실제 검증/재검증 기록으로 대체했다. 다음 사용자 적용은 불변 source/별도 farm·parent·인증30–50분 + gateway/실제 계산·현재성·cold/보존40–70분 + 기록10–20분 = **80–140집중분**의 낮은 신뢰 추정이다. SDK/UI·동시 retry/자료 확보는 제외한다. 기존30초 예산 실패가 다시 나오면 측정·수정 분해 후 재산정한다. 국내 독립 작기0이므로 전체 완료 날짜는 미정이다.
 실제 품종/독립 자료 확보는 개발과 병행하며 G0–G4·예측/마진/추천 게시의 선행 조건은 유지한다.
 기존 goal은 도구상 active이며 새 goal 교체 완료로 표시하지 않는다. 아래는 날짜별 이전 기록이다.
 
