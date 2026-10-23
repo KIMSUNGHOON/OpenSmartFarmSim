@@ -26,9 +26,16 @@ from app import api_openapi
 from test_http_identity import request
 from app.api_crop_climate_joint_execution import SUBMIT_SCOPES as JOINT_SUBMIT_SCOPES, PROGRESS_SCOPES as JOINT_PROGRESS_SCOPES
 from app import api_crop_morphology_execution as morphology
+from app import api_crop_leaf_population_execution as leaf_population
 
 
 OPERATIONS = {
+    ('/v1/crop-leaf-population-executions','post'): ('submitLeafPopulationExecution',list(leaf_population.SUBMIT_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-population-execution','get'): ('getLeafPopulationExecution',list(leaf_population.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-population-execution/manifest','get'): ('getLeafPopulationExecutionManifest',list(leaf_population.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-population-execution/frames/{index}','get'): ('getLeafPopulationExecutionFrame',list(leaf_population.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-population-execution/replay','get'): ('getLeafPopulationExecutionReplay',list(leaf_population.READ_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-leaf-population-execution/cancel','post'): ('cancelLeafPopulationExecution',list(leaf_population.CANCEL_SCOPES)),
     ('/v1/crop-morphology-executions','post'): ('submitMorphologyExecution',list(morphology.SUBMIT_SCOPES)),
     ('/v1/jobs/{job_id}/crop-morphology-execution','get'): ('getMorphologyExecution',list(morphology.READ_SCOPES)),
     ('/v1/jobs/{job_id}/crop-morphology-execution/manifest','get'): ('getMorphologyExecutionManifest',list(morphology.READ_SCOPES)),

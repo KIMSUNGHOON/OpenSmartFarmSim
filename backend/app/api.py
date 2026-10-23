@@ -36,6 +36,7 @@ from .api_crop_greenhouse_solar_route import install_greenhouse_solar_routes
 from .api_crop_greenhouse_co2_route import install_greenhouse_co2_routes
 from .api_crop_climate_joint_execution import install_joint_execution_routes
 from .api_crop_morphology_execution import install_morphology_execution_routes
+from .api_crop_leaf_population_execution import install_leaf_population_execution_routes
 from .api_crop_greenhouse_ventilation_execution import install_ventilation_execution_routes
 from .api_crop_greenhouse_solar_execution_http import install_solar_execution_routes
 from .api_crop_greenhouse_co2_execution_http import install_co2_execution_routes
@@ -131,7 +132,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                crop_greenhouse_co2_result_store=None, crop_greenhouse_co2_current_query=None,
                crop_greenhouse_co2_execution_service=None, crop_greenhouse_co2_execution_query=None,
                crop_greenhouse_co2_prefix_query=None,
-               crop_morphology_execution_service=None, crop_morphology_execution_query=None) -> FastAPI:
+               crop_morphology_execution_service=None, crop_morphology_execution_query=None,
+               crop_leaf_population_execution_service=None, crop_leaf_population_execution_query=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -323,6 +325,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         authorized_tenant=authorized_tenant, error=_error, access=_access)
     install_morphology_execution_routes(app, jobs=job_store, farms=farm_authoring_service,
         admission=crop_morphology_execution_service, query=crop_morphology_execution_query,
+        principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
+    install_leaf_population_execution_routes(app, jobs=job_store, farms=farm_authoring_service,
+        admission=crop_leaf_population_execution_service, query=crop_leaf_population_execution_query,
         principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
     if crop_climate_joint_prefix_query is not None:
         from .api_crop_climate_joint_prefix_routes import install_joint_prefix_routes

@@ -1,6 +1,6 @@
 # 새 잎 계산의 보호 HTTP — v1
 
-상태: 구현/검증 전. 선행은 [leaf E1–E3/자동 consumer](crop-leaf-population-execution-v1.md)다.
+상태: [제어134/실제 SCRAM·검증 TLS3, 고유137검사](../research/api-crop-leaf-population-execution-20261023.md)로 소프트웨어 기능을 수용했다. 사용자 runtime/제품3D는 미배포다. 선행은 [leaf E1–E3/자동 consumer](crop-leaf-population-execution-v1.md)다.
 기존 인증/Scope·create_app의 선택적 service/query를 확장한다. 기본 비활성503이며 부분 조립은 거부한다.
 같은 jobs/provider/admission/query·farm/parent graph를 요구한다. tenant는 서버가 결정한다.
 leaf farm binding의 parent farm binding이 같은 FarmAuthoringService를 가리키는지 실제 객체로 확인한다.
@@ -46,4 +46,4 @@ manifest/frame/replay는 요청한 view만 제공하며 원 DTO·UTC/기관 ID/�
    처리됨을 확인한다. 현재성 검사 생략이나 임의 timeout 증가로 통과를 대신하지 않는다.
 
 이후 명시 runtime/자동 consumer 조립→strict SDK/같은 job의3D·메뉴/reload 복원·실제 브라우저를 검증한다.
-이 계약 작성은 HTTP 기능 수용이 아니다. 합성 연구 범위를 유지하며 실제 품종/농장·생산/마진·추천·G0–G4와 구분한다.
+소유 시험의 단일 요청은30초 안이었으나 공통 U1/동시 용량·G4는 미수용이다. 합성 연구 범위를 유지하며 실제 품종/농장·생산/마진·추천·G0–G4와 구분한다.
