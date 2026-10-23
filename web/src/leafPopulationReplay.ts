@@ -6,12 +6,12 @@ import {STORED_LEAF_MAX_BYTES as MAX,need,object,closed,digest,utc,integer,flags
 export type LeafPopulationFrame=Omit<LeafAreaFrame,'schema_version'>&{schema_version:'leaf-population-replay-frame-v1';binding_sha256:string};
 export type LeafPopulationReplay={artifact_sha256:string;frames:LeafPopulationFrame[]};
 const DIRECTORY='./leaf-population-replay/';
-const MODELS={rate:'leaf-logistic-thermal-area-rate-research-v1',change:'leaf-logistic-area-change-research-v1',
+export const MODELS={rate:'leaf-logistic-thermal-area-rate-research-v1',change:'leaf-logistic-area-change-research-v1',
  point:'leaf-logistic-canonical-area-point-research-v1',area:'leaf-logistic-canonical-area-state-research-v1',
  clock:'leaf-rational-air-thermal-clock-research-v1',leaf_state:'leaf-rational-air-area-state-research-v1',inventory:'declared-leaf-inventory-research-v1',
  births:'declared-leaf-births-research-v1',population:'declared-leaf-population-research-v1',
  binding:'stored-leaf-stem-attachment-binding-research-v1',producer:'leaf-population-artifact-producer-research-v1'};
-const DISPLAY={version:'stored-leaf-m2-authored-blade-triangles-v1',surface:'one_sided_authored_leaflet_triangles',
+export const DISPLAY={version:'stored-leaf-m2-authored-blade-triangles-v1',surface:'one_sided_authored_leaflet_triangles',
  petiole_rachis_area_excluded:true,placement:'declared_attachment_upper_end_authored_angles_v1',
  length_width_shape:'authored_uniform_scale_not_cultivar_prediction',leaf_count:'declared_initial_and_births_only'};
 
