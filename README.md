@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-24 KST:** [정책 기반 잎 3D](http://localhost:5176/leaf-appearance-replay.html)는 자체 합성3→5잎의 저장12시점/47면적을 재생합니다. 새 정책의 입력 검토·농장 결속·서명·E1–E3·자동 consumer·보호 HTTP 뒤 [소유 runtime28검사](research/owned-leaf-appearance-preview-20261024.md)도 수용했습니다. 실제 자동 완료·같은 결과의 cold restart/추가 POST0·현재 철회/취소와 기존 모델52면적을 대사했습니다. 새 기능의 사용자 적용→strict SDK/같은 job3D가 다음이며 현재 화면은 저장 연구 재생입니다. 기존 [명시3→6잎 자동 작업](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)과 DB/키·서비스는 유지했습니다. 실제 품종/국내 독립 작기0, 관리·생산/자원/경제·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
+**현재 — 2026-10-24 KST:** [정책 기반 잎 API](research/leaf-appearance-execution-live-20261024.md)를5176에 연결해 실제 자동 완료·원12시점/47면적·현재 철회/취소와 같은 DB/키의 재시작/추가 POST0을 확인했습니다. [현재 3D](http://localhost:5176/leaf-appearance-replay.html)는 별도 저장 연구 재생이며 새 job의 실행 SDK/3D 연결은 후속입니다. 기존 두 DB/결과·화면을 보존했습니다. 다음은 실제08:12 인증/08:17 TLS 만료에 따른 제한된 갱신→strict SDK→같은 job3D입니다. 실제 품종/독립 국내 작기0, 관리·생산/자원/경제·시장 거시/수급·자율 선정·R2/첫 cold 경고·G0–G4와 전체 완료일은 미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
