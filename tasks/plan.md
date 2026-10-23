@@ -3467,3 +3467,15 @@ INSERT 뒤6철회/변경은25표 원 SHA/건수 그대로 rollback됐고49생장
 이후 E3 현재 조회→보호 HTTP/runtime→같은 job의 제품3D/메뉴·재접속 복원을 잇는다.
 E1 submit 단일26.60초/read12.70초와 signed replay24.58초는 HTTP30초/중첩 검증 예산의 확인 대상이다.
 새 모델 미배포·실제 품종/독립 작기0·최종 사실감과 전체 완료 날짜 미정을 유지한다.
+
+**E2 worker 수용 — 2026-10-23:** [참조9/실제 SCRAM7](../research/crop-leaf-population-execution-worker-20261023.md)로
+명시 run_once의 실제1회 leaf 계산·원12frame/52면적과 parent/최초 시각·371bytes 참조/원자 완료를 확인했다.
+완료 재계산0·다른 queued 모델 보존, 현재 hold49계측0과 늦은 cancel/lease·양쪽 권리/leaf 검토5경우 게시0,
+25표 원 행/parent18파일·원2root/WSL 상한/정리를 수용했다. 첫 실패는 시험의 기존 lease 갱신 이벤트 누락이며
+기대6→7/갱신1건 검사만 수정해 전체 정상 경로를 재수용했다. 위1.75–3.5h E2 계획은 실제 수용으로 대체한다.
+다음 E3는 원 job/input/publication/outcome/events·signed lineage를 대사한 status/manifest/frame/replay,
+원 UTC·최초 계산 시각과 현재/늦은 변경 거부·독립 fresh 조회의 import/계산/CLI/쓰기0이 수용 기준이다.
+계약/구현45–90분 + 실제 DB/독립 조회·변경60–120분 + 기록15–30분 = **2–4집중시간**의 낮은 신뢰 작업량이다.
+signed replay24.58초/E1 입력 read12.70초의 중첩과 HTTP30초 예산을 실제 검사해 갱신한다.
+현재 deterministic_work.WORKERS에 leaf worker/outcome이 없으므로 **E3→기존 foreground consumer의 정확 등록/실제 discovery 검증→보호 API/runtime→같은 job3D** 순서를 명시한다.
+새 큐/역할/서비스는 필요하지 않다. 사용자 worker 미배포·독립 실제 작기0·생산/경제/자율 선정·최종 사실감/경고와 전체 완료 날짜 미정은 유지한다.

@@ -1,9 +1,10 @@
 # 출현 잎의 접수·완료 참조와 현재 조회 — v1
 
 상태: [E1 제어12/실제 SCRAM2](../research/crop-leaf-population-execution-admission-20261023.md) 수용.
+[E2 참조9/실제 SCRAM7](../research/crop-leaf-population-execution-worker-20261023.md)도 수용했다.
 선행은 [signed leaf 계산/조회](crop-leaf-population-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 사용하며 새 큐/표·역할은 추가하지 않는다.
-E2/E3 및 보호 HTTP/사용자 화면은 E1 뒤의 별도 수용이다.
+E3·자동 consumer 및 보호 HTTP/사용자 화면은 후속 수용이다.
 
 ## E1 접수
 
@@ -22,11 +23,16 @@ study/revision의 versioned idempotency key로 같은 요청은 같은1행/job�
 write=True는 현재 계산 권리도 요구한다. 조회는 새 simulation_create 권한 없이 가능하되 현재 read scope를 유지한다.
 resolver/authority/code·원 입력/판본/parent 또는 현재 권리 불일치에는 대체 입력을 사용하지 않는다.
 
-## E2/E3 후속
+## E2 worker와 E3 후속
 
 E2는 정확 tenant/input_version만 claim하고 실제 signed producer1회·lease/cancel/current input을
 게시 전후 확인해 같은 거래에서 opaque 참조/publication/outcome/events·terminal을 게시한다.
 다른 queued 모델은 보존하며 실패/취소/만료 때 private 자료가 남아도 결과 참조를 게시하지 않는다.
+`LeafPopulationExecutionWorker(...).run_once(job_id)`의 계획 출력 수는 현재 binding의 원 parent manifest에서 읽는다.
+계산은 job 잠금 밖에서 수행한다. 완료 artifact는 `leaf-population-execution-result-link-v1`의4KiB 이내 참조이며
+publication/version·worker code·attempt와 실제 시작/완료 사건을 대사한다. CLI invocation을 위조하지 않는다.
+만료된 시도의 unclosed는 완료가 아니며 기존 임대 회복 정책의 대상으로 남는다.
+이 v1의 계산 중 프레임/checkpoint 재개·기존 foreground consumer의 정확 worker/outcome 등록은 별도다.
 E3는 실제 job/publication/opaque 참조·현재 signed 결과를 대사해 status/manifest/frame/replay를 제공한다.
 원 result/root/계산 시각·UTC/12frame을 유지하고 조회에서 계산/쓰기/CLI0, 철회 때 fallback 없이 보류한다.
 이후 보호 API/runtime·같은 job의 실제3D·메뉴/reload 복원을 수용한다.
