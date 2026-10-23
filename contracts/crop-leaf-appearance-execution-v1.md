@@ -1,7 +1,7 @@
 # 자동 출현 원 입력의 접수·멱등성 — v1
 
 상태: [E1 신규13/순수185·실제 SCRAM2 수용](../research/crop-leaf-appearance-execution-admission-20261024.md).
-E2는 참조9/순수·관련203·실제 SCRAM9로 수용했다. E3는 구현/수용 전.
+E2는 [참조9/순수·관련203·실제 SCRAM9](../research/crop-leaf-appearance-execution-worker-20261024.md)로 수용했다. E3는 구현/수용 전.
 선행은 [appearance 서버 계산/현재 조회](crop-leaf-appearance-signed-artifact-v1.md)다.
 기존 deterministic simulation의 jobs/attempts/events/publications/outcomes를 재사용한다.
 새 큐/표·역할이나 수치 모델/원 결과·사용자 runtime 변경은 없다.

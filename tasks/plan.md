@@ -1,6 +1,6 @@
 # 구현 순서
 
-**2026-10-24 현재:** [정책 기반 잎 3D](http://localhost:5176/leaf-appearance-replay.html)에서 자체 합성 계산의3→5잎·같은 저장12시점/47면적을 재생합니다. [실제 화면·검증](../research/leaf-appearance-stored-replay-20261024.md)를 확인합니다. 새 정책의 원 입력 검토 뒤 [현재 농장/완료 줄기 작업 결속](../research/crop-leaf-appearance-farm-binding-20261024.md)도 순수304/실제 SCRAM2·독립 fresh로 수용했습니다. [원 수치 결과의 서명/현재 조회](../research/crop-leaf-appearance-signed-artifact-20261024.md)도 신규56/관련227·실제 DB2로 수용했습니다. [기존 jobs의 E1 접수/멱등](../research/crop-leaf-appearance-execution-admission-20261024.md)도 신규13/순수185·실제 DB2로 수용했습니다. 새 모듈은 사용자 runtime에 미배포이며 다음은 E2 실제 worker/원자 게시·E3 현재 조회→자동 loop/보호 API/같은 job3D입니다. 기존 [명시3→6잎 자동 작업](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)·DB/키/서비스는 보존했습니다. 실제 품종/국내 독립 작기0, 관리/생산·자원/경제·자율 선정·R2/첫 cold 경고·G0–G4는 후속이며 전체 완료일은 미정입니다.
+**2026-10-24 현재:** [정책 기반 잎 3D](http://localhost:5176/leaf-appearance-replay.html)에서 자체 합성 계산의3→5잎·같은 저장12시점/47면적을 재생합니다. [실제 화면·검증](../research/leaf-appearance-stored-replay-20261024.md)를 확인합니다. 새 정책의 원 입력 검토 뒤 [현재 농장/완료 줄기 작업 결속](../research/crop-leaf-appearance-farm-binding-20261024.md)도 순수304/실제 SCRAM2·독립 fresh로 수용했습니다. [원 수치 결과의 서명/현재 조회](../research/crop-leaf-appearance-signed-artifact-20261024.md)도 신규56/관련227·실제 DB2로 수용했습니다. [기존 jobs의 E1 접수/멱등](../research/crop-leaf-appearance-execution-admission-20261024.md)도 신규13/순수185·실제 DB2로 수용했습니다. [E2 실제 worker/원자 게시](../research/crop-leaf-appearance-execution-worker-20261024.md)도 참조9/순수203·실제 DB9로 수용했습니다. 새 모듈은 사용자 runtime에 미배포이며 다음은 E3 현재 조회→자동 loop/보호 API/같은 job3D입니다. 기존 [명시3→6잎 자동 작업](http://localhost:5176/leaf-population-execution.html?job_id=74693d03-9259-4f07-83a5-39063c8bb511)·DB/키/서비스는 보존했습니다. 실제 품종/국내 독립 작기0, 관리/생산·자원/경제·자율 선정·R2/첫 cold 경고·G0–G4는 후속이며 전체 완료일은 미정입니다.
 
 ## 자동 정책의 연구 화면 이후 — 2026-10-24
 
@@ -12,11 +12,12 @@
 2. **현재 농장/완료 stem 결과 결속 수용.** [순수304/실제 SCRAM2·독립 fresh](../research/crop-leaf-appearance-farm-binding-20261024.md): 새 source가 가용한16시 decision의 별도 합성 farm/실제 완료 parent에 원 입력/정책·job/result/root/최초 시각을 결속했다. 같은29,174bytes와 양쪽 현재/늦은 권리·검토/취소·등록 변경 거부, 원25표/서명18파일·작업/SQL쓰기0·DB/역할/임시 파일 정리를 확인했다. 사용자 runtime/원 DB·키/서비스는 보존했다.
 3. **appearance 원 수치 결과의 서명/현재 조회 수용.** [신규56/관련227·실제 SCRAM2/fresh](../research/crop-leaf-appearance-signed-artifact-20261024.md): producer1회·원 outer/inner/준비43blob·12시점/47면적/UTC와 서명47/parent18파일, 현재/늦은 철회·서명/원본/코드/참조·기간·저장 경로 겹침 거부를 확인했다. 실제 모든 조회의 생장/CLI·작업/SQL쓰기0과 fresh의 import/파일쓰기0·원25표/FD/3root/WSL·소유 정리를 수용했다. 사용자 runtime/원 DB/키·서비스는 보존했다.
 4. **E1 appearance 접수·멱등/commit fence 수용.** [신규13/순수185·실제 SCRAM2](../research/crop-leaf-appearance-execution-admission-20261024.md): 같은 요청은 queued job/event1, 변경 요청은 충돌이며 현재 입력/권한·커밋 직전6변경은 rollback됐다. 원25표/parent18파일·생장/producer/CLI0와 current_input의 작업/SQL쓰기0·3root/WSL/DB·역할·임시 파일 정리를 확인했다. 계측 복원 오류의 초기 실패/수정은 보존했고 사용자 DB/키·UI는 유지했다.
-5. **다음 자식: E2 실제 worker/원자 완료 게시.** 해당 tenant/input_version만 claim하고 현재 입력·lease/cancel 확인 후 실제 signed producer1회를 job 잠금 밖에서 실행한다. 원 result/root/parent/최초 시각을 확인해 같은 거래의 opaque 참조/publication/outcome/events/terminal을 게시한다. 완료 재실행 계산0·다른 queued 모델 보존, 취소/만료/늦은 권리·검토 변경 때 게시0·원12시점/47면적/행/파일·3root/WSL/소유 정리가 수용 기준이다. 계획 출력은 원 parent samples를 읽고 새 signed.PROGRAM_MAX를 사용한다. 이후 E3 현재 조회→자동 loop/보호 API→같은 job3D다.
-6. 기관 출현/관리의 면적·기관 수지→생산량/자원→Decimal 경제·시장/거시/수급·자율 비교는 기존 계산 의존성과 독립 자료 관문을 유지한다. 각 새 수치와 3D의 결속을 별도 수용한다.
+5. **E2 실제 worker/원자 완료 게시 수용.** [참조9/순수203·실제 SCRAM9](../research/crop-leaf-appearance-execution-worker-20261024.md): 실제 producer1회·원12frame/47면적과371bytes 참조/원자 완료를 대사했다. 완료 재실행 계산0·다른 queued 모델 보존, 현재 hold와 늦은7변경의 게시/성공 사건/참조0·25표 원 행/parent18파일·3root/WSL/DB·역할·임시 파일 정리를 확인했다. 명시 run_once이며 사용자 runtime/원 DB·키/UI는 유지했다.
+6. **다음 자식: E3 같은 작업의 현재 조회.** 실제 job/input/publication/outcome/events/서명 결과를 대사해 status/manifest/frame/replay를 읽는다. 원 result/root/calculated_at·parent/UTC/12frame/47면적·현재 권리/검토를 유지하고 늦은 변경 때 부분/fallback 없이 보류한다. 새 manifest sample_count와 signed._frame_scope로 선택 frame/마지막 기간을 확인한다. native/독립 fresh 조회의 계산·CLI·작업/SQL·파일쓰기0와 fresh의 생장·producer·worker import0·원 행/파일/3root/WSL/정리가 수용 기준이다. 이후 자동 consumer의 정확 판본/worker/outcome 등록→보호 API/runtime→같은 job3D·메뉴/reload다.
+7. 기관 출현/관리의 면적·기관 수지→생산량/자원→Decimal 경제·시장/거시/수급·자율 비교는 기존 계산 의존성과 독립 자료 관문을 유지한다. 각 새 수치와 3D의 결속을 별도 수용한다.
 
-이전 입력/farm/서명/E1 예상은 위 실적으로 대체했다. 다음 E2는 구현/참조20–40분 + 실제 DB 정상·취소/임대·늦은 변경35–70분 + 검토/기록10–20분 = **65–130집중분**의 낮은 신뢰 작업량이다. 기존 worker/lease/JobStore와 새 signed authority를 재사용하며 새 root와 원자 참조·실제 완료/보류를 대사한다.
-후속 서명/worker/API/UI와 자료 확보 시간은 포함하지 않는다. 국내 독립 작기0이므로 전체 완료 날짜는 미정이다.
+이전 입력/farm/서명/E1/E2 예상은 위 실적으로 대체했다. 다음 E3는 구현/새 manifest·기간 경계30–60분 + 실제 DB/독립 조회·변경40–80분 + 기록10–20분 = **80–160집중분**의 낮은 신뢰 작업량이다. 기존 조회 경계를 재사용하되 새 sample_count/기간·현재성/전송 비용을 별도 대사한다.
+후속 자동 consumer/API/UI와 자료 확보 시간은 포함하지 않는다. 국내 독립 작기0이므로 전체 완료 날짜는 미정이다.
 실제 품종/독립 자료 확보는 개발과 병행하며 G0–G4·예측/마진/추천 게시의 선행 조건은 유지한다.
 기존 goal은 도구상 active이며 새 goal 교체 완료로 표시하지 않는다. 아래는 날짜별 이전 기록이다.
 
