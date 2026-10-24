@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-24 KST:** [저장 면적·기후의 실제 잎3D](http://localhost:5176/growing-geometry-replay.html)는 기존 합성32초 재생입니다. [잎 제거 후 실제 생장·분할 재개](../research/growing-geometry-removal-next-interval-20261024.md)를96신규/313관련·고유409검사와fresh24조건/324시점의35,964상태·504누적량/204global 수지로 수용했습니다. 현재 A/D0·원 시각과 과거/사건/새 장부를 보존하며 아직 새3D에는 적용하지 않았습니다. 다음은 불변 사건/구간 저장·무계산 reader→strict SDK/같은 상태3D입니다. 실제 품종·복수 사건/출현·공급/전체 작기·생산/자원/Decimal 경제·거시/수급·자율 비교와 R2/G0–G4는 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지하며 farm/현재 권리 runtime·자료 확보를 병행합니다.
+**현재 — 2026-10-24 KST:** [현재 잎3D](http://localhost:5176/growing-geometry-replay.html)는 기존 합성32초 재생입니다. [제거 전/직후/다음 구간의 불변 저장·무계산 reader](../research/growing-geometry-removal-artifact-20261024.md)를81신규/89관련·170검사와fresh12root/216시점·24,264상태/936잎 수량으로 수용했습니다. 같은 시각의 두 phase와 원 CP/ID/a/A·장부/권리/notice를 보존하고 조회의 생장 import·계산/DB·CLI/network/쓰기0을 확인했습니다. 새 결과의 화면 적용은 아직 남아 있으며 다음은 별도 자체 합성 공개 선언의 export/strict SDK→같은 phase/ID의 사실적3D입니다. 실제 품종·복수 사건/출현·공급/전체 작기·생산/자원/Decimal 경제·거시/수급·자율 비교와 R2/G0–G4는 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지하며 farm/현재 권리 runtime·자료 확보를 병행합니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
