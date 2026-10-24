@@ -1437,6 +1437,48 @@
       "actual_farm_Runs": 0,
       "G0_G4": "not_assessed",
       "full_suite": false
+    },
+    "initial_whitespace_scope": "tracked changes only; new untracked CSV CRLF was not included; staging later reported48 CRLF lines",
+    "correction": "CSV line endings normalized to LF; numerical rows unchanged; all changes since implementation commit checked in records-v2",
+    "final_all_recorded_changes": {
+      "checks": {
+        "passed": true,
+        "source_SHA": 2,
+        "unique_pytest_cases": 297,
+        "ledger_rows": 47,
+        "checked_local_links": 3344,
+        "new_gate_decisions": 0,
+        "product_code_changed_after_tests": false
+      },
+      "guard": {
+        "observed_at_UTC": "2026-10-24T00:21:20.141388Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 0.8968670129834209,
+        "PID_peak_RSS_bytes": 104906752,
+        "combined_peak_RSS_bytes": 528412672,
+        "samples": 2,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 4,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 2793,
+        "source_preserved": true,
+        "source_count": 3582,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "2ea2e426b144ba3bc97493e3fec3376d59e0c22642245ab360fdc603aab2687b",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "whitespace_base": "b7c42d298eaefca591792be748a6a58f13c87e73",
+      "CSV_line_endings": "LF"
     }
   }
 }

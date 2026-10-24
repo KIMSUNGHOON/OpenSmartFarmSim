@@ -36,6 +36,10 @@ fresh 소비자의 DB/CLI/process 금지 import 시도0·소유 경로 밖 쓰�
 현재 native CLI gpt-6.1-sol/xhigh, turn_context2026-10-23T23:51:08.807Z의 원 LF SHA
 `49fad248eabc381610be2bc17761cd080e23a5bf3e37766f19c8a3629a291910`·재귀 CLI0을 기록했다.
 
+기록 검증은 코드 지문2개·JUnit297개·CSV47행과 문서 상대 링크3,344개를 대사했다.
+최초 tracked-only 형식 검사는 새 CSV를 포함하지 못했고 staging에서 CRLF48줄을 발견했다.
+LF로 정리한 뒤 구현 커밋 이후 변경분 전체의 형식/행 대조를 통과했다. 수치와 계산 코드는 바뀌지 않았다.
+
 ## 병행 자료와 다음 한 단계
 
 [국내 독립 자료 경로 재검토](independent-domestic-cherry-tomato-data-20261024.md)에서 새 RDA4129/2023 후보를 확인했다.
