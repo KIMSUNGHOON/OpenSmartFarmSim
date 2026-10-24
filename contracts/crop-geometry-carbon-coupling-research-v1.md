@@ -1,7 +1,8 @@
 # 기관 면적·탄소의 연속 결합 연구 경계 v1
 
 상태: **후속 구현의 설계 계약**. [1차 근거](../research/continuous-leaf-carbon-primary-sources-20261024.md)와
-[명시 LAI 광 동화 부품](crop-explicit-lai-photosynthesis-v1.md)만 수용했다. 연속 결합/짧은 궤적은 미수용이다.
+[명시 LAI 광 동화](crop-explicit-lai-photosynthesis-v1.md)와 [C/50과실 RHS](crop-explicit-lai-carbon-cohorts-v1.md)의
+순간 부품을 수용했다. 연속 결합/짧은 궤적은 미수용이다.
 
 기존 Vanthoor/고정 GreenLight 모델은 C_leaf→SLA×C_leaf를 LAI의 권위로 유지한다.
 그 프로필·함수·저장 결과를 바꾸지 않는다. 독립 logistic 기관 면적을 이 총면적에 조용히 맞추거나
@@ -17,7 +18,7 @@ S3 pp6–7/15 표현의 긴장, 별도 코드/기관 sink·parameter 권리와 �
 
 1. **순간 광 동화:** 명시 LAI/buffer/Tc/PAR/CO2를 원식에 넣는다. 기존 SLA closure를 호출해 질량을 만들지 않는다.
    원 적용 영역·독립 Decimal/기존4사례·저장된 추적 비율/명시 합성 환경의 조건부 대사를 수용했다.
-2. **다음: 같은 stage의 탄소·50과실 RHS.** 명시 LAI의 P를 buffer source에 정확히 한 번 사용한다.
+2. **같은 stage의 탄소·50과실 RHS 수용.** [324검사·독립9,810수치](../research/crop-explicit-lai-carbon-20261024.md)로 명시 LAI의 P를 buffer source에 정확히 한 번 사용한다.
    기존 분배/호흡·startup/50과실 유입·유출의 수지와 고정 profile을 보존하는 새 판본을 만든다.
    기존 전체 RHS를 호출한 후 P만 덮어써서 옛 SLA 영역 검사가 남거나 광 동화가 중복 계산되지 않게 한다.
    먼저 현재 호출 경계와 식을 대조하고 필요한 최소 조립을 정한다. 새 계수/보정값을 넣지 않는다.
@@ -25,7 +26,7 @@ S3 pp6–7/15 표현의 긴장, 별도 코드/기관 sink·parameter 권리와 �
    Σfruit_N의 변화는 명시 유입−말단 유출과 같아야 한다. T24/Tsum은 원 수관 온도 forcing을 따른다.
    명시 LAI=SLA×C_leaf일 때 기존 RHS와 대사하고, 다를 때는 독립 C/N 참조·양쪽 domain을 검증한다.
    입력/코드·프로필/정책/원 LAI·재고/forcing SHA와 `not_assessed`를 보존한다. 아직 재고를 시간 전진시키지 않는다.
-3. **면적 기반 열 경계:** 기존 canopy capacity/유입·유출 열은 SLA×C 변화에 의존하므로 자동 재사용하지 않는다.
+3. **다음: 면적 기반 열 경계.** 기존 canopy capacity/유입·유출 열은 SLA×C 변화에 의존하므로 자동 재사용하지 않는다.
    새 기하 상태와 LAI 변화율, 물질/열용량·온도/현열의 근거와 운반 경계를 정하고 독립 chain-rule 수지를 검증한다.
    면적 변화만으로 물질의 유입·유출 온도/열을 추정하지 않는다. 이 경계가 없으면 새 공동 온실 RHS는 hold다.
 4. **첫 짧은 연속 계산:** 같은 case/원점/고정 footprint·기존 기관의 한 구간→정확 사건→다음 구간을 연결한다.

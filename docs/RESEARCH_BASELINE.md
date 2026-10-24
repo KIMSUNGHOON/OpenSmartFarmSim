@@ -1,5 +1,7 @@
 # 자료·연구 기준선
 
+**2026-10-24 명시 LAI C/N 결속:** [기존 식/고정 프로필의 같은 stage 탄소·50과실 수용](../research/crop-explicit-lai-carbon-20261024.md)은324검사·46사례/9,810독립 수치의 소프트웨어 증거다. 새 계수/실제 질량·전체 수관/열·물·출현/작기/현장·예측/추천 승인0이며 다음은 독립 면적의 capacity/material heat 가정·필수 입력/chain-rule 경계다.
+
 **2026-10-24 연속 결합 대조:** [원문/SLA·독립 면적 후보](../research/continuous-leaf-carbon-primary-sources-20261024.md)와 [명시 LAI의 순간 광 동화 수용](../research/crop-explicit-lai-photosynthesis-20261024.md)을 기록했다. S3 pp6–7의 별도 면적/biomass와 p15의 세 변수 분리 제안·기후 feedback 미사용을 함께 보존했다. 새 hybrid 전체/출현 질량·공급·관리/열·실제 품종/관문 승인은 아니며 다음은 독립 LAI의 P를 같은 C/N RHS에 한 번 결속하는 연구 단계다.
 
 **2026-10-24 순간 제거 결속:** [기존 source/프로필을 사용한 탄소·열용량 수용](../research/crop-leaf-carbon-removal-20261024.md)은 명시 합성 순간 상태의234검사·16사례다. 실제 질량/전체 수관 계보·연속 분배/출현/면적 feedback·작기/게시 승인은 아니며 다음은 그 권위와 근거의 대조다.

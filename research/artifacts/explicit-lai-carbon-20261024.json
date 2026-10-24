@@ -1,0 +1,2308 @@
+{
+  "schema_version": "explicit-lai-carbon-cohort-software-evidence-v1",
+  "accepted_scope": "synthetic_instantaneous_carbon_number_rates_only",
+  "G0_G4": "not_assessed",
+  "full_continuous_parent_complete": false,
+  "full_goal_complete": false,
+  "native_invocation": {
+    "timestamp": "2026-10-24T04:57:05.334Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "raw_line_sha256_including_lf": "86153aa9ae1b91690e519b5cc00519cca813de0a2de352dee80f7bdd0733c30f",
+    "recursive_cli_invocations": 0,
+    "recorded_at": "2026-10-24T04:58:36.737603+00:00"
+  },
+  "source_sha256": {
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/tests/test_crop_explicit_lai_carbon_cohorts.py": "63a02a6fa1ab6052de10aa9f9435ce26015c6c63fad095b0d05e1125c05128ed",
+    "contracts/crop-explicit-lai-carbon-cohorts-v1.md": "84fd028be9c321eafa2b53651acac53824b2b5665ce85ff6dfcebd82768c8456",
+    "contracts/crop-geometry-carbon-coupling-research-v1.md": "068a78bbf2a15e760a63af841930f6fd996a96146b94a739596007142f723833",
+    "research/crop-explicit-lai-carbon-reference.py": "d46c091cdc8133082c72403880a0f55fa546fe87858ab70dd1879812149c2d04",
+    "fixtures/crop-explicit-lai-carbon-reference-v1.json": "0d1a3e89af0db53e76c482e092f43cb4283372744a0bdaef01ba7f8a2d5ee526"
+  },
+  "tests": {
+    "unique": 324,
+    "new": 67,
+    "related": 257,
+    "per_file": {
+      "tests.test_crop_explicit_lai_carbon_cohorts": 67,
+      "tests.test_crop_plant_startup_rates": 78,
+      "tests.test_crop_plant_cohort_rates": 43,
+      "tests.test_crop_explicit_lai_photosynthesis": 136
+    },
+    "overlapping_runs": [
+      324,
+      67
+    ],
+    "full_backend_CI_this_slice": false,
+    "browser_this_slice": false
+  },
+  "JUnit_sha256": {
+    "focused-v2.junit.xml": "0bb68fb2b134d295f0c2f6f81c84b92b8808a5c2b169205a791b11bf7d68e80e",
+    "final-v1.junit.xml": "80d8d6527aaf3c8e0c9d23d8a683c6d89cbaf98d82a5d1fe30b7afa204a19709"
+  },
+  "fresh": {
+    "passed": true,
+    "observed_at_UTC": "2026-10-24T05:11:23.015240Z",
+    "rows": [
+      {
+        "case_id": "synthetic-plant-17C-zero-RGR-positive-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "8c4cd148705a9b8fc0a42f9b7bab4d3448507d4f42e78e58c78984075eef20e0",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5473591257684907,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.22006654170051737,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -2.8019849895172255e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.213431243646002e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.4369395390522186e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-17C-varying-RGR-positive-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "9589b08b7f56dc8a6238cc7c6cb28936804d669fba4d6191f7bb355469c792d4",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5473591257684907,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.22006654170051737,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.5382118322138094e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.213431243646002e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.4369395390522186e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-20C-zero-RGR-positive-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "288b526255b8b4cc382df07a67fbca08bfc888810a5c6cfe30743d45af305ea6",
+        "lai": {
+          "value": 1.33,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6638107538096066,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.033316124513411094,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 1.5463433485074507e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -2.9010878443459787e-20,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-20C-varying-RGR-positive-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "c89ab0613f5c2ac325584d4db06717fcc85d6bca017e07ae61afb5b8e06059d7",
+        "lai": {
+          "value": 1.33,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6638107538096066,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.033316124513411094,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 1.546004535328549e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -2.9010878443459787e-20,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-23C-zero-RGR-positive-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "3c5091bc2b116668483d1919cf891d1571486633c4f44043bfe53a10b35f29ed",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.6429773882821981,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.0909784360635388e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -3.826471339221302e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-23C-varying-RGR-positive-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "7388ffda5dbf28dc79cb50ed8f3b34cfaa4e0ae86845e410286878d0ae457d9e",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.6429773882821981,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -2.3987973066241786e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -3.826471339221302e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-empty-no-entry",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "923aa47e6b7022dac2fe0bf3c016c011e50be3ed770e9d3fd42fc3228c7abf73",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5473591257684907,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.3770544814402427,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 4.2500725161431774e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.7430501486614958e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-empty-entry",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "288b754efdae5919affe97cf147a2418d28c49b724e182af90ea5b004e64928f",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5473591257684907,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.36435448144024263,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.11361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -8.673617379884035e-19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.7964796317215814e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-first-only",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "37640c166dab6747f82426102292b84c64544f8daf270bee8f0a155ec863e9c5",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5473591257684907,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.36435448144024263,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.11361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -8.444918484125374e-19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -6.606856988583543e-20,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.7964796317215814e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-small-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "568a924fecfb260fcb51331d7ac711f73d7f74a32cd67b0c8bcb38c6be81523a",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5473591257684907,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.22006654170051737,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 8.185726402265558e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 9.477999999999987e-207,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.4369395390522186e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-large-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "091756c0a96832d18d0c8b0fd46e60fcd9e257d87e71c811973111888387c34b",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5473591257684907,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.22006654170051737,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 1.5560683383303724e+180,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.2967236152753103e+179,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.4108352934195376e+183,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.3485925598863227e+181,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-empty-no-entry",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "f9218f507af21390595c61677d463764437c222120429ea2903280eca87a0407",
+        "lai": {
+          "value": 1.33,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6638107538096066,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.4470879770434541,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 3.0791341698588326e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.0650148258027912e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-empty-entry",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "cb7c71eecafd0e822c758ebb89657ba50196c68a1568ac2d351c208eecf14d64",
+        "lai": {
+          "value": 1.33,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6638107538096066,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.43438797704345405,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.3158046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.2576745200831851e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-first-only",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "1593430441734674f4efb97412cad3d15cbd88e54922fd05a8f260f36bff8ef1",
+        "lai": {
+          "value": 1.33,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6638107538096066,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.43438797704345405,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.3158046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.2765421789832747e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -8.512681119905718e-20,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-small-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "670064aee9f07756750f41d68c13a2cc16f472b1e540762cdb00feafc38da3ed",
+        "lai": {
+          "value": 1.33,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6638107538096066,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.033316124513411094,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 4.30970363562988e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.121800000000003e-206,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-large-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "2f8a046dc73309ac909c54c2af23bd3e369fee784733e778f43005545dceddc0",
+        "lai": {
+          "value": 1.33,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6638107538096066,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.033316124513411094,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 2.5934472305506206e+179,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -4.8627135572824136e+179,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.5436197916237294e+183,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.3485925598863227e+181,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-empty-no-entry",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "780d89d34b24bb38864965e6cb7f73f2e1b9d01717108b379a317f990ad56c3b",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.22102756121301848,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.0650148258027912e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-empty-entry",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "857c87323b238b972ecaafb06929dfa95049ea8ea52d3e4d43479ab498ea9a7c",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.23372756121301846,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.32224395832218866,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 5.204170427930421e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-first-only",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "7e900a152fbfe554497317efda0380f2e111e4859884fa0d0311af05790e3a0c",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.23372756121301846,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.32224395832218866,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 4.519132531838506e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -1.0333801956502464e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-small-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "b561d537e38c416fcb164ef5e87b76f2b2a7cd8c42cf385e9fcb6ce257b56e84",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.6429773882821981,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.83772268236293e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.2958000000000007e-206,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-large-tail",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "cf2156d914a53f80147215be6f3e6ee78eb79653512f1e2fb73f754880e16c39",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.6429773882821981,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 1.0373788922202482e+180,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 6.483618076376552e+178,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.5436197916237294e+183,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.3485925598863227e+181,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-zero-buffer-request",
+        "kind": "same-LAI",
+        "status": "supported",
+        "input_sha256": "3c56c77d5265b72daede6e35cb6988554d5c0747d77f242ecb97255653e004f1",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5510221861788344,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.5498823625826321,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0008273203760540122,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 8.023096076392733e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.4236008205603667e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-17C-zero-RGR-positive-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "631e675a3d651cf3d2b70da5a175691c757881ba193854ce895410129d9db565",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6131194133126809,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.28582682924470765,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -2.8019849895172255e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.213431243646002e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.4369395390522186e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-17C-varying-RGR-positive-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "b4414aac52706129d686879c499d2e57d95c2fdcf4a7b201fcb18a59eb8f892e",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6131194133126809,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.28582682924470765,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.5382118322138094e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.213431243646002e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.4369395390522186e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-20C-zero-RGR-positive-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "007818bc129423de668df2deb86f0819931d7dcd30552bed651c01f1af6cdcca",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.9217815657461308,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.29128693644993525,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 1.5463433485074507e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -2.9010878443459787e-20,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-20C-varying-RGR-positive-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "fc263a26aaaa72dcf33949314159c90f64c27efe26eeb655277537724817966f",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.9217815657461308,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.29128693644993525,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 1.546004535328549e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -2.9010878443459787e-20,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-23C-zero-RGR-positive-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "3d228b523301c20e072ac4cbd073f393cd6386585eeeb24bfd9f10b8eb876078",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.6429773882821981,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.0909784360635388e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -3.826471339221302e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-23C-varying-RGR-positive-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "6ee499b506c37d16997dab24b618b599ca2499e2adf573d1f89ed3054e4a7721",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.6429773882821981,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -2.3987973066241786e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -3.826471339221302e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-empty-no-entry-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "6491078f9bbe9cd76e1ec89679ca3f30db004896b55c241a79fc0ae579953e16",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6131194133126809,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.44281476898443295,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 4.2500725161431774e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.7430501486614958e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-empty-entry-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "6d84c370827ba700e06eb22a44fc4cab8580fdd45172c6924f6515f0f181af91",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6131194133126809,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.4301147689844329,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.11361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -8.673617379884035e-19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.7964796317215814e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-first-only-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "deb6240bc07a6947666f347c8dd67130ab1751e8b19c64c32b58ca54dcdcad3f",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6131194133126809,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.4301147689844329,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.11361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -8.444918484125374e-19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -6.606856988583543e-20,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.7964796317215814e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-small-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "cdb3d2c4ebb9139dc44bc3b7c469ff10e00b63490a752100abbd6a62310cec1b",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6131194133126809,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.28582682924470765,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 8.185726402265558e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 9.477999999999987e-207,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.4369395390522186e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-17C-large-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "919852c913eeee1411e39bc8fd55a1f7e79f1ccd3c6443288d538f50e298d6af",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6131194133126809,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.28582682924470765,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 1.5560683383303724e+180,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.2967236152753103e+179,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.4108352934195376e+183,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.3485925598863227e+181,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-empty-no-entry-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "14cc77b5f79ba4573316516b28cfcfd9136ae0a977421451be7635c4d6821fcd",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.9217815657461308,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.7050587889799782,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -2.47198095326695e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.0650148258027912e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-empty-entry-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "7e324ca1a5666561bc674640a0236953ce73c92db2397143831e16988c1074bc",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.9217815657461308,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.6923587889799783,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.3158046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 4.2934406030425976e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-first-only-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "d41d2440b9fa102207e757b70ed2443546352776b9cc22e9d3ae12432ae67df1",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.9217815657461308,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.6923587889799783,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.3158046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 4.274572944142508e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -8.512681119905718e-20,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-small-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "06f14f7a6bc922fbf0a4fde252fe3c7d2138804566aea13ac0a5deb2056c2f07",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.9217815657461308,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.29128693644993525,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 4.30970363562988e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.121800000000003e-206,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-20C-large-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "d809556d3a1bec38dbe3cfa11b6875ed7e0d3f039e190481a35f3c1feb44ac61",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.9217815657461308,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.29128693644993525,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.3258046082913724,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 2.5934472305506206e+179,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -4.8627135572824136e+179,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.5436197916237294e+183,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.3485925598863227e+181,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-empty-no-entry-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "abe5232ecfcf7dbcfce446de50e6a2033326f6050f15d487cf93b9d74751a365",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.22102756121301848,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.0650148258027912e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-empty-entry-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "dd9d12f50f7ace5ca7b820b73090e9b54765f7681ebfc33b4f438f59786d472b",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.23372756121301846,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.32224395832218866,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 5.204170427930421e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-first-only-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "4de9b1779c5812c60d2e22b23530379d732aca68442f62b06530810e525a2dc4",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.23372756121301846,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.01,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.32224395832218866,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 4.519132531838506e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": -1.0333801956502464e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-small-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "a64d7aa35ae38ba75d9db40de2c1076f83385a61d1a42ee4843949da0ce2cf8b",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.6429773882821981,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.83772268236293e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.2958000000000007e-206,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-23C-large-tail-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "cf49314b54bad42d329e8439b3e7035c6cbb160bd8cdb3c1a699b2aaff5d1eb9",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": -0.6429773882821981,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.33224395832218867,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 1.0373788922202482e+180,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 6.483618076376552e+178,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.5436197916237294e+183,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.3485925598863227e+181,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-startup-zero-buffer-request-double-LAI",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "1dfb3965a33313c11e7e4749facfe6f04db9621f63ccb1d264460f3f70c08ec8",
+        "lai": {
+          "value": 5.32,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.617222557562931,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.6160827339667287,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0008273203760540122,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": 8.023096076392733e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 1.4236008205603667e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-17C-zero-RGR-positive-tail-legacy-domain-outside",
+        "kind": "explicit-LAI",
+        "status": "supported",
+        "input_sha256": "a1d30f3fdff1928212f63ad27b137c81e75cc0dc63fc025e77875c3996b50b5b",
+        "lai": {
+          "value": 1.0,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.35537067624358215,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative": {
+          "value": 0.02807809217560886,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "fruit_allocation": {
+          "value": 0.12361255097616163,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "balance_residual": {
+          "carbohydrate": {
+            "value": -1.248920963968904e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.213431243646002e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "carbohydrate": {
+            "value": 2.4369395390522186e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        }
+      },
+      {
+        "case_id": "synthetic-plant-17C-zero-RGR-positive-tail-explicit-domain-outside",
+        "kind": "explicit-LAI",
+        "status": "COMPENSATION_POINT_HOLD"
+      }
+    ],
+    "cases": 46,
+    "supported": 45,
+    "holds": 1,
+    "numeric_comparisons": 9810,
+    "exact_zero_comparisons": 4744,
+    "maximum_relative_error": 4.0124773169261425e-15,
+    "counts": {
+      "optical": 46,
+      "helper": 46,
+      "startup": 45,
+      "cohorts": 45
+    },
+    "legacy_RHS_advance_integration_DB_CLI_network_writes": 0,
+    "reference_regenerated_identical_bytes": true,
+    "FD_preserved": true,
+    "G0_G4": "not_assessed"
+  },
+  "WSL_phases": {
+    "explicit-lai-carbon-red-v1": {
+      "observed_at_UTC": "2026-10-24T05:03:33.097765Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.2112400390033145,
+      "PID_peak_RSS_bytes": 91131904,
+      "combined_peak_RSS_bytes": 494026752,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3699,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "14ccecc774b2ecb53f012df563345bb7136008688af8e76e5798bf8647ef4e2e",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-carbon-focused-v1": {
+      "observed_at_UTC": "2026-10-24T05:05:26.804673Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 1.447890114999609,
+      "PID_peak_RSS_bytes": 91131904,
+      "combined_peak_RSS_bytes": 501985280,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3700,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "b8cc5cc408173fbee554f16d0fe5afc4a27851012695e1678a21a92ad0f6c221",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-carbon-reference-v1": {
+      "observed_at_UTC": "2026-10-24T05:07:17.342726Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.214818935986841,
+      "PID_peak_RSS_bytes": 91131904,
+      "combined_peak_RSS_bytes": 468955136,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3701,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "38888887c49884bf553fa805c9fa3dc875e959a6360bf5df04b4f3dad3ee62c9",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-carbon-focused-v2": {
+      "observed_at_UTC": "2026-10-24T05:08:51.083952Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.5456062689772807,
+      "PID_peak_RSS_bytes": 91000832,
+      "combined_peak_RSS_bytes": 520540160,
+      "samples": 8,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3702,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "96686c57d5bc8aa1f905b9c934d18a8c9a3ba5df4a8af4a9f281c54a4457c008",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-carbon-fresh-v1": {
+      "observed_at_UTC": "2026-10-24T05:11:24.044601Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.7731277830025647,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 486105088,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3702,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "fef6be8a0843a94af9394146917399473892a6ad36f4232feceefff543b3addd",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-carbon-final-v1": {
+      "observed_at_UTC": "2026-10-24T05:13:18.869654Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.765622559003532,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 514740224,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3702,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "57a5aa8f799094e35d4c025d7c3d84bed45c0e9e6946bb33bbf6e49781886409",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "runtime_UI_DB_key_changes": 0,
+  "actual_measurements_received": 0,
+  "independent_unused_domestic_cycles": 0
+}

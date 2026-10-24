@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-24 KST:** [잎 생장·제거3D](http://localhost:5176/leaf-lifecycle-replay.html)는 기존 서버에서 확인합니다. [명시 LAI의 순간 광 동화](research/crop-explicit-lai-photosynthesis-20261024.md)를 새136/관련118·254검사와 fresh96사례/독립198수치로 수용했습니다. 82수용/14원 domain hold와 원 합성 저장 자료+별도 환경 가정48건의28수용/20hold를 확인했습니다. 기존 탄소/SLA·프로필·저장/서버는 유지하며 다음은 이 P를 기관/buffer·50과실 RHS에 한 번 결합하는 단계입니다. 연속 탄소/면적·열·출현/제거와 전체 작기는 미완료입니다. 관리 SourceRecord/현재 농장 실행과 국내 자료 획득은 병행합니다. 원 측정/미사용 독립 국내 작기0·첫 국내 품종 미확정, 실제 생산·자원/경제/추천/R2/G0–G4와 전체 완료일 미정을 유지합니다.
+**현재 — 2026-10-24 KST:** [잎 생장·제거3D](http://localhost:5176/leaf-lifecycle-replay.html)는 기존 서버에서 확인합니다. [명시 LAI의 기관·50과실 C/N RHS](research/crop-explicit-lai-carbon-20261024.md)를 새67/관련257·324검사와 fresh46사례/독립9,810수치로 수용했습니다. 같은 LAI의 기존22사례·다른 LAI/원 영역 차이와 P/startup/50구획 각1회·전체 C/N 수지를 확인했습니다. 다음은 면적 변화의 열용량·물질 현열 경계이며, 연속 구간/정확 사건·재개/출현 질량·전체 작기는 미완료입니다. 관리 SourceRecord/현재 농장 실행과 국내 자료 획득은 병행합니다. 원 측정/미사용 독립 국내 작기0·첫 국내 품종 미확정, 실제 생산·자원/경제/추천/R2/G0–G4와 전체 완료일 미정을 유지합니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
