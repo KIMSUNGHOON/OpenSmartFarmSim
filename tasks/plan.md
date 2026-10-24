@@ -1,6 +1,6 @@
 # 구현 순서
 
-**현재 — 2026-10-24 KST:** [현재 잎3D](http://localhost:5176/growing-geometry-replay.html)는 기존 합성32초 재생입니다. [제거 전/직후/다음 구간의 불변 저장·무계산 reader](../research/growing-geometry-removal-artifact-20261024.md)를81신규/89관련·170검사와fresh12root/216시점·24,264상태/936잎 수량으로 수용했습니다. 같은 시각의 두 phase와 원 CP/ID/a/A·장부/권리/notice를 보존하고 조회의 생장 import·계산/DB·CLI/network/쓰기0을 확인했습니다. 새 결과의 화면 적용은 아직 남아 있으며 다음은 별도 자체 합성 공개 선언의 export/strict SDK→같은 phase/ID의 사실적3D입니다. 실제 품종·복수 사건/출현·공급/전체 작기·생산/자원/Decimal 경제·거시/수급·자율 비교와 R2/G0–G4는 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지하며 farm/현재 권리 runtime·자료 확보를 병행합니다.
+**현재 — 2026-10-24 KST:** [현재 잎3D](http://localhost:5176/growing-geometry-replay.html)는 기존 합성32초 재생입니다. [제거 전후 저장/무계산 reader](../research/growing-geometry-removal-artifact-20261024.md)의170검사에 이어 [별도 자체 합성 선언의 export](../research/growing-geometry-removal-export-20261024.md)를25신규/18관련·43검사/fresh12결과·216시점으로 수용했습니다. 원16source/notice·CP/DTO·phase/시각/ID와 기존 private False420파일을 보존하고 두648파일 출력의 같은 bytes·내보내기 계산0을 확인했습니다. 새 결과의 strict SDK→같은 phase/ID의 사실적3D/사용자 적용은 후속입니다. 실제 품종/전체 작기·생산/자원/Decimal 경제·거시/수급·자율 비교·farm/CLI G1과 R2/G0–G4는 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지합니다.
 
 ## 저장 면적·기후 사용자 화면 수용 후 — 2026-10-24 KST
 
@@ -16,7 +16,8 @@
 | 5a | [제거 후 문맥82신규/231관련·313검사/fresh36문맥](../research/growing-geometry-post-removal-context-20261024.md): 원 source·현재 a/A/D0·사건/과거 장부·같은 snapshot bytes 보존, 복원 재계산0 | 완료 |
 | 5b | [실제 다음 구간96신규/313관련·409검사/fresh24조건·324시점](../research/growing-geometry-removal-next-interval-20261024.md): 원 a/A/D0/장부·독립 RK4/204global 수지/276cut·같은 bytes·확인 prefix 보존 | 완료 |
 | 6a | [불변 저장81신규/89관련·170검사/fresh12root/216시점](../research/growing-geometry-removal-artifact-20261024.md): 원 CP/phase/시각·장부/권리/notice와 readonly import·계산0·512잎 경계 | 완료 |
-| 6b1 | 새 자체 합성 공개 선언/별도 root·strict export/SDK: 원 source/CP/DTO bytes·정확 phase/시각/ID와 권리/notice·고정 지문·취소/변조/fresh | 120–205분 |
+| 6b1a | [별도 공개 선언/export25신규/18관련·43검사/fresh12결과·648파일 동일 재출력](../research/growing-geometry-removal-export-20261024.md): 원 source/CP/DTO·phase/권리/notice·private false 보존·index-last/계산0 | 완료 |
+| 6b1b | strict SDK: 고정 root/index/원16source·CP/DTO·phase/global index/정확 시각/ID·단위/장부, 변조/취소·전체 타입 | 75–130분 |
 | 6b2 | 원 ID의 attachment를 보존한 사실적 잎 제거/같은 상태3D·표/그래프와 실제 브라우저/사용자 적용 | SDK 계약 뒤 별도 분해 |
 | 7 | 복수 사건/출현·공급/전체 작기·생산/자원→Decimal 경제·거시/수급·자율 비교 | 앞 단계/자료 범위로 재산정 |
 
@@ -24,7 +25,8 @@ point의 앞선2–4시간 추정은 해당 제한된 순간 수용 기록으로
 문맥의 앞선135–240분 예상도 해당 무전진 수용 기록으로 대체한다.
 다음 구간/재개의 앞선190–320분 예상은 해당 수용 기록으로 대체한다.
 저장/reader의 앞선180–300분 예상은 해당 수용 기록으로 대체한다.
-다음 export/SDK는 계약/선언20–35분+재사용45–75분+변조/fresh·타입40–70분+기록15–25분의120–205집중분으로 분해했다.
+export/SDK의 앞선120–205분 중 export 부분은 위 실제 수용으로 대체했다.
+남은 SDK는 계약/고정 파일15–25분+검증기/시험35–60분+fresh/타입·기록25–45분의75–130집중분이다.
 낮은 신뢰이며 3D/사용자 적용·복수 사건/출현·공급·제품 전체 완료 약속이 아니다.
 현재 farm/서명 custody 연결과 국내 원 측정/독립 작기·품종 자료 획득은 병행한다.
 새 기반 서비스를 선행 조건으로 추가하지 않는다. 실제 자료/관문과 전체 완료일은 미정이다.

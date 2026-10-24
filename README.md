@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-24 KST:** [현재 잎3D](http://localhost:5176/growing-geometry-replay.html)는 기존 합성32초 재생입니다. [제거 전/직후/다음 구간의 불변 저장·무계산 reader](research/growing-geometry-removal-artifact-20261024.md)를81신규/89관련·170검사와fresh12root/216시점·24,264상태/936잎 수량으로 수용했습니다. 같은 시각의 두 phase와 원 CP/ID/a/A·장부/권리/notice를 보존하고 조회의 생장 import·계산/DB·CLI/network/쓰기0을 확인했습니다. 새 결과의 화면 적용은 아직 남아 있으며 다음은 별도 자체 합성 공개 선언의 export/strict SDK→같은 phase/ID의 사실적3D입니다. 실제 품종·복수 사건/출현·공급/전체 작기·생산/자원/Decimal 경제·거시/수급·자율 비교와 R2/G0–G4는 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지하며 farm/현재 권리 runtime·자료 확보를 병행합니다.
+**현재 — 2026-10-24 KST:** [현재 잎3D](http://localhost:5176/growing-geometry-replay.html)는 기존 합성32초 재생입니다. [제거 전후 저장/무계산 reader](research/growing-geometry-removal-artifact-20261024.md)의170검사에 이어 [별도 자체 합성 선언의 export](research/growing-geometry-removal-export-20261024.md)를25신규/18관련·43검사/fresh12결과·216시점으로 수용했습니다. 원16source/notice·CP/DTO·phase/시각/ID와 기존 private False420파일을 보존하고 두648파일 출력의 같은 bytes·내보내기 계산0을 확인했습니다. 새 결과의 strict SDK→같은 phase/ID의 사실적3D/사용자 적용은 후속입니다. 실제 품종/전체 작기·생산/자원/Decimal 경제·거시/수급·자율 비교·farm/CLI G1과 R2/G0–G4는 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지합니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
