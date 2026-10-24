@@ -1,0 +1,2109 @@
+{
+  "schema_version": "leaf-carbon-removal-software-evidence-v1",
+  "accepted_scope": "synthetic_instantaneous_declared_removal_only",
+  "full_parent_continuous_coupling_complete": false,
+  "G0_G4": "not_assessed",
+  "native_invocation": {
+    "timestamp": "2026-10-24T04:15:59.633Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "raw_line_sha256_including_lf": "6e061accc2310ba6ba3bed2dc515a900945381cef4d781e6b43a5e9232a940cc",
+    "recursive_cli_invocations": 0,
+    "recorded_at": "2026-10-24T04:16:31.295878+00:00"
+  },
+  "source_sha256": {
+    "backend/app/crop_leaf_carbon_removal.py": "fcfb4da564f30728d51be65428b97f72588bb2e9d5d3a6c1c8f8f85eaa2c250a",
+    "backend/tests/test_crop_leaf_carbon_removal.py": "621029563755b6de7e836310281080425f78765d025230af354b9a5dee33a735",
+    "contracts/crop-leaf-carbon-removal-v1.md": "b851d83b35c81e7863244d18f3e837d8439d4fa60d1bf8783a1183fd793540c0"
+  },
+  "local_tests": {
+    "unique": 234,
+    "new": 45,
+    "related": {
+      "joint_management": 69,
+      "leaf_lifecycle": 79,
+      "leaf_canopy_basis": 41
+    },
+    "overlapping_runs": [
+      226,
+      45
+    ],
+    "overlap": 37,
+    "full_backend_CI": false,
+    "browser_this_slice": false
+  },
+  "JUnit_sha256": {
+    "focused-v2.junit.xml": "fdc2dfcc1dbdf70d2871e26182d9dd9188ea50d9b778c0f376a28776c43f508c",
+    "final-v1.junit.xml": "a53e497cbcb97c420a100a3e083983bb3364752ba07b9db0a2a89f048fb2baf5"
+  },
+  "fresh_probe": {
+    "passed": true,
+    "observed_at_UTC": "2026-10-24T04:28:17.082796Z",
+    "cases": [
+      {
+        "stage": 0,
+        "input_sha256": "955dbe6a0cd1242d36600d026f001e36bc01173c2ad3e117f5b224c966142834",
+        "calculation_sha256": "7670532cd513704656d8a1860625590446ffe8147a734e120d84cd2dbef6fc17",
+        "at_elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 1000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 49000.0,
+          "lai": 1.3034,
+          "capacity": 1564.08,
+          "removed_capacity": 31.919999999999998,
+          "energy": 34409.76,
+          "removed_energy": 702.239999999998
+        },
+        "expected_decimal": {
+          "leaf": "49000",
+          "lai": "1.30339999999999997214714976545568703159005963243544101715087890625000",
+          "capacity": "1564.07999999999996657657971854682443790807155892252922058105468750000000",
+          "removed_capacity": "31.9199999999999993178893820111596824062871746718883514404296875000000",
+          "energy": "34409.76",
+          "removed_energy": "702.24"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 7.460698725481052e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 3.552713678800501e-15,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 4.656612873077393e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 0,
+        "input_sha256": "be55b4b369e3fc076fe5b17b46e0547582a89d9e69e8b056f27769b95f5d68ec",
+        "calculation_sha256": "7da160b7de1333eaeeef0e27842df1d22eb678c65ab2d537e59a7d7bcb61a0a3",
+        "at_elapsed_seconds_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 1000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 49000.0,
+          "lai": 1.3034,
+          "capacity": 1564.08,
+          "removed_capacity": 31.919999999999998,
+          "energy": 34409.76,
+          "removed_energy": 702.239999999998
+        },
+        "expected_decimal": {
+          "leaf": "49000",
+          "lai": "1.30339999999999997214714976545568703159005963243544101715087890625000",
+          "capacity": "1564.07999999999996657657971854682443790807155892252922058105468750000000",
+          "removed_capacity": "31.9199999999999993178893820111596824062871746718883514404296875000000",
+          "energy": "34409.76",
+          "removed_energy": "702.24"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 7.460698725481052e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 3.552713678800501e-15,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 4.656612873077393e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 0,
+        "input_sha256": "52ea66e9bb54e6dc547f0a5bd62eac280260e0eac8d53f54eef675851857221b",
+        "calculation_sha256": "7f7bb6d114dac555a548bb862e220ceadc71536f2142885d6a06ad9b8e832992",
+        "at_elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-1",
+            "leaf_id": "declared-leaf-1",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 21000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 29000.0,
+          "lai": 0.7714,
+          "capacity": 925.68,
+          "removed_capacity": 670.3199999999999,
+          "energy": 20364.96,
+          "removed_energy": 14747.04
+        },
+        "expected_decimal": {
+          "leaf": "29000",
+          "lai": "0.77139999999999998351566006526969232481860672123730182647705078125000",
+          "capacity": "925.67999999999998021879207832363078978232806548476219177246093750000000",
+          "removed_capacity": "670.3199999999999856756770222343533305320306681096553802490234375000000",
+          "energy": "20364.96",
+          "removed_energy": "14747.04"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 7.105427357601002e-15,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 7.275957614183426e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.1368683772161603e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 4.656612873077393e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 0,
+        "input_sha256": "0c4f48d4db1f09c05f9eda2140d0a959ccf69cf7c840ae2a41cec0ce0e197fea",
+        "calculation_sha256": "51897cc95e76623388e5082e08254f2eaa9c52081d87f94a723c003c2797095c",
+        "at_elapsed_seconds_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-1",
+            "leaf_id": "declared-leaf-1",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 21000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 29000.0,
+          "lai": 0.7714,
+          "capacity": 925.68,
+          "removed_capacity": 670.3199999999999,
+          "energy": 20364.96,
+          "removed_energy": 14747.04
+        },
+        "expected_decimal": {
+          "leaf": "29000",
+          "lai": "0.77139999999999998351566006526969232481860672123730182647705078125000",
+          "capacity": "925.67999999999998021879207832363078978232806548476219177246093750000000",
+          "removed_capacity": "670.3199999999999856756770222343533305320306681096553802490234375000000",
+          "energy": "20364.96",
+          "removed_energy": "14747.04"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 7.105427357601002e-15,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 7.275957614183426e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.1368683772161603e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 4.656612873077393e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "input_sha256": "653d4ed8f621e5a5c559e9311c4143d81aa909e67b371029f672ba7bfee773ac",
+        "calculation_sha256": "730ca81826ca12697c462a1a89dc9d0718c6b354296a38efb6a0e5d2b2574256",
+        "at_elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 1000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 49000.0,
+          "lai": 1.3034,
+          "capacity": 1564.08,
+          "removed_capacity": 31.919999999999998,
+          "energy": 28153.44,
+          "removed_energy": 574.5600000000013
+        },
+        "expected_decimal": {
+          "leaf": "49000",
+          "lai": "1.30339999999999997214714976545568703159005963243544101715087890625000",
+          "capacity": "1564.07999999999996657657971854682443790807155892252922058105468750000000",
+          "removed_capacity": "31.9199999999999993178893820111596824062871746718883514404296875000000",
+          "energy": "28153.44",
+          "removed_energy": "574.56"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 7.460698725481052e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.3283064365386963e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "input_sha256": "19113eda41942c1a5b91c4fa5b87ab9acfa94a83cfcc22ed0df5afe2f4a229aa",
+        "calculation_sha256": "3f499fccfcc29c030da5d3fb975f5c588155b89337bfac6f5e38479f2de4fd20",
+        "at_elapsed_seconds_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 1000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 49000.0,
+          "lai": 1.3034,
+          "capacity": 1564.08,
+          "removed_capacity": 31.919999999999998,
+          "energy": 28153.44,
+          "removed_energy": 574.5600000000013
+        },
+        "expected_decimal": {
+          "leaf": "49000",
+          "lai": "1.30339999999999997214714976545568703159005963243544101715087890625000",
+          "capacity": "1564.07999999999996657657971854682443790807155892252922058105468750000000",
+          "removed_capacity": "31.9199999999999993178893820111596824062871746718883514404296875000000",
+          "energy": "28153.44",
+          "removed_energy": "574.56"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 7.460698725481052e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.3283064365386963e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "input_sha256": "40a055f3396f1adb18e5da9888c137c94f96ab82dfb8e66e8e979a8e63811dee",
+        "calculation_sha256": "2a9e8b9c79933bf930ed373e0fc716793f53cc75f6bbc8c6eeb378f2cb7e73f1",
+        "at_elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-1",
+            "leaf_id": "declared-leaf-1",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 21000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 29000.0,
+          "lai": 0.7714,
+          "capacity": 925.68,
+          "removed_capacity": 670.3199999999999,
+          "energy": 16662.239999999998,
+          "removed_energy": 12065.760000000002
+        },
+        "expected_decimal": {
+          "leaf": "29000",
+          "lai": "0.77139999999999998351566006526969232481860672123730182647705078125000",
+          "capacity": "925.67999999999998021879207832363078978232806548476219177246093750000000",
+          "removed_capacity": "670.3199999999999856756770222343533305320306681096553802490234375000000",
+          "energy": "16662.24",
+          "removed_energy": "12065.76"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 7.105427357601002e-15,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 7.275957614183426e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.1368683772161603e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.3283064365386963e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "input_sha256": "047a8b22bee17246c219d3c08566c85ad7429e19181ecfc6729821e52707f6f2",
+        "calculation_sha256": "74b31e49533a9e4b560d784e5c3852b6e838123d5f2bc1b10bc5a3c89d82f098",
+        "at_elapsed_seconds_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-1",
+            "leaf_id": "declared-leaf-1",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 21000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 29000.0,
+          "lai": 0.7714,
+          "capacity": 925.68,
+          "removed_capacity": 670.3199999999999,
+          "energy": 16662.239999999998,
+          "removed_energy": 12065.760000000002
+        },
+        "expected_decimal": {
+          "leaf": "29000",
+          "lai": "0.77139999999999998351566006526969232481860672123730182647705078125000",
+          "capacity": "925.67999999999998021879207832363078978232806548476219177246093750000000",
+          "removed_capacity": "670.3199999999999856756770222343533305320306681096553802490234375000000",
+          "energy": "16662.24",
+          "removed_energy": "12065.76"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 7.105427357601002e-15,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 7.275957614183426e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.1368683772161603e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.3283064365386963e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 5,
+        "input_sha256": "d49c561c4e44ee94965b360daba39394023b48194cdd73ae56a771bfbd1e6664",
+        "calculation_sha256": "3839354fcd728569c2c9014051ffc27dd7d657b3f73dd3c37e18bd0c898cdb0c",
+        "at_elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 1000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 49000.0,
+          "lai": 1.3034,
+          "capacity": 1564.08,
+          "removed_capacity": 31.919999999999998,
+          "energy": -12512.64,
+          "removed_energy": -255.36000000000058
+        },
+        "expected_decimal": {
+          "leaf": "49000",
+          "lai": "1.30339999999999997214714976545568703159005963243544101715087890625000",
+          "capacity": "1564.07999999999996657657971854682443790807155892252922058105468750000000",
+          "removed_capacity": "31.9199999999999993178893820111596824062871746718883514404296875000000",
+          "energy": "-12512.64",
+          "removed_energy": "-255.36"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 7.460698725481052e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.1641532182693481e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 5,
+        "input_sha256": "af929d3f13f07d581a5c57cb6ecee33a42b503f5e800698034249ae3645bad59",
+        "calculation_sha256": "907ad7e5665c8157225d8c05c3c882976ef65bbafbadecba6d125261647147d7",
+        "at_elapsed_seconds_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 1000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 49000.0,
+          "lai": 1.3034,
+          "capacity": 1564.08,
+          "removed_capacity": 31.919999999999998,
+          "energy": -12512.64,
+          "removed_energy": -255.36000000000058
+        },
+        "expected_decimal": {
+          "leaf": "49000",
+          "lai": "1.30339999999999997214714976545568703159005963243544101715087890625000",
+          "capacity": "1564.07999999999996657657971854682443790807155892252922058105468750000000",
+          "removed_capacity": "31.9199999999999993178893820111596824062871746718883514404296875000000",
+          "energy": "-12512.64",
+          "removed_energy": "-255.36"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 7.460698725481052e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.1641532182693481e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 5,
+        "input_sha256": "dfc4c5ae065d8cf75df56a305538fe0214dd7a0aebbe2e6c30fc3dca35a025e9",
+        "calculation_sha256": "c0ea52638582ea484f6d1eaf0eaca4c0f19c28154a13b7f07281edcbfbbaeb8f",
+        "at_elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-1",
+            "leaf_id": "declared-leaf-1",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 21000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 29000.0,
+          "lai": 0.7714,
+          "capacity": 925.68,
+          "removed_capacity": 670.3199999999999,
+          "energy": -7405.44,
+          "removed_energy": -5362.56
+        },
+        "expected_decimal": {
+          "leaf": "29000",
+          "lai": "0.77139999999999998351566006526969232481860672123730182647705078125000",
+          "capacity": "925.67999999999998021879207832363078978232806548476219177246093750000000",
+          "removed_capacity": "670.3199999999999856756770222343533305320306681096553802490234375000000",
+          "energy": "-7405.44",
+          "removed_energy": "-5362.56"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 7.105427357601002e-15,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 7.275957614183426e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.1368683772161603e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.1641532182693481e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 5,
+        "input_sha256": "b588eea9a16956c9fc25db38c001318f1959e5823c24abab4404653f9af95b06",
+        "calculation_sha256": "9d581f79a1c4781d18fe588314fb67416564ae0bfdde0b8a2daec7ce9683e3de",
+        "at_elapsed_seconds_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-1",
+            "leaf_id": "declared-leaf-1",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 21000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 29000.0,
+          "lai": 0.7714,
+          "capacity": 925.68,
+          "removed_capacity": 670.3199999999999,
+          "energy": -7405.44,
+          "removed_energy": -5362.56
+        },
+        "expected_decimal": {
+          "leaf": "29000",
+          "lai": "0.77139999999999998351566006526969232481860672123730182647705078125000",
+          "capacity": "925.67999999999998021879207832363078978232806548476219177246093750000000",
+          "removed_capacity": "670.3199999999999856756770222343533305320306681096553802490234375000000",
+          "energy": "-7405.44",
+          "removed_energy": "-5362.56"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 7.105427357601002e-15,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 7.275957614183426e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.1368683772161603e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.1641532182693481e-10,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 6,
+        "input_sha256": "74d072380515fa057981d1aa93208890ba813c94e614397980ec054d92bf6fb6",
+        "calculation_sha256": "610c1164c238065888b7be97c1528fd9d4ed810a43f581bf50190857daca2614",
+        "at_elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 1000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 49000.0,
+          "lai": 1.3034,
+          "capacity": 1564.08,
+          "removed_capacity": 31.919999999999998,
+          "energy": 0.0,
+          "removed_energy": 0.0
+        },
+        "expected_decimal": {
+          "leaf": "49000",
+          "lai": "1.30339999999999997214714976545568703159005963243544101715087890625000",
+          "capacity": "1564.07999999999996657657971854682443790807155892252922058105468750000000",
+          "removed_capacity": "31.9199999999999993178893820111596824062871746718883514404296875000000",
+          "energy": "0",
+          "removed_energy": "0E+1"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 7.460698725481052e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.16e-322,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 6,
+        "input_sha256": "2200d5b0789a52233d4f0d96fcc7ea7db1ea4db9d4605dca31b3fa6224401849",
+        "calculation_sha256": "543cbddaa915fd88912f0ade499597e1ed4dc66461b9f57cc844b3509b9a7c2f",
+        "at_elapsed_seconds_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 1000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 49000.0,
+          "lai": 1.3034,
+          "capacity": 1564.08,
+          "removed_capacity": 31.919999999999998,
+          "energy": 0.0,
+          "removed_energy": 0.0
+        },
+        "expected_decimal": {
+          "leaf": "49000",
+          "lai": "1.30339999999999997214714976545568703159005963243544101715087890625000",
+          "capacity": "1564.07999999999996657657971854682443790807155892252922058105468750000000",
+          "removed_capacity": "31.9199999999999993178893820111596824062871746718883514404296875000000",
+          "energy": "0",
+          "removed_energy": "0E+1"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 7.460698725481052e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.16e-322,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 6,
+        "input_sha256": "94cfbbc81b757fc4ebd58a078f54564e1b8015443e42c4f5f724c3f52f99a773",
+        "calculation_sha256": "2f5933d288545b2e5e3bfacc81625c78b6e5d654dac032d1807181295bec87b4",
+        "at_elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "0",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-1",
+            "leaf_id": "declared-leaf-1",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 21000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 29000.0,
+          "lai": 0.7714,
+          "capacity": 925.68,
+          "removed_capacity": 670.3199999999999,
+          "energy": 0.0,
+          "removed_energy": 0.0
+        },
+        "expected_decimal": {
+          "leaf": "29000",
+          "lai": "0.77139999999999998351566006526969232481860672123730182647705078125000",
+          "capacity": "925.67999999999998021879207832363078978232806548476219177246093750000000",
+          "removed_capacity": "670.3199999999999856756770222343533305320306681096553802490234375000000",
+          "energy": "0",
+          "removed_energy": "0E+1"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 7.105427357601002e-15,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 7.275957614183426e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.1368683772161603e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.16e-322,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      },
+      {
+        "stage": 6,
+        "input_sha256": "797eb05273d36f2bc904108e275ca09937355bd0b998de71ca12b81a6adf4df7",
+        "calculation_sha256": "dcb3690b4688027cae984b6261d5508ee207f18ac7708f1db70f05388a5ed34f",
+        "at_elapsed_seconds_exact": {
+          "denominator": "3",
+          "numerator": "1",
+          "unit": "s"
+        },
+        "events": [
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-0",
+            "leaf_id": "declared-leaf-0",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          },
+          {
+            "action": "remove_whole_leaf",
+            "at_elapsed_seconds_exact": {
+              "denominator": "3",
+              "numerator": "1",
+              "unit": "s"
+            },
+            "event_id": "explicit-remove-1",
+            "leaf_id": "declared-leaf-1",
+            "origin": "synthetic",
+            "schema_version": "declared-whole-leaf-removal-event-v1",
+            "time_origin_utc": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "removed_carbohydrate": {
+          "value": 21000.0,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "actual": {
+          "leaf": 29000.0,
+          "lai": 0.7714,
+          "capacity": 925.68,
+          "removed_capacity": 670.3199999999999,
+          "energy": 0.0,
+          "removed_energy": 0.0
+        },
+        "expected_decimal": {
+          "leaf": "29000",
+          "lai": "0.77139999999999998351566006526969232481860672123730182647705078125000",
+          "capacity": "925.67999999999998021879207832363078978232806548476219177246093750000000",
+          "removed_capacity": "670.3199999999999856756770222343533305320306681096553802490234375000000",
+          "energy": "0",
+          "removed_energy": "0E+1"
+        },
+        "area_residuals": {
+          "before": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "area_budgets": {
+          "before": {
+            "value": 1.4210854715202004e-14,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "after": {
+            "value": 7.105427357601002e-15,
+            "unit": "m2_leaf/m2_floor"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 7.275957614183426e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.1368683772161603e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 0.0,
+            "unit": "K"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 9.313225746154785e-10,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 2.2737367544323206e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.16e-322,
+            "unit": "J/m2_floor"
+          },
+          "crop_capacity": {
+            "value": 1.4551915228366852e-11,
+            "unit": "J/m2_floor/K"
+          },
+          "temperature": {
+            "value": 2e-13,
+            "unit": "K"
+          }
+        }
+      }
+    ],
+    "counts": {
+      "management": 16,
+      "rhs": 32
+    },
+    "lifecycle_advance_integration_DB_CLI_network_writes": 0,
+    "FD_preserved": true,
+    "G0_G4": "not_assessed",
+    "source_sha256": "fcfb4da564f30728d51be65428b97f72588bb2e9d5d3a6c1c8f8f85eaa2c250a"
+  },
+  "independent_numeric_comparisons": 96,
+  "maximum_relative_error": 2.901099527186374e-15,
+  "zero_reference_exact_comparisons": 8,
+  "actual_stored_negative_case": {
+    "passed": true,
+    "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+    "initial_state_sha256": "e2d1100bcf8187a2b1f8b19ccc136c3a3ea2da7d1475bd69d7dc706a5bd5240d",
+    "reason": "CANOPY_HOLD: declared geometry and SLA carbon differ",
+    "original_blob_files_preserved": 31,
+    "management_advance_DB_CLI_network_writes": 0,
+    "FD_preserved": true,
+    "production_or_gate_approval": false
+  },
+  "WSL_phases": {
+    "leaf-carbon-removal-red-v1": {
+      "observed_at_UTC": "2026-10-24T04:23:26.996672Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.1830856149899773,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 495063040,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3685,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "abeb5f8318ced005568f0f0de94367c59e3bdef7aecb17bb2e0e0d6c66455807",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-carbon-removal-focused-v1": {
+      "observed_at_UTC": "2026-10-24T04:24:49.290861Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 2.227103432000149,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 523083776,
+      "samples": 7,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3686,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "51187bd956dc28753e51a0ae2be89789fcc9355a4ebd948b5a9857d3448b3e14",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-carbon-removal-focused-v2": {
+      "observed_at_UTC": "2026-10-24T04:26:05.149487Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 21.08744824398309,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 603435008,
+      "samples": 80,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3686,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "61ef6f9708ce7836a32fac53ff81b43ff7a0f1d4b17c0abbd431fd4407dedc2b",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-carbon-removal-cases-v1": {
+      "observed_at_UTC": "2026-10-24T04:27:42.886977Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.2220258380111773,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 494686208,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3686,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "27f27682e9aea24c0b1db619e51c4e31f6d09542d0008522cd8082123950de6a",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-carbon-removal-fresh-v1": {
+      "observed_at_UTC": "2026-10-24T04:28:17.884196Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.215631344995927,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 489078784,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3686,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "38de75674d7d31a2bded60220a93d1d278a1bdfe58c986c0966ed932f83b2b26",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-carbon-removal-stored-hold-v1": {
+      "observed_at_UTC": "2026-10-24T04:30:06.508365Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.9476646820257884,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 457584640,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3686,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "90f21aa44ffb6024990546af75d35ce21f2446b12d34f8fea4b3de79bbdcc594",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "leaf-carbon-removal-final-v1": {
+      "observed_at_UTC": "2026-10-24T04:30:31.719146Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.544996500975685,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 532783104,
+      "samples": 8,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3686,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "7857613a5c7dc45da798e1d8a40a2916491944710215a2b47f3f714a22a25e79",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "paired_inputs_sha256": "0ac31284400c1106d1596e48fe0954f698d5648da6cbde7ad596c40042190fcb",
+  "original_runtime_UI_DB_key_restarts": 0,
+  "independent_unused_domestic_cycles": 0,
+  "full_goal_complete": false
+}
