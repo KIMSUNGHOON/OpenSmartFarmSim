@@ -1,5 +1,11 @@
 # Self-authored synthetic fixture inputs
 
+[Individual leaf carbon/area/climate reference](crop-leaf-carbon-stock-dynamics-reference-v1.json) contains six
+self-authored synthetic programs and app-free Decimal110 RK4 results, including an independent fine32second case.
+The [generator](../research/crop-leaf-carbon-stock-dynamics-reference.py) pins the existing source fixtures and
+independent equation code. These computed software references add no farm measurements, cultivar coefficients,
+data-rights approval or G0–G4 acceptance; the original model/profile notices remain applicable.
+
 The weather and economics v1 inputs are small algebraic sentinels for a future G1 software-contract trace. Thermal parameters v1 add proposed synthetic initial, facility, control, conversion, and numerical inputs; [manifest v2](manifest-v2.json) pins all three raw files. These are self-authored, not provider observations, farm records, crop outputs, commercial prices, or measured greenhouse coefficients. The manifest's `synthetic_input_review_id` is an author declaration for later server verification. It is not an external-source G0 approval or an accepted thermal Run. The current generic G0 evaluator holds synthetic records. A deterministic thermal engine and actual G1 result checks are later tasks.
 
 The weather file has adjacent UTC `[start_utc,end_utc)` intervals. `T_o` is kelvin, `phi_o` is a dimensionless fraction, and `p_o` is pascal. `solar_interval_energy` is the **total J/m² over that interval**; the zero is explicit. There is no gap fill. In `Asia/Seoul` on 2026-10-15, the first interval converts from 08:00–09:00 UTC to **17:00–18:00 KST** and has positive interval energy; the second converts from 09:00–10:00 UTC to **18:00–19:00 KST** and has explicit zero energy. Both are algebraic sentinels. Neither value claims astronomical consistency or local weather. A later engine must derive `w_o` with a registered saturation-pressure law, divide interval energy by duration for incident W/m², then use separately sourced area and absorbed fraction for aggregate solar W. This fixture supplies neither result nor a passing trace. The thermal input and trace requirements are in [thermal-v1](../contracts/thermal-v1.md).
