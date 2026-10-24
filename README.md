@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-24 KST:** [저장 면적·기후의 실제 잎3D](http://localhost:5176/growing-geometry-replay.html)를 사용자 Chrome에 적용했습니다. [수용 기록](research/growing-geometry-3d-20261024.md): 새34/관련SDK41·75단위/전체 타입·build·browser12와 별도102시점/306표면·276GET bytes를 대사했습니다. 제작 줄기/부착과 계산 면적을 구분하며 합성32초 변화량을 확대하지 않습니다. 다음은 독립 면적의 명시 CH2O·용량/현열 제거 point→다음 구간/재개입니다. 전체 작기/자원·생산/Decimal 경제·거시/수급·자율 선정과 R2/실제 관문은 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지하고 farm/현재 권리 실행·자료 확보를 병행합니다.
+**현재 — 2026-10-24 KST:** [저장 면적·기후의 실제 잎3D](http://localhost:5176/growing-geometry-replay.html)를 사용자 Chrome에 적용했습니다. [수용 기록](research/growing-geometry-3d-20261024.md): 새34/관련SDK41·75단위/전체 타입·build·browser12와 별도102시점/306표면·276GET bytes를 대사했습니다. 제작 줄기/부착과 계산 면적을 구분하며 합성32초 변화량을 확대하지 않습니다. [독립 면적의 명시 제거 point](research/growing-geometry-leaf-removal-point-20261024.md)도71신규/356관련·fresh288수량으로 수용했으며 현재3D에는 아직 적용하지 않았습니다. 다음은 제거 후 a/A/D0·사건/과거 장부를 보존하는 문맥→다음 구간/재개입니다. 전체 작기/자원·생산/Decimal 경제·거시/수급·자율 선정과 R2/실제 관문은 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지하고 farm/현재 권리 실행·자료 확보를 병행합니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
