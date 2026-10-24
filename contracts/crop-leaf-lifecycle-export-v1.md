@@ -1,6 +1,6 @@
 # 불변 잎 생애 결과의 연구 export — v1
 
-상태: 계약/검증 중. [불변 결과/reader](crop-leaf-lifecycle-artifact-v1.md)를 사용한다.
+상태: [소프트웨어 범위 수용](../research/crop-leaf-lifecycle-export-20261024.md). [불변 결과/reader](crop-leaf-lifecycle-artifact-v1.md)를 사용한다.
 `research/export-leaf-lifecycle-replay.py`의 `export(directory,root_sha256,output)`은 신뢰된 private root의
 자체 합성 자료만 내보낸다. 농장 SourceRecord/계정 권한·서명/G0나 제품 Run 게시 승인은 아니다.
 
