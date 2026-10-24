@@ -1,6 +1,6 @@
 # 한 잎의 기온 구간과 명시 제거 시각 — 연구 v1
 
-상태: 계약/검증 중. [point 제거](crop-declared-leaf-removal-v1.md)와 기존 rational leaf clock/area를 사용한다.
+상태: [297검사/원47상태 fresh 수용](../research/crop-leaf-removal-timeline-20261024.md). [point 제거](crop-declared-leaf-removal-v1.md)와 기존 rational leaf clock/area를 사용한다.
 기존 판본·사용자 runtime을 바꾸지 않는 `declared-leaf-removal-timeline-research-v1`이다.
 
 `initialize_leaf_removal_timeline(inputs={input_id,leaf_state,removal})`는 현재 존재하는 한 잎과

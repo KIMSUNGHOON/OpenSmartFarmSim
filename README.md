@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-24 KST:** [명시 잎 제거의 같은 시점 커널](research/crop-declared-leaf-removal-20261024.md)을 새63/관련137·총200검사와 실제 저장12시점/47면적·fresh 대사로 수용했습니다. 원52blob/33code·기존4root/화면을 보존했습니다. [현재 UI](http://localhost:5176/leaf-appearance-execution.html?job_id=9dbcca83-3b81-4171-862d-2953a0698eb6&frame=11)는 이전 정책 잎 생장이며 새 제거는 미적용입니다. 다음은 한 잎의 forcing 구간 안 제거 시각/마지막 상태 계산입니다. 인증 종료는2026-10-25 06:17 KST 설정입니다. 실제 품종/독립 작기0·생산/자원/경제·시장/자율 선정·R2/G0–G4와 전체 완료일은 미정입니다.
+**현재 — 2026-10-24 KST:** [한 잎의 정확 제거 시각 계산](research/crop-leaf-removal-timeline-20261024.md)을 새90/관련207·297검사와 원 저장12시점/47상태의 별도 프로세스 대사로 수용했습니다. 제거 뒤 마지막 상태와 전체 진행 시각을 구분하며 원52blob/33code·기존4root/화면을 보존했습니다. [현재 UI](http://localhost:5176/leaf-appearance-execution.html?job_id=9dbcca83-3b81-4171-862d-2953a0698eb6&frame=11)는 이전 정책 잎 생장이며 새 제거는 미적용입니다. 다음은 기존 여러 잎/빈 active 목록의 시간 전진 → 새 출현/제거 → 불변 저장/현재 조회 → 같은 UTC3D입니다. [국내 자료 획득 조사](research/independent-domestic-cherry-tomato-data-20261024.md)는 병행하며 원측정/미사용 독립 국내 작기0·국내 첫 품종 미확정입니다. 인증 종료는2026-10-25 06:17 KST 설정이며 생산/자원/경제·시장/자율 선정·R2/G0–G4와 전체 완료일은 미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
