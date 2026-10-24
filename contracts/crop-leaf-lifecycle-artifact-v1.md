@@ -1,6 +1,6 @@
 # 불변 잎 생애 결과와 계산 없는 조회 — 연구 v1
 
-상태: 계약/검증 중. [입력 결속](crop-leaf-lifecycle-preparation-v1.md)의 두 원문과 준비 결과를 사용한다.
+상태: [소프트웨어 범위 수용](../research/crop-leaf-lifecycle-artifact-20261024.md). [입력 결속](crop-leaf-lifecycle-preparation-v1.md)의 두 원문과 준비 결과를 사용한다.
 기존 artifact/reader/runtime을 바꾸지 않는 별도 `leaf-lifecycle-research-artifact-v1`이다.
 
 `produce_leaf_lifecycle_artifact(directory,access,*,stem_directory,appearance_program_raw,management_raw)`는
