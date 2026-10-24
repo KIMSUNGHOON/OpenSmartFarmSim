@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-25 KST:** [잎별 탄소 재고의 공동 RHS](research/crop-leaf-carbon-stock-rhs-20261025.md)를101신규/394관련검사·fresh72조건/1,296수량으로 수용했습니다. 같은 floor의 C_i를 기준으로 집계 탄소/제거를 조립하고 원 선형 비용의 질량 비례 호흡 가정·0재고 고갈·잎별/전체 C 수지를 검증했습니다. 다음은 실제 C_i를 같은 a/A·기후 stage에서 짧게 적분하고 분할 재개하는 단계입니다. 기존 모델/화면은 유지하며 [새 제거3D](http://localhost:5176/growing-geometry-removal-replay.html)의 무모사 표시 창은 보류입니다. 현재 A는 C 공급을 읽지 않고 실제 품종/독립 국내 측정·미사용 작기0·첫 품종 미확정입니다. 한 작기/생산·자원/Decimal 경제·거시/수급·자율 비교·farm/제품 CLI·R2/G0–G4와 전체 goal/완료일은 미완료·미정입니다.
+**현재 — 2026-10-25 KST:** [개별 탄소·면적·기후의 짧은 공동 적분](research/crop-leaf-carbon-stock-dynamics-20261025.md)을58신규/289관련검사·app-free Decimal110 기준 식/별도6궤적·102시점으로 수용했습니다.107+3n상태/21+3n누적량과 각 C_i/전체 장부를 같은 stage로 전진하고 현재 A를 보존했습니다. 다음은 현재 C_i/a/A/D0·누적량의 불변 context/분할 재개입니다. 기존 모델/화면은 유지하며 [새 제거3D](http://localhost:5176/growing-geometry-removal-replay.html)의 무모사 표시 창 확인은 보류입니다. 고정 목록의 자체 합성32초이며 C 공급 제한 면적/조달된 출현·실제 품종/한 작기는 후속입니다. 국내 독립 측정/미사용 작기0·첫 품종 미확정, 생산/자원/Decimal 경제·거시/수급·자율 비교·farm/제품 CLI·R2/G0–G4와 전체 goal/완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
