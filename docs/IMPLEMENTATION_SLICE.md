@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-25 KST:** [개별 탄소·면적·기후의 짧은 공동 적분](../research/crop-leaf-carbon-stock-dynamics-20261025.md)을58신규/289관련검사·app-free Decimal110 기준 식/별도6궤적·102시점으로 수용했습니다.107+3n상태/21+3n누적량과 각 C_i/전체 장부를 같은 stage로 전진하고 현재 A를 보존했습니다. 다음은 현재 C_i/a/A/D0·누적량의 불변 context/분할 재개입니다. 기존 모델/화면은 유지하며 [새 제거3D](http://localhost:5176/growing-geometry-removal-replay.html)의 무모사 표시 창 확인은 보류입니다. 고정 목록의 자체 합성32초이며 C 공급 제한 면적/조달된 출현·실제 품종/한 작기는 후속입니다. 국내 독립 측정/미사용 작기0·첫 품종 미확정, 생산/자원/Decimal 경제·거시/수급·자율 비교·farm/제품 CLI·R2/G0–G4와 전체 goal/완료일은 미완료·미정입니다.
+**현재 — 2026-10-25 KST:** [현재 개별 C_i/a/A의 분할 재개](../research/crop-leaf-carbon-stock-continuation-20261025.md)를138신규/297관련검사·별도6context/18checkpoint로 수용했습니다.2,628현재 수량/이어 계산48시점·6최종 bytes와 독립234장부를 대사했으며 초기화/과거 전진0·현재1회 검증을 확인했습니다. 다음은 현재 결과의 불변 저장/무계산 reader→strict SDK/같은 상태3D입니다. 새 잎 C/현열 조달 근거는 병행 연구로 두며 저장의 선행 조건으로 추가하지 않습니다. 기존 모델/화면은 유지하고 [새 제거3D](http://localhost:5176/growing-geometry-removal-replay.html)의 무모사 표시 창은 보류입니다. 합성 고정 목록/elapsed32초이며 실제 품종/한 작기·생산/자원/Decimal 경제·거시/수급·자율 비교·farm/제품 CLI·R2/G0–G4, 국내 독립 측정/미사용 작기0·첫 품종 미확정·전체 goal/완료일 미완료·미정을 유지합니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

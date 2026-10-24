@@ -1,6 +1,6 @@
 # 자료·연구 기준선
 
-**2026-10-25 KST 개별 C_i/a/A 공동 적분:** [58신규/289관련·독립32초 기준 식/6궤적102시점](../research/crop-leaf-carbon-stock-dynamics-20261025.md)에서 같은 stage의 실제 C_i와 나이/면적/기후·기관/과실을 전진했다. app-free Decimal110 원식912비교와 별도 산술12,114수량/Decimal1,326장부를 대사했고 새 계수/외부 원문·측정 채택0이다. 초기 정규화 후 실제 A·D0를 유지하며 기존 helper에는 파생 aggregate만 임시 투영했다. 다음은 불변 context/현재 C_i/a/A·누적량의 분할 재개다. C 공급 제한 면적/조달된 출현·저자 VTC 코드/CSV 권리·국내 독립 자료0/품종·R2/G0–G4와 전체 날짜 보류를 유지한다.
+**2026-10-25 KST 현재 C_i/a/A 분할 재개:** [138신규/297관련·별도18checkpoint/48이어 시점](../research/crop-leaf-carbon-stock-continuation-20261025.md)에서 원 bytes/격자/코드/profile/환경과 현재 상태/누적량·확정 prefix를 보존했다. 독립234장부·재초기화/과거 전진0을 대사했고 새 계수/원문·측정 채택0이다. 외부 신뢰 raw SHA의 공급·서명/농장 custody는 별도이며 이 재개는 G0–G4 승인이 아니다. 다음은 현재 결과의 불변 저장/무계산 reader→같은 상태3D다. 새 출현 C/현열 근거 연구는 병행한다. 공급 제한 면적/실제 품종·VTC 코드/CSV 권리·국내 독립 자료0/첫 품종·R2/G0–G4와 전체 날짜 보류를 유지한다.
 
 **2026-10-24 면적 companion 재개:** [211검사·별도12checkpoint/144시점](../research/crop-growing-geometry-continuation-20261024.md)에서 현재 a/A·C/N/Uref/기후/누적량·원 D0와 같은 격자 bytes를 보존했다. 원 고정 Decimal110 fixture를 재사용하며 새 식/계수·측정/원문 채택0이다. 다음은 검증된 상태의 불변 저장/무계산 조회·기존 사실적3D이며 정확 제거·실제 품종/기후·작기/생산/경제/게시 관문은 후속이다.
 

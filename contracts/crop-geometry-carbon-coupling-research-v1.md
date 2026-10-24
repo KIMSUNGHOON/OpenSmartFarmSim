@@ -61,7 +61,8 @@ S3 pp6–7/15 표현의 긴장, 별도 코드/기관 sink·parameter 권리와 �
    [같은 stage 공동 RHS의3조정](crop-leaf-partition-climate-rhs-v1.md)을79신규/293관련·fresh42조건으로 수용했다. 원 P/과실/기후·미수정 미분/원 hash를 보존하고 각 component1회·전체 C/leaf 수지를 대사했다.
    [권위 개별 C_i/합계·유지호흡/고갈의 순간 RHS](crop-leaf-carbon-stock-rhs-v1.md)를101신규/394관련·fresh72조건으로 수용했다. 같은 floor의 기관 C와 명시 제거를 조립하고 원 선형 호흡의 질량 비례 가정·원 값/hash를 보존했다.
    [aggregate leaf slot을 제외한 C_i/a/A의 짧은 공동 적분](crop-leaf-carbon-stock-dynamics-v1.md)을58신규/289관련·app-free 식/별도102시점으로 수용했다. 원 과실/기후·개별/전체 수지와 실제 A·D0를 보존했다.
-   다음은 현재 C_i/a/A·누적량의 불변 context/분할 재개→초기 C/현열이 조달되는 출현이다. 새 목록은 고정이며 공급 제한/면적 feedback은 미수용이다.
+   [현재 C_i/a/A·누적량의 불변 context/분할 재개](crop-leaf-carbon-stock-continuation-v1.md)를138신규/297관련·별도18checkpoint/48이어 시점으로 수용했다.
+   다음은 현재 결과의 불변 저장/무계산 reader→strict SDK/같은 상태3D이며, 초기 C/현열이 조달되는 새 출현의 근거는 병행 연구다. 새 목록은 고정이며 공급 제한/면적 feedback은 미수용이다.
    순수 상대 priority 배분을 논문의 beta 수요/reserve/공급 제한 법칙으로 제시하지 않는다.
    새 잎의 양의 면적에 대응하는 C의 출처·buffer/기관 분배·생장호흡과 고갈 정책을 정한다.
    별도 잎 C 원장 없는 면적/질량 역산과 동일 사건의 연속/순간 중복 차감은 거부한다.
