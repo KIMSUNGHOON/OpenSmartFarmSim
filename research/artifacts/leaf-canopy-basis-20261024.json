@@ -1,0 +1,1791 @@
+{
+  "schema_version": "leaf-canopy-basis-software-evidence-v1",
+  "accepted_scope": "synthetic_tracked_inventory_area_normalization_only",
+  "gates": "not_assessed",
+  "native_invocation": {
+    "timestamp": "2026-10-24T03:58:33.577Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "raw_line_sha256_including_lf": "ec42ad72f3232995f1fd96ddcf1c69176104a8c5a7c247d35e8d17479d28029a",
+    "recursive_cli_invocations": 0,
+    "recorded_at": "2026-10-24T03:58:49.219369+00:00"
+  },
+  "research_agent": {
+    "task_name": "/root/leaf_production_coupling_sources",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "fork_turns": "none",
+    "independent_data_approval": false
+  },
+  "source_sha256": {
+    "backend/app/crop_leaf_canopy_basis.py": "6e6015b90124839f17a5ed866427489f51cff41146b472cfbb0346d16be7d573",
+    "backend/tests/test_crop_leaf_canopy_basis.py": "8786f50254db16a6be74d631c972edd8d017333ad6fc1e85e65bf810ab0b035f",
+    "contracts/crop-leaf-canopy-basis-v1.md": "f635be1db1bec233d09d338ff1b9aa706f64a02d7b955129dd7094b178cee9df",
+    "research/leaf-lifecycle-production-primary-sources-20261024.md": "029067ce5412417a832ca579b08c886174c1c8d98f9b020135de435fad4728d5"
+  },
+  "local_tests": {
+    "unique": 202,
+    "new": 41,
+    "related": 161,
+    "overlapping_runs": [
+      198,
+      41
+    ],
+    "full_backend_suite_run": false,
+    "browser_suite_run_for_this_slice": false
+  },
+  "actual_stored_probe": {
+    "passed": true,
+    "growth_imports_DB_CLI_network_writes": 0,
+    "FD_preserved": true,
+    "observed_at_UTC": "2026-10-24T04:07:23.826514Z",
+    "probe_sha256": "d0cc3655483704015381ddd114a8bdaa7a73e3d0803a885e2bce55f2f2f5dcc9",
+    "original_lifecycle_blob_files_preserved": 62,
+    "original_appearance_stem_files_preserved": [
+      52,
+      29
+    ],
+    "public_source_files_preserved": 40,
+    "floor_area_assumptions": {
+      "values": [
+        0.5,
+        2.0
+      ],
+      "unit": "m2_floor",
+      "origin": "own_synthetic_software_fixture_not_measured"
+    },
+    "full_canopy_or_production_approval": false,
+    "gates": "not_assessed"
+  },
+  "WSL_phases": {
+    "production-basis-red-v1": {
+      "observed_at_UTC": "2026-10-24T04:03:09.651114Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.490990951017011,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 510709760,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3680,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "7e8138b477625f4947008363b9b794e33d2e580c0bdf549d7ec46d5eb40ec15f",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "production-basis-focused-v1": {
+      "observed_at_UTC": "2026-10-24T04:04:43.510279Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 9.964092674985295,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 533712896,
+      "samples": 37,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3681,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "914743f9ffc15b474c4ef4799ff4561375f8f82dc5f029ea4b15c00bde6c81f1",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "production-basis-focused-v2": {
+      "observed_at_UTC": "2026-10-24T04:06:46.741152Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 50.37919540799339,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 572633088,
+      "samples": 193,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3681,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "33d9bac57c3588109a83b8a55c981d70c3b15c712c79998afe9756bf4602a1c8",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "production-basis-fresh-v1": {
+      "observed_at_UTC": "2026-10-24T04:07:24.728164Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.5236334050132427,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 533237760,
+      "samples": 8,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3681,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "6d43918bcc498a1d44d4cbcf167610b76016dd1ebbdf8da63a8bb0f6d8c65608",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "production-basis-final-v1": {
+      "observed_at_UTC": "2026-10-24T04:08:59.097541Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 12.549317472992698,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 557490176,
+      "samples": 47,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3681,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d142e4c000a928f75ed980f20e9cd9b57518fe202c046c0becdf9acf4b2bbaed",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "rows": [
+    {
+      "index": 0,
+      "at": "2026-10-01T02:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "7200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0009700372917537751
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0019400745835075502,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "1a6ff43c8228e94f0bce628a2b6885c3c1fa2c8d82733abd5359abfdc0f56b4a",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "a28fbfb32bc1f5bb74977b7367c114ef6841a8ac83efc55476271b98bff21ada",
+        "input_sha256": "27528ab37c29af15d201bffde31849130808c7276f194a0491f08c674ca9819e",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 0,
+      "at": "2026-10-01T02:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "7200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0009700372917537751
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.00048501864587688755,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "bfd2b28d93a9d6e5ed53c7b7bbd53262f7c9df730548e9ecccb4bd55a48c2cb9",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "a28fbfb32bc1f5bb74977b7367c114ef6841a8ac83efc55476271b98bff21ada",
+        "input_sha256": "27528ab37c29af15d201bffde31849130808c7276f194a0491f08c674ca9819e",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 1,
+      "at": "2026-10-01T04:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "14400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0012934250627792618
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0025868501255585236,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "9c978a50f8ac16c4ad41b3354b7d87cb1068ae86836949d632bec26ce3d88c09",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "c654d597a00e85531406b5e2dc37b2a7103275a67f0029f2962b2917803851a6",
+        "input_sha256": "eaec7da8a38755d2b86a8dcd67eeaaa75b35bb11d0609b16d17f9d979883ea1e",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 1,
+      "at": "2026-10-01T04:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "14400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0012934250627792618
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0006467125313896309,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "8c0fbaf53dcbdb973e4426046ebbd72942640484dc2a4b9c9d202b8804ff58f3",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "c654d597a00e85531406b5e2dc37b2a7103275a67f0029f2962b2917803851a6",
+        "input_sha256": "eaec7da8a38755d2b86a8dcd67eeaaa75b35bb11d0609b16d17f9d979883ea1e",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 2,
+      "at": "2026-10-01T06:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "21600",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.001688433644574863
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.003376867289149726,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "c9abcbc73e198f57ecb9a8bbb2f281c60120a7d714dc50c73125554d6597184b",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "687479ba701b222e3400ae9cac1f7344320660f0ed71c2477d1384bb117a0b66",
+        "input_sha256": "2d5222eade61adc07c9b15e8dab987b5a058655704d71b48a5a33de1c13e4d52",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 2,
+      "at": "2026-10-01T06:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "21600",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.001688433644574863
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0008442168222874315,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "274d568dfbc13abae95c55a2dfe9431d95e1c50d633bc2fbc180f0fc376400ce",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "687479ba701b222e3400ae9cac1f7344320660f0ed71c2477d1384bb117a0b66",
+        "input_sha256": "2d5222eade61adc07c9b15e8dab987b5a058655704d71b48a5a33de1c13e4d52",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 3,
+      "at": "2026-10-01T08:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "28800",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0023557582149150175
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.004711516429830035,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "bbd23b6df283291c92ed607ee3c3223dce9cc15757dcada35e069a555c59ab02",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "d010a0e3a14dc908eda59ec78bc4f7554b6c752f6ecf07db235e799dbb1c0cb6",
+        "input_sha256": "c326c8dac1223a0e394d478aeb42e2f8f1fe02518aaf6dadcf8377c2a4249e37",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 3,
+      "at": "2026-10-01T08:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "28800",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0023557582149150175
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0011778791074575088,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "3e048eaa80ccee2fb8d1e2cb73d4fcab45b0fa367118c08d5ade0b642539f5b4",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "d010a0e3a14dc908eda59ec78bc4f7554b6c752f6ecf07db235e799dbb1c0cb6",
+        "input_sha256": "c326c8dac1223a0e394d478aeb42e2f8f1fe02518aaf6dadcf8377c2a4249e37",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 4,
+      "at": "2026-10-01T10:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "36000",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0029360765281571787
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0058721530563143574,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "d790b5e35495bcf3e22b95b4adab6ac42b6be316f5e7df6ce42981c550aab285",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "1b374eaa4f538bf6d77f9dac704eb5316bd297d5fc49a8646ac0c12f7ef589a2",
+        "input_sha256": "cb2aef39d03bd8fd6bfa73c121c8a4568b0df01ba55cbe03c33fd89bc5872ce1",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 4,
+      "at": "2026-10-01T10:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "36000",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0029360765281571787
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0014680382640785894,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "c5ce0745d432664331aad5ca9c11348529a4137d4ff0e498392c1cb7996b5e9c",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "1b374eaa4f538bf6d77f9dac704eb5316bd297d5fc49a8646ac0c12f7ef589a2",
+        "input_sha256": "cb2aef39d03bd8fd6bfa73c121c8a4568b0df01ba55cbe03c33fd89bc5872ce1",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 5,
+      "at": "2026-10-01T12:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "43200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.003554883759941095
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.00710976751988219,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "bbf6f0b9d5952a1650f292819e0e5567108f132e5a424006761a6e6588e44fe2",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "401a3d21a3d5e0123376affcf9f7a8c9305a75933eb41f2668bb27aa0d2424a4",
+        "input_sha256": "dbd66227212f190e66605e1800b8723557e5282e5403a20b0cb38e3d4b3ab12b",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 5,
+      "at": "2026-10-01T12:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "43200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.003554883759941095
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0017774418799705474,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "dc4f2b9086648843f5d13f7aab3ece67b800c27097ce2bfd04cce601c2ff9672",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "401a3d21a3d5e0123376affcf9f7a8c9305a75933eb41f2668bb27aa0d2424a4",
+        "input_sha256": "dbd66227212f190e66605e1800b8723557e5282e5403a20b0cb38e3d4b3ab12b",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 6,
+      "at": "2026-10-01T14:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "50400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.004179754756286953
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.008359509512573906,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "68529a9b92c742af07c246c18b78140962142ae766e6f8a7b0a341b490c806cf",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "153e223e2015dd31fd4bfb3df2da1ab97a56ea042322e63e3f6725c5027571ad",
+        "input_sha256": "2951d3770f8ac98a3fe7acf14a626118b2ff8a9e8ae03e7352aaf9c88b72e953",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 6,
+      "at": "2026-10-01T14:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "50400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.004179754756286953
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0020898773781434766,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "b1565f2177a8733790319cd2073371afe4d805322dfa72d63bb0985cf7d096c6",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "153e223e2015dd31fd4bfb3df2da1ab97a56ea042322e63e3f6725c5027571ad",
+        "input_sha256": "2951d3770f8ac98a3fe7acf14a626118b2ff8a9e8ae03e7352aaf9c88b72e953",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 7,
+      "at": "2026-10-01T16:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "57600",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.004778327696824707
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.009556655393649414,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "dc1874b74427b05bf8634cf546710fc970a10517c3d59ea9bbfefbcad8ff480d",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "99e9d6494b6869ee5e7841a7fc87c0603e66da00f708f9b201bb0f980363229f",
+        "input_sha256": "fa67527b304ac3d6ffa2cea9b5d0acc08cfb0525f6f6d470a5bcd47b2c8337af",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 7,
+      "at": "2026-10-01T16:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "57600",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.004778327696824707
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0023891638484123535,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "0eaabaf623cea45435f8b21ee30d44fcabb260ec061ac58f5855ba11cc558c86",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "99e9d6494b6869ee5e7841a7fc87c0603e66da00f708f9b201bb0f980363229f",
+        "input_sha256": "fa67527b304ac3d6ffa2cea9b5d0acc08cfb0525f6f6d470a5bcd47b2c8337af",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 8,
+      "at": "2026-10-01T18:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "64800",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.005324331984931235
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.01064866396986247,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "cd14488a08754f8de259bb08e45aaf1a43b4866333bacffce6f3788f2520a9ec",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "cd2ea545a59db7746c44fa814e3f4eea34b6b64dd0e1ef8af56affd4670d35bd",
+        "input_sha256": "c7773274c9a6af2ad46cd5de109631f364bc8d763493eaee49cab2a073ea0c18",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 8,
+      "at": "2026-10-01T18:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "64800",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.005324331984931235
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0026621659924656177,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "008ee2c7fdb90448af45fa0acc172a6e466c7539cfbfad48d4a77b656f1cd891",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "cd2ea545a59db7746c44fa814e3f4eea34b6b64dd0e1ef8af56affd4670d35bd",
+        "input_sha256": "c7773274c9a6af2ad46cd5de109631f364bc8d763493eaee49cab2a073ea0c18",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 9,
+      "at": "2026-10-01T20:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "72000",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.00580084744063814
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.01160169488127628,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "c6f2906c1e5252f0a41476797d2ce11ccd9ff56b2c07d2c6d74cc05ab4f02c38",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "44d593ab8b218f8cb0a51d202a96166e6a4feb7e4275539deb4946bbcd32a680",
+        "input_sha256": "8cfb48e6933d37c615d1b57241f0d484be81bde4545e0b6de6eaebd579cfee8d",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 9,
+      "at": "2026-10-01T20:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "72000",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 4,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.00580084744063814
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.00290042372031907,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "3b083496ac9a260b868865dbcfd3d74f1af52caae0af0bb7ff50bc6e1c68cc46",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "44d593ab8b218f8cb0a51d202a96166e6a4feb7e4275539deb4946bbcd32a680",
+        "input_sha256": "8cfb48e6933d37c615d1b57241f0d484be81bde4545e0b6de6eaebd579cfee8d",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 10,
+      "at": "2026-10-01T22:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "79200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 5,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 0,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.006403698271320891
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.012807396542641783,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "1b8c295f0bee3e32f58e968f390b9964fbd9c30ed5eea09bbc4f77965a24e16d",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "a92a00f6eeb0f9b1bccdbc07ff5874487ee448b6edb86ff77da6b2a03ba532e1",
+        "input_sha256": "66ff244ad2d6128664aff9be4f2040bf24f9f173ac46d807c76478616d488d38",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 10,
+      "at": "2026-10-01T22:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "79200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 5,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 0,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.006403698271320891
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0032018491356604457,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "1674f6eb3e987c13488ac6100e95ef3c1f72fd34b3a567a6576e4726594b46cf",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "a92a00f6eeb0f9b1bccdbc07ff5874487ee448b6edb86ff77da6b2a03ba532e1",
+        "input_sha256": "66ff244ad2d6128664aff9be4f2040bf24f9f173ac46d807c76478616d488d38",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 11,
+      "at": "2026-10-02T00:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "86400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 5,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 0,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.006798129364259885
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.01359625872851977,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "bd37d4f3417b433d26c84841c52f950c66e3f45f40a64a09c170977018a11667",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "3683072676d6c3e9a7b26fd99409fe7c849dc31b148cf96325c6088d551b6ef7",
+        "input_sha256": "d6662bae4bddd26dea47ff523280f1a0564d52f6ae075ba39240791787afb4f6",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 11,
+      "at": "2026-10-02T00:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "86400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 5,
+      "removed_leaf_count": 0,
+      "pending_leaf_count": 0,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.006798129364259885
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0033990646821299426,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "3e0bb699e43a9b993829d198e48c07152addb02656cf8c60ca0478a53d17f882",
+      "source": {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "result_sha256": "3683072676d6c3e9a7b26fd99409fe7c849dc31b148cf96325c6088d551b6ef7",
+        "input_sha256": "d6662bae4bddd26dea47ff523280f1a0564d52f6ae075ba39240791787afb4f6",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "1cc7fa4b8ccffd14e789c8c78b2042b6ae89cbc4f955946361865a6abe84e075",
+        "preparation_sha256": "03368c5ed23272aa2778ce2d2eb675c7b5075b5f27df48ebdc41e5f89ea1bf0f"
+      }
+    },
+    {
+      "index": 0,
+      "at": "2026-10-01T02:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "7200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 1,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0007275279688153313
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0014550559376306626,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "64745fadfaeada459dbda91e83e34f5938908bae431432659b9ba712d1f5b43d",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "b5fba931b1741c7d250aed852e2f69984bc423d2901c161af929365e8c439e74",
+        "input_sha256": "d9c3a191ccf62e53936acad33eb2fcb5b399bf96c858c14bdfe692296cc7fa45",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 0,
+      "at": "2026-10-01T02:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "7200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 1,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0007275279688153313
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.00036376398440766565,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "e594538b7b95a5ad5ef6c4e1d98cf70a0bc08c427b45e8dbae3d1e758f4b12bb",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "b5fba931b1741c7d250aed852e2f69984bc423d2901c161af929365e8c439e74",
+        "input_sha256": "d9c3a191ccf62e53936acad33eb2fcb5b399bf96c858c14bdfe692296cc7fa45",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 1,
+      "at": "2026-10-01T04:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "14400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 1,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0009700687970844464
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0019401375941688929,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "436bf94f70398a4490325758953a55c99a56a4e0e51955cfb8a82b93a7e54b33",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "73f076aa5b1daf9dabc582d65dbc566d7a277dc5a4cdf9fbdc76755e43812abe",
+        "input_sha256": "d1a210276f8439909f1cb2aef9ae39b5e18fa3de0d0311800484e4aadb5f9961",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 1,
+      "at": "2026-10-01T04:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "14400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 1,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0009700687970844464
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0004850343985422232,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "d7083fceb8b73efdd11e6fc36389105cb714eb4c271058600c59dfeb13083058",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "73f076aa5b1daf9dabc582d65dbc566d7a277dc5a4cdf9fbdc76755e43812abe",
+        "input_sha256": "d1a210276f8439909f1cb2aef9ae39b5e18fa3de0d0311800484e4aadb5f9961",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 2,
+      "at": "2026-10-01T06:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "21600",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 1,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0012663252334311472
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0025326504668622945,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "a658f1bbe78788cdba4d1306ec039244d3ae2a4e6d5789eb07d9dd842a08cc76",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "84ea64762ebbbd72f6140ef2963a00c432ecb58d76cb6e7f57fceea194012324",
+        "input_sha256": "c095a055d047c7a75839a2896ffd954d3d7d1c02f5d5ac16b4d5f58263d89333",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 2,
+      "at": "2026-10-01T06:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "21600",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 1,
+      "pending_leaf_count": 2,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0012663252334311472
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0006331626167155736,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "0cacfa80780e09d130b6d46f6975e449a525ad61e03ef15dddfc91c5d5238915",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "84ea64762ebbbd72f6140ef2963a00c432ecb58d76cb6e7f57fceea194012324",
+        "input_sha256": "c095a055d047c7a75839a2896ffd954d3d7d1c02f5d5ac16b4d5f58263d89333",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 3,
+      "at": "2026-10-01T08:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "28800",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0016117467971007106
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.003223493594201421,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "aecbbf1ee845eacc4285e927499945cfe6407c3a6809e672df0b264002c6a190",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "86a6131d1d799fa64d7cd2f4bcdd8da31f3ff99ec2a34f3340a396df217b7013",
+        "input_sha256": "11d4f8e64b40986b82cea4aecc1871aa6c5004e89b14bac76db659a137d5f4ee",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 3,
+      "at": "2026-10-01T08:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "28800",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0016117467971007106
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0008058733985503553,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "9414b1860d0c0d481929077f70eeeafabf1a6aab6947e4f1cc96cd320da90165",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "86a6131d1d799fa64d7cd2f4bcdd8da31f3ff99ec2a34f3340a396df217b7013",
+        "input_sha256": "11d4f8e64b40986b82cea4aecc1871aa6c5004e89b14bac76db659a137d5f4ee",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 4,
+      "at": "2026-10-01T10:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "36000",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.001993309908455424
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.003986619816910848,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "4c1788a94d6c865dabb26818ade7a107bc8f52e798172c5cb3c3ee1203248a88",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "31f011fd2ccc8f84c4dd9349e50ce6192bf7e906e5cf4fcfd207ee42ea471d6f",
+        "input_sha256": "f55a59657bdb21381b0c42e00a4682c3e5bfb6e8e8f91104882b3f08d2edf663",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 4,
+      "at": "2026-10-01T10:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "36000",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.001993309908455424
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.000996654954227712,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "d2fb2d332c2f04b549e76199db01a0806374b6edb93291259677f9e26c337015",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "31f011fd2ccc8f84c4dd9349e50ce6192bf7e906e5cf4fcfd207ee42ea471d6f",
+        "input_sha256": "f55a59657bdb21381b0c42e00a4682c3e5bfb6e8e8f91104882b3f08d2edf663",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 5,
+      "at": "2026-10-01T12:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "43200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.002390442180181903
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.004780884360363806,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "659f2bb1e393525f9d1c14a487eb64cf456b20fd47fa966c246fbaa4c26b0bde",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "7d3633a97d4a582d79b15a5444f22764400cae81a79bba8805bab32480d572d1",
+        "input_sha256": "9d52064a62ecef04e30a32e7f45e237c43063d8fd7ff86d9fde66ead34df7b2c",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 5,
+      "at": "2026-10-01T12:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "43200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.002390442180181903
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0011952210900909514,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "cfe0c4d7faff9fa1bc70b465f097a9e693490078e45ee6e8cff4e1c48b64085e",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "7d3633a97d4a582d79b15a5444f22764400cae81a79bba8805bab32480d572d1",
+        "input_sha256": "9d52064a62ecef04e30a32e7f45e237c43063d8fd7ff86d9fde66ead34df7b2c",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 6,
+      "at": "2026-10-01T14:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "50400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.002778979841723002
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.005557959683446004,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "788383737e68f18e00e2e26793105ce2a870b35b4073ed88037df9df7bcbcec2",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "79129abb81d2bed398d431f5b233e859757fa4bdb2c1f9d312aa50b53dada2eb",
+        "input_sha256": "94910991be2c9f032ffa6897c206b78f62e66fe025e334d387ca8e2a940cfc8d",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 6,
+      "at": "2026-10-01T14:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "50400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.002778979841723002
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.001389489920861501,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "517af157834c6149e0c144e97030eadb333f75843e8e58cc326ad22dea9b8750",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "79129abb81d2bed398d431f5b233e859757fa4bdb2c1f9d312aa50b53dada2eb",
+        "input_sha256": "94910991be2c9f032ffa6897c206b78f62e66fe025e334d387ca8e2a940cfc8d",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 7,
+      "at": "2026-10-01T16:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "57600",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0031367667778443332
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0062735335556886665,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "a0fd8ef9cca321d406aafcc3661016de17f1a4947fd04bc701a5f3be549ef17b",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "e22d554ed4183922b2b331fc681172dc6feafc2b201e9cec1b2e4b769a0e995d",
+        "input_sha256": "9efca80cd5fcab959657379514de58067f21085f14ab5cc940d8ac391576241c",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 7,
+      "at": "2026-10-01T16:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "57600",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0031367667778443332
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0015683833889221666,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "8cb2628a6ec61bc45038968285b2e219cccf154d1848fcec6a616bde350bd70f",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "e22d554ed4183922b2b331fc681172dc6feafc2b201e9cec1b2e4b769a0e995d",
+        "input_sha256": "9efca80cd5fcab959657379514de58067f21085f14ab5cc940d8ac391576241c",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 8,
+      "at": "2026-10-01T18:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "64800",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.003448321393886819
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.006896642787773638,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "c88ddd97f9f03ee699ae571946c393338295bf7ecdbe321dcf2c237313f68aa7",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "316b5c47ef04e177fa91edbc92701ed54da06ca3420b380dda5df66de0c39c6f",
+        "input_sha256": "86fe79af77102bc732c8ea2792e8e4561b178a2e7067ebab65368cf01cea0111",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 8,
+      "at": "2026-10-01T18:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "64800",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.003448321393886819
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0017241606969434094,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "3492526bbed1edbfc51d5f3cf6b314c451778460ac77074ca22a04baf33d0e28",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "316b5c47ef04e177fa91edbc92701ed54da06ca3420b380dda5df66de0c39c6f",
+        "input_sha256": "86fe79af77102bc732c8ea2792e8e4561b178a2e7067ebab65368cf01cea0111",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 9,
+      "at": "2026-10-01T20:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "72000",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0037066809550669565
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.007413361910133913,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "c4fd34a8d55f72beb330c13fbbbfb60feded6141af226e3a74f100ea6ddb5259",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "4b9ca2170698dbea0ac7aecba1ad17401fdceec7a0d364b3b2e59722e623ef3c",
+        "input_sha256": "9eabd227ebd721655949c402ae10394be68012febd84bd262b531db19f96b4c0",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 9,
+      "at": "2026-10-01T20:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "72000",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 2,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 1,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.0037066809550669565
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.0018533404775334782,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "b8b3878767fc337d9eada94494472d240fc9690adbbe09e445197680540153c6",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "4b9ca2170698dbea0ac7aecba1ad17401fdceec7a0d364b3b2e59722e623ef3c",
+        "input_sha256": "9eabd227ebd721655949c402ae10394be68012febd84bd262b531db19f96b4c0",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 10,
+      "at": "2026-10-01T22:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "79200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 0,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.00411546309953517
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.00823092619907034,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "41364c6630d2adc85f7fcc023c18296b0c08d5ba0170ff78c758fcb7ac151a6a",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "a7c1bec3b6918dccdc6166f68388c2e1d494f8b2627288bd39c8dbfb31698549",
+        "input_sha256": "5f7425b7b282add87b248f1f8c6b1fd4a6a4fbfb56c5d7e60e2c265f0e89f077",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 10,
+      "at": "2026-10-01T22:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "79200",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 0,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.00411546309953517
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.002057731549767585,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "9ce8a28d6b33012dd1008659a58516aaf5ea4a56f7d34d3d53723abe4fdb92e3",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "a7c1bec3b6918dccdc6166f68388c2e1d494f8b2627288bd39c8dbfb31698549",
+        "input_sha256": "5f7425b7b282add87b248f1f8c6b1fd4a6a4fbfb56c5d7e60e2c265f0e89f077",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 11,
+      "at": "2026-10-02T00:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "86400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 0,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.004344565693663542
+      },
+      "floor_area": {
+        "value": 0.5,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.008689131387327085,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "5f40fda70525b7bd2fa98cb38e17db78e96782e2dcd29cf90fc419ca1a201909",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "74fd5789bb1dadbdd887a23f137aa9808ce37035593428ba30f3a0720c8473ef",
+        "input_sha256": "55bb1af770e0d727bd1451f58a47e890c777e4e1311fbc643a03335899096838",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    },
+    {
+      "index": 11,
+      "at": "2026-10-02T00:00:00Z",
+      "at_elapsed_seconds_exact": {
+        "numerator": "86400",
+        "denominator": "1",
+        "unit": "s"
+      },
+      "active_leaf_count": 3,
+      "removed_leaf_count": 2,
+      "pending_leaf_count": 0,
+      "active_leaf_area": {
+        "unit": "m2",
+        "value": 0.004344565693663542
+      },
+      "floor_area": {
+        "value": 2.0,
+        "unit": "m2_floor"
+      },
+      "tracked_leaf_area_index": {
+        "value": 0.002172282846831771,
+        "unit": "m2_leaf/m2_floor"
+      },
+      "input_sha256": "f7439995afcb46b7d4d928922c6d27cd2586116760b9fa3974a5d69041cc8c05",
+      "source": {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "result_sha256": "74fd5789bb1dadbdd887a23f137aa9808ce37035593428ba30f3a0720c8473ef",
+        "input_sha256": "55bb1af770e0d727bd1451f58a47e890c777e4e1311fbc643a03335899096838",
+        "appearance_program_sha256": "64d9e1551f925e8766c6f658c0838793556be58ecefe0dd96a55fad7bca47ade",
+        "management_program_sha256": "fe7da102abc14c2ac44a6d987828342df5ad2a7e624c9e30d2d09076e9d58c99",
+        "preparation_sha256": "7ff0702a68899f0ef108fef3a6471157c5485524dd29127bf4d4c56c94e3e9ec"
+      }
+    }
+  ],
+  "actual_measurements_received": 0,
+  "independent_unused_domestic_cycles": 0,
+  "new_runtime_or_UI_deployment": false,
+  "full_goal_complete": false,
+  "JUnit_sha256": {
+    "focused-v2.junit.xml": "ef755fc32c44ec1e5b82c2f5d2d207decdc1a9ea19382f98d707a00360705cc6",
+    "final-v1.junit.xml": "ce2cea5ba5ef5c6fcddaee134a746d5defbab6bd6bed02cccba7d346bf77dcb8"
+  }
+}
