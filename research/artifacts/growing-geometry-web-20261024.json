@@ -90,7 +90,7 @@
     "bytes": 3149941,
     "max_file_bytes": 68361,
     "ledger": "research/artifacts/growing-geometry-export-files-20261024.csv",
-    "ledger_sha256": "7d9b321bb38db7c6fe5ddc84ac2436c64c8ba86dde94cafedac6bd50d3d47423"
+    "ledger_sha256": "7beb256a45f63c0cc8d821aae8a0fcd46fa1d1a307a9628c53adaf3f4bc1251b"
   },
   "source_sha256": {
     "backend/tests/test_growing_geometry_export.py": "dbf1fa2a3fd98cb323b5c848745eeab41404848a1b47ee7d233effb709b74e59",
@@ -539,6 +539,51 @@
       "PID_peak_RSS_bytes": 81375232,
       "combined_peak_RSS_bytes": 433029120,
       "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 4025,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "a3a0c205b6dc84969286389e1baa691049ef106ef386996b5f7c5ff5093e732d",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "CSV_line_endings_correction": {
+    "old_CRLF_sha256": "7d9b321bb38db7c6fe5ddc84ac2436c64c8ba86dde94cafedac6bd50d3d47423",
+    "new_LF_sha256": "7beb256a45f63c0cc8d821aae8a0fcd46fa1d1a307a9628c53adaf3f4bc1251b",
+    "all_276_rows_identical": true,
+    "raw_public_files_changed": 0
+  },
+  "record_verification_after_LF_correction": {
+    "result": {
+      "passed": true,
+      "source_pins": 8,
+      "public_files": 276,
+      "relative_links_checked": 3374,
+      "compiled_Python": 3,
+      "old_private_roots_rights_false_preserved": 6,
+      "original_checkpoint_bytes_matching_old_private_and_new_public": 102,
+      "full_goal_complete": false
+    },
+    "phase": {
+      "observed_at_UTC": "2026-10-24T08:32:03.729417Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.2263746529933996,
+      "PID_peak_RSS_bytes": 81375232,
+      "combined_peak_RSS_bytes": 431091712,
+      "samples": 3,
       "sample_interval_seconds": 0.25,
       "optional_resource_root_count": 0,
       "live_protected_roots": 4,
