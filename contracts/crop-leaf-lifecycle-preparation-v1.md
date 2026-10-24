@@ -1,6 +1,6 @@
 # 원 출현/줄기와 관리 선언의 생애 입력 결속 — 연구 v1
 
-상태: 계약/검증 중. [생애 계산](crop-leaf-lifecycle-v1.md)을 기존
+상태: [631검사/원 준비 SHA fresh 수용](../research/crop-leaf-lifecycle-preparation-20261024.md). [생애 계산](crop-leaf-lifecycle-v1.md)을 기존
 [출현 프로그램](crop-leaf-appearance-program-v1.md)의 원 준비 결과에 결속한다.
 기존 판본/실행·저장/화면은 바꾸지 않는다.
 
