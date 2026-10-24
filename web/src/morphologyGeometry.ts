@@ -23,11 +23,12 @@ function surfaceArea(mesh:InstancedMesh){
 
 export function createMorphologyGeometry(frame:MorphologyFrame,materials:{stem:Material;leaf:Material},declared?:readonly MorphologyLeafArea[]){
   if(declared){const ids=new Set(frame.internodes.map(n=>n.internode_id)),seen=new Set<string>();
-    if(!Array.isArray(declared)||declared.length<1||declared.length>512)throw Error('stored_leaf_binding_invalid');
+    if(!Array.isArray(declared)||declared.length>512)throw Error('stored_leaf_binding_invalid');
     for(const q of declared){if(typeof q.leaf_id!=='string'||!/^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/.test(q.leaf_id)||
       seen.has(q.leaf_id)||!ids.has(q.attachment_internode_id)||q.area.unit!=='m2'||!Number.isFinite(q.area.value)||q.area.value<=0)throw Error('stored_leaf_binding_invalid');
       seen.add(q.leaf_id);}}
-  const specifications=declared?declared.map((q,pose)=>({attachment:q.attachment_internode_id,pose,stored:q})):
+  const specifications=declared?declared.map(q=>({attachment:q.attachment_internode_id,
+    pose:frame.internodes.find(n=>n.internode_id===q.attachment_internode_id)!.sequence,stored:q})):
     leafAnchors.map((attachment,pose)=>({attachment,pose,stored:undefined}));
   const root=new Group(),owned:BufferGeometry[]=[],instances:InstancedMesh[]=[],leafGroups:Group[]=[];
   const surfaces=new Map<string,InstancedMesh>();let hairMaterial:LineBasicMaterial|undefined;
