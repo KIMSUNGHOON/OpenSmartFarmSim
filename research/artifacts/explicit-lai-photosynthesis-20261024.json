@@ -1,0 +1,2107 @@
+{
+  "schema_version": "explicit-lai-photosynthesis-software-evidence-v1",
+  "accepted_scope": "synthetic_instantaneous_explicit_lai_optical_component_only",
+  "G0_G4": "not_assessed",
+  "full_continuous_parent_complete": false,
+  "full_goal_complete": false,
+  "native_invocation": {
+    "timestamp": "2026-10-24T04:35:59.972Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "raw_line_sha256_including_lf": "81628c328dbffaf7a324b5ee944f23b8c154f63cc34203c8a5d2887e8a07b5a7",
+    "recursive_cli_invocations": 0,
+    "recorded_at": "2026-10-24T04:37:49.998833+00:00"
+  },
+  "source_sha256": {
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/tests/test_crop_explicit_lai_photosynthesis.py": "c4ac448b96cd72d5f42fc48a16c62cebaf13ebe7427f91c039df7235c36aab0a",
+    "research/crop-explicit-lai-photosynthesis-reference.py": "8a7cdd5f80c4936a65b2b8b7624d1a90466c1bf0f28614a36719faf0922bc107",
+    "fixtures/crop-explicit-lai-photosynthesis-reference-v1.json": "9367e5caff1afb96e9748854a4aa50e31bb257670a2bf37f470e2885b4636a88",
+    "contracts/crop-explicit-lai-photosynthesis-v1.md": "1b1e127a9a0a59a91eae3e4f0a39ea8e963c9cefbf7eb93d8aca038efb402a84",
+    "contracts/crop-geometry-carbon-coupling-research-v1.md": "dca59109b6a84457e080aa96f9a01a7972ced6eebc6b6ce05cc0dcc4106ca9cf",
+    "research/continuous-leaf-carbon-primary-sources-20261024.md": "5a44d5fdbd83aa0affb268cb0d8bd167051c4ae41752417b8e518a7bddfb8a06"
+  },
+  "research_spawn": {
+    "task_name": "/root/continuous_leaf_carbon_sources",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "fork_turns": "none",
+    "proposal_reviewed_by_parent": true,
+    "data_or_gate_approval": false
+  },
+  "tests": {
+    "unique": 254,
+    "new": 136,
+    "related": 118,
+    "per_file": {
+      "tests.test_crop_explicit_lai_photosynthesis": 136,
+      "tests.test_crop_growth_rates": 86,
+      "tests.test_crop_photosynthesis_domain": 32
+    },
+    "JUnit_sha256": "17ef72d7413443fd89ea5ee5ac913fd6df779a4f58cf6e59b6f567296229669b",
+    "full_backend_CI_this_slice": false,
+    "browser_this_slice": false
+  },
+  "fresh": {
+    "passed": true,
+    "observed_at_UTC": "2026-10-24T04:49:18.134696Z",
+    "reference_rows": [
+      {
+        "case_id": "explicit-optical-reference-0",
+        "status": "supported",
+        "input_sha256": "c3c3e26f0fbbd5db2236ff4d2e12646267831917caca76e700ecec7339b9e211",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-1",
+        "status": "supported",
+        "input_sha256": "92d66ebafca1830f5187c473a5c5a0b58b2ffae4e122754e07f9141f93828fea",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-2",
+        "status": "supported",
+        "input_sha256": "2e91c20c8eefb31934d481b511627294b0ee0ec11c0fffba1de8644ab082be53",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-3",
+        "status": "supported",
+        "input_sha256": "73cccde5085b29260ecc3e13c8c79b97086bf2e7bf18696ec4bcc578c805514e",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-4",
+        "status": "supported",
+        "input_sha256": "a1e73edb876c1c9fc55da0feaa67dd44d90bc59970a4d65ccd757d9333f62b06",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-5",
+        "status": "supported",
+        "input_sha256": "0b40cd92f2741a5c927e1009492a8400f3cc4de913a13dac40af53d7405399d9",
+        "values": {
+          "photosynthesis": 0.0008410653070894855,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 0.1440729558357789
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-6",
+        "status": "supported",
+        "input_sha256": "a0ae575cc944dff5ecfeb19afdcfc2cf4ce75a4f89f9e36f71c5ca8762605538",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-7",
+        "status": "supported",
+        "input_sha256": "bde95f1146e1ddaff23a167019f9c69e7f39ca031926cd59db32e7eb8ee112eb",
+        "values": {
+          "photosynthesis": 0.0004205517456976765,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 0.1440729558357789
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-8",
+        "status": "supported",
+        "input_sha256": "4ba287446cc23d9dcd440147e202b1076a1f1efeb35a0bc973d131b671d4b1ca",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-9",
+        "status": "supported",
+        "input_sha256": "cd7f6f8bcaa0b99e10352fb106faa3cc2bfe4028619fd38ef3edbaea23691f3f",
+        "values": {
+          "photosynthesis": 0.08317485033965476,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 14.247700432563006
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-10",
+        "status": "supported",
+        "input_sha256": "d193236885a946d1172c07650c441a471958e3461443c5cfebecfa6d25970503",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-11",
+        "status": "supported",
+        "input_sha256": "4d424b73971ea750cb600dcbd875b04e0833d1c94e7a67322e4af2b1c756afc2",
+        "values": {
+          "photosynthesis": 0.04158931323600909,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 14.247700432563006
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-12",
+        "status": "supported",
+        "input_sha256": "9f9109b4544839bb5e32417e5a214bc1f4ab72e678d12840666a4b7c52b36497",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-13",
+        "status": "supported",
+        "input_sha256": "2b080512f30baf7bf08b15b58c515d0337ac7fbfac42fd111ff6257dac56e327",
+        "values": {
+          "photosynthesis": 0.24353789547589763,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 41.71759810264581
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-14",
+        "status": "supported",
+        "input_sha256": "06f4cc342f7cf7f6df9380e5551594ce310532475963e67a63ea6f2de7c0c1cb",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-15",
+        "status": "supported",
+        "input_sha256": "b48411603bf2c45e036fbea2c318bf85ef5f9b1466d84a9ea869df2d4091f796",
+        "values": {
+          "photosynthesis": 0.12177447603962337,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 41.71759810264581
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-16",
+        "status": "supported",
+        "input_sha256": "79631a370a4029195db88df6320644be382b5de3612394f57fe53c9d4c77986a",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-17",
+        "status": "supported",
+        "input_sha256": "61f42f2c0e712c03e648859ce76a4755673d1edb4c3ff5d518dea7ac48c0a15b",
+        "values": {
+          "photosynthesis": 0.7322449917515446,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 125.43223393990998
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-18",
+        "status": "supported",
+        "input_sha256": "0f340626c57bcba8327647645c643ba23933827aac0b54275cf1c8f2df534cf3",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-19",
+        "status": "supported",
+        "input_sha256": "98caa60b524e02990066fb4e46fc715e87e8df31272ae8409d882f63e576709f",
+        "values": {
+          "photosynthesis": 0.3661391178113695,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 125.43223393990998
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-20",
+        "status": "supported",
+        "input_sha256": "e11e2f87592a76de3fe7e015921624c04c411563f09c4ba311a796dfd9acb5d7",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-21",
+        "status": "supported",
+        "input_sha256": "b44ca0f2b4abb0fad725631cdb53c1fc2fcabb1d6b0939a66f216d2fbade42f8",
+        "values": {
+          "photosynthesis": 1.5038999979340752,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 257.615331600797
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-22",
+        "status": "supported",
+        "input_sha256": "e6c9ca38c39b3e9b66f81696558fb8472c8d7cb55391441eaff7bdf9ac3d71dc",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-23",
+        "status": "supported",
+        "input_sha256": "fcfed915e49334fadc7b0356499af41783fa23929ff7e7cb992a2c76873512c3",
+        "values": {
+          "photosynthesis": 0.7519841374441755,
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 257.615331600797
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-24",
+        "status": "supported",
+        "input_sha256": "f634d96c16381d4281524d421d7d3a358a6a4e81f259fecd840c27e6c32ca759",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-25",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-26",
+        "status": "supported",
+        "input_sha256": "d500568541b883516dd3c6d1badf05e1b883bd8a3c84547aa6a9f0ee50f97c9e",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-27",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-28",
+        "status": "supported",
+        "input_sha256": "a3f64c41bc741ecdd1f8bc6ff8779fb63f985e298cf26315d5350e869d6661b1",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-29",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-30",
+        "status": "supported",
+        "input_sha256": "2e0bb531080b877f0dd4a4eceab5c91fe136d21e0663bcf3b1bbc56777a127b8",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-31",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-32",
+        "status": "supported",
+        "input_sha256": "93325bd4dbdcba528d126c18485f415c13bb1294a8d850ec988c5322bbc246d9",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-33",
+        "status": "supported",
+        "input_sha256": "ba959568e9c37daf0c7372c03e755218a90f2528c74d2bcc2725f8a9847d676d",
+        "values": {
+          "photosynthesis": 0.014342771540526668,
+          "compensation_point_ppm": 85.0,
+          "electron_transport": 6.703448218320209
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-34",
+        "status": "supported",
+        "input_sha256": "fa474f0509964496f2aa5689a5610039743d7deb9d9b387010dd2a98fe9945a9",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-35",
+        "status": "supported",
+        "input_sha256": "3a619f8df303ad6b3b0699128c45f80667b145faf6e4fdb06848f7864ffc454e",
+        "values": {
+          "photosynthesis": 0.014335493963697536,
+          "compensation_point_ppm": 85.0,
+          "electron_transport": 6.703448218320209
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-36",
+        "status": "supported",
+        "input_sha256": "0916ff10eab8718928321c73415950c3593fc88bdfea3dd6aa30b238d6a47ac7",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-37",
+        "status": "supported",
+        "input_sha256": "a2676b3d9f201a4e8c5c1607756bc789688d3ce4936c072cb527bc5bc48adae1",
+        "values": {
+          "photosynthesis": 0.06482815996908733,
+          "compensation_point_ppm": 51.0,
+          "electron_transport": 18.2028419649111
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-38",
+        "status": "supported",
+        "input_sha256": "73e4461196737029e3eca2ba390f46aac099ce5a037e90b5579fadd59daba26a",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-39",
+        "status": "supported",
+        "input_sha256": "17609d29831ffcfdf7579b1104969dcdd623681866ec6c15bf027c07e3b896da",
+        "values": {
+          "photosynthesis": 0.06479526591415988,
+          "compensation_point_ppm": 51.0,
+          "electron_transport": 18.2028419649111
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-40",
+        "status": "supported",
+        "input_sha256": "aa3942db2722f949541b40a2a01324d8127db1e4dafa75a7724e32fda5fb5acf",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-41",
+        "status": "supported",
+        "input_sha256": "caae55e54f342c4259a743d778bd1c256056ef0840e61451c0cc20827168cf70",
+        "values": {
+          "photosynthesis": 0.18558144206128632,
+          "compensation_point_ppm": 39.1,
+          "electron_transport": 43.81908154174632
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-42",
+        "status": "supported",
+        "input_sha256": "edf02292f98b62098f4ebd70a52233c96934d181e571c63d314b3cd6591fd703",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-43",
+        "status": "supported",
+        "input_sha256": "4f77ef27860688a68ea15bb1c45cb1df2f97b2434c4066236cff65ed41318bfc",
+        "values": {
+          "photosynthesis": 0.18548727733176765,
+          "compensation_point_ppm": 39.1,
+          "electron_transport": 43.81908154174632
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-44",
+        "status": "supported",
+        "input_sha256": "9499443fdaceee6e13d638f357d03ac5764eff23a192e23e7f6c4a6cab4f4906",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-45",
+        "status": "supported",
+        "input_sha256": "480e1e9ece0ede0b745ee029c00af69b23c47fc3ba16ee1c0c4b1616c53c3f51",
+        "values": {
+          "photosynthesis": 0.29074477338352095,
+          "compensation_point_ppm": 35.699999999999996,
+          "electron_transport": 65.34593581103809
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-46",
+        "status": "supported",
+        "input_sha256": "74de405f25ceddf3c386d0109d37e003c8edd23a82a79417fffc473286368622",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-47",
+        "status": "supported",
+        "input_sha256": "ca95880da498d6fe9717b971f9ddf530f53f4d22d4b84466c754fa18aa0d9de0",
+        "values": {
+          "photosynthesis": 0.29059724837972456,
+          "compensation_point_ppm": 35.699999999999996,
+          "electron_transport": 65.34593581103809
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-48",
+        "status": "supported",
+        "input_sha256": "0354d980d435499d2dded57f4bb08ebb7035808e9a39ea2da38e4933393e31b0",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-49",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-50",
+        "status": "supported",
+        "input_sha256": "842bd9317cecdaa42aad6c3d6842e71cc2e6f78953e2c0e53f7fd674d78d2c9d",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-51",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-52",
+        "status": "supported",
+        "input_sha256": "f50c1cdeaee0b91b0c8c805f189dbda263fca493c9123cbb72fda5f0b8cfd6f1",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-53",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-54",
+        "status": "supported",
+        "input_sha256": "9bfe66845530ad5402550218033033a22082342b3ac87c58b9433ba416b2d729",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-55",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-56",
+        "status": "supported",
+        "input_sha256": "ebc05a5004cca9798a82fc7be5f17de69a0cd03f00ec84a3737c71851802b70a",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-57",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-58",
+        "status": "supported",
+        "input_sha256": "72967c64b64c992b5b316164064281b92337fad234e622b6ca00ca734916c8ec",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-59",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-60",
+        "status": "supported",
+        "input_sha256": "7016ed6732a033c183fb93653d66f827d04b7226c12f06f8d89a6d3dae93f898",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-61",
+        "status": "supported",
+        "input_sha256": "b26209fa6aa74b8748ba51f508a1ebbac1fd998277a3d1817990023233cc6bed",
+        "values": {
+          "photosynthesis": 0.1592655254092114,
+          "compensation_point_ppm": 17.0,
+          "electron_transport": 27.281894539019554
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-62",
+        "status": "supported",
+        "input_sha256": "c586c038a743004aca0ced020ea2d8c9bcd00e99da4f5d09ce2f698da265a7ce",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-63",
+        "status": "supported",
+        "input_sha256": "ef6e9799d52ffade021bae6d7c3758ef6e5b1df85393584b19bc6616e2d76341",
+        "values": {
+          "photosynthesis": 0.15820676724031668,
+          "compensation_point_ppm": 17.0,
+          "electron_transport": 27.281894539019554
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-64",
+        "status": "supported",
+        "input_sha256": "7fd593f630c1711b5828ec907e7ef342659717cb9bee6320f837eb28b3394f69",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-65",
+        "status": "supported",
+        "input_sha256": "3c61d89feb1a8a8c9676f4dd91d211474595b3f1351e711b3a1d6bdb4bbf8b47",
+        "values": {
+          "photosynthesis": 0.3577489032500604,
+          "compensation_point_ppm": 28.9,
+          "electron_transport": 72.85569171670852
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-66",
+        "status": "supported",
+        "input_sha256": "de30d17618c8dc32459fa945e0bf1907448ab671490bb45f16b11559c93159e1",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-67",
+        "status": "supported",
+        "input_sha256": "810a7f68e00110f6ea8b6e2dfbce1601155a54d4c5b8bf6e807bcff5cc608be0",
+        "values": {
+          "photosynthesis": 0.35537067624358215,
+          "compensation_point_ppm": 28.9,
+          "electron_transport": 72.85569171670852
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-68",
+        "status": "supported",
+        "input_sha256": "4a364556c1efd883865bacfe68f2a0202fcd6a6510c9841494771c301e30f37a",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-69",
+        "status": "supported",
+        "input_sha256": "1f6174a2f562d4d04cd7cafcb417cad34198775f0615bce058cc28ae0abe88e2",
+        "values": {
+          "photosynthesis": 0.5674162134589475,
+          "compensation_point_ppm": 32.3,
+          "electron_transport": 121.39423656140218
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-70",
+        "status": "supported",
+        "input_sha256": "4310ce7f33a2643d0c049fc2a2ee88fb960266022735d71789f3c33778e5ccd5",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-71",
+        "status": "supported",
+        "input_sha256": "20ea4b3d1b14cef4c36adffd3bfb19bed8426943f650a36c72b014d869031deb",
+        "values": {
+          "photosynthesis": 0.5636441695742498,
+          "compensation_point_ppm": 32.3,
+          "electron_transport": 121.39423656140218
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-72",
+        "status": "supported",
+        "input_sha256": "5f45a4c878f001e2f9e3b5f4a5d260d67cfc49925fe13a89fbaf5689eb9f6c33",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-73",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-74",
+        "status": "supported",
+        "input_sha256": "87fcfc91f8f5d93dc6e13b821304941437dfd69ea00a17522258369a7ad58a0f",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-75",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-76",
+        "status": "supported",
+        "input_sha256": "fbe987e050eed25e2548319ed0f98c804ffe055ae12ce63088482fe8e49b3bed",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-77",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-78",
+        "status": "supported",
+        "input_sha256": "477808726f752d48861cea760dcdecfb80aa7463f7c1e24d606e02454c325018",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-79",
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "case_id": "explicit-optical-reference-80",
+        "status": "supported",
+        "input_sha256": "1005c8cc83e1a7b7c410c443e2ec3ab87c69ea6d824f01a1f8264c193564c3d9",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-81",
+        "status": "supported",
+        "input_sha256": "30d1a28a1dd258186e03f0f0ec2212a1deacd5c5514666d8d355ffab7e71eef2",
+        "values": {
+          "photosynthesis": 0.05478124558435353,
+          "compensation_point_ppm": 85.0,
+          "electron_transport": 13.589602787351051
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-82",
+        "status": "supported",
+        "input_sha256": "d485998e216a517c8d3c0dfb6ce91949c8f091c5afa1ca293302eac4f582a504",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-83",
+        "status": "supported",
+        "input_sha256": "86f821790bc48df12b3e5d86a02c2c7491aaaa045538eb59c8d688616f0900d9",
+        "values": {
+          "photosynthesis": 0.05062793839552764,
+          "compensation_point_ppm": 85.0,
+          "electron_transport": 13.589602787351051
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-84",
+        "status": "supported",
+        "input_sha256": "898972e9740fb632f4d4bcb97387089798d97bc2306a8ec6a8da666d037de3b5",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-85",
+        "status": "supported",
+        "input_sha256": "133316878348b5348344d3437ec20e50a50f9220fe76ed0f5b33c5bd7ceb253c",
+        "values": {
+          "photosynthesis": 0.19957656356818046,
+          "compensation_point_ppm": 51.0,
+          "electron_transport": 38.68743927781616
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-86",
+        "status": "supported",
+        "input_sha256": "78a08dda90060085d4b521bb541e65bd97d31f0c06921435d9bf12c8cac6dd92",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-87",
+        "status": "supported",
+        "input_sha256": "95f120bfe72abee225b66c549ca504baab95e349cb746e51f7dccd44242a599e",
+        "values": {
+          "photosynthesis": 0.18444542211006,
+          "compensation_point_ppm": 51.0,
+          "electron_transport": 38.68743927781616
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-88",
+        "status": "supported",
+        "input_sha256": "7616d89043cc51b58b98b11929583fccaaffeaf449a598193acf49d64412ed0f",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-89",
+        "status": "supported",
+        "input_sha256": "78b0f91df3f8af6babfa0d33587febfa0baa84d942e22d771a267824f7e1cb1f",
+        "values": {
+          "photosynthesis": 0.5916095719891595,
+          "compensation_point_ppm": 39.1,
+          "electron_transport": 105.17929451755099
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-90",
+        "status": "supported",
+        "input_sha256": "52e72b4654e635bb2579f13ac05a53d01540681257fe84b09acf723bbc998664",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-91",
+        "status": "supported",
+        "input_sha256": "e907fa0bd8bc092eb5724038109cae66e3146076c344bb2c38cdc581fbc60fb0",
+        "values": {
+          "photosynthesis": 0.5467559681305685,
+          "compensation_point_ppm": 39.1,
+          "electron_transport": 105.17929451755099
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-92",
+        "status": "supported",
+        "input_sha256": "d0825f8434c854a7dddf9282747570ed6d58e399cf51850377d63d9411f5bb6d",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-93",
+        "status": "supported",
+        "input_sha256": "d1dd0f25e0e71c928a75c97b4dc10e8bd543ddddf2fad4904ab6d5fb23931203",
+        "values": {
+          "photosynthesis": 1.0340868681049689,
+          "compensation_point_ppm": 35.699999999999996,
+          "electron_transport": 179.3469715787375
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-94",
+        "status": "supported",
+        "input_sha256": "c10dc3e270f9cface152398f4a635b10c983bb2b226707c093aca374590de7b1",
+        "values": {
+          "photosynthesis": 0.0,
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      },
+      {
+        "case_id": "explicit-optical-reference-95",
+        "status": "supported",
+        "input_sha256": "15bd790b0909ca1555e057d4ac6f5c0ace8ff15814efbc52a22fb10eea092d17",
+        "values": {
+          "photosynthesis": 0.9556863064281181,
+          "compensation_point_ppm": 35.699999999999996,
+          "electron_transport": 179.3469715787375
+        }
+      }
+    ],
+    "reference_supported": 82,
+    "reference_domain_holds": 14,
+    "numeric_comparisons": 198,
+    "exact_zero_comparisons": 100,
+    "maximum_relative_error": 5.50211166704629e-16,
+    "stored_rows": [
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "7200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "a28fbfb32bc1f5bb74977b7367c114ef6841a8ac83efc55476271b98bff21ada",
+        "tracked_lai": {
+          "value": 0.0019400745835075502,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0008158176827099931,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "645f1a1d18f214ac81a117bc31e75e8239efd4e7c4915bbbf9104d297eb390e4"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "7200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "a28fbfb32bc1f5bb74977b7367c114ef6841a8ac83efc55476271b98bff21ada",
+        "tracked_lai": {
+          "value": 0.0019400745835075502,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "14400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "c654d597a00e85531406b5e2dc37b2a7103275a67f0029f2962b2917803851a6",
+        "tracked_lai": {
+          "value": 0.0025868501255585236,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.00108771508934997,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "edba4627dc34dcc81521708885db912395726229bc6c1ac0090bf5c71f5b9ee3"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "14400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "c654d597a00e85531406b5e2dc37b2a7103275a67f0029f2962b2917803851a6",
+        "tracked_lai": {
+          "value": 0.0025868501255585236,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 2,
+        "at": "2026-10-01T06:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "21600",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "687479ba701b222e3400ae9cac1f7344320660f0ed71c2477d1384bb117a0b66",
+        "tracked_lai": {
+          "value": 0.003376867289149726,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.001419777337899199,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "f78346c71b4fd133be91d8178ca809b60e5729258ae841e79a647b85442efb3d"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 2,
+        "at": "2026-10-01T06:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "21600",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "687479ba701b222e3400ae9cac1f7344320660f0ed71c2477d1384bb117a0b66",
+        "tracked_lai": {
+          "value": 0.003376867289149726,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 3,
+        "at": "2026-10-01T08:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "28800",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "d010a0e3a14dc908eda59ec78bc4f7554b6c752f6ecf07db235e799dbb1c0cb6",
+        "tracked_lai": {
+          "value": 0.004711516429830035,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0019806299096235816,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "47e8678b38d92bfb685f5ae4fec8c712f095bec3073f4f4b25b8ea94f7a18a6f"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 3,
+        "at": "2026-10-01T08:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "28800",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "d010a0e3a14dc908eda59ec78bc4f7554b6c752f6ecf07db235e799dbb1c0cb6",
+        "tracked_lai": {
+          "value": 0.004711516429830035,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 4,
+        "at": "2026-10-01T10:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "36000",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "1b374eaa4f538bf6d77f9dac704eb5316bd297d5fc49a8646ac0c12f7ef589a2",
+        "tracked_lai": {
+          "value": 0.0058721530563143574,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.002468224305764939,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "e9b8945cbb9b32bc6e1b3e6596072fc9858a48ea45da83415bf2f9367a79945b"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 4,
+        "at": "2026-10-01T10:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "36000",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "1b374eaa4f538bf6d77f9dac704eb5316bd297d5fc49a8646ac0c12f7ef589a2",
+        "tracked_lai": {
+          "value": 0.0058721530563143574,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 5,
+        "at": "2026-10-01T12:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "43200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "401a3d21a3d5e0123376affcf9f7a8c9305a75933eb41f2668bb27aa0d2424a4",
+        "tracked_lai": {
+          "value": 0.00710976751988219,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.002988020567640424,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "4ae1b2235e1f61c099cd3a535ec6e6ff94401586a9dba9666c54275842c883fb"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 5,
+        "at": "2026-10-01T12:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "43200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "401a3d21a3d5e0123376affcf9f7a8c9305a75933eb41f2668bb27aa0d2424a4",
+        "tracked_lai": {
+          "value": 0.00710976751988219,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 6,
+        "at": "2026-10-01T14:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "50400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "153e223e2015dd31fd4bfb3df2da1ab97a56ea042322e63e3f6725c5027571ad",
+        "tracked_lai": {
+          "value": 0.008359509512573906,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0035127665179529545,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "387d859a414a8a731a18fef27bddfc6b893efc02f8e1786e94acc5f8b7fc2146"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 6,
+        "at": "2026-10-01T14:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "50400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "153e223e2015dd31fd4bfb3df2da1ab97a56ea042322e63e3f6725c5027571ad",
+        "tracked_lai": {
+          "value": 0.008359509512573906,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 7,
+        "at": "2026-10-01T16:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "57600",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "99e9d6494b6869ee5e7841a7fc87c0603e66da00f708f9b201bb0f980363229f",
+        "tracked_lai": {
+          "value": 0.009556655393649414,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.004015292566476123,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "7aca5d1d1dfca779967f485ede9e1bfb84bce3413c456c22fd84362bfe0c5667"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 7,
+        "at": "2026-10-01T16:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "57600",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "99e9d6494b6869ee5e7841a7fc87c0603e66da00f708f9b201bb0f980363229f",
+        "tracked_lai": {
+          "value": 0.009556655393649414,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 8,
+        "at": "2026-10-01T18:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "64800",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "cd2ea545a59db7746c44fa814e3f4eea34b6b64dd0e1ef8af56affd4670d35bd",
+        "tracked_lai": {
+          "value": 0.01064866396986247,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.004473569256427697,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "6ae472b661cb39fe1a666f6ec8aea4fad64f46aa8a322a7e1ce8ee8ae656141c"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 8,
+        "at": "2026-10-01T18:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "64800",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "cd2ea545a59db7746c44fa814e3f4eea34b6b64dd0e1ef8af56affd4670d35bd",
+        "tracked_lai": {
+          "value": 0.01064866396986247,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 6.517697538333943e-06,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "2a96254eb7f24cdfec5711074b7aee8081672184619082206526416c12b4f3af"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 9,
+        "at": "2026-10-01T20:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "72000",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "44d593ab8b218f8cb0a51d202a96166e6a4feb7e4275539deb4946bbcd32a680",
+        "tracked_lai": {
+          "value": 0.01160169488127628,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.004873431628057787,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "16907f2b463cd9b2b04b428e7d0d1e6853481eed0f3887dd870e51b6fb016ce3"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 9,
+        "at": "2026-10-01T20:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "72000",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "44d593ab8b218f8cb0a51d202a96166e6a4feb7e4275539deb4946bbcd32a680",
+        "tracked_lai": {
+          "value": 0.01160169488127628,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 5.472607511513415e-05,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "db67b885adc589074bdb49edff924b4e4434ae9918650fdc6bd7c864f39303f8"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 10,
+        "at": "2026-10-01T22:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "79200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "a92a00f6eeb0f9b1bccdbc07ff5874487ee448b6edb86ff77da6b2a03ba532e1",
+        "tracked_lai": {
+          "value": 0.012807396542641783,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0053791860497190876,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "04608d5b3462b01aadf32930c78901b5692238abab3e675abaf344a1d8f9d6d4"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 10,
+        "at": "2026-10-01T22:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "79200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "a92a00f6eeb0f9b1bccdbc07ff5874487ee448b6edb86ff77da6b2a03ba532e1",
+        "tracked_lai": {
+          "value": 0.012807396542641783,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.00017692182226876555,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "20bb90b755bcfb49030c546c24aaa5fa95a34b1fba9604ae24898059a2601d5a"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "86400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "3683072676d6c3e9a7b26fd99409fe7c849dc31b148cf96325c6088d551b6ef7",
+        "tracked_lai": {
+          "value": 0.01359625872851977,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0057100161771607635,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "c8f37430814233867cb27fbf521832d26ec81a3939df980cfc65631409a2a011"
+      },
+      {
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "86400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "3683072676d6c3e9a7b26fd99409fe7c849dc31b148cf96325c6088d551b6ef7",
+        "tracked_lai": {
+          "value": 0.01359625872851977,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0002902664491345445,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "67e7d6cfa05b352feca659f38da3f4e77d85abc5738020ac98021ebe00dd060a"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "7200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "b5fba931b1741c7d250aed852e2f69984bc423d2901c161af929365e8c439e74",
+        "tracked_lai": {
+          "value": 0.0014550559376306626,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0006118957963479351,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "e1e31169940d8126789419a7aed019a0629f7491cda0031c602f25961394edaf"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 0,
+        "at": "2026-10-01T02:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "7200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "b5fba931b1741c7d250aed852e2f69984bc423d2901c161af929365e8c439e74",
+        "tracked_lai": {
+          "value": 0.0014550559376306626,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "14400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "73f076aa5b1daf9dabc582d65dbc566d7a277dc5a4cdf9fbdc76755e43812abe",
+        "tracked_lai": {
+          "value": 0.0019401375941688929,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0008158441735868324,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "1f86dcbafba359474a849f1e32e6aef4a9f2b1577e718de817478cba6c120364"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 1,
+        "at": "2026-10-01T04:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "14400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "73f076aa5b1daf9dabc582d65dbc566d7a277dc5a4cdf9fbdc76755e43812abe",
+        "tracked_lai": {
+          "value": 0.0019401375941688929,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 2,
+        "at": "2026-10-01T06:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "21600",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "84ea64762ebbbd72f6140ef2963a00c432ecb58d76cb6e7f57fceea194012324",
+        "tracked_lai": {
+          "value": 0.0025326504668622945,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0010649316238349755,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "92594b64bd77cf246cb167df41e7b881cc20985956861fcc2e357bba287db0f4"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 2,
+        "at": "2026-10-01T06:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "21600",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "84ea64762ebbbd72f6140ef2963a00c432ecb58d76cb6e7f57fceea194012324",
+        "tracked_lai": {
+          "value": 0.0025326504668622945,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 3,
+        "at": "2026-10-01T08:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "28800",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "86a6131d1d799fa64d7cd2f4bcdd8da31f3ff99ec2a34f3340a396df217b7013",
+        "tracked_lai": {
+          "value": 0.003223493594201421,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.001355315379683024,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "7efc9b62495319107a3c65051f8a00c768ab94cba264c3a47da6351f2a98d25f"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 3,
+        "at": "2026-10-01T08:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "28800",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "86a6131d1d799fa64d7cd2f4bcdd8da31f3ff99ec2a34f3340a396df217b7013",
+        "tracked_lai": {
+          "value": 0.003223493594201421,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 4,
+        "at": "2026-10-01T10:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "36000",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "31f011fd2ccc8f84c4dd9349e50ce6192bf7e906e5cf4fcfd207ee42ea471d6f",
+        "tracked_lai": {
+          "value": 0.003986619816910848,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0016760308424168676,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "57d6676741e9c8284225765eb5c96095949b7e4fe4dc8f17fe95fe8d36840368"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 4,
+        "at": "2026-10-01T10:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "36000",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "31f011fd2ccc8f84c4dd9349e50ce6192bf7e906e5cf4fcfd207ee42ea471d6f",
+        "tracked_lai": {
+          "value": 0.003986619816910848,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 5,
+        "at": "2026-10-01T12:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "43200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "7d3633a97d4a582d79b15a5444f22764400cae81a79bba8805bab32480d572d1",
+        "tracked_lai": {
+          "value": 0.004780884360363806,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0020097755303491835,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "e934ff58ba14b9f2e87333b5125a2b2b071d2c33c67b532c4f82774df32d9bd5"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 5,
+        "at": "2026-10-01T12:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "43200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "7d3633a97d4a582d79b15a5444f22764400cae81a79bba8805bab32480d572d1",
+        "tracked_lai": {
+          "value": 0.004780884360363806,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 6,
+        "at": "2026-10-01T14:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "50400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "79129abb81d2bed398d431f5b233e859757fa4bdb2c1f9d312aa50b53dada2eb",
+        "tracked_lai": {
+          "value": 0.005557959683446004,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.002336240999452476,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "c16129cc8744096fff2d394fcd0224fe780f15584996b043380ff46a94637512"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 6,
+        "at": "2026-10-01T14:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "50400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "79129abb81d2bed398d431f5b233e859757fa4bdb2c1f9d312aa50b53dada2eb",
+        "tracked_lai": {
+          "value": 0.005557959683446004,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 7,
+        "at": "2026-10-01T16:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "57600",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "e22d554ed4183922b2b331fc681172dc6feafc2b201e9cec1b2e4b769a0e995d",
+        "tracked_lai": {
+          "value": 0.0062735335556886665,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.002636819053607426,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "bb5013c7eeb2bc887cdb977384f2fbee3c53c70ed62aac8ff66797973e8301bb"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 7,
+        "at": "2026-10-01T16:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "57600",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "e22d554ed4183922b2b331fc681172dc6feafc2b201e9cec1b2e4b769a0e995d",
+        "tracked_lai": {
+          "value": 0.0062735335556886665,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 8,
+        "at": "2026-10-01T18:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "64800",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "316b5c47ef04e177fa91edbc92701ed54da06ca3420b380dda5df66de0c39c6f",
+        "tracked_lai": {
+          "value": 0.006896642787773638,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0028985185935974287,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "ad0220b05c68669414cfa3f4b399acd5233e04cb7af05e717601c12bc5123c69"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 8,
+        "at": "2026-10-01T18:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "64800",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "316b5c47ef04e177fa91edbc92701ed54da06ca3420b380dda5df66de0c39c6f",
+        "tracked_lai": {
+          "value": 0.006896642787773638,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 9,
+        "at": "2026-10-01T20:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "72000",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "4b9ca2170698dbea0ac7aecba1ad17401fdceec7a0d364b3b2e59722e623ef3c",
+        "tracked_lai": {
+          "value": 0.007413361910133913,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.003115508117875184,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "4d594b968870ab29cacdf2d269e3c80b984e3f13b9a2cc10f13eea1b65057616"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 9,
+        "at": "2026-10-01T20:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "72000",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "4b9ca2170698dbea0ac7aecba1ad17401fdceec7a0d364b3b2e59722e623ef3c",
+        "tracked_lai": {
+          "value": 0.007413361910133913,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 10,
+        "at": "2026-10-01T22:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "79200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "a7c1bec3b6918dccdc6166f68388c2e1d494f8b2627288bd39c8dbfb31698549",
+        "tracked_lai": {
+          "value": 0.00823092619907034,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.003458783190491427,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "d23fe2b6580bdffb2e68e95cd9ac525579cb006932aa88a47dd61c7c633257ed"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 10,
+        "at": "2026-10-01T22:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "79200",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "a7c1bec3b6918dccdc6166f68388c2e1d494f8b2627288bd39c8dbfb31698549",
+        "tracked_lai": {
+          "value": 0.00823092619907034,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "86400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "74fd5789bb1dadbdd887a23f137aa9808ce37035593428ba30f3a0720c8473ef",
+        "tracked_lai": {
+          "value": 0.008689131387327085,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "source-initial-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "supported",
+        "photosynthesis": {
+          "value": 0.0036511451740314418,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "input_sha256": "a663688eaf2a4d93a12124a09a3654eba6591fa2ec9ec0257961e9660ec09ca3"
+      },
+      {
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "index": 11,
+        "at": "2026-10-02T00:00:00Z",
+        "at_elapsed_seconds_exact": {
+          "numerator": "86400",
+          "denominator": "1",
+          "unit": "s"
+        },
+        "source_result_sha256": "74fd5789bb1dadbdd887a23f137aa9808ce37035593428ba30f3a0720c8473ef",
+        "tracked_lai": {
+          "value": 0.008689131387327085,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "reference_forcing_case": "warm-canopy-day",
+        "forcing_scope": "separate_own_software_assumption_not_same_crop_forcing",
+        "whole_canopy_or_production_approval": false,
+        "status": "COMPENSATION_POINT_HOLD"
+      }
+    ],
+    "stored_supported": 28,
+    "stored_domain_holds": 20,
+    "optical_helper_calls": 144,
+    "full_carbon_RHS_advance_integration_DB_CLI_network_writes": 0,
+    "FD_preserved": true,
+    "original_lifecycle_blob_files_preserved": 62,
+    "reference_regenerated_identical_bytes": true,
+    "G0_G4": "not_assessed"
+  },
+  "WSL_phases": {
+    "explicit-lai-photo-red-v1": {
+      "observed_at_UTC": "2026-10-24T04:44:45.953710Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.2160229030123446,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 494882816,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3691,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "10df4ac1dacf5c35422c035fc19a062b9238f790aeaf65acdf9b5f089716e4c0",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-photo-reference-v1": {
+      "observed_at_UTC": "2026-10-24T04:45:53.128309Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.9513289500027895,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 457838592,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3693,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "0589fd376cb5ba2ca5b095a8e084efdc8458731c985c1f6354a80a357b5c65ec",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-photo-focused-v1": {
+      "observed_at_UTC": "2026-10-24T04:46:46.884696Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.702094648993807,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 537759744,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3694,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "43038b09ef5cfb301cdccf0a698bf307b51c8d1eabfef97060504950f877dc20",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-photo-fresh-v1": {
+      "observed_at_UTC": "2026-10-24T04:49:18.887154Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.7081908720138017,
+      "PID_peak_RSS_bytes": 91918336,
+      "combined_peak_RSS_bytes": 488693760,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3694,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "5dabdff13b12382173e8b38ef1037f9d14a7b53d2deef5be02deb43590cbbc1c",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "runtime_UI_DB_key_changes": 0,
+  "actual_measurements_received": 0,
+  "independent_unused_domestic_cycles": 0
+}

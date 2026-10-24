@@ -1,0 +1,3410 @@
+{
+  "schema_version": "explicit-lai-photosynthesis-software-reference-v1",
+  "origin": "own_synthetic_software_fixture",
+  "G0_G4": "not_assessed",
+  "independent_precision": 110,
+  "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+  "generator_sha256": "8a7cdd5f80c4936a65b2b8b7624d1a90466c1bf0f28614a36719faf0922bc107",
+  "cases": [
+    {
+      "case_id": "explicit-optical-reference-0",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-0",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-1",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-1",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-2",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-2",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-3",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-3",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-4",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-4",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-5",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-5",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.00084106530708948589433566957094424542219925270451193814872028795564817080155247900880309109300834341805904868631",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "0.14407295583577895684402076086242107533042374524258126761723569615634761721979906207853082659484333150377484003"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-6",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-6",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-7",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-7",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.00042055174569767670986988903488348965592589929416652407541008275287540852969415373108194812151550443608911234318",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "0.14407295583577895684402076086242107533042374524258126761723569615634761721979906207853082659484333150377484003"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-8",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-8",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-9",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-9",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.083174850339654799194745187374293156865157722340214495987298356507288596578840780374130820065010291196313304528",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "14.247700432563011467810057076864453300519087960220073148225956518790447637817805245342586588413970441222706188"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-10",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-10",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-11",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-11",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.041589313236009112355569899670485407987283377160985034329680301065876612129703206139514932428064569150209976693",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "14.247700432563011467810057076864453300519087960220073148225956518790447637817805245342586588413970441222706188"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-12",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-12",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-13",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-13",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.24353789547589762410197811854698603005825304361564199486929450078664021236486336375313251149732462329420287601",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "41.717598102645807549560234146921303519551384500259645899986252664420161980303951678576998344504113198996877057"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-14",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-14",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-15",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-15",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.12177447603962336661454861465977751166176753481605203250863495215671349475961086010709560355066850441460186203",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "41.717598102645807549560234146921303519551384500259645899986252664420161980303951678576998344504113198996877057"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-16",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-16",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-17",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-17",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.73224499175154486233510807047136980823909473463558144518779799710079817077182673091226492890474408167011901885",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "125.43223393991001207640847038671035680025686869008971516805976464608685156188302250852768530387331623608169603"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-18",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-18",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-19",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-19",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.36613911781136965688220074270752204194133570813931706263647111926014596385283015993803398881891202694322791145",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "125.43223393991001207640847038671035680025686869008971516805976464608685156188302250852768530387331623608169603"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-20",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-20",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-21",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-21",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "1.5038999979340755648388902050035186751724444385996077452646328732213268949716931670723230251268494799031469354",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "257.61533160079707692404230663463671588935837634929819332780469729432247481072556762892297080356311475368406401"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-22",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-22",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-23",
+      "source_software_case": "source-initial-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-23",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.75198413744417578648432533462759710497459854510590928499110849008530173189927470884103632876741916823557041496",
+        "compensation_point_ppm": "33.9999999999999991118215802998747676610946655273437500",
+        "electron_transport": "257.61533160079707692404230663463671588935837634929819332780469729432247481072556762892297080356311475368406401"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-24",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-24",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-25",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-25",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-26",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-26",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-27",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-27",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-28",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-28",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-29",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-29",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-30",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-30",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-31",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-31",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-32",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-32",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-33",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-33",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.014342771540526674135656133012081053487484559524346051143521102985985986407209553856865948056558869282137915202",
+        "compensation_point_ppm": "84.999999999999994948485237955537972184069236655057115571744667652888917578087443600092366730733650643105540582",
+        "electron_transport": "6.7034482183202090140083148904647251366069608637252003675739170982926743763683142692417159592883996781871818583"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-34",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-34",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-35",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-35",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.014335493963697543688156008566073968448464653681584108476499839110426555117073181001606705966420162094414244800",
+        "compensation_point_ppm": "84.999999999999994948485237955537972184069236655057115571744667652888917578087443600092366730733650643105540582",
+        "electron_transport": "6.7034482183202090140083148904647251366069608637252003675739170982926743763683142692417159592883996781871818583"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-36",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-36",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-37",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-37",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.064828159969087354144488427957309465617683968455082412653105014098332275965450351756061283139607984852452964535",
+        "compensation_point_ppm": "50.999999999999999296858751070734197912784190252652644144501493487930737576703743127660986630180148347579243516",
+        "electron_transport": "18.202841964911100090676863187559139928833134427234608308495876531147317767855615899189082589770204173820776326"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-38",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-38",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-39",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-39",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.064795265914159887335778642687656639343168629288180496867369693853901189388824642943684282328408732968035176167",
+        "compensation_point_ppm": "50.999999999999999296858751070734197912784190252652644144501493487930737576703743127660986630180148347579243516",
+        "electron_transport": "18.202841964911100090676863187559139928833134427234608308495876531147317767855615899189082589770204173820776326"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-40",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-40",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-41",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-41",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.18558144206128630086983864040821285283581050195286488920056039594482753289344105447165537690956196238833120182",
+        "compensation_point_ppm": "39.0999999999999989785948173448559828102588653564453125",
+        "electron_transport": "43.819081541746321147298246888991103120820482821908154006972559892819768189630643483071205164739144556706471906"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-42",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-42",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-43",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-43",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.18548727733176762670647653588433060661773813117680011011100741988605041430960063733271248927415929081695870618",
+        "compensation_point_ppm": "39.0999999999999989785948173448559828102588653564453125",
+        "electron_transport": "43.819081541746321147298246888991103120820482821908154006972559892819768189630643483071205164739144556706471906"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-44",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-44",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-45",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-45",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.29074477338352084462467176401607833958876628201311772066878237941804932667956629508946748285881261951112794929",
+        "compensation_point_ppm": "35.6999999999999990674126593148685060441493988037109375",
+        "electron_transport": "65.345935811038088830477023641809498628967929604875722926604615725306966352187552385876334376621154392020170703"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-46",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-46",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-47",
+      "source_software_case": "night-with-removal",
+      "inputs": {
+        "input_id": "explicit-optical-reference-47",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 200,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.29059724837972447260532918810285160409442685159898687113527535410123853280210313635525850276077371915912554537",
+        "compensation_point_ppm": "35.6999999999999990674126593148685060441493988037109375",
+        "electron_transport": "65.345935811038088830477023641809498628967929604875722926604615725306966352187552385876334376621154392020170703"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-48",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-48",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-49",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-49",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-50",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-50",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-51",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-51",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-52",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-52",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-53",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-53",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-54",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-54",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-55",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-55",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-56",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-56",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-57",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-57",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-58",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-58",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-59",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-59",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-60",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-60",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-61",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-61",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.15926552540921142371600378100259338437765528036119747565164376996480626047673099974774530788511221708044784025",
+        "compensation_point_ppm": "16.999999999999998926784409529015337409405140802034855855498506512069262423296256872339013369819851652420756484",
+        "electron_transport": "27.281894539019552948488844306714382101556744896934395481735297310695172520503328432749176670603201116618101524"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-62",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-62",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-63",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-63",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.15820676724031668249483948157618831230610684742941940889997885734438704108312387206032863348869963514837244509",
+        "compensation_point_ppm": "16.999999999999998926784409529015337409405140802034855855498506512069262423296256872339013369819851652420756484",
+        "electron_transport": "27.281894539019552948488844306714382101556744896934395481735297310695172520503328432749176670603201116618101524"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-64",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-64",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-65",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-65",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.35774890325006028911113135082593825628905135093184679162861476723457088201926000040319256775136836462589152177",
+        "compensation_point_ppm": "28.8999999999999992450483432548935525119304656982421875",
+        "electron_transport": "72.855691716708517928441213737208295903817939723113886474964431521758381595606708217585060640524227842556447238"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-66",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-66",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-67",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-67",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.35537067624358203144104121700725646038316388473123678392391214020308871530296825371993359400188923881241765140",
+        "compensation_point_ppm": "28.8999999999999992450483432548935525119304656982421875",
+        "electron_transport": "72.855691716708517928441213737208295903817939723113886474964431521758381595606708217585060640524227842556447238"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-68",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-68",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-69",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-69",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.56741621345894747951563893692391662366735467120521776779272221933023826989294090570615819711873784944989941790",
+        "compensation_point_ppm": "32.2999999999999991562305012848810292780399322509765625",
+        "electron_transport": "121.39423656140217759623332896564870336709964346822365171017695509442745884603127469289653772453224657169391205"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-70",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-70",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-71",
+      "source_software_case": "cool-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-71",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.56364416957424977482416547760103381786055209423104205721274276920094758693566832151532028950641899404208382710",
+        "compensation_point_ppm": "32.2999999999999991562305012848810292780399322509765625",
+        "electron_transport": "121.39423656140217759623332896564870336709964346822365171017695509442745884603127469289653772453224657169391205"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-72",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-72",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-73",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-73",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-74",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-74",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-75",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-75",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-76",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-76",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-77",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-77",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-78",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-78",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-79",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-79",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.001,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": null,
+      "status": "COMPENSATION_POINT_HOLD"
+    },
+    {
+      "case_id": "explicit-optical-reference-80",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-80",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-81",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-81",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.054781245584353542843460395906038337633263614453300354267072683688087962859638849751035164369260750662755179752",
+        "compensation_point_ppm": "84.999999999999994948485237955537972184069236655057115571744667652888917578087443600092366730733650643105540582",
+        "electron_transport": "13.589602787351053745870115031840877251959811185889230463230363882768748604220925547136620131535219048371080445"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-82",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-82",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-83",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-83",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.050627938395527653712645571187006611041693904061549685663308798332177111291121915659990779158610769277860100815",
+        "compensation_point_ppm": "84.999999999999994948485237955537972184069236655057115571744667652888917578087443600092366730733650643105540582",
+        "electron_transport": "13.589602787351053745870115031840877251959811185889230463230363882768748604220925547136620131535219048371080445"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-84",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-84",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-85",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-85",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.19957656356818051726409493189335836610633445283039068223352759972078926286385188343391470097603997580464244474",
+        "compensation_point_ppm": "50.999999999999999296858751070734197912784190252652644144501493487930737576703743127660986630180148347579243516",
+        "electron_transport": "38.687439277816166743635003138033809417992973067098372576470774720585505700364721869919269072142226442298159933"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-86",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-86",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-87",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-87",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 0.3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.18444542211006004068981126817449332539048477506975062744199265269008546746909637873423309019577047874895633155",
+        "compensation_point_ppm": "50.999999999999999296858751070734197912784190252652644144501493487930737576703743127660986630180148347579243516",
+        "electron_transport": "38.687439277816166743635003138033809417992973067098372576470774720585505700364721869919269072142226442298159933"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-88",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-88",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-89",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-89",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.59160957198915970942746188450524022019346788403944755434174219372951267560829053412402037100015484018521209024",
+        "compensation_point_ppm": "39.0999999999999989785948173448559828102588653564453125",
+        "electron_transport": "105.17929451755099375534351239033585616705217463479174453002741379270705264162273358322582513852038826210137868"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-90",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-90",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-91",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-91",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 1,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.54675596813056865202502175369745638042973859997883336498508627340640513155839662738343710239600671391168027950",
+        "compensation_point_ppm": "39.0999999999999989785948173448559828102588653564453125",
+        "electron_transport": "105.17929451755099375534351239033585616705217463479174453002741379270705264162273358322582513852038826210137868"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-92",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-92",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-93",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-93",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "1.0340868681049688220767708262314904787474201775758792780530324649286020637238395540889666747380030222346677792",
+        "compensation_point_ppm": "35.6999999999999990674126593148685060441493988037109375",
+        "electron_transport": "179.34697157873750230895057928671439820813285046164929391658172275312447215935458011486352919829133731757885378"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-94",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-94",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0",
+        "compensation_point_ppm": null,
+        "electron_transport": "0"
+      },
+      "status": "supported"
+    },
+    {
+      "case_id": "explicit-optical-reference-95",
+      "source_software_case": "warm-canopy-day",
+      "inputs": {
+        "input_id": "explicit-optical-reference-95",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          },
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf_area_index": {
+            "value": 3,
+            "unit": "m2_leaf/m2_floor"
+          }
+        }
+      },
+      "expected_decimal": {
+        "photosynthesis": "0.95568630642811810290913167510875545346526561917690257858800425340193928851972846415975026911533709703324718192",
+        "compensation_point_ppm": "35.6999999999999990674126593148685060441493988037109375",
+        "electron_transport": "179.34697157873750230895057928671439820813285046164929391658172275312447215935458011486352919829133731757885378"
+      },
+      "status": "supported"
+    }
+  ]
+}
