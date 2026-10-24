@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-25 KST:** [현재 개별 C_i/a/A의 분할 재개](research/crop-leaf-carbon-stock-continuation-20261025.md)를138신규/297관련검사·별도6context/18checkpoint로 수용했습니다.2,628현재 수량/이어 계산48시점·6최종 bytes와 독립234장부를 대사했으며 초기화/과거 전진0·현재1회 검증을 확인했습니다. 다음은 현재 결과의 불변 저장/무계산 reader→strict SDK/같은 상태3D입니다. 새 잎 C/현열 조달 근거는 병행 연구로 두며 저장의 선행 조건으로 추가하지 않습니다. 기존 모델/화면은 유지하고 [새 제거3D](http://localhost:5176/growing-geometry-removal-replay.html)의 무모사 표시 창은 보류입니다. 합성 고정 목록/elapsed32초이며 실제 품종/한 작기·생산/자원/Decimal 경제·거시/수급·자율 비교·farm/제품 CLI·R2/G0–G4, 국내 독립 측정/미사용 작기0·첫 품종 미확정·전체 goal/완료일 미완료·미정을 유지합니다.
+**현재 — 2026-10-25 KST:** 잎별 탄소량·나이·면적의 계산→분할 재개→[불변 저장/무계산 조회](research/crop-leaf-carbon-stock-artifact-20261025.md)를 합성 연구 범위에서 수용했습니다. 신규102개를 포함한191검사와 별도6조건/102시점·19,278수량이 일치했고, 조회 중 생장/재개 import·계산·DB/CLI/network/쓰기 시도는0회였습니다. 다음은 strict export→SDK→같은 저장 상태의 사실적3D 연결입니다. 이번에 사용자 화면은 변경하지 않았습니다. 기존 [제거3D](http://localhost:5176/growing-geometry-removal-replay.html)의 모사 없는 표시 창/R2는 보류입니다. 합성32초의 검증이며 실제 품종/독립 자료·한 작기/생산·자원/경제·거시/수급·자율 비교와 G0–G4·전체 목표/완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
