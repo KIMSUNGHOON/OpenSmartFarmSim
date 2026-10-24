@@ -1,0 +1,251 @@
+{
+  "record_kind": "synthetic_conditional_leaf_carbon_partition_software_acceptance",
+  "observed_at_UTC": "2026-10-24T15:16:03.868809+00:00",
+  "base_git_HEAD": "5f855015aa6b90dc1e05ae78b6241f719667ac53",
+  "native_parent": {
+    "observed_at_UTC": "2026-10-24T14:25:06.137565+00:00",
+    "turn_context": "2026-10-24T14:23:11.773Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "LF_sha256": "6d6bca9a4b3f49cb95881cb196fe93e6751ac0e7a8c9f00deec15ed50206ca07",
+    "recursive_CLI": 0
+  },
+  "substantive_research_review": "native parent; mechanical code map child has no independent native context proof",
+  "policy": "explicit-relative-leaf-sinks-and-empty-deferral-v1",
+  "pinned_growth_respiration_coefficient": {
+    "name": "cLeafG",
+    "value": 0.28,
+    "new_adoption": false
+  },
+  "verification": {
+    "focused_new_tests": 54,
+    "related_existing_tests": 133,
+    "combined_tests": 187,
+    "RED": "ImportError, missing new module, exit2",
+    "fresh": {
+      "passed": true,
+      "partitions": 72,
+      "actual_parent_contexts": 6,
+      "leaf_inflow_quantities": 6306,
+      "independent_quantities": 6738,
+      "maximum_ULP_error": 0.0,
+      "maximum_whole_C_budget_ratio": 0.0018751442418647587,
+      "original_parent_states_unchanged": true,
+      "all_fresh_result_hashes_equal": true,
+      "forbidden_attempts": {
+        "other_crop_import": 0,
+        "DB_import_or_connection": 0,
+        "CLI": 0,
+        "network": 0,
+        "write": 0,
+        "original_growth_calls": 0
+      },
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "bundle_sha256": "140eb1b80bac31f934eb2e691816256473f991956b2efb15a59ac46d23c067a4",
+      "G0_G4": "not_assessed"
+    },
+    "Decimal_precision": 180,
+    "new_dependencies": 0,
+    "existing_application_modules_changed": 0,
+    "RHS_adjustments_applied_to_runtime": false,
+    "individual_leaf_stock_or_birth_implemented": false,
+    "web_or_DB_or_product_CLI_rerun": false,
+    "full_suite": false
+  },
+  "commands": {
+    "focused": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/test_crop_leaf_carbon_partition.py"
+    ],
+    "related": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/test_crop_leaf_carbon_partition.py",
+      "tests/test_crop_fruit_allocation.py",
+      "tests/test_crop_fruit_startup.py"
+    ],
+    "fresh": "two private bounded producer/independent-checker processes; raw private scripts and bundle identified by SHA below"
+  },
+  "phase_terminals": [
+    {
+      "observed_at_UTC": "2026-10-24T14:57:11.094560Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.340036480978597,
+      "PID_peak_RSS_bytes": 76656640,
+      "combined_peak_RSS_bytes": 401719296,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 4743,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ecc7af846a2147f07e1ccee6a22c81d8b3279cee5b80c5c9bcb23d7d60dce5c7",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false,
+      "phase": "leaf-carbon-partition-red-v1"
+    },
+    {
+      "observed_at_UTC": "2026-10-24T14:59:03.540417Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.5770034529850818,
+      "PID_peak_RSS_bytes": 76656640,
+      "combined_peak_RSS_bytes": 410095616,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 4744,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "661e1abed8f291573a4e77f2ce2a48f5e59862bf50e1481927d3ea6a56d80a32",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false,
+      "phase": "leaf-carbon-partition-focused-v1"
+    },
+    {
+      "observed_at_UTC": "2026-10-24T15:02:36.898164Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.8800064619863406,
+      "PID_peak_RSS_bytes": 76656640,
+      "combined_peak_RSS_bytes": 412094464,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 4744,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "660828eecd12c0b896d8ce252ad05c89eb6e8f9a1aeb096865363b3598ed8d18",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false,
+      "phase": "leaf-carbon-partition-related-v1"
+    },
+    {
+      "observed_at_UTC": "2026-10-24T15:11:05.299339Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.5675405430374667,
+      "PID_peak_RSS_bytes": 74690560,
+      "combined_peak_RSS_bytes": 418476032,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 4744,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "1875a02e48f4c5182aa704691cf955ec0ad78ffdc3c26c8f2ec9b7f9d66216cb",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false,
+      "phase": "leaf-carbon-partition-fresh-v1"
+    }
+  ],
+  "resource_limits": {
+    "per_PID_bytes": 536870912,
+    "combined_owned_and_protected_bytes": 1073741824,
+    "sample_seconds": 0.25,
+    "wall_seconds": 600,
+    "log_bytes": 4194304,
+    "whole_Windows_host_measured": false
+  },
+  "source_pins": {
+    "backend/app/crop_leaf_carbon_partition.py": "6b80b6611ac1f972158fe00fea92c9b0b99af3d94f942ec2710b6fea26c81266",
+    "backend/tests/test_crop_leaf_carbon_partition.py": "9fef09ec03bec8c897867f39feb8e800707569d36c1de1ec152b2f7d1e186e48",
+    "contracts/crop-leaf-carbon-partition-v1.md": "4a377ae435e7044db9c6271a34bbaf57506573c491994edb0fc7283e68bfc917",
+    "contracts/crop-geometry-carbon-coupling-research-v1.md": "b8c2350d77d4a83902a31c72ccea52c8557e4b73e2959b8991c85b03131a749d",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/app/crop_growing_geometry_continuation.py": "9fca4b226a1290ccc2702d97fcfcdae50bf41c4d88f653cb6d86910ca9e5565a",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "research/leaf-carbon-sink-primary-sources-20261024.md": "ba12a1d796c8941a6d6f5f8ff8d581574caf98e407bf87d99e7ffce8884454aa",
+    "research/leaf-carbon-partition-20261024.md": "b9e6036cf2ec8dfeb572be27e28dd86171d2e4538da340d3c5345b32b6be5b5c",
+    "research/growing-geometry-lifecycle-code-map-20261024.md": "90dcdc0d346f0677dc2b806b5804338dca7fee5fbac967668430c76c560ac722",
+    "research/artifacts/leaf-carbon-sink-sources-20261024.json": "5d6fd7306092d3947f9d0c6319b6ce97e9bd5f186a21ce6a3496ab368bef21b0",
+    "research/artifacts/leaf-carbon-partition-20261024.csv": "16b44341dce6c7b67a48069edb30d0312c623eb28cf3689b6cee0660bae18547"
+  },
+  "private_evidence_hashes": {
+    "partition-producer-v1.private.py": "f141cf7344f73b7c8822fdd6565c628a3758c85a8233b9cde6cb8c526ffdd4ee",
+    "partition-fresh-v1.private.py": "6c007778f6e911a0523c6ac0f865abd01b05caa5e31f074ac571a96851bcf141",
+    "run-partition-fresh-v1.private.py": "b32b0d66bdcc6da0d59622c9d7d70f8d0eb6be21b0fc5a452f82a638dd613384",
+    "partition-bundle-v1.private.json": "140eb1b80bac31f934eb2e691816256473f991956b2efb15a59ac46d23c067a4",
+    "partition-fresh-v1.private.json": "16148cb8ce45a7fe5934d85931d4a8d433933c152a39e0aa91c802640440b689",
+    "source-fetch-v1.private.json": "5db4dd54703afacc4567662c96631bd47418e0d459a616a52624010a101f0b33",
+    "native-continuation-v1.private.json": "03461d575004dcf4e76c5a9806d6a6bb11ce50316660054026e1db2a6959a2d7"
+  },
+  "holds": [
+    "No leaf stock/time integration or supply-limited area model",
+    "No carbon/heat-funded new leaf birth",
+    "Final non-emulated visible Chrome window acceptance still held",
+    "Cultivar unconfirmed; independent domestic measurements/unused cycles 0",
+    "No production/resource/economic/market/autonomous candidate or full farm/product CLI acceptance"
+  ],
+  "G0_G4": "not_assessed",
+  "full_goal_complete": false,
+  "native_continuation": {
+    "turn_context": "2026-10-24T15:10:23.072Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "LF_sha256": "e4ad869a1679242e80b4f389457bb5084fec203db0070353cb6e7265476ff2da",
+    "recursive_CLI": 0
+  },
+  "document_checks": {
+    "passed_before_commit": 211,
+    "code_and_contract_math_self_review": "passed within synthetic-only scope; no independent biological or source gate review"
+  }
+}

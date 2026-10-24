@@ -1,5 +1,7 @@
 # 자료·연구 기준선
 
+**2026-10-25 KST 잎 탄소 배분:** [원문/권리·출현 의존성](../research/leaf-carbon-sink-primary-sources-20261024.md)을 대조하고 [54신규/187관련·fresh72조건/6,738수량](../research/leaf-carbon-partition-20261024.md)의 합성 예산 산술만 수용했다. 기존 cLeafG/프로필은 유지하고 상대 priority를 실제 품종의 수요/공급 법칙으로 채택하지 않았다. 저자 VTC 코드/CSV는 권리 미확인으로 복사/실행/자료 수신을 보류한다. 다음은 같은 stage 공동 RHS의 원자 조정→개별 C 상태/고갈·유지호흡→조달된 출현이다. 국내 독립 측정/미사용 작기0·첫 품종 미확정, 예측/추천/R2·G0–G4와 전체 완료일 미정을 유지한다.
+
 **2026-10-24 면적 companion 재개:** [211검사·별도12checkpoint/144시점](../research/crop-growing-geometry-continuation-20261024.md)에서 현재 a/A·C/N/Uref/기후/누적량·원 D0와 같은 격자 bytes를 보존했다. 원 고정 Decimal110 fixture를 재사용하며 새 식/계수·측정/원문 채택0이다. 다음은 검증된 상태의 불변 저장/무계산 조회·기존 사실적3D이며 정확 제거·실제 품종/기후·작기/생산/경제/게시 관문은 후속이다.
 
 **2026-10-24 기존 잎의 연속 면적·기후:** [일별 기온/새 동적 시계·선택 gross 회계의 원문 대조](../research/dynamic-air-growing-geometry-primary-sources-20261024.md)와 [236검사·독립1,542수치/간격 축소](../research/crop-growing-geometry-climate-20261024.md)를 기록했다. 새 명시 연구 정책 안에서 a/A와 C/N·열/물 장부를 함께 진행했으며 실제 조직/운반/품종·공급 제한/기후 타당성을 승인하지 않는다. 기존 exact/canonical 상태를 바꾸지 않았고 새 계수/측정 자료 채택0이다. 다음은 면적을 다시 canonical로 초기화하지 않는 분할 재개다.
