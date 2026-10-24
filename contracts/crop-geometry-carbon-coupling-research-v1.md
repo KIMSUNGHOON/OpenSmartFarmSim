@@ -58,7 +58,8 @@ S3 pp6–7/15 표현의 긴장, 별도 코드/기관 sink·parameter 권리와 �
    전체 구간과 분할/재개의 C/N·열/물 장부, 원 UTC/유리수 사건·실패 직전 확인 상태를 독립 참조와 대사한다.
    먼저 고정 기관의 짧은 범위를 검증할 수 있지만 새 출현/전체 작기 지원으로 표시하지 않는다.
 6. **출현/공급·관리 확대:** [새 의존성/원문 검토](../research/leaf-carbon-sink-primary-sources-20261024.md)를 마쳤고 [첫 배분 산술](crop-leaf-carbon-partition-v1.md)만54신규/187관련·fresh72조건으로 수용했다. 현재 N은 fruit number이며 개별 잎 C 상태는 없다.
-   다음은 같은 stage 공동 RHS의 buffer/leaf/호흡3조정 원자 결속→권위 개별 C_i/유지호흡·고갈/같은 stage 적분·재개→초기 C/현열이 조달되는 출현이다.
+   [같은 stage 공동 RHS의3조정](crop-leaf-partition-climate-rhs-v1.md)을79신규/293관련·fresh42조건으로 수용했다. 원 P/과실/기후·미수정 미분/원 hash를 보존하고 각 component1회·전체 C/leaf 수지를 대사했다.
+   다음은 권위 개별 C_i/합계·유지호흡/고갈의 순간 RHS→같은 stage 적분·재개→초기 C/현열이 조달되는 출현이다.
    순수 상대 priority 배분을 논문의 beta 수요/reserve/공급 제한 법칙으로 제시하지 않는다.
    새 잎의 양의 면적에 대응하는 C의 출처·buffer/기관 분배·생장호흡과 고갈 정책을 정한다.
    별도 잎 C 원장 없는 면적/질량 역산과 동일 사건의 연속/순간 중복 차감은 거부한다.
