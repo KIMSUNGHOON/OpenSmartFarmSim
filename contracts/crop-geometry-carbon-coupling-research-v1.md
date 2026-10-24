@@ -3,7 +3,8 @@
 상태: **후속 구현의 설계 계약**. [1차 근거](../research/continuous-leaf-carbon-primary-sources-20261024.md)와
 [명시 LAI 광 동화](crop-explicit-lai-photosynthesis-v1.md), [C/50과실 RHS](crop-explicit-lai-carbon-cohorts-v1.md),
 [면적/현열](crop-area-canopy-energy-v1.md)의
-순간 부품과 [같은 stage 공동 RHS](crop-explicit-lai-climate-rhs-v1.md)를 수용했다. 연속 결합/짧은 궤적은 미수용이다.
+순간 부품과 [같은 stage 공동 RHS](crop-explicit-lai-climate-rhs-v1.md),
+[고정 잎 목록의 짧은 연속 구간](crop-growing-geometry-climate-v1.md)을 수용했다. 재개/정확 사건·전체 연속 부모는 미수용이다.
 
 기존 Vanthoor/고정 GreenLight 모델은 C_leaf→SLA×C_leaf를 LAI의 권위로 유지한다.
 그 프로필·함수·저장 결과를 바꾸지 않는다. 독립 logistic 기관 면적을 이 총면적에 조용히 맞추거나
@@ -37,7 +38,12 @@ S3 pp6–7/15 표현의 긴장, 별도 코드/기관 sink·parameter 권리와 �
    공기 수증기에는 E만 내부 교환으로 사용하고 외부 항/출입 경계를 별도로 보존한다. 유출 현열을 공기에 자동 가산하지 않는다.
    합성 순간 C/N·수관/공기/증기와 reduced-energy 장부·독립 Decimal/기존 같은 조건 대사·중복 호출/부분 입력/수치 hold,
    원 입력/자료·4root/WSL 보존을 수용한다. 태양/PAR/NIR·환기/CO2 확대·시간 전진과 실제 수분 공급은 별도다.
-5. **첫 짧은 연속 계산:** 같은 case/원점/고정 footprint·기존 기관의 한 구간→정확 사건→다음 구간을 연결한다.
+5. **첫 짧은 연속 구간 수용, 재개/정확 사건은 다음.** [236검사·독립1,542수치](../research/crop-growing-geometry-climate-20261024.md)는
+   새 명시 동적 실내 기온/나이·면적 companion과 독립 gout/각 온도의 별도 회계 정책으로32초를 대사했다.
+   이 정책을 기존 함수의 기본값이나 실제 물질 흐름 추론으로 적용하지 않는다. 초기만 canonical하며 이후 면적을 재맞추지 않는다.
+   다음은 같은 원 프로그램/고정 footprint·실제 a/A·C/N/Uref/기후/누적량과 D0를 보존하는 재개다.
+   새 초기화로 checkpoint 면적을 canonical로 바꾸지 않으며 같은 격자 전체/분할과 별도 복원을 검증한다.
+   그 뒤 정확 제거 사건→다음 구간을 연결한다.
    착수 전 기존 잎의 실내 기온 열적 시계와 동적 Ta, curve의 dA/d열적 나이→dA/d초,
    각 stage LAI/Ldot와 명시 총 용량 흐름의 일치·공급/물성 가정을 먼저 정한다.
    기존 piecewise-constant 정확 시계를 동적 Ta/Tc로 몰래 바꾸거나 Ldot에서 총 운반/온도를 자동 생성하지 않는다.

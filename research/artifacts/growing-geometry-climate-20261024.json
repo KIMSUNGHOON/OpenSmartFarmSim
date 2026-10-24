@@ -1,0 +1,2332 @@
+{
+  "schema_version": "growing-geometry-climate-acceptance-v1",
+  "classification": "progress",
+  "accepted_child": "explicit-lai-fixed-leaf-short-integration",
+  "full_continuous_parent_complete": false,
+  "full_goal_complete": false,
+  "G0_G4": "not_assessed",
+  "claim_scope": "synthetic_growing_geometry_short_integration_only",
+  "native_invocation": {
+    "timestamp": "2026-10-24T06:05:37.443Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "raw_line_sha256_including_lf": "a4a36f9fdcab5cf6ae0ad0ed39643548ac4965b353412b0a31f4a14166445c4e",
+    "recursive_cli_invocations": 0,
+    "recorded_at": "2026-10-24T06:05:50.169729+00:00"
+  },
+  "research_agent_native_invocation": {
+    "agent": "/root/dynamic_air_geometry_capacity_sources",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "timestamp": "2026-10-24T06:06:42.316Z",
+    "raw_line_sha256_including_lf": "5e1c817eb574dc574798a24f7d1db1600cd328d24fdc792f999d4be812a9db8d",
+    "recursive_cli_invocations": 0,
+    "evidence": "separate native metadata reported in the pinned research note"
+  },
+  "source_sha256": {
+    "backend/app/crop_growing_geometry_climate.py": "5cf58d1dea92e59e1059d5e5cd359a81b8dde950fed2ac575911a4be90788a0a",
+    "backend/tests/test_crop_growing_geometry_climate.py": "24019d6ba3698991450773475698145fbb222142888c2d9474d321d06c64ef79",
+    "contracts/crop-growing-geometry-climate-v1.md": "7e556bd990a1433c1f28d449af3179ab7a84ea7912872473f9b93a3729b3156a",
+    "contracts/crop-geometry-carbon-coupling-research-v1.md": "d1b4127722f06912bbc6ed7f25b0cfa8899ddcabb7d861002a94a041a25919ad",
+    "research/crop-growing-geometry-climate-reference.py": "e8eff25856d4ac9a6203247ccebb084ec8c5a334c5f3cae3e09f78ad4479108e",
+    "fixtures/crop-growing-geometry-climate-reference-v1.json": "e73a93e6514e10d5fd3f3960e44e49d0831abdafcee5d1ce608dbbb62b884350",
+    "research/crop-growing-geometry-climate-20261024.md": "51949eb4a56117fd47f4234713b64570e1a04efa28d5889ea7246f0941412ed1",
+    "research/dynamic-air-growing-geometry-primary-sources-20261024.md": "9ba0f725871c2643c6d7b2eb14f653d4965e7243dce9bc5bf68df155331b94e0",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "fixtures/crop-canopy-exchange-reference-parameters-v1.json": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+    "fixtures/crop-climate-joint-rhs-reference-cases-v1.json": "2c95b2808297c96cad80eaebcd4ba37797706901f44115713dfddccdfffc9658",
+    "research/crop-explicit-lai-carbon-reference.py": "d46c091cdc8133082c72403880a0f55fa546fe87858ab70dd1879812149c2d04",
+    "research/crop-plant-startup-reference.py": "d7de6caa6ca863d1d196de1c610b6401b93977a27e0ea087f43b785b635c31b2",
+    "research/crop-canopy-air-dynamics-reference.py": "6c9e7c5d2698531133414b7817931dfe81dcc95e363ed20c2332dead4a1f95a6",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+  },
+  "legacy_components_and_oracle_inputs_unchanged_from_parent_HEAD": "11b2f47e842da069af2644b908e229f674dd943f",
+  "JUnit_sha256": {
+    "focused-v2.junit.xml": "97c6193b23a8547d167932855bdccb2d4656135917b8aea10c8054314a62ec41",
+    "focused-v3.junit.xml": "5b462e1c93a4dd998d8b71c1b688bcde49b61f380b4396acb6a29bde3c9702bf"
+  },
+  "tests": {
+    "unique": 236,
+    "new": 51,
+    "related": 185,
+    "per_file": {
+      "tests.test_crop_growing_geometry_climate": 51,
+      "tests.test_crop_explicit_lai_climate_rhs": 93,
+      "tests.test_crop_leaf_area": 41,
+      "tests.test_crop_leaf_expansion": 51
+    },
+    "earlier_23_36_234_not_added_again": true
+  },
+  "fresh": {
+    "passed": true,
+    "observed_at_UTC": "2026-10-24T06:26:19.654369Z",
+    "rows": [
+      {
+        "case_id": "warm-day",
+        "calculation_sha256": "90f08780d8ada7abf83eadce79588ea351215b895b83fdab0e3c0182a5d2f3f6",
+        "initial_geometry": [
+          100.0,
+          120.0,
+          140.0,
+          0.25,
+          0.375,
+          0.705
+        ],
+        "final_geometry": [
+          100.00489585638537,
+          120.00415511564464,
+          140.0034143749039,
+          0.25001223964095376,
+          0.3750116862627467,
+          0.7050120356715349
+        ],
+        "final_derived": {
+          "canopy_temperature": {
+            "value": 20.996580297037337,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.3300359615752355,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 1.1440556932721622e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0431538902826,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1412.1776470744517,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.01782849271621185,
+            "unit": "K/s"
+          }
+        },
+        "curve_invariant_changes": [
+          {
+            "value": 1.1102230246251565e-16,
+            "unit": "m2"
+          },
+          {
+            "value": -5.551115123125783e-17,
+            "unit": "m2"
+          },
+          {
+            "value": -1.1102230246251565e-16,
+            "unit": "m2"
+          }
+        ],
+        "integrated_transfers": {
+          "photosynthesis": {
+            "value": 16.99676004762204,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 4.262865932758695,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.3791592553743206,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem": {
+            "value": 0.06425140040267997,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.0008525576340179248,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_carbon": {
+            "value": 0.0010657228301017062,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "entry_number": {
+            "value": 0.32,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "terminal_number": {
+            "value": 3.5006998004590234e-05,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "sensible": {
+            "value": 1360.8800787397931,
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "value": 5040.250237530133,
+            "unit": "J/m2_floor"
+          },
+          "incoming_heat": {
+            "value": 0.6489544639552371,
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "value": 0.0704,
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "value": 4800.0,
+            "unit": "J/m2_floor"
+          },
+          "air_external": {
+            "value": 640.0,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 0.002057244994910258,
+            "unit": "kg_water/m2_floor"
+          },
+          "external_vapor": {
+            "value": -3.2000000000000005e-05,
+            "unit": "kg_water/m2_floor"
+          },
+          "capacity_in": {
+            "value": 0.046353890282516935,
+            "unit": "J/m2_floor/K"
+          },
+          "capacity_out": {
+            "value": 0.003200000000000001,
+            "unit": "J/m2_floor/K"
+          },
+          "indoor_air_temperature_time": {
+            "value": 583.0019916960707,
+            "unit": "degC_s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.6729654337202526e-11,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 4.623580164564434e-16,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.0464726307723993e-11,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": -4.320099833421409e-12,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 2.6969529040576923e-18,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 9.35844284011278e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 1.1985287762250607e-11,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 3.2977093278319103e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 5.550247761387794e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 2.2014074591014676e-14,
+            "unit": "degC_day"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 1.5832483768463135e-08,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 3.865352482534945e-12,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 7.916241884231567e-09,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": 1.5832483768463135e-08,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 7.549516567451064e-15,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 2.473825588822365e-10,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 3.166496753692627e-08,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 3.092281986027956e-11,
+            "unit": "degC_day"
+          }
+        }
+      },
+      {
+        "case_id": "reverse",
+        "calculation_sha256": "4403498665a130b87b0ba88a1d8e018b2da7f77c95081c0ee5a9de099396348d",
+        "initial_geometry": [
+          100.0,
+          120.0,
+          140.0,
+          0.25,
+          0.375,
+          0.705
+        ],
+        "final_geometry": [
+          100.00737654330798,
+          120.00663580256725,
+          140.0058950618265,
+          0.25001844135823653,
+          0.37501866319470495,
+          0.7050207800929325
+        ],
+        "final_derived": {
+          "canopy_temperature": {
+            "value": 23.93667700173043,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.330057884645874,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 1.8064312857617063e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0694615750488,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 2742.2544529666743,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.08386617844127514,
+            "unit": "K/s"
+          }
+        },
+        "curve_invariant_changes": [
+          {
+            "value": 0.0,
+            "unit": "m2"
+          },
+          {
+            "value": 0.0,
+            "unit": "m2"
+          },
+          {
+            "value": 1.1102230246251565e-16,
+            "unit": "m2"
+          }
+        ],
+        "integrated_transfers": {
+          "photosynthesis": {
+            "value": 16.9865502715051,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 4.261202172885144,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.3791591045714709,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem": {
+            "value": 0.0642513748489219,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.0008525559964580864,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_carbon": {
+            "value": 0.0010657219860078508,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "entry_number": {
+            "value": 0.32,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "terminal_number": {
+            "value": 3.500698732892199e-05,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "sensible": {
+            "value": -1155.622635143572,
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "value": -328.0232768534923,
+            "unit": "J/m2_floor"
+          },
+          "incoming_heat": {
+            "value": 1.0172620506803498,
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "value": 0.06400000000000003,
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "value": 4800.0,
+            "unit": "J/m2_floor"
+          },
+          "air_external": {
+            "value": 640.0,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": -0.00013388705177693564,
+            "unit": "kg_water/m2_floor"
+          },
+          "external_vapor": {
+            "value": -3.2000000000000005e-05,
+            "unit": "kg_water/m2_floor"
+          },
+          "capacity_in": {
+            "value": 0.07266157504859641,
+            "unit": "J/m2_floor/K"
+          },
+          "capacity_out": {
+            "value": 0.003200000000000001,
+            "unit": "J/m2_floor/K"
+          },
+          "indoor_air_temperature_time": {
+            "value": 797.3333418093553,
+            "unit": "degC_s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -2.034714139797361e-11,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 6.987208663218614e-16,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": -4.503536432665101e-12,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": 8.640199666842818e-12,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": -2.551940863487756e-17,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 1.6641505881653806e-13,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": -5.84053083674263e-11,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 5.558921378767678e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 7.811459812323562e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": -4.146422788453563e-15,
+            "unit": "degC_day"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 1.5832483768463135e-08,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 3.865352482534945e-12,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 7.916241884231567e-09,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": 1.5832483768463135e-08,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 1.509903313490213e-14,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 2.473825588822365e-10,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 6.332993507385254e-08,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 3.092281986027956e-11,
+            "unit": "degC_day"
+          }
+        }
+      },
+      {
+        "case_id": "cool-dark",
+        "calculation_sha256": "31b539e363aad8c47b621a572b80f2edebab8cf2e99fdaf01ca8b606d09c715c",
+        "initial_geometry": [
+          100.0,
+          120.0,
+          140.0,
+          0.25,
+          0.375,
+          0.705
+        ],
+        "final_geometry": [
+          100.00627085036608,
+          120.00553010962535,
+          140.00478936888464,
+          0.2500156771258947,
+          0.3750155534333125,
+          0.7050168825253149
+        ],
+        "final_derived": {
+          "canopy_temperature": {
+            "value": 20.319392584526632,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.330048113084522,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 1.500139647046595e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0577357014265,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1730.041663839232,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.05246641124527328,
+            "unit": "K/s"
+          }
+        },
+        "curve_invariant_changes": [
+          {
+            "value": 5.551115123125783e-17,
+            "unit": "m2"
+          },
+          {
+            "value": 1.1102230246251565e-16,
+            "unit": "m2"
+          },
+          {
+            "value": -2.220446049250313e-16,
+            "unit": "m2"
+          }
+        ],
+        "integrated_transfers": {
+          "photosynthesis": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 4.263185239806295,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.37914617968261055,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem": {
+            "value": 0.06424918457191357,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.0008525293542039415,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_carbon": {
+            "value": 0.00106569514365979,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "entry_number": {
+            "value": 0.32,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "terminal_number": {
+            "value": 3.500607266114849e-05,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "sensible": {
+            "value": -1129.0618736421782,
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "value": 2227.4211397856225,
+            "unit": "J/m2_floor"
+          },
+          "incoming_heat": {
+            "value": 1.3405854313832148,
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "value": 0.05759999999999999,
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "value": 4800.0,
+            "unit": "J/m2_floor"
+          },
+          "air_external": {
+            "value": 640.0,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 0.0009091514856267848,
+            "unit": "kg_water/m2_floor"
+          },
+          "external_vapor": {
+            "value": -3.2000000000000005e-05,
+            "unit": "kg_water/m2_floor"
+          },
+          "capacity_in": {
+            "value": 0.06093570142650976,
+            "unit": "J/m2_floor/K"
+          },
+          "capacity_out": {
+            "value": 0.003200000000000001,
+            "unit": "J/m2_floor/K"
+          },
+          "indoor_air_temperature_time": {
+            "value": 701.8014716303878,
+            "unit": "degC_s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -2.0057678716718652e-11,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 3.7810873139074164e-16,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": -5.276994119451928e-12,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": 3.7971403799019754e-11,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": -1.725236706967559e-17,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": -7.914675859144182e-16,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": -9.213400875562883e-12,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": -1.3790184272277628e-14,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 2.6732088764802597e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 3.3347890421309145e-14,
+            "unit": "degC_day"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 1.5832483768463135e-08,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 3.865352482534945e-12,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.958120942115784e-09,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": 1.5832483768463135e-08,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 7.549516567451064e-15,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 2.473825588822365e-10,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 6.332993507385254e-08,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 3.092281986027956e-11,
+            "unit": "degC_day"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference30",
+        "calculation_sha256": "e72e98b2ce573c6ece959b19ed104079a9435cfa54134b62adbb26dceb7cfee9",
+        "initial_geometry": [
+          100.0,
+          120.0,
+          140.0,
+          0.25,
+          0.375,
+          0.705
+        ],
+        "final_geometry": [
+          100.00489585638537,
+          120.00415511564464,
+          140.0034143749039,
+          0.25001223964095376,
+          0.3750116862627467,
+          0.7050120356715349
+        ],
+        "final_derived": {
+          "canopy_temperature": {
+            "value": 20.996580297037337,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.3300359615752355,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 1.1440556932721622e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0431538902826,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1412.1776470744517,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.01782849271621185,
+            "unit": "K/s"
+          }
+        },
+        "curve_invariant_changes": [
+          {
+            "value": 1.1102230246251565e-16,
+            "unit": "m2"
+          },
+          {
+            "value": -5.551115123125783e-17,
+            "unit": "m2"
+          },
+          {
+            "value": -1.1102230246251565e-16,
+            "unit": "m2"
+          }
+        ],
+        "integrated_transfers": {
+          "photosynthesis": {
+            "value": 16.99676004762204,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 4.262865932758695,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.3791592553743206,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem": {
+            "value": 0.06425140040267997,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.0008525576340179248,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_carbon": {
+            "value": 0.0010657228301017062,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "entry_number": {
+            "value": 0.32,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "terminal_number": {
+            "value": 3.5006998004590234e-05,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "sensible": {
+            "value": 1360.8800787397906,
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "value": 5040.250237530128,
+            "unit": "J/m2_floor"
+          },
+          "incoming_heat": {
+            "value": -0.741662244520271,
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "value": -0.025600000000000008,
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "value": 4800.0,
+            "unit": "J/m2_floor"
+          },
+          "air_external": {
+            "value": 640.0,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 0.0020572449949102563,
+            "unit": "kg_water/m2_floor"
+          },
+          "external_vapor": {
+            "value": -3.2000000000000005e-05,
+            "unit": "kg_water/m2_floor"
+          },
+          "capacity_in": {
+            "value": 0.046353890282516935,
+            "unit": "J/m2_floor/K"
+          },
+          "capacity_out": {
+            "value": 0.003200000000000001,
+            "unit": "J/m2_floor/K"
+          },
+          "indoor_air_temperature_time": {
+            "value": 583.0019916960707,
+            "unit": "degC_s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.6729654337202526e-11,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 4.623580164564434e-16,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": -2.1198008626210907e-12,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": -1.8189894035458565e-12,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 4.431676380034499e-18,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 9.35844284011278e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 6.4493445306457176e-12,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 3.2977093278319103e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 5.550247761387794e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 2.2014074591014676e-14,
+            "unit": "degC_day"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 1.5832483768463135e-08,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 3.865352482534945e-12,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.979060471057892e-09,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.916241884231567e-09,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 7.549516567451064e-15,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 2.473825588822365e-10,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 7.916241884231567e-09,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 3.092281986027956e-11,
+            "unit": "degC_day"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference22",
+        "calculation_sha256": "4f9f9219a3311b2bf20ac309bf7de426c911145e9eb2003b117d012d058f8e30",
+        "initial_geometry": [
+          100.0,
+          120.0,
+          140.0,
+          0.25,
+          0.375,
+          0.705
+        ],
+        "final_geometry": [
+          100.00489585638537,
+          120.00415511564464,
+          140.0034143749039,
+          0.25001223964095376,
+          0.3750116862627467,
+          0.7050120356715349
+        ],
+        "final_derived": {
+          "canopy_temperature": {
+            "value": 20.996580297037337,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.3300359615752355,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 1.1440556932721622e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0431538902826,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1412.1776470744517,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.01782849271621185,
+            "unit": "K/s"
+          }
+        },
+        "curve_invariant_changes": [
+          {
+            "value": 1.1102230246251565e-16,
+            "unit": "m2"
+          },
+          {
+            "value": -5.551115123125783e-17,
+            "unit": "m2"
+          },
+          {
+            "value": -1.1102230246251565e-16,
+            "unit": "m2"
+          }
+        ],
+        "integrated_transfers": {
+          "photosynthesis": {
+            "value": 16.99676004762204,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 4.262865932758695,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.3791592553743206,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem": {
+            "value": 0.06425140040267997,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 0.0008525576340179248,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_carbon": {
+            "value": 0.0010657228301017062,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "entry_number": {
+            "value": 0.32,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "terminal_number": {
+            "value": 3.5006998004590234e-05,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "sensible": {
+            "value": 1360.8800787397913,
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "value": 5040.25023753013,
+            "unit": "J/m2_floor"
+          },
+          "incoming_heat": {
+            "value": -0.3708311222601355,
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "value": 0.0,
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "value": 4800.0,
+            "unit": "J/m2_floor"
+          },
+          "air_external": {
+            "value": 640.0,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 0.0020572449949102572,
+            "unit": "kg_water/m2_floor"
+          },
+          "external_vapor": {
+            "value": -3.2000000000000005e-05,
+            "unit": "kg_water/m2_floor"
+          },
+          "capacity_in": {
+            "value": 0.046353890282516935,
+            "unit": "J/m2_floor/K"
+          },
+          "capacity_out": {
+            "value": 0.003200000000000001,
+            "unit": "J/m2_floor/K"
+          },
+          "indoor_air_temperature_time": {
+            "value": 583.0019916960707,
+            "unit": "degC_s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.6729654337202526e-11,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 4.623580164564434e-16,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 6.752376435770202e-13,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": -2.5011104298755527e-12,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 3.564314642046096e-18,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 9.35844284011278e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 6.743272606968276e-12,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 3.2977093278319103e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 5.550247761387794e-15,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 2.2014074591014676e-14,
+            "unit": "degC_day"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 1.5832483768463135e-08,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 3.865352482534945e-12,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.979060471057892e-09,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": 3.958120942115784e-09,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 7.549516567451064e-15,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 2.473825588822365e-10,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 1.5832483768463135e-08,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 3.092281986027956e-11,
+            "unit": "degC_day"
+          }
+        }
+      },
+      {
+        "case_id": "empty-entry",
+        "calculation_sha256": "e75d6a241a901aba5017aca2b2f1488e18535960427710bbcf7ef0ac16374eec",
+        "initial_geometry": [
+          100.0,
+          120.0,
+          140.0,
+          0.25,
+          0.375,
+          0.705
+        ],
+        "final_geometry": [
+          100.00487002142768,
+          120.004129280687,
+          140.0033885399462,
+          0.25001217505355966,
+          0.3750116136019283,
+          0.7050119446033093
+        ],
+        "final_derived": {
+          "canopy_temperature": {
+            "value": 19.944502966813992,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.3300357332587973,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 1.1313896416534553e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0428799105568,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1398.9862313658018,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.0019671832900882433,
+            "unit": "K/s"
+          }
+        },
+        "curve_invariant_changes": [
+          {
+            "value": 1.1102230246251565e-16,
+            "unit": "m2"
+          },
+          {
+            "value": -1.6653345369377348e-16,
+            "unit": "m2"
+          },
+          {
+            "value": 1.1102230246251565e-16,
+            "unit": "m2"
+          }
+        ],
+        "integrated_transfers": {
+          "photosynthesis": {
+            "value": 16.963334658633404,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "growth_respiration": {
+            "value": 4.1803685666715165,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_leaf": {
+            "value": 0.3791513586995321,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_stem": {
+            "value": 0.064250062217309,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "maintenance_fruit": {
+            "value": 1.1460362622721183e-05,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "removal_stem": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_carbon": {
+            "value": 5.4510265682223935e-236,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "entry_number": {
+            "value": 0.32,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "terminal_number": {
+            "value": 3.874414046273432e-243,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "sensible": {
+            "value": 766.496492922938,
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "value": 4121.802672286411,
+            "unit": "J/m2_floor"
+          },
+          "incoming_heat": {
+            "value": 0.6451187477948156,
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "value": 0.06400000000000003,
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "value": 4800.0,
+            "unit": "J/m2_floor"
+          },
+          "air_external": {
+            "value": 640.0,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 0.0016823684376679226,
+            "unit": "kg_water/m2_floor"
+          },
+          "external_vapor": {
+            "value": -3.2000000000000005e-05,
+            "unit": "kg_water/m2_floor"
+          },
+          "capacity_in": {
+            "value": 0.046079910556772546,
+            "unit": "J/m2_floor/K"
+          },
+          "capacity_out": {
+            "value": 0.003200000000000001,
+            "unit": "J/m2_floor/K"
+          },
+          "indoor_air_temperature_time": {
+            "value": 580.7698513537526,
+            "unit": "degC_s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.8173867121775659e-12,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 3.874414046273432e-243,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.6794066137748587e-12,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": -3.7402969610411674e-11,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": -5.55653613398821e-19,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 7.615392691451284e-14,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": -3.715885932287222e-11,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": -2.768618667658984e-14,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 3.140977061777406e-14,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": -2.318067612860908e-14,
+            "unit": "degC_day"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 1.5832483768463135e-08,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "number": {
+            "value": 1.2079226507921703e-13,
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.958120942115784e-09,
+            "unit": "J/m2_floor"
+          },
+          "air_sensible": {
+            "value": 1.5832483768463135e-08,
+            "unit": "J/m2_floor"
+          },
+          "vapor": {
+            "value": 7.549516567451064e-15,
+            "unit": "kg_water/m2_floor"
+          },
+          "area_capacity": {
+            "value": 2.473825588822365e-10,
+            "unit": "J/m2_floor/K"
+          },
+          "reduced_energy": {
+            "value": 3.166496753692627e-08,
+            "unit": "J/m2_floor"
+          },
+          "leaf_age_0": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_1": {
+            "value": 1.546140993013978e-11,
+            "unit": "degC_day"
+          },
+          "leaf_age_2": {
+            "value": 3.092281986027956e-11,
+            "unit": "degC_day"
+          }
+        }
+      }
+    ],
+    "cases": 6,
+    "numeric_comparisons": 1542,
+    "exact_zero_comparisons": 135,
+    "maximum_relative_error": 2.8472728652720194e-15,
+    "maximum_companion_comparison_absolute_error": 2.2204455270410772e-16,
+    "refinement": [
+      {
+        "case_id": "warm-day",
+        "column": 0,
+        "errors_dt8_dt4_dt2": [
+          1.0411307155067107e-05,
+          6.015871854003763e-07,
+          3.6145369364248836e-08
+        ],
+        "half_step_ratio_or_floor": [
+          17.306397821851935,
+          16.643547872978786
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 1,
+        "errors_dt8_dt4_dt2": [
+          1.5306778173851399e-06,
+          8.852993715890989e-08,
+          5.321616924902628e-09
+        ],
+        "half_step_ratio_or_floor": [
+          17.289945825191275,
+          16.63590942531621
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 2,
+        "errors_dt8_dt4_dt2": [
+          3.78354845370632e-09,
+          2.1845648207063917e-10,
+          1.312080999404941e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.319460690037516,
+          16.649618595933806
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 3,
+        "errors_dt8_dt4_dt2": [
+          5.698911564877562e-09,
+          3.298126216577657e-10,
+          1.9834800468743197e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.27924036452162,
+          16.627977789718788
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 4,
+        "errors_dt8_dt4_dt2": [
+          5.696620064554736e-09,
+          3.292370820418e-10,
+          1.978150976356119e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.302486187845304,
+          "roundoff_floor"
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 5,
+        "errors_dt8_dt4_dt2": [
+          1.075311956810765e-06,
+          6.248410500120372e-08,
+          3.767127054743469e-09
+        ],
+        "half_step_ratio_or_floor": [
+          17.209367995109314,
+          16.5866731047803
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 6,
+        "errors_dt8_dt4_dt2": [
+          1.1599070148804458e-07,
+          6.9903762778267264e-09,
+          4.2808778744074516e-10
+        ],
+        "half_step_ratio_or_floor": [
+          16.592912438199324,
+          16.329305537113264
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 7,
+        "errors_dt8_dt4_dt2": [
+          0.007347253523448671,
+          0.0004249436897225678,
+          2.5543750325596193e-05
+        ],
+        "half_step_ratio_or_floor": [
+          17.289946176740404,
+          16.63591619499787
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 8,
+        "errors_dt8_dt4_dt2": [
+          0.009269693717214977,
+          0.0005352183907234576,
+          3.2145991099241655e-05
+        ],
+        "half_step_ratio_or_floor": [
+          17.319460388282028,
+          16.64961547059234
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 9,
+        "errors_dt8_dt4_dt2": [
+          3.783548455441044e-09,
+          2.18456485973767e-10,
+          1.3120812596134623e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.319460388534242,
+          16.649615591501096
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 10,
+        "errors_dt8_dt4_dt2": [
+          6.970992671995191e-10,
+          4.0103032006300054e-11,
+          2.4016344468691386e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.382707299787384,
+          16.698224852071007
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 11,
+        "errors_dt8_dt4_dt2": [
+          6.970992671995191e-10,
+          4.0103032006300054e-11,
+          2.4158453015843406e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.382707299787384,
+          16.6
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 12,
+        "errors_dt8_dt4_dt2": [
+          6.970992671995191e-10,
+          4.015987542516086e-11,
+          2.4158453015843406e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.35810332625619,
+          "roundoff_floor"
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 13,
+        "errors_dt8_dt4_dt2": [
+          1.7427170817541082e-12,
+          1.0030865027488289e-13,
+          6.106226635438361e-15
+        ],
+        "half_step_ratio_or_floor": [
+          17.37354731599336,
+          "roundoff_floor"
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 14,
+        "errors_dt8_dt4_dt2": [
+          1.9606538614880265e-12,
+          1.1285417045314716e-13,
+          6.772360450213455e-15
+        ],
+        "half_step_ratio_or_floor": [
+          17.373339891785538,
+          "roundoff_floor"
+        ]
+      },
+      {
+        "case_id": "warm-day",
+        "column": 15,
+        "errors_dt8_dt4_dt2": [
+          2.457256620402859e-12,
+          1.4133139103478243e-13,
+          8.326672684688674e-15
+        ],
+        "half_step_ratio_or_floor": [
+          17.38648860958366,
+          "roundoff_floor"
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 0,
+        "errors_dt8_dt4_dt2": [
+          4.1868385576293576e-05,
+          2.4062988543960273e-06,
+          1.442044350596916e-07
+        ],
+        "half_step_ratio_or_floor": [
+          17.399495287048374,
+          16.686718778101174
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 1,
+        "errors_dt8_dt4_dt2": [
+          3.891011353118756e-06,
+          2.227137727572881e-07,
+          1.331772381263363e-08
+        ],
+        "half_step_ratio_or_floor": [
+          17.470905840022535,
+          16.723110937772603
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 2,
+        "errors_dt8_dt4_dt2": [
+          1.9652340435549753e-08,
+          1.13126848166889e-09,
+          6.785141892784452e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.37195082687876,
+          16.6727313819615
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 3,
+        "errors_dt8_dt4_dt2": [
+          1.401144444912461e-08,
+          7.997442708074232e-10,
+          4.774847184307873e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.51990600067523,
+          16.74910714285714
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 4,
+        "errors_dt8_dt4_dt2": [
+          1.400303517584689e-08,
+          7.992184691829607e-10,
+          4.8203219193965197e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.52091038406828,
+          16.580188679245282
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 5,
+        "errors_dt8_dt4_dt2": [
+          7.6006672315998e-06,
+          4.5174238039180636e-07,
+          2.753768058028072e-08
+        ],
+        "half_step_ratio_or_floor": [
+          16.82522508737739,
+          16.404518131977014
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 6,
+        "errors_dt8_dt4_dt2": [
+          2.537724526519014e-06,
+          1.460360863347887e-07,
+          8.748429536353797e-09
+        ],
+        "half_step_ratio_or_floor": [
+          17.377379729974848,
+          16.69283449423017
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 7,
+        "errors_dt8_dt4_dt2": [
+          0.018676854496334272,
+          0.0010690261240142718,
+          6.392507339114673e-05
+        ],
+        "half_step_ratio_or_floor": [
+          17.47090559976337,
+          16.72311140689791
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 8,
+        "errors_dt8_dt4_dt2": [
+          0.04814823404745994,
+          0.002771607795921227,
+          0.0001662360451746281
+        ],
+        "half_step_ratio_or_floor": [
+          17.371950720558722,
+          16.67272457672884
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 9,
+        "errors_dt8_dt4_dt2": [
+          1.9652340427580867e-08,
+          1.131268488119893e-09,
+          6.785144698157573e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.37195072077186,
+          16.672724583560843
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 10,
+        "errors_dt8_dt4_dt2": [
+          2.2483135353468242e-09,
+          1.3093881534587126e-10,
+          7.887024366937112e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.170718471890602,
+          16.601801801801802
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 11,
+        "errors_dt8_dt4_dt2": [
+          2.2483277462015394e-09,
+          1.3095302620058646e-10,
+          7.887024366937112e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.168963646228974,
+          16.603603603603602
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 12,
+        "errors_dt8_dt4_dt2": [
+          2.248299324492109e-09,
+          1.3091039363644086e-10,
+          7.901235221652314e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.174337820234477,
+          16.568345323741006
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 13,
+        "errors_dt8_dt4_dt2": [
+          5.620781617921011e-12,
+          3.2729374765949615e-13,
+          1.970645868709653e-14
+        ],
+        "half_step_ratio_or_floor": [
+          17.17350746268657,
+          16.60845070422535
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 14,
+        "errors_dt8_dt4_dt2": [
+          6.3233862590550416e-12,
+          3.682609772681644e-13,
+          2.220446049250313e-14
+        ],
+        "half_step_ratio_or_floor": [
+          17.170937594211637,
+          16.585
+        ]
+      },
+      {
+        "case_id": "reverse",
+        "column": 15,
+        "errors_dt8_dt4_dt2": [
+          7.92532706128668e-12,
+          4.616307336391401e-13,
+          2.7755575615628914e-14
+        ],
+        "half_step_ratio_or_floor": [
+          17.16810966810967,
+          16.632
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 0,
+        "errors_dt8_dt4_dt2": [
+          1.56060116722756e-05,
+          9.038198278688014e-07,
+          5.437046013412328e-08
+        ],
+        "half_step_ratio_or_floor": [
+          17.2667286012904,
+          16.62336176002965
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 1,
+        "errors_dt8_dt4_dt2": [
+          1.8199188964729274e-06,
+          1.0522852278427308e-07,
+          6.324789580958168e-09
+        ],
+        "half_step_ratio_or_floor": [
+          17.294920125448375,
+          16.637474091008666
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 2,
+        "errors_dt8_dt4_dt2": [
+          6.60100662325247e-09,
+          3.8263290452755783e-10,
+          2.3028294549032324e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.251539387086495,
+          16.615772553753292
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 3,
+        "errors_dt8_dt4_dt2": [
+          6.554291331895001e-09,
+          3.7840308664272015e-10,
+          2.2726709403286804e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.320924599337157,
+          16.65014850711271
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 4,
+        "errors_dt8_dt4_dt2": [
+          6.550408215844072e-09,
+          3.781224222620949e-10,
+          2.2509993868879974e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.323511725796752,
+          "roundoff_floor"
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 5,
+        "errors_dt8_dt4_dt2": [
+          1.0956282494589686e-06,
+          6.868140189908445e-08,
+          4.281901055946946e-09
+        ],
+        "half_step_ratio_or_floor": [
+          15.952327983473701,
+          16.039932030586236
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 6,
+        "errors_dt8_dt4_dt2": [
+          8.597343708061089e-07,
+          5.3905523600406013e-08,
+          3.358707090228563e-09
+        ],
+        "half_step_ratio_or_floor": [
+          15.948910489752361,
+          16.049486350635505
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 7,
+        "errors_dt8_dt4_dt2": [
+          0.008735610703297425,
+          0.0005050969305102626,
+          3.0358959065779345e-05
+        ],
+        "half_step_ratio_or_floor": [
+          17.294919401851192,
+          16.637491734016944
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 8,
+        "errors_dt8_dt4_dt2": [
+          0.016172466227544646,
+          0.000937450597575662,
+          5.641936286338023e-05
+        ],
+        "half_step_ratio_or_floor": [
+          17.251539728459516,
+          16.615760086580618
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 9,
+        "errors_dt8_dt4_dt2": [
+          6.6010066234693104e-09,
+          3.8263289704656284e-10,
+          2.3028311571006432e-11
+        ],
+        "half_step_ratio_or_floor": [
+          17.251539724944323,
+          16.61575994691304
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 10,
+        "errors_dt8_dt4_dt2": [
+          1.050878495334473e-09,
+          6.133404895081185e-11,
+          3.723243935382925e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.13368860055607,
+          16.47328244274809
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 11,
+        "errors_dt8_dt4_dt2": [
+          1.0508500736250426e-09,
+          6.133404895081185e-11,
+          3.694822225952521e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.13322520852641,
+          16.6
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 12,
+        "errors_dt8_dt4_dt2": [
+          1.0508642844797578e-09,
+          6.130562724138144e-11,
+          3.666400516522117e-12
+        ],
+        "half_step_ratio_or_floor": [
+          17.141400092721373,
+          16.72093023255814
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 13,
+        "errors_dt8_dt4_dt2": [
+          2.6272317654729704e-12,
+          1.532107773982716e-13,
+          9.270362255620057e-15
+        ],
+        "half_step_ratio_or_floor": [
+          17.14782608695652,
+          16.526946107784433
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 14,
+        "errors_dt8_dt4_dt2": [
+          2.9555802250058605e-12,
+          1.7247314687551807e-13,
+          1.0325074129013956e-14
+        ],
+        "half_step_ratio_or_floor": [
+          17.136466044415837,
+          16.704301075268816
+        ]
+      },
+      {
+        "case_id": "cool-dark",
+        "column": 15,
+        "errors_dt8_dt4_dt2": [
+          3.70448116626676e-12,
+          2.162714451969805e-13,
+          1.3211653993039363e-14
+        ],
+        "half_step_ratio_or_floor": [
+          17.128850102669404,
+          "roundoff_floor"
+        ]
+      }
+    ],
+    "refinement_ratio_checks": 89,
+    "roundoff_floor_checks": 7,
+    "minimum_nonfloor_half_step_error_ratio": 15.948910489752361,
+    "same_input_replay_checks": 6,
+    "reference_shift_checks": 2,
+    "joint_RHS_calls_including_replays_and_refinement": 1125,
+    "reference_regenerated_identical_bytes": true,
+    "old_joint_or_integration_imports": 0,
+    "old_advance_clock_DB_CLI_network_writes": 0,
+    "FD_preserved": true,
+    "G0_G4": "not_assessed"
+  },
+  "WSL_phases": {
+    "growing-geometry-climate-red-v1": {
+      "observed_at_UTC": "2026-10-24T06:15:50.029303Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.2273732439789455,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 507539456,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3722,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "25374d9fb2a41e07ae85e7e00422816db159ce1c05f46ae50a06b250c8e30cde",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-climate-point-v1": {
+      "observed_at_UTC": "2026-10-24T06:16:47.292662Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.1782564810127951,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 492625920,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3723,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "a57cf74f92c3f4e44eb19a357bb64c4dfaaf6483291f93badfa04e5b120f268a",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-climate-focused-v1": {
+      "observed_at_UTC": "2026-10-24T06:18:33.682439Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.970661202998599,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 528523264,
+      "samples": 6,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3723,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "cd38f0a1b9d87bab80d9efd8b769416636ef023c034e6f7c4b1e41a4df8bc536",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-climate-reference-v1": {
+      "observed_at_UTC": "2026-10-24T06:22:16.929915Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 22.135304985014955,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 494546944,
+      "samples": 84,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3724,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ac44910e1d43ba0ba43138301c167fa81f6de928615e71b8b229bc3459b950a6",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-climate-focused-v2": {
+      "observed_at_UTC": "2026-10-24T06:23:47.769888Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 9.201789409999037,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 538734592,
+      "samples": 34,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3725,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d035223e2888bbf26d34f439cab647e6cb575975c83644f9f864a4a70769fe27",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-climate-fresh-v1": {
+      "observed_at_UTC": "2026-10-24T06:26:20.412637Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 31.448242707992904,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 502325248,
+      "samples": 120,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3725,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "bfdcb45a23949043a16a10ce8592d33bcf17adfa9a1409267cebacac9f82262c",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-climate-focused-v3": {
+      "observed_at_UTC": "2026-10-24T06:30:14.121666Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 9.214751938008703,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 529182720,
+      "samples": 34,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3726,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ada2706fb1e5fd12b4e2ef37664ef7336a0e4f743e56ef20f27b05eee9c037be",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "new_measurement_or_parameter_adoptions": 0,
+  "runtime_UI_DB_key_changes": 0,
+  "actual_measurements_received": 0,
+  "independent_unused_domestic_cycles": 0,
+  "not_run": [
+    "full_backend_suite",
+    "hosted_CI",
+    "browser",
+    "new_companion_continuation_exact_removal",
+    "actual_farm_future_paired_comparison_deployment_validation"
+  ]
+}
