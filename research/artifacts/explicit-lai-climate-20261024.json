@@ -1,0 +1,4927 @@
+{
+  "schema_version": "explicit-lai-climate-stage-acceptance-v1",
+  "classification": "progress",
+  "accepted_child": "explicit-lai-crop-climate-stage-rhs",
+  "full_continuous_parent_complete": false,
+  "full_goal_complete": false,
+  "G0_G4": "not_assessed",
+  "claim_scope": "synthetic_explicit_lai_joint_rhs_only",
+  "native_invocation": {
+    "timestamp": "2026-10-24T05:45:05.937Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "raw_line_sha256_including_lf": "9380d8475796c873be32f0d1d601d7be09727510342dbaf6412f4eb992928689",
+    "recursive_cli_invocations": 0,
+    "recorded_at": "2026-10-24T05:45:16.076958+00:00"
+  },
+  "source_sha256": {
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/tests/test_crop_explicit_lai_climate_rhs.py": "23e0643eca807fa3edda6fa9f40dbef80e616336dd3bdea9948002d60a9a77db",
+    "contracts/crop-explicit-lai-climate-rhs-v1.md": "7e0c33faa478f3cd89219ba734c54a309a4bd26bc1ca75b6ab04daad17894ff6",
+    "contracts/crop-geometry-carbon-coupling-research-v1.md": "723f8810f3c1206e98c2bd41c6ed0c5c527a0f5c8ae08e69b7a4fd3e3eae744a",
+    "research/crop-explicit-lai-climate-reference.py": "e68d3eb68934ab8efe35f4d2d0ba653fcbd9ecc1c646225238862a1d12a4ba1e",
+    "fixtures/crop-explicit-lai-climate-reference-v1.json": "f935d8994124efd6edca9d38f2280acc9dc4ce583f4b1fceb5ac5bfe9c37dd29",
+    "research/crop-explicit-lai-climate-20261024.md": "36558c5795c951e2e0bf911887fdfaf0e4dd4a79c8741eb15815aaf15fb15059",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "fixtures/crop-canopy-exchange-reference-parameters-v1.json": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+    "fixtures/crop-climate-joint-rhs-reference-cases-v1.json": "2c95b2808297c96cad80eaebcd4ba37797706901f44115713dfddccdfffc9658",
+    "research/crop-explicit-lai-carbon-reference.py": "d46c091cdc8133082c72403880a0f55fa546fe87858ab70dd1879812149c2d04",
+    "research/crop-explicit-lai-photosynthesis-reference.py": "8a7cdd5f80c4936a65b2b8b7624d1a90466c1bf0f28614a36719faf0922bc107",
+    "research/crop-plant-startup-reference.py": "d7de6caa6ca863d1d196de1c610b6401b93977a27e0ea087f43b785b635c31b2",
+    "research/crop-canopy-air-dynamics-reference.py": "6c9e7c5d2698531133414b7817931dfe81dcc95e363ed20c2332dead4a1f95a6",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+  },
+  "legacy_components_and_oracle_inputs_unchanged_from_parent_HEAD": "cc72454c3dac2b732f109e5f85fc278b1b0d6d22",
+  "JUnit_sha256": {
+    "focused-v2.junit.xml": "73e5320368b9efc1ddc8ab355bbb4087bac816a298c56846874de19bb9f5ef81"
+  },
+  "tests": {
+    "unique": 391,
+    "new": 93,
+    "related": 298,
+    "per_file": {
+      "tests.test_crop_explicit_lai_climate_rhs": 93,
+      "tests.test_crop_climate_joint_rhs": 51,
+      "tests.test_crop_area_canopy_energy": 145,
+      "tests.test_crop_explicit_lai_carbon_cohorts": 67,
+      "tests.test_crop_canopy_exchange": 35
+    },
+    "earlier_38_not_added_again": true
+  },
+  "fresh": {
+    "passed": true,
+    "observed_at_UTC": "2026-10-24T05:57:25.432966Z",
+    "rows": [
+      {
+        "case_id": "warm-day-LAI1-turnover0",
+        "input_sha256": "2df16fd49855655a1e160ee049c2813d4b88b5f12cafd0865a7c2009c99be5b7",
+        "calculation_sha256": "e3fcbe9a24eb125a3ca0af3629f7272b58b3e6e199ed9644ce4dc79b6d219122",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.048910697407254754,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -78.00506256634043,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": -3.2890357104520263e-15,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 7.813194535799539e-15,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.3682276077333045e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.4882276077333046e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-day-LAI1-turnover1",
+        "input_sha256": "971670b404b93de6c66c29556164a30f4c0d1e8f3664cd10f1c2a472061c0ede",
+        "calculation_sha256": "9fabf209255adf9a944887146f5e83b9901512c9fe5b3cd166f9032bfe83b0e7",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.06769294149261743,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -108.0379346222174,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1102230246251565e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.5482276077333044e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.6682276077333042e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-day-LAI2-turnover0",
+        "input_sha256": "112b54ef7804e04b6b0f92d1cab3a3980682ea1ccd2591ebded256921b037b78",
+        "calculation_sha256": "8a671ab1ef74ce05ff84117870818c2089ece20ad16486a48b97178d757f5c61",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.09589580441234209,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -306.0429971885578,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.0921819004749977e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.2024049251001543e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.7364552154666084e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.856455215466609e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-day-LAI2-turnover1",
+        "input_sha256": "57dc37a0143cb186cfaa370816ea49faaa060d69d9007d36ad7becdf68a0dbb4",
+        "calculation_sha256": "9b3b1c818ac31b67400f84a919d2f9f5fb4f5269a593880b2b43e44152d7155c",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.10528692645502342,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -336.0758692444348,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.842170943040401e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.952393967665557e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.9164552154666083e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.0364552154666084e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "reverse-LAI1-turnover0",
+        "input_sha256": "6eaa22d0b1bec60169bcd207638e4befc39bf7d9e26a4b126652b5069f7981fa",
+        "calculation_sha256": "07263f7a7161c9bcfc9484b6a2498161db7339e39e573c6a926dd78687bdeca4",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 2748.9429999999998,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.17165213281309355,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": 274.0080862384593,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": -0.0096875,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": -2.44589623671503e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.6940658945086007e-19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": -5.684341886080802e-14,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.2496947920936918e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": -6.352747104407253e-22,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 9.38832345198648e-15,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.6440485174307559e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 3.99e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 1.467537742029018e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.6587485174307558e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "reverse-LAI1-turnover1",
+        "input_sha256": "39774719b714880edc77375ed30be99ef7237c0731bc71a91a40791dfc45ef5f",
+        "calculation_sha256": "37986be3778d34cd7dd54b99513a1ffa40bf4a45d9a9a9d581f825b7ae5bac9b",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 2748.9429999999998,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.15662560012501142,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": 249.97445779951823,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": -0.0096875,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": -2.44589623671503e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.6940658945086007e-19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": -6.352747104407253e-22,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -3.1086244689504383e-15,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.6438467467971093e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 3.99e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 1.467537742029018e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.6585467467971093e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "reverse-LAI2-turnover0",
+        "input_sha256": "0d20aa3db5bcadc3407026bcf9abe1bac3ab87054c63b482bc85a6fb22f26324",
+        "calculation_sha256": "09b9cd865d6f37c93eac8c90d97220596b70f1f35cc2c387f81ca9fb9e9b01c3",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 2748.9429999999998,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.12466518225852617,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": 397.98254403797756,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": -0.023541666666666666,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": -4.79179247343006e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.6940658945086007e-19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": -5.684341886080802e-14,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.2496947920936918e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.3599178167188484e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.3878952642278655e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.98e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.8750754840580355e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.4025952642278654e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "reverse-LAI2-turnover1",
+        "input_sha256": "e68a2850059470aa9356edcc2cd7d28c74db95ae812258746eefe5e854edf502",
+        "calculation_sha256": "f5f4e8547ee3d4bead2d5aebb63a4ed43df7fb1a9ffee3b98ae336426851f67d",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 2748.9429999999998,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.11715191591448511,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": 373.94891559903647,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": -0.023541666666666666,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": -4.79179247343006e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.6940658945086007e-19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1102230246251565e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.3876934935942187e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.98e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.8750754840580355e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.4023934935942186e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "cool-dark-LAI1-turnover0",
+        "input_sha256": "bfcd57c025961de912ef3662275bb9f3c4b4f501d723080b25a41e6f055737f0",
+        "calculation_sha256": "900ed18123b6b38cd4240812274796898430a7c89c477c45b4e5c4c0b961d8b5",
+        "derived": {
+          "canopy_temperature": {
+            "value": 18.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1700.8018749999999,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.09724970811874796,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": 155.25668819940753,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": -0.006916666666666667,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 1.8592340841779118e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 5.371544138307871e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 6.83481049534862e-15,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": -6.352747104407253e-22,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.0831613383999183e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.219547539570598e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 3.192e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 1.175540450506747e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.219547539570598e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "cool-dark-LAI1-turnover1",
+        "input_sha256": "3d26fb96af4b7654f1885fed904badeb35cc51a5e4bdc25c9ce363a1e5b72939",
+        "calculation_sha256": "ed35725d481ee35c0fb95a945b7c8f90a90eb6bdf87db0e1c6dfd51e7bed3aee",
+        "derived": {
+          "canopy_temperature": {
+            "value": 18.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1700.8018749999999,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.10100173241706839,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": 161.19876493764116,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": -0.006916666666666667,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 1.8592340841779118e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 5.371544138307871e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": -7.105427357601002e-15,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": -6.352747104407253e-22,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -3.1086244689504383e-15,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.2552e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 3.192e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 1.175540450506747e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.2552e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "cool-dark-LAI2-turnover0",
+        "input_sha256": "db17eeaaad6619df143b6c87e6d613252cc0f5a3db303ce8797af075fe747484",
+        "calculation_sha256": "8399ccc77e7013fa70534d21e2e5a890484a0834c5bb0dce548401a326e320b7",
+        "derived": {
+          "canopy_temperature": {
+            "value": 18.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1700.8018749999999,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.05025353981678036,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": 160.4554531370487,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": -0.018000000000000002,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 3.818468168355824e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 5.371544138307871e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": -2.706168622523819e-16,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.0831613383999183e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.538747539570598e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 6.384e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.351080901013494e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.538747539570598e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "cool-dark-LAI2-turnover1",
+        "input_sha256": "8ac6151bcb781a3e19d9dbbfb61f380585e91b4fe48291f648c1adb4dd2d4e7f",
+        "calculation_sha256": "9acbc101b0efdb40cde583270d76e6b699d2a6d0aac7f9c3097ff54a8a6fb238",
+        "derived": {
+          "canopy_temperature": {
+            "value": 18.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1700.8018749999999,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": 0.052129551965940574,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": 166.39752987528232,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": -0.018000000000000002,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 3.818468168355824e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 5.371544138307871e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": -1.4210854715202004e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -3.1086244689504383e-15,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.5743999999999998e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 6.384e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.351080901013494e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.5743999999999998e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "empty-entry-LAI1-turnover0",
+        "input_sha256": "c596f6bc954fcc5d8b81e53e27d3eb9c5ed26190509ecda21d2be8fd196534ac",
+        "calculation_sha256": "112fc0d2343771bd4431fd0a3c21c661582a44b020cb299f66507b8c86defa9a",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.006451789606938259,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -10.245773943911493,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.009708333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 5.356302138075615e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 5.2909066017292616e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 6.245004513516506e-17,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.105427357601002e-15,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -1.0151601781416275e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.1368683772161603e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 9.616764142971153e-11,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 2.7960000000000003e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 3.2737812828453685e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.0816764142971153e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "empty-entry-LAI1-turnover1",
+        "input_sha256": "317b5fff6309e8ca1546fb818c8fc6f17fdf655d879dac7c460f115e54095fe7",
+        "calculation_sha256": "284d9a9894318f15f0f1581c76a76af0c135e510e134f9c5b405eb7b494962dd",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.02147832229502041,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -34.279402382852574,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.009708333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 5.356302138075615e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 5.2909066017292616e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.105427357601002e-15,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -1.021405182655144e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.1056764142971154e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 2.7960000000000003e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 3.2737812828453685e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.2256764142971154e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "empty-entry-LAI2-turnover0",
+        "input_sha256": "68417034ca61e8203d56e690f2abd6f844b687522b176205d96589c601ee1323",
+        "calculation_sha256": "d27c6737574c3e2bf3be973e0258bee905843176fd9fdca730430cd37c665adb",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.05343874016150565,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -170.52517632676404,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.0001081260427615123,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 5.2909066017292616e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.6707802636138922e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -1.9033385978417527e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.9233528285942306e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 6.547562565690737e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.0433528285942307e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "empty-entry-LAI2-turnover1",
+        "input_sha256": "f854330b1c278475a317c02a6d16a9753f65871e290f98e96e30416390d164bf",
+        "calculation_sha256": "5828b6da66fac91436c6e2c768f577b5c0d11c99e4690db4ad5e689be253cd1c",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.06095200650554672,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -194.55880476570513,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.0001081260427615123,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 5.2909066017292616e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.4210854715202004e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -3.1530333899354446e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 2.1184443088628768e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.0673528285942306e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 6.547562565690737e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.1873528285942307e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "empty-no-entry-LAI1-turnover0",
+        "input_sha256": "c326ac2a53b6fba0132a6624043425b1a907a2e8b50ff95fbd76df195e98b4ab",
+        "calculation_sha256": "40234d1014a0354a0f46a5f357a30637f2aa060168d24dba854b09794e33a5e2",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.006451789606938259,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -10.245773943911493,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.009708333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 5.356302138075615e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.474514954580286e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 6.245004513516506e-17,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.105427357601002e-15,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -1.0151601781416275e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 2.0650148258027912e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.1368683772161603e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 9.616764142971153e-11,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 2.7960000000000003e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 3.2737812828453685e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.0816764142971153e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "empty-no-entry-LAI1-turnover1",
+        "input_sha256": "fba9aafcc7ee8264c461fa80898c6eb130a1b575118bf1924fd2bc6d55013d9a",
+        "calculation_sha256": "f7e8d28df03ee79eaf13a60f97073af9429f2d21cf07a46714f06d37176f3cfd",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.02147832229502041,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -34.279402382852574,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.009708333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 5.356302138075615e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.474514954580286e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.105427357601002e-15,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -1.021405182655144e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 2.0650148258027912e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.1056764142971154e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 2.7960000000000003e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 3.2737812828453685e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.2256764142971154e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "empty-no-entry-LAI2-turnover0",
+        "input_sha256": "439ceeee21909aa8e84736f91e51eef2b8ece4d8d34582db3d40b36900838406",
+        "calculation_sha256": "2c2a3b478b4ce42dd8a3325286a5fd97dc305d2a98cf7f656ffc264f25340561",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.05343874016150565,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -170.52517632676404,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.0001081260427615123,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.474514954580286e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.6707802636138922e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -1.9033385978417527e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 2.0650148258027912e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.9233528285942306e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 6.547562565690737e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.0433528285942307e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "empty-no-entry-LAI2-turnover1",
+        "input_sha256": "789cc260100b9a47b91201b3ee7e37b7fdac1cfff9cf93d8ea04caa6a87d70ec",
+        "calculation_sha256": "b1dd73a6a4824d94e8f7497e5e7050a7920b68e2859a959025aa68cf0218fdef",
+        "derived": {
+          "canopy_temperature": {
+            "value": 20.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.06095200650554672,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -194.55880476570513,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.0001081260427615123,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.474514954580286e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.4210854715202004e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": -3.1530333899354446e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 2.0650148258027912e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 5.14e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.0673528285942306e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 6.547562565690737e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.1873528285942307e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference30-LAI1-turnover0",
+        "input_sha256": "16937c5935c7d4442b40de8b5aeb89c9710a2b83cdc73ed08ecaf40c1124a342",
+        "calculation_sha256": "86414004c786320d3f7eead7c9d7dc7d673eb972fca29515a86e08f0bdc75ce9",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.048910697407254754,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -78.08198596948337,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 6.529499163576702e-15,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.7631729409828267e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.3684919158169003e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.4884919158169001e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference30-LAI1-turnover1",
+        "input_sha256": "944593ac21384bbbd99c6f0588b236922d6a2ca5ce9985acc369814d811e8aa5",
+        "calculation_sha256": "d3b4e31748ab8a3e2bb23eedce7d2b76a4955e4181741e2a2bd33b1f9ed11626",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.06769294149261743,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -108.0379346222174,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1102230246251565e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.5482276077333044e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.6682276077333042e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference30-LAI2-turnover0",
+        "input_sha256": "c2be4f56db44ad575c38dd4f771594ae3591c2dcf9b5969a9e2f72262ba2b64d",
+        "calculation_sha256": "be56a11260a2b6ec85716bc6c17b846ee19e965b01972a47fa65c805bc5b5729",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.09589580441234209,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -306.11992059170075,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.495120859398071e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 4.6053438840232275e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.736719523550204e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.8567195235502044e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference30-LAI2-turnover1",
+        "input_sha256": "202511d6733e4bdfd1fa90f735959e1e1fd9b8b7fa6a0c6d26e941a1aefd5d6f",
+        "calculation_sha256": "b4138f484c7b8c07b20c9228942b60c75a021d9d7c9d6dab7ca88104945c7e56",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.10528692645502342,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -336.0758692444348,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.842170943040401e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.952393967665557e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.9164552154666083e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.0364552154666084e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference22-LAI1-turnover0",
+        "input_sha256": "abf0d9f721528ce7af895961bc2db6ff9020219549f6395a66e15b96999856f4",
+        "calculation_sha256": "c328bec1b2fd5e532c171228ce1818ba8518e7a929cc5513ca20bf0dcbe4d762",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.048910697407254754,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -78.06147306197859,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.249000902703301e-16,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1227130336521896e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.3683688383718715e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.4883688383718716e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference22-LAI1-turnover1",
+        "input_sha256": "4e46f2936dc43b2ad5d1a13565062548d901fb0cb3fd79f11f6d067347faa179",
+        "calculation_sha256": "d813f85bf6f9997aac77b34a39beabf7350c48c01f389300eee2a909745ea107",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.06769294149261743,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -108.0379346222174,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1102230246251565e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.5482276077333044e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.6682276077333042e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference22-LAI2-turnover0",
+        "input_sha256": "cf8486426861118f221d8308a4566dcc3f98e2367798b11442ed03215d5409cb",
+        "calculation_sha256": "e02957ab437ffe10a48f4e75d7aa799993b2c1b4f17ee95cdb40508bbbb4d51c",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.09589580441234209,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -306.09940768419597,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.854660952067434e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.96488397669259e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.7365964461051755e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.8565964461051756e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "warm-reference22-LAI2-turnover1",
+        "input_sha256": "b45d5747a42cb96df99754f541232354d51b3f943aeaca69d50865ac87d1c057",
+        "calculation_sha256": "fc854f9a3caa632718cdf6f043db67b4b8dc03678b570ecbe61d6d5d5079acbc",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.10528692645502342,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -336.0758692444348,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.842170943040401e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.952393967665557e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.9164552154666083e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.0364552154666084e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "equal-incoming-temperature-LAI1-turnover0",
+        "input_sha256": "0ebcbb5d27c5f499b65c7d1909e969916740be5f7a945dad4969a2c3f0599ad0",
+        "calculation_sha256": "09f71e72e3c3cdeccc4f56992640bb7c909735d6072b5b90bcdcc128ef5b8b4f",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.04889594901141441,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -77.98152412657925,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": -3.4139358007223564e-15,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 7.688294445529209e-15,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.3682276077333045e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.4882276077333046e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "equal-incoming-temperature-LAI1-turnover1",
+        "input_sha256": "0248d88606cff4757d8760684b1a1ddfc555f6e7d09913c28eaf1b591eedba46",
+        "calculation_sha256": "29532f825f240f93e7139972c3a83ec9224f498b9903ca48984c8c38f42d3dd3",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.05265534750765501,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -84.0379346222174,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1102230246251565e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.4042276077333044e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.5242276077333045e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "equal-incoming-temperature-LAI2-turnover0",
+        "input_sha256": "fb97b2b2519a8b881f3a658444f52c832207ad04791d924da5fbbf431cd70925",
+        "calculation_sha256": "3992550435a005a13784135b3b5ee668d0aa3d0c6f78197bbddab2229e0076c2",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 2.136761198415328e-06,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.09588843021442192,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -306.01945874879664,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.0796918914479647e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.1899149160731213e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 3.469446951953614e-18,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.7364552154666084e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.856455215466609e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "equal-incoming-temperature-LAI2-turnover1",
+        "input_sha256": "1b0b3cff11dad4692a914a27e86ec5306f7ed1658935d63a06cf4e3677876b5a",
+        "calculation_sha256": "146dbc3e59dc2e1e910d0e9430dc54753bd50495ffd1836ec44bc18400b02346",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.09776812946254222,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -312.0758692444348,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -4.885686039762804e-18,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.842170943040401e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.952393967665557e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.7724552154666086e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.8924552154666087e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "explicit-removal-LAI1-turnover0",
+        "input_sha256": "fe44a1a91345e18495baa6ded6910f91c39361e9aa86e6d0fc86110bea16d54e",
+        "calculation_sha256": "9388522f58d52c2e73d97ba769f602461ed61fa2db1271a028c225e81b2a95a1",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": -5.106323880158466e-05,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.048910697407254754,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -79.40954256634042,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 2.286988957586611e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.9968028886505635e-15,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.509903313490213e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 5.1958437552457326e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 5.551115123125783e-17,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.3764572553980426e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.4964572553980424e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "explicit-removal-LAI1-turnover1",
+        "input_sha256": "a88a120b79112ddb9dd1e1d9fadb4d13c6b4369c9477bb2e0493aea0faa1ed67",
+        "calculation_sha256": "e94982208b8de94b31bd0910eb89e8b419a7d3422f96d1ea2fa7b34cc3d27858",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.06769294149261743,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -108.0379346222174,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 2.286988957586611e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1102230246251565e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 5.1958437552457326e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.5482276077333044e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.6682276077333042e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "explicit-removal-LAI2-turnover0",
+        "input_sha256": "1039fa3c12ba46dee2466276633f85aa947527c3241687c6f86ff0091e73d251",
+        "calculation_sha256": "9a3fe3f44ef38c1010caaa4008330b7374c1e842c595bf9744473d85c5544d57",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": -5.106323880158466e-05,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.09589580441234209,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -307.4474771885578,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 2.286988957586611e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 3.241851231905457e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 4.3520742565306136e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 5.1958437552457326e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 5.551115123125783e-17,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.7446848631313465e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.8646848631313466e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "explicit-removal-LAI2-turnover1",
+        "input_sha256": "e99562e1888aa8d66c5e98d5a09f935b35f35df6a505f8dbe59bee79bc93339a",
+        "calculation_sha256": "90fabacffce58614a8d013b6bea5bd2932445192d1ec80cd6bfca483d9777631",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.10528692645502342,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -336.0758692444348,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": 2.286988957586611e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.842170943040401e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.952393967665557e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 5.1958437552457326e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.9164552154666083e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.0364552154666084e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "gross-turnover-LAI1-turnover0",
+        "input_sha256": "d8cc97e116cf56793375a4bd6bc1de76fe73adde5935a9bea657ad49711bbf6e",
+        "calculation_sha256": "24bbb0259877f87892f208147924233852cfb6ae42091686eadf7ddff32929a3",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.048910697407254754,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -78.06147306197859,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.0089856467693226e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.249000902703301e-16,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1227130336521896e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.3683688383718715e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.4883688383718716e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "gross-turnover-LAI1-turnover1",
+        "input_sha256": "964575203b08521712cf7da4b931a58034ff4450f1595852d8ed380cc5cd0626",
+        "calculation_sha256": "f8ed4126ca7b8b909791eeb7cdf41d14bab2a026e531420c268e603bcab8c1a8",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 1.33,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 1596.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.06769294149261743,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -108.0379346222174,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.015250000000000001,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 7.036242229478261e-05,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.0089856467693226e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.1102230246251565e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 1.5482276077333044e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 4.392e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 4.2817453376869563e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 1.6682276077333042e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "gross-turnover-LAI2-turnover0",
+        "input_sha256": "a368fab4d9d97ebc49140e67e74f398a2ce21a447f4d31c97681713bd1789ec8",
+        "calculation_sha256": "02bc1980e6b94b343291e91e46b79a8e94f20ff3cce32572d4ec05171e25190c",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.09589580441234209,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -306.09940768419597,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.0089856467693226e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.854660952067434e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.96488397669259e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.7365964461051755e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 2.8565964461051756e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "gross-turnover-LAI2-turnover1",
+        "input_sha256": "5c7d269a9e7ec99ecc95bda7fb8e0d1e2700d47c3858ac30a951f583045f086e",
+        "calculation_sha256": "1e6a59ccb1e2ff61f16d591c4e3f91b19688b79a21991930382830f73ed93608",
+        "derived": {
+          "canopy_temperature": {
+            "value": 22.0,
+            "unit": "degC"
+          },
+          "leaf_area_index": {
+            "value": 2.66,
+            "unit": "m2_leaf/m2_floor"
+          },
+          "leaf_area_index_rate": {
+            "value": 0.0,
+            "unit": "m2_leaf/m2_floor/s"
+          },
+          "canopy_capacity": {
+            "value": 3192.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_capacity": {
+            "value": 4800.0,
+            "unit": "J/m2_floor/K"
+          },
+          "air_vapor_pressure": {
+            "value": 1342.2015,
+            "unit": "Pa"
+          },
+          "canopy_temperature_rate": {
+            "value": -0.10528692645502342,
+            "unit": "K/s"
+          }
+        },
+        "climate_derivatives": {
+          "canopy_sensible_energy": {
+            "value": -336.0758692444348,
+            "unit": "W/m2_floor"
+          },
+          "air_temperature": {
+            "value": 0.026333333333333334,
+            "unit": "K/s"
+          },
+          "air_vapor_mass": {
+            "value": 0.00014172484458956522,
+            "unit": "kg_water/m2_floor/s"
+          }
+        },
+        "balance_residuals": {
+          "carbohydrate": {
+            "value": -1.0089856467693226e-17,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 3.161550475626676e-19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.842170943040401e-14,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 2.752857078576476e-21,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.952393967665557e-14,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "carbohydrate": {
+            "value": 3.774758283725532e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number": {
+            "value": 1.8041124150158794e-16,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "area_capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "area_energy": {
+            "value": 3.637978807091713e-12,
+            "unit": "W/m2_floor"
+          },
+          "canopy_sensible": {
+            "value": 2.9164552154666083e-10,
+            "unit": "W/m2_floor"
+          },
+          "air_sensible": {
+            "value": 7.583999999999999e-11,
+            "unit": "W/m2_floor"
+          },
+          "vapor_and_water_boundaries": {
+            "value": 8.563490675373913e-17,
+            "unit": "kg_water/m2_floor/s"
+          },
+          "reduced_energy": {
+            "value": 3.0364552154666084e-10,
+            "unit": "W/m2_floor"
+          }
+        }
+      }
+    ],
+    "cases": 40,
+    "numeric_comparisons": 5280,
+    "zero_reference_comparisons": 900,
+    "exact_structural_zero_comparisons": 878,
+    "cancellation_budget_comparisons": 4,
+    "maximum_cancellation_absolute_error": 3.0074647795727258e-18,
+    "maximum_relative_error_all": 1.369079549561486,
+    "worst_relative_case": {
+      "case_id": "gross-turnover-LAI1-turnover0",
+      "path": "derivatives.plant.leaf"
+    },
+    "maximum_relative_error_without_cancellation": 2.7925160566845823e-15,
+    "maximum_fraction_of_allowed_budget": 0.0016930521575767023,
+    "reference_shift_checks": 8,
+    "same_input_replay_checks": 40,
+    "counts_including_replay": {
+      "carbon": 80,
+      "exchange": 80,
+      "area": 80,
+      "optical": 80,
+      "helper": 80,
+      "startup": 80,
+      "cohorts": 80
+    },
+    "old_joint_imports": 0,
+    "legacy_full_calculations_advance_integration_DB_CLI_network_writes": 0,
+    "reference_regenerated_identical_bytes": true,
+    "FD_preserved": true,
+    "G0_G4": "not_assessed"
+  },
+  "WSL_phases": {
+    "explicit-lai-climate-red-v1": {
+      "observed_at_UTC": "2026-10-24T05:50:21.710639Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.2082379669882357,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 492163072,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3714,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "6bb5bacd89db59a5a829e8dccb51a29e2c56ef5afa2882af321e3f5c087c1e63",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-climate-focused-v1": {
+      "observed_at_UTC": "2026-10-24T05:51:57.942630Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.4440560470102355,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 499126272,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3715,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "1d960b4dff849cb0b2532d527d5914eba7296aa65c78fca43d97335992adef79",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-climate-reference-v1": {
+      "observed_at_UTC": "2026-10-24T05:54:52.958828Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.4456807209935505,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 482902016,
+      "samples": 4,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3716,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "612f10681da0d0a1d63adc7b52e6a05536fb155937ce28942c14a5f0f38eecba",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-climate-focused-v2": {
+      "observed_at_UTC": "2026-10-24T05:56:00.025911Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 3.541206705995137,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 541143040,
+      "samples": 12,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3717,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "0b3e3fe0c2f708beaae45bc2c1f479798396eab4a0c33951349244f92df5c8d0",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "explicit-lai-climate-fresh-v1": {
+      "observed_at_UTC": "2026-10-24T05:57:26.460937Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.533942409005249,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 510545920,
+      "samples": 8,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3717,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "3b921e9b9385b49c5406cc7e0a71c7bf3a43246c17b26b49a7649c8ce1676381",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "new_measurement_or_parameter_adoptions": 0,
+  "runtime_UI_DB_key_changes": 0,
+  "actual_measurements_received": 0,
+  "independent_unused_domestic_cycles": 0,
+  "not_run": [
+    "full_backend_suite",
+    "hosted_CI",
+    "browser",
+    "new_joint_integration_event_restart",
+    "actual_farm_future_paired_comparison_deployment_validation"
+  ]
+}

@@ -3,7 +3,7 @@
 상태: **후속 구현의 설계 계약**. [1차 근거](../research/continuous-leaf-carbon-primary-sources-20261024.md)와
 [명시 LAI 광 동화](crop-explicit-lai-photosynthesis-v1.md), [C/50과실 RHS](crop-explicit-lai-carbon-cohorts-v1.md),
 [면적/현열](crop-area-canopy-energy-v1.md)의
-순간 부품을 수용했다. 연속 결합/짧은 궤적은 미수용이다.
+순간 부품과 [같은 stage 공동 RHS](crop-explicit-lai-climate-rhs-v1.md)를 수용했다. 연속 결합/짧은 궤적은 미수용이다.
 
 기존 Vanthoor/고정 GreenLight 모델은 C_leaf→SLA×C_leaf를 LAI의 권위로 유지한다.
 그 프로필·함수·저장 결과를 바꾸지 않는다. 독립 logistic 기관 면적을 이 총면적에 조용히 맞추거나
@@ -30,13 +30,18 @@ S3 pp6–7/15 표현의 긴장, 별도 코드/기관 sink·parameter 권리와 �
 3. **면적 기반 순간 현열 경계 수용.** [260검사·독립1,900수치](../research/crop-area-canopy-energy-20261024.md)로
    명시 LAI/Ldot·고정 면적당 용량과 독립 총 유입/유출률·Tin/Tout/Q를 대사했다. 순량8ulp와 chain-rule 장부를 검증했다.
    면적 변화만으로 물질/온도/열을 추정하지 않는다. 실제 조직 물성/질량/열·기후 feedback 승인은 아니다.
-4. **다음: 같은 stage의 명시 LAI 공동 C/N·공기/증기 RHS.** 새 C/N·면적 현열 부품과 원 canopy exchange를 각1회 조립한다.
+4. **같은 stage의 명시 LAI 공동 C/N·공기/증기 RHS 수용.** [391검사·독립5,280수치](../research/crop-explicit-lai-climate-20261024.md).
+   새 C/N·면적 현열 부품과 원 canopy exchange를 각1회 조립한다.
    같은 Tc/LAI와 고정 footprint·명시 상태/forcing·gross capacity flows를 결속하고 원 SLA 공동 RHS를 호출하지 않는다.
    비운반 순열은 명시 외부 열−동일 현열 H−잠열 LE이며 Qmaterial을 한 번 더한다. 공기 현열에는 H만,
    공기 수증기에는 E만 내부 교환으로 사용하고 외부 항/출입 경계를 별도로 보존한다. 유출 현열을 공기에 자동 가산하지 않는다.
    합성 순간 C/N·수관/공기/증기와 reduced-energy 장부·독립 Decimal/기존 같은 조건 대사·중복 호출/부분 입력/수치 hold,
    원 입력/자료·4root/WSL 보존을 수용한다. 태양/PAR/NIR·환기/CO2 확대·시간 전진과 실제 수분 공급은 별도다.
 5. **첫 짧은 연속 계산:** 같은 case/원점/고정 footprint·기존 기관의 한 구간→정확 사건→다음 구간을 연결한다.
+   착수 전 기존 잎의 실내 기온 열적 시계와 동적 Ta, curve의 dA/d열적 나이→dA/d초,
+   각 stage LAI/Ldot와 명시 총 용량 흐름의 일치·공급/물성 가정을 먼저 정한다.
+   기존 piecewise-constant 정확 시계를 동적 Ta/Tc로 몰래 바꾸거나 Ldot에서 총 운반/온도를 자동 생성하지 않는다.
+   고정 기관은 목록이 고정된 범위이며 면적을 상수로 대체해 연속 면적 수용을 완료하지 않는다.
    전체 구간과 분할/재개의 C/N·열/물 장부, 원 UTC/유리수 사건·실패 직전 확인 상태를 독립 참조와 대사한다.
    먼저 고정 기관의 짧은 범위를 검증할 수 있지만 새 출현/전체 작기 지원으로 표시하지 않는다.
 6. **출현/공급·관리 확대:** 새 잎의 양의 면적에 대응하는 C의 출처·buffer/기관 분배·생장호흡과 고갈 정책을 정한다.
