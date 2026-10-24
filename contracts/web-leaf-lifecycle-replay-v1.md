@@ -1,6 +1,6 @@
 # 같은 UTC의 잎 생장·제거 연구3D — v1
 
-상태: 계약/검증 중. [SDK](web-leaf-lifecycle-sdk-v1.md)의 두 자체 합성 저장 결과를 사용한다.
+상태: [소프트웨어 범위 수용](../research/leaf-lifecycle-stored-replay-20261024.md). [SDK](web-leaf-lifecycle-sdk-v1.md)의 두 자체 합성 저장 결과를 사용한다.
 `leaf-lifecycle-replay.html`은 기존 사실적 제작 외형/장면·배치/폰트를 재사용한다.
 실제 품종 형태나 한 작기/생산·수익·추천을 제공하지 않는다. 고정 과실이나 임의 생장/제거 애니메이션을 붙이지 않는다.
 

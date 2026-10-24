@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-24 KST:** [잎 생애 SDK/현재 잎 adapter](../research/leaf-lifecycle-sdk-20261024.md)을 신규76검사·전체 web 타입·SDK 번들과 실제 HTTP40GET/24 DTO·94상태 대조로 수용했습니다. 원40파일/권리3종·현재/제거 마지막/예정 상태를 보존하며 생장 재계산은 없습니다. [현재 UI](http://localhost:5176/leaf-appearance-execution.html?job_id=9dbcca83-3b81-4171-862d-2953a0698eb6&frame=11)는 이전 정책 잎 생장이며 새 제거는 미적용입니다. 다음은 기존 사실적3D/표/그래프·빈 현재 목록/실제 브라우저·사용자 적용입니다. 농장/현재 권리·서명/실행과 [국내 자료 획득](../research/independent-domestic-cherry-tomato-data-20261024.md)은 병행하며 원측정/미사용 독립 국내 작기0·국내 첫 품종 미확정입니다. 인증 종료2026-10-25 06:17 KST 설정·생산/자원/경제·시장/자율 선정·R2/G0–G4와 전체 완료일 미정을 유지합니다.
+**현재 — 2026-10-24 KST:** [잎 생장·제거3D](http://localhost:5176/leaf-lifecycle-replay.html)를 기존 서버에 적용했습니다. [검증](../research/leaf-lifecycle-stored-replay-20261024.md): 전체 CI2248단위/318브라우저·집중183/42, 로컬106/10과 실제 Chrome24시점/73현재 면적이 통과했습니다. 현재/제거 마지막/예정·원 UTC/면적·표/그래프와 시나리오/메뉴/reload를 대사했습니다. 다음 핵심은 추적 shoot 면적과 기존 floor 기준 생산/자원·경제 모델의 단위·상태/관리 수지 경계이며 SourceRecord/농장 실행과 국내 자료 획득은 병행합니다. 자체 합성 연구 범위로 원측정/미사용 독립 국내 작기0·국내 첫 품종 미확정, R2/G0–G4/생산·추천 검증과 전체 완료일 미정을 유지합니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
