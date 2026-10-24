@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-24 KST:** [잎 생장·제거3D](http://localhost:5176/leaf-lifecycle-replay.html)는 기존 서버에서 확인합니다. [합성 면적·기후 계산의 분할 재개](research/crop-growing-geometry-continuation-20261024.md)를 새160/관련51·211검사와 별도12checkpoint 복원으로 수용했습니다. 6프로그램의 모든 단일 cut90곳/다중 분할, 남은144시점과 최종 bytes·원 a/A/누적량·D0 보존을 확인했습니다. 다음은 이 계산의 불변 저장/무계산 조회→기존 사실적3D 연결이며, 정확 제거/새 출현·전체 작기는 미완료입니다. 새 계산은 화면에 아직 연결하지 않았고 farm/현재 권리 실행·국내 자료 확보는 병행합니다. 원 측정/미사용 독립 국내 작기0·첫 국내 품종 미확정, 실제 생산·자원/경제/추천/R2/G0–G4와 전체 완료일 미정을 유지합니다.
+**현재 — 2026-10-24 KST:** [잎 생장·제거3D](http://localhost:5176/leaf-lifecycle-replay.html)는 기존 서버에서 확인합니다. [합성 면적·기후 계산의 불변 저장/생장 계산 없는 조회](research/crop-growing-geometry-artifact-20261024.md)를89집중검사와 별도6root/102시점·17,136수량 대사로 수용했습니다. 원 checkpoint bytes/leaf ID·a/A·114상태/21장부·분수 grid/권리·코드를 보존했고 reader의 생장/재개 import·DB/CLI/network/쓰기0을 확인했습니다. 다음은 strict export/SDK→기존 사실적3D 연결입니다. 새 계산은 화면에 아직 연결하지 않았으며 정확 제거/새 출현·전체 작기는 미완료입니다. farm/현재 권리 실행·국내 자료 확보는 병행합니다. 원 측정/미사용 독립 국내 작기0·첫 국내 품종 미확정, 실제 생산·자원/경제/추천/R2/G0–G4와 전체 완료일 미정을 유지합니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-24 KST:** [잎 생장·제거3D](http://localhost:5176/leaf-lifecycle-replay.html)는 기존 서버에서 확인합니다. [합성 면적·기후 계산의 분할 재개](../research/crop-growing-geometry-continuation-20261024.md)를 새160/관련51·211검사와 별도12checkpoint 복원으로 수용했습니다. 6프로그램의 모든 단일 cut90곳/다중 분할, 남은144시점과 최종 bytes·원 a/A/누적량·D0 보존을 확인했습니다. 다음은 이 계산의 불변 저장/무계산 조회→기존 사실적3D 연결이며, 정확 제거/새 출현·전체 작기는 미완료입니다. 새 계산은 화면에 아직 연결하지 않았고 farm/현재 권리 실행·국내 자료 확보는 병행합니다. 원 측정/미사용 독립 국내 작기0·첫 국내 품종 미확정, 실제 생산·자원/경제/추천/R2/G0–G4와 전체 완료일 미정을 유지합니다.
+**현재 — 2026-10-24 KST:** [잎 생장·제거3D](http://localhost:5176/leaf-lifecycle-replay.html)는 기존 서버에서 확인합니다. [합성 면적·기후 계산의 불변 저장/생장 계산 없는 조회](../research/crop-growing-geometry-artifact-20261024.md)를89집중검사와 별도6root/102시점·17,136수량 대사로 수용했습니다. 원 checkpoint bytes/leaf ID·a/A·114상태/21장부·분수 grid/권리·코드를 보존했고 reader의 생장/재개 import·DB/CLI/network/쓰기0을 확인했습니다. 다음은 strict export/SDK→기존 사실적3D 연결입니다. 새 계산은 화면에 아직 연결하지 않았으며 정확 제거/새 출현·전체 작기는 미완료입니다. farm/현재 권리 실행·국내 자료 확보는 병행합니다. 원 측정/미사용 독립 국내 작기0·첫 국내 품종 미확정, 실제 생산·자원/경제/추천/R2/G0–G4와 전체 완료일 미정을 유지합니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

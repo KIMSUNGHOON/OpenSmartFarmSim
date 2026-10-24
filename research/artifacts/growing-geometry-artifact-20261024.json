@@ -1,0 +1,328 @@
+{
+  "schema_version": "growing-geometry-artifact-evidence-v1",
+  "classification": "software_research_progress",
+  "full_goal_complete": false,
+  "G0_G4": "not_assessed",
+  "observed_at_UTC": "2026-10-24T07:57:32.151429+00:00",
+  "parent_HEAD": "de876e31a3085bc0e433573bbcc4051ad6001d75",
+  "native_model_proof": {
+    "timestamp": "2026-10-24T07:21:50.723Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "raw_line_sha256_including_lf": "117932c945aeb6b090c682f1ec7416c52fed679ae6ffe3e0af1b5e2ee5162fdf",
+    "recursive_cli_invocations": 0,
+    "recorded_at": "2026-10-24T07:22:18.651352+00:00"
+  },
+  "unique_focused_tests": 89,
+  "producer": {
+    "passed": true,
+    "observed_at_UTC": "2026-10-24T07:53:05.338630Z",
+    "cases": 6,
+    "matching_checkpoint_bytes_and_DTOs": 102,
+    "FD_preserved": true,
+    "roots": [
+      "05e42c64aa7b323e13d47bee5df6b4dc6416bc828f88b0c9516f22c3f6e4217e",
+      "ac812835c10f9e42c6bb4264b299d370b4cced40201cbb6066917096f7911270",
+      "6fb17b4eacb6f4a16cf93244b1d020c938bd5e2df4f32bd64e111c4a25c09be5",
+      "8e01d21a439f72a4ff25bee730ee98bcf161724d893d85f202b218de9b30b80e",
+      "4a0d4ff86879f0aa4e411fce4e817ae644225f918ce235ea39b81c67bb31da93",
+      "afe72525c16f3e6b52065182974be443e4dd50d1b00547bc2476879e4d80e0f8"
+    ],
+    "bundle_sha256": "1bf228ff2056927ae5d87b64cb309f1db2ef6a0fde14a02b8800b667db7ca536",
+    "bundle_bytes": 937126,
+    "G0_G4": "not_assessed"
+  },
+  "independent_reader": {
+    "passed": true,
+    "observed_at_UTC": "2026-10-24T07:53:40.141728Z",
+    "rows": [
+      {
+        "case_id": "warm-day",
+        "artifact_sha256": "05e42c64aa7b323e13d47bee5df6b4dc6416bc828f88b0c9516f22c3f6e4217e",
+        "frames": 17,
+        "original_checkpoint_bytes_and_DTOs_identical": true
+      },
+      {
+        "case_id": "reverse",
+        "artifact_sha256": "ac812835c10f9e42c6bb4264b299d370b4cced40201cbb6066917096f7911270",
+        "frames": 17,
+        "original_checkpoint_bytes_and_DTOs_identical": true
+      },
+      {
+        "case_id": "cool-dark",
+        "artifact_sha256": "6fb17b4eacb6f4a16cf93244b1d020c938bd5e2df4f32bd64e111c4a25c09be5",
+        "frames": 17,
+        "original_checkpoint_bytes_and_DTOs_identical": true
+      },
+      {
+        "case_id": "warm-reference30",
+        "artifact_sha256": "8e01d21a439f72a4ff25bee730ee98bcf161724d893d85f202b218de9b30b80e",
+        "frames": 17,
+        "original_checkpoint_bytes_and_DTOs_identical": true
+      },
+      {
+        "case_id": "warm-reference22",
+        "artifact_sha256": "4a0d4ff86879f0aa4e411fce4e817ae644225f918ce235ea39b81c67bb31da93",
+        "frames": 17,
+        "original_checkpoint_bytes_and_DTOs_identical": true
+      },
+      {
+        "case_id": "empty-entry",
+        "artifact_sha256": "afe72525c16f3e6b52065182974be443e4dd50d1b00547bc2476879e4d80e0f8",
+        "frames": 17,
+        "original_checkpoint_bytes_and_DTOs_identical": true
+      }
+    ],
+    "cases": 6,
+    "matching_checkpoint_bytes_and_DTOs": 102,
+    "matching_domain_quantities": 17136,
+    "growth_initialization_continuation_imports_or_calls": 0,
+    "DB_CLI_network_writes": 0,
+    "FD_preserved": true,
+    "all_artifact_bytes_metadata_preserved": true,
+    "bundle_preserved": true,
+    "bundle_sha256": "1bf228ff2056927ae5d87b64cb309f1db2ef6a0fde14a02b8800b667db7ca536",
+    "G0_G4": "not_assessed"
+  },
+  "phases": {
+    "growing-geometry-artifact-red-v1": {
+      "observed_at_UTC": "2026-10-24T07:45:24.234636Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.1887369810137898,
+      "PID_peak_RSS_bytes": 80646144,
+      "combined_peak_RSS_bytes": 460197888,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3734,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "a6c88faada39e7904ab87f95bc858eb65bcb77fa1e5c5cc171df888351da1088",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-artifact-core-v1": {
+      "observed_at_UTC": "2026-10-24T07:48:27.325534Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 11.02563174199895,
+      "PID_peak_RSS_bytes": 80646144,
+      "combined_peak_RSS_bytes": 499421184,
+      "samples": 41,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3736,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "91760b2913b7dd303bdce70ae35e65ffb92fe7ed63486f62783562bbabefe519",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-artifact-focused-v1": {
+      "observed_at_UTC": "2026-10-24T07:50:31.093544Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 26.78352872398682,
+      "PID_peak_RSS_bytes": 101154816,
+      "combined_peak_RSS_bytes": 529903616,
+      "samples": 102,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3736,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "962713effcc663a7e8436bc37adb22fa69023e01b07d928e2dd882be859c7f86",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-artifact-focused-v2": {
+      "observed_at_UTC": "2026-10-24T07:52:12.322591Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 30.166958021989558,
+      "PID_peak_RSS_bytes": 111771648,
+      "combined_peak_RSS_bytes": 544088064,
+      "samples": 115,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3736,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ccc6388b62663cbc3bc4d090aaf59cf2525b9b4d2289dcd0777fcc688b5bfbe8",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-artifact-producer-v1": {
+      "observed_at_UTC": "2026-10-24T07:53:06.119180Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 16.96015937399352,
+      "PID_peak_RSS_bytes": 80646144,
+      "combined_peak_RSS_bytes": 484319232,
+      "samples": 64,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3736,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e89f1bae701b74a65d75d78b476b1ddea5a7fa2cf3eff2a56d963d82b9c73f88",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "growing-geometry-artifact-reader-v1": {
+      "observed_at_UTC": "2026-10-24T07:53:40.959271Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 4.826092817995232,
+      "PID_peak_RSS_bytes": 80646144,
+      "combined_peak_RSS_bytes": 455266304,
+      "samples": 17,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3736,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "dec2de7cc7d5888f87673d74bec31032c0f9e843088bb0d401a5ad69830d3baa",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "source_sha256": {
+    "backend/app/crop_growing_geometry_continuation.py": "9fca4b226a1290ccc2702d97fcfcdae50bf41c4d88f653cb6d86910ca9e5565a",
+    "backend/app/crop_growing_geometry_climate.py": "5cf58d1dea92e59e1059d5e5cd359a81b8dde950fed2ac575911a4be90788a0a",
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_growing_geometry_artifact_producer.py": "ce87e8c959d7ab3e71c91c96262efb7844af529352c63608e2180cd34d8934d3",
+    "backend/app/crop_growing_geometry_artifact_reader.py": "f1972817162836a8b16fd675fdc2da6d4c838d34340b48940e74d28a9d8dd3a5",
+    "backend/tests/test_crop_growing_geometry_artifact.py": "e793004c8b204df0f473a819f58e9d62bd001768118672e9fea9a6a0b27fea90",
+    "contracts/crop-growing-geometry-artifact-v1.md": "ee122111d0c70fa5fb7f1156c5e296b26f412763c710f56b892e013412d89263"
+  },
+  "private_actor_sha256": {
+    "producer-v1.private.py": "9c0d430097672f47c06fa33bc96e9382d66c6f053ba9150c230fd6e40ddabbc7",
+    "reader-v1.private.py": "c67113976539ce7497cc917c4f8fe0d75c20c8eded634bb41c30ae978c0fede6",
+    "check-records-v1.private.py": "8e48fec15611b2436b549cf1071f416a726d75e10cd3deb60e3c2aa7a8858696"
+  },
+  "not_run": [
+    "new hosted CI",
+    "full backend suite",
+    "browser tests for this storage-only change"
+  ],
+  "holds": [
+    "trusted private root/file-policy transport only; actual farm custody/current tenant rights remain separate",
+    "new calculation not connected to 3D yet",
+    "independent local measurements/cycles zero; cultivar unconfirmed; full season/resources/economics/recommendation/R2/scientific gates incomplete"
+  ],
+  "record_verification": {
+    "passed": true,
+    "source_pins": 27,
+    "relative_links_checked": 3367,
+    "compiled_files": 3,
+    "phase": {
+      "observed_at_UTC": "2026-10-24T07:58:08.010639Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.9286028899950907,
+      "PID_peak_RSS_bytes": 80646144,
+      "combined_peak_RSS_bytes": 422240256,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3738,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "66fb4008089e5b6909e011c10b953e20e149556c326ff7128038aaa641c35627",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  }
+}
