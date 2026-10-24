@@ -1,5 +1,7 @@
 # 자료·연구 기준선
 
+**2026-10-24 명시 면적 현열 경계:** [고정 Ch8/제어체적 1차 대조](../research/explicit-area-canopy-energy-primary-sources-20261024.md)와 [260검사·독립1,900수치](../research/crop-area-canopy-energy-20261024.md)를 기록했다. 면적당 고정 열용량과 독립 총 용량 흐름/각 온도·비운반 순열의 프로젝트 합성 장부만 수용했다. 실제 잎 물성/질량·물/열·새 계수 채택/기후 feedback·작기/게시 관문 승인은 아니며 다음은 같은 stage의 명시 LAI 공동 C/N·공기/증기 RHS다.
+
 **2026-10-24 명시 LAI C/N 결속:** [기존 식/고정 프로필의 같은 stage 탄소·50과실 수용](../research/crop-explicit-lai-carbon-20261024.md)은324검사·46사례/9,810독립 수치의 소프트웨어 증거다. 새 계수/실제 질량·전체 수관/열·물·출현/작기/현장·예측/추천 승인0이며 다음은 독립 면적의 capacity/material heat 가정·필수 입력/chain-rule 경계다.
 
 **2026-10-24 연속 결합 대조:** [원문/SLA·독립 면적 후보](../research/continuous-leaf-carbon-primary-sources-20261024.md)와 [명시 LAI의 순간 광 동화 수용](../research/crop-explicit-lai-photosynthesis-20261024.md)을 기록했다. S3 pp6–7의 별도 면적/biomass와 p15의 세 변수 분리 제안·기후 feedback 미사용을 함께 보존했다. 새 hybrid 전체/출현 질량·공급·관리/열·실제 품종/관문 승인은 아니며 다음은 독립 LAI의 P를 같은 C/N RHS에 한 번 결속하는 연구 단계다.

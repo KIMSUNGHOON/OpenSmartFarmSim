@@ -1,0 +1,7122 @@
+{
+  "schema_version": "explicit-area-canopy-energy-acceptance-v1",
+  "classification": "progress",
+  "accepted_child": "explicit-lai-canopy-energy-boundary",
+  "full_continuous_parent_complete": false,
+  "full_goal_complete": false,
+  "G0_G4": "not_assessed",
+  "claim_scope": "synthetic_area_capacity_bookkeeping_only",
+  "native_invocation": {
+    "timestamp": "2026-10-24T05:20:58.755Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "raw_line_sha256_including_lf": "3a6bdafdc2de66e857c339ec36a6dcc996c61e5241d3cc3b1e68aeb9540bb9ee",
+    "recursive_cli_invocations": 0,
+    "recorded_at": "2026-10-24T05:22:54.717899+00:00"
+  },
+  "source_sha256": {
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/tests/test_crop_area_canopy_energy.py": "09f252b9310f280e37aedea6538619410018e803e89cfded43826a9ee54b2889",
+    "contracts/crop-area-canopy-energy-v1.md": "c39cc7f9ccce6544467cec1d0b6e1771333b5b332a012d574bc71ff68a6e0c16",
+    "contracts/crop-geometry-carbon-coupling-research-v1.md": "b72ddb87b95b8f98ab421d6b87f3d9c5bc5737aba037e16d5f81c7dcbe342251",
+    "research/crop-area-canopy-energy-reference.py": "f715b9c4662998fcb21005357ba8f01577cffefe35e11d3d2c1f2d41e850841e",
+    "fixtures/crop-area-canopy-energy-reference-v1.json": "7211de1a427a762ac7c100335f3f1904748f1d848cf1b92c35be59db73daa0f3",
+    "research/explicit-area-canopy-energy-primary-sources-20261024.md": "9945ced3c9053ec7c3d3d98deedb2ef3660f417f8a2a64563c15751317d27b52",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+  },
+  "legacy_files_unchanged_from_parent_HEAD": "7e24abd935b2d2edf48256639f4f254f1093ea2f",
+  "JUnit_sha256": {
+    "focused-v2.junit.xml": "7dada051721e80b6555b9b7bdfba6455041075dcd390f2ae818f125291be2c76"
+  },
+  "tests": {
+    "unique": 260,
+    "new": 145,
+    "related": 115,
+    "per_file": {
+      "tests.test_crop_area_canopy_energy": 145,
+      "tests.test_crop_canopy_energy_transport": 48,
+      "tests.test_crop_explicit_lai_carbon_cohorts": 67
+    },
+    "earlier_35_not_added_again": true
+  },
+  "fresh": {
+    "passed": true,
+    "observed_at_UTC": "2026-10-24T05:38:06.535747Z",
+    "cases": 100,
+    "rows": [
+      {
+        "case_id": "own-area-energy-000",
+        "input_sha256": "ed2c34c62c23131ca90a81d8cdb6e0f1e7ba934cabc230c78f993a0c9dbfa149",
+        "calculation_sha256": "708cc1be64dc9e9d0c408c3dda50e48c28b8d76f51a3330c7cd485cab64bf12b",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-001",
+        "input_sha256": "88ef5fdb794e0fa8db07083a47bc07f3cbe09f76dda3b5766961ea4286bf5d6c",
+        "calculation_sha256": "d1d13c8ac3322c5977cd7eca1285738e6e9ae704eb892d7fb16185e26437384f",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-002",
+        "input_sha256": "844533da8f8fd9e64c4c27d94e306db0e70877b872975b78f05f12e9446bff70",
+        "calculation_sha256": "b7f4fce1e56d3e73346f71ea30fb0493fbb0a42607e34bbdcc44e47ed8fe5704",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-003",
+        "input_sha256": "0053d06af1781f9213c7a6784c801b491e6071d1c8ba257718b2b1c1023fc2c9",
+        "calculation_sha256": "d6a59fc7bbd9d61f7966c7b003a561ae5533b88c221265856ed239f368bdb3f4",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-004",
+        "input_sha256": "8f7a11898d0a737b156ccf825ecec60d4bfbef15d5de103cd9e7cd6774ad2eb2",
+        "calculation_sha256": "4a271cd3d9edb75fcb3cc6c57a5f40a8df1ecf402275a997f43d696d6a4dc903",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-005",
+        "input_sha256": "4518a54d0ebfe8c8d1d3806ff8906e6812e56bc7199c749cd9b2696211985450",
+        "calculation_sha256": "52e9e0f091698dca3086fd850de8d48bb20d41a25ba6a2cd3d002657263944b2",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-006",
+        "input_sha256": "2689be00b361a2da2a048ae9131db3613244dd2e4a19329fff3f202561c39517",
+        "calculation_sha256": "c9e9f9dc12f4518b263ae34c1740555293a2888c65b70e6ca635de1e073a9a56",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-007",
+        "input_sha256": "1c743f130342f78ca7f551859db95ef77055d1518ceca3f37b0727b9ad1cf6b1",
+        "calculation_sha256": "cecd2f7adde762d78f1da31f6bc91932876b1c2d89efbe0a95c2aa3d0c701fe6",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-008",
+        "input_sha256": "d4c3cf85ac174756d11a0efdecafa793d9200fd7b0267eee5907bdd9381fbb75",
+        "calculation_sha256": "0ce49e4d6059e97cb48560eab9311d3896ea37e0549d8dfaf88fdfc7a8f91a1f",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-009",
+        "input_sha256": "88f939df04b909321f3c082fb5220ec86426d484e8444db39b872978c19f63f4",
+        "calculation_sha256": "8ce22461c4ea3f03dacf93c1bc7ac9461ecbd1c7d84556fa23962db4ab541e2e",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-010",
+        "input_sha256": "cd537bfb071b77d624ff74fd0adbf2683a32645fff16a652f609823fadb08e44",
+        "calculation_sha256": "74978ede78986f632fffb1c08890659ba66eacac2c5374766d9919979cf42363",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-011",
+        "input_sha256": "f43f44b70b5993cdbc3f6671e04d3bafb1c19c0a7ecbfe866d50ef9629bcaa2b",
+        "calculation_sha256": "f28463480bfc92e9e7653ca5c2d44f184fe1c9387e706f17cfb82e860516e6d1",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-012",
+        "input_sha256": "e5292cb079d54dfdd7e170eeb28a5c84474bc4b809dc44bb1cea55894aabfeef",
+        "calculation_sha256": "5cfa18882c4daba3abe713760d30a0ba71ad3652a90f2ada96625d4d492df14a",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-013",
+        "input_sha256": "efe1c54f015823a14495f45ad9f36080ae8f5b8b0f73e276c155816964cf32ee",
+        "calculation_sha256": "5b75cec4864882cc57d7f15094deb7ef08ba9d8529743ece56335dc0e6133402",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-014",
+        "input_sha256": "bade4704f8e78e57034eadb3ed91b403b93359ae092b714bba2434820c6a1246",
+        "calculation_sha256": "96b47ff83e21fd371531e1f88cf904b10c3532690965abf83cffadc60451b766",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-015",
+        "input_sha256": "f5e597d609d5c0eceb2d91671b86c6f1bb20effda666bdd170ba19aad2f70bb7",
+        "calculation_sha256": "88e9708800733738a75e97bf923960dfef2647d0cff123097f78f0b595e016ac",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-016",
+        "input_sha256": "ba4c49a9d3996e17cc8cb874717a028bd7a832c27da1c1138b642b55763dec1c",
+        "calculation_sha256": "c4bc40457d525c18f404f3d00256c07cea331c2011b8f40cfbb919f7c1d483ab",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-017",
+        "input_sha256": "22e1981afc4f86a35bd29d6fc749c59422fcb3bd39e788e8d7e05225c49b3cfd",
+        "calculation_sha256": "ce11609787ff0222d34076d5f122f0bf062a28f4266db96b161da6299ffe7929",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 92.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-018",
+        "input_sha256": "b1a62e4b561225087b16ed3b604e81c5eb546a750d897d107d72cf613615a8e5",
+        "calculation_sha256": "8fabea881d52495c62e1ca2099dd2360391ddd4f3d9345d93541f8b31ae0ac60",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-019",
+        "input_sha256": "7543c30523fd8df3c45a73abeb08e7dca44201cbc1aaa4cf0af3fbacdd71e073",
+        "calculation_sha256": "41a3dfb33a361f09db4a06c3be64647f03d4f3855ec50e24581ddc855000f560",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 62.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-020",
+        "input_sha256": "600c09f3231a87cf4711119b286b7cd501778ea2110d63610da39ee92ac3cf49",
+        "calculation_sha256": "a90ad37fbe0008b6ffb7d2949b1bd475b607215030fa57a0fd73101f0f7ff135",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-021",
+        "input_sha256": "8ce6298f507bd708fab791a77470fd6ba16ebf470dbd63f1e0d8f1bf5330cc99",
+        "calculation_sha256": "2502970b70f0292432d80e23cdfa8b0072a63a414f2998ba36fafbd0129a70f7",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-022",
+        "input_sha256": "096724df53d450eb7962941046701699bdf518c47390303e56143ad7e6bf5f5c",
+        "calculation_sha256": "282cf01e68d76701a683300e911959106ffefe64d97d887d5658719b7c1d9f6d",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-023",
+        "input_sha256": "a2663f1f1a8282190b68160b683e4a2d63552cde0ff27c6f95f7210529ce3934",
+        "calculation_sha256": "72df7a956dbd6a59f318acb6a4f4a75c9cc03746ad2e1d198b084d95fb3c6760",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -28.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-024",
+        "input_sha256": "1f3e3408ef0eaa1b7ced64be4836172dca8f0df8d3b3d10feab429f68d355976",
+        "calculation_sha256": "89595fce81dbbfc414edd92b2d46095b03b7e187abe699ce322941e3f2f6c3ac",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-025",
+        "input_sha256": "a4af89a367d213a3855eae19430dcdbe522d5c5ed4f4468f4fa55eb6534fc905",
+        "calculation_sha256": "c4d2cb915701b396e8c64a10ce4d3c4d254d1ed0a861ddb0594c90223c4d7ffe",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 140.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.034375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 1.8189894035458565e-12,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-026",
+        "input_sha256": "e8a505da8e1ea38d3db8dd75a9c258e771b68394c742fbde47f98c68844d662f",
+        "calculation_sha256": "09d15120a921e301e3e5686feefc16a3c32ea3665855df6a4ada91a7bf9fac93",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-027",
+        "input_sha256": "1ef2341cc6cc55bede90ca16c6fe35b26bd2f1e136e3b04ec8c0a157af1e5bb0",
+        "calculation_sha256": "a1e12b7a68d935e3d5c929ff37a7df6408ec7ccc389aa29b057506e687936bbc",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 110.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.034375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-028",
+        "input_sha256": "7c21417105d73e723e2667da74f631ca239f868559e221c07583fccca8b84e73",
+        "calculation_sha256": "f00e0795973c1ac3ab6ccf18b2d0cd26d5ae852f206233e1e2ea941e4e6d36de",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-029",
+        "input_sha256": "b6bd55c925c059e5a3fac7209c24dc042ccc4da0dc3559603165ed13ce8de433",
+        "calculation_sha256": "0c4e5e3a440abc6cb34d20fbcc11b1e2651cc00a15e4f8412d03a85cbcfa7fbd",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 44.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.034375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-030",
+        "input_sha256": "5d1a1f811d0fe79b36ebb1734d44976e85fb1581c701e5913e0479cbc43ea4e0",
+        "calculation_sha256": "bdc7eebc8f18544100a9ee824c94d4d6a6bcabb4acd957698c6707a1501ee63a",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-031",
+        "input_sha256": "db13d0f7598fdb193a9b508ef1298ace762cf085e07dfec1f2e9c2e97a14e04f",
+        "calculation_sha256": "e3784d1a36f4282064c41a02e2b64e9efde2097a52dfb6dfbb2f74fb55d53ccf",
+        "capacity_rates": {
+          "geometry": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.034375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-032",
+        "input_sha256": "133877cfb1160fb663089d850f059a645370fd49d5a76f253d21645ec8e6cf03",
+        "calculation_sha256": "4b08f3877a796fb48273beef0df73d79e0ae2b572d81c033c685260628b7fb36",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 96.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -96.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -96.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-033",
+        "input_sha256": "64a9cda604b930019dee6f4e23ffc044ca0aa5b8b4da5f67756eb12092ac6707",
+        "calculation_sha256": "056866c0a52af7dc8cb085303479e4bfd5c73cb6a659a1cb872eea0d16f8a4fc",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 96.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -96.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -76.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-034",
+        "input_sha256": "d3772825c2d7f1af3ee21f7ff71b1079c6d9ad623c4734d8f750fecfba4e44a5",
+        "calculation_sha256": "2cdd738ea500407409c5202ab78b12eeda6571bf4fdd41ccd91830fcf52fea06",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 66.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -66.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -66.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-035",
+        "input_sha256": "f7096028a657d38e580973f4af50aa66c266a36a5165a6065c071c81d2e39df8",
+        "calculation_sha256": "ae4520ce19491ec79da2df8758fc2f557c15cafb03913aba6450c52b8c9c691a",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 66.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -66.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -46.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-036",
+        "input_sha256": "1ecf5a4b5464976d197df85abeab44d204883b2e249ac2179024986a759c9d56",
+        "calculation_sha256": "27846a90a0744697e97ca6e7b40a22f0da00fc6f0b741fd795b533f26188b8a7",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 3.16e-322,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-037",
+        "input_sha256": "cc3ce1f277b32143632632e3681e6debf0aea6cae2ceb254bf388df2866e64e1",
+        "calculation_sha256": "c9287c8e0e890d93b88fa4f82c3f3ddb9a296706e5813aeee4137e1311c30d0f",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-038",
+        "input_sha256": "16442a250f12888a3c1592837650d8061751bedd3faed1a295950dd38d5c441c",
+        "calculation_sha256": "3352ab2e6eaf2ed8ca4a048c4f6ca641dde05b6377b7c41a57f008a21654ce1d",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-039",
+        "input_sha256": "ff61ae122dd78c5445e1f49101f8cda23b38992010685edbf4ee0acd284d85d2",
+        "calculation_sha256": "34908829592c20f578defe5613adc4580428a7b469161bc30ef583944c96dd8b",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 44.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-040",
+        "input_sha256": "7cf9686203423af5a5d6fa115b192eaaf12cab1fad46ea626e79a43d8efad320",
+        "calculation_sha256": "43cba50dd32c4111a4c491fbe086ce478d25fc7f714e08818dbe50d5a78a49b3",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 84.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -84.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -84.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.009375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-041",
+        "input_sha256": "69f18926a07c0623c73afdf9b4bf9339ad4adc78c0d79cfc876627a968445c91",
+        "calculation_sha256": "ea8fa843514db15d99e878a472124a5ce9070c597947b40fd578fadff1b7fe08",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 84.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -84.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -64.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.025,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-042",
+        "input_sha256": "4b5fcdfaf9acd41ecde2b7714cda733e71ae38a84de7cfb9e269cb77d2dcd612",
+        "calculation_sha256": "ba09c4c834d9b22b8f424f6f5ac09ba2bf2cf38b5afc69b83c9654ad7a4f814b",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 54.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -54.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -54.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.009375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-043",
+        "input_sha256": "94242b765229d6b34166657a85fd1feb96513b86ef56634d3182ad78bd406b0f",
+        "calculation_sha256": "764933c8b6b29b03b01b8c2418cc3b52e8cd5970a6b011e0ad015ec1d7780b6f",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 54.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -54.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -34.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.025,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-044",
+        "input_sha256": "61f3e44910050269f1f4eec9cc5930c1d236ccb745f652cc22505e5f61139ed4",
+        "calculation_sha256": "a2c49b8ee144e548dca61e2c966550b38b5fbb23cec1d0fa2d719bec122b27c3",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -12.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 12.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 12.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.009375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 1.1368683772161603e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-045",
+        "input_sha256": "8f33d54d0f03fdc6fb7151503c6d2e7383877f14fda403d1d264f8653cdb4d5e",
+        "calculation_sha256": "45af61d54a7dd2f81c1a4a14212e8acf707814f30068ba7d37fe89b1441e7992",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -12.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 12.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 32.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.025,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-046",
+        "input_sha256": "b0459ec4795c3765b4c4e0be5f687fcff71fd0e7f04c2363a0e76142cc5695b2",
+        "calculation_sha256": "3578e9b599e457e1be3a990096c46fe6f67d84dea8111f5f654580db897b3675",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -36.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.009375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-047",
+        "input_sha256": "fa47684d9fe838254abc788cc7c5275f4198919c8d6beb0ed3d58cb19701f140",
+        "calculation_sha256": "cae375f937e222aeba3db66c9d793daa13ee37e26c3bcd7d69436d69b35bef7c",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -36.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 56.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.025,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-048",
+        "input_sha256": "fc5b56ddf7026835b29ea6e17cf7c142d46383db6f05b71fe4862c6a259df17c",
+        "calculation_sha256": "64a9c1ab3ab407e0cc45b6cff70747d369c7bee580df98e77e86cab68df2bdc7",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 32.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 40.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 40.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-049",
+        "input_sha256": "4ac70165d7a780a6123c45ddc3a68ef0fb190bfbed5bec244150fa0aa65f8808",
+        "calculation_sha256": "7155e605c0776aa706d1669623f75b7a37178a7e8f8a9f0671e077f41c8eca76",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 32.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 40.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 60.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-050",
+        "input_sha256": "00c11f0ce27ece75094da06db54ef09be7481376b292aac832894428dac62b4f",
+        "calculation_sha256": "61879b6b96aec69da22d965386e3b6cc1c534d74d305586aaa008b75f9286866",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 22.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-051",
+        "input_sha256": "66d29b49e4cccbd448cd27bfe56b2009d1ad468905c210bf2a64bd78ceea7568",
+        "calculation_sha256": "783cc9dbcf4bae30a49a9b6dcba3891e8afae54750c65e2cb8dbc5dd7dac356f",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 22.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 40.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-052",
+        "input_sha256": "3130478b3bcd6fbb6871e652c173f66a782671b2fba56184c4c7f6399ec7cb19",
+        "calculation_sha256": "c3b78bbf54588a0733564250aeb03904add532e202ddad6f26b866f497b7de12",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-053",
+        "input_sha256": "6b6ba7f292ae1c8db9577dae9c0a72c1677aa7dd915da19471206af984b87690",
+        "calculation_sha256": "d1a972b129146924e29d037ec3cc09451bd2a4bdce5227ec91b7a54d31c836f6",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-054",
+        "input_sha256": "4d20726b4286b91c5e6746c762ea78bc675b75d1e48845b19d06925030835874",
+        "calculation_sha256": "9b34c5dceea3ecbff9896a2018896cd59e18b9da0067bb98684933b6eea6d01e",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -8.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -40.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -40.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-055",
+        "input_sha256": "2cec0be6d8b8a70cbdd3a20f7fb357bc128a3fc85a43929d4f0c85e7bd1c5261",
+        "calculation_sha256": "3c641d65b634164cfa68e5b0ae4b3171ff6870c1a7482e33147a6a508151b5c8",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -8.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -40.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-056",
+        "input_sha256": "1bdda4ab1a3e9d12743b81c682e313c14625ababb415369714a70c78896fde34",
+        "calculation_sha256": "fe9b851ac0b75bb16b040ab621438758abddcd3d0587fc397476a0bd614443a2",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 28.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 92.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 92.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.021875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-057",
+        "input_sha256": "c0a24195ee8a2c2b55ca54f0e72b8d7ef9cb6ecaec08beb8722050dc0fab2fc6",
+        "calculation_sha256": "c81cdd6f0fce061537cb2aeae76df93ab48779cc49eaa63af1e916f54611d20e",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 28.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 92.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 112.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-058",
+        "input_sha256": "47bf9f97796dae855417ed415c95d7474f9e895e5f7f6b51947fcb4d42bec8c8",
+        "calculation_sha256": "cae5936d8e4c8e3320e5ea1b7293dd18d29521067a1da49075d2ecc6d0e5a4a2",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 18.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.021875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-059",
+        "input_sha256": "47e175b0e9e5c9e9522dd3f97e4ad4cd181b1045993db72481f9a15c606f0aee",
+        "calculation_sha256": "ba5903c1576aefc721b8baa830a055bd70d35a9883e21771205342a3fc1d3011",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 18.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 92.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-060",
+        "input_sha256": "812aa3571329ff735e27b41af5dc84401773172195ef6cb82fc558c088bc5974",
+        "calculation_sha256": "25218db0d688b654fd260f23628d51d48578e44f6907bfa5e87a182b88d3bdae",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 28.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 28.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.021875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-061",
+        "input_sha256": "73fa5b192947fbf90bd5c1ffa21770f9bd07a5dda258334bcddfafe0def59fa2",
+        "calculation_sha256": "09d73cefda2ec213d901d05643517cabcd0815e056845acad38d0e5fb30e38be",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 28.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 48.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-062",
+        "input_sha256": "941c9cd4cdfda639071ce3563b53638dceb2018b78653b39a9ba5d4e752250c5",
+        "calculation_sha256": "ffee2dae9f3f58304e79434dffca9ae272852199e5c4b4cb4fbec33ddbcfc425",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -12.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 12.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 12.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.021875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-063",
+        "input_sha256": "02440a3009a2ee9756e1cf8c4d062d32e21b01360166206a7bf301ef94b1403f",
+        "calculation_sha256": "546291286f2c98921dd1a2f6aa1b7df533dd7243c48fa8b18546b85d9cd5a369",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -12.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 12.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 32.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.0375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-064",
+        "input_sha256": "48d3060feacdca212c9af9c0d131362b454a493a5b15c45d67c090aaa39ac096",
+        "calculation_sha256": "8b85265ee7502634374b596d0f05f79645ba2775141f6866d34c2d1940bfb191",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 96.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-065",
+        "input_sha256": "27153b4cc7637420af6a27bcbd485492a119c9f46c8650f0ec221f645fdc967b",
+        "calculation_sha256": "0c016033c7e10d351edb6d2ef990d0c8111771cb9f0faca473e7e037f3ccd077",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 72.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 96.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-066",
+        "input_sha256": "64ae60f1b26ef7493fdf872d10bf95f7995b7d74b86bc87c65187c5504c82a2c",
+        "calculation_sha256": "f2d1d1a4f75dc9a9b8ca16feb778c19a5d48e5018aec706d834a1dc0f9af4b29",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 66.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-067",
+        "input_sha256": "d230b9600a8625b4c9b45ca1719c8341ab56aab248a17412f9a4bbbafbd9f3ff",
+        "calculation_sha256": "a40cd5ecb34a4c35175c3bb4ac15f9a282f9da6fa0de186651d084b7f7aac4d4",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 42.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 66.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-068",
+        "input_sha256": "33a8df68d1769dc9c3d4be57f0a3241f59bae00a86c0378dc4c428ae96a5c7b1",
+        "calculation_sha256": "d8fb9aa31d6c6fc8f379542cd64924a121770ead932a6337a9da2b8b34cd0f96",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-069",
+        "input_sha256": "ab9e4a57670a48abf4c43a21a925955dca5ee17a3b712fc1fcf4550d9c1414aa",
+        "calculation_sha256": "e8db55e8538aabc4ef61d835a8e688711db6b5b34bdb003f790e8a463de4f924",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-070",
+        "input_sha256": "683d246ac36dc055819344ea4e106aa150eab41879d4de5dc26297c3746a6846",
+        "calculation_sha256": "6260c11d829ff6b3a05a27a2c0ee9a9ae0c163be38af2000c4b594bb745fdf7a",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.01875,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-071",
+        "input_sha256": "eaa349030c58f814dc3404854efcd066ccb101ba4e01326a6cd209965717ca3f",
+        "calculation_sha256": "e051bb52f5765ec5943372b7a4aa69d8fd586f83b19c740e275cb5b557d047fe",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -48.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.003125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-072",
+        "input_sha256": "aa0bd2c1d8cb7c0dc74c521ae5a6325cf0cac170f14224782bfc96e3b0134bee",
+        "calculation_sha256": "cafea135a65981666d28c701f1f9b2348fe3bc5de76f48aa1d2efb8ffc21cac7",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 84.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.028125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-073",
+        "input_sha256": "ece2a30e59928fd0fa53e6baa3cd00cdd1179bc3a490dd39f60cc37fe59cdb0e",
+        "calculation_sha256": "69e7762fe35f1ca7a6d853a6223321386560395a38783ed5ea65a881ebdd99ce",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 120.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 84.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 56.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.04375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-074",
+        "input_sha256": "34724111fe7c4dfdc84cd43a2280d588d24e792a4204696567c458213923e00f",
+        "calculation_sha256": "39c49329937856687f93102f16c0113d11992a7b3460669a560d3cb5a51735f5",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 54.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.028125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-075",
+        "input_sha256": "116dcb6eb3a57d12d1e315e638d5c7ba82846a21a88d2009e0bf62bb061a28ac",
+        "calculation_sha256": "d92351e1d6edc42262084d7c415bce8e3722616ff4820d1813f530daa90034c2",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 90.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 54.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 56.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.04375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-076",
+        "input_sha256": "5f20fe480fc62bbbdac5c9624b1ae6d79c3caa618a1e66ab7b0817d944b32a4e",
+        "calculation_sha256": "cf6070d0390b9a08b65a25f84adab2a08ca52b8f0a775e0b6dcb319df9ed5f04",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -12.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.028125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-077",
+        "input_sha256": "f628ecbb0a4792ea196187720cc1778b4dc005ce1ddca33b133b9c72082b38f5",
+        "calculation_sha256": "87c9fde1cf1ff2188961ea133b309d30d6d3b2e25dd7e30a3d9f45440e4cc1e7",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -12.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 56.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.04375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-078",
+        "input_sha256": "4e144a29b6ed899e110c8b28aef668c88e6e9e220bfb4afea54f1d1969b948fd",
+        "calculation_sha256": "943a73836a16f048475aae0bd521d7c58967781c5df53515f3729f84d9db950e",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -36.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.028125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-079",
+        "input_sha256": "b64a7fedbb0a6260c8fc8770523625d6efddceb2952472307ee92317ac356de0",
+        "calculation_sha256": "808a13aa6382f2b8e256d9bb24a5b7720faa340d94a02dfbbf410e57392100ca",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -36.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 56.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.04375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-080",
+        "input_sha256": "fbb98c1f1f3f88c00e5be4785ed910545f651756628d93ad34202aad1d23129b",
+        "calculation_sha256": "62676cee7d7bf3c10f4f26a893743b65ddc871bcadc4bd821a312fd0cdd26b86",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 96.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -72.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -72.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.00625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-081",
+        "input_sha256": "6ea31162306a529f4fe5e077e44da0217d6934e3418171e7a6f27b201fdd7e25",
+        "calculation_sha256": "076c9df050c7a4f729947a7d6fe1db000e0c3ae49973de8791d8819f1d21b0ac",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 24.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 96.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -72.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -52.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.009375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-082",
+        "input_sha256": "a7b35ed1ef0492ccd9615450866f49f7a008a028af001fe536020e173308ad71",
+        "calculation_sha256": "e359bb339d0824a02f6fd3301c2ce634a4482511b09eb948c49f4e1fffbed976",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 14.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 66.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -52.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -52.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.00625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-083",
+        "input_sha256": "076a869eb40628bbf9a7b11115541c45b8284d895b75861c499131a1ab9e880b",
+        "calculation_sha256": "1e942a1dff936560a15ee28128a3da2c1faae4bc7c75457572c7df233fd91499",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 14.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 66.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -52.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -32.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.009375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-084",
+        "input_sha256": "4f6d5afbd9d8e16f5a3100cea61c6faae1afb6267900f660471929034e8082ea",
+        "calculation_sha256": "859df300798ac7551b91743e2c3813af2608e04a688c58ab4917da37845cbc37",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -8.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -8.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -8.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.00625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 1.1368683772161603e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-085",
+        "input_sha256": "355fcc4691d7bf4d3ed4af17293b7891ea4e07a229dde52b420fc09120c42f82",
+        "calculation_sha256": "0556246c4a47b14924dbd1319057d4fb05ae50fca45e8019cbd482492173fee3",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -8.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -8.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 12.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.009375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-086",
+        "input_sha256": "44432e4978e988b50ecc1039c60b38d4735b896df819f766a57640f7fca19f86",
+        "calculation_sha256": "abec7bc240fb0081d86f10c2b206f267dcf004d3a3c006d69527747bca3cf099",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -16.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 8.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 8.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.00625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-087",
+        "input_sha256": "fba2d83946e643442c6e27f66629503c261cf7b99908ccb3e2aa4cf36bb4aea5",
+        "calculation_sha256": "a42b5460564954606558ac0ab45c90345ac92ce627d2b5abb832bd84f0ef9f17",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -16.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 8.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 28.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.009375,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-088",
+        "input_sha256": "4d57d661adcd7fe53cad2f7d68df74510743c2a7bf260239ade07883b45ae8e2",
+        "calculation_sha256": "70cc1c3185a5c7e430c6a2a67f7a782a371385221f4196c59f99ccb97265b938",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 40.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 84.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -44.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -44.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-089",
+        "input_sha256": "368a9f807e9f0a2a75e6dd778805ee715c7917d0290c08ee595936b2127756d3",
+        "calculation_sha256": "8b70279e0dfd44c545e7730e529012c825b7b38d6ed009681e5ec78d92ba1782",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 40.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 84.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -44.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.03125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-090",
+        "input_sha256": "9705d1f53847d5bec60d568c3c14c552e3b10b1d8ce4cab0e316fcd32e14250f",
+        "calculation_sha256": "9844f5dc128b7b8f79406f26b00c4118d22d5208f6fed9861beed4f5b4aeb06b",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 30.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 54.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-091",
+        "input_sha256": "14135757504f1934dcc00ac2fe1918c487663dd27bd616c0531d3d20eb9869f9",
+        "calculation_sha256": "2c9187ad3f0cd94226e9519733705b36f53fcd7194308651afff2df766b20d5b",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 30.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 54.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -24.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -4.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.03125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-092",
+        "input_sha256": "452aa24cf633d2a1c92638732526f91eb0e0734ae9002e118556f2dfd63b9340",
+        "calculation_sha256": "14cd161ccb123658d2386fe365001aaac88693ca842572ba0a8ef0251fa0a19d",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 8.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -12.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-093",
+        "input_sha256": "acb097f3c34efeb27350ce3d41114bc5ddc87cdafd9761d4a69613d5ed707518",
+        "calculation_sha256": "42116a7cda35a7d071e9355012e1ff443b514a0880b52dfa64557275177841ac",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 8.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -12.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 40.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.03125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-094",
+        "input_sha256": "d3adcd7414f0932dacca73de4f041bff7cabcf82854f66dccf1d69cb8c69fca2",
+        "calculation_sha256": "2ac11ed536f88a6a3d98d5ff77f38fbe098bb1bf1596fb05456dd7c4ec5b1bc9",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -36.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-095",
+        "input_sha256": "c581f4dd4a78855e759a9969938cca5fbbe299582fc2923433f9239bb5965ce8",
+        "calculation_sha256": "d5b82b8b3414b693cbc3bb97342efeb05d5f55701941509efc54a7d1c474d716",
+        "capacity_rates": {
+          "geometry": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -36.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 36.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 56.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.03125,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 4.547473508864641e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-096",
+        "input_sha256": "e0170744341145769ff7f24ab07e33d63a773795e27b85258db3dc7293281a4e",
+        "calculation_sha256": "3e77ef246ddfc6b99526acff66b317ac90cb49bdd3aa70ddb9f09205d9655fa4",
+        "capacity_rates": {
+          "geometry": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 2.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 66.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 22.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 44.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": 64.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": 0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-097",
+        "input_sha256": "3d2a61527c01ee56c955d10702e80af369e66e857dacdc1b493cb8476bbf3bd6",
+        "calculation_sha256": "34f4fdd86b49ecc6382d415a4bb1b49b0166db360b9e0fd71077875378b8cb7c",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": -0.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": -20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -20.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 2.2737367544323206e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-098",
+        "input_sha256": "1381ed5ea615acdeebb92e51ebf92b47fb9d55afd696f6fb84b97d039f4b02d4",
+        "calculation_sha256": "c24a1c37f29f7a999f60037c88f15a613741ed6ebe9cd8218bc367bd415e034d",
+        "capacity_rates": {
+          "geometry": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": -3.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 3.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 96.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -96.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": -20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -116.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -0.015625,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 3.552713678800501e-15,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 9.094947017729282e-13,
+            "unit": "W/m2_floor"
+          }
+        }
+      },
+      {
+        "case_id": "own-area-energy-099",
+        "input_sha256": "23c0bdff84572a17b3496dcaa63464d68a377285a900a18452d89f94ce254665",
+        "calculation_sha256": "af8dbda7a5d5e6f7deed4109b7501987bd457c191fdb0cdeef5915d526d0d451",
+        "capacity_rates": {
+          "geometry": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "transport": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "incoming": {
+            "value": 1099511627776.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "outgoing": {
+            "value": 1099511627776.0,
+            "unit": "J/m2_floor/K/s"
+          }
+        },
+        "energy_flows": {
+          "incoming": {
+            "value": -8796093022208.0,
+            "unit": "W/m2_floor"
+          },
+          "outgoing": {
+            "value": 8796093022208.0,
+            "unit": "W/m2_floor"
+          },
+          "material": {
+            "value": -17592186044416.0,
+            "unit": "W/m2_floor"
+          },
+          "nonmaterial": {
+            "value": 20.0,
+            "unit": "W/m2_floor"
+          },
+          "total": {
+            "value": -17592186044396.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "canopy_temperature_rate": {
+          "value": -13743895347.184376,
+          "unit": "K/s"
+        },
+        "balance_residuals": {
+          "capacity_rate": {
+            "value": 0.0,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.0,
+            "unit": "W/m2_floor"
+          }
+        },
+        "balance_budgets": {
+          "capacity_rate": {
+            "value": 4e-323,
+            "unit": "J/m2_floor/K/s"
+          },
+          "energy": {
+            "value": 0.125,
+            "unit": "W/m2_floor"
+          }
+        }
+      }
+    ],
+    "numeric_comparisons": 1900,
+    "exact_zero_comparisons": 640,
+    "maximum_relative_error": 8.074349270001139e-17,
+    "reference_shift_checks": 72,
+    "invalid_holds": [
+      "EMPTY_CANOPY_HOLD",
+      "EMPTY_CANOPY_HOLD",
+      "INPUT_HOLD",
+      "NUMERIC_HOLD",
+      "NUMERIC_HOLD",
+      "CAPACITY_BALANCE_HOLD",
+      "NUMERIC_HOLD",
+      "INPUT_HOLD",
+      "INPUT_HOLD",
+      "INPUT_HOLD"
+    ],
+    "same_input_replay_checks": 100,
+    "reference_regenerated_identical_bytes": true,
+    "FD_preserved": true,
+    "legacy_transport_carbon_advance_integration_DB_CLI_network_writes": 0,
+    "G0_G4": "not_assessed"
+  },
+  "WSL_phases": {
+    "area-canopy-energy-red-v1": {
+      "observed_at_UTC": "2026-10-24T05:30:32.408947Z",
+      "child_exit": 2,
+      "hold_reason": null,
+      "wall_seconds": 1.2024054960056674,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 491077632,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3707,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "63787f0f1e01af0fac9988906a27b48a5d76fb8fc5efd0bead4cf77d2d8066e8",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "area-canopy-energy-focused-v1": {
+      "observed_at_UTC": "2026-10-24T05:32:08.103426Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.219620632007718,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 491175936,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3708,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "3941c26e72e4b552d08b35e4dfab37e702a7ae30ca6276e266fb7071377582cc",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "area-canopy-energy-reference-v1": {
+      "observed_at_UTC": "2026-10-24T05:36:17.071549Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.9774040250049438,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 467447808,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3709,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "4eb3968d0251233711eb2e231cf514843441529131b2b987bed04d4f56c93f43",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "area-canopy-energy-focused-v2": {
+      "observed_at_UTC": "2026-10-24T05:37:13.407084Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.0533810560009442,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 508723200,
+      "samples": 6,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3710,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "61ec2cf0d84983d9d6a240a575db7ac4c91e38b324602f16e6f3f3256b470f35",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "area-canopy-energy-fresh-v1": {
+      "observed_at_UTC": "2026-10-24T05:38:07.278871Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 0.9547073170251679,
+      "PID_peak_RSS_bytes": 90214400,
+      "combined_peak_RSS_bytes": 453496832,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2966,
+      "source_preserved": true,
+      "source_count": 3710,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "551a57619f54c3406bfac97e3a8c16fe0a35fe4166d5f4790a9e2a106b65ae77",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "new_measurement_or_parameter_adoptions": 0,
+  "runtime_UI_DB_key_changes": 0,
+  "actual_measurements_received": 0,
+  "independent_unused_domestic_cycles": 0,
+  "not_run": [
+    "full_backend_suite",
+    "hosted_CI",
+    "browser",
+    "new_joint_RHS",
+    "integration_event_restart",
+    "actual_farm_future_paired_comparison_deployment_validation"
+  ]
+}
