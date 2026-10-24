@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-25 KST:** [잎 탄소 배분의 같은 stage 공동 RHS](../research/crop-leaf-partition-climate-rhs-20261025.md)를79신규/293관련검사·fresh42조건/336수량으로 수용했습니다. 원 G/cLeafG·ID/순서와 buffer/leaf/호흡3조정을 결속하고 원 P/과실/기후·미수정 미분/각 hash를 보존했습니다. 다음은 권위 개별 C 재고/합계·유지호흡/고갈의 순간 RHS→적분/재개→조달된 출현입니다. 기존 모델/화면은 유지하며 [새 제거3D](http://localhost:5176/growing-geometry-removal-replay.html)의 무모사 표시 창 확인은 보류입니다. 현재 A는 C 공급을 읽지 않고 국내 독립 측정/미사용 작기0·첫 품종 미확정입니다. 실제 한 작기/생산·자원/Decimal 경제·거시/수급·자율 비교·farm/제품 CLI와 R2/G0–G4·전체 goal/완료일은 미완료·미정입니다.
+**현재 — 2026-10-25 KST:** [잎별 탄소 재고의 공동 RHS](../research/crop-leaf-carbon-stock-rhs-20261025.md)를101신규/394관련검사·fresh72조건/1,296수량으로 수용했습니다. 같은 floor의 C_i를 기준으로 집계 탄소/제거를 조립하고 원 선형 비용의 질량 비례 호흡 가정·0재고 고갈·잎별/전체 C 수지를 검증했습니다. 다음은 실제 C_i를 같은 a/A·기후 stage에서 짧게 적분하고 분할 재개하는 단계입니다. 기존 모델/화면은 유지하며 [새 제거3D](http://localhost:5176/growing-geometry-removal-replay.html)의 무모사 표시 창은 보류입니다. 현재 A는 C 공급을 읽지 않고 실제 품종/독립 국내 측정·미사용 작기0·첫 품종 미확정입니다. 한 작기/생산·자원/Decimal 경제·거시/수급·자율 비교·farm/제품 CLI·R2/G0–G4와 전체 goal/완료일은 미완료·미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

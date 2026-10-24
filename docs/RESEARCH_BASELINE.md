@@ -1,6 +1,6 @@
 # 자료·연구 기준선
 
-**2026-10-25 KST 잎 배분 공동 RHS:** [79신규/293관련·fresh42조건/336수량](../research/crop-leaf-partition-climate-rhs-20261025.md)에서 원 leaf 요청/고정 cLeafG·원 순서 ID에 세 조정을 결속하고 독립 C 수지를 대사했다. [원문/권리·출현 의존성](../research/leaf-carbon-sink-primary-sources-20261024.md)을 재사용한 자체 모듈 결합이며 새 원문/계수/실제 자료 채택0이다. 원 RHS의 domain을 유지하며 현재 A는 C 공급을 읽지 않는다. 다음은 권위 개별 C_i/유지호흡·고갈 정책과 순간 RHS→적분/재개→조달된 출현이다. 저자 VTC 코드/CSV 권리 보류·국내 독립 측정/미사용 작기0·첫 품종 미확정과 R2/G0–G4·전체 날짜 미정을 유지한다.
+**2026-10-25 KST 개별 잎 탄소 재고:** [101신규/394관련·fresh72조건/1,296수량](../research/crop-leaf-carbon-stock-rhs-20261025.md)에서 같은 floor당 C_i를 기준으로 집계·명시 제거와 원 선형 비용의 질량 비례 호흡 가정·0재고 고갈을 결속했다. 독립 원 호흡식/잎별·전체 C 장부를 대사했고 새 계수/외부 원문·측정 채택0이다. [근거/권리](../research/leaf-carbon-sink-primary-sources-20261024.md)를 재사용하며 개별 나이별 호흡/실제 조직 질량의 검증으로 승격하지 않는다. 다음은 실제 C_i의 같은 stage 적분/재개다. 현재 A의 공급 제한/조달된 출현·저자 VTC 코드/CSV 권리·국내 독립 자료0/품종·R2/G0–G4와 전체 날짜 보류를 유지한다.
 
 **2026-10-24 면적 companion 재개:** [211검사·별도12checkpoint/144시점](../research/crop-growing-geometry-continuation-20261024.md)에서 현재 a/A·C/N/Uref/기후/누적량·원 D0와 같은 격자 bytes를 보존했다. 원 고정 Decimal110 fixture를 재사용하며 새 식/계수·측정/원문 채택0이다. 다음은 검증된 상태의 불변 저장/무계산 조회·기존 사실적3D이며 정확 제거·실제 품종/기후·작기/생산/경제/게시 관문은 후속이다.
 
