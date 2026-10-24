@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-24 KST:** [현재 잎3D](http://localhost:5176/growing-geometry-replay.html)는 기존 합성32초 재생입니다. 제거 전후 [저장/무계산 reader170검사](research/growing-geometry-removal-artifact-20261024.md)와 [별도 자체 공개 export43검사](research/growing-geometry-removal-export-20261024.md)에 이어 [strict SDK109신규/41관련·150검사/전체 타입·실제 HTTP648건](research/growing-geometry-removal-sdk-20261024.md)을 수용했습니다. 12결과·216시점/24,264상태·936잎 수량과 원 phase/시각/ID·CP/DTO/권리/notice·private False를 보존했습니다. 다음은 같은 phase/원 ID의 사실적 잎3D·표/그래프와 사용자 적용(100–180집중분의 낮은 신뢰 추정)입니다. 실제 품종/전체 작기·생산/자원/Decimal 경제·거시/수급·자율 비교·farm/CLI G1과 R2/G0–G4는 남아 있습니다. 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지합니다.
+**현재 — 2026-10-24 KST:** [새 잎 제거3D](http://localhost:5176/growing-geometry-removal-replay.html)를 로컬에 적용했습니다. [247단위/전체 타입·build/31브라우저와 포커스 모사 GPU216시점·468표면](research/growing-geometry-removal-3d-20261024.md)을 대사했습니다. 같은7/8초의 전후·원 ID/면적/부착과 표/그래프·reload를 보존하며 기존1303파일/DB·키·4서비스를 유지했습니다. 모사 없는 최종 창 표시·최소화 검증은 document.hidden 관측으로 보류이며 부모3D 작업은 미완료입니다. 이는 자체 합성2초의 소프트웨어 결과입니다. 기존 출현·공급/관리와 새 a/A·C/N 문맥의 의존성 검토·자료 확보를 병행합니다. 실제 품종/전체 작기·생산/자원/Decimal 경제·거시/수급·자율 비교·farm/CLI G1과 R2/G0–G4, 국내 원 측정/미사용 독립 작기0·첫 품종 미확정·전체 완료일 미정을 유지합니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

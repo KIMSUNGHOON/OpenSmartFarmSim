@@ -4,30 +4,44 @@ import {ACESFilmicToneMapping,Box3,BoxGeometry,Color,DirectionalLight,DoubleSide
  Vector3,WebGLRenderer,type BufferGeometry,type Material} from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
-import {createGrowingGeometryPlant,GROWING_AREA_MAPPING,GROWING_SCAFFOLD} from './growingGeometryPlant';
+import {createGrowingGeometryPlant,createGrowingGeometryRemovalPlant,GROWING_AREA_MAPPING,GROWING_SCAFFOLD} from './growingGeometryPlant';
 import {tomatoAppearanceTextures} from './tomatoAppearanceTextures';
 import type {GrowingGeometryFrame} from './growingGeometryReplay';
+import type {GrowingGeometryRemovalFrame} from './growingGeometryRemovalReplay';
 
-type View={update:(frame:GrowingGeometryFrame)=>void;reset:()=>void;dispose:()=>void};
+type Frame=GrowingGeometryFrame|GrowingGeometryRemovalFrame;
+type View={update:(frame:Frame)=>void;reset:()=>void;dispose:()=>void};
 function createView(canvas:HTMLCanvasElement,fail:()=>void):View|null{
  const context=canvas.getContext('webgl2',{antialias:true,alpha:false});if(!context)return null;
  const renderer=new WebGLRenderer({canvas,context}),scene=new Scene(),camera=new PerspectiveCamera(36,1,.01,30);
  const materials:Material[]=[],geometries:BufferGeometry[]=[];
  let controls:OrbitControls|undefined,observer:ResizeObserver|undefined,plant:ReturnType<typeof createGrowingGeometryPlant>|undefined;
  let textures:ReturnType<typeof tomatoAppearanceTextures>|undefined,environment:ReturnType<PMREMGenerator['fromScene']>|undefined;
- let current:GrowingGeometryFrame|undefined,pending:number|null=null,disposed=false,lastPortrait:boolean|undefined;
+ let current:Frame|undefined,pending:number|null=null,disposed=false,lastPortrait:boolean|undefined,autoFrame=false;
  const material=<T extends Material,>(m:T)=>{materials.push(m);return m;};
+ const interacted=()=>{autoFrame=false;};
+ const fitRemoval=()=>{
+  if(!autoFrame||!plant||!controls)return;
+  for(let i=0;i<4;i++){
+   const bounds=plant.projectedLeafBounds(camera),extent=Math.max(...Object.values(bounds).map(Math.abs));
+   if(extent<=.94)break;
+   const target=controls.target,offset=camera.position.clone().sub(target);
+   camera.position.copy(target).add(offset.multiplyScalar(Math.max(1.04,extent/.92)));camera.lookAt(target);camera.updateMatrixWorld(true);
+  }
+ };
  const render=()=>{
   pending=null;if(disposed||document.hidden)return;
   try{
    if(context.isContextLost())throw Error('growing_geometry_context_lost');const rect=canvas.getBoundingClientRect();if(rect.width<1||rect.height<1)return;
    renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.setSize(rect.width,rect.height,false);
-   camera.aspect=rect.width/rect.height;camera.updateProjectionMatrix();renderer.render(scene,camera);
+   camera.aspect=rect.width/rect.height;camera.updateProjectionMatrix();fitRemoval();renderer.render(scene,camera);
    if(current&&plant){canvas.dataset.sceneAt=JSON.stringify(current.at);canvas.dataset.artifactSha256=current.artifact_sha256;
     canvas.dataset.checkpointSha256=current.checkpoint_sha256;canvas.dataset.selectedIndex=String(current.index);
     canvas.dataset.storedLeafIds=JSON.stringify(current.leaf_ids);canvas.dataset.storedLeafAreas=JSON.stringify(current.leaves.map(q=>q.area.value));
     canvas.dataset.renderedLeafAreas=JSON.stringify(plant.leafSurfaceAreas());canvas.dataset.leafClipBounds=JSON.stringify(plant.projectedLeafBounds(camera));canvas.dataset.scaffoldVersion=GROWING_SCAFFOLD.version;
     canvas.dataset.scaffoldOrigin=GROWING_SCAFFOLD.origin;canvas.dataset.scaffoldAttachments=JSON.stringify(plant.attachments());}
+   if(current&&'phase'in current){canvas.dataset.phase=current.phase;canvas.dataset.globalStepIndex=String(current.global_step_index);}
+   else{delete canvas.dataset.phase;delete canvas.dataset.globalStepIndex;}
    canvas.dataset.mapping=GROWING_AREA_MAPPING;canvas.dataset.drawCalls=String(renderer.info.render.calls);
    canvas.dataset.triangles=String(renderer.info.render.triangles);canvas.dataset.frame=String(Number(canvas.dataset.frame||0)+1);
   }catch{fail();}
@@ -35,7 +49,7 @@ function createView(canvas:HTMLCanvasElement,fail:()=>void):View|null{
  const schedule=()=>{if(!disposed&&pending===null)pending=requestAnimationFrame(render);};
  function dispose(){
   if(disposed)return;disposed=true;if(pending!==null)cancelAnimationFrame(pending);observer?.disconnect();
-  document.removeEventListener('visibilitychange',schedule);controls?.removeEventListener('change',schedule);controls?.dispose();
+  document.removeEventListener('visibilitychange',schedule);controls?.removeEventListener('change',schedule);controls?.removeEventListener('start',interacted);controls?.dispose();
   plant?.dispose();textures?.dispose();environment?.dispose();geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());
   renderer.dispose();renderer.forceContextLoss();for(const k of Object.keys(canvas.dataset))delete canvas.dataset[k];
  }
@@ -59,17 +73,20 @@ function createView(canvas:HTMLCanvasElement,fail:()=>void):View|null{
   sun.shadow.bias=-.00008;sun.shadow.normalBias=.001;sun.target.position.set(0,.8,0);scene.add(sun,sun.target);
   const rim=new DirectionalLight('#eef5ff',.65);rim.position.set(2,3,-3);scene.add(rim);
   controls=new OrbitControls(camera,canvas);controls.enableDamping=false;controls.minDistance=.3;controls.maxDistance=12;controls.maxPolarAngle=Math.PI*.85;controls.addEventListener('change',schedule);
+  controls.addEventListener('start',interacted);
   const reset=()=>{if(!plant)return;const box=new Box3().setFromObject(plant.root),rect=canvas.getBoundingClientRect();
-   controls!.target.copy(box.getCenter(new Vector3()));lastPortrait=rect.width/Math.max(1,rect.height)<1;const distance=lastPortrait?6.2:3.4;
+   autoFrame=!!current&&'phase'in current;
+   controls!.target.copy(current&&'phase'in current?new Vector3(0,GROWING_SCAFFOLD.stem_height_m/2,0):box.getCenter(new Vector3()));lastPortrait=rect.width/Math.max(1,rect.height)<1;const distance=lastPortrait?6.2:3.4;
    camera.position.copy(controls!.target).add(new Vector3(1.4,.6,2.3).normalize().multiplyScalar(distance));camera.lookAt(controls!.target);controls!.update();schedule();};
   observer=new ResizeObserver(()=>{const rect=canvas.getBoundingClientRect();if(current&&(rect.width/Math.max(1,rect.height)<1)!==lastPortrait)reset();schedule();});
   observer.observe(canvas);document.addEventListener('visibilitychange',schedule);
-  return {update(value){if(disposed||current?.checkpoint_sha256===value.checkpoint_sha256)return;
-   const first=!plant;plant?.dispose();plant=createGrowingGeometryPlant(value,{stem,leaf});scene.add(plant.root);current=value;if(first)reset();schedule();},reset,dispose};
+  return {update(value){if(disposed||current?.artifact_sha256===value.artifact_sha256&&current.index===value.index&&current.checkpoint_sha256===value.checkpoint_sha256&&
+    ('phase'in current?current.phase:null)===('phase'in value?value.phase:null))return;
+   const first=!plant;plant?.dispose();plant='phase'in value?createGrowingGeometryRemovalPlant(value,{stem,leaf}):createGrowingGeometryPlant(value,{stem,leaf});scene.add(plant.root);current=value;if(first)reset();schedule();},reset,dispose};
  }catch{dispose();throw Error('growing_geometry_scene_unavailable');}
 }
 
-export default function GrowingGeometryScene({frame}:{frame:GrowingGeometryFrame}){
+export default function GrowingGeometryScene({frame}:{frame:Frame}){
  const canvas=useRef<HTMLCanvasElement>(null),view=useRef<View|null>(null),latest=useRef(frame);latest.current=frame;
  const [available,setAvailable]=useState<boolean|null>(null),[epoch,setEpoch]=useState(0);
  useEffect(()=>{

@@ -2,11 +2,15 @@ import {BufferGeometry,CatmullRomCurve3,CylinderGeometry,Float32BufferAttribute,
  LineSegments,Matrix4,Mesh,Quaternion,SphereGeometry,Triangle,TubeGeometry,Vector3,type Camera,type Material} from 'three';
 import {tomatoLeafletGeometry} from './tomatoAppearance';
 import type {GrowingGeometryFrame} from './growingGeometryReplay';
+import type {GrowingGeometryRemovalFrame} from './growingGeometryRemovalReplay';
 
 export const GROWING_SCAFFOLD={version:'authored-three-leaf-scaffold-v1',origin:'authored_visual_asset',
  stem_height_m:1.6,leaves:[{leaf_id:'own-leaf-0',height_m:.45,yaw_rad:.4},
   {leaf_id:'own-leaf-1',height_m:.95,yaw_rad:2.8},{leaf_id:'own-leaf-2',height_m:1.4,yaw_rad:5.2}]} as const;
 export const GROWING_AREA_MAPPING='stored-leaf-m2-authored-compound-triangles-v1';
+type VisualFrame=Pick<GrowingGeometryFrame,'leaves'|'leaf_ids'|'checkpoint_sha256'|'at'>;
+type Materials={stem:Material;leaf:Material};
+type Attachment=typeof GROWING_SCAFFOLD.leaves[number];
 
 function surfaceArea(mesh:InstancedMesh){
  const positions=mesh.geometry.getAttribute('position'),indices=mesh.geometry.index;if(!indices)throw Error('leaf_triangles_missing');
@@ -19,9 +23,26 @@ function surfaceArea(mesh:InstancedMesh){
 }
 
 export function createGrowingGeometryPlant(frame:GrowingGeometryFrame,materials:{stem:Material;leaf:Material}){
- if(frame.leaves.length!==GROWING_SCAFFOLD.leaves.length||frame.leaf_ids.length!==frame.leaves.length)throw Error('authored_scaffold_leaf_scope');
+ return createPlant(frame,materials,GROWING_SCAFFOLD.leaves);
+}
+
+export function createGrowingGeometryRemovalPlant(frame:GrowingGeometryRemovalFrame,materials:Materials){
+ const before=frame.phase==='before_removal';
+ if(!before&&!['after_removal_before_next_step','post_removal_interval'].includes(frame.phase))throw Error('stored_removal_phase_invalid');
+ if(before?frame.leaves.length!==3:frame.leaves.length<1||frame.leaves.length>2)throw Error('authored_scaffold_leaf_scope');
+ const specifications=frame.leaves.map(leaf=>{
+  const specification=GROWING_SCAFFOLD.leaves.find(spec=>spec.leaf_id===leaf.leaf_id);
+  if(!specification)throw Error('authored_scaffold_leaf_scope');return specification;
+ });
+ const indices=specifications.map(spec=>GROWING_SCAFFOLD.leaves.indexOf(spec));
+ if(indices.some((index,i)=>i>0&&index<=indices[i-1]!))throw Error('stored_leaf_order_invalid');
+ return createPlant(frame,materials,specifications);
+}
+
+function createPlant(frame:VisualFrame,materials:Materials,specifications:readonly Attachment[]){
+ if(frame.leaves.length!==specifications.length||frame.leaf_ids.length!==frame.leaves.length)throw Error('authored_scaffold_leaf_scope');
  frame.leaves.forEach((leaf,i)=>{
-  if(leaf.leaf_id!==GROWING_SCAFFOLD.leaves[i]!.leaf_id||frame.leaf_ids[i]!==leaf.leaf_id||leaf.area.unit!=='m2'||
+  if(leaf.leaf_id!==specifications[i]!.leaf_id||frame.leaf_ids[i]!==leaf.leaf_id||leaf.area.unit!=='m2'||
    !Number.isFinite(leaf.area.value)||leaf.area.value<=0)throw Error('stored_area_binding_invalid');
  });
  const bindings=frame.leaves.map(leaf=>({leaf_id:leaf.leaf_id,area:leaf.area.value}));
@@ -33,8 +54,10 @@ export function createGrowingGeometryPlant(frame:GrowingGeometryFrame,materials:
   const stemGeometry=own(new CylinderGeometry(.008,.012,GROWING_SCAFFOLD.stem_height_m,16,1,true)),stem=new Mesh(stemGeometry,materials.stem);
   stem.position.y=GROWING_SCAFFOLD.stem_height_m/2;stem.castShadow=true;stem.receiveShadow=true;root.add(stem);
   const nodeGeometry=own(new SphereGeometry(.013,12,8)),leaflet=own(tomatoLeafletGeometry());
-  GROWING_SCAFFOLD.leaves.forEach((specification,index)=>{
+  GROWING_SCAFFOLD.leaves.forEach(specification=>{
    const node=new Mesh(nodeGeometry,materials.stem);node.position.y=specification.height_m;root.add(node);
+  });
+  specifications.forEach((specification,index)=>{
    const group=new Group();group.position.y=specification.height_m;group.rotation.y=specification.yaw_rad;root.add(group);
    const curve=new CatmullRomCurve3([new Vector3(),new Vector3(.024,.013,0),new Vector3(.055,.005,0)]);
    const rachis=own(new TubeGeometry(curve,18,.00025,7,false)),stalk=new Mesh(rachis,materials.stem);stalk.castShadow=true;group.add(stalk);
@@ -71,6 +94,6 @@ export function createGrowingGeometryPlant(frame:GrowingGeometryFrame,materials:
     }
    }return bounds;
   };
-  return {root,leafSurfaceAreas,projectedLeafBounds,attachments:()=>structuredClone(GROWING_SCAFFOLD.leaves),dispose};
+  return {root,leafSurfaceAreas,projectedLeafBounds,attachments:()=>structuredClone(specifications),dispose};
  }catch(error){dispose();throw error;}
 }
