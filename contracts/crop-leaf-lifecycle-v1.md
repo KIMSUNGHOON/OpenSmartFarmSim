@@ -1,6 +1,6 @@
 # 고정 출현/제거 선언의 잎 생애 계산 — 연구 v1
 
-상태: 계약/검증 중. [기존 제거 목록](crop-leaf-removal-inventory-v1.md),
+상태: [522검사/원47상태 fresh 수용](../research/crop-leaf-lifecycle-20261024.md). [기존 제거 목록](crop-leaf-removal-inventory-v1.md),
 [출현 선언](crop-declared-leaf-births-v1.md)과 [한 잎 시간 경계](crop-leaf-removal-timeline-v1.md)를 재사용한다.
 기존 판본/runtime을 바꾸지 않는 `declared-leaf-lifecycle-research-v1`이다.
 
@@ -21,6 +21,7 @@ removal_declarations/removal_declarations_sha256/new_leaf_checkpoints다.
 전체 시각과 원점은 기존 inventory에서 읽으며 별도 시계로 복제하지 않는다.
 new_leaf_checkpoints는 출현 선언 순서의 `{state,removal_receipt}`다. 출현 전 두 값은 null이다.
 출현 후 원 선언에서 재구성한 나이0/원 면적 anchor와 같은 한 잎 timeline으로 검증한다.
+출현 전 선언 검증을 위한 초기 상태 재구성은 가능하지만 현재 목록에는 넣지 않는다.
 선언 목록/SHA·개수/순서·현재/마지막 시각·receipt를 대사한다. 자기 SHA는 인증된 이력/권리 승인이 아니다.
 
 `advance_leaf_lifecycle(inputs={input_id,state,segments})`는 같은 전체 시각에 이어지는 원 forcing을 받는다.

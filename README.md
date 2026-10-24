@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-24 KST:** [기존 여러 잎/빈 active 목록의 시간 전진](research/crop-leaf-removal-inventory-20261024.md)을 새81/관련362·443검사와 원12시점/47상태·다음11구간/42기존 잎의 별도 대사로 수용했습니다. 제거 뒤 마지막 상태/전체 시간을 구분하고 원52blob/33code·4root/화면을 보존했습니다. [현재 UI](http://localhost:5176/leaf-appearance-execution.html?job_id=9dbcca83-3b81-4171-862d-2953a0698eb6&frame=11)는 이전 정책 잎 생장이며 새 제거는 미적용입니다. 다음은 새 출현/제거 결합 → 원 입력/농장·불변 저장/현재 조회 → 같은 UTC3D입니다. [국내 자료 획득](research/independent-domestic-cherry-tomato-data-20261024.md)은 병행 의존성이며 원측정/미사용 독립 국내 작기0·국내 첫 품종 미확정입니다. 인증 종료는2026-10-25 06:17 KST 설정이며 생산/자원/경제·시장/자율 선정·R2/G0–G4와 전체 완료일은 미정입니다.
+**현재 — 2026-10-24 KST:** [새 출현/제거 결합과 분할 재개](research/crop-leaf-lifecycle-20261024.md)를 새79/관련443·522검사와 원12시점/47잎 상태 SHA·독립47나이/면적/36합계로 수용했습니다. 대기/생존/제거와 전체/마지막 시각을 구분하며 원52blob/33code·4root/화면을 보존했습니다. [현재 UI](http://localhost:5176/leaf-appearance-execution.html?job_id=9dbcca83-3b81-4171-862d-2953a0698eb6&frame=11)는 이전 정책 잎 생장이며 새 제거는 미적용입니다. 다음은 원 자동 출현 준비/줄기·관리 입력 결속 → 새 불변 결과/현재 조회·농장 → 같은 UTC3D입니다. [국내 자료 획득](research/independent-domestic-cherry-tomato-data-20261024.md)은 병행 의존성이며 원측정/미사용 독립 국내 작기0·국내 첫 품종 미확정입니다. 인증 종료는2026-10-25 06:17 KST 설정이며 생산/자원/경제·시장/자율 선정·R2/G0–G4와 전체 완료일은 미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
