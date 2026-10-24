@@ -1,6 +1,6 @@
 # 기존 여러 잎의 명시 제거와 시간 전진 — 연구 v1
 
-상태: 계약/검증 중. [한 잎 시간 경계](crop-leaf-removal-timeline-v1.md)를 재사용하며
+상태: [443검사/원 저장 상태 fresh 수용](../research/crop-leaf-removal-inventory-20261024.md). [한 잎 시간 경계](crop-leaf-removal-timeline-v1.md)를 재사용하며
 기존 population/point/timeline 판본과 runtime을 바꾸지 않는다.
 
 `initialize_leaf_removal_inventory(inputs={input_id,population_state,removals})`는
