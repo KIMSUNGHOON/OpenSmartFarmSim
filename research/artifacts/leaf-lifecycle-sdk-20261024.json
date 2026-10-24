@@ -1,0 +1,581 @@
+{
+  "schema_version": "leaf-lifecycle-sdk-software-evidence-v1",
+  "accepted_at_UTC": "2026-10-24T02:35:13.613042Z",
+  "implementation_commit": "157c159d16e52f78af9dfd9fcb7b662f6806b0be",
+  "native_CLI": {
+    "timestamp": "2026-10-24T02:21:52.599Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_including_LF_sha256": "d0a12893226d67feb8e0f1be2ba5666809bfd50ae756b42b51fe364a06fe09c9",
+    "recursive_CLI_invocations": 0
+  },
+  "scope": {
+    "software_research_only": true,
+    "synthetic_crop_math_only": true,
+    "G0_G4": "not_assessed",
+    "farm_or_biological_approval": false
+  },
+  "source_sha256": {
+    "web/src/leafLifecycleReplay.ts": "d3afa66131f6ca7dd57962666d38979f383769bb521c67d7be56baa115389dc5",
+    "web/src/leafLifecycleReplayFixture.ts": "9219fcd39955c6fb17f79c7459b0647f7077f4d32fdd156b96d3c02bfa72f313",
+    "web/src/leafLifecycleReplay.test.ts": "cfc1019027742233917381d49d4315fd65b8125093d14c79048a356961ea5add"
+  },
+  "graph_code_sha256": {
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_declared_leaf_births.py": "44068d74541b873bd5459a2893b87c357797639805e1eaa346f1f35880ca2c5f",
+    "backend/app/crop_declared_leaf_removal.py": "6c413da01262d2599a875be273328c264782b52a57edbb0b7e89c270386ac1a0",
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/app/crop_leaf_appearance_preparation.py": "83d49881ea6a7ccc2dcc5c046e44c4d6a42967ac78b1946fb7f8c4c25bcf9bcf",
+    "backend/app/crop_leaf_appearance_program.py": "0e0e41b5df09078b2991aa0e35b3182dd40093db7940f8febc4bfab68b236e0d",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_artifact_producer.py": "7eb364f22da682d2d225ce234f224bab4d375c4295b637d3325f8dfb2acc534a",
+    "backend/app/crop_leaf_artifact_reader.py": "d591c184d69e7fe632504f4abc13d321a2903c7a92fd617257e0cd71910981d8",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_leaf_inventory.py": "f38f064e70c869a76a0a00b916548904b72b9aa92f105d17c1afd22bd3ad576d",
+    "backend/app/crop_leaf_lifecycle.py": "75496cc682ee4e6108215c66103d061897859e07836c14c4fb4a0e80ffbf581b",
+    "backend/app/crop_leaf_lifecycle_artifact_producer.py": "49e45318365a8bf3b00eeec89d98a936c539f6ca367db75f595fc569fec9844f",
+    "backend/app/crop_leaf_lifecycle_artifact_reader.py": "95af2eebe5391dd18503caf42edf563c35bdf540be5a217986abc1bb2448ee4d",
+    "backend/app/crop_leaf_lifecycle_preparation.py": "897ad54a664593b4e224134c4f074e8129fbc1addb394b3a26f2d478acf44a71",
+    "backend/app/crop_leaf_lifecycle_program.py": "902b424875b53d09b2759e4e490b0ed44c1b233a5e4ecf28b405db895cc4c933",
+    "backend/app/crop_leaf_population.py": "b37bbee59c20778f38506d157644d87c91cd8fe2cf1ca54e9842bb8c10eabd09",
+    "backend/app/crop_leaf_population_artifact_producer.py": "334351cae7505ed4b35e867831ac28ed7d873e3965f54fea3bada4c7269d61ab",
+    "backend/app/crop_leaf_removal_inventory.py": "04abb9fcfb79419c120c00506cc4e5f9f5382bb05f19f609c436117b7304617a",
+    "backend/app/crop_leaf_removal_timeline.py": "a37f6f003cc67a76f0b02fc7c50192f62b20f4cc83a734169cb685211b01c916",
+    "backend/app/crop_leaf_stem_binding.py": "2b57a8b009fceb83a2d23c3356d9e0792576111a50445f8b7a071ae9cf759673",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/app/crop_phytomer_kind.py": "56e4f69d72a3f38b3fa96668556ca1673b44db63bf46ea900274a0aac847e18f",
+    "backend/app/crop_rational_internode_length.py": "423e6737cc77773d3ffdb8ab45d4aa37d106947b4222f2a6ecede839caae8a9b",
+    "backend/app/crop_rational_leaf_area.py": "2eea8499a9caae569580f66b0f89ac8711a06d5cf7993be047d013850ba434a0",
+    "backend/app/crop_rational_morphology_artifact_producer.py": "92b367462510ee7a7868e8952647ed5008d4d8849c900357f09f27df17215f06",
+    "backend/app/crop_rational_morphology_artifact_reader.py": "3de1502abca94613d1c55cb37568236ce164665d577aa06090d36d5842d5e44b",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/app/crop_rational_new_internodes.py": "76a59f191ca7f03902ce0db9cbdf6da8cf0c2fd792532d6830a669a0899472f5",
+    "backend/app/crop_rational_shoot_inventory.py": "42f66f8e22723cbfa674e879f74255389db8d76e008ef30a9fb24a5a38057625",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/app/crop_stored_shoot_leaf_birth_inputs.py": "d8e59fdf99156694d424dad4f392fd880fac9b059984f1d9144ee0f61417a5f4",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8"
+  },
+  "tests": {
+    "new": 76,
+    "unique_final": 76,
+    "JUnit_sha256": "80c97f15078820a4d157b2e4b1cb831fc8c76f8d8854de769c6cc8551658e8d2",
+    "initial_red": "missing SDK module; zero tests collected",
+    "typecheck": "all web tsc --noEmit passed",
+    "old_SDK_suites": "not rerun; old sources unchanged",
+    "full_web_units": false
+  },
+  "public_file_ledger": {
+    "path": "research/artifacts/leaf-lifecycle-sdk-files-20261024.csv",
+    "rows": 40,
+    "sha256": "54d18d81cbdbc937741e1199548fc02ac0a3105c7fe213ba8a4d5d234ce5c899"
+  },
+  "fresh_consumer": {
+    "passed": true,
+    "actual_HTTP_GETs": 40,
+    "POSTs": 0,
+    "scenarios": [
+      {
+        "scenario": "no-removal",
+        "artifact_sha256": "c1ae9fc67c6eb045b114cc0a0f38d8164b31384989ea5c9e9722d85302aad8fd",
+        "original_frames_equal": 12,
+        "tracked_states": 47,
+        "frames": [
+          {
+            "index": 0,
+            "at": "2026-10-01T02:00:00Z",
+            "active": 3,
+            "removed": 0,
+            "pending": 2,
+            "active_area": 0.0009700372917537751,
+            "removed_last_area": 0
+          },
+          {
+            "index": 1,
+            "at": "2026-10-01T04:00:00Z",
+            "active": 3,
+            "removed": 0,
+            "pending": 2,
+            "active_area": 0.0012934250627792618,
+            "removed_last_area": 0
+          },
+          {
+            "index": 2,
+            "at": "2026-10-01T06:00:00Z",
+            "active": 3,
+            "removed": 0,
+            "pending": 2,
+            "active_area": 0.001688433644574863,
+            "removed_last_area": 0
+          },
+          {
+            "index": 3,
+            "at": "2026-10-01T08:00:00Z",
+            "active": 4,
+            "removed": 0,
+            "pending": 1,
+            "active_area": 0.0023557582149150175,
+            "removed_last_area": 0
+          },
+          {
+            "index": 4,
+            "at": "2026-10-01T10:00:00Z",
+            "active": 4,
+            "removed": 0,
+            "pending": 1,
+            "active_area": 0.0029360765281571787,
+            "removed_last_area": 0
+          },
+          {
+            "index": 5,
+            "at": "2026-10-01T12:00:00Z",
+            "active": 4,
+            "removed": 0,
+            "pending": 1,
+            "active_area": 0.003554883759941095,
+            "removed_last_area": 0
+          },
+          {
+            "index": 6,
+            "at": "2026-10-01T14:00:00Z",
+            "active": 4,
+            "removed": 0,
+            "pending": 1,
+            "active_area": 0.004179754756286953,
+            "removed_last_area": 0
+          },
+          {
+            "index": 7,
+            "at": "2026-10-01T16:00:00Z",
+            "active": 4,
+            "removed": 0,
+            "pending": 1,
+            "active_area": 0.004778327696824707,
+            "removed_last_area": 0
+          },
+          {
+            "index": 8,
+            "at": "2026-10-01T18:00:00Z",
+            "active": 4,
+            "removed": 0,
+            "pending": 1,
+            "active_area": 0.005324331984931235,
+            "removed_last_area": 0
+          },
+          {
+            "index": 9,
+            "at": "2026-10-01T20:00:00Z",
+            "active": 4,
+            "removed": 0,
+            "pending": 1,
+            "active_area": 0.00580084744063814,
+            "removed_last_area": 0
+          },
+          {
+            "index": 10,
+            "at": "2026-10-01T22:00:00Z",
+            "active": 5,
+            "removed": 0,
+            "pending": 0,
+            "active_area": 0.006403698271320891,
+            "removed_last_area": 0
+          },
+          {
+            "index": 11,
+            "at": "2026-10-02T00:00:00Z",
+            "active": 5,
+            "removed": 0,
+            "pending": 0,
+            "active_area": 0.006798129364259885,
+            "removed_last_area": 0
+          }
+        ]
+      },
+      {
+        "scenario": "with-removal",
+        "artifact_sha256": "33b77aa4ab641918ec249701bab59d7e645b5a8083bc456a9f51b2788ffe9ff9",
+        "original_frames_equal": 12,
+        "tracked_states": 47,
+        "frames": [
+          {
+            "index": 0,
+            "at": "2026-10-01T02:00:00Z",
+            "active": 2,
+            "removed": 1,
+            "pending": 2,
+            "active_area": 0.0007275279688153313,
+            "removed_last_area": 0.00017880438303317632
+          },
+          {
+            "index": 1,
+            "at": "2026-10-01T04:00:00Z",
+            "active": 2,
+            "removed": 1,
+            "pending": 2,
+            "active_area": 0.0009700687970844464,
+            "removed_last_area": 0.00017880438303317632
+          },
+          {
+            "index": 2,
+            "at": "2026-10-01T06:00:00Z",
+            "active": 2,
+            "removed": 1,
+            "pending": 2,
+            "active_area": 0.0012663252334311472,
+            "removed_last_area": 0.00017880438303317632
+          },
+          {
+            "index": 3,
+            "at": "2026-10-01T08:00:00Z",
+            "active": 2,
+            "removed": 2,
+            "pending": 1,
+            "active_area": 0.0016117467971007106,
+            "removed_last_area": 0.00035760876606635264
+          },
+          {
+            "index": 4,
+            "at": "2026-10-01T10:00:00Z",
+            "active": 2,
+            "removed": 2,
+            "pending": 1,
+            "active_area": 0.001993309908455424,
+            "removed_last_area": 0.00035760876606635264
+          },
+          {
+            "index": 5,
+            "at": "2026-10-01T12:00:00Z",
+            "active": 2,
+            "removed": 2,
+            "pending": 1,
+            "active_area": 0.002390442180181903,
+            "removed_last_area": 0.00035760876606635264
+          },
+          {
+            "index": 6,
+            "at": "2026-10-01T14:00:00Z",
+            "active": 2,
+            "removed": 2,
+            "pending": 1,
+            "active_area": 0.002778979841723002,
+            "removed_last_area": 0.00035760876606635264
+          },
+          {
+            "index": 7,
+            "at": "2026-10-01T16:00:00Z",
+            "active": 2,
+            "removed": 2,
+            "pending": 1,
+            "active_area": 0.0031367667778443332,
+            "removed_last_area": 0.00035760876606635264
+          },
+          {
+            "index": 8,
+            "at": "2026-10-01T18:00:00Z",
+            "active": 2,
+            "removed": 2,
+            "pending": 1,
+            "active_area": 0.003448321393886819,
+            "removed_last_area": 0.00035760876606635264
+          },
+          {
+            "index": 9,
+            "at": "2026-10-01T20:00:00Z",
+            "active": 2,
+            "removed": 2,
+            "pending": 1,
+            "active_area": 0.0037066809550669565,
+            "removed_last_area": 0.00035760876606635264
+          },
+          {
+            "index": 10,
+            "at": "2026-10-01T22:00:00Z",
+            "active": 3,
+            "removed": 2,
+            "pending": 0,
+            "active_area": 0.00411546309953517,
+            "removed_last_area": 0.00035760876606635264
+          },
+          {
+            "index": 11,
+            "at": "2026-10-02T00:00:00Z",
+            "active": 3,
+            "removed": 2,
+            "pending": 0,
+            "active_area": 0.004344565693663542,
+            "removed_last_area": 0.00035760876606635264
+          }
+        ]
+      }
+    ],
+    "original_frame_equality": 24,
+    "tracked_state_equality": 94,
+    "active_projection_equality": 24,
+    "generated_crop_states": 0,
+    "new_UI_applied": false,
+    "observed_at_UTC": "2026-10-24T02:32:38.229641Z",
+    "bundle_sha256": "e62a00840cfd3cf1860cb7d5807352d873fd01743aba7ba87c6c80e456029ffa",
+    "bundle_bytes": 35010,
+    "source_modules": [
+      "leafLifecycleReplay.ts",
+      "leafLifecycleReplayFixture.ts",
+      "morphologyRationalReplayFixture.ts",
+      "morphologyReplay.ts",
+      "morphologyReplayFixture.ts",
+      "storedLeafReplayIO.ts"
+    ],
+    "owned_HTTP_server_closed": true,
+    "source_public_blobs_metadata_preserved": 183,
+    "source_public_copy_SHA_equal": 40,
+    "original_lifecycle_blobs_preserved": 62,
+    "original_appearance_stem_preserved": [
+      52,
+      29
+    ],
+    "G0_G4": "not_assessed"
+  },
+  "bundle_module_graph": [
+    {
+      "file": "morphologyReplayFixture.ts",
+      "imports": []
+    },
+    {
+      "file": "leafLifecycleReplayFixture.ts",
+      "imports": []
+    },
+    {
+      "file": "leafLifecycleReplay.ts",
+      "imports": [
+        "morphologyReplay.ts",
+        "leafLifecycleReplayFixture.ts",
+        "storedLeafReplayIO.ts"
+      ]
+    },
+    {
+      "file": "morphologyRationalReplayFixture.ts",
+      "imports": []
+    },
+    {
+      "file": "morphologyReplay.ts",
+      "imports": [
+        "morphologyReplayFixture.ts",
+        "morphologyRationalReplayFixture.ts"
+      ]
+    },
+    {
+      "file": "storedLeafReplayIO.ts",
+      "imports": []
+    }
+  ],
+  "guard_phases": {
+    "red-v1": {
+      "observed_at_UTC": "2026-10-24T02:28:32.322058Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 1.9374339409987442,
+      "PID_peak_RSS_bytes": 206856192,
+      "combined_peak_RSS_bytes": 728064000,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3657,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "b45c9f35896e8d4cf513a1d092e5fba538d54d4e38ea7946e26bf01bc78e36b3",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "green-v1": {
+      "observed_at_UTC": "2026-10-24T02:29:29.840004Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.41322775700246,
+      "PID_peak_RSS_bytes": 224047104,
+      "combined_peak_RSS_bytes": 792924160,
+      "samples": 7,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3658,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "630bfa73339d70f98ff3be46c00bb79ef22c666ac635affc81e821a04019abf1",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "types-v1": {
+      "observed_at_UTC": "2026-10-24T02:29:59.384391Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 2.1506146830215584,
+      "PID_peak_RSS_bytes": 497074176,
+      "combined_peak_RSS_bytes": 957689856,
+      "samples": 6,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3658,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "bundle-v1": {
+      "observed_at_UTC": "2026-10-24T02:31:36.626355Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.3666548309847713,
+      "PID_peak_RSS_bytes": 98004992,
+      "combined_peak_RSS_bytes": 548675584,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3658,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "a595c100224568218b8af5195f920fb81bb1d79200564701666fcb4486eb41e8",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "fresh-v1": {
+      "observed_at_UTC": "2026-10-24T02:32:39.265138Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.9227207110088784,
+      "PID_peak_RSS_bytes": 98004992,
+      "combined_peak_RSS_bytes": 569454592,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3658,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "74f2d51bf04d2eeb7676c58a6dce0d2e2e792842a4263a3be231287b92714a3b",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "resource": {
+    "PID_peak_RSS_bytes": 497074176,
+    "combined_peak_RSS_bytes": 957689856,
+    "PID_limit_bytes": 536870912,
+    "combined_limit_bytes": 1073741824,
+    "sample_interval_seconds": 0.25,
+    "wall_limit_seconds": 600,
+    "log_limit_bytes": 4194304,
+    "scope": "owned descendants plus four protected roots; not Windows Chrome or full host"
+  },
+  "new_dependencies": 0,
+  "browser_run": false,
+  "new_hosted_CI": false,
+  "full_web_build": false,
+  "user_runtime_UI_DB_keys_modified": false,
+  "holds": [
+    "React/actual3D and browser/preview deployment pending",
+    "empty adapter tested only; existing geometry minimum1 needs next3D change/test",
+    "farm SourceRecord/current ACL/signature/HTTP integration separate",
+    "domestic original measurements/unused independent cycles0 and domestic first cultivar unconfirmed",
+    "production/resources/economics/market/macro/supply-demand/autonomous comparison/R2/cold shader/G0-G4 unfinished; full date unknown"
+  ],
+  "record_validation": {
+    "checks": {
+      "passed": true,
+      "source_pins": 3,
+      "graph_code_pins": 40,
+      "unique_pytest_or_vitest_cases": 76,
+      "public_file_ledger_rows": 40,
+      "original_export_byte_equality": 40,
+      "SDK_bundle_and_modules": [
+        35010,
+        6
+      ],
+      "actual_HTTP_GETs": 40,
+      "checked_local_links": 3350,
+      "whitespace_scope": "all staged new files plus worktree",
+      "new_gate_decisions": 0,
+      "product_code_changed_after_tests": false
+    },
+    "guard": {
+      "observed_at_UTC": "2026-10-24T02:36:14.258613Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.1309233369829599,
+      "PID_peak_RSS_bytes": 98004992,
+      "combined_peak_RSS_bytes": 469184512,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 4,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 2793,
+      "source_preserved": true,
+      "source_count": 3661,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "8c40956a167dce90923a067b98b63f4cc54e7f00082172523c4ca7893acc5cdb",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  }
+}

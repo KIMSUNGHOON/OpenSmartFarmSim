@@ -1,6 +1,6 @@
 # 저장 잎 생애 결과의 SDK와 현재 잎 adapter — v1
 
-상태: 계약/검증 중. [원 결과](crop-leaf-lifecycle-artifact-v1.md)와 [연구 export](crop-leaf-lifecycle-export-v1.md)를 사용한다.
+상태: [소프트웨어 범위 수용](../research/leaf-lifecycle-sdk-20261024.md). [원 결과](crop-leaf-lifecycle-artifact-v1.md)와 [연구 export](crop-leaf-lifecycle-export-v1.md)를 사용한다.
 `loadLeafLifecycleReplay(scenario,signal)`은 `no-removal`/`with-removal`의 자체 합성20파일씩만 읽는다.
 공개 fixture의 원 bytes를 복사하고 index/root SHA·40code·모델/표시 정책·선언 ID/출현/제거 시각을 고정한다.
 임의 URL/농장/API/생장 계산·CLI/POST는 없다. 원 scope/claim/gates는 미평가 연구 범위다.
