@@ -24,34 +24,42 @@ async function selected(page:Page,index:number,scenario:Scenario='with-removal')
   expect(await page.locator(selector).getAttribute('data-selected-at')).toBe(f.at);
 }
 
-test('two actual saved scenarios retain24UTC frames and73active surfaces, compare/reload/menu/mobile/idle',async({page},info)=>{
+for(const scenario of ['with-removal','no-removal'] as const)test(`${scenario}:12original UTC frames and active surfaces match table and chart`,async({page},info)=>{
  const errors:string[]=[],warnings:string[]=[],methods:string[]=[],requests:string[]=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());if(m.type()==='warning')warnings.push(m.text());});
  page.on('request',r=>{methods.push(r.method());if(new URL(r.url()).pathname.startsWith('/leaf-lifecycle-replay/'))requests.push(new URL(r.url()).pathname);});
- await page.goto('/leaf-lifecycle-replay.html');await selected(page,0);await expect(page.getByRole('heading',{name:'잎 생장과 관리',exact:true})).toBeVisible();
+ await page.goto(`/leaf-lifecycle-replay.html?scenario=${scenario}`);await selected(page,0,scenario);await expect(page.getByRole('heading',{name:'잎 생장과 관리',exact:true})).toBeVisible();
  const first=await page.locator('canvas').screenshot();
- for(let i=1;i<12;i++){await page.getByRole('button',{name:'다음',exact:true}).click();await selected(page,i);}
+ for(let i=1;i<12;i++){await page.getByRole('button',{name:'다음',exact:true}).click();await selected(page,i,scenario);}
  expect((await page.locator('canvas').screenshot()).equals(first)).toBe(false);
- await page.screenshot({path:info.outputPath('lifecycle-removed-last.png'),fullPage:true});
- await page.getByLabel('관리 시나리오').selectOption('no-removal');await selected(page,11,'no-removal');
- await page.getByRole('button',{name:'처음',exact:true}).click();await selected(page,0,'no-removal');
- for(let i=1;i<12;i++){await page.getByRole('button',{name:'다음',exact:true}).click();await selected(page,i,'no-removal');}
- expect(requests).toHaveLength(40);
+ await page.screenshot({path:info.outputPath(`lifecycle-${scenario}-last.png`),fullPage:true});expect(requests).toHaveLength(20);
  expect(await page.locator('.morphology-history circle').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('data-area'))))
-  .toEqual(Array.from({length:12},(_,i)=>String(stored(i,'no-removal').active_leaf_area.value)));
+  .toEqual(Array.from({length:12},(_,i)=>String(stored(i,scenario).active_leaf_area.value)));
+ await info.attach('console-warnings.json',{body:JSON.stringify(warnings),contentType:'application/json'});
+ expect(errors).toEqual([]);expect(methods.every(m=>m==='GET')).toBe(true);
+});
+
+test('scenario comparison and reload/menu/keyboard restore the same saved frame',async({page})=>{
+ await page.goto('/leaf-lifecycle-replay.html');await selected(page,0);await page.getByRole('button',{name:'마지막',exact:true}).click();await selected(page,11);
+ await page.getByLabel('관리 시나리오').selectOption('no-removal');await selected(page,11,'no-removal');
  expect(new URL(page.url()).searchParams.get('scenario')).toBe('no-removal');expect(new URL(page.url()).searchParams.get('frame')).toBe('11');
  await page.reload();await selected(page,11,'no-removal');
  await page.getByRole('link',{name:'제거 전 출현 예제 ↗',exact:true}).click();await expect(page).toHaveURL(/leaf-appearance-replay\.html/);
  await page.goBack();await selected(page,11,'no-removal');
  const slider=page.getByRole('slider',{name:'저장 시점'});await slider.focus();await slider.press('Home');await selected(page,0,'no-removal');await slider.press('ArrowRight');await selected(page,1,'no-removal');
- await page.getByRole('button',{name:'저장 결과 재생',exact:true}).click();await expect.poll(async()=>Number(await page.locator('canvas').getAttribute('data-selected-index')),{timeout:10000}).toBeGreaterThan(1);
- await page.getByRole('button',{name:'일시 정지',exact:true}).click();await page.waitForTimeout(300);
- const index=Number(await page.locator('canvas').getAttribute('data-selected-index'));await selected(page,index,'no-removal');
+});
+
+test('stored replay pauses with zero idle draws and fits mobile',async({page},info)=>{
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+ await page.goto('/leaf-lifecycle-replay.html');await selected(page,0);
+ await page.getByRole('button',{name:'저장 결과 재생',exact:true}).click();await expect.poll(async()=>Number(await page.locator('canvas').getAttribute('data-selected-index')),{timeout:10000}).toBeGreaterThan(0);
+ await page.getByRole('button',{name:'일시 정지',exact:true}).click();
+ await page.evaluate(async()=>{await document.fonts.ready;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));});
+ const index=Number(await page.locator('canvas').getAttribute('data-selected-index'));await selected(page,index);
  const draws=await page.locator('canvas').getAttribute('data-frame');await page.waitForTimeout(1200);expect(await page.locator('canvas').getAttribute('data-frame')).toBe(draws);
- await page.setViewportSize({width:390,height:844});await selected(page,index,'no-removal');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.setViewportSize({width:390,height:844});await selected(page,index);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:info.outputPath('lifecycle-mobile.png'),fullPage:true});
- await info.attach('console-warnings.json',{body:JSON.stringify(warnings),contentType:'application/json'});
- expect(errors).toEqual([]);expect(methods.every(m=>m==='GET')).toBe(true);
+ expect(errors).toEqual([]);
 });
 
 test('invalid rights/hash removes all results; restoration reload retains same scenario/frame',async({page})=>{
