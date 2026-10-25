@@ -3,6 +3,7 @@ import {BufferGeometry,CatmullRomCurve3,CylinderGeometry,Float32BufferAttribute,
 import {tomatoLeafletGeometry} from './tomatoAppearance';
 import type {GrowingGeometryFrame} from './growingGeometryReplay';
 import type {GrowingGeometryRemovalFrame} from './growingGeometryRemovalReplay';
+import type {LeafCarbonStockFrame} from './leafCarbonStockReplay';
 
 export const GROWING_SCAFFOLD={version:'authored-three-leaf-scaffold-v1',origin:'authored_visual_asset',
  stem_height_m:1.6,leaves:[{leaf_id:'own-leaf-0',height_m:.45,yaw_rad:.4},
@@ -24,6 +25,17 @@ function surfaceArea(mesh:InstancedMesh){
 
 export function createGrowingGeometryPlant(frame:GrowingGeometryFrame,materials:{stem:Material;leaf:Material}){
  return createPlant(frame,materials,GROWING_SCAFFOLD.leaves);
+}
+
+export function createLeafCarbonStockPlant(frame:LeafCarbonStockFrame,materials:Materials){
+ const stocks=frame.leaves.map(leaf=>{
+  if(leaf.carbon.unit!=='mg_CH2O/m2_floor'||!Number.isFinite(leaf.carbon.value)||leaf.carbon.value<0)throw Error('stored_leaf_carbon_binding_invalid');
+  return {leaf_id:leaf.leaf_id,carbon:structuredClone(leaf.carbon)};
+ });
+ const plant=createPlant(frame,materials,GROWING_SCAFFOLD.leaves);let disposed=false;
+ plant.root.userData.carbon_authority='stored_individual_leaf_carbon';
+ return {...plant,leafCarbonStocks(){if(disposed)throw Error('disposed_leaf_geometry');return structuredClone(stocks);},
+  dispose(){disposed=true;plant.dispose();}};
 }
 
 export function createGrowingGeometryRemovalPlant(frame:GrowingGeometryRemovalFrame,materials:Materials){
