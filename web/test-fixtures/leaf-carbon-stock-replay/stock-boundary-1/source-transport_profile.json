@@ -1,0 +1,87 @@
+{
+  "profile_id": "vanthoor-fruit-transport-reference-v1",
+  "scope": "reference_only_not_G0",
+  "model_version": "vanthoor-fruit-transport-research-v1",
+  "model_basis": "Vanthoor2011 Chapter9 Eq9.31/9.32/9.34; isolated post-onset piecewise h=1; no set/allocation/respiration or integration",
+  "sources": {
+    "original_thesis": {
+      "source_id": "vanthoor-thesis",
+      "source_url": "https://edepot.wur.nl/170301",
+      "product_id": "10.18174/170301",
+      "observed_period_local": null,
+      "published_at": "2011-06-17",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:51:13.324303+00:00",
+      "vintage": "published article/thesis",
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "bytes": 3423075,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "fulltext-redistribution-unconfirmed",
+        "use": "read and reference mathematical definitions; no fulltext incorporation",
+        "display": "citation/short contextual references only; fulltext/figures not adopted",
+        "redistribution": "unconfirmed; PDF excluded from repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "observed_times": null
+    }
+  },
+  "review": {
+    "cli_model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T15:56:17.675Z",
+    "recursive_cli": false,
+    "reference_register": "research/crop-fruit-source-register.json",
+    "reference_register_sha256": "3ec6ea74342eb7bbf9c64dead4fb1ada2fe6e359de561569a5a719baad067b47",
+    "unit_notes": [
+      "Continuous modelled fruit equivalents; not integer fruit observations",
+      "per_m2_floor explicitly declared for synthetic math; actual Reference denominator remains held",
+      "Filtered temperature is the supplied first-order state; no exact rolling average claimed",
+      "Source Eq9.33 h has inconsistent s^-1 annotation; dimensionless gate h=1 only",
+      "Original Eq9.34 has no gate; joint first scope post-onset h=1 only"
+    ]
+  },
+  "parameters": {
+    "nDev": {
+      "value": 50,
+      "source_value": "50",
+      "unit": "1",
+      "basis": "Table9.1 printed p267"
+    },
+    "cDev1": {
+      "value": -7.64e-09,
+      "source_value": "-7.64e-9",
+      "unit": "1/s",
+      "basis": "Table9.1 printed p266"
+    },
+    "cDev2": {
+      "value": 1.16e-08,
+      "source_value": "1.16e-8",
+      "unit": "1/s/degC",
+      "basis": "Table9.1 printed p266"
+    }
+  },
+  "domain": {
+    "filtered_temperature_c": [
+      17,
+      23
+    ],
+    "source_development_regression_temperature_c": [
+      17,
+      27
+    ],
+    "source_temperature_basis": "Eq9.32 printed p254; first joint research domain follows existing growth kernel",
+    "temperature_sum_onset_exclusive": {
+      "value": 0,
+      "unit": "degC_day",
+      "basis": "Section9.4 printed p245 and Eq9.33 printed p254"
+    },
+    "nDev": 50,
+    "initial_state_generated": false,
+    "reference_is_not_Axiany_calibration": true
+  }
+}

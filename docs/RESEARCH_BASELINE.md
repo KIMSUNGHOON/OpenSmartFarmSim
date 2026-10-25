@@ -1,5 +1,7 @@
 # 자료·연구 기준선
 
+**2026-10-26 KST 저장 SDK:** [신규99/관련249·실제 HTTP276/102시점](../research/leaf-carbon-stock-sdk-20261026.md)의 원 C_i/a/A·동적 장부/원 bytes·정규화 곡선 지문을 보존했다. 원 private False168blob과 code/profile/notice를 유지했고 새 계수/외부 자료/측정 채택0이다. 전체 타입/독립 SDK 빌드 수용과 주앱 전체 번들의 WSL 보류를 구분한다. 현재 API/worker3root 종료·기한 경과이며 예전4root 보존을 현재 실행으로 확대하지 않는다. 다음은 같은 저장 상태3D·별도 공개 합성 미리보기다. 실제 farm/자료/관문·전체 완료는 별도다.
+
 **2026-10-25 KST 저장 C_i/a/A export:** [20검사·독립102시점/두 출력552파일](../research/leaf-carbon-stock-export-20261025.md)로 원 CP/DTO/source bytes·권리/notice·정확 격자를 보존했다. 별도 자체 공개 선언/새 root를 사용하고 원 private False168blob을 유지했다. 원천/농장 권리·독립 자료/관문 승인이 아니며 다음 strict SDK/같은 상태3D와 실제 자료 확보는 별도다.
 
 **2026-10-25 KST 개별 C_i/a/A 저장:** [신규102/관련191·독립102시점/19,278수량](../research/crop-leaf-carbon-stock-artifact-20261025.md)을 수용했다. 원 state/동적 장부·권리/notice·코드/profile/원 checkpoint bytes를 보존했고 조회의 생장/재개 import·계산/DB/CLI/network/쓰기0을 확인했다. private False168blob을 유지하며 실제 farm 권리/서명·관문 승인은 별도다. 다음은 strict export/SDK→같은 상태3D이며 새 출현 조달 근거/독립 농장 자료는 병행한다.
