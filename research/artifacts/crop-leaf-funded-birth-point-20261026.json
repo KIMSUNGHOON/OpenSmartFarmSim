@@ -1,0 +1,252 @@
+{
+  "record_kind": "synthetic_leaf_funded_birth_point_acceptance_v1",
+  "observed_at_UTC": "2026-10-25T23:39:21.990329+00:00",
+  "baseline_HEAD": "394695a1c670a9edf07b26dbe91c46628346238e",
+  "scope": "synthetic_new_structural_allocation_point_only",
+  "new_tests_passed": 74,
+  "related_tests_passed": 297,
+  "independent_reader": {
+    "G0_G4": "not_assessed",
+    "app_modules_imported": 0,
+    "bundle_sha256": "24b32e618f0a973e5e899d8def2dac2a2f4f4a99fb6938c374882ea97589ff5c",
+    "checks": 1224,
+    "model_calls": 0,
+    "observed_points": 36
+  },
+  "native_model": {
+    "observed_at_UTC": "2026-10-25T23:12:20.020200+00:00",
+    "turn_context_timestamp": "2026-10-25T23:06:09.888Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_LF_sha256": "d6f1058250d4d06d688c63857657d915eff839111e09278bb92fad5e17de9094",
+    "recursive_CLI": 0
+  },
+  "sources": [
+    {
+      "observation_time": null,
+      "available_at": null,
+      "unit": "not applicable to bibliographic/metadata record; not farm measurement",
+      "QC": "HTTP/bytes/hash plus limited paper/methods, license or repository metadata inspection; no measurement QC or G0 approval",
+      "reviewer": "native-parent gpt-6.1-sol/xhigh; research comparison, not independent gate reviewer",
+      "adopted_as_new_parameter_or_data": false,
+      "historical_available_at_inferred": false,
+      "id": "S2-greenlight",
+      "url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/crop_vanthoor_2011_chapter_9_simplified.json",
+      "retrieval_started_UTC": "2026-10-24T14:38:50.180043+00:00",
+      "retrieval_completed_UTC": "2026-10-24T14:38:50.504950+00:00",
+      "http_status": 200,
+      "bytes": 26741,
+      "raw_sha256": "272a589edf0bb40d1a91b34e883f8e94b9adf747a576be4620c50296c03d7033",
+      "product_id": "davkat1/GreenLight",
+      "vintage_revision": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "publication_time": null,
+      "use_display_redistribution_rights": "Clear BSD; existing project notice retained; original use subject to license conditions"
+    },
+    {
+      "observation_time": null,
+      "available_at": null,
+      "unit": "not applicable to bibliographic/metadata record; not farm measurement",
+      "QC": "HTTP/bytes/hash plus limited paper/methods, license or repository metadata inspection; no measurement QC or G0 approval",
+      "reviewer": "native-parent gpt-6.1-sol/xhigh; research comparison, not independent gate reviewer",
+      "adopted_as_new_parameter_or_data": false,
+      "historical_available_at_inferred": false,
+      "id": "S2-license",
+      "url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/LICENSE.txt",
+      "retrieval_started_UTC": "2026-10-24T14:38:50.505236+00:00",
+      "retrieval_completed_UTC": "2026-10-24T14:38:50.775496+00:00",
+      "http_status": 200,
+      "bytes": 1716,
+      "raw_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "product_id": "davkat1/GreenLight",
+      "vintage_revision": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "publication_time": null,
+      "use_display_redistribution_rights": "Clear BSD; existing project notice retained; original use subject to license conditions"
+    },
+    {
+      "observation_time": null,
+      "available_at": null,
+      "unit": "not applicable to bibliographic/metadata record; not farm measurement",
+      "QC": "HTTP/bytes/hash plus limited paper/methods, license or repository metadata inspection; no measurement QC or G0 approval",
+      "reviewer": "native-parent gpt-6.1-sol/xhigh; research comparison, not independent gate reviewer",
+      "adopted_as_new_parameter_or_data": false,
+      "historical_available_at_inferred": false,
+      "id": "S3-paper",
+      "url": "https://edepot.wur.nl/706749",
+      "retrieval_started_UTC": "2026-10-24T14:38:50.179627+00:00",
+      "retrieval_completed_UTC": "2026-10-24T14:39:37.411085+00:00",
+      "http_status": 200,
+      "bytes": 2319684,
+      "raw_sha256": "a950a3458d902bf0d7c142ce202f5db48d9bc81fa1c2ca3e62daca626887e49b",
+      "product_id": "10.1093/insilicoplants/diaf022",
+      "vintage_revision": "2025 published PDF; same raw SHA as prior review",
+      "publication_time": {
+        "value": "2025-11-26",
+        "precision": "date"
+      },
+      "use_display_redistribution_rights": "CC BY 4.0 paper, authors 2025/OUP/Annals of Botany Company; own summary with DOI attribution; separate code/data rights unverified"
+    }
+  ],
+  "source_pins": {
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_growing_geometry_climate.py": "5cf58d1dea92e59e1059d5e5cd359a81b8dde950fed2ac575911a4be90788a0a",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_leaf_carbon_partition.py": "6b80b6611ac1f972158fe00fea92c9b0b99af3d94f942ec2710b6fea26c81266",
+    "backend/app/crop_leaf_carbon_stock_rhs.py": "1da1cfef06860893b9ef4f661b15e5d7b4bc099a8d6563c4a9c6bd23156ab4be",
+    "backend/app/crop_leaf_partition_climate_rhs.py": "a708f13ed9290f4353e61310959aeab8f2f4bf0c3c4f02d5f9d0181fc3aebab3",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/app/crop_leaf_carbon_stock_continuation.py": "62b7ba4c8dbcf56297fde3e2c8ef78e55efe283eab85b9f26640f917236e8f0d",
+    "backend/app/crop_leaf_carbon_stock_dynamics.py": "0e2a51a23b95b10cfc15d46f5668266f2b7981a769d966a167f9a4a9cafdf80d",
+    "backend/app/crop_leaf_funded_birth_point.py": "37b5c2da9b867d771bd31fbfc318549d28e865d8cd44650f4411786857bd5ac9",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/tests/test_crop_leaf_funded_birth_point.py": "1c119a67ca7fb4fa1766bc82a3df1e50b49723bfeedefcbeedc3f957fd29dc3b",
+    "contracts/crop-leaf-funded-birth-point-v1.md": "ba0e1731a341400d3c91b99c7e71763a5eab8ab3bc263f10d5f488d8f0443bb7",
+    "research/crop-leaf-funded-births-design-20261026.md": "919f54f0ea6fbad40217f23b6a2c877bda0c754e0aefa4def207adab55a22821",
+    "research/crop-leaf-funded-births-code-map-20261026.md": "4a8c53e47006f696ded29d435ddd0a02faff022d48273266d17a2ab9b650a6a4",
+    "research/leaf-carbon-stock-visible-window-20261026.md": "64eaa251246febe01289de03d5b37087adc71135b3df08ee1b9b78b755b0f75c",
+    "research/crop-leaf-funded-birth-point-20261026.md": "d9f598f236263e120ac5484b73fa6425836d9c33934398b429c2fc8c7743b190"
+  },
+  "original_four_profile_sha256": {
+    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+  },
+  "private_proof_sha256": {
+    "produce-fresh-points-v1.private.py": "e43e8ad31ef7cce636216500958b753ea71dfc6469ce378570a40d77593d20a9",
+    "check-fresh-points-v1.private.py": "351681b608184e365d72264e2720bb1f18dc0ea8c018f289d4056f98b8a86b80",
+    "check-fresh-points-v2.private.py": "c05c1b2c99442e51d7e9a155f854f88ce61467b84329684306acc1625a7bca91",
+    "fresh-points-v1.private.json": "24b32e618f0a973e5e899d8def2dac2a2f4f4a99fb6938c374882ea97589ff5c",
+    "fresh-decimal-v2.private.json": "74ce6a4f46ff00020197f30d78ee5e83f12aba7c60f292d21956132381c8e7db",
+    "visible-window-v1.private.json": "10f21c0517bbf6c27bbbd5da09bb735a1d4f0cead9098a653dd00979af4f8654"
+  },
+  "phases": [
+    {
+      "name": "funded-birth-point-final-v2",
+      "observed_at_UTC": "2026-10-25T23:37:24.570969Z",
+      "child_exit": 0,
+      "wall_seconds": 23.656976371014025,
+      "PID_peak_RSS_bytes": 74870784,
+      "combined_peak_RSS_bytes": 127983616,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5142,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "a9e4274f14cdf9563e108b1ea8ccdb761ef9b2aa466de08e7ee7631a26bd870b"
+    },
+    {
+      "name": "funded-birth-point-related-v1",
+      "observed_at_UTC": "2026-10-25T23:34:40.292047Z",
+      "child_exit": 0,
+      "wall_seconds": 131.56054264103295,
+      "PID_peak_RSS_bytes": 110551040,
+      "combined_peak_RSS_bytes": 163504128,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5142,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "6302cc3c8a9879b8b4622f78cb4b2dce877038f1a5c86d0caa49f59f5c9a9eb1"
+    },
+    {
+      "name": "funded-birth-point-producer-v1",
+      "observed_at_UTC": "2026-10-25T23:31:29.751450Z",
+      "child_exit": 0,
+      "wall_seconds": 14.143796084972564,
+      "PID_peak_RSS_bytes": 42205184,
+      "combined_peak_RSS_bytes": 95645696,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5142,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "2147897f7cd2e08d7b58af88dc26a1b358db536ce96f632d7268849c2241429e"
+    },
+    {
+      "name": "funded-birth-point-decimal-v2",
+      "observed_at_UTC": "2026-10-25T23:34:48.745852Z",
+      "child_exit": 0,
+      "wall_seconds": 1.0593190739746206,
+      "PID_peak_RSS_bytes": 27648000,
+      "combined_peak_RSS_bytes": 53383168,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5142,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "2d06bad0ddbb46c1b3cb609a03e7495fa5d4356b316a051a03f5a513b3058096"
+    }
+  ],
+  "not_run": [
+    "entire_backend_suite",
+    "web_checks_unchanged",
+    "hosted_CI_not_claimed"
+  ],
+  "external_holds": [
+    "actual_initial_mass_and_emergence_validation",
+    "actual_cultivar_and_independent_domestic_cycles",
+    "author_code_and_data_rights",
+    "G0_G4",
+    "actual_visible_window_and_R2"
+  ],
+  "remaining_code": [
+    "changed_topology_continuation_and_event_history",
+    "source_clock_and_stem_attachment_binding",
+    "empty_canopy_and_simultaneous_removal",
+    "supply_limited_area_policy",
+    "immutable_storage_and_same_state_new_leaf_3D",
+    "production_resources_economics_macro_supply_demand_autonomous_comparison"
+  ],
+  "final_verification": {
+    "HTTP5177": 200,
+    "csv_synthetic_rows": 36,
+    "local_markdown_links_verified": 3478,
+    "observed_at_UTC": "2026-10-25T23:41:48.288028+00:00",
+    "served_files_and_metadata_preserved": 1502,
+    "source_pins_verified": 29,
+    "proof_sha256": "24760930d344532a88401e15a3a31efb4736b4b4a3c64d6a2584eb808414dcf2",
+    "guard_log_sha256": "dfcd496ed2acfb781d51e3b756ab1afa5983cbd8c9c8000ec12c1c4b43f0856c"
+  },
+  "csv": {
+    "sha256": "effba8c6a116f91cdc284210ca87525c69966a12e188bb9df681ca6a9b3d7214",
+    "line_endings": "LF",
+    "data_rows": 36,
+    "format_only_CRLF_conversion_preserved_all_rows": true
+  }
+}

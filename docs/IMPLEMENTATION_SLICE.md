@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-26 KST:** [저장된 잎의 탄소·면적3D](http://localhost:5177/leaf-carbon-stock-replay.html)를 별도 공개 합성 미리보기로 기동했습니다. [42신규/388관련·Chrome43·실제 미리보기 검증](../research/leaf-carbon-stock-stored-3d-20261026.md)으로 원102시점/306잎의 면적·C_i/나이·장부/표/그래프·URL/reload를 대사했습니다. 이번 미리보기는11:48 KST까지이며 이전 API/worker 기한을 연장하지 않았습니다. 실제 표시 창/R2·주앱 전체 build의 WSL 보류와 실제 품종/독립 자료·한 작기/생산·자원/경제·거시/수급·자율 비교·G0–G4·전체 목표/완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [저장 잎 탄소·면적3D](http://localhost:5177/leaf-carbon-stock-replay.html)는11:48 KST까지 별도 합성 미리보기입니다. [새 잎 조달점74신규/297관련·독립36조건](../research/crop-leaf-funded-birth-point-20261026.md)을 수용했으며, 다음은 원 시계/상태·연속+점 장부를 보존한 변경 목록 재개→불변 저장/같은 상태3D입니다. 현재 화면에는 새 조달점이 연결되지 않았습니다. [실제 창1회 관측](../research/leaf-carbon-stock-visible-window-20261026.md)은 페이지 hidden으로 보류했고 주앱 전체 bundle의 WSL 보류도 유지합니다. 실제 품종/독립 자료·한 작기/생산·자원/경제·거시/수급·자율 비교·G0–G4/R2와 전체 완료일은 미완료·미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
