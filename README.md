@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-26 KST:** [조달된 새 잎 strict export21검사·114시점/두 출력648파일](research/leaf-funded-birth-export-20261026.md)을 수용했습니다. 별도 자체 공개 선언/새 합성 원본의 root/점/context/CP/DTO·시각/phase/장부·notice/권리를 보존했고 private False132blob·생장 import/DB/CLI/network0·출력 외 쓰기0을 확인했습니다. 다음은 strict SDK이며 원 clock/줄기 부착 자료 결속을 병행해 같은 상태의 실제 잎3D에 연결합니다. [현재5177](http://localhost:5177/leaf-carbon-stock-replay.html)은11:48 KST까지 기존 고정3잎 재생이고 새 출현 결과는 미연결입니다. 실제 품종/독립 자료·빈 수관/제거·공급 제한 A·작기/생산/자원/경제/거시·수급/자율 비교·제품 통합·G0–G4/R2/표시 창/주앱 전체 build와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [조달된 새 잎 strict SDK122검사·전체 타입/독립 번들·HTTP133시점/424파일](research/leaf-funded-birth-strict-sdk-20261026.md)을 수용했습니다. 새 공개 합성 원본의 source/point/context/CP/DTO·가변 C_i/a/A·원 exact 시각/phase/장부·권리/notice와 취소/최신 요청을 보존했습니다. 다음은 원 출현 시계/줄기 부착·공통 floor/초기 질량 근거 결속 뒤 같은 상태의 실제 새 잎3D입니다. [현재5177](http://localhost:5177/leaf-carbon-stock-replay.html)은11:48 KST까지 기존 고정3잎이고 새 출현 결과는 미연결입니다. 실제 품종/독립 자료·빈 수관/제거·공급 제한 A·작기/생산/자원/경제/거시·수급/자율 비교·제품 통합·G0–G4/R2/표시 창/주앱 전체 build와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-26 KST:** [조달된 새 잎 strict export21검사·114시점/두 출력648파일](../research/leaf-funded-birth-export-20261026.md)을 수용했습니다. 별도 자체 공개 선언/새 합성 원본의 root/점/context/CP/DTO·시각/phase/장부·notice/권리를 보존했고 private False132blob·생장 import/DB/CLI/network0·출력 외 쓰기0을 확인했습니다. 다음은 strict SDK이며 원 clock/줄기 부착 자료 결속을 병행해 같은 상태의 실제 잎3D에 연결합니다. [현재5177](http://localhost:5177/leaf-carbon-stock-replay.html)은11:48 KST까지 기존 고정3잎 재생이고 새 출현 결과는 미연결입니다. 실제 품종/독립 자료·빈 수관/제거·공급 제한 A·작기/생산/자원/경제/거시·수급/자율 비교·제품 통합·G0–G4/R2/표시 창/주앱 전체 build와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [조달된 새 잎 strict SDK122검사·전체 타입/독립 번들·HTTP133시점/424파일](../research/leaf-funded-birth-strict-sdk-20261026.md)을 수용했습니다. 새 공개 합성 원본의 source/point/context/CP/DTO·가변 C_i/a/A·원 exact 시각/phase/장부·권리/notice와 취소/최신 요청을 보존했습니다. 다음은 원 출현 시계/줄기 부착·공통 floor/초기 질량 근거 결속 뒤 같은 상태의 실제 새 잎3D입니다. [현재5177](http://localhost:5177/leaf-carbon-stock-replay.html)은11:48 KST까지 기존 고정3잎이고 새 출현 결과는 미연결입니다. 실제 품종/독립 자료·빈 수관/제거·공급 제한 A·작기/생산/자원/경제/거시·수급/자율 비교·제품 통합·G0–G4/R2/표시 창/주앱 전체 build와 전체 완료일은 미완료·미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
