@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-26 KST:** [조달된 새 잎 strict SDK122검사·전체 타입/독립 번들·HTTP133시점/424파일](research/leaf-funded-birth-strict-sdk-20261026.md)을 수용했습니다. 새 공개 합성 원본의 source/point/context/CP/DTO·가변 C_i/a/A·원 exact 시각/phase/장부·권리/notice와 취소/최신 요청을 보존했습니다. 다음은 원 출현 시계/줄기 부착·공통 floor/초기 질량 근거 결속 뒤 같은 상태의 실제 새 잎3D입니다. [현재5177](http://localhost:5177/leaf-carbon-stock-replay.html)은11:48 KST까지 기존 고정3잎이고 새 출현 결과는 미연결입니다. 실제 품종/독립 자료·빈 수관/제거·공급 제한 A·작기/생산/자원/경제/거시·수급/자율 비교·제품 통합·G0–G4/R2/표시 창/주앱 전체 build와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [공동 기온 줄기 시계20검사·독립114시점/456산술](research/crop-funded-shoot-clock-20261026.md)을 수용했습니다. 원 RK4 실내 Ta 적분량으로 초기 줄기/절간 나이를 계산하며 기존 고정기온 줄기의 이후 길이/pose는 아직 결속하지 않았습니다. 다음은 같은 나이의 절간 길이→동적 출현 시각 처리→부착·공통 floor/질량/현재 권리→같은 상태 실제 새 잎3D입니다. 5177은 예정된11:48KST에 종료됐고 [5175 제작 외형](http://localhost:5175/crop-appearance.html)은 유지합니다. 실제 품종/독립 자료·빈 수관/제거·공급 제한 A·작기/생산/자원/경제/거시·수급/자율 비교·제품 통합·G0–G4/R2/표시 창/주앱 전체 build와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

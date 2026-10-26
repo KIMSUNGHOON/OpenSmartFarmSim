@@ -1,5 +1,7 @@
 # 자료·연구 기준선
 
+**2026-10-26 KST 공동 줄기 시계:** [20검사·원114시점/독립456산술](../research/crop-funded-shoot-clock-20261026.md)에서 원 RK4 Ta 적분량·명시 초기 줄기/기관 나이·기준온도로 나이를 계산했다. 저장된 수치 적분의 정확 유리수 표현이며 실제 기온의 해석적 정확해가 아니다. signed/no-clip과 음의 최종 나이 보류를 명시하고 새 계수/관측 채택0·G0–G4/R2 보류를 유지한다. 기존 고정기온 pose와의 차이·분수 threshold 대 고정 조달 격자 문제를 확인해 같은 나이의 길이→동적 출현 시각→부착/floor·질량/현재 검토로 의존성을 보완했다.
+
 **2026-10-26 KST 출현 strict SDK:** [122검사·전체 웹 타입/독립 번들·HTTP133시점/424파일](../research/leaf-funded-birth-strict-sdk-20261026.md)에서 원 source/point/context/CP/DTO·가변 C_i/a/A·원 exact/phase/사건번호·시계/C 기준/장부·권리/notice를 보존했다. 자체 공개 원본114시점과 실제 producer의1→2/512/fractional/같은 시각 경계19시점을 대사했다. 원 숫자 bytes/모델 포함 곡선 identity를 구별하고 새 계수/외부 관측 채택0·G0–G4/R2 보류를 유지한다. 다음은 원 clock/줄기 부착·초기 질량 근거 결속과 같은 상태 실제 잎3D이며 실제 품종/독립 자료 확보는 병행한다.
 
 **2026-10-26 KST 출현 strict export:** [21검사·fresh114시점/두 출력648파일](../research/leaf-funded-birth-export-20261026.md)에서 원 source/point/context/CP/DTO·권리/notice/phase·정확 격자를 보존했다. 별도 자체 공개 선언·새 원본/새 root로 생성했고 private False132blob은 바꾸지 않았다. 독립 exporter의 생장 import/DB/CLI/network0·출력 외 write0과 원 GUI/source/2root/WSL을 확인했다. 새 계수/외부 관측 채택0, 실제 품종/독립 자료·G0–G4/R2는 미완료다. 다음은 새 형식의 strict SDK와 원 clock/attachment 결속이다.
