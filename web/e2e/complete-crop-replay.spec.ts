@@ -82,3 +82,12 @@ test('WebGL unavailable keeps verified original table on mobile',async({page})=>
  await page.getByRole('button',{name:'마지막',exact:true}).click();await expect(page.locator('td[data-raw-area]')).toHaveCount(7);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
+test('failed source selection survives reload before a result can be displayed',async({page})=>{
+ await page.route('**/complete-crop-replay/initial-2/index.json',route=>route.fulfill({contentType:'application/json',body:'{}'}));
+ await page.goto('/complete-crop-replay.html');await selected(page,'initial-0',0);
+ await page.getByRole('combobox',{name:'저장된 합성 사례'}).selectOption('initial-2');await expect(page.getByText(/저장 결과 표시 보류/)).toBeVisible();
+ expect(new URL(page.url()).searchParams.get('scenario')).toBe('initial-2');expect(new URL(page.url()).searchParams.get('frame')).toBe('0');
+ await page.reload();await expect(page.getByRole('combobox',{name:'저장된 합성 사례'})).toHaveValue('initial-2');await expect(page.getByText(/저장 결과 표시 보류/)).toBeVisible();
+ await expect(page.locator('canvas')).toHaveCount(0);await page.unroute('**/complete-crop-replay/initial-2/index.json');
+ await page.getByRole('button',{name:'원 결과 다시 확인',exact:true}).click();await selected(page,'initial-2',0);
+});

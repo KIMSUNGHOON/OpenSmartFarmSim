@@ -23,7 +23,7 @@ export default function CompleteCropReplayPage(){
   return()=>{active=false;controller.abort();clearInterval(timer);};
  },[selection.scenario,retry]);
  useEffect(()=>{const pop=()=>{setPlaying(false);setSelection(readCompleteCropLocation(window.location.search));};window.addEventListener('popstate',pop);return()=>window.removeEventListener('popstate',pop);},[]);
- useEffect(()=>{if(data){const url=completeCropURL(window.location.href,selection.scenario,selection.index);if(url)window.history.replaceState(null,'',url);}},[data,selection]);
+ useEffect(()=>{const url=completeCropURL(window.location.href,selection.scenario,selection.index);if(url)window.history.replaceState(null,'',url);},[selection]);
  useEffect(()=>{if(playing&&data&&selection.index===data.frames.length-1)setPlaying(false);},[playing,data,selection.index]);
  useEffect(()=>{
   if(!playing||!data)return;if(document.hidden){setPlaying(false);return;}
