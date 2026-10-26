@@ -1,0 +1,37 @@
+{
+  "schema_version": "owned-fractional-material-point-QA-v1",
+  "scope": "software_research_only",
+  "G0_G4": "not_assessed",
+  "sources": {
+    "fixtures/crop-funded-event-state-fixtures-v2.json": "98426405b895fffc533a641ffda5a971bda00adc5862ca052bd8a0549522d81a",
+    "fixtures/crop-leaf-funded-birth-web-declaration-v1.json": "57ba1cc658877924d7715b7d4fe83b0b27e9f11da274ff5a9541c40bea925417",
+    "backend/tests/test_crop_leaf_funded_birth_point.py": "1c119a67ca7fb4fa1766bc82a3df1e50b49723bfeedefcbeedc3f957fd29dc3b"
+  },
+  "batch_counts": [
+    1,
+    2,
+    3
+  ],
+  "incoming_temperatures_degC": [
+    10.0,
+    22.0,
+    34.0
+  ],
+  "maximum_case": 0,
+  "maximum_result_leaves": 512,
+  "new_leaf_values_source": "fixtures/crop-leaf-funded-birth-web-declaration-v1.json",
+  "temperature_basis": "existing material-point regression inputs; not measured crop parameters",
+  "rights": {
+    "declaration_id": "own-fractional-material-point-qa",
+    "revision": "v1",
+    "declared_at_utc": "2026-10-26T05:25:08Z",
+    "access": true,
+    "store": true,
+    "use": true,
+    "transform": true,
+    "display": true,
+    "redistribute": true,
+    "ownership_asserted": true
+  },
+  "reviewer": "native Codex CLI gpt-6.1-sol/xhigh; no independent farm validation"
+}

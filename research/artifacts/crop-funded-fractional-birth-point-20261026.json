@@ -1,0 +1,797 @@
+{
+  "schema_version": "funded-fractional-material-point-evidence-v1",
+  "baseline_HEAD": "504d1aace6bf5f1ffe3399f84640f74cf2315e21",
+  "model_version": "funded-fractional-structural-birth-point-research-v1",
+  "scope": "software_research_only",
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "source_pins": {
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_funded_event_state.py": "c18ae07e1aea84766801c563d03fad4a622a21e9f48c6292bec1bcb098a300d9",
+    "backend/app/crop_funded_event_time.py": "30a0c08b548a3cad7990cb6a58617002392b6946c36979906aa1df41c763eba5",
+    "backend/app/crop_funded_fractional_birth_point.py": "66c149dff6285e0bf28b6576c988bf1972853b0f4ef2d4b3418ecc8cb5093f18",
+    "backend/app/crop_funded_shoot_epochs.py": "9ffbc9bdc20f552778b2832186323fe79b2a9019734b0940045874bd6d9fe2b7",
+    "backend/app/crop_growing_geometry_climate.py": "5cf58d1dea92e59e1059d5e5cd359a81b8dde950fed2ac575911a4be90788a0a",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_carbon_partition.py": "6b80b6611ac1f972158fe00fea92c9b0b99af3d94f942ec2710b6fea26c81266",
+    "backend/app/crop_leaf_carbon_stock_artifact_producer.py": "98f5997eefd0857402a782cf39d0e1db729b38b4678f71d25115c4000cc8f679",
+    "backend/app/crop_leaf_carbon_stock_artifact_reader.py": "37d6cc94f20d85a1d5e37ae0ff3f4466c3ab3b563768543f2d40e204cb2f0225",
+    "backend/app/crop_leaf_carbon_stock_continuation.py": "62b7ba4c8dbcf56297fde3e2c8ef78e55efe283eab85b9f26640f917236e8f0d",
+    "backend/app/crop_leaf_carbon_stock_dynamics.py": "0e2a51a23b95b10cfc15d46f5668266f2b7981a769d966a167f9a4a9cafdf80d",
+    "backend/app/crop_leaf_carbon_stock_rhs.py": "1da1cfef06860893b9ef4f661b15e5d7b4bc099a8d6563c4a9c6bd23156ab4be",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_leaf_funded_birth_artifact_producer.py": "9803a2eb3bede2920f0dd1cef79615741f5a614275ec407ff09874c4ed143495",
+    "backend/app/crop_leaf_funded_birth_artifact_reader.py": "9d80c2f523ada0f2c55dce1837d2f35d10ef78efc3088fea9b45010b0b35f0bd",
+    "backend/app/crop_leaf_funded_birth_continuation.py": "fd4346afc797b91459cd1f33273c0489545976333c42da68a1b0945ff37eaec2",
+    "backend/app/crop_leaf_funded_birth_point.py": "cec6bf7bbfc3dc5c569ab5cfa6e8d28d16acd31865419225baed074111a38005",
+    "backend/app/crop_leaf_partition_climate_rhs.py": "a708f13ed9290f4353e61310959aeab8f2f4bf0c3c4f02d5f9d0181fc3aebab3",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_rational_internode_length.py": "423e6737cc77773d3ffdb8ab45d4aa37d106947b4222f2a6ecede839caae8a9b",
+    "backend/app/crop_rational_morphology_artifact_producer.py": "92b367462510ee7a7868e8952647ed5008d4d8849c900357f09f27df17215f06",
+    "backend/app/crop_rational_morphology_artifact_reader.py": "3de1502abca94613d1c55cb37568236ce164665d577aa06090d36d5842d5e44b",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/app/crop_rational_new_internodes.py": "76a59f191ca7f03902ce0db9cbdf6da8cf0c2fd792532d6830a669a0899472f5",
+    "backend/app/crop_rational_shoot_inventory.py": "42f66f8e22723cbfa674e879f74255389db8d76e008ef30a9fb24a5a38057625",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8"
+  },
+  "output_pins": {
+    "backend/tests/test_crop_funded_fractional_birth_point.py": "e7be140eeaf83ec3ff8e25ab21f1b595f38f1483c10eec83d6a5638bd4a07cb7",
+    "contracts/crop-funded-fractional-birth-point-v1.md": "d295c2fc81df00a478f4b0c8e0b03304b9b330c4c8deef2fd68b84a61cb8da5a",
+    "fixtures/crop-funded-fractional-birth-point-fixtures-v1.json": "44a646eaf8249a2a28d55c193350e6feacb7152404578d17419daa6a2782ac40",
+    "research/verify-funded-fractional-birth-points.py": "52d2d9eeee836abc22e08d6ee14108058453c159a332e96c9541e036dd6de5b5",
+    "research/crop-funded-fractional-birth-point-20261026.md": "76f9f80008a63f247a01f66d63dd2a5cbc179e31fa381072f92627f89674e07d"
+  },
+  "native_model_evidence": {
+    "observed_at_UTC": "2026-10-26T05:13:14.309889+00:00",
+    "turn_context_timestamp": "2026-10-26T05:12:18.761Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_LF_sha256": "d12cf56e27addbf212a8100d4c01d7f6de8625c7470f33de05e25bca697fde84",
+    "recursive_CLI": 0
+  },
+  "focused_checks": {
+    "passed": 33,
+    "failed": 0,
+    "initial_before_added_long_ID_cap_regression": {
+      "passed": 32,
+      "failed": 0
+    },
+    "target": "backend/tests/test_crop_funded_fractional_birth_point.py"
+  },
+  "fresh": {
+    "G0_G4": "not_assessed",
+    "RHS_evaluations": 356,
+    "files_created_in_new_output": 56,
+    "forbidden_calls": {
+      "CLI": 0,
+      "DB": 0,
+      "network": 0,
+      "old_grid_apply": 0,
+      "outside_output_write_open": 0,
+      "past_advance_or_prepare": 0
+    },
+    "index": {
+      "G0_G4": "not_assessed",
+      "actual_stem_attachment": "not_bound",
+      "all_requested_points_accepted": false,
+      "checkpoint_adoptions": 0,
+      "contexts": [
+        {
+          "candidate_sha256": "97e60fdf377510b549610349ee98bb18ccd615eb199587a1a839139b8f74f0ef",
+          "case_index": 0,
+          "context_sha256": "42abe2e40e4ffc39526ac703f52c028f1bd48b0cfe96a3cbbb352fec1fa5b9a1"
+        },
+        {
+          "candidate_sha256": "c72ffd855540e1ee26f4f2d115c7916ca53e5d519e885314b24155d310fa12f1",
+          "case_index": 1,
+          "context_sha256": "e6efcc6ae522132127ce40aae12676b92edfcc528486b63b989a7fcc64e6b107"
+        },
+        {
+          "candidate_sha256": "56d63be88743af8c89ea86bb9e48d15ffe1cee751f5c3f04e36d1fe661354eb8",
+          "case_index": 2,
+          "context_sha256": "8ac60fecd621d05f012eb3f502c1fcd49f0f75d58b0ae8ee3a71d72061aea438"
+        },
+        {
+          "candidate_sha256": "465fdefdff68f54d9d3fb645cf0406ee7370f9f9ff7e9c9cb98fc1383e455c5e",
+          "case_index": 3,
+          "context_sha256": "b14422a48444a96c62bc373cb8f143eabeb872e4dbd30d0bf48f08b13a1cf71a"
+        },
+        {
+          "candidate_sha256": "8ac3dd7e98bc86cf34b2521d294a9260175f999d214248b24edf2a00cd3eee81",
+          "case_index": 4,
+          "context_sha256": "5c3b535108bd69f91a6878490f77cb34e78e47dd72d6bb12e9d0511c004ec70e"
+        },
+        {
+          "candidate_sha256": "79f5fe28ae9cbea4d29532215a734c15a0c14354b4401f3cb98d6989bb9290f5",
+          "case_index": 5,
+          "context_sha256": "5768cbeb9de69ededa6ee4a4883980d8855b8df0036c3a8c506efa6641d09c1b"
+        }
+      ],
+      "declaration_sha256": "44a646eaf8249a2a28d55c193350e6feacb7152404578d17419daa6a2782ac40",
+      "holds": [
+        {
+          "capacity_frames": [
+            {
+              "limit_bytes": 524288,
+              "module": "app.crop_leaf_carbon_stock_rhs",
+              "serialized_bytes": 528002
+            }
+          ],
+          "case_index": 0,
+          "count": 507,
+          "inputs_path": "held-case-0-count-507-inputs.json",
+          "inputs_sha256": "451718991a20d71c725a6d4e4cb3e70b5649f4fd0a38f01003355a4343165475",
+          "reason": "CAPACITY_HOLD: 512KiB individual stock input/output required",
+          "requested_case_accepted": false,
+          "temperature": 22.0
+        }
+      ],
+      "independent_Decimal_precision": 200,
+      "independent_leaf_receipts": 108,
+      "independent_point_balances": 270,
+      "point_count": 54,
+      "points": [
+        {
+          "bytes": 92607,
+          "case_index": 0,
+          "count": 1,
+          "path": "case-0-count-1-temperature-10.0.json",
+          "result_leaves": 6,
+          "sha256": "ef31248645bf13f1b2f8963d48e4e05656625fd54a13cfc8bc2784e5aba6faab",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 92605,
+          "case_index": 0,
+          "count": 1,
+          "path": "case-0-count-1-temperature-22.0.json",
+          "result_leaves": 6,
+          "sha256": "fcc9905952d934973a3df8e9dd01edcc5132400a2663610606ef24f1209c7786",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 92607,
+          "case_index": 0,
+          "count": 1,
+          "path": "case-0-count-1-temperature-34.0.json",
+          "result_leaves": 6,
+          "sha256": "4d8259c3753f27d4bbe55026418ae3cc4901f2320ba8cf2616e72c552fd4698e",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 95461,
+          "case_index": 0,
+          "count": 2,
+          "path": "case-0-count-2-temperature-10.0.json",
+          "result_leaves": 7,
+          "sha256": "ffd5a01a3d2a67b8c63f2cf7b9fdd69556a82e2d9a0aab47694807783bdfe468",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 95467,
+          "case_index": 0,
+          "count": 2,
+          "path": "case-0-count-2-temperature-22.0.json",
+          "result_leaves": 7,
+          "sha256": "0910014312b1853e2067e1364cee74cc079bed7bcfda75f634920000de39855c",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 95451,
+          "case_index": 0,
+          "count": 2,
+          "path": "case-0-count-2-temperature-34.0.json",
+          "result_leaves": 7,
+          "sha256": "c10edbd96ce4be5d90694ff7e86b6a3446f3c186b29f1039bcc506c73b9b7da3",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 98321,
+          "case_index": 0,
+          "count": 3,
+          "path": "case-0-count-3-temperature-10.0.json",
+          "result_leaves": 8,
+          "sha256": "d3672ce36c9244ae665a3cd5698cbbdb8866968eceface48a887867b39ed9744",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 98334,
+          "case_index": 0,
+          "count": 3,
+          "path": "case-0-count-3-temperature-22.0.json",
+          "result_leaves": 8,
+          "sha256": "3f26698f69aa7bd886e9cb046c9d0c93c8f653a6a66c590abff1c6688c36247e",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 98324,
+          "case_index": 0,
+          "count": 3,
+          "path": "case-0-count-3-temperature-34.0.json",
+          "result_leaves": 8,
+          "sha256": "77890b477513f2d9ee45dc7c60f13ea6588a7a24336c3db692bdeece7b9cb73e",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 92418,
+          "case_index": 1,
+          "count": 1,
+          "path": "case-1-count-1-temperature-10.0.json",
+          "result_leaves": 6,
+          "sha256": "03a244d9747d050c007ea0fb9c1b0325b99e2f785fb87de90d438d26707b2acf",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 92423,
+          "case_index": 1,
+          "count": 1,
+          "path": "case-1-count-1-temperature-22.0.json",
+          "result_leaves": 6,
+          "sha256": "6494d0b9742b1c1cc10e76383aaa7e5e4ee08411e31b89759fbcbef31726a7e1",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 92424,
+          "case_index": 1,
+          "count": 1,
+          "path": "case-1-count-1-temperature-34.0.json",
+          "result_leaves": 6,
+          "sha256": "a49821542b466ddbd96cf90615718957c995b9c1f6e3e73ee4f9772cba63eda8",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 95269,
+          "case_index": 1,
+          "count": 2,
+          "path": "case-1-count-2-temperature-10.0.json",
+          "result_leaves": 7,
+          "sha256": "82a25ccf392ade710a6b31cc1dce5586fbd5ee1109d33388fd1b2c5a3da59ef5",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 95273,
+          "case_index": 1,
+          "count": 2,
+          "path": "case-1-count-2-temperature-22.0.json",
+          "result_leaves": 7,
+          "sha256": "c4b817a376050d8010efc2636225b6ca093b86355af005f85155a16db1c1f5f3",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 95266,
+          "case_index": 1,
+          "count": 2,
+          "path": "case-1-count-2-temperature-34.0.json",
+          "result_leaves": 7,
+          "sha256": "d44a2496a0a2f780b72a30a0ca9cf9e1bffe31895431585f139dc2479385f17c",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 98129,
+          "case_index": 1,
+          "count": 3,
+          "path": "case-1-count-3-temperature-10.0.json",
+          "result_leaves": 8,
+          "sha256": "998039b19f8653c55e160236a5dfc95108eeaebb0ab49f1bc08da1f312458bb7",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 98132,
+          "case_index": 1,
+          "count": 3,
+          "path": "case-1-count-3-temperature-22.0.json",
+          "result_leaves": 8,
+          "sha256": "312ee6ad02d292af21963752fd4739baf344864f60d0597606be1e7bc8973d67",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 98134,
+          "case_index": 1,
+          "count": 3,
+          "path": "case-1-count-3-temperature-34.0.json",
+          "result_leaves": 8,
+          "sha256": "24b47758d849138f6816abc44ab0da2b98783609b5de61befd78960ff877003f",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 93215,
+          "case_index": 2,
+          "count": 1,
+          "path": "case-2-count-1-temperature-10.0.json",
+          "result_leaves": 6,
+          "sha256": "d53c5622c1ebca7cad4223048ef51795cd226d5ee3e0de5aedb4a2f89f714995",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 93223,
+          "case_index": 2,
+          "count": 1,
+          "path": "case-2-count-1-temperature-22.0.json",
+          "result_leaves": 6,
+          "sha256": "7447988db9d2d1225f5ed6960d7db60bc8a8a5ac60dd89aa38cf68922276838c",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 93213,
+          "case_index": 2,
+          "count": 1,
+          "path": "case-2-count-1-temperature-34.0.json",
+          "result_leaves": 6,
+          "sha256": "50b10a4105b814540e0fb17a4829b774ae716dca590e286157182850f6c5ae54",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 96064,
+          "case_index": 2,
+          "count": 2,
+          "path": "case-2-count-2-temperature-10.0.json",
+          "result_leaves": 7,
+          "sha256": "adf84d5ace179aa7999277f18adccc6de24317f05aed8a100c7eec1082f1bb15",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 96071,
+          "case_index": 2,
+          "count": 2,
+          "path": "case-2-count-2-temperature-22.0.json",
+          "result_leaves": 7,
+          "sha256": "8550a77ab060ec829c355fdda6f079616b8ea89e384645a383ea1ac357ae31f2",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 96066,
+          "case_index": 2,
+          "count": 2,
+          "path": "case-2-count-2-temperature-34.0.json",
+          "result_leaves": 7,
+          "sha256": "9983fb623ec1797802fdf809ce51617dc1e08daf3ff657e58b76f6fe2e2e7f71",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 98936,
+          "case_index": 2,
+          "count": 3,
+          "path": "case-2-count-3-temperature-10.0.json",
+          "result_leaves": 8,
+          "sha256": "4d352171ab2133964e5b43207a6387ebddbae2b26626dbb005e25122f862b68c",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 98928,
+          "case_index": 2,
+          "count": 3,
+          "path": "case-2-count-3-temperature-22.0.json",
+          "result_leaves": 8,
+          "sha256": "d4888bf8e5bc90053904fff5112c4d407251c012465c90fde1ea5476ac8f6455",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 98926,
+          "case_index": 2,
+          "count": 3,
+          "path": "case-2-count-3-temperature-34.0.json",
+          "result_leaves": 8,
+          "sha256": "1312fcdba9af09605b2fe6646770d802b4a498e55ef903896e27455d228ca370",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 92685,
+          "case_index": 3,
+          "count": 1,
+          "path": "case-3-count-1-temperature-10.0.json",
+          "result_leaves": 6,
+          "sha256": "549d8c32d8049272ed532899444bf3045a2b3fb2417ed5cfd85e78597d47573c",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 92678,
+          "case_index": 3,
+          "count": 1,
+          "path": "case-3-count-1-temperature-22.0.json",
+          "result_leaves": 6,
+          "sha256": "94b7762bf689a1e33887f766999a3169b5c755fe64fc71d7912330a01ffd3fed",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 92686,
+          "case_index": 3,
+          "count": 1,
+          "path": "case-3-count-1-temperature-34.0.json",
+          "result_leaves": 6,
+          "sha256": "c86c80b6fae93ea800419c74f24531b3a3fe8c2b6a299844019c59a461660286",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 95536,
+          "case_index": 3,
+          "count": 2,
+          "path": "case-3-count-2-temperature-10.0.json",
+          "result_leaves": 7,
+          "sha256": "e8ee3937e2c6709209e1149e5069379962db61119222a86f9d79715ba56bdfcf",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 95544,
+          "case_index": 3,
+          "count": 2,
+          "path": "case-3-count-2-temperature-22.0.json",
+          "result_leaves": 7,
+          "sha256": "b175d884f9d06ffb7d8806efdb1a61539fc33f086fc50e42894708d04e2241e8",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 95534,
+          "case_index": 3,
+          "count": 2,
+          "path": "case-3-count-2-temperature-34.0.json",
+          "result_leaves": 7,
+          "sha256": "fe3c775af700642274afeebdb72d15a868a3f666502391dee7afc29a014ff25f",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 98404,
+          "case_index": 3,
+          "count": 3,
+          "path": "case-3-count-3-temperature-10.0.json",
+          "result_leaves": 8,
+          "sha256": "8d6ff557a721989c78691011058ceb5247c5a2c631bd725b2150ebe172339313",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 98407,
+          "case_index": 3,
+          "count": 3,
+          "path": "case-3-count-3-temperature-22.0.json",
+          "result_leaves": 8,
+          "sha256": "4df06081ae63d99c11db00ecb72b9f18e9a99df4ecf07a11530a0f7ffee8bb55",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 98399,
+          "case_index": 3,
+          "count": 3,
+          "path": "case-3-count-3-temperature-34.0.json",
+          "result_leaves": 8,
+          "sha256": "a1c18ae6f9c392e75d077ab59eac2e4395fad99cf5b70e5ec545cf23077235a8",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 92215,
+          "case_index": 4,
+          "count": 1,
+          "path": "case-4-count-1-temperature-10.0.json",
+          "result_leaves": 6,
+          "sha256": "68787f6bff893d63613c01b27012b95a7a12d7e7ab28492b00001c3539d8a055",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 92177,
+          "case_index": 4,
+          "count": 1,
+          "path": "case-4-count-1-temperature-22.0.json",
+          "result_leaves": 6,
+          "sha256": "36f62c7dea7ab6ad9315ef4c61b4e1afd68a3a5174564abf08bb262b7973d0ee",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 92215,
+          "case_index": 4,
+          "count": 1,
+          "path": "case-4-count-1-temperature-34.0.json",
+          "result_leaves": 6,
+          "sha256": "853bbddce1653df26d589578e8f03156114ad66b4b989c1d7c4a7435f4e32c73",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 95082,
+          "case_index": 4,
+          "count": 2,
+          "path": "case-4-count-2-temperature-10.0.json",
+          "result_leaves": 7,
+          "sha256": "af8b2ad166b99f09a83a4ddd2056a925eef910d0c22adc80b1a7e1599f7a0186",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 95021,
+          "case_index": 4,
+          "count": 2,
+          "path": "case-4-count-2-temperature-22.0.json",
+          "result_leaves": 7,
+          "sha256": "503c703f201f4d0b72273923a40f949800eb957423635ab3cd2ae76dc3176e22",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 95061,
+          "case_index": 4,
+          "count": 2,
+          "path": "case-4-count-2-temperature-34.0.json",
+          "result_leaves": 7,
+          "sha256": "461321db2f15f9965ffe000f4b672a501a950f0155db69dc1be04bd162d60dd5",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 97948,
+          "case_index": 4,
+          "count": 3,
+          "path": "case-4-count-3-temperature-10.0.json",
+          "result_leaves": 8,
+          "sha256": "f411389b204b399f8eb86f6359f95fdfe297d42bb8b9cbcc64ddc63b17561bdb",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 97873,
+          "case_index": 4,
+          "count": 3,
+          "path": "case-4-count-3-temperature-22.0.json",
+          "result_leaves": 8,
+          "sha256": "aba8d96d06b4aeaa3c0af7077334e4735785ab91fd34f22ad3f248b3830f470a",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 97928,
+          "case_index": 4,
+          "count": 3,
+          "path": "case-4-count-3-temperature-34.0.json",
+          "result_leaves": 8,
+          "sha256": "a2e0e3e942d44214a61f9bd692530f8da1df1cabc65bba6462db8ce611a63fa0",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 98206,
+          "case_index": 5,
+          "count": 1,
+          "path": "case-5-count-1-temperature-10.0.json",
+          "result_leaves": 6,
+          "sha256": "583fdd4aa17edb47723f12d12f1e13fce735b46e272994c72d7e1bce5465b7f0",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 98209,
+          "case_index": 5,
+          "count": 1,
+          "path": "case-5-count-1-temperature-22.0.json",
+          "result_leaves": 6,
+          "sha256": "1b223ef6c7ab6a3c1713abdd3051050f910dde86ec9e2e79db9b8b6cd342251e",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 98202,
+          "case_index": 5,
+          "count": 1,
+          "path": "case-5-count-1-temperature-34.0.json",
+          "result_leaves": 6,
+          "sha256": "d38dfcdeff099dad4a8340dcf552ef132594d0c7905480b23fc1af9c42fbee4b",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 101056,
+          "case_index": 5,
+          "count": 2,
+          "path": "case-5-count-2-temperature-10.0.json",
+          "result_leaves": 7,
+          "sha256": "36862919b36bb210e311bcf96dca1176dbf8dc7c55f65051e1b690bb72486c2c",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 101056,
+          "case_index": 5,
+          "count": 2,
+          "path": "case-5-count-2-temperature-22.0.json",
+          "result_leaves": 7,
+          "sha256": "cbed71b698adaf5256297a0582bd142d16413b8ed3f150338b84ae388808a06a",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 101050,
+          "case_index": 5,
+          "count": 2,
+          "path": "case-5-count-2-temperature-34.0.json",
+          "result_leaves": 7,
+          "sha256": "df199f43a699278d77101b13970ba3518ebfc2fd70a338b44b4d2c0c5f6cef44",
+          "temperature": 34.0
+        },
+        {
+          "bytes": 103915,
+          "case_index": 5,
+          "count": 3,
+          "path": "case-5-count-3-temperature-10.0.json",
+          "result_leaves": 8,
+          "sha256": "8a45b56629d6e43703953111f35692929db41991120cb7cbf2ea0956aab83ee4",
+          "temperature": 10.0
+        },
+        {
+          "bytes": 103920,
+          "case_index": 5,
+          "count": 3,
+          "path": "case-5-count-3-temperature-22.0.json",
+          "result_leaves": 8,
+          "sha256": "fb1ab01fabbe860df03bb3cd41ec426738852195ae4b21d7e7edbd7bea9a9d5a",
+          "temperature": 22.0
+        },
+        {
+          "bytes": 103920,
+          "case_index": 5,
+          "count": 3,
+          "path": "case-5-count-3-temperature-34.0.json",
+          "result_leaves": 8,
+          "sha256": "125b40f8ce3a3e036fe2b79e6a01c28b9a23dd926242fd2873f517b8b252b913",
+          "temperature": 34.0
+        }
+      ],
+      "scope": "software_research_only",
+      "source_register_sha256": "9872dba2d792a8bbf6aabfe3bf17b4a5edcb6da14a05d4e3d260aebf99730033",
+      "verification_status": "normal_points_verified_boundary_capacity_hold"
+    },
+    "observed_at_UTC": "2026-10-26T05:38:58.483612Z",
+    "prepared_contexts": 6,
+    "prior_nine_results_bit_identical": true,
+    "source_and_partial_original_files_bytes_metadata_preserved": 506,
+    "whole_requested_boundary_acceptance": false
+  },
+  "capacity_hold": {
+    "capacity_frames": [
+      {
+        "limit_bytes": 524288,
+        "module": "app.crop_leaf_carbon_stock_rhs",
+        "serialized_bytes": 528002
+      }
+    ],
+    "case_index": 0,
+    "count": 507,
+    "inputs_path": "held-case-0-count-507-inputs.json",
+    "inputs_sha256": "451718991a20d71c725a6d4e4cb3e70b5649f4fd0a38f01003355a4343165475",
+    "reason": "CAPACITY_HOLD: 512KiB individual stock input/output required",
+    "requested_case_accepted": false,
+    "temperature": 22.0
+  },
+  "whole_maximum_request_accepted": false,
+  "phases": {
+    "fractional-point-tests-v1": {
+      "observed_at_UTC": "2026-10-26T05:21:13.717591Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 54.038762695970945,
+      "PID_peak_RSS_bytes": 132784128,
+      "combined_peak_RSS_bytes": 169705472,
+      "samples": 213,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5636,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "5fbfae226229f3e2eeee76f9c21796f564918e509812881bebf559bcf9a1b39b",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "fractional-point-fresh-v1": {
+      "observed_at_UTC": "2026-10-26T05:25:49.797170Z",
+      "child_exit": 1,
+      "hold_reason": null,
+      "wall_seconds": 40.44136521400651,
+      "PID_peak_RSS_bytes": 56938496,
+      "combined_peak_RSS_bytes": 93450240,
+      "samples": 159,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5638,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "428855d962365aa14f84a5bea9f1cc63965700cceebf2321562221cfc28c190c",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "fractional-point-tests-v2": {
+      "observed_at_UTC": "2026-10-26T05:32:20.992640Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 54.81261819897918,
+      "PID_peak_RSS_bytes": 95342592,
+      "combined_peak_RSS_bytes": 131825664,
+      "samples": 216,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5638,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "aecac6e82f124a289461e74933596caac334304214e3cfdfbdcd53bc26e6f917",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "fractional-point-fresh-v2": {
+      "observed_at_UTC": "2026-10-26T05:38:59.606564Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 253.40102601097897,
+      "PID_peak_RSS_bytes": 70660096,
+      "combined_peak_RSS_bytes": 107343872,
+      "samples": 1007,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5638,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "6bb72a25a4a73fade9cc13149f6e33ebed7d04650588c0c496f5e00c99164f5a",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "not_run": [
+    "full_backend",
+    "unchanged_models_and_SDK",
+    "web_build",
+    "browser",
+    "R2"
+  ],
+  "remaining": [
+    "fractional_checkpoint_global_segment_point_ledgers_exact_time_phase_cursor_trusted_restore",
+    "original_grid_remainder_one_time_adoption_split_resume_and_failure",
+    "same_failed_512_request_bounded_serialization_without_changing_values_IDs_or_caps",
+    "bound_stem_leaf_attachment_and_current_farm_review",
+    "immutable_combined_result_strict_SDK_same_state_actual_leaf_3D",
+    "real_cultivar_independent_farm_data_G0_G4",
+    "full_cycle_resources_economics_macro_supply_demand_autonomous_comparison_final_UI"
+  ],
+  "whole_goal": "active_incomplete",
+  "full_completion_date": "unknown"
+}
