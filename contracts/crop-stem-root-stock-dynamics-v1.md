@@ -1,6 +1,6 @@
 # 개별 줄기·뿌리·잎 재고와 기후의 짧은 공동 적분 — 연구 v1
 
-상태: 구현/검증 중. [기관 재고 RHS](crop-stem-root-carbon-stock-rhs-v1.md) 다음 단계다. 고정 기관 목록의 합성 순간/짧은 적분이며 새 기관·checkpoint/재개·탄소 공급 제한 형상·실제 작기 예측은 후속이다.
+상태: [신규63/관련336·399검사, app-free Decimal110/별도6궤적·102시점 수용](../research/crop-stem-root-stock-dynamics-20261027.md)의 합성 짧은 적분. [기관 재고 RHS](crop-stem-root-carbon-stock-rhs-v1.md) 다음 단계다. 새 기관·checkpoint/재개·탄소 공급 제한 형상·실제 작기 예측은 후속이다.
 
 `evaluate_rhs(program=...,**profiles)`와 `integrate(program=...,step_seconds=...,step_count=...,**profiles)`를 제공한다. [기존 개별 잎 동역학](crop-leaf-carbon-stock-dynamics-v1.md)의 프로그램에서 scenario.plant_state.stem_root와 scenario.removals.stem_root를 제외한다. 별도 집계를 입력하면 같은 값이어도 거부한다. stem_root_stock_policy=`stem-root-stocks-uniform-maintenance-explicit-removal-v1`과 stem_root_compartments를 추가한다. 각 행은 compartment_id/kind/initial_carbon/sink_weight/carbon_removal이며 원 재고 RHS와 같은 단위/정상수·비음수 조건, 고유 ID·원 순서·정확히 하나의 root_system을 요구한다. 기본 재고/가중치·과거 geometry/SLA 역산은 없다.
 
