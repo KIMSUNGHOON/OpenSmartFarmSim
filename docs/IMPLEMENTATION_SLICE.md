@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-26 KST:** [전체 합성 이력 불변 저장·무계산 조회: 25검사/별도12결과·834시점](../research/crop-complete-artifact-20261026.md)을 수용했습니다. 원 packet/CP380개·CP 없는 후보12개·잎 상태13,788값을 보존하고 cold12프로세스의 생장 import/DB/CLI/network/쓰기0을 확인했습니다. 다음은 새 artifact export → 새 strict SDK → 같은 저장 상태의 실제 잎·줄기3D입니다. 이번 결과는 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 기존512잎 byte-cap hold·새 절간별 C/초기 생물학·실제 품종/독립 국내 자료0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4/R2와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [전체 합성 작물 결과의 웹용 내보내기: 새21검사/12경로·834시점/두 출력9,464파일](../research/complete-crop-export-20261026.md)을 수용했습니다. 원 raw/packet·체크포인트/수치 후보·잎 상태/시각·NOTICE·권리를 보존하고 별도 생장 import/DB/CLI/network·출력 외 write open0을 확인했습니다. 다음은 새 strict SDK → 같은 저장 상태의 실제 잎·줄기3D입니다. 새 결과는 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 기존512잎 byte-cap hold·새 절간별 C/초기 생물학·실제 품종/독립 국내 자료0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4/R2와 전체 완료일은 미완료·미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
