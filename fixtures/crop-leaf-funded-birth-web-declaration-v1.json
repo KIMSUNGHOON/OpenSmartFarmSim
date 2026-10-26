@@ -1,0 +1,55 @@
+{
+  "schema_version": "funded-leaf-web-declaration-v1",
+  "origin": "own_synthetic_software_fixture",
+  "source_reference": "fixtures/crop-leaf-carbon-stock-dynamics-reference-v1.json",
+  "time_origin_utc": "2026-10-01T00:00:00Z",
+  "step_seconds": 2,
+  "step_count": 16,
+  "birth_steps": [
+    4,
+    12
+  ],
+  "new_leaf_curve_basis": "same_as_first_existing_synthetic_leaf",
+  "new_leaf_values": {
+    "initial_carbon": {
+      "value": 1.0,
+      "unit": "mg_CH2O/m2_floor"
+    },
+    "sink_weight": {
+      "value": 1.0,
+      "unit": "1"
+    },
+    "carbon_removal": {
+      "value": 0.0,
+      "unit": "mg_CH2O/m2_floor/s"
+    },
+    "incoming_temperature": {
+      "value": 22.0,
+      "unit": "degC"
+    }
+  },
+  "rights": {
+    "declaration_id": "own-public-funded-leaf-replay",
+    "revision": "public-v1",
+    "declared_at_utc": "2026-10-26T01:34:16Z",
+    "ownership_asserted": true,
+    "access": true,
+    "store": true,
+    "use": true,
+    "transform": true,
+    "display": true,
+    "redistribute": true
+  },
+  "rights_assertion_basis": "Project-owned synthetic requests/outputs; pinned reference profile notices retained. No private packet is reclassified or copied. No third-party field measurements adopted.",
+  "reviewer": "native development Codex CLI gpt-6.1-sol/xhigh; not independent farm validation",
+  "cases": [
+    "warm-day-individual-stock",
+    "reverse-individual-stock",
+    "cool-dark-individual-stock",
+    "warm-reference30-individual-stock",
+    "warm-reference22-individual-stock",
+    "empty-entry-individual-stock"
+  ],
+  "G0_G4": "not_assessed",
+  "source_sha256": "26c5eff5df009486dddc2f68706d23b99dadac185dca052aecfd1ad1da7fca0f"
+}

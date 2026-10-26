@@ -1,5 +1,7 @@
 # 자료·연구 기준선
 
+**2026-10-26 KST 출현 strict export:** [21검사·fresh114시점/두 출력648파일](../research/leaf-funded-birth-export-20261026.md)에서 원 source/point/context/CP/DTO·권리/notice/phase·정확 격자를 보존했다. 별도 자체 공개 선언·새 원본/새 root로 생성했고 private False132blob은 바꾸지 않았다. 독립 exporter의 생장 import/DB/CLI/network0·출력 외 write0과 원 GUI/source/2root/WSL을 확인했다. 새 계수/외부 관측 채택0, 실제 품종/독립 자료·G0–G4/R2는 미완료다. 다음은 새 형식의 strict SDK와 원 clock/attachment 결속이다.
+
 **2026-10-26 KST 출현 저장/무계산 조회:** [59검사·fresh6결과/42시점](../research/crop-leaf-funded-birth-artifact-20261026.md)에서 원 모델5,034상태·raw CP/가변 ID/point·context·장부/정확 시각/phase를 보존했다. 별도 reader의 생장 import·DB·CLI/network·쓰기0과 private False132blob의 원 bytes/metadata를 확인했다. 원 모델/계수·실제 측정 채택0이며 새 결과의 raw 패킷/DTO를 Git이나 public True로 올리지 않았다. 다음은 별도 자체 공개 선언/새 합성 원본의 strict export→SDK/같은 상태 실제 잎3D다. 원 clock/attachment 결속·실제 품종/독립 자료/관문은 병행·미완료다.
 
 **2026-10-26 KST 조달 뒤 재개:** [153신규/74회귀·독립24문맥/60시점](../research/crop-leaf-funded-birth-continuation-20261026.md)에서 현재 잎/과실/기후의 실제 RK4·원 D0/전역 시계·연속/점 장부·복수 사건 이력·원 source/profile를 보존했다. app-free Decimal110의7,194상태/810적분량·372장부와 원36조달점의 identity 이외 전체 필드 동등성을 확인했다. 새 계수·측정 자료 채택0이며 기존 원문/권리 보류와 실제 품종/독립 자료0·G0–G4/R2를 유지한다. 다음은 불변 저장/무계산 reader와 원 clock/attachment 결속의 병행이다.
