@@ -100,7 +100,7 @@ def _new_leaf(leaf):
     return normalized, receipt
 
 
-def apply_births(*, context, raw_checkpoint, expected_sha256, inputs):
+def _apply_current(*, program, anchors, manifest, saved, context_sha256, checkpoint_sha256, profiles, inputs):
     try:
         _fence()
         _closed(inputs, FIELDS)
@@ -110,11 +110,9 @@ def apply_births(*, context, raw_checkpoint, expected_sha256, inputs):
         _need(v['schema_version'] == 'leaf-funded-birth-point-input-v1'
               and v['origin'] == 'synthetic' and v['policy'] == POLICY,
               'POLICY_HOLD: explicit synthetic new structural growth required')
-        cp = resume.restore_checkpoint(context, raw_checkpoint, expected_sha256=expected_sha256)
-        _need(v['context_sha256'] == context.root_sha256 and v['checkpoint_sha256'] == cp.sha256,
+        _need(v['context_sha256'] == context_sha256 and v['checkpoint_sha256'] == checkpoint_sha256,
               'HASH_HOLD: original context/checkpoint required')
-        p, seed, manifest = resume._context(context)
-        saved = cp.value
+        p = program
         y = saved['last_confirmed']['state']
         n = len(p['leaves'])
         at = Fraction.from_float(manifest['numerical']['step_seconds'])*saved['step_index']
@@ -151,7 +149,7 @@ def apply_births(*, context, raw_checkpoint, expected_sha256, inputs):
             capacities.append(cap)
             energies.append(energy)
         masses = [leaf['initial_carbon']['value'] for leaf in leaves]
-        structural, respiration, debit, buffer = _fund(y[0], masses, context._profiles[0].values['cLeafG'])
+        structural, respiration, debit, buffer = _fund(y[0], masses, profiles['growth_profile'].values['cLeafG'])
         capacity = _rounded(sum(map(Fraction.from_float, capacities), Fraction(0)))
         energy = _rounded(sum(map(Fraction.from_float, energies), Fraction(0)))
         after_u = _rounded(Fraction.from_float(y[104])+Fraction.from_float(energy))
@@ -161,8 +159,8 @@ def apply_births(*, context, raw_checkpoint, expected_sha256, inputs):
         state = [*base, *y[107:107+n], *([0.]*len(leaves)), *y[107+n:107+2*n],
                  *(row['initialization']['state']['area']['value'] for row in receipts), *y[107+2*n:], *masses]
         after_program = {**deepcopy(p), 'leaves': [*deepcopy(p['leaves']), *leaves]}
-        rates, current = resume.short._evaluate(after_program, tuple(state), resume._profiles(context))
-        gaps = [*seed['evaluation']['curve_residuals'], *(numeric._q(0., 'm2') for _ in leaves)]
+        rates, current = resume.short._evaluate(after_program, tuple(state), profiles)
+        gaps = [*anchors, *(numeric._q(0., 'm2') for _ in leaves)]
         sample = resume.short._sample(saved['step_index'], manifest['numerical']['step_seconds'], state, current, gaps)
         carbon_before = numeric._sum(y[0], y[1], *y[4:54], *y[107+2*n:])
         carbon_after = numeric._sum(state[0], state[1], *state[4:54], *state[107+2*(n+len(leaves)):])
@@ -174,7 +172,7 @@ def apply_births(*, context, raw_checkpoint, expected_sha256, inputs):
                                 -saved['last_confirmed']['derived']['canopy_capacity']['value'], -capacity), numeric.CAPACITY)}
         result = {'model_version': VERSION, 'policy': POLICY, 'code_sha256': CODE_SHA256,
                   'clock_code_sha256': CLOCK_CODE_SHA256, 'input_sha256': sha256(raw).hexdigest(),
-                  'context_sha256': context.root_sha256, 'checkpoint_sha256': cp.sha256,
+                  'context_sha256': context_sha256, 'checkpoint_sha256': checkpoint_sha256,
                   'parent_manifest': manifest, 'inputs': v, 'before_checkpoint': saved,
                   'after_program': after_program, 'after_sample': sample, 'after_rates': list(rates),
                   'after_state_layout': resume.short._layout(after_program), 'birth_receipts': receipts,
@@ -189,6 +187,22 @@ def apply_births(*, context, raw_checkpoint, expected_sha256, inputs):
         _canonical(result)
         _fence()
         return result
+    except FundedBirthHold:
+        raise
+    except (ValueError, TypeError, KeyError, AttributeError, OSError, OverflowError, ZeroDivisionError, RecursionError) as error:
+        raise FundedBirthHold(str(error) if isinstance(error, ValueError)
+                              else 'INPUT_HOLD: invalid point input/arithmetic') from None
+
+
+def apply_births(*, context, raw_checkpoint, expected_sha256, inputs):
+    try:
+        _fence()
+        _closed(inputs, FIELDS)
+        cp = resume.restore_checkpoint(context, raw_checkpoint, expected_sha256=expected_sha256)
+        p, seed, manifest = resume._context(context)
+        return _apply_current(program=p, anchors=seed['evaluation']['curve_residuals'], manifest=manifest,
+                              saved=cp.value, context_sha256=context.root_sha256, checkpoint_sha256=cp.sha256,
+                              profiles=resume._profiles(context), inputs=inputs)
     except FundedBirthHold:
         raise
     except (ValueError, TypeError, KeyError, AttributeError, OSError, OverflowError, ZeroDivisionError, RecursionError) as error:
