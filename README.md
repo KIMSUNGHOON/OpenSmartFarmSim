@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-27 KST:** [줄기·뿌리 새 탄소 유입 배분58검사·독립 fresh72조건/576수치](research/stem-root-carbon-partition-20261027.md)을 순수 산술 자식으로 수용했습니다. 원 stem_root 유입/호흡 비용·명시 뿌리계/절간·floor/단위·세 조정의 수지와 기존 자료/GUI를 보존했습니다. 다음은 같은 공동 RHS에 한 번 결속→기관별 초기 C/유지호흡·고갈/적분·출현 비용입니다. [기존 저장3D834시점](research/complete-crop-stored-replay-20261027.md)과 [5180 미리보기](http://localhost:5180/complete-crop-replay.html)(10/27 13:09KST 만료)는 유지하며 새 배분은 UI/runtime 미연결입니다. VTC 코드/측정 자료의 권리·구성은 미확인으로 후보만 기록했고 새 품종/관측 채택0·독립 국내 측정0건입니다. 공급 제한 길이/면적·한 작기/수확/자원·경제/거시·수급/자율 비교·제품 통합·최종 R2/첫 shader warning·512잎 byte-cap/전체 주앱 build·G0–G4와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-27 KST:** [줄기·뿌리 배분의 같은 stage 공동 RHS: 신규96/관련159·255검사·독립 fresh72조건/594수치](research/stem-root-partition-climate-rhs-20261027.md)을 합성 순간 계산 자식으로 수용했습니다. 원9구성 함수 각1회·원 G/프로필/floor·세 조정/전체C/기관 수지·원 잎/과실/기후를 보존했고0재고 조정 후 고갈 반례를 거부했습니다. 다음은 명시 기관/뿌리 C 재고→유지호흡·고갈/적분·출현 비용입니다. [기존 저장3D834시점](research/complete-crop-stored-replay-20261027.md)과 [5180 미리보기](http://localhost:5180/complete-crop-replay.html)(10/27 13:09KST 만료)는 같은 빌드이며 새 RHS는 UI/runtime 미연결입니다. VTC 권리/측정 구성 미확인·새 품종/관측 채택0·독립 국내 측정0건·공급 제한 길이/면적·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합·최종 R2/첫 shader warning·512잎 byte-cap/전체 주앱 build·G0–G4와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
