@@ -1,6 +1,6 @@
 # 구현 순서
 
-**현재 — 2026-10-26 KST:** [공동 기온의 새 절간·실제 잎 부착: 23+1검사/독립30결합](../research/crop-funded-fractional-stem-binding-20261026.md)을 확인했습니다. 원 수치402시점/48,702상태·이전24CP를 보존했고 기존 시험용 부착12문맥은 명확히 보류합니다. 새 기관의 별도 탄소 배분/초기 잎 과거 출현은 미연결입니다. 다음은 시작→출현 전/후→끝의 전체 확정 prefix 결속·새 불변 저장/무계산 reader → strict SDK/같은 상태 실제 잎3D입니다. 이번 결과는 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 동일512요청/최소·최대 경계·실제 품종/독립 국내 자료0건·한 작기/생산/자원·경제/거시/수급·자율 비교·제품 통합/G0–G4/R2와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [시작→분수 출현 전/후→끝의 전체 합성512초 이력: 16검사/독립12경로·834시점](../research/crop-funded-complete-prefix-20261026.md)을 결속했습니다. 원 CP/수치 후보를 구별하고 69/70frame·나이/길이·잎 상태와 각 cursor를 보존했습니다. packet최대1,867,742/2,097,152bytes이며 첫 최대512요청 hold는 그대로입니다. 다음은 새 불변 producer/무계산 reader → export/strict SDK/같은 저장 상태 실제 잎3D입니다. 이번 결과는 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 새 절간별 C/초기 생물학·실제 품종/독립 국내 자료0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4/R2와 전체 완료일은 미완료·미정입니다.
 
 ## 현재 탄소 재고 다음의 순서 — 2026-10-26 KST
 
@@ -25,13 +25,14 @@
 | 3c3a | [새 실제 절간/잎 부착23+1검사·독립30결합](../research/crop-funded-fractional-stem-binding-20261026.md). 원 선택 stem/개발 원점·curve/anchor/동적 Ta·첫 새 기관의 수치 출현/나이0와 실제 부모 ID를 결속. 원402시점/48,702상태·이전24CP 보존, 기존 시험용 부착12문맥은 hold | 수용 완료(자체 합성 첫 출현 이후 형상); UI/실제 생물학·농장 승인은 별도 |
 | 3c3b | 새 절간별 C 배분/공급 제한·실제 초기 잎 과거 출현/기관 배치·후속 자동 threshold 반복을 검증. 현재 aggregate stem pool과 authored 초기 링크의 미연결을 유지 | 실제 품종/매개변수·측정 조사와 병행; 생산 모델 주장 전 수용 |
 | 4a | [불변 저장/무계산 reader59검사·fresh6결과/42시점](../research/crop-leaf-funded-birth-artifact-20261026.md): 원 bytes/point·context/CP·가변 상태/장부/시각·phase·private False132blob/모델 import·DB/CLI/network·쓰기0·1→2/512·WSL | 수용 완료(자체 합성) |
-| 4a-new — 다음 한 단계 | 시작→출현 전/후→끝의 전체 확정 prefix를 원 source frame/수치 후보/새 CP 증거 종류별로 결속하고 새 불변 결합 packet/무계산 reader를 검증. 원본의 분기 이후 미래 상태를 이어붙이거나 후보에 가짜 CP를 만들지 않음. 원 ID/시각/부착·C_i/a/A·절간/각 장부·notice/권리/미연결 사유를 보존 | prefix/점 전후0.75–1.5h+저장 계약0.5–1h+producer/reader1.5–3h+별도 검증0.75–1.5h = 잠정3.5–7집중시간; UI/외부 자료 별도 |
+| 4a-new1 | [전체 확정 prefix16검사·일반414/추가420시점](../research/crop-funded-complete-prefix-20261026.md). 시작/source CP→CP 없는 dense-before→실제 after/new-grid/end를 원 ID/시각/각 cursor로 결속. 원 CP380건의 bytes/상태·시계3,790/길이2,956 보존, 마지막12CP 동일·공통208frame 동일·2MiB/32768scalar | 수용 완료(합성512초 이력 결속); 불변 저장/사용자 화면은 별도 |
+| 4a-new2 — 다음 한 단계 | 새 불변 producer/계산 없는 reader. 원 source/notice·context/CP/candidate·초기 링크/권리/현재 code/profile·기관/잎/phase/누적/장부/미연결 사유를 결속하고 root-last 게시·부분 실패/변조/현재·늦은 source/권리·단위/순서·독립 원 값·모델 import/ODE/DB/CLI/network/쓰기0을 검증 | 저장 계약0.5–1h+producer/reader1.5–3h+별도 검증0.75–1.5h = 잠정2.75–5.5집중시간; export/SDK/UI/외부 자료 별도 |
 | 4b | [strict export21검사·fresh114시점/두 출력648파일](../research/leaf-funded-birth-export-20261026.md): 별도 자체 공개 선언/원 source·event/context/CP/DTO·권리/notice·private False132blob·index-last/FD·변조/1→2/512·계산/import/DB/CLI/network0/출력 외 write0·WSL | 수용 완료(자체 합성 공개 원본) |
 | 4c | [strict SDK122검사·전체 타입/독립 번들·HTTP133시점/424파일](../research/leaf-funded-birth-strict-sdk-20261026.md): 원114frame/324파일+실제1→2/512/fractional/같은 시각 경계19frame/100파일, 가변 ID/원 exact/phase/시계/C 기준·각 장부/영수증·취소/최신 요청을 보존 | 수용 완료(자체 합성 SDK) |
 | 4d | SDK 뒤 원 ID/C_i/a/A/원 clock·attachment/점 전후 phase의 실제 잎3D. 원 표/그래프·URL/reload·권리/부분 실패와 같은 저장 frame을 대사 | 3c2/3c3 수치/부착 계약 수용 뒤 세부 산정 |
 | 5 | 공급 제한 면적/기관 발달·한 작기/수확→검증 가능한 자원량→Decimal 경제/거시·수급→대응 후보 자율 비교→제품 UI 통합 | 실제 대상 품종/매개변수·독립 자료와 세부 작업 분해 후 산정 |
 
-이전2/4a/4b/4c와3b/3c1/3c2a–c2c2·일반 재개 core/3c3 inventory·첫 형상 결속의 공수는 실제 수용으로 대체했다. 이번 주23검사104.993초·복사 회귀1검사2.670초·원 source 재현176.360초·정책을 지킨 복사/대조15.133초·별도30결합358.178초는 검증 실행 시간이며 조사/구현·실패 진단/기록 시간은 별도다. 원본의 placeholder 부착/초기 링크 부재·새 기관 미생성을 확인해 새 판본에서 수정했고 원 수치는 보존했다. 다음은 위4a-new의 전체 prefix/점 전후 결합과 불변 저장/reader다. 기존 fixed-grid59/SDK122와 현재 실제30결합 구조를 근거로 잠정3.5–7집중시간을 배정하되 새 의존성 발견 시 갱신한다. 남은3c2c3 최소·최대/3c2c4 동일 요청 hold와3c3b 생물학/탄소는 별도이며 정상 저장/3D 개발을 막지 않는다. 이 공수는 완료 날짜가 아니다. 전체 완료일은 외부 자료 확보와 후속 작업 분해 후 갱신한다.
+이전2/4a/4b/4c와3b/3c1/3c2a–c2c2·일반 재개 core/3c3 inventory·첫 형상과4a-new1 prefix 공수는 실제 수용으로 대체했다. 이번 최종16검사341.335초·일반6별도381.763초·추가6별도390.014초는 검증 실행 시간이며 조사/구현·크기 실패 진단/기록 시간은 별도다. 원 CP 내부의 상태/누적/장부를 중복하지 않는 표현으로 모든69/70frame과 원 값을2MiB 안에서 보존했다. 다음4a-new2는 기존 fixed-grid59검사·새12경로/834frame의 실제 구조를 근거로 잠정2.75–5.5집중시간을 배정한다. export/strict SDK와 같은 저장 상태 실제 잎3D/브라우저는 그 뒤이며 새 의존성 확인 시 공수를 갱신한다. 남은3c2c3 최소·최대/3c2c4 동일 요청 hold와3c3b 생물학/탄소는 별도이고 정상 저장/3D 개발을 막지 않는다. 이 공수는 완료 날짜가 아니다. 전체 완료일은 외부 자료 확보와 후속 작업 분해 후 갱신한다.
 3c2/3c3의 자체 합성 수치/부착 결속과 실제 품종/농장 자료 확보를 병행한다. 실제 농장 자료 부재를 자체 합성 개발의 새 선행 조건으로 삼지 않는다.
 실제 품종/초기 질량·현장/독립 작기/시장 자료 확보는 개발과 병행한다.
 자료가 없다는 이유로 합성 개발을 중단하지 않으며, 개발 통과를 G0–G4/예측·추천 게시 허가로 바꾸지 않는다.
