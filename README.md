@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-27 KST:** [전체 합성 작물 새SDK: 68검사·웹 타입/단독 build·실제 HTTP4732파일/834시점](research/complete-crop-strict-sdk-20261027.md)을 수용했습니다. 원 raw/clock·실제 기관/잎 부착·CP 없는 후보/점 전후·잎 상태13,788값과 권리/원문 해시·취소/최신 응답을 대사했습니다. 다음은 같은 저장 상태의 실제 잎·줄기3D/표·재생/사용자 화면입니다. 새SDK는 아직 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 기존512잎 byte-cap/전체 주앱 build·실제 표시 R2 hold·새 절간별 C/초기 생물학·실제 품종/독립 국내 측정0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-27 KST:** [전체 합성 작물 저장3D: 110단위·전체 타입/별도 build·실제 Chrome16시험/834시점](research/complete-crop-stored-replay-20261027.md)을 수용했습니다. 같은 원 exact 시각/phase의 잎4596면적·탄수화물/나이·절간2956길이/부모 ID·표/그래프·재생/URL·메뉴/reload/실패·모바일/유휴/회전·확대를 대사했습니다. [새5180 연구 재생](http://localhost:5180/complete-crop-replay.html)은 2026-10-27 13:09 KST까지의 별도 미리보기이며 [기존5175 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 다음은 줄기 탄소 배분/공급 제한·초기 기관 정합성의 근거/계산 계약입니다. 실제 식물 비율과 다른 QA 입력·첫 shader warning/실제 표시 R2·512잎 byte-cap/전체 주앱 build·farm 현재 권리/worker 통합·실제 품종/독립 국내 측정0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

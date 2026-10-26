@@ -1,0 +1,645 @@
+{
+  "schema_version": "complete-crop-stored-replay-evidence-v1",
+  "observed_at_UTC": "2026-10-26T16:26:54.252707+00:00",
+  "status": "accepted_synthetic_replay_functionality_only",
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "source_pins": {
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/app/crop_complete_artifact_producer.py": "081a5e525f6a827c5ad73db2761288a9f9aa63e927dbdc2e5578f34a2780fa9d",
+    "backend/app/crop_complete_artifact_reader.py": "23d55dfe1c99c76908e45ab4da82d4c4165173edd871edfd405c6d3dee9f40cd",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_funded_complete_prefix.py": "a7772ca193e6b24212eb1905e2852c49f0477e5ae3c640a26dd5ec12ae1f7ffc",
+    "backend/app/crop_funded_event_state.py": "c18ae07e1aea84766801c563d03fad4a622a21e9f48c6292bec1bcb098a300d9",
+    "backend/app/crop_funded_event_time.py": "30a0c08b548a3cad7990cb6a58617002392b6946c36979906aa1df41c763eba5",
+    "backend/app/crop_funded_fractional_birth_point.py": "66c149dff6285e0bf28b6576c988bf1972853b0f4ef2d4b3418ecc8cb5093f18",
+    "backend/app/crop_funded_fractional_continuation.py": "484b1af49b27d57a06d6cd22a24ff6a72741c7b3168dacb2c2573fa7f0f51ffb",
+    "backend/app/crop_funded_fractional_stem_binding.py": "7e50bbe0a9267b1c49660001a20834327a848cb0993e557af15e99729a940214",
+    "backend/app/crop_funded_shoot_epochs.py": "9ffbc9bdc20f552778b2832186323fe79b2a9019734b0940045874bd6d9fe2b7",
+    "backend/app/crop_growing_geometry_climate.py": "5cf58d1dea92e59e1059d5e5cd359a81b8dde950fed2ac575911a4be90788a0a",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_carbon_partition.py": "6b80b6611ac1f972158fe00fea92c9b0b99af3d94f942ec2710b6fea26c81266",
+    "backend/app/crop_leaf_carbon_stock_artifact_producer.py": "98f5997eefd0857402a782cf39d0e1db729b38b4678f71d25115c4000cc8f679",
+    "backend/app/crop_leaf_carbon_stock_artifact_reader.py": "37d6cc94f20d85a1d5e37ae0ff3f4466c3ab3b563768543f2d40e204cb2f0225",
+    "backend/app/crop_leaf_carbon_stock_continuation.py": "62b7ba4c8dbcf56297fde3e2c8ef78e55efe283eab85b9f26640f917236e8f0d",
+    "backend/app/crop_leaf_carbon_stock_dynamics.py": "0e2a51a23b95b10cfc15d46f5668266f2b7981a769d966a167f9a4a9cafdf80d",
+    "backend/app/crop_leaf_carbon_stock_rhs.py": "1da1cfef06860893b9ef4f661b15e5d7b4bc099a8d6563c4a9c6bd23156ab4be",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_leaf_funded_birth_artifact_producer.py": "9803a2eb3bede2920f0dd1cef79615741f5a614275ec407ff09874c4ed143495",
+    "backend/app/crop_leaf_funded_birth_artifact_reader.py": "9d80c2f523ada0f2c55dce1837d2f35d10ef78efc3088fea9b45010b0b35f0bd",
+    "backend/app/crop_leaf_funded_birth_continuation.py": "fd4346afc797b91459cd1f33273c0489545976333c42da68a1b0945ff37eaec2",
+    "backend/app/crop_leaf_funded_birth_point.py": "cec6bf7bbfc3dc5c569ab5cfa6e8d28d16acd31865419225baed074111a38005",
+    "backend/app/crop_leaf_partition_climate_rhs.py": "a708f13ed9290f4353e61310959aeab8f2f4bf0c3c4f02d5f9d0181fc3aebab3",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_rational_internode_length.py": "423e6737cc77773d3ffdb8ab45d4aa37d106947b4222f2a6ecede839caae8a9b",
+    "backend/app/crop_rational_morphology_artifact_producer.py": "92b367462510ee7a7868e8952647ed5008d4d8849c900357f09f27df17215f06",
+    "backend/app/crop_rational_morphology_artifact_reader.py": "3de1502abca94613d1c55cb37568236ce164665d577aa06090d36d5842d5e44b",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/app/crop_rational_new_internodes.py": "76a59f191ca7f03902ce0db9cbdf6da8cf0c2fd792532d6830a669a0899472f5",
+    "backend/app/crop_rational_shoot_inventory.py": "42f66f8e22723cbfa674e879f74255389db8d76e008ef30a9fb24a5a38057625",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+    "research/export-leaf-funded-birth-replay.py": "e01c9aa66a87116f521dac721e66d34716fc71cc00efc18aaa202ca0590130ec",
+    "research/export-complete-crop-replay.py": "995d300a0f9674f4534ff3edc8a7eba8b8d4823975fae202a319b634b4206623",
+    "web/src/completeCropReplay.ts": "c0701c36afd2990017b147751f5480b395d63ffbfa9d2c9b28977f3a5126c136",
+    "web/src/morphologyReplay.ts": "c72def4944104c742518e57d8d9e887ff5b8450520fda5f6ae0a09ca19d04d1b",
+    "web/src/morphologyReplayFixture.ts": "18a5ac43c27473d0d9dde9f1598332fa2209eef95c5bff12269804f0dc35d29d",
+    "web/src/morphologyRationalReplayFixture.ts": "27bcdc515a65a24396c67e313eb2085d6b1f042ea3206d651645c643ba03504d",
+    "web/src/growingGeometryReplay.ts": "db13ae0da98ac46f474b18d823a9abc4df49a55eb454b77e924a6f58ea430261",
+    "web/src/growingGeometryReplayFixture.ts": "a556c206a1a97b53b600a889bae0be67e0ac3849d63e14bcb2e0d4ceb5e17911",
+    "web/src/storedLeafReplayIO.ts": "a8ca09dbe4bbcf834ce596129857a9ad2c15d39a1dffb4d7beb9df6d39f9c2e4",
+    "web/src/fundedLeafReplayWire.ts": "34f522a3fa804622e558416d79b6bd83dcf88ba6e2eb5431202d7982887ff3da",
+    "web/src/leafFundedBirthReplaySchema.ts": "bca4d945dd5819488ce8363cbd04aa5f76381f2d8c6e0da1da9689e2681abc2f",
+    "web/src/leafFundedBirthReplayFixture.ts": "92defc8dbfc5c7a84430ffb6ff4896a773cd5335da9af169521e59f4afa53bc4",
+    "web/src/leafFundedBirthReplayEvents.ts": "ec9d2639c9c619c051fd6978f53b5a5987d3fc3d75bc0252943198d31db08b48",
+    "web/src/completeCropReplayFixture.ts": "3dbe082c9664b1b984968ad9e631adc6b8250312b4ba7cd760bc0bdf1191c8ac",
+    "web/src/completeCropReplaySchema.ts": "e14724e1937e119353f2c3c5332a8082a4d6fbc06751ddf0cf3f50bffba2b5a1",
+    ".gitignore": "befc59564a70399fb9ddc4b66f7ede16c992a0936aff2226460ab6ec90fbbf5b",
+    "contracts/complete-crop-stored-replay-v1.md": "50077c633c3d47c8406d8d0a13832b5d7853d37498bcafec571c3c577c239269",
+    "web/public/crop-appearance-icon.svg": "d36b1eb938ebc71539b0823488c7e89814168933c830ad89c054f18b5b3c98a3",
+    "web/crop-appearance.html": "377f32033cb58317b9a1024154e2f9e7b74c08881227f5c0cf2bc7e361cb7681",
+    "web/complete-crop-replay.html": "21df07c9fc5335d3da2a6988a89b999d8816822112ba2e4f25414a5b1e79e2cc",
+    "web/tsconfig.json": "516c51a4d31761d6e2d211309c6de6d159388e21c263020f7a5f300a741ccaa8",
+    "web/package-lock.json": "ab108cb675c61e26dbbf7f00961edf484876e048ec04618496d0d63d20f7010a",
+    "web/package.json": "58892beb0ca910a8030c8c8a7f31b5c1814388b7342f01ecdfb3f7c7d9a3d748",
+    "web/playwright.appearance.config.ts": "0231c28ef5805315e8cd0c400e947c7d64eef4b6d157bf6c0420b30d34484ac8",
+    "web/playwright.config.ts": "d24619fbb5c5cc6c534a1d529d1547a348285dede6096b3db5933d665e341f13",
+    "web/vite.crop-appearance.config.ts": "86c09e95fb6968abaee231114f16414d3ccf8f5008295fedeb67e3910b21f1b2",
+    "web/vite.complete-crop.config.ts": "be6e0951c0a68e4447220dbde8bf4080df2604be30943e58f99a9aa6fdef226c",
+    "web/e2e/complete-crop-replay.spec.ts": "46c44c94682279eb3e2d125df733f0337e80573be36bce0af4240be564a09d93",
+    "web/src/tomato-appearance-main.tsx": "53c84a002e2740a9c7f9501af1e95c0ce2a8a17d752e8c86627ce4ffae9e61ee",
+    "web/src/TomatoAppearancePage.css": "1b60aea9434fc06e7233af274a7b1eb252ef26e340a72bb94653c6a136cf7fa7",
+    "web/src/TomatoAppearance.css": "047a25c3dbfb56516d36316168e7a770b1db9c20bd29ee7847c6b196b8475993",
+    "web/src/TomatoAppearanceScene.tsx": "c155ad2245bae4442b6ff7c70590cce04a6ddb32f7b4f6592b90974e9dd0b010",
+    "web/src/tomatoLeafReplay.ts": "de8004367ad22785b1ae9e2d4a74cc2306287e9dfe7060248a17d60cd5a7ccc4",
+    "web/src/startupCropReplay.ts": "6917bce223a2f768394b4fa872c70a2cd7183e0da63a050df43e001039a3626a",
+    "web/src/coupledCropReplay.ts": "a73e52cb8c5cfa38e2da6d6fb9268fa7314980bd156fc31ccead163029a2e1a4",
+    "web/src/cropReplay.ts": "ae136eeeee0982b37f769cf80e2c7775f44546b44eab630eb76a6ef8bdd6df08",
+    "web/src/api-validation.ts": "c0ecc6be95d34a861d9952b86e8c600c15a5b3cf10c2ad7357160ced75e519df",
+    "web/src/calculationCycleCropReplay.ts": "2d04c7cc18015690e7a7fd40b4b5dc5e3a43464aa75f61ae2d49e875f9a71ee7",
+    "web/src/cycleCropReplay.ts": "05b35cbf28e0b9b3df3495bc68e382c56cbe8311c820d1cf5dcaa7d470867308",
+    "web/src/tomatoAppearanceTextures.ts": "003767c1616e29b6b2893876e3a9e77a23ecb15d7c9a35f2fbd8523c4fe3919d",
+    "web/src/tomatoAppearance.ts": "f6b9ba2b14eddaa13dc0aff1e77acb93f193d0b156e416e2c01e2bfdf0266445",
+    "web/src/complete-crop-replay-main.tsx": "084f18b84cb423960581ab37e56061011f0ecea3592e5b6f8cd2b65abb6f92f7",
+    "web/src/CompleteCropReplayPage.tsx": "116f5e3bb64c44f78628e068fdbc046e03d7944ad945d5bb80c41bed07fe9819",
+    "web/src/CompleteCropReplayPage.css": "32bb27b768247c553e0f8b0e22da71ee87febd54ba15391a4e7793635b6171cb",
+    "web/src/LeafAreaReplayPage.css": "0313157c7d1219e7db223a022405fb77ffdad282f4a72711a964c0b753dc559e",
+    "web/src/MorphologyReplayPage.css": "cd7430536d0a82cc4825fc04f36010ee5733ea7b6f02f4f982e15747e0aba522",
+    "web/src/completeCropPlant.ts": "ac97df14d84ed229a46a05c127463e306abcf3a3e8782a35aaf340eb2de976b8",
+    "web/src/completeCropReplayLocation.ts": "89ac297f00883d9fbd7749f1560cf70a9e7045580273f2af79fca8a790313fd3",
+    "web/src/CompleteCropScene.tsx": "2829b89c4c401206ad7e20cb003be06d150592dbf946cb1907006883f883f42b",
+    "web/src/completeCropReplayLocation.test.ts": "cddb47d686054d48ceda741cf59b1adbd96cfbe4f73ac0b1d5fd1ac8c1cc5434",
+    "web/src/completeCropPlant.test.ts": "47a501f5eca9e0e7bb591f88751278706ccab2b6bf9b70af2ec72d399079170d"
+  },
+  "output_pins": {
+    "research/complete-crop-stored-replay-20261027.md": "9b05a602d715162b93bd92ac883b7fc0153cf4ae4f86d8567e3afa6f4158a934",
+    "research/artifacts/complete-crop-stored-replay-desktop-20261027.png": "976ae1c88794d15fa46490a8db7c5fc4eca1e9c124ab1417978818c85c1c066b",
+    "research/artifacts/complete-crop-stored-replay-mobile-20261027.png": "03bd3fd3fe59bc0b32c9e8904911f66677efafdd4d034438b916f6b9ec34355d"
+  },
+  "native_model_evidence": {
+    "observed_at_UTC": "2026-10-26T15:50:34.776533+00:00",
+    "turn_context_timestamp": "2026-10-26T15:41:56.177Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_LF_sha256": "7960d2255d1c9428a6148885bb25f7a7be0c7040facc837a63db49509897c944",
+    "recursive_CLI": 0
+  },
+  "focused_checks": {
+    "passed": 110,
+    "SDK_and_schema": 68,
+    "independent_geometry": 13,
+    "URL": 29
+  },
+  "full_current_web_types": "passed_with_native_Go_limits",
+  "dedicated_config_types": "passed",
+  "phases": {
+    "complete-crop-scene-unit-v1": {
+      "observed_at_UTC": "2026-10-26T15:52:43.120626Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 42.712707811035216,
+      "PID_peak_RSS_bytes": 259125248,
+      "combined_peak_RSS_bytes": 466309120,
+      "samples": 166,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 10425,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "418c996701c6c4815ac85717f920773faa63d7170eb06f639c0ec5a49897fe04",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "complete-crop-focused-type-v2": {
+      "observed_at_UTC": "2026-10-26T15:56:57.507401Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.215941614995245,
+      "PID_peak_RSS_bytes": 29995008,
+      "combined_peak_RSS_bytes": 38252544,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 0,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 10426,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "complete-crop-viewer-build-v3": {
+      "observed_at_UTC": "2026-10-26T16:18:17.991709Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 6.53513837500941,
+      "PID_peak_RSS_bytes": 525217792,
+      "combined_peak_RSS_bytes": 607350784,
+      "samples": 23,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 1,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 10430,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "4eabede37572ec3f4cd391b4c4640dee3ea46d337c3edc04c6ee29fd67f652bb",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "complete-crop-browser-all-v3": {
+      "observed_at_UTC": "2026-10-26T16:21:03.716317Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 129.8295185629977,
+      "PID_peak_RSS_bytes": 30023680,
+      "combined_peak_RSS_bytes": 93896704,
+      "samples": 513,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 1,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 10430,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d3683ccd93a81069ad6d2ea14b13d542e79537ac4870ee2e627b685a48eb2fa4",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "complete-crop-live-preview-v2": {
+      "observed_at_UTC": "2026-10-26T16:24:02.193569Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 11.336729304050095,
+      "PID_peak_RSS_bytes": 29966336,
+      "combined_peak_RSS_bytes": 79646720,
+      "samples": 42,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 1,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 10430,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "357313361e1d2d33cc88e6f44fb12f3facf8a451e35a83d1c0f1e1586d312655",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "complete-crop-preservation-core-v1": {
+      "observed_at_UTC": "2026-10-26T16:25:17.596696Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.9867936589871533,
+      "PID_peak_RSS_bytes": 37883904,
+      "combined_peak_RSS_bytes": 102895616,
+      "samples": 5,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 1,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 10430,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "8bafa5057f65d5143cc4e001f63995412aec4d8a856404cc9a29b6777f606cbc",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    },
+    "complete-crop-preservation-final-v1": {
+      "observed_at_UTC": "2026-10-26T16:28:40.234593Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.4946805399958976,
+      "PID_peak_RSS_bytes": 29880320,
+      "combined_peak_RSS_bytes": 91996160,
+      "samples": 3,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 1,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 10431,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "f83361fde920ac311de5a66c1def73c4fdccca30375be4cb7705f67db7845190",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
+    }
+  },
+  "actual_browser": {
+    "stats": {
+      "startTime": "2026-10-26T16:18:57.555Z",
+      "duration": 124680.47200000001,
+      "expected": 16,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "frames": 834,
+    "leaf_records": 4596,
+    "leaf_state_values": 13788,
+    "internode_records": 2956,
+    "dense_candidates": 12,
+    "cases": [
+      {
+        "scenario": "additional-0",
+        "frames": 70,
+        "leaves": [
+          3,
+          7
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "additional-1",
+        "frames": 70,
+        "leaves": [
+          3,
+          7
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "additional-2",
+        "frames": 70,
+        "leaves": [
+          3,
+          7
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "additional-3",
+        "frames": 70,
+        "leaves": [
+          3,
+          7
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "additional-4",
+        "frames": 70,
+        "leaves": [
+          3,
+          7
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "additional-5",
+        "frames": 70,
+        "leaves": [
+          3,
+          7
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "initial-0",
+        "frames": 69,
+        "leaves": [
+          3,
+          6
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "initial-1",
+        "frames": 69,
+        "leaves": [
+          3,
+          6
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "initial-2",
+        "frames": 69,
+        "leaves": [
+          3,
+          6
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "initial-3",
+        "frames": 69,
+        "leaves": [
+          3,
+          6
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "initial-4",
+        "frames": 69,
+        "leaves": [
+          3,
+          6
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "initial-5",
+        "frames": 69,
+        "leaves": [
+          3,
+          6
+        ],
+        "internodes": [
+          3,
+          4
+        ]
+      }
+    ],
+    "console_errors": 0,
+    "warnings": [
+      {
+        "prefix": "THREE.WebGLProgram: Program Info Log: (210,81-129): warning X4122: sum of 0.996094 and -2.98545e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122",
+        "sha256": "b27ab5becb0023590b7c54685d36a8681ed6b8923ea23e804f257563f2acc8fc"
+      }
+    ],
+    "headless_Chrome_only": true,
+    "physical_visible_window_tested": false,
+    "rotation_zoom_reset": true,
+    "idle_stopped": true,
+    "menu_reload": true,
+    "failed_selection_reload": true,
+    "latest_scenario": true,
+    "mobile_overflow": false,
+    "corruption_and_WebGL_fallback": true
+  },
+  "build": {
+    "files": 4865,
+    "bytes": 71119601,
+    "public_fixture_files": 4732,
+    "inventory_sha256": "c561cc1cd96a7155c1aae54e107077634bfea14a70d1ccbafccae44e080275ed",
+    "entries_and_modules": {
+      "complete-crop-replay.html": {
+        "bytes": 679,
+        "sha256": "9e6aaf9e1c858f6c5924e8af1055b7131bb2f3d02f0050425150210c1036f4f9"
+      },
+      "crop-appearance.html": {
+        "bytes": 783,
+        "sha256": "43dcfe4bc524c130b0f2753a7c6001e0ed6c891c8ce4305c66174b32fd86f004"
+      },
+      "assets/appearance-BjZKYX4C.css": {
+        "bytes": 3389,
+        "sha256": "047a25c3dbfb56516d36316168e7a770b1db9c20bd29ee7847c6b196b8475993"
+      },
+      "assets/appearance-Da35PSvc.js": {
+        "bytes": 16652,
+        "sha256": "eb168bf495316166f70406de166c9cbbe7dca763cf2f07a39678f24ad6284797"
+      },
+      "assets/replay-B1SiRKbc.js": {
+        "bytes": 126082,
+        "sha256": "09a42c91d7cfc0b4b4ac4eca0738fd8aec5d83293496f2ae3c5f2f938096d87c"
+      },
+      "assets/TomatoAppearancePage-C17vRNe0.css": {
+        "bytes": 88328,
+        "sha256": "c007fb3e3c20ccad8713e1127addc8fbac905029681ceb07b654b78b256e9183"
+      },
+      "assets/TomatoAppearancePage-U9gxCdRc.js": {
+        "bytes": 1954213,
+        "sha256": "b116fdfba331c0830a9924e07ebf59053409ccf1aa7c9cf413377ae3fa166a96"
+      },
+      "assets/replay-DwL7hKtm.css": {
+        "bytes": 5584,
+        "sha256": "bae74704adc49decb70e05592f991ec8862a059490ec38744a7432b1cfdf5d2c"
+      }
+    }
+  },
+  "actual_user_preview": {
+    "url": "http://localhost:5180/complete-crop-replay.html",
+    "started_at_UTC": "2026-10-26T16:23:49.727652+00:00",
+    "expires_at_UTC": "2026-10-27T04:09:40.286474+00:00",
+    "old_expiry_not_extended": true,
+    "HTTP": 200,
+    "headless_browser_smoke_passed": true,
+    "selected_index": 69,
+    "leaves": 7,
+    "internodes": 4,
+    "console_errors": 0,
+    "warning_count": 1,
+    "DB_API_credentials": false
+  },
+  "preservation_pending": false,
+  "public_source_inventory": {
+    "path": "research/artifacts/complete-crop-sdk-files-20261026.csv",
+    "sha256": "e0bb0c4f0939e1c9f2db0dab58d0b17a10d7bf0101a9d99e9f19900e0136bc06",
+    "files": 4732,
+    "bytes": 65403940
+  },
+  "retained_attempts": [
+    "complete-crop-scene-type-v1",
+    "complete-crop-scene-type-v2",
+    "complete-crop-scene-type-v3",
+    "complete-crop-focused-type-v1",
+    "complete-crop-viewer-build-v1",
+    "complete-crop-viewer-build-v2",
+    "complete-crop-browser-all-v2"
+  ],
+  "resource_scope": {
+    "PID_cap_bytes": 536870912,
+    "owned_plus_protected_cap_bytes": 1073741824,
+    "sample_seconds": 0.25,
+    "phase_wall_seconds": 600,
+    "log_cap_bytes": 4194304,
+    "Windows_Chrome_RSS_measured": false,
+    "whole_host_RSS_measured": false
+  },
+  "new_UI_connected": true,
+  "new_external_data_adopted": false,
+  "actual_independent_local_measurements": 0,
+  "whole_maximum_request_accepted": false,
+  "whole_goal": "active_incomplete",
+  "not_run": [
+    "hosted_CI_acceptance",
+    "whole_main_app_build",
+    "physical_visible_window_R2",
+    "farm_current_rights_and_worker_integration",
+    "actual_cultivar_crop_cycle_yield_resource_purchase_margin_macro_supply_demand_ranking"
+  ],
+  "next": "Research and specify organ stem carbon allocation/growth limitation and initial biological admission; implement one accepted deterministic rule next; independent farm evidence remains parallel.",
+  "preservation_core": {
+    "G0_G4": "not_assessed",
+    "HTTP5175": 200,
+    "HTTP5177": "finite preview expired; PID absent",
+    "R2": "not_approved",
+    "actual_boundary_original_bytes_preserved": 100,
+    "current_HTTP_files": 4732,
+    "current_HTTP_frames": 834,
+    "current_HTTP_leaf_values": 13788,
+    "current_cold_frames": 834,
+    "current_export_two_output_files": 9464,
+    "current_export_unique_frames": 834,
+    "current_output_pins_verified": 5,
+    "current_source_pins_verified": 68,
+    "inventory_rows": 424,
+    "isolated_bundle_has_Math_exp": false,
+    "maximum_hold_original_request_preserved": true,
+    "new_UI_connected": true,
+    "new_public_bytes": 65403940,
+    "new_public_files": 4732,
+    "observed_at_UTC": "2026-10-26T16:25:15.902385+00:00",
+    "old_served_files_bytes_metadata_preserved": 1502,
+    "previous_accepted_pins": {
+      "crop-funded-event-state": 53,
+      "crop-funded-event-time": 50,
+      "crop-funded-fractional-birth-point": 53,
+      "crop-funded-fractional-continuation": 54,
+      "crop-funded-fractional-stem-binding": 56,
+      "crop-funded-shoot-epochs": 82
+    },
+    "private_false_blobs_bytes_metadata_preserved": 132,
+    "public_export_original_bytes_preserved": 324,
+    "source_pins_verified": 58,
+    "whole_goal": "active_incomplete"
+  },
+  "final_preservation": {
+    "observed_at_UTC": "2026-10-26T16:28:39.052911+00:00",
+    "source_pins_verified": 104,
+    "output_pins_verified": 3,
+    "local_markdown_links_verified": 3199,
+    "sealed_build_files_verified": 4865,
+    "sealed_public_fixture_files": 4732,
+    "HTTP5180_HTML_appearance_index": 200,
+    "HTTP5175": 200,
+    "new_preview_identity_and_original_expiry_preserved": true,
+    "core_preservation_sha256": "dd8517488606895771fdd3a0ec4d9a567270e52bd4105ebca621bd776ad9ca57",
+    "whole_maximum_request_accepted": false,
+    "G0_G4": "not_assessed",
+    "R2": "not_approved",
+    "whole_goal": "active_incomplete"
+  }
+}
