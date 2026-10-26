@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-26 KST:** [공동 기온의 초기 절간 길이22검사·독립342길이/114축합](research/crop-funded-internode-lengths-20261026.md)을 수용했습니다. 원 초기 곡선/길이·anchor와 같은 나이/phase·원 시각을 보존했으며 새 길이는 UI에 아직 미연결입니다. 다음은 발달/시뮬레이션 원점과 초기 이력→동적 threshold/격자 사이 출현 시각→부착·floor/질량/현재 권리→같은 상태 실제 새 잎3D입니다. 5177은 예정된11:48KST에 종료됐고 [5175 제작 외형](http://localhost:5175/crop-appearance.html)은 유지합니다. 실제 품종/독립 자료·빈 수관/제거·공급 제한 A·작기/생산/자원/경제/거시·수급/자율 비교·제품 통합·G0–G4/R2/표시 창/주앱 전체 build와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [저장 줄기의 두 원점25검사·163시점/독립659나이·496길이·163축합](research/crop-funded-shoot-epochs-20261026.md)을 수용했습니다. 실제 선택 이력/ID/curve/anchor·분수 출현을 보존하고 기준 통과 구간1개를 원 frame/CP에 결속했습니다. 정확한 사건 시각·새 마디/잎·3D는 아직 만들지 않았습니다. 다음은 구간 내부 공동 ODE stage/사건 시각 수치 검증→새 기관/부착·floor/질량/현재 권리→같은 상태 실제 잎3D입니다. 5177은 예정된11:48KST에 종료됐고 [5175 제작 외형](http://localhost:5175/crop-appearance.html)은 유지합니다. 실제 품종/독립 자료·작기/생산/자원/경제/거시·수급/자율 비교·제품 통합·G0–G4/R2/표시 창/주앱 전체 build와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
