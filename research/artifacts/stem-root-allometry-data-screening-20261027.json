@@ -1,0 +1,147 @@
+{
+  "schema_version": "stem-root-allometry-candidate-screening-v1",
+  "status": "candidate_only_not_adopted",
+  "observed_at_UTC": "2026-10-26T17:08:05.139964+00:00",
+  "source_product": "ksmolen2/vtc",
+  "source_url": "https://github.com/ksmolen2/vtc",
+  "revision": "ae01e73911103b934663f3b4406451a84cdc06d4",
+  "paper_DOI": "10.1093/insilicoplants/diaf022",
+  "repo_created_at": "2025-11-22T06:45:00Z",
+  "head_author_committer_at": "2025-12-10T07:59:11Z",
+  "repo_pushed_at": "2025-12-10T07:59:12Z",
+  "observation_time": null,
+  "available_at": null,
+  "publication_times_are_not_available_at": true,
+  "receipts": [
+    {
+      "key": "repo",
+      "url": "https://api.github.com/repos/ksmolen2/vtc",
+      "status": 200,
+      "bytes": 4812,
+      "sha256": "65280543c462759b84b1d9e32f13f7404f4b54bd71117023b5dba7edd2b3a7ee",
+      "retrieval_started_utc": "2026-10-26T17:00:57.731166+00:00",
+      "retrieval_completed_utc": "2026-10-26T17:00:58.066511+00:00"
+    },
+    {
+      "key": "head",
+      "url": "https://api.github.com/repos/ksmolen2/vtc/commits/main",
+      "status": 200,
+      "bytes": 5329,
+      "sha256": "869a14a7b302bc5faac86f404809865a850ae3dcc84535779a997417db166682",
+      "retrieval_started_utc": "2026-10-26T17:00:58.066577+00:00",
+      "retrieval_completed_utc": "2026-10-26T17:00:58.462707+00:00"
+    },
+    {
+      "key": "tree",
+      "url": "https://api.github.com/repos/ksmolen2/vtc/git/trees/ae01e73911103b934663f3b4406451a84cdc06d4?recursive=1",
+      "status": 200,
+      "bytes": 6069,
+      "sha256": "50dc6395aa50561f8996b94b29b3205e70f37419da7f5b50d5be2c0ccbf7c193",
+      "retrieval_started_utc": "2026-10-26T17:00:58.462842+00:00",
+      "retrieval_completed_utc": "2026-10-26T17:00:58.747852+00:00"
+    },
+    {
+      "key": "readme",
+      "url": "https://raw.githubusercontent.com/ksmolen2/vtc/ae01e73911103b934663f3b4406451a84cdc06d4/README.md",
+      "status": 200,
+      "bytes": 396,
+      "sha256": "82da0971a7c2c8b598cc916edc11d4aefabe297469d668735b564deecd77fe8f",
+      "retrieval_started_utc": "2026-10-26T17:00:58.747918+00:00",
+      "retrieval_completed_utc": "2026-10-26T17:00:59.030270+00:00"
+    },
+    {
+      "key": "license",
+      "url": "https://api.github.com/repos/ksmolen2/vtc/license?ref=ae01e73911103b934663f3b4406451a84cdc06d4",
+      "status": 404,
+      "bytes": 140,
+      "sha256": "6c0109c2ac75f1f264b61da6aff1737f7bc7eac254e6396710ff81a4139f32b1",
+      "retrieval_started_utc": "2026-10-26T17:00:59.030286+00:00",
+      "retrieval_completed_utc": "2026-10-26T17:00:59.310933+00:00"
+    },
+    {
+      "key": "releases",
+      "url": "https://api.github.com/repos/ksmolen2/vtc/releases",
+      "status": 200,
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "retrieval_started_utc": "2026-10-26T17:00:59.310974+00:00",
+      "retrieval_completed_utc": "2026-10-26T17:00:59.612911+00:00"
+    },
+    {
+      "key": "tags",
+      "url": "https://api.github.com/repos/ksmolen2/vtc/tags",
+      "status": 200,
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "retrieval_started_utc": "2026-10-26T17:00:59.612941+00:00",
+      "retrieval_completed_utc": "2026-10-26T17:01:00.038792+00:00"
+    }
+  ],
+  "parent_plugin_review": {
+    "observed_at_UTC": "2026-10-26T17:03:04Z",
+    "url": "https://api.github.com/repos/ksmolen2/vtc",
+    "license": null,
+    "response_hash_not_measured": true
+  },
+  "inspected": {
+    "recursive_tree_entries": 25,
+    "API_license": null,
+    "pinned_license_HTTP": 404,
+    "license_filenames_found": [],
+    "releases": [],
+    "tags": [],
+    "metadata_readme_list_only": true
+  },
+  "listed_candidates": [
+    {
+      "path": "input/exp2_climate_kaspro_avg.csv",
+      "listed_bytes": 36950
+    },
+    {
+      "path": "input/exp2_harvest1_merlice_avg.csv",
+      "listed_bytes": 828
+    },
+    {
+      "path": "output/fabs.csv",
+      "measurement_status": "not_verified_not_admitted",
+      "contents_retrieved": false
+    },
+    {
+      "path": "output/tomato_export.csv",
+      "measurement_status": "not_verified_not_admitted",
+      "contents_retrieved": false
+    }
+  ],
+  "paired_internode_length_diameter_dry_mass_age_cultivar_times": "not_verified",
+  "measurement_units": "not_verified",
+  "measurement_QC": "not_verified",
+  "rights": {
+    "code_use": "unverified",
+    "code_display": "unverified",
+    "code_redistribution": "unverified",
+    "dataset_use": "unverified",
+    "dataset_display": "unverified",
+    "dataset_redistribution": "unverified"
+  },
+  "hold_reasons": [
+    "Paper CC BY does not establish repository code or dataset permission.",
+    "Repository metadata/README/tree did not establish separate reuse permission.",
+    "File names and sizes do not verify paired organ measurements.",
+    "Same-experiment fitted non-local data do not establish independent local G2 or unused-future G3 validation."
+  ],
+  "reviewer": "delegated researcher proposal; parent native gpt-6.1-sol/xhigh review",
+  "actual_child_native_context_observed": false,
+  "native_parent_evidence": {
+    "observed_at_UTC": "2026-10-26T16:39:40.677799+00:00",
+    "turn_context_timestamp": "2026-10-26T16:34:47.652Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_LF_sha256": "ec7abfa12c7b7c55cb7a1c7ccdf3e228512e4797229d733ea7e31b39055608fe",
+    "recursive_CLI": 0
+  },
+  "raw_measurement_files_retrieved": 0,
+  "raw_measurement_files_redistributed": 0,
+  "new_accounts_contacts_or_spend": 0,
+  "G0_G4": "not_assessed",
+  "independent_local_measurements": 0
+}
