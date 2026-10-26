@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-26 KST:** [전체 합성 작물 결과의 웹용 내보내기: 새21검사/12경로·834시점/두 출력9,464파일](research/complete-crop-export-20261026.md)을 수용했습니다. 원 raw/packet·체크포인트/수치 후보·잎 상태/시각·NOTICE·권리를 보존하고 별도 생장 import/DB/CLI/network·출력 외 write open0을 확인했습니다. 다음은 새 strict SDK → 같은 저장 상태의 실제 잎·줄기3D입니다. 새 결과는 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 기존512잎 byte-cap hold·새 절간별 C/초기 생물학·실제 품종/독립 국내 자료0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4/R2와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-27 KST:** [전체 합성 작물 새SDK: 68검사·웹 타입/단독 build·실제 HTTP4732파일/834시점](research/complete-crop-strict-sdk-20261027.md)을 수용했습니다. 원 raw/clock·실제 기관/잎 부착·CP 없는 후보/점 전후·잎 상태13,788값과 권리/원문 해시·취소/최신 응답을 대사했습니다. 다음은 같은 저장 상태의 실제 잎·줄기3D/표·재생/사용자 화면입니다. 새SDK는 아직 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 기존512잎 byte-cap/전체 주앱 build·실제 표시 R2 hold·새 절간별 C/초기 생물학·실제 품종/독립 국내 측정0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
