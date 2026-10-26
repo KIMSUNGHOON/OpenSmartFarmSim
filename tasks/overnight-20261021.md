@@ -124,3 +124,6 @@ create_goal 재시도도 unfinished goal 오류로 거부됐다. 새 목표 교�
 [정책 기반 저장3D](../research/leaf-appearance-stored-replay-20261024.md)를 실제 UI·전체 웹 CI로 수용했고
 현재 의존성/다음 자식은 [10월24일 계획](plan.md#자동-정책의-연구-화면-이후--2026-10-24)을 따른다.
 전체 제품 goal은 미완료이며 정확 native 모델/effort는 gpt-6.1-sol/xhigh·재귀 CLI0이다.
+
+
+**2026-10-26 13:02 UTC 이후 재확인:** 사용자의 clear 완료 회신 뒤 get_goal은 여전히 이전 전체 objective의 active를 반환했다. 최신 구현 순서/정확 gpt-6.1-sol/xhigh를 담은 create_goal도 unfinished goal 오류로 거부됐다. 교체 완료로 표시하거나 기존 전체 goal을 완료/중단하지 않으며 재입력은 반복 요청하지 않는다. 지난10월22일09시 기한을 새 미래 날짜로 사용하지 않는다. [현재 계획](plan.md)의 불변 저장25검사/별도834시점 수용 뒤 새 export/SDK/같은 저장 상태 실제3D를 계속한다.

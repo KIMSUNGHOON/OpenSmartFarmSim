@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-26 KST:** [시작→분수 출현 전/후→끝의 전체 합성512초 이력: 16검사/독립12경로·834시점](research/crop-funded-complete-prefix-20261026.md)을 결속했습니다. 원 CP/수치 후보를 구별하고 69/70frame·나이/길이·잎 상태와 각 cursor를 보존했습니다. packet최대1,867,742/2,097,152bytes이며 첫 최대512요청 hold는 그대로입니다. 다음은 새 불변 producer/무계산 reader → export/strict SDK/같은 저장 상태 실제 잎3D입니다. 이번 결과는 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 새 절간별 C/초기 생물학·실제 품종/독립 국내 자료0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4/R2와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [전체 합성 이력 불변 저장·무계산 조회: 25검사/별도12결과·834시점](research/crop-complete-artifact-20261026.md)을 수용했습니다. 원 packet/CP380개·CP 없는 후보12개·잎 상태13,788값을 보존하고 cold12프로세스의 생장 import/DB/CLI/network/쓰기0을 확인했습니다. 다음은 새 artifact export → 새 strict SDK → 같은 저장 상태의 실제 잎·줄기3D입니다. 이번 결과는 UI미연결이며 [5175 제작 외형](http://localhost:5175/crop-appearance.html)을 유지합니다. 기존512잎 byte-cap hold·새 절간별 C/초기 생물학·실제 품종/독립 국내 자료0건·한 작기/수확/자원·경제/거시/수급/자율 비교·제품 통합/G0–G4/R2와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
