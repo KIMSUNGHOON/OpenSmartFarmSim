@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-26 KST:** [저장 잎 탄소·면적3D](http://localhost:5177/leaf-carbon-stock-replay.html)는11:48 KST까지 별도 합성 미리보기입니다. [새 잎 조달점74신규/297관련·독립36조건](../research/crop-leaf-funded-birth-point-20261026.md)을 수용했으며, 다음은 원 시계/상태·연속+점 장부를 보존한 변경 목록 재개→불변 저장/같은 상태3D입니다. 현재 화면에는 새 조달점이 연결되지 않았습니다. [실제 창1회 관측](../research/leaf-carbon-stock-visible-window-20261026.md)은 페이지 hidden으로 보류했고 주앱 전체 bundle의 WSL 보류도 유지합니다. 실제 품종/독립 자료·한 작기/생산·자원/경제·거시/수급·자율 비교·G0–G4/R2와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [새 잎 조달 뒤 재개153신규/74회귀·독립24문맥/60시점](../research/crop-leaf-funded-birth-continuation-20261026.md)을 수용했습니다. 여러 출현 뒤 원 시계/기존 상태·누적량/점 장부를 보존해 실제 계산을 이어갑니다. 다음은 불변 저장/무계산 조회이며 원 시계·줄기 부착 자료 결속을 병행한 뒤 SDK/같은 상태3D로 연결합니다. [현재5177 화면](http://localhost:5177/leaf-carbon-stock-replay.html)은11:48 KST까지 기존 고정 목록의 합성 재생이며 이번 출현 결과는 미연결입니다. 실제 품종/독립 자료·빈 수관/동시 제거·공급 제한 면적/한 작기·생산/자원/경제·거시/수급·자율 비교·제품 통합·G0–G4/R2/표시 창·주앱 전체 build/WSL과 전체 완료일은 미완료·미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

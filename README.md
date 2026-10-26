@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-26 KST:** [저장 잎 탄소·면적3D](http://localhost:5177/leaf-carbon-stock-replay.html)는11:48 KST까지 별도 합성 미리보기입니다. [새 잎 조달점74신규/297관련·독립36조건](research/crop-leaf-funded-birth-point-20261026.md)을 수용했으며, 다음은 원 시계/상태·연속+점 장부를 보존한 변경 목록 재개→불변 저장/같은 상태3D입니다. 현재 화면에는 새 조달점이 연결되지 않았습니다. [실제 창1회 관측](research/leaf-carbon-stock-visible-window-20261026.md)은 페이지 hidden으로 보류했고 주앱 전체 bundle의 WSL 보류도 유지합니다. 실제 품종/독립 자료·한 작기/생산·자원/경제·거시/수급·자율 비교·G0–G4/R2와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-26 KST:** [새 잎 조달 뒤 재개153신규/74회귀·독립24문맥/60시점](research/crop-leaf-funded-birth-continuation-20261026.md)을 수용했습니다. 여러 출현 뒤 원 시계/기존 상태·누적량/점 장부를 보존해 실제 계산을 이어갑니다. 다음은 불변 저장/무계산 조회이며 원 시계·줄기 부착 자료 결속을 병행한 뒤 SDK/같은 상태3D로 연결합니다. [현재5177 화면](http://localhost:5177/leaf-carbon-stock-replay.html)은11:48 KST까지 기존 고정 목록의 합성 재생이며 이번 출현 결과는 미연결입니다. 실제 품종/독립 자료·빈 수관/동시 제거·공급 제한 면적/한 작기·생산/자원/경제·거시/수급·자율 비교·제품 통합·G0–G4/R2/표시 창·주앱 전체 build/WSL과 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

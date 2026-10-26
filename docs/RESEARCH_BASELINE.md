@@ -1,5 +1,7 @@
 # 자료·연구 기준선
 
+**2026-10-26 KST 조달 뒤 재개:** [153신규/74회귀·독립24문맥/60시점](../research/crop-leaf-funded-birth-continuation-20261026.md)에서 현재 잎/과실/기후의 실제 RK4·원 D0/전역 시계·연속/점 장부·복수 사건 이력·원 source/profile를 보존했다. app-free Decimal110의7,194상태/810적분량·372장부와 원36조달점의 identity 이외 전체 필드 동등성을 확인했다. 새 계수·측정 자료 채택0이며 기존 원문/권리 보류와 실제 품종/독립 자료0·G0–G4/R2를 유지한다. 다음은 불변 저장/무계산 reader와 원 clock/attachment 결속의 병행이다.
+
 **2026-10-26 KST 조달점:** [원문/권리·native 판단](../research/crop-leaf-funded-births-design-20261026.md)과 [74신규/297관련·독립36조건](../research/crop-leaf-funded-birth-point-20261026.md)을 수용했다. 새 Ci·cLeafG 비용/buffer와 유입 현열을 명시한 합성 새 구조 성장 가정이며 숨은 기관 공개의 생리 법칙이 아니다. F(0)>0/면적→질량 역산0·새 계수/측정 자료 채택0이고 실제 품종/자료·저자 코드/CSV 권리는 미확인이다. 변경 목록의 재개/원 시계·attachment 결속·빈 수관/동시 제거·공급 제한 면적·저장/새 잎3D는 후속이다. 기존 고정 목록3D/실제 표시 창 보류와 G0–G4/R2를 유지한다.
 
 **2026-10-26 KST 현재 C_i/a/A3D:** [42신규/388관련·Chrome43/새 미리보기](../research/leaf-carbon-stock-stored-3d-20261026.md)에서 원102시점/306잎의 실제 삼각형 A와 같은 C_i/나이·장부/표/그래프를 대사했다. 모델/입력/profile·private False168blob은 유지했고 새 계수/관측/외부 자료 채택0이다. 원3개 ID의 제작 scaffold이며512잎의 시각 배치나 실제 품종/작기·관문을 승인하지 않는다. headless의 논리 visibility로 실제 표시 창/R2를 완료하지 않으며 주앱 전체 번들 WSL 보류도 유지한다. 별도 공개 합성 미리보기만 새 유효기간으로 실행하고 만료된 private API/DB의 기한은 갱신하지 않았다.

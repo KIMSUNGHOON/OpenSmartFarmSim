@@ -1,0 +1,281 @@
+{
+  "record_kind": "synthetic_funded_leaf_continuation_acceptance_v1",
+  "observed_at_UTC": "2026-10-26T00:18:14.355054+00:00",
+  "baseline_HEAD": "ec105a6ea3ab021586556435f7f72eb98e064336",
+  "scope": "synthetic_explicit_structural_births_and_actual_common_stage_continuation_only",
+  "new_tests_passed": 153,
+  "point_regression_tests_passed": 74,
+  "point_equivalence": {
+    "all_remaining_fields_identical": true,
+    "cases": 36,
+    "excluded_fields": [
+      "code_sha256",
+      "calculation_sha256"
+    ],
+    "new_point_code_sha256": "cec6bf7bbfc3dc5c569ab5cfa6e8d28d16acd31865419225baed074111a38005",
+    "old_bundle_sha256": "24b32e618f0a973e5e899d8def2dac2a2f4f4a99fb6938c374882ea97589ff5c"
+  },
+  "independent_decimal": {
+    "G0_G4": "not_assessed",
+    "app_imports": 0,
+    "bundle_sha256": "36bb47c6e80859e04225450b895c6344f962c1c134bfdad8d25744dcf8cd29da",
+    "contexts": 24,
+    "frames": 60,
+    "independent_global_ledgers": 372,
+    "integrated_quantities": 810,
+    "intervals": 18,
+    "maximum_roundoff_budget_fraction": "0.032131882311074187843634257445973665026106985394134567240904842595877249023546802520937482453402710620668004007",
+    "precision": 110,
+    "prefixes": 60,
+    "state_quantities": 7194
+  },
+  "fresh_native_reader": {
+    "G0_G4": "not_assessed",
+    "context_restore_RHS": 0,
+    "contexts_restored": 24,
+    "current_checkpoint_RHS": 24,
+    "past_integrator_and_point_replay": 0,
+    "root_contexts_prepared_once": 12,
+    "source": "separate_native_reader"
+  },
+  "native_model": {
+    "observed_at_UTC": "2026-10-25T23:45:14.479553+00:00",
+    "turn_context_timestamp": "2026-10-25T23:44:49.382Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_LF_sha256": "9860923b3b32f4d1d8bfc8b31e7aa46bb14c3c4b323138e37a751d8c0886925b",
+    "recursive_CLI": 0
+  },
+  "original_four_profile_sha256": {
+    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+  },
+  "source_pins": {
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_growing_geometry_climate.py": "5cf58d1dea92e59e1059d5e5cd359a81b8dde950fed2ac575911a4be90788a0a",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_leaf_carbon_partition.py": "6b80b6611ac1f972158fe00fea92c9b0b99af3d94f942ec2710b6fea26c81266",
+    "backend/app/crop_leaf_carbon_stock_rhs.py": "1da1cfef06860893b9ef4f661b15e5d7b4bc099a8d6563c4a9c6bd23156ab4be",
+    "backend/app/crop_leaf_partition_climate_rhs.py": "a708f13ed9290f4353e61310959aeab8f2f4bf0c3c4f02d5f9d0181fc3aebab3",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "fixtures/crop-canopy-exchange-reference-parameters-v1.json": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+    "fixtures/crop-climate-joint-rhs-reference-cases-v1.json": "2c95b2808297c96cad80eaebcd4ba37797706901f44115713dfddccdfffc9658",
+    "research/crop-explicit-lai-carbon-reference.py": "d46c091cdc8133082c72403880a0f55fa546fe87858ab70dd1879812149c2d04",
+    "research/crop-plant-startup-reference.py": "d7de6caa6ca863d1d196de1c610b6401b93977a27e0ea087f43b785b635c31b2",
+    "research/crop-canopy-air-dynamics-reference.py": "6c9e7c5d2698531133414b7817931dfe81dcc95e363ed20c2332dead4a1f95a6",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "research/crop-growing-geometry-climate-reference.py": "e8eff25856d4ac9a6203247ccebb084ec8c5a334c5f3cae3e09f78ad4479108e",
+    "fixtures/crop-growing-geometry-climate-reference-v1.json": "e73a93e6514e10d5fd3f3960e44e49d0831abdafcee5d1ce608dbbb62b884350",
+    "backend/app/crop_leaf_carbon_stock_continuation.py": "62b7ba4c8dbcf56297fde3e2c8ef78e55efe283eab85b9f26640f917236e8f0d",
+    "backend/app/crop_leaf_carbon_stock_dynamics.py": "0e2a51a23b95b10cfc15d46f5668266f2b7981a769d966a167f9a4a9cafdf80d",
+    "backend/app/crop_leaf_funded_birth_point.py": "cec6bf7bbfc3dc5c569ab5cfa6e8d28d16acd31865419225baed074111a38005",
+    "backend/app/crop_leaf_funded_birth_continuation.py": "fd4346afc797b91459cd1f33273c0489545976333c42da68a1b0945ff37eaec2",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/tests/test_crop_leaf_funded_birth_point.py": "1c119a67ca7fb4fa1766bc82a3df1e50b49723bfeedefcbeedc3f957fd29dc3b",
+    "backend/tests/test_crop_leaf_funded_birth_continuation.py": "e8f7ae53afd47d9ab761bfe3fd499dd55922d19b5536091296f17065e430a493",
+    "contracts/crop-leaf-funded-birth-continuation-v1.md": "195a9658fe117452a9b6ad72ba876517444e0b82b689398e8850b493dd649b17",
+    "research/crop-leaf-funded-birth-continuation-20261026.md": "79708698d84a91b8cd4560c0e06cbc9777f32df8cb3700a70ed5c7a8be8389a7"
+  },
+  "private_proof_sha256": {
+    "native-model-v1.private.json": "20c852ede1f69309472c61e7cd816a9df0a3a876bd74dd72205451fdca5b6ec2",
+    "point-core-equivalence-v1.private.json": "b05f849f1f44fc1547d688a797b59cbf7e8cc0c3f8902887a0213013791aa2b2",
+    "produce-fresh-v2.private.py": "cdd7e9e89480150b9bbafb8c0fba748388420892d5473a228b621ff58d22e53d",
+    "fresh-intervals-v2.private.json": "36bb47c6e80859e04225450b895c6344f962c1c134bfdad8d25744dcf8cd29da",
+    "read-fresh-v2.private.py": "cd7ffd34bab0a32391ca10e21abd18e6468e19a7b2fb346d545e1af59ec1380a",
+    "fresh-native-reader-v2.private.json": "9d440db52a46152d18ca9e04d14a6cc53606f23c6529c9ef05ad16a6ece8017b",
+    "check-fresh-decimal-v2.private.py": "065b65076b2df44ecccf79ae024ebd6100e8aecc685f09f99628dc702a329870",
+    "fresh-decimal-v2.private.json": "8366f986b99ddcfecb1333ae782c72d20d6400c7fbae4b6b8242d907e559ff0c",
+    "check-fresh-decimal-v3.private.py": "0add05e46c21c5978da1e65057501b4815d0b1749c5435dff7faf2e79a2cf580",
+    "fresh-decimal-v3.private.json": "3dcb0126f92f58da4c2561d73e5987b85b839f60006b08fb9d637eaeea3588df"
+  },
+  "phases": [
+    {
+      "name": "funded-birth-core-extraction-v1",
+      "observed_at_UTC": "2026-10-25T23:49:08.683124Z",
+      "child_exit": 0,
+      "wall_seconds": 22.651424948999193,
+      "PID_peak_RSS_bytes": 109142016,
+      "combined_peak_RSS_bytes": 162455552,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5145,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "67b69b0fa1a091c9997542e6494be0c0e0526bd7f6a15e72c93f19e414954f0b"
+    },
+    {
+      "name": "funded-birth-continuation-final-v2",
+      "observed_at_UTC": "2026-10-26T00:13:15.088322Z",
+      "child_exit": 0,
+      "wall_seconds": 100.39007804798894,
+      "PID_peak_RSS_bytes": 115085312,
+      "combined_peak_RSS_bytes": 168779776,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5148,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "677db7259a0824cb58f0514e4efaabef3e1ba7710efe4aef8e50e04c8975b4e7"
+    },
+    {
+      "name": "funded-birth-point-equivalence-v1",
+      "observed_at_UTC": "2026-10-26T00:04:33.093647Z",
+      "child_exit": 0,
+      "wall_seconds": 13.075671674974728,
+      "PID_peak_RSS_bytes": 42790912,
+      "combined_peak_RSS_bytes": 95760384,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5148,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "aa96c24567e7136ac895106a7e98351e9388a513e0fde4d07d171d0085c18c85"
+    },
+    {
+      "name": "funded-birth-interval-producer-v2",
+      "observed_at_UTC": "2026-10-26T00:14:24.183475Z",
+      "child_exit": 0,
+      "wall_seconds": 13.356970888969954,
+      "PID_peak_RSS_bytes": 46026752,
+      "combined_peak_RSS_bytes": 99467264,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5148,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "4e6cb0872190ed5b29c2af4dce32ca7e153445e1434eb269f3f1d9c8ce9b93f6"
+    },
+    {
+      "name": "funded-birth-native-reader-v2",
+      "observed_at_UTC": "2026-10-26T00:14:58.702578Z",
+      "child_exit": 0,
+      "wall_seconds": 3.3480260940268636,
+      "PID_peak_RSS_bytes": 44539904,
+      "combined_peak_RSS_bytes": 97570816,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5148,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "0c4d56b651ff6b818231ae192ecf3bada20c3fc24fe131ad453d02849980a82e"
+    },
+    {
+      "name": "funded-birth-decimal-interval-v2",
+      "observed_at_UTC": "2026-10-26T00:15:07.875030Z",
+      "child_exit": 0,
+      "wall_seconds": 2.80113168398384,
+      "PID_peak_RSS_bytes": 31150080,
+      "combined_peak_RSS_bytes": 84246528,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5148,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "3da7e8a00188f98a1eb6d8ce85b92aac2d77157a2542c5f1c7922ec47190d2e2"
+    },
+    {
+      "name": "funded-birth-decimal-all-ledgers-v3",
+      "observed_at_UTC": "2026-10-26T00:19:04.588978Z",
+      "child_exit": 0,
+      "wall_seconds": 2.813364594010636,
+      "PID_peak_RSS_bytes": 30978048,
+      "combined_peak_RSS_bytes": 84316160,
+      "sample_interval_seconds": 0.25,
+      "live_protected_roots": 2,
+      "protected_live": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 5151,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "7131ccce4d5db95b7146baebe603978d16ff02a1ca1435ceceb5621948589850"
+    }
+  ],
+  "csv": {
+    "data_rows": 258,
+    "line_endings": "LF",
+    "sha256": "136d5f2fe74dc404915edfdb90b9bfeddf5a4d59001fb0d57decb0efcffe4c93"
+  },
+  "new_measurements_parameters_or_third_party_data_adopted": 0,
+  "rights": "own synthetic cases; existing pinned reference profile/code license notices retained; author VTC code/data rights unresolved and no adoption",
+  "G0_G4": "not_assessed",
+  "remaining": [
+    "immutable artifact and readonly reader",
+    "source clock and stem attachment provenance",
+    "strict SDK and same-state actual new-leaf3D",
+    "empty canopy and simultaneous removal",
+    "supply-limited area and actual cultivar validation",
+    "production resources economics macro supply demand autonomous crop comparison and product integration"
+  ],
+  "not_run": [
+    "unchanged prior297tests",
+    "entire backend or web suite",
+    "hosted CI not claimed"
+  ],
+  "final_verification": {
+    "HTTP5177": 200,
+    "csv_synthetic_rows": 258,
+    "local_markdown_links_verified": 3464,
+    "observed_at_UTC": "2026-10-26T00:19:49.100240+00:00",
+    "served_files_and_metadata_preserved": 1502,
+    "source_pins_verified": 38,
+    "proof_sha256": "8fea56dbbdae81b43a8aa119bce0f584d557c839358515a9127a72de3494938b",
+    "guard_log_sha256": "facbeaaad25e734b1e41adc867d3c75872b68d415b4359bb42c2e77dce24f543"
+  },
+  "point_core_refactor_commit": "bed5f0c06af01b7debf5200898dce0a60cc840ef"
+}
