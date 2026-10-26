@@ -129,8 +129,8 @@
     "web/src/storedLeafReplayIO.ts": "a8ca09dbe4bbcf834ce596129857a9ad2c15d39a1dffb4d7beb9df6d39f9c2e4"
   },
   "output_pins": {
-    "research/crop-stem-root-stock-dynamics-20261027.md": "6b7ba27fc150b100a4cdba476a2229fa25502292e62b57d1805b8a0878fae8a4",
-    "research/artifacts/crop-stem-root-stock-dynamics-20261027.csv": "56d869c51cac2f754f247e8d2e878641bbfbacea5cd01f0fb1239660b95dfaea"
+    "research/crop-stem-root-stock-dynamics-20261027.md": "c107d00a497ab16a0af7bc09a8d51172c6866ccb954512cf3a67c9be7c2dcc3e",
+    "research/artifacts/crop-stem-root-stock-dynamics-20261027.csv": "0cf50ebafc5d67c2ca771c5dadf0aee33d000e82108a1977680ef9b0cf8efc9b"
   },
   "focused_tests": {
     "passed": 399,
@@ -391,6 +391,33 @@
       "actual_farm_Runs": 0,
       "G0_G4": "not_assessed",
       "full_suite": false
+    },
+    "stem-root-dynamics-preservation-final-v2": {
+      "observed_at_UTC": "2026-10-26T19:16:14.035652Z",
+      "child_exit": 0,
+      "hold_reason": null,
+      "wall_seconds": 1.2640805480186827,
+      "PID_peak_RSS_bytes": 29933568,
+      "combined_peak_RSS_bytes": 62119936,
+      "samples": 2,
+      "sample_interval_seconds": 0.25,
+      "optional_resource_root_count": 1,
+      "live_protected_roots": 1,
+      "protected_live": true,
+      "historical_six_terminated_before_phase": true,
+      "current_2148_originals_and_artifacts_static_entries_preserved": true,
+      "watched_entries": 4500,
+      "source_preserved": true,
+      "source_count": 10456,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "b9345c7d35072c4547be01653579702f8ece41aa14e420af7b7ad27a4c6f2def",
+      "actual_farm_Runs": 0,
+      "G0_G4": "not_assessed",
+      "full_suite": false
     }
   },
   "retained_failed_phases": {
@@ -475,6 +502,35 @@
   "next": "tasks/plan.md 3c3b4b2: immutable context/checkpoint and same-grid split continuation of actual individual stocks/transfers, then birth cost/initial lineage and supply-limited geometry; independent actual evidence acquisition in parallel",
   "whole_goal": "active_incomplete",
   "final_verification": {
+    "observed_at_UTC": "2026-10-26T19:16:12.935180+00:00",
+    "source_pins_verified": 103,
+    "output_pins_verified": 2,
+    "CSV_rows_verified": 102,
+    "local_markdown_links_verified": 3533,
+    "HTTP5175": 200,
+    "HTTP5180": 200,
+    "preview_owner_identity_and_original_expiry_preserved": true,
+    "retained_failed_checker_then_fixed_verified": true,
+    "new_model_UI_runtime_connected": false,
+    "whole_goal": "active_incomplete",
+    "G0_G4": "not_assessed",
+    "R2": "not_approved"
+  },
+  "format_correction": {
+    "observed_at_UTC": "2026-10-26T19:16:11.712067+00:00",
+    "previous_commit": "3aa5585089cc95646f305a1b07e1c24f9403dbc9",
+    "CSV_original_sha256": "56d869c51cac2f754f247e8d2e878641bbfbacea5cd01f0fb1239660b95dfaea",
+    "CSV_LF_sha256": "0cf50ebafc5d67c2ca771c5dadf0aee33d000e82108a1977680ef9b0cf8efc9b",
+    "original_CRLF_lines": 103,
+    "CSV_rows_preserved": 102,
+    "all_CSV_fields_identical": true,
+    "calculation_code_changed": false,
+    "staged_failure_reproduced_exit": 2,
+    "staged_failure_log_sha256": "cf6592a859e6eb63dcaf9c9150176fabfb2e955d8059d974d95eeeaaf798974d",
+    "fix": "LF line terminators; fail-fast commit checks; original bytes retained in prior commit and private snapshot",
+    "verification_passed": true
+  },
+  "verification_before_CSV_LF_correction": {
     "observed_at_UTC": "2026-10-26T19:13:30.627797+00:00",
     "source_pins_verified": 103,
     "output_pins_verified": 2,
