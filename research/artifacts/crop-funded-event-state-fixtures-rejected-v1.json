@@ -1,0 +1,47 @@
+{
+  "schema_version": "owned-funded-event-state-QA-fixtures-v1",
+  "scope": "software_research_only",
+  "G0_G4": "not_assessed",
+  "purpose": "local candidate and refinement numerical QA; no cultivar or farm observations",
+  "sources": {
+    "stem": {
+      "path": "web/public/morphology-rational-replay/input.json",
+      "sha256": "0c6ebe7ddbff19b64a6348c6ea003a2c78340006a81028977cbc35a7bbef1eb3"
+    },
+    "leaf": {
+      "path": "fixtures/crop-leaf-carbon-stock-dynamics-reference-v1.json",
+      "sha256": "26c5eff5df009486dddc2f68706d23b99dadac185dca052aecfd1ad1da7fca0f"
+    }
+  },
+  "rights": {
+    "declaration_id": "own-funded-event-state-qa",
+    "revision": "v1",
+    "declared_at_utc": "2026-10-26T04:45:40.244149Z",
+    "access": true,
+    "store": true,
+    "use": true,
+    "transform": true,
+    "display": true,
+    "redistribute": true,
+    "ownership_asserted": true
+  },
+  "time_origin_utc": "2026-10-01T07:00:00Z",
+  "stem_output_times": [
+    "2026-10-01T07:00:00Z",
+    "2026-10-01T08:00:00Z"
+  ],
+  "step_seconds": 8,
+  "step_count": 64,
+  "birth_steps": [
+    0,
+    16
+  ],
+  "case_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}
