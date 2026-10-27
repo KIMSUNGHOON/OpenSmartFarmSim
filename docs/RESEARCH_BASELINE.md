@@ -1,6 +1,6 @@
 # 자료·연구 기준선
 
-**현재 — 2026-10-27 KST:** [분수 기관 원 격자 재개:58검사·별도13경로](../research/crop-organ-fractional-continuation-20261027.md)을 수용했습니다. genuine Context/별도 CP·정확 잔여/원 dt·같은 RK4·branch/point/lifetime 장부·모든 수용 분할/최종 bytes·현재만 복원/실패 prefix·원 자료/GUI/WSL을 검증했습니다.12경로는 합성512초 끝,1경로는 실제 다음 출현 사건 앞에서 보류합니다. 후속 기관 생성/일정 소비는 미구현입니다. 다음은 현재 기관 ID/정확 시계→후속 후보/point·반복 재개→공급 제한 형상/불변 같은 상태3D입니다. 새 UI 미연결·기존834시점/5180 원 만료10/27 13:09KST 유지. 독립 국내 측정/새 품종·allometry0·VTC 권리/대응 측정·512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-27 KST:** [분수 기관 현재 시계/ID:41검사·별도26결과](../research/crop-organ-fractional-clocks-20261027.md)을 수용했습니다. genuine own CP·원 source/개별 birth/air/base-age·전체 현재 ID/정확 나이·leaf actual−clock=global residual/원 예산·현재1RHS/과거·point·초기화0·source/late·원 자료/GUI/WSL을 검증했습니다. 초기 leaf-parent는 unbound이며 새 위치/형상은 만들지 않습니다. 다음은 실제 successor 후보→새 point/Context/CP·일정 소비/반복 재개→공급 제한 형상/같은 상태3D입니다. 새 UI 미연결·기존834시점/5180 원 만료10/27 13:09KST 유지. 실제 품종/allometry/독립 국내 측정0·VTC 권리/대응 측정·512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
 
 **2026-10-26 KST 저장 이력/두 원점:** [25검사·cold163시점/659나이·496길이·163축합](../research/crop-funded-shoot-epochs-20261026.md)에서 실제 저장7h/8h 초기 이력/curve/anchor와 발달/시뮬레이션 원점을 보존했다. 과거는 원 고정기온 합성 초기 조건이며 새 동적 I_Ta는 이후 구간만 적용한다. 별도 자체 선언/새9원본·기준 통과 bracket1개를 대사했고 정확 시각/새 기관·부착은 미생성이다. 새 농업 계수/외부 측정 채택0·실제 품종/독립 자료0·G0–G4/R2를 유지한다. 다음은 공동 ODE stage와 사건 시각의 수치 근거다.
 
