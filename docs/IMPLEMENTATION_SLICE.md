@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-27 KST:** [분수 기관 Context/CP:73검사·별도12쌍](../research/crop-organ-fractional-context-20261027.md)을 수용했습니다. 실제 point/원 source·exact 시각/grid·첫 일정 소비·기관 birth/air/C/나이·순차 비용/장부와 trusted 저장·복원을 결속했습니다. 독립1,506상태/1,260누적/276잔차·예산·현재 CP1RHS/과거 RHS·공개 point·초기화0/late·원 자료/GUI/WSL을 검증했습니다. 다음은 원 격자 잔여/분할 재개→기관 ID/시계→공급 제한 형상/불변 같은 상태3D입니다. 새 잔여 전진/새 UI는 미연결이며 기존834시점/5180 원 만료10/27 13:09KST를 유지합니다. 독립 국내 측정/새 품종·allometry0·VTC 권리/대응 측정·512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-27 KST:** [분수 기관 원 격자 재개:58검사·별도13경로](../research/crop-organ-fractional-continuation-20261027.md)을 수용했습니다. genuine Context/별도 CP·정확 잔여/원 dt·같은 RK4·branch/point/lifetime 장부·모든 수용 분할/최종 bytes·현재만 복원/실패 prefix·원 자료/GUI/WSL을 검증했습니다.12경로는 합성512초 끝,1경로는 실제 다음 출현 사건 앞에서 보류합니다. 후속 기관 생성/일정 소비는 미구현입니다. 다음은 현재 기관 ID/정확 시계→후속 후보/point·반복 재개→공급 제한 형상/불변 같은 상태3D입니다. 새 UI 미연결·기존834시점/5180 원 만료10/27 13:09KST 유지. 독립 국내 측정/새 품종·allometry0·VTC 권리/대응 측정·512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
@@ -484,6 +484,8 @@ PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수�
 현재 탄소 모델/농장 Run·기존 주 화면은 유지한다. [형태 입력의 출처·현재 검토 결속](../research/crop-morphology-input-evidence-20261022.md)은
 595집중검사/실제 원 입력·fresh 검증을 수용했으며 다음은 현재 농장 권리/서명 이력→API/제품 UI다.
 실제 품종/작기·잎 식/초기 기관과 자원/경제 통합은 후속이다.
+
+**현재 기관 수치 경계 — 2026-10-27:** [분수 기관 재개 수용](../research/crop-organ-fractional-continuation-20261027.md)은 초기 source/실제 첫 threshold 조달점 뒤의 C/면적/나이·정확 원 grid/장부와 분할 재현을 지원한다. 합성12경로는 원512초 끝까지 전진하고 실제 다음 threshold에 닿은 별도1경로는 마지막 prefix에서 보류한다. 후속 material/일정 소비·반복 출현, 전체 현재 기관 ID/시계와 초기 leaf-parent 결속, 탄소 공급 제한 형상/같은 상태3D 및 한 작기 생산·자원·경제는 별도로 구현·수용해야 한다. 현재 재개 수용을 그 기능이나 실제 품종/현장·예측/추천/제품 관문 승인으로 대체하지 않는다. 다음 의존성/수용은 [현재 계획](../tasks/plan.md)을 따른다.
 
 ## 1. 목표와 확인할 사용자 경로
 
