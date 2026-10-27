@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-27 KST:** [분수 기관 현재 시계/ID:41검사·별도26결과](../research/crop-organ-fractional-clocks-20261027.md)을 수용했습니다. genuine own CP·원 source/개별 birth/air/base-age·전체 현재 ID/정확 나이·leaf actual−clock=global residual/원 예산·현재1RHS/과거·point·초기화0·source/late·원 자료/GUI/WSL을 검증했습니다. 초기 leaf-parent는 unbound이며 새 위치/형상은 만들지 않습니다. 다음은 실제 successor 후보→새 point/Context/CP·일정 소비/반복 재개→공급 제한 형상/같은 상태3D입니다. 새 UI 미연결·기존834시점/5180 원 만료10/27 13:09KST 유지. 실제 품종/allometry/독립 국내 측정0·VTC 권리/대응 측정·512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-27 KST:** [다음 출현 상태 후보:42검사·별도3후보/25보류](../research/crop-organ-successor-candidate-20261027.md)을 수용했습니다. 실제 own CP의 다음 미소비 문턱/논리 ID·전 상태/partial 유량·정확 prefix·current+local/global 잔차와 원 예산 합·같은 시각1/2/4 진단·37RHS/과거 재실행0을 검증했습니다. 다음은 새 기관 조달점(잠정135–225집중분)→새 Context/CP·일정 소비/반복 재개→공급 제한 형상/같은 상태3D입니다. 새 기관/비용/일정/CP·UI 반영은 후속입니다. 원 자료/기존834시점·5180 원 만료10/27 13:09KST를 보존했습니다. 실제 품종/allometry·독립 국내 측정0/VTC 권리·대응 측정,512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
