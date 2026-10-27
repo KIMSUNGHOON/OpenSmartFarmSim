@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-27 KST:** [다음 출현 상태 후보:42검사·별도3후보/25보류](research/crop-organ-successor-candidate-20261027.md)을 수용했습니다. 실제 own CP의 다음 미소비 문턱/논리 ID·전 상태/partial 유량·정확 prefix·current+local/global 잔차와 원 예산 합·같은 시각1/2/4 진단·37RHS/과거 재실행0을 검증했습니다. 다음은 새 기관 조달점(잠정135–225집중분)→새 Context/CP·일정 소비/반복 재개→공급 제한 형상/같은 상태3D입니다. 새 기관/비용/일정/CP·UI 반영은 후속입니다. 원 자료/기존834시점·5180 원 만료10/27 13:09KST를 보존했습니다. 실제 품종/allometry·독립 국내 측정0/VTC 권리·대응 측정,512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-27 KST:** [다음 출현 기관 조달:50검사·별도6조건/25보류](research/crop-organ-successor-point-20261027.md)을 수용했습니다. 실제 successor 후보/원 source·다음 논리 ID/현재 부모·명시 C/T를 결속해 원 cStemG/cLeafG 비용을 한번 차감하고 기존 C/나이/면적/D0·전체/점 장부를 보존했습니다. 별도 Decimal/정확 산술·현재/late·원 자료/GUI/WSL을 검증했습니다. 다음은 새 Context/CP·일정 한번 소비/반복 재개(잠정160–265집중분)→공급 제한 형상/같은 상태3D입니다. 일정/새 CP·전역 prefix 채택·UI 반영은 후속입니다. 기존834시점/5180 원 만료10/27 13:09KST를 보존했습니다. 실제 품종/allometry·독립 국내 측정0/VTC 권리·대응 측정,512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
