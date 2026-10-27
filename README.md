@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-27 KST:** [분수 후보의 새 기관 조달점: 신규42/관련123·165검사·별도12점](research/crop-organ-fractional-point-20261027.md)을 수용했습니다. 원 첫 기준/논리 ID·현재 부모/명시 C/T·같은 exact 시각과 순차 cStemG/cLeafG 비용 한번·새 기관/기존 상태·exact C/K/U/기타 수지를 결속했습니다. 독립2,994상태/186조달량/126잔차·예산·history 충돌/late/source/원 자료/GUI/WSL을 검증했습니다. 다음은 새 immutable 분수 Context/CP·일정 소비/기관 birth/장부→원 격자 잔여/분할 재개→공급 제한 형상입니다. 새 CP/일정 채택·새 UI는 미발급·미연결입니다. [기존 저장3D834시점](research/complete-crop-stored-replay-20261027.md)/[5180 미리보기](http://localhost:5180/complete-crop-replay.html)(10/27 13:09KST 원 만료)는 같은 빌드입니다. 실제 품종/독립 국내 측정0·VTC 권리/대응 측정·512 byte-cap/전체 주앱 build·최종 R2/첫 shader warning·한 작기/생산·자원/경제·거시/수급·자율 비교·제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
+**현재 — 2026-10-27 KST:** [분수 기관 Context/CP:73검사·별도12쌍](research/crop-organ-fractional-context-20261027.md)을 수용했습니다. 실제 point/원 source·exact 시각/grid·첫 일정 소비·기관 birth/air/C/나이·순차 비용/장부와 trusted 저장·복원을 결속했습니다. 독립1,506상태/1,260누적/276잔차·예산·현재 CP1RHS/과거 RHS·공개 point·초기화0/late·원 자료/GUI/WSL을 검증했습니다. 다음은 원 격자 잔여/분할 재개→기관 ID/시계→공급 제한 형상/불변 같은 상태3D입니다. 새 잔여 전진/새 UI는 미연결이며 기존834시점/5180 원 만료10/27 13:09KST를 유지합니다. 독립 국내 측정/새 품종·allometry0·VTC 권리/대응 측정·512 byte cap·전체 주앱 build/R2·한 작기/생산·자원/경제·거시/수급·자율 비교/제품 통합/G0–G4와 전체 완료일은 미완료·미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
