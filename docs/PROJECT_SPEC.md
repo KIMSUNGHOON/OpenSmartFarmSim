@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-28 KST:** [공급 제한 후속 후보33검사·별도18개/독립 산술](../research/crop-supply-morphology-newborn-candidate-20261028.md)을 수용했습니다. 실제 새 전진 CP의 다음 문턱을 정확 근 구간/상한 상태·부분 적산량과 local/branch/global·1/2/4진단으로 대사했습니다. 후보만 계산했으며 후속 조달/일정 소비·새 기관/CP·새 UI는 아직 없습니다. 다음은 명시 seed 조달점(잠정35–60집중분)→새 owner/반복(40–65집중분 초안)→불변 저장/같은 상태 실제3D입니다. 실제 품종/국내 독립 측정0·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시·수급·자율 비교/제품 통합과 전체 완료일은 미완료·미정입니다. 5180은 원 만료/저장 보존·외형5175 HTTP200, whole goal active/incomplete입니다.
+**현재 — 2026-10-29 KST:** [공급 제한 후속 조달점32검사·별도40조건/독립 산술](../research/crop-supply-morphology-newborn-point-20261029.md)을 수용했습니다. 합성40조건 중34계산/6seed 적합성 보류이며 기존 상태·원 비용/열 한번·birth/형상 원점·통합 lifetime/global을 대사했습니다. 읽기 전용 point이며 일정/새 Context·CP/반복/UI는 미채택입니다. 다음은 실제 point의 새 Context/초기CP·cold restore(잠정45–80집중분)→같은 family 재개/반복→불변 저장/같은 상태 실제3D입니다. 반복40–65분 초안은 실제 타입/원점 의존성에 따라3단계170–295집중분으로 분해했습니다. 실제 품종/국내 독립 측정0·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시·수급·자율 비교/제품 통합과 전체 완료일은 미완료·미정입니다. 5180은 원 만료/저장 보존·외형5175 HTTP200, whole goal active/incomplete입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
@@ -749,7 +749,7 @@ G1 제품 Run을 자동으로 만들지 않는다. 제품 재생은 해당 입�
 [별도 합성 연구 화면의 같은 UTC3D](../research/morphology-stored-replay-20261022.md)는 원 절간 길이/표/그래프·실제 브라우저로 수용했다.
 고정3복엽/표면은 제작 가정이다. 현재 농장 권리/제품 게시를 통과하기 전 기존 농장 Run의 고정 줄기를 이 값으로 교체하지 않는다.
 
-**현재 기관 수치 경계 — 2026-10-28:** [공급 제한 새 owner 후속 후보](../research/crop-supply-morphology-newborn-candidate-20261028.md)의33검사·별도18개/독립 산술로 실제 current CP/4stage·정확 근/상한 상태/부분 유량·local/branch/global/clock·같은 시각1/2/4를 대사했다. 후보만 수용했고 조달/일정 소비/새 기관·CP/UI는 미채택이다. 다음은 명시 조달·새 owner 반복→불변 저장/같은 상태 실제3D이며 실제 품종/독립 자료·관문과 제품 farm 통합은 별도다.
+**현재 기관 수치 경계 — 2026-10-29:** [공급 제한 후속 조달점](../research/crop-supply-morphology-newborn-point-20261029.md)의32검사·별도40조건/독립 산술로 실제 다음 후보/ID·명시 C/X/k·원 비용/열 한번·원 상태/clock/형상 원점/통합 lifetime/point/global을 대사했다.34계산/6부적합이며 읽기 전용 point다. 다음은 진짜 새 Context/초기CP·cold restore→같은 family 재개/반복→불변 저장/같은 상태 실제3D이며 실제 품종/독립 자료·관문과 제품 farm 통합은 별도다.
 
 ## 6. 검증과 수용 관문
 
