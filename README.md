@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-29 KST:** [공급 제한 후속 조달점32검사·별도40조건/독립 산술](research/crop-supply-morphology-newborn-point-20261029.md)을 수용했습니다. 합성40조건 중34계산/6seed 적합성 보류이며 기존 상태·원 비용/열 한번·birth/형상 원점·통합 lifetime/global을 대사했습니다. 읽기 전용 point이며 일정/새 Context·CP/반복/UI는 미채택입니다. 다음은 실제 point의 새 Context/초기CP·cold restore(잠정45–80집중분)→같은 family 재개/반복→불변 저장/같은 상태 실제3D입니다. 반복40–65분 초안은 실제 타입/원점 의존성에 따라3단계170–295집중분으로 분해했습니다. 실제 품종/국내 독립 측정0·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시·수급·자율 비교/제품 통합과 전체 완료일은 미완료·미정입니다. 5180은 원 만료/저장 보존·외형5175 HTTP200, whole goal active/incomplete입니다.
+**현재 — 2026-10-29 KST:** [후속 Context·초기 체크포인트46검사/별도34개·독립 산술](research/crop-supply-morphology-successor-context-20261029.md)을 수용했습니다. 실제 후속 조달점의 상태/기관 ID·비용·birth/형상 원점·통합 lifetime/point/global을 보존하고 일정 한 번·원 격자·cold Context 계산0/CP 현재1을 확인했습니다. 새 family의 원 격자/evolved CP(잠정60–100집중분)→후속 반복(65–115분)→불변 저장/같은 상태 실제3D(180–300분)가 남습니다. 합305–515분은 낮은 신뢰의 코드 작업 초안이며 제품 완료일이 아닙니다. 실제 품종/국내 독립 측정0·자료 확보일 미정·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시/수급·자율 비교와 제품 통합은 미완료입니다. 외형5175 HTTP200/5180 원 만료·저장 보존, 전체 goal active/incomplete입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

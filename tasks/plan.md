@@ -1,6 +1,6 @@
 # 구현 순서
 
-**현재 — 2026-10-29 KST:** [공급 제한 후속 조달점32검사·별도40조건/독립 산술](../research/crop-supply-morphology-newborn-point-20261029.md)을 수용했습니다. 합성40조건 중34계산/6seed 적합성 보류이며 기존 상태·원 비용/열 한번·birth/형상 원점·통합 lifetime/global을 대사했습니다. 읽기 전용 point이며 일정/새 Context·CP/반복/UI는 미채택입니다. 다음은 실제 point의 새 Context/초기CP·cold restore(잠정45–80집중분)→같은 family 재개/반복→불변 저장/같은 상태 실제3D입니다. 반복40–65분 초안은 실제 타입/원점 의존성에 따라3단계170–295집중분으로 분해했습니다. 실제 품종/국내 독립 측정0·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시·수급·자율 비교/제품 통합과 전체 완료일은 미완료·미정입니다. 5180은 원 만료/저장 보존·외형5175 HTTP200, whole goal active/incomplete입니다.
+**현재 — 2026-10-29 KST:** [후속 Context·초기 체크포인트46검사/별도34개·독립 산술](../research/crop-supply-morphology-successor-context-20261029.md)을 수용했습니다. 실제 후속 조달점의 상태/기관 ID·비용·birth/형상 원점·통합 lifetime/point/global을 보존하고 일정 한 번·원 격자·cold Context 계산0/CP 현재1을 확인했습니다. 새 family의 원 격자/evolved CP(잠정60–100집중분)→후속 반복(65–115분)→불변 저장/같은 상태 실제3D(180–300분)가 남습니다. 합305–515분은 낮은 신뢰의 코드 작업 초안이며 제품 완료일이 아닙니다. 실제 품종/국내 독립 측정0·자료 확보일 미정·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시/수급·자율 비교와 제품 통합은 미완료입니다. 외형5175 HTTP200/5180 원 만료·저장 보존, 전체 goal active/incomplete입니다.
 
 ## 현재 탄소 재고 다음의 순서 — 2026-10-26 KST
 
@@ -54,11 +54,11 @@
 | 3c3b4c-event-point | [36검사·16결과/독립 산술](../research/crop-supply-morphology-point-20261028.md): 실제 후보·명시 seed C/X/k·적합성/원 비용·열 한번·0길이 stage·원 C/A/L/clock·point/global preview·독립/fresh/실패/보존 | 합성 조달점 수용; 일정/새 Context/CP·반복/UI0 |
 | 3c3b4c-point-context | [39검사·별도10개/독립 대사](../research/crop-supply-morphology-context-20261028.md): 실제 point/source/원CP·0길이/원 상태·k/birth/누적/global→진짜 새 Context/초기CP·일정 한번·cold 과거 RHS/point/초기화0/CP 현재1·변조/late/보존 | 초기CP 연구 수용; 시간 전진/반복/UI는 후속 |
 | 3c3b4c-newborn-resume | [33검사·별도10궤적/독립 산술](../research/crop-supply-morphology-newborn-resume-20261028.md): 실제 seed/0길이의 분수 잔여→원8초 격자·각5구간/296초·전체/분할/cold CP·원점/장부/clock·실패/late·다음296–304초 threshold hold/보존 | 연구 재개 수용; 후속 조달/반복·새 UI0 |
-| 3c3b4c-events | 실제 새 전진 CP/후보·후속 point 수용→genuine 새 owner/원점 유지·가변 재개/반복 전역 체인·분할/fresh/실패. old typed handle 이식0 | point32검사/40조건 수용; 남은 owner45–80+같은 family 재개60–100+반복65–115=잠정170–295집중분, 낮은 신뢰 초안 |
+| 3c3b4c-events | 실제 새 전진 CP/후보·후속 point 수용→genuine 새 owner/원점 유지·가변 재개/반복 전역 체인·분할/fresh/실패. old typed handle 이식0 | point32/40조건·초기 owner46/34개 수용; 남은 같은 family 재개60–100+반복65–115=잠정125–215집중분, 낮은 신뢰 초안 |
 | 3c3b4c-events-candidate | [33검사·별도18후보/독립 산술](../research/crop-supply-morphology-newborn-candidate-20261028.md): actual current CP/4stage·exact 근/상한 상태/부분 유량·local/branch/global/clock·같은 시각1/2/4·현재/late/cap/보존 | 읽기 전용 연구 후보 수용; 후속 조달/일정/기관/CP/UI0 |
 | 3c3b4c-events-point | [32검사·별도40조건/독립 산술](../research/crop-supply-morphology-newborn-point-20261029.md): 실제 다음 ID/부모/후보·명시 C/X/k·원 비용/열 한번·원 상태/clock·형상 원점/통합 lifetime/점/global·현재/late/보존 | 읽기 전용 연구 point 수용(34계산/6부적합); 일정/새 Context·CP/UI0 |
-| 3c3b4c-events-context — 다음 한 단계 | 실제 point/current source/CP·after state/organs/costs·birth/geometry origins/lifetime/point/global→genuine Context/초기CP·일정 한번·before/after prefix/원 격자·cold 과거RHS/point/fund/init0·CP 현재1·trusted proof/변조/current/late/독립/fresh/보존 | 잠정45–80집중분(결속20–35+복원/proof15–25+검증10–20). extended CP/반복은 별도 |
-| 3c3b4c-events-family-grid | 위 실제 family의 가변 state/원점 기반 장부·원 격자/분수 잔여·extended CP·전체/분할/cold 동일 bytes·실패 prefix/다음 threshold hold·독립/보존 | 잠정60–100집중분, 첫 Context 수용 뒤 갱신 |
+| 3c3b4c-events-context | [46검사·별도34개/독립 산술](../research/crop-supply-morphology-successor-context-20261029.md): 실제 point/current source/CP·상태/ID/k/birth/형상 원점/통합 lifetime/point/global→genuine Context/초기CP·일정 한 번·prefix/원 격자·cold 과거RHS/point/fund/init0·CP 현재1·canonical/변조/current/late/보존 | 연구 초기CP 수용; evolved CP/반복/UI는 별도 |
+| 3c3b4c-events-family-grid — 다음 한 단계 | 위 실제 family의 가변 state/원점 기반 장부·원 격자/분수 잔여·extended CP·전체/분할/cold 동일 bytes·실패 prefix/다음 threshold hold·독립/보존 | 잠정60–100집중분. 초기 Context 수용; 실제 새 family와 명시 원점 장부로 검증 |
 | 3c3b4c-events-family-repeat | 같은 실제 family의 다음 후보/명시 조달→새 owner/일정 단일 소비·반복 전역 체인·전체/분할/fresh/실패/보존. 새 seed 선언 부재는 hold | 잠정65–115집중분, 실제 proof/선언 규모 뒤 갱신 |
 | 3c3b4c-stored-3d | 새 실제 A/L/C/clock/ID/phase·부족분의 불변 result/무계산 reader/strict SDK→실제 mesh/표/그래프·메뉴/reload/권리·실패·기존 GUI 보존. 제작 width/pose/fruit·최종 R2/제품 farm 통합 구분 | 잠정180–300집중분; events 수용 뒤 재산정 |
 | 3c3b5 | 공급 제한 길이/면적의 별도 합성 법칙·동역학 수지 개발과 실제 품종 allometry/초기 이력·권리/독립 자료 확보를 병행. 현재 paper의 독립 logistic을 탄소 feedback으로 승격하지 않음 | 개발 착수와 실제 주장/게시 조건 분리; 실제 자료 확보 날짜 미정 |
