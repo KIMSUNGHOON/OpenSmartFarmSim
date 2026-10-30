@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 — 2026-10-29 KST:** [후속 Context·초기 체크포인트46검사/별도34개·독립 산술](../research/crop-supply-morphology-successor-context-20261029.md)을 수용했습니다. 실제 후속 조달점의 상태/기관 ID·비용·birth/형상 원점·통합 lifetime/point/global을 보존하고 일정 한 번·원 격자·cold Context 계산0/CP 현재1을 확인했습니다. 새 family의 원 격자/evolved CP(잠정60–100집중분)→후속 반복(65–115분)→불변 저장/같은 상태 실제3D(180–300분)가 남습니다. 합305–515분은 낮은 신뢰의 코드 작업 초안이며 제품 완료일이 아닙니다. 실제 품종/국내 독립 측정0·자료 확보일 미정·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시/수급·자율 비교와 제품 통합은 미완료입니다. 외형5175 HTTP200/5180 원 만료·저장 보존, 전체 goal active/incomplete입니다.
+**현재 — 2026-10-30 KST:** [후속 family 원 격자 재개36검사/별도34경로·독립 산술](../research/crop-supply-morphology-successor-resume-20261029.md)을 수용했습니다. 분수 잔여→원8초 격자·진짜 evolved CP의 전체/분할/cold bytes 일치,170확정 구간/34다음 threshold 보류·명시 형상 원점/누적/전역 장부를 확인했습니다. 다음은 같은 family의 후속 후보·명시 조달·일정 단일 소비와 여러 사건의 반복, 이후 불변 저장/같은 상태 실제3D입니다. 배치24guard 실측96.71분은 검증 공수이며 제품 계산 속도/완료일이 아닙니다. 이전 반복65–115분 초안은 인터페이스·proof 규모 확인 뒤 재산정하며 저장3D180–300분도 낮은 신뢰의 이전 초안입니다. 실제 품종/국내 독립 측정0·자료 확보일 미정·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시/수급·자율 비교와 제품 통합은 미완료입니다. 기존 외형5175/봉인 저장·5180 원 만료를 보존했고 전체 goal active/incomplete입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
@@ -485,7 +485,7 @@ PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수�
 595집중검사/실제 원 입력·fresh 검증을 수용했으며 다음은 현재 농장 권리/서명 이력→API/제품 UI다.
 실제 품종/작기·잎 식/초기 기관과 자원/경제 통합은 후속이다.
 
-**현재 기관 수치 경계 — 2026-10-29:** [실제 후속 Context/초기CP](../research/crop-supply-morphology-successor-context-20261029.md)의46검사·별도34개/독립 산술을 수용했다. 원 상태/기관·k/birth/명시 형상 원점/통합 lifetime/point/global·일정 단일 소비·before/after prefix/원 격자와 cold 과거 계산/조달/초기화0·CP 현재1을 유지한다. 초기CP 전용이며 다음은 같은 실제 family의 원 격자/evolved CP→반복→불변 저장/같은 상태 실제3D다. 실제 품종/독립 자료·관문과 제품 farm 통합은 별도다.
+**현재 기관 수치 경계 — 2026-10-30:** [실제 후속 family 재개](../research/crop-supply-morphology-successor-resume-20261029.md)의36검사·별도34경로/170확정 구간·독립 산술을 수용했다. 원8초 격자/분수 잔여·genuine evolved CP 전체/분할/cold bytes·형상 원점/누적/전역 장부·현재/late/실패 prefix를 보존하고 다음 threshold는 미소비 bracket으로 남긴다. 다음은 실제 family의 여러 후속 후보/명시 조달·일정 단일 소비·반복 전역 체인→불변 저장/같은 상태 실제3D다. 기존 초기CP validator는 유지한다. 실제 품종/독립 자료·관문과 제품 farm 통합은 별도다.
 
 ## 1. 목표와 확인할 사용자 경로
 
