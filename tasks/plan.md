@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [새 저장 상태3D 미리보기](http://localhost:5181/supply-morphology-replay.html)를 열었습니다(오늘13:34 KST까지). [44집중·전체 타입/공개 빌드·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md)과 [실제 주소의 첫/끝·메뉴/reload·오류0](../research/supply-morphology-user-preview-20261031.md)을 수용했습니다. 같은 원 잎/줄기·표/그래프·정확 clock/부족분/장부를 확인합니다. 실제 품종 한 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합은 미완료이며 독립 국내 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
 
-**범위와 다음 단계:** 자체 합성305181/1024초→512초·공개101파일/38시점의 연구 재생이며 새 backend 계산은 아닙니다. 다음은 현 Context2,034,607bytes/2MiB·512초 경계와 과실/수확·자원/경제의 누락을 기존 명세/모델/원문에 대사하는 작기/생산 준비 검토입니다. 기존 자료 접근 유지 조건의 분해 공수는2–4집중시간이며 전체 제품·독립 자료 확보일은 미정입니다. 과거10월22일09시 기한은 새 날짜로 바꾸지 않습니다.
+**다음 구현:** [작기/생산 준비 검토](../research/season-production-readiness-20261031.md)를 완료했습니다. 기존 과실50구획과 terminal 누적이 현재 저장 결과에 있으며 다음은 이를 정확 C/N 원장에 직접 연결하는 조회기입니다(계획1.5–3.5집중시간). 원512초는 fixture 범위이고 기반 생성기의600초·Context2MiB/공개 최대2,034,765bytes·관리/기후 경계는 별도 장기 과제입니다. 독립 자료 확보는 병행하며 전체 제품 완료일은 미정입니다.
 
 ## 현재 탄소 재고 다음의 순서 — 2026-10-26 KST
 
@@ -74,7 +74,9 @@
 | 3c3b4f1 — 수용 | [13검사·타입/독립38시점](../research/crop-supply-morphology-stored-geometry-20261030.md). 원 부모 forest·0길이4행/미부착114행·잎358면적/절간356끝점·SDK 원101파일·복사/정리/보존 | 기하 수용; 실제 WebGL/새 화면은 후속 |
 | 3c3b4f2 — 수용 | [44집중·전체 타입/공개233파일·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md). 같은 잎/줄기·표/그래프/정확 clock/deficit/원 장부, 메뉴/reload/로드·실패/비활성 정지·자원/보존 | 연구 화면 소프트웨어 수용; 최종 R2/제품 farm 별도 |
 | 3c3b4f3 — 수용 | [새5181/고정233파일·첫/끝·메뉴/reload/오류0](../research/supply-morphology-user-preview-20261031.md). 원 source/GUI·만료/WSL 보존 | 오늘13:34 KST까지 유한 연구 preview. 기존5180 만료 연장0 |
-| 다음 — 작기/생산 준비 검토 | 현512초/Context2MiB 경계0.5–1h → 과실/수확·자원/경제와 자료 의존성0.5–1.5h → 다음 한 수치 계약/수용 기준0.5–1h | 기존 자료 접근 유지 조건으로 잠정2–4집중h. 독립 농장 검증은 병행하며 전체 제품 완료일 미정 |
+| 작기/생산 준비 — 수용 | [실제38시점/62 CAS·모델 대조](../research/season-production-readiness-20261031.md). 과실50구획/terminal 누적은 존재. 현재 기반600초/2MiB·제거0/기후 경계와 기존166일 경로를 구분 | 독립 국내 자료0·실제 품종/한 작기 승인 아님 |
+| 다음 — terminal 직접 조회 | [원 C/N·누적/시간 계약](../contracts/supply-terminal-window-v1.md). 기존 reader 검증을 유지한 새 직접 projection → 독립/실패·보존 검사 | 원 수치0.5–1h + source/fence0.5–1h + 검증0.5–1.5h = 잠정1.5–3.5집중h |
+| 이후 — 기간 확대와 생산/자원·경제 | 같은 결과 표시·farm custody → forcing/관리·기후 결합 → 상태/계보 분리와 paging·장기/수렴·cold/수지 → 명시 환산·구매량/같은 달력 Decimal 경제 | [구현 순서/외부 의존성](../research/season-production-readiness-20261031.md). 독립 자료 확보 병행, 전체 완료일 미정 |
 | 3c3b4c-stored-3d | 새 실제 A/L/C/clock/ID/phase·부족분의 불변 result/무계산 reader/strict SDK→실제 mesh/표/그래프·메뉴/reload/권리·실패·기존 GUI 보존. 제작 width/pose/fruit·최종 R2/제품 farm 통합 구분 | 위 repeat-artifact-reader → export-sdk → stored-3d로 분해. 반복은 수용했고 저장/조회 경계 뒤 공수 재산정; 이전180–300분은 미수용 초안 |
 | 3c3b5 | 공급 제한 길이/면적의 별도 합성 법칙·동역학 수지 개발과 실제 품종 allometry/초기 이력·권리/독립 자료 확보를 병행. 현재 paper의 독립 logistic을 탄소 feedback으로 승격하지 않음 | 개발 착수와 실제 주장/게시 조건 분리; 실제 자료 확보 날짜 미정 |
 | 4a | [불변 저장/무계산 reader59검사·fresh6결과/42시점](../research/crop-leaf-funded-birth-artifact-20261026.md): 원 bytes/point·context/CP·가변 상태/장부/시각·phase·private False132blob/모델 import·DB/CLI/network·쓰기0·1→2/512·WSL | 수용 완료(자체 합성) |
