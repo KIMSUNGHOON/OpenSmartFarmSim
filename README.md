@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [새 저장 상태3D 미리보기](http://localhost:5181/supply-morphology-replay.html)를 열었습니다(오늘13:34 KST까지). [44집중·전체 타입/공개 빌드·실제38시점](research/crop-supply-morphology-stored-web-20261031.md)과 [실제 주소의 첫/끝·메뉴/reload·오류0](research/supply-morphology-user-preview-20261031.md)을 수용했습니다. 같은 원 잎/줄기·표/그래프·정확 clock/부족분/장부를 확인합니다. 실제 품종 한 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합은 미완료이며 독립 국내 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
 
-**생산 원장 연결 — 수용:** [저장 과실/terminal 조회](research/supply-terminal-window-implementation-20261031.md)를19집중검사·독립 산술4,030항목으로 수용했습니다. 원38시점/50구획·37구간/5동시점의 정확 수량을 재계산 없이 읽습니다. 화면은 기존 잎/줄기3D를 유지하며 새 수량 표시는 아직 적용하지 않았습니다. 다음은 source 결속 전달/strict 파서(잠정1–2.5집중시간) 뒤 같은 시점 표시입니다. [작기/생산 검토](research/season-production-readiness-20261031.md)의 장기 계산·관리/기후·환산/구매/경제와 독립 국내 자료 확보는 병행하며 전체 완료일은 미정입니다.
+**수량 전달·조회 — 수용:** [새 브라우저 조회](research/supply-terminal-browser-implementation-20261031.md)를46집중검사·전체 웹 타입·독립 번들/실제 HTTP101파일·38시점으로 수용했습니다. 같은 원본에서3D 형태와 과실 수량/정확 누적·기간 합계를 함께 읽으며 기존 데이터 전달을 재사용합니다. 현재 사용자 화면은 기존 잎/줄기3D이며 새 수량 표시는 아직 미적용입니다. 다음은 같은 시점의 화면 통합·실제 브라우저 검증(잠정1.75–3.5집중시간)입니다. 한 작기/실제 자료·생산/자원·경제/거시·수급/자율 비교와 전체 제품 완료일은 미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
