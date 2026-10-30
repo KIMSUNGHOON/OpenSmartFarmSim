@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [환경 입력 계획·저장/복구 owner](../research/supply-forcing-owner-20261031.md)를 신규23/기존59=82검사와 실제0.5초·1/3초 경계의 full/split/fresh-process cold로 수용했습니다. genuine source/권리 AND·고정 partition·전후 phase/별도 이력·같은 cursor와 실패 prefix/보존을 검증했습니다. 다음은 현재 forcing의 material threshold bracket 정밀화·순서 증명(잠정2.5–5집중시간)이며 명시 조달/새 기관 채택은 별도입니다. UI는 기존38시점이고 전체 작기/실제 자료·제품 게시·G0–G4/R2는 미수용입니다.
+**다음 수치 단계:** [현재 forcing의 문턱 시각 정밀화](../research/supply-forcing-threshold-20261031.md)를 신규21/기존82=103검사와 실제 두 계획의 full/split/fresh-process 결과로 수용했습니다. genuine pending의5RHS·과거 확정 재적분/쓰기0, 독립 고정밀 근/잔차·입력 경계 순서·실패/보존을 검증했습니다. 다음은 같은 선택 시각의176상태/185누적·124계정 후보와 국소 간격 축소 진단(잠정3.5–7집중시간)이며 확정 CP/명시 조달·새 기관 채택은 별도입니다. UI는 기존38시점이고 전체 작기/실제 자료·제품 게시·G0–G4/R2는 미수용입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -263,7 +263,9 @@
 
 - [x] **`supply-season-forcing-edge-continuation`** — [신규23/기존59=82검사·실제 두 분수 경계/별도 프로세스·보존](../research/supply-forcing-owner-20261031.md). 변경하지 않은 genuine v1 source/정의·권리 AND, 불변 provenance/span plan·coverage/고정 partition, 격자 일치·0.5초/1/3초의 전후 phase·stock/원점/장부, 별도 current/page/cursor 내구 게시, full/split/fresh-cold 같은 최종 cursor를 수용했다. 잘못된 계획/단위/코드·권리/손상/결측·취소/게시 I/O 실패·늦은 source/plan 변경과 예산/wall/계측·원 자료/WSL을 확인했다. material/forcing 순서 미증명은 hold이며 raw 재배포 false·새 UI/API/worker/긴 작기·실제 생산/예측/추천/G0–G4/R2는 미수용이다.
 
-- [ ] **`supply-season-material-threshold-refinement`** — [owner 다음 경계](../contracts/supply-forcing-owner-v1.md#수용과-남은-경계). 현재 active forcing/확정 cursor·미소비 pending trace를 결속하고 원 RK4 dense 열적 시계·monotonicity/유리수 bracket을 bounded 정밀화한다. 독립 root bracket/열적 잔차·forcing edge 앞/뒤/미해결 순서·분할/취소/변조·원 자료/WSL을 검증한다. trial endpoint/옛 EventTime·Context를 새 확정 상태로 가장하지 않는다. 사건 소비·조달/새 기관/layout의 원자 채택은 별도 후속 수용이다. 선행 대조/계약0.5–1h + 정밀화/독립 반례1–2h + 실제 실행·회귀/기록1–2h = 잠정2.5–5집중시간. 독립 국내 자료0 확보는 병행하며 실제 게시 관문을 유지한다.
+- [x] **`supply-season-material-threshold-refinement`** — [신규21/기존82=103검사·실제 두 계획/fresh-process·보존](../research/supply-forcing-threshold-20261031.md). genuine owner/cursor·미소비 pending 전체를 같은 active forcing의 한 구간5RHS로 대사하고 원 dense 열적 다항식·strict monotonicity/유리수 bracket을 최대128회 정밀화했다. 독립 Decimal2200/180회 root·잔차/반올림 차, full/split의 같은 pending/root·입력 경계 앞/뒤/일치 hold, 허용 폭/취소/변조·늦은 거부·원 자료/WSL을 수용했다. 원 owner/코드·current/point/이력은 변경하지 않았고 CP/상태·물질 채택/제품 UI/실제 품종·관문은 승인하지 않았다.
+
+- [ ] **`supply-season-material-threshold-state-candidate`** — [근 다음 상태/수지 경계](../contracts/supply-forcing-threshold-v1.md#수용과-다음-상태). 원 root bounds와 upper-bound 선택/no threshold snap을 현재176상태/185적분량·124계정/원 point·기원/격자 잔여에 결속한다. 모든 성분의 dense 후보·현재 기관/기후 RHS 도메인·같은 시각1/2/4 substeps, 독립 고정밀 상태/적분량·수지/차이·늦은 source/cancel/한도·보존을 검증한다. 원 권한/옛 Context·CP를 만들지 않으며 신규 후보는 확정 CP/물질 사건 채택과 구분한다. 계약0.5–1h + 후보/계정1–2h + 독립/간격 축소1.5–3h + 실제 실행/기록0.5–1h = 잠정3.5–7집중시간. 명시 조달·새 기관/layout/원자 채택·남은 격자 재개와 반복/긴 작기·같은 상태3D는 후속이다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.

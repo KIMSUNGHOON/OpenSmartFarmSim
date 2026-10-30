@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [환경 입력 계획·저장/복구 owner](../research/supply-forcing-owner-20261031.md)를 신규23/기존59=82검사와 실제0.5초·1/3초 경계의 full/split/fresh-process cold로 수용했습니다. genuine source/권리 AND·고정 partition·전후 phase/별도 이력·같은 cursor와 실패 prefix/보존을 검증했습니다. 다음은 현재 forcing의 material threshold bracket 정밀화·순서 증명(잠정2.5–5집중시간)이며 명시 조달/새 기관 채택은 별도입니다. UI는 기존38시점이고 전체 작기/실제 자료·제품 게시·G0–G4/R2는 미수용입니다.
+**다음 수치 단계:** [현재 forcing의 문턱 시각 정밀화](../research/supply-forcing-threshold-20261031.md)를 신규21/기존82=103검사와 실제 두 계획의 full/split/fresh-process 결과로 수용했습니다. genuine pending의5RHS·과거 확정 재적분/쓰기0, 독립 고정밀 근/잔차·입력 경계 순서·실패/보존을 검증했습니다. 다음은 같은 선택 시각의176상태/185누적·124계정 후보와 국소 간격 축소 진단(잠정3.5–7집중시간)이며 확정 CP/명시 조달·새 기관 채택은 별도입니다. UI는 기존38시점이고 전체 작기/실제 자료·제품 게시·G0–G4/R2는 미수용입니다.
 
 ## 현재 탄소 재고 다음의 순서 — 2026-10-26 KST
 
@@ -82,7 +82,8 @@
 | 새 family의 현재 상태 진행 — 수용 | [신규28/기존19=47검사·별도 실제19파일](../research/supply-season-current-continuation-20261031.md).504→512원176/185/124·512→520새 계산/저장·독립124잔차/185합성·full/split/fresh-cold 같은 cursor·528미소비 bracket/실패/보존 | current109,787/basis305,315/cursor635bytes. 원512/옛166일 수용 유지·UI 미변경·첫3–6h 초안은 실제 수용으로 대체 |
 | forcing 구간 수치 핵심 — 자식 수용 | [신규12/기존47=59검사·별도0.5초/1/3초 경계](../research/supply-forcing-interval-kernel-20261031.md). 같은 active view의 RHS/flux·정확 잔여·176state/185누적/124장부·zero stock jump/derived 변경·고정 partition JSON 재계산·원 입력/자료 보존 | kernel 단독 범위는 내부 후보 생성. 별도 owner/권리·완전 plan/저장·full-split/fresh-cold 부모의 후속 수용은 다음 행 |
 | forcing 계획/저장·복구 owner — 부모 수용 | [신규23/기존59=82검사·실제0.5초/1/3초 full/split/fresh-cold](../research/supply-forcing-owner-20261031.md). genuine source/권리 AND·완전 불변 plan·고정 partition·전후 phase·현재/별도 이력·같은 cursor, 실패/늦은 거부·보존/WSL | 종전2–4집중h 초안은 실제 수용으로 대체. 실제 material 근/조달·채택과 긴 작기/제품 관문은 별도 |
-| 다음 — `supply-season-material-threshold-refinement` | 현재 active forcing의 원 RK4 dense 열적 시계·monotonicity와 정확 bracket 정밀화, forcing edge 순서·독립 반례/취소/변조·보존. 실제 사건 소비/새 기관 원자 채택은 다음 자식 | 대조/계약0.5–1h + bounded 정밀화/독립1–2h + 실제 실행/회귀·기록1–2h = 잠정2.5–5집중h. 자료 대기 없는 합성 개발 추정이며 전체 제품 완료일 미정 |
+| 현재 forcing의 문턱 시각 정밀화 — 수용 | [신규21/기존82=103검사·실제 두 계획/fresh-process](../research/supply-forcing-threshold-20261031.md). genuine pending5RHS/확정 과거0·strict dense 근/독립 Decimal2200·같은 root/순서 hold·실패/보존 | 이전2.5–5h 추정은 실제 수용으로 대체. root 폭은 수치 다항식의 고립 오차만 의미; 상태/물질·제품 관문 미수용 |
+| 다음 — `supply-season-material-threshold-state-candidate` | 동일 선택 시각의176상태/185적분량·124계정/point·기원과 모든 성분의 dense 후보/RHS 도메인, 같은 시각1·2·4 substeps·독립 상태/적분량/수지·차이·보존 | 계약0.5–1h + 후보/계정1–2h + 독립/간격 축소1.5–3h + 실제 실행/기록0.5–1h = 잠정3.5–7집중h. 확정 CP/물질 조달·새 layout 원자 채택은 별도 |
 | 이후 — 기간 확대와 생산/자원·경제 | 수치 개발은 합성 입력으로 forcing/관리·기후 결합 → 상태/계보 분리와 paging·장기/수렴·cold/수지 → 명시 환산·구매량/같은 달력 Decimal 경제. Farm/현재 권리 custody는 제품 게시 경로에서 병행하며 수치 개발의 선행으로 두지 않음 | [구현 순서/외부 의존성](../research/season-production-readiness-20261031.md). 독립 국내 자료 확보 병행, 실제 주장/게시 관문 유지·전체 완료일 미정 |
 | 3c3b4c-stored-3d | 새 실제 A/L/C/clock/ID/phase·부족분의 불변 result/무계산 reader/strict SDK→실제 mesh/표/그래프·메뉴/reload/권리·실패·기존 GUI 보존. 제작 width/pose/fruit·최종 R2/제품 farm 통합 구분 | 위 repeat-artifact-reader → export-sdk → stored-3d로 분해. 반복은 수용했고 저장/조회 경계 뒤 공수 재산정; 이전180–300분은 미수용 초안 |
 | 3c3b5 | 공급 제한 길이/면적의 별도 합성 법칙·동역학 수지 개발과 실제 품종 allometry/초기 이력·권리/독립 자료 확보를 병행. 현재 paper의 독립 logistic을 탄소 feedback으로 승격하지 않음 | 개발 착수와 실제 주장/게시 조건 분리; 실제 자료 확보 날짜 미정 |
