@@ -1,0 +1,41 @@
+{
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "accepted": true,
+  "corrected_native_turn_evidence": {
+    "current_thread_id_sha256": "5e4563cca15ef81d9fc59e8f745311c1472d3fcbac9d6d9bbfaa6032880ba3f6",
+    "model": "gpt-6.1-sol",
+    "observed_at_UTC": "2026-10-30T12:00:33.020156+00:00",
+    "observed_turn_timestamp": "2026-10-30T11:35:11.887Z",
+    "prior_v1_turn_line_also_belongs_to_current_thread": false,
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "scope": "verified current native session for receipt wire SDK implementation",
+    "session_meta_id_matches_current_thread": true,
+    "session_meta_line_with_LF_sha256": "4e96fe73866d8903829ec5928ab5afbe180e1739a162f059329e8721d45be1ed",
+    "turn_context_line_with_LF_sha256": "ed9e2dd3f629abe42c4be78608323b053e779aa6eb001bd5a972add3a8648fff",
+    "workspace_matches": true
+  },
+  "corrected_private_evidence_sha256": "98025105737c93caad46eaeeeae370ca2fa0bf1eded5ef567d5f0b16c3bde271",
+  "current_thread_effort": "xhigh",
+  "current_thread_model": "gpt-6.1-sol",
+  "new_UI_connected": false,
+  "next_task": "supply-morphology-sdk-source-graph",
+  "observed_at_UTC": "2026-10-30T12:01:14.538845+00:00",
+  "output_pins": {
+    "research/crop-supply-morphology-sdk-wire-native-evidence-20261030.md": "93c2eb93740172d08e8d89284e030c27697972f4198f5ef5c784ead7dc2c766b"
+  },
+  "parent_strict_SDK_accepted": false,
+  "prior_code_tests_results_and_rights_changed": false,
+  "prior_native_v1_from_other_thread": true,
+  "prior_output_pins_verified": 1,
+  "prior_source_pins_verified": 368,
+  "recursive_CLI_invocations": 0,
+  "scope": "receipt_wire_native_session_evidence_attribution_correction_only",
+  "source_pins": {
+    "research/artifacts/crop-supply-morphology-sdk-wire-20261030.json": "4366119a8754ee8f7f0b2184f766f32617c71cb5df43bfe5ed2243411fc19c6b",
+    "research/crop-supply-morphology-sdk-wire-20261030.md": "ac6e122477a0ab72b0879e6325dd9a136446e82d4fee2520f14e1f504d061422"
+  },
+  "supersedes_native_turn_evidence_in": "research/artifacts/crop-supply-morphology-sdk-wire-20261030.json",
+  "whole_goal": "active_incomplete"
+}
