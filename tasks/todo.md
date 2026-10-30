@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [현재 상태/이력·forcing 계약](../research/supply-season-state-history-forcing-design-20261031.md)을 수용했습니다. 실제38프레임/33CP 시계·504→512초의176상태/185누산기/124장부를 대사했고 제한 탐색에서512→520초의 수지와528초 사건 보류 필요를 확인했습니다. 다음은 새 family의 원 상태 import·실제2step/full-split-cold·독립 수지/실패/별도 이력 저장(잠정3–6집중시간)입니다. 합성 개발과 독립 농장 자료 확보를 병행하며 한 작기/제품 완료일은 미정입니다.
+**다음 수치 단계:** [새 family의 실제 계산·저장/cold](../research/supply-season-current-continuation-20261031.md)를 신규28/기존19=47검사와 별도 실행으로 수용했습니다. 원504→512초의176상태/185누산기/124장부를 재현하고512→520초를 실제 계산·복구했으며528초는 미소비 사건 대기로 멈춥니다. 다음은 같은 active view의 RHS/flux와 정확 분수 forcing edge·원 격자 잔여/수지·분할/cold를 별도 판본으로 검증하는 단계(잠정2–5집중시간)입니다. UI는 기존 원38시점이며 전체 작기·실제 자료/제품 게시·G0–G4/R2는 미완료입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -257,7 +257,9 @@
 
 - [x] **`supply-season-state-history-forcing-contract`** — [현재 상태/이력·forcing 계약과 실제 근거](../research/supply-season-state-history-forcing-design-20261031.md). 원38프레임/62CAS·33독립 clock·176상태/185누산기/124장부와512→520제한 탐색/528사건·3안/정확 native CLI를 대조했다. 현재 상태/이력 분리·동일 RHS/flux view·첫 실제 계산 자식/독립·분할/cold/실패 수용과 병행 농장 자료/게시 경계를 고정한다. 470원 소스/4출력·CAS124/입력32·원4500항목/세 preview의 HTTP/고정 수명·새/변경 링크21을 보존/검사해 수용했다.
 
-- [ ] **`supply-season-current-state-continuation`** — [첫 구현 수용](../contracts/supply-season-state-history-forcing-v1.md#첫-구현-자식-현재-상태에서-실제-한-구간-계산). 새 family가 strict 원 frame36/37의176상태/11잎/13stock/12절간·185누산기/124global/7point/모든 origin을 import하고504→512원 oracle/512→520실제 계산을 수행한다. 독립 고정밀 clock·C/N/탄소/열·수증기·geometry/construction,2step/full-split-cold·528pending/실패 prefix·불변 현재 상태/별도 이력/현재 fence·원 자료/GUI/고정 preview/WSL이 수용 조건이다. codec만으로 생장 수용0·새 계수/old handle 가장0. 잠정3–6집중시간이며 실제 근거로 갱신한다. 이후 forcing edge→실제 pending/물질 전이→paged 반복/600초 초과·주야/응축/관리·기관 수명→긴 합성 작기/3D→생산/자원·Decimal 경제/거시·수급/대응 후보 비교·최종 UI. 독립 국내 자료0 확보는 병행하고 실제 게시 G0–G4/R2 보류를 유지한다.
+- [x] **`supply-season-current-state-continuation`** — [신규28/기존19=47검사·별도 실제 실행과 보존](../research/supply-season-current-continuation-20261031.md). 새 family가 strict 원 frame36/37의176상태/11잎/13stock/12절간·185누산기/124global/7point·모든 origin을 보존하고504→512oracle/512→520실제 계산·불변 저장을 수행했다. 독립124잔차 차/185누적·clock·2step/full-split-fresh-cold 같은 cursor·실제528pending/실패 prefix·current/별도 이력·늦은 source/코드/예산/취소·원 자료/GUI/고정 preview/WSL을 수용했다.3–6h 초안은 실제 근거로 대체한다. private 결과 재배포 false·새 UI/API/worker/실제 작기·G0–G4/R2는 미수용이다.
+
+- [ ] **`supply-season-forcing-edge-continuation`** — [후속 판본 계약](../contracts/supply-season-current-continuation-v1.md#다음-판본과-보류). 현재 수용 module/자료를 보존하고, 정확 유리수 forcing span/edge와 원 격자 잔여를 유지하는 새 판본을 구현한다. 같은 불변 active view를 RHS와 flux에 전달하고 격자 일치/분수 edge의 stock 연속·원점/phase·탄소/열/수증기/fruit-entry 수지·full/split/cold·결측/겹침/범위 밖/늦은 변경·원 자료/WSL을 검증한다. material 동시 순서는 미지원 hold를 유지한다. 잠정2–5집중시간이며 실제 설계/작업 분해로 갱신한다. 그 뒤 실제 pending 근/명시 물질 전이→paged 반복/600초 초과·주야/응축/관리·기관 수명→긴 합성 작기/같은 시점3D→생산/자원·Decimal 경제/거시·수급/대응 후보 자율 비교·최종 UI를 진행한다. 독립 국내 자료0 확보는 병행하고 실제 게시 관문은 유지한다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.

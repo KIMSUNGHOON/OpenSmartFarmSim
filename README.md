@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [현재 상태/이력·forcing 계약](research/supply-season-state-history-forcing-design-20261031.md)을 수용했습니다. 실제38프레임/33CP 시계·504→512초의176상태/185누산기/124장부를 대사했고 제한 탐색에서512→520초의 수지와528초 사건 보류 필요를 확인했습니다. 다음은 새 family의 원 상태 import·실제2step/full-split-cold·독립 수지/실패/별도 이력 저장(잠정3–6집중시간)입니다. 합성 개발과 독립 농장 자료 확보를 병행하며 한 작기/제품 완료일은 미정입니다.
+**다음 수치 단계:** [새 family의 실제 계산·저장/cold](research/supply-season-current-continuation-20261031.md)를 신규28/기존19=47검사와 별도 실행으로 수용했습니다. 원504→512초의176상태/185누산기/124장부를 재현하고512→520초를 실제 계산·복구했으며528초는 미소비 사건 대기로 멈춥니다. 다음은 같은 active view의 RHS/flux와 정확 분수 forcing edge·원 격자 잔여/수지·분할/cold를 별도 판본으로 검증하는 단계(잠정2–5집중시간)입니다. UI는 기존 원38시점이며 전체 작기·실제 자료/제품 게시·G0–G4/R2는 미완료입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
