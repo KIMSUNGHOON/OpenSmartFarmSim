@@ -1,8 +1,8 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-30 KST:** [반복 생장 결과의 불변 저장/무계산 조회49검사·실제38시점](../research/crop-supply-morphology-artifact-20261030.md)을 수용했습니다. 실제 Context6개/CP33개·출현 전후38시점의 원 A/L/C/clock/ID/UTC/phase와 같은 재시도·별도 전체 조회·변조/권리/GUI/WSL을 확인했습니다. 다음은 허용된 자체 합성 fixture → export/strict SDK → 같은 저장 상태의 실제 잎·줄기3D입니다. 현재 자료는 재배포 false이며 새 결과는 아직 웹에 반영되지 않았습니다. 전체 작기·생산/자원·경제/거시/수급·자율 비교와 제품 통합은 후속이고 독립 국내 품종 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
+**현재 — 2026-10-30 KST:** [새 자체 합성 공개 export31검사·실제38시점](../research/crop-supply-morphology-export-20261030.md)을 수용했습니다. 새 권리 선언에서 실제6Context/33CP를 생산하고 두 출력101파일씩·원 bytes/hash·private:false/전체 실패8종·64MiB 제한/GUI/WSL을 확인했습니다. 기존 false 자료는 보존했습니다. 다음은 strict SDK → 같은 저장 상태의 실제 잎·줄기3D이며 새 결과는 아직 사용자 화면에 연결되지 않았습니다. 전체 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합·독립 국내 품종 자료0와 G0–G4 미평가/R2 미승인을 유지하며 전체 goal은 active/incomplete입니다.
 
-**범위와 일정:** 원 저장 시작305181/1024초→512초의 합성 경로입니다. 저장62파일/10.4MB·root45,785bytes이며 전체 순차38조회 약63초는 최종 제품 지연 수용과 별도입니다. Context2,034,607bytes는 원2MiB 한도에 가까워 전체 작기 지원을 뜻하지 않습니다. 먼저 새 권리 선언의 허용 fixture와 export/SDK 경계를 수용한 뒤 3D 공수를 갱신합니다. 이전180–300분은 미수용 초안이며 독립 자료 확보일·전체 완료일은 미정입니다.
+**범위와 일정:** 원305181/1024초→512초의 합성 연구 경로입니다. 공개101파일/14,197,795bytes·38시점/6,208scalar를 확보했습니다. strict SDK는 독립 anchor/원 wire → Context/CP/출현 전후 상태 대사 → 부정/HTTP/취소/latest 검증으로 진행하고 첫 decode/독립 조회 실측 뒤 3D 공수를 갱신합니다. 한도에 가까운 Context는 전체 작기 지원을 뜻하지 않으며 이전180–300분은 미수용 초안입니다. 독립 자료 확보일·전체 완료일은 미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

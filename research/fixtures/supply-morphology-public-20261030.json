@@ -1,0 +1,577 @@
+{
+  "G0_G4": "not_assessed",
+  "QC": "software_contracts_only_not_biological_validation",
+  "R2": "not_approved",
+  "artifact_sha256": "84daf00c44a964f904aa0b78e2c64f44c2753ec97641f23566fdfcc349bf4476",
+  "available_at_UTC": "2026-10-30T11:27:52.442377+00:00",
+  "code_sha256": {
+    "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+    "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+    "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+    "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+    "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_funded_event_state.py": "c18ae07e1aea84766801c563d03fad4a622a21e9f48c6292bec1bcb098a300d9",
+    "backend/app/crop_funded_event_time.py": "30a0c08b548a3cad7990cb6a58617002392b6946c36979906aa1df41c763eba5",
+    "backend/app/crop_funded_shoot_clock.py": "a434bd92a65186a1e954fa573451cdcc9c71d8ac6c7ab21fc504ef7a5d4c0e63",
+    "backend/app/crop_growing_geometry_climate.py": "5cf58d1dea92e59e1059d5e5cd359a81b8dde950fed2ac575911a4be90788a0a",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+    "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+    "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+    "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+    "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+    "backend/app/crop_leaf_carbon_partition.py": "6b80b6611ac1f972158fe00fea92c9b0b99af3d94f942ec2710b6fea26c81266",
+    "backend/app/crop_leaf_carbon_stock_artifact_producer.py": "98f5997eefd0857402a782cf39d0e1db729b38b4678f71d25115c4000cc8f679",
+    "backend/app/crop_leaf_carbon_stock_artifact_reader.py": "37d6cc94f20d85a1d5e37ae0ff3f4466c3ab3b563768543f2d40e204cb2f0225",
+    "backend/app/crop_leaf_carbon_stock_continuation.py": "62b7ba4c8dbcf56297fde3e2c8ef78e55efe283eab85b9f26640f917236e8f0d",
+    "backend/app/crop_leaf_carbon_stock_dynamics.py": "0e2a51a23b95b10cfc15d46f5668266f2b7981a769d966a167f9a4a9cafdf80d",
+    "backend/app/crop_leaf_carbon_stock_rhs.py": "1da1cfef06860893b9ef4f661b15e5d7b4bc099a8d6563c4a9c6bd23156ab4be",
+    "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+    "backend/app/crop_leaf_funded_birth_continuation.py": "fd4346afc797b91459cd1f33273c0489545976333c42da68a1b0945ff37eaec2",
+    "backend/app/crop_leaf_funded_birth_point.py": "cec6bf7bbfc3dc5c569ab5cfa6e8d28d16acd31865419225baed074111a38005",
+    "backend/app/crop_leaf_partition_climate_rhs.py": "a708f13ed9290f4353e61310959aeab8f2f4bf0c3c4f02d5f9d0181fc3aebab3",
+    "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+    "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+    "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+    "backend/app/crop_organ_current_shoot_clock.py": "c8a11cb7895f1a602d94dab475b58622e6276d5f3ca94058d35cc550493e0a1e",
+    "backend/app/crop_organ_fractional_candidate.py": "0de503507322d7b454e1c59aa1e9d479a7d7a8c65b38ee48fb8c53e3dc478717",
+    "backend/app/crop_organ_fractional_clocks.py": "8ed90251caf76dba4da10a169d18edec72882f26f0ceb81e7b2c9666b4988929",
+    "backend/app/crop_organ_fractional_context.py": "4fe0e28a8b0c0b0690302f94836f7ade2eade7744d3b6beab00b79136fa45e14",
+    "backend/app/crop_organ_fractional_continuation.py": "ddd02715a1315558fcd1da74a2022e81a99d33053b894ff9607bbdb4db295cc2",
+    "backend/app/crop_organ_fractional_point.py": "6e42b253bb225a39f6fecada0557088dec036ae657afcbd0e2d95a76d6f38cda",
+    "backend/app/crop_organ_funded_continuation.py": "de17434ff8bfd574e8da7ea2c43ac62b87f64e59b2599c284b5c6a49a4e87ff4",
+    "backend/app/crop_organ_next_threshold.py": "ecc5c490e97fea0bfc3cb216648ec95de679a3230ae8b3026f811c5ed4b302c7",
+    "backend/app/crop_organ_repeat.py": "9a9e6641a57b4801727a0cc84508597eb500a1aa857d44e9aa43517069370a7a",
+    "backend/app/crop_organ_repeat_events.py": "73b142a7640069c7d274ac0c662969e2190eb4e8a1ef8f3d391b1730bc3f5bc4",
+    "backend/app/crop_organ_repeat_proofs.py": "3c68354d5280c3ca17dcee172cdd4f5791715013fd7530ebf7a503580c4d7206",
+    "backend/app/crop_organ_successor_candidate.py": "53194fa3d98ca9894bba48fc9eb0a0262b9309507451e90764f6544a14d8bc78",
+    "backend/app/crop_organ_successor_point.py": "2fb5519f88a4a9d494a8360643da7cceb66d536c00438d61994bbf5527c87e2f",
+    "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_rational_internode_length.py": "423e6737cc77773d3ffdb8ab45d4aa37d106947b4222f2a6ecede839caae8a9b",
+    "backend/app/crop_rational_morphology_artifact_producer.py": "92b367462510ee7a7868e8952647ed5008d4d8849c900357f09f27df17215f06",
+    "backend/app/crop_rational_morphology_artifact_reader.py": "3de1502abca94613d1c55cb37568236ce164665d577aa06090d36d5842d5e44b",
+    "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+    "backend/app/crop_rational_new_internodes.py": "76a59f191ca7f03902ce0db9cbdf6da8cf0c2fd792532d6830a669a0899472f5",
+    "backend/app/crop_rational_shoot_inventory.py": "42f66f8e22723cbfa674e879f74255389db8d76e008ef30a9fb24a5a38057625",
+    "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+    "backend/app/crop_stem_root_carbon_partition.py": "48f23b4cba32f0c266f75c7ad311dfedc3689d4e49ad3e122306103f29b062a1",
+    "backend/app/crop_stem_root_carbon_stock_rhs.py": "73e6ad99c19c8f5f417fa30302d0a093c8c8ce65e866297192dc4f551875cce6",
+    "backend/app/crop_stem_root_funded_internode_point.py": "01270fea2fd12ad3f836894aedd4fd403ad3e4631595ff897cb2679c7bc962e5",
+    "backend/app/crop_stem_root_funded_leaf_point.py": "8347de743998209efd096850f604f580ab9b59e1fba587fa4fd40fa515b4d50d",
+    "backend/app/crop_stem_root_initial_binding.py": "67b5dad239afa68bc5bee600250a586ffc3a4b3beab4e8bbae5c31549c0d55d8",
+    "backend/app/crop_stem_root_partition_climate_rhs.py": "f7bf643005ad913073c45cd9cfe18f3ce3c9107fb6f862f665ae1a8b193a2c6f",
+    "backend/app/crop_stem_root_stock_continuation.py": "f26a5dad4a80aa3c7b07a00daefd9402842754d7f3b5b1ea31e76d86538e0e66",
+    "backend/app/crop_stem_root_stock_dynamics.py": "c6423c83e64461bbde93c4b7a832f071b1eb23ae4053006dc93a9554d35dc8a5",
+    "backend/app/crop_supply_morphology_artifact_producer.py": "c9f708e61f29f2090696372f71947207d35e3d86e48dbf6e555b9dbc77122d1b",
+    "backend/app/crop_supply_morphology_artifact_projection.py": "faae5a716bf668fb4b3170fc492dc54692bd691248d91355be410b7a09b61165",
+    "backend/app/crop_supply_morphology_artifact_reader.py": "51fea8d28768c11982b944d5eabfc10e604167aa8f45a0dea717e37a4a4bbddd",
+    "backend/app/crop_supply_morphology_birth_stage.py": "af7add2f1f5256c2d4965d1722529999e54f2b978949a11c81417559874244cd",
+    "backend/app/crop_supply_morphology_books.py": "69b15677e0bfd2a9db15afe3171a85459e3e7b53b7f37128722ecff4e98f3db8",
+    "backend/app/crop_supply_morphology_candidate.py": "e62030a1d8328b80f67f1f1e9af6162c5cf91aa0558a3fe2219e285b2cc8fdc8",
+    "backend/app/crop_supply_morphology_candidate_books.py": "d792e284a92df4549c16e36a14da5fdf346da9d0050912955209940d5b17d262",
+    "backend/app/crop_supply_morphology_context.py": "1158425b0123a553cead1e07d92f835a407a899490d560479f396d445f696f23",
+    "backend/app/crop_supply_morphology_context_proofs.py": "0c3998f61e7cd615ace680f167bfe751e36bf6a38c9ebd897463bd9e7714155e",
+    "backend/app/crop_supply_morphology_newborn_books.py": "0ada725c3e7f5d31e5759b8c09d1a55331ab1adcc8fc3dc9e730d5ee90056f69",
+    "backend/app/crop_supply_morphology_newborn_candidate.py": "dac7a79c7f9eaca950737fa2114d6ced5b3c1f95e612305bd39365b228e10e2e",
+    "backend/app/crop_supply_morphology_newborn_candidate_books.py": "44f24e7235af1bf1a47f2a69d9bf47eed6e5aaebdfafcbf4b94b2082b0ee3b3c",
+    "backend/app/crop_supply_morphology_newborn_point.py": "893e217879b848dc839908e06bcfc4a53a473d0d679d7ccd4958774eae38fa77",
+    "backend/app/crop_supply_morphology_newborn_point_books.py": "20945528e4cb8d31eb7eb7e966596990cd75e188068875ac4b2765d298bb72e6",
+    "backend/app/crop_supply_morphology_newborn_point_core.py": "d6f55b8e44da3d03ad8e09941cc7349abd9be87d02bed06cc1055481dd423eef",
+    "backend/app/crop_supply_morphology_newborn_resume.py": "e4d9d2007a117b766d7f97fdbdcbb6e1a0f8d7c92eccbf447b7385ae6c983f95",
+    "backend/app/crop_supply_morphology_point.py": "78f9584ee2dff6163ff2202060fd38c82944daf72b77ca46ae02ebb54e31e288",
+    "backend/app/crop_supply_morphology_point_books.py": "eab406597b8c907b1dbe0954ada0742c52393cb1f75da3fd980331df96cf10eb",
+    "backend/app/crop_supply_morphology_point_core.py": "92c0fefb7775bbd985f775a6cb5c94dd006317eb749bf394d9ae0bafd7f533ed",
+    "backend/app/crop_supply_morphology_repeat_books.py": "d924efb9f182742c2f54433244f4e600741a93ace1e9683be04038dfa88dd82c",
+    "backend/app/crop_supply_morphology_repeat_candidate.py": "0d627f014262b1df5b8c1096766b0bb894d097cad4255b142a1194d39ce585a5",
+    "backend/app/crop_supply_morphology_repeat_candidate_books.py": "203b04af12aa5d62a7c297a00d986c6652f118370835676711ab454ed67c58b4",
+    "backend/app/crop_supply_morphology_repeat_context.py": "fddb825890445c6c404d9e0134a7bcaceeb6423d2c8fc358943cb9db2a2ed1ec",
+    "backend/app/crop_supply_morphology_repeat_encoding.py": "1d8fdfde913ea460230af898cd556aeb9b45c9f2eee6bc1877444d8ee7709f65",
+    "backend/app/crop_supply_morphology_repeat_point.py": "d6a7b695ca45c825a7f48cbde323b2ac0e55bb4a5fbc8b9a5ab535724c8e1b63",
+    "backend/app/crop_supply_morphology_repeat_point_books.py": "9d315fa482b0633837d75c1678223a18bcac325b833a0b94eeb5b472d7bc2ec3",
+    "backend/app/crop_supply_morphology_repeat_point_core.py": "7806888f2a73626c595b53d77996e614d7d177ed07fda834e0fea3401f6554d2",
+    "backend/app/crop_supply_morphology_repeat_proofs.py": "1801eb97c8cf7e964e204625a94e9cd4af367acbbb57193871248bfeed780aab",
+    "backend/app/crop_supply_morphology_repeat_resume.py": "73057ba4a8998e99e05bcc2dd3bae08e5e2cf4848499b45c62448f15aec8ebc2",
+    "backend/app/crop_supply_morphology_resume.py": "c523f1a8305c23cabf5fc932055985f2656e0ed2ea7a2a22cffbac46c6ce8eaa",
+    "backend/app/crop_supply_morphology_rhs.py": "2bd86bd3c5f97fd05926c464c3bc772b634fc4f80e17e7c277cc739b19176403",
+    "backend/app/crop_supply_morphology_stage.py": "9c5f2efb604ecf60c5fdb02ba5cafea64e756f945dd62c02d934c646c13629d9",
+    "backend/app/crop_supply_morphology_successor_books.py": "d866db273d7cdab879ee67bdb3d7391b44d427d4ac12693aedccd9efc0e2bf93",
+    "backend/app/crop_supply_morphology_successor_context.py": "3bbe5881293c62e3636e4ccd4141bf3065a2ce3547bb452f6b184ea96fbf0759",
+    "backend/app/crop_supply_morphology_successor_context_proofs.py": "0701f71850d39305a61121a47d4197eea228426bfa703e3faef042454de9af22",
+    "backend/app/crop_supply_morphology_successor_resume.py": "50e843c578f6d2069a9d296e51df5adebd35711a683e11e1d06167c7f60dd55d",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8"
+  },
+  "dataset_kind": "self_authored_software_fixture",
+  "directory": "web/public/supply-morphology-replay/own-public-v1",
+  "exporter_sha256": "83b7975ffa351b0d483bb839ea286001c51de4993ed5c8cf615aeefe3a0ac317",
+  "files": {
+    "NOTICE.txt": {
+      "bytes": 1716,
+      "sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+    },
+    "blob-003a99cf680ef007a4016b17af62489c74378afb6de6edd125964bb4671bf735.json": {
+      "bytes": 121960,
+      "sha256": "003a99cf680ef007a4016b17af62489c74378afb6de6edd125964bb4671bf735"
+    },
+    "blob-0052da58faa888e7e08044d9081039f1f22e13e38480b1ce593a9ecafe896b35.json": {
+      "bytes": 92219,
+      "sha256": "0052da58faa888e7e08044d9081039f1f22e13e38480b1ce593a9ecafe896b35"
+    },
+    "blob-022686146fff549b3ac7944bd28a5d2989ecafc9fe1e64170086ddf4c107528c.json": {
+      "bytes": 2034765,
+      "sha256": "022686146fff549b3ac7944bd28a5d2989ecafc9fe1e64170086ddf4c107528c"
+    },
+    "blob-069adbafb7b7667484d21860bf23fa00a0ec2589f9a35acae1040ac50a9fbd97.json": {
+      "bytes": 95729,
+      "sha256": "069adbafb7b7667484d21860bf23fa00a0ec2589f9a35acae1040ac50a9fbd97"
+    },
+    "blob-077eb29516ac15877189749e3a383aaf78ad54d7c428a03da36e749365fa9723.json": {
+      "bytes": 100441,
+      "sha256": "077eb29516ac15877189749e3a383aaf78ad54d7c428a03da36e749365fa9723"
+    },
+    "blob-09c1f4408ac08e08b162afa432d591b94aef9a246a127350dd1f05b5da4d5db2.json": {
+      "bytes": 100245,
+      "sha256": "09c1f4408ac08e08b162afa432d591b94aef9a246a127350dd1f05b5da4d5db2"
+    },
+    "blob-09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070.json": {
+      "bytes": 3427,
+      "sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+    },
+    "blob-0b1fde8be39f639c061deff9f1b12354f75c94a11b1b5959ae5c60a9d533d361.json": {
+      "bytes": 23346,
+      "sha256": "0b1fde8be39f639c061deff9f1b12354f75c94a11b1b5959ae5c60a9d533d361"
+    },
+    "blob-17b5bab8884a543fd616a77200509527d5aea100703925daf954928bc9de2e03.json": {
+      "bytes": 108991,
+      "sha256": "17b5bab8884a543fd616a77200509527d5aea100703925daf954928bc9de2e03"
+    },
+    "blob-1bed9fc2ace65aa3977c62652191d47cf3767ff9ca96e3e67a585e9586400247.json": {
+      "bytes": 849761,
+      "sha256": "1bed9fc2ace65aa3977c62652191d47cf3767ff9ca96e3e67a585e9586400247"
+    },
+    "blob-1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110.json": {
+      "bytes": 3401,
+      "sha256": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110"
+    },
+    "blob-22760dc22123e9b2675591bcdb6e76d72a266672ed9c92cb485552f26c2e689b.json": {
+      "bytes": 113713,
+      "sha256": "22760dc22123e9b2675591bcdb6e76d72a266672ed9c92cb485552f26c2e689b"
+    },
+    "blob-2982006de91842594f21d6db87177366dc9db4791dbede738396878f2d1f582a.json": {
+      "bytes": 10789,
+      "sha256": "2982006de91842594f21d6db87177366dc9db4791dbede738396878f2d1f582a"
+    },
+    "blob-434082ad6aac5aa8b6a2b36c0562149e7e6d4688bbd86b361d6262529eba2e27.json": {
+      "bytes": 113464,
+      "sha256": "434082ad6aac5aa8b6a2b36c0562149e7e6d4688bbd86b361d6262529eba2e27"
+    },
+    "blob-44be72e31be0100cbcee711d19228ede586e7b5739580e8fa859579b4f55142a.json": {
+      "bytes": 113459,
+      "sha256": "44be72e31be0100cbcee711d19228ede586e7b5739580e8fa859579b4f55142a"
+    },
+    "blob-45a2d838272448318a7ce346ffc65c2d16c7bc20da92fdf0d69ba9ebabab8765.json": {
+      "bytes": 113558,
+      "sha256": "45a2d838272448318a7ce346ffc65c2d16c7bc20da92fdf0d69ba9ebabab8765"
+    },
+    "blob-460f36e2873a6b99eec3d8c1d54f428b28aead73d4d0baa1005c6223382bace3.json": {
+      "bytes": 9941,
+      "sha256": "460f36e2873a6b99eec3d8c1d54f428b28aead73d4d0baa1005c6223382bace3"
+    },
+    "blob-48d5dc15bff23c8cee0732a2d8f4832ecdf676d3545195b60151361d39fc4e44.json": {
+      "bytes": 5202,
+      "sha256": "48d5dc15bff23c8cee0732a2d8f4832ecdf676d3545195b60151361d39fc4e44"
+    },
+    "blob-56975f79f502c93916eb58f23563df9d9264301a7c61a1373f0fd09b0c43605b.json": {
+      "bytes": 181551,
+      "sha256": "56975f79f502c93916eb58f23563df9d9264301a7c61a1373f0fd09b0c43605b"
+    },
+    "blob-59c9f4e8f9521e9715c2e8c3ab2fae06980e90c013ff9c7df4f2540204c16c36.json": {
+      "bytes": 95825,
+      "sha256": "59c9f4e8f9521e9715c2e8c3ab2fae06980e90c013ff9c7df4f2540204c16c36"
+    },
+    "blob-5bcdbb98c078b1160d63b44384f660632d53a04dec31b5ee9c741b884b4e287f.json": {
+      "bytes": 99395,
+      "sha256": "5bcdbb98c078b1160d63b44384f660632d53a04dec31b5ee9c741b884b4e287f"
+    },
+    "blob-5d1aecdf046202fe900626c8158917ed92912ed6b35d40aa9ebf2d08ac9d83b5.json": {
+      "bytes": 6560,
+      "sha256": "5d1aecdf046202fe900626c8158917ed92912ed6b35d40aa9ebf2d08ac9d83b5"
+    },
+    "blob-5e78dc94ed5bf316c6af36706ea71cc8a00b0035ac1d54bd93b3036578818959.json": {
+      "bytes": 10397,
+      "sha256": "5e78dc94ed5bf316c6af36706ea71cc8a00b0035ac1d54bd93b3036578818959"
+    },
+    "blob-617fd1573a71e96d4542c87e6a354838b584b642819b538b7eba347b25136ec8.json": {
+      "bytes": 122237,
+      "sha256": "617fd1573a71e96d4542c87e6a354838b584b642819b538b7eba347b25136ec8"
+    },
+    "blob-75e8067e08afd4cf3da57e9bee4c05314c202f4d9c76df8c83f5600195407106.json": {
+      "bytes": 95814,
+      "sha256": "75e8067e08afd4cf3da57e9bee4c05314c202f4d9c76df8c83f5600195407106"
+    },
+    "blob-76535122da1b39c367559def6640abbdeff3730d19c68c752a0e17e74f6cd763.json": {
+      "bytes": 6256,
+      "sha256": "76535122da1b39c367559def6640abbdeff3730d19c68c752a0e17e74f6cd763"
+    },
+    "blob-7ea9d7534aadb33bd401a540fda5fe3bbb6e516543e47e28cf9bce94a9fda41f.json": {
+      "bytes": 79781,
+      "sha256": "7ea9d7534aadb33bd401a540fda5fe3bbb6e516543e47e28cf9bce94a9fda41f"
+    },
+    "blob-812323cfa164a44cb39ff96d30a16ec58d3860fcae0fcde7420456b0a3b0c859.json": {
+      "bytes": 123219,
+      "sha256": "812323cfa164a44cb39ff96d30a16ec58d3860fcae0fcde7420456b0a3b0c859"
+    },
+    "blob-85a7d586100cf76de025ab833dca7359401f182bf02372f2338faf6b6acadd6c.json": {
+      "bytes": 6639,
+      "sha256": "85a7d586100cf76de025ab833dca7359401f182bf02372f2338faf6b6acadd6c"
+    },
+    "blob-868c580f7a53ddeb9a10513c8156fcf7a72d6057b52acc98a2e61a5d79c282f8.json": {
+      "bytes": 506491,
+      "sha256": "868c580f7a53ddeb9a10513c8156fcf7a72d6057b52acc98a2e61a5d79c282f8"
+    },
+    "blob-89545172490822709889e19d54d0c2d1416de39de86839ab8a2622f15392cbed.json": {
+      "bytes": 9915,
+      "sha256": "89545172490822709889e19d54d0c2d1416de39de86839ab8a2622f15392cbed"
+    },
+    "blob-8aad99d9aaba2affa62cd565eafdf8a084edd4b3e61098c0dfee4795b62f4d61.json": {
+      "bytes": 109182,
+      "sha256": "8aad99d9aaba2affa62cd565eafdf8a084edd4b3e61098c0dfee4795b62f4d61"
+    },
+    "blob-8dc2315b1285c8a1d9b2468dca9e3d949824380205b202e916706139ace0396c.json": {
+      "bytes": 87646,
+      "sha256": "8dc2315b1285c8a1d9b2468dca9e3d949824380205b202e916706139ace0396c"
+    },
+    "blob-932c8ad7724d419966ee6eaaf03e38ef45d6632729513d8b1c4a97bed1d2d7c1.json": {
+      "bytes": 122052,
+      "sha256": "932c8ad7724d419966ee6eaaf03e38ef45d6632729513d8b1c4a97bed1d2d7c1"
+    },
+    "blob-93a704d67930a33ca9f6a43bb3754d8c8b9635a5b65377f866a145b09f6a6003.json": {
+      "bytes": 108944,
+      "sha256": "93a704d67930a33ca9f6a43bb3754d8c8b9635a5b65377f866a145b09f6a6003"
+    },
+    "blob-9f98ff3a818bd75682471e653ed527e92a1ce2b996dd3fcaddc633dc4bedd0c6.json": {
+      "bytes": 87207,
+      "sha256": "9f98ff3a818bd75682471e653ed527e92a1ce2b996dd3fcaddc633dc4bedd0c6"
+    },
+    "blob-af3491b94fe3f322daa31af6d985dca326b72ecd9399088b2bd82582e32f04ea.json": {
+      "bytes": 113313,
+      "sha256": "af3491b94fe3f322daa31af6d985dca326b72ecd9399088b2bd82582e32f04ea"
+    },
+    "blob-b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb.json": {
+      "bytes": 5273,
+      "sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb"
+    },
+    "blob-b8fcfe2c56571ba7774b83f797c983ea501259511cf940a7ca234ed2904bc9eb.json": {
+      "bytes": 87086,
+      "sha256": "b8fcfe2c56571ba7774b83f797c983ea501259511cf940a7ca234ed2904bc9eb"
+    },
+    "blob-bd688fd7d48bde567f67e115820bd680a6081ff50629cfda125d8e9a41fce911.json": {
+      "bytes": 7185,
+      "sha256": "bd688fd7d48bde567f67e115820bd680a6081ff50629cfda125d8e9a41fce911"
+    },
+    "blob-be81df6c1aba053edc47a6b78503cda947a3417b717490167102be826eed4b4d.json": {
+      "bytes": 164002,
+      "sha256": "be81df6c1aba053edc47a6b78503cda947a3417b717490167102be826eed4b4d"
+    },
+    "blob-bf9fe7a325e081b6efcef6daffef69add5d756202f4113ac963b4fda46be92eb.json": {
+      "bytes": 101335,
+      "sha256": "bf9fe7a325e081b6efcef6daffef69add5d756202f4113ac963b4fda46be92eb"
+    },
+    "blob-c04a1b27e586393c73f40588d0a95bb4220164bf3893f2e021b57f7e97ba812b.json": {
+      "bytes": 100838,
+      "sha256": "c04a1b27e586393c73f40588d0a95bb4220164bf3893f2e021b57f7e97ba812b"
+    },
+    "blob-c2f3b9c8adc4b2e394f55cdc35d19c2b722a4904b5b1dfea8d34bdc61e898622.json": {
+      "bytes": 87107,
+      "sha256": "c2f3b9c8adc4b2e394f55cdc35d19c2b722a4904b5b1dfea8d34bdc61e898622"
+    },
+    "blob-cb53c001ad751fa986a6f9bd63c1e8ccda32d50a4d09a33c090c743d6c0dbc78.json": {
+      "bytes": 1222293,
+      "sha256": "cb53c001ad751fa986a6f9bd63c1e8ccda32d50a4d09a33c090c743d6c0dbc78"
+    },
+    "blob-cd5b95f6331e14732c1a3fd8e310b636fbd72dd3a95f99af2c18622b2d74bf61.json": {
+      "bytes": 108957,
+      "sha256": "cd5b95f6331e14732c1a3fd8e310b636fbd72dd3a95f99af2c18622b2d74bf61"
+    },
+    "blob-d10e38802a1385e3420c7c1ad094c2ec7e0efcad8d9c0fcd36bb0a280971b34c.json": {
+      "bytes": 109045,
+      "sha256": "d10e38802a1385e3420c7c1ad094c2ec7e0efcad8d9c0fcd36bb0a280971b34c"
+    },
+    "blob-d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca.json": {
+      "bytes": 10724,
+      "sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca"
+    },
+    "blob-d7df67e63b2754ec253e5ee16a1c38f4be1d1a8ed6dbe78236f512f66ac0b1ea.json": {
+      "bytes": 100351,
+      "sha256": "d7df67e63b2754ec253e5ee16a1c38f4be1d1a8ed6dbe78236f512f66ac0b1ea"
+    },
+    "blob-d8be07535c3abfafba623bff00d3b6e6259e892f09f55a1ca213339790c082ba.json": {
+      "bytes": 100198,
+      "sha256": "d8be07535c3abfafba623bff00d3b6e6259e892f09f55a1ca213339790c082ba"
+    },
+    "blob-db99ed4d10230bd5eaedbac53287808f50674addfb555cf2f6ee71e902d6d2b0.json": {
+      "bytes": 5237,
+      "sha256": "db99ed4d10230bd5eaedbac53287808f50674addfb555cf2f6ee71e902d6d2b0"
+    },
+    "blob-dd8fa952ec2d66eff374d7d341c0bd3bdd723f78fbbc2d411b4b866d8739af23.json": {
+      "bytes": 87153,
+      "sha256": "dd8fa952ec2d66eff374d7d341c0bd3bdd723f78fbbc2d411b4b866d8739af23"
+    },
+    "blob-de10c1732b4b0c07612cb5a4155f936bb96cf01554e76a9adb5eb6cf42c59f08.json": {
+      "bytes": 111130,
+      "sha256": "de10c1732b4b0c07612cb5a4155f936bb96cf01554e76a9adb5eb6cf42c59f08"
+    },
+    "blob-de35eae6ee8bce79d3c1da35fa8cc77f0aab7955ce77faad62427824b7d7d1ec.json": {
+      "bytes": 96086,
+      "sha256": "de35eae6ee8bce79d3c1da35fa8cc77f0aab7955ce77faad62427824b7d7d1ec"
+    },
+    "blob-e52e0f89a658cad15185f1d5cc0b7e66bedef6c82cd518023971770c2ecdc434.json": {
+      "bytes": 87314,
+      "sha256": "e52e0f89a658cad15185f1d5cc0b7e66bedef6c82cd518023971770c2ecdc434"
+    },
+    "blob-e6591e5241927d9a01ce2d8cb4acbe190cfadfe63ee91ba8f39b828d4eef6d50.json": {
+      "bytes": 103933,
+      "sha256": "e6591e5241927d9a01ce2d8cb4acbe190cfadfe63ee91ba8f39b828d4eef6d50"
+    },
+    "blob-e7d43f3c9ec88688775af1811914178832812427cd6561f5e10a61f86b5a9832.json": {
+      "bytes": 4291,
+      "sha256": "e7d43f3c9ec88688775af1811914178832812427cd6561f5e10a61f86b5a9832"
+    },
+    "blob-e7ffc301f0365c48da79dc5dfcce0a355ccc76a2a4128d6a3f3338e7f894eb2a.json": {
+      "bytes": 1613418,
+      "sha256": "e7ffc301f0365c48da79dc5dfcce0a355ccc76a2a4128d6a3f3338e7f894eb2a"
+    },
+    "blob-ebb2b2f9a89de82b7d704042ddd15aaeca221d3cf5656603d39c362f8d234834.json": {
+      "bytes": 6476,
+      "sha256": "ebb2b2f9a89de82b7d704042ddd15aaeca221d3cf5656603d39c362f8d234834"
+    },
+    "blob-f4350bd3366b9fad5faaa47c328ebee1c74552cf0dc9fd601f0a7f35d679ec48.json": {
+      "bytes": 10811,
+      "sha256": "f4350bd3366b9fad5faaa47c328ebee1c74552cf0dc9fd601f0a7f35d679ec48"
+    },
+    "frame-0.json": {
+      "bytes": 78400,
+      "sha256": "ce5ce39de5e761f45104af8d95c20843165d0fae23d4fec090f796773391bd4b"
+    },
+    "frame-1.json": {
+      "bytes": 81101,
+      "sha256": "14b40bf478a3558e84a8368dc36884fcc514f10280bfaaf2f48cc299f68110e8"
+    },
+    "frame-10.json": {
+      "bytes": 90786,
+      "sha256": "01f58e6d7fdf76520637bc942226f0adb36c0e9d0424a23bea792cac5b113d51"
+    },
+    "frame-11.json": {
+      "bytes": 90835,
+      "sha256": "3d7c5179da332381422a23299d0a185f7d8acfe621bbb375a50533f0c3223f3d"
+    },
+    "frame-12.json": {
+      "bytes": 91015,
+      "sha256": "f321d12341a4c5110b3fc75d6d0a685091e38b9851bb7284ff661a422456f081"
+    },
+    "frame-13.json": {
+      "bytes": 93592,
+      "sha256": "4fcdd935497bc8e87cc925d60ba39de6d438915f53c1661cd62ef08590024d03"
+    },
+    "frame-14.json": {
+      "bytes": 96262,
+      "sha256": "6b2fa6990a24d27ca7369761e2c0ec3a6ba5e6fae5fe1d4407d8d136c6d1485c"
+    },
+    "frame-15.json": {
+      "bytes": 96107,
+      "sha256": "a554a47d8e525fbebac62ace95e530c8b844ae5f5f5650e4029c14cac1988413"
+    },
+    "frame-16.json": {
+      "bytes": 96040,
+      "sha256": "309118ae1f9388ee7415f2a36527f4ea2c7544c81bbf339a20509e429f48e4d5"
+    },
+    "frame-17.json": {
+      "bytes": 96046,
+      "sha256": "30e955a48b36395cd03e6ff6473eb892382c6efb2e63ddd5bb804097b8bf9dfd"
+    },
+    "frame-18.json": {
+      "bytes": 96049,
+      "sha256": "a45128fb2560800f4aa4c16910e5d132ffb9408de3c8f83736fa353f9e563315"
+    },
+    "frame-19.json": {
+      "bytes": 96252,
+      "sha256": "f82d50ab155078312a25a19a287dbfe175db86c9ed0bfae3ceca3b97d8be996c"
+    },
+    "frame-2.json": {
+      "bytes": 81051,
+      "sha256": "87d9bcce09b50c22cb6152fc192fa5afc39f7a19e7c0ae9e0eae6a6038900a9a"
+    },
+    "frame-20.json": {
+      "bytes": 102695,
+      "sha256": "ed78e3dc731004634cb5fb9042a59471c1f26b471eec777ae223187aff1b212c"
+    },
+    "frame-21.json": {
+      "bytes": 105867,
+      "sha256": "b2785bf88cc0e8f983bfd451efc68ce42eac21cd4ec4da9ca67aa1491420cd7f"
+    },
+    "frame-22.json": {
+      "bytes": 105795,
+      "sha256": "7c324f9ecfc92a41a45d400658eff82017673a5472143892e3dac861de353228"
+    },
+    "frame-23.json": {
+      "bytes": 105821,
+      "sha256": "be87518df3f9d980c16b05e9d7908714f54811aa3b28691c7e2475f82c56b399"
+    },
+    "frame-24.json": {
+      "bytes": 105760,
+      "sha256": "0dd0fc323271a3713d8487b7f9c694bb7fd3a15499cb7fa8021401e2b293de80"
+    },
+    "frame-25.json": {
+      "bytes": 105772,
+      "sha256": "f25b1e1d553a55c17994876988a9d50c7b792be1b2256cb042d5247a46e49897"
+    },
+    "frame-26.json": {
+      "bytes": 105966,
+      "sha256": "ec2899d83a247261c90c9e5bbbdaed092ab2d6ba13d97f99ac9b928841ba7116"
+    },
+    "frame-27.json": {
+      "bytes": 108206,
+      "sha256": "7e8be18f4d69cc05317d265d54de1ea4f1274e04c86c66e2a93dfcb96819a3b6"
+    },
+    "frame-28.json": {
+      "bytes": 111071,
+      "sha256": "2e656899934a6ae6a77765b1e4d9f66f3c02fab59da901ef4292cf6ce894382c"
+    },
+    "frame-29.json": {
+      "bytes": 111006,
+      "sha256": "24c268117f126ff83d8ae7dadefbfc1183731b37a11014e01ab9989c51b02ff2"
+    },
+    "frame-3.json": {
+      "bytes": 80984,
+      "sha256": "120ad0f7ca981bf80889ab579ae5b2bc2ca24d9006bcaa7c275c88d23a06675b"
+    },
+    "frame-30.json": {
+      "bytes": 111058,
+      "sha256": "4943b7e58a3689643ea65d506a92471d86ad34d17e39bf8196348506cef560ae"
+    },
+    "frame-31.json": {
+      "bytes": 110935,
+      "sha256": "9602e0aa1f6426b71fa1791c019bd83496ea8c363eac266f8968312abd65265c"
+    },
+    "frame-32.json": {
+      "bytes": 111120,
+      "sha256": "1422508942618d25233c024983c1c3467ea92eac0280e3f4d5c536a9a0a6ebc6"
+    },
+    "frame-33.json": {
+      "bytes": 117328,
+      "sha256": "dcd0fc03c26ee75d549e6e2e5f1574e2e34ad1fc7b674ac84ed2a14f74ee8778"
+    },
+    "frame-34.json": {
+      "bytes": 121255,
+      "sha256": "185c9080857fd80c8c6269fca45fd58bb48c45921cd74f76f0cb0ee119762583"
+    },
+    "frame-35.json": {
+      "bytes": 120810,
+      "sha256": "f7c4a1b80d3ea0921a2b8fb4c1172b2041b9ede0b1f9bcf342ed854b8a127555"
+    },
+    "frame-36.json": {
+      "bytes": 120741,
+      "sha256": "508999a2b540358f6ef3f232d2fc0dc982a1711a0eec842d28e4f1a8bdc79925"
+    },
+    "frame-37.json": {
+      "bytes": 120694,
+      "sha256": "93971eb53cff5f14fd4dd0e3f8541949235c8970fbc0ae7ef305509778465046"
+    },
+    "frame-4.json": {
+      "bytes": 81035,
+      "sha256": "b9867025903ef11cedfd4c995cee91a41c007bf6912a2f336392e5dfe868a8be"
+    },
+    "frame-5.json": {
+      "bytes": 81030,
+      "sha256": "45f975067e80bfac7586e523c6765189f49d36a53b31114d1731cac424cf04f7"
+    },
+    "frame-6.json": {
+      "bytes": 81250,
+      "sha256": "17db859226c13c60a06bde68fff71f5762c5bf3c39336dec5b2790e76b9f9453"
+    },
+    "frame-7.json": {
+      "bytes": 88004,
+      "sha256": "5eac4d07c0fd688e21d87bf3778a583218a1d090b82f97f509f585705b79e1ec"
+    },
+    "frame-8.json": {
+      "bytes": 90947,
+      "sha256": "762796f93a10b62f4376132fbab9a0766109124a3f69d726a5de3faef0c09424"
+    },
+    "frame-9.json": {
+      "bytes": 90840,
+      "sha256": "d51909a6f84dfa25b9e9a0510ef06b535d2f106fb36dc0558bea9c4ab2c4fda0"
+    },
+    "index.json": {
+      "bytes": 53586,
+      "sha256": "94aaced1aff85a349a88ee03cb6dc64dbc653561f674ff371104db2bf407d8fc"
+    },
+    "root.json": {
+      "bytes": 45889,
+      "sha256": "84daf00c44a964f904aa0b78e2c64f44c2753ec97641f23566fdfcc349bf4476"
+    }
+  },
+  "frames": 38,
+  "index_sha256": "94aaced1aff85a349a88ee03cb6dc64dbc653561f674ff371104db2bf407d8fc",
+  "new_model_UI_connected": false,
+  "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+  "observation_time_UTC": null,
+  "original_private_grants_changed": false,
+  "output_writer_sha256": "e01c9aa66a87116f521dac721e66d34716fc71cc00efc18aaa202ca0590130ec",
+  "private_path_and_credential_pattern_matches": 0,
+  "raw_blobs": 62,
+  "redistribution_authorized": true,
+  "retrieval_time_UTC": "2026-10-30T11:26:08.355767+00:00",
+  "reviewer": "native_Codex_CLI_gpt-6.1-sol_xhigh",
+  "sample_scalars": 6208,
+  "schema_version": "supply-morphology-public-inventory-v1",
+  "source_URL": null,
+  "source_parent_report": "research/crop-supply-morphology-artifact-20261030.md",
+  "source_product_id": "own-public-supply-morphology-20261030",
+  "source_rights": {
+    "crop": {
+      "access": true,
+      "declaration_id": "own-public-supply-morphology-20261030",
+      "declared_at_utc": "2026-10-30T10:47:20Z",
+      "display": true,
+      "ownership_asserted": true,
+      "redistribute": true,
+      "revision": "public-software-QA-v1",
+      "store": true,
+      "transform": true,
+      "use": true
+    },
+    "declaration": {
+      "access": true,
+      "declaration_id": "own-public-supply-morphology-20261030",
+      "declared_at_utc": "2026-10-30T10:47:20Z",
+      "display": true,
+      "ownership_asserted": true,
+      "redistribute": true,
+      "revision": "public-software-QA-v1",
+      "store": true,
+      "transform": true,
+      "use": true
+    },
+    "stem": {
+      "access": true,
+      "declaration_id": "self-authored-fixture",
+      "declared_at_utc": "2026-10-21T17:40:17Z",
+      "display": true,
+      "ownership_asserted": true,
+      "redistribute": true,
+      "revision": "r2-public-12",
+      "store": true,
+      "transform": true,
+      "use": true
+    }
+  },
+  "time_kind": "synthetic_model_clock_not_observation",
+  "vintage": "public-software-QA-v1"
+}
