@@ -127,3 +127,6 @@ create_goal 재시도도 unfinished goal 오류로 거부됐다. 새 목표 교�
 
 
 **2026-10-26 13:02 UTC 이후 재확인:** 사용자의 clear 완료 회신 뒤 get_goal은 여전히 이전 전체 objective의 active를 반환했다. 최신 구현 순서/정확 gpt-6.1-sol/xhigh를 담은 create_goal도 unfinished goal 오류로 거부됐다. 교체 완료로 표시하거나 기존 전체 goal을 완료/중단하지 않으며 재입력은 반복 요청하지 않는다. 지난10월22일09시 기한을 새 미래 날짜로 사용하지 않는다. [현재 계획](plan.md)의 불변 저장25검사/별도834시점 수용 뒤 새 export/SDK/같은 저장 상태 실제3D를 계속한다.
+
+
+**2026-10-30 13:39 UTC 재확인:** clear 완료 회신 뒤 도구는 이전 전체 objective의 active를 반환했고, 최신 구현 순서와 정확 gpt-6.1-sol/xhigh를 담은 create_goal은 unfinished goal 오류로 거부됐다. 목표 교체 완료로 표시하지 않으며 같은 삭제 요청을 반복하지 않는다. OpenAI Docs의 [공식 goal 안내](https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex)를 확인했고, 지난10월22일09시 기한을 새 날짜로 재사용하지 않는다. [저장 수치64검사/독립38프레임](../research/crop-supply-morphology-stored-quantities-20261030.md)을 수용했으며 현재 구현 지시는 plan/todo의 HTTP·취소/latest/복사 → 같은 저장 상태 실제3D 순서로 이어간다. 전체 제품 goal은 미완료다.
