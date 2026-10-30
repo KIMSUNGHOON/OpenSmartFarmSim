@@ -1,8 +1,8 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-30 KST:** strict SDK 구현 중입니다. [원 조달 증거 복원51검사·실제5증거](research/crop-supply-morphology-sdk-wire-20261030.md)를 수용했고 전체 타입/별도 번들의 원 지문과 변형 거부·원 자료/GUI/WSL을 확인했습니다. 다음은 독립 anchor/파일·Context/CP 연결 → 상태/clock/장부 → HTTP/취소 검증 → 같은 저장 상태의 실제 잎·줄기3D입니다. 전체 SDK·새 사용자 화면은 미완료이며 전체 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합·독립 국내 품종 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다. native 실행 증거의 스레드 귀속은 [정정 기록](research/crop-supply-morphology-sdk-wire-native-evidence-20261030.md)을 따릅니다.
+**현재 — 2026-10-30 KST:** [원본/Context/CP 연결93검사·독립101파일](research/crop-supply-morphology-source-graph-20261030.md)을 수용했습니다.6Context/33CP/5증거·38프레임/6208scalar의 원 byte/hash·권리/prefix·유효 hold와 원 저장소/GUI/WSL을 확인했습니다. 다음은 상세 상태/기관·clock/형상/장부 수치 검증 → HTTP/취소/latest/복사 → 같은 저장 상태의 실제 잎·줄기3D입니다. 전체 SDK·새 사용자 화면은 미완료이며 전체 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합·독립 국내 품종 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**범위와 일정:** 기존 자체 합성305181/1024초→512초·공개101파일/14,197,795bytes·38시점/6,208scalar를 보존합니다. 복원5정상+5변형 묶음은1.573초이며 전체 SDK 조회나 브라우저 성능 수용이 아닙니다. 전체 원 파일/상태의 독립 조회 실측 뒤 3D 공수를 갱신합니다. 한도에 가까운 Context는 전체 작기 지원을 뜻하지 않으며 이전180–300분은 미수용 초안입니다. 독립 자료 확보일·전체 완료일은 미정입니다.
+**범위와 일정:** 자체 합성305181/1024초→512초·공개101파일/14,197,795bytes·38시점을 보존합니다. 독립 파일 읽기 약2.344초는 전체 수치 검증·HTTP/브라우저 지연 수용이 아닙니다. 전체 SDK/실제 HTTP 조회 실측 뒤 3D 공수를 갱신합니다. 한도에 가까운 Context는 전체 작기 지원을 뜻하지 않으며 이전180–300분은 미수용 초안입니다. 독립 자료 확보일·전체 완료일은 미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
