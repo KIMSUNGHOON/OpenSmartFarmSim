@@ -1,8 +1,8 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-10-31 KST:** [새 저장 상태3D 미리보기](http://localhost:5181/supply-morphology-replay.html)를 열었습니다(오늘13:34 KST까지). [44집중·전체 타입/공개 빌드·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md)과 [실제 주소의 첫/끝·메뉴/reload·오류0](../research/supply-morphology-user-preview-20261031.md)을 수용했습니다. 같은 원 잎/줄기·표/그래프·정확 clock/부족분/장부를 확인합니다. 실제 품종 한 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합은 미완료이며 독립 국내 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
+**현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**수량 전달·조회 — 수용:** [새 브라우저 조회](../research/supply-terminal-browser-implementation-20261031.md)를46집중검사·전체 웹 타입·독립 번들/실제 HTTP101파일·38시점으로 수용했습니다. 같은 원본에서3D 형태와 과실 수량/정확 누적·기간 합계를 함께 읽으며 기존 데이터 전달을 재사용합니다. 현재 사용자 화면은 기존 잎/줄기3D이며 새 수량 표시는 아직 미적용입니다. 다음은 같은 시점의 화면 통합·실제 브라우저 검증(잠정1.75–3.5집중시간)입니다. 한 작기/실제 자료·생산/자원·경제/거시·수급/자율 비교와 전체 제품 완료일은 미정입니다.
+**다음 수치 단계:** 같은 시점 표시를 수용했으므로 현재600초 기반/Context2MiB와 기존 긴 cycle을 대조해 한 작기의 상태·이력·forcing 경계와 첫 장기 수치 계약을 정합니다(잠정1.5–3.5집중시간). [다음 작업과 외부 의존성](../research/supply-production-stored-screen-20261031.md)을 따르며 상한만 늘리거나 옛166일 수용을 새 모델에 이전하지 않습니다. 기존5175/5181과 원 자료를 보존했고 독립 자료 확보는 병행합니다. 전체 제품 완료일은 미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

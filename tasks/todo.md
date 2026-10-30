@@ -1,8 +1,8 @@
 # 첫 구현 작업 목록
 
-**현재 — 2026-10-31 KST:** [새 저장 상태3D 미리보기](http://localhost:5181/supply-morphology-replay.html)를 열었습니다(오늘13:34 KST까지). [44집중·전체 타입/공개 빌드·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md)과 [실제 주소의 첫/끝·메뉴/reload·오류0](../research/supply-morphology-user-preview-20261031.md)을 수용했습니다. 같은 원 잎/줄기·표/그래프·정확 clock/부족분/장부를 확인합니다. 실제 품종 한 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합은 미완료이며 독립 국내 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
+**현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**수량 전달·조회 — 수용:** [새 브라우저 조회](../research/supply-terminal-browser-implementation-20261031.md)를46집중검사·전체 웹 타입·독립 번들/실제 HTTP101파일·38시점으로 수용했습니다. 같은 원본에서3D 형태와 과실 수량/정확 누적·기간 합계를 함께 읽으며 기존 데이터 전달을 재사용합니다. 현재 사용자 화면은 기존 잎/줄기3D이며 새 수량 표시는 아직 미적용입니다. 다음은 같은 시점의 화면 통합·실제 브라우저 검증(잠정1.75–3.5집중시간)입니다. 한 작기/실제 자료·생산/자원·경제/거시·수급/자율 비교와 전체 제품 완료일은 미정입니다.
+**다음 수치 단계:** 같은 시점 표시를 수용했으므로 현재600초 기반/Context2MiB와 기존 긴 cycle을 대조해 한 작기의 상태·이력·forcing 경계와 첫 장기 수치 계약을 정합니다(잠정1.5–3.5집중시간). [다음 작업과 외부 의존성](../research/supply-production-stored-screen-20261031.md)을 따르며 상한만 늘리거나 옛166일 수용을 새 모델에 이전하지 않습니다. 기존5175/5181과 원 자료를 보존했고 독립 자료 확보는 병행합니다. 전체 제품 완료일은 미정입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -252,7 +252,10 @@
 
 
 - [x] **`supply-terminal-window-source-bound-transfer-and-parser`** — [신규12/집중46·전체 웹 타입·독립 번들/실제 HTTP101파일/38시점](../research/supply-terminal-browser-implementation-20261031.md). 기존 불변 공개 전달/strict source 파서를 재사용하고 원 root/frame/code/at/phase·C/N 단위/정확 누적·권리/notice를 새 조회 객체에 결속했다. 원38형태/3800C/N·37차이/5동시점·부분4창이 독립 Python 참조와 일치하고 새 load 재검증·취소/늦은 응답·입력/원 GUI/preview/WSL을 수용했다. 별도 raw export/서버는 불필요했다. 농장 custody/API·같은 시점 화면은 별도 자식이다.
-- [ ] **`supply-terminal-window-same-frame-display`** — 위 전달/파서 뒤 기존 실제 잎·줄기3D와 원 index/at/phase가 같은 구획 재고·terminal 구간/기간 합·명시 단위/hold를 표시한다. 실제 브라우저의 전체38시점·첫/끝/경계/단일 창, 메뉴/reload·현재 철회/실패/재시도·모바일/유휴와 원 GUI/WSL을 검증한다. 구획 C/N을 임의 개별 과실의 형상/숙기나 생과kg/판매로 변환하지 않는다. 최종 R2·제품 농장/worker·한 작기/예측·추천 관문은 별도다. 현재 조회 인터페이스를 근거로 연결0.5–1h·표시/상호작용0.5–1h·브라우저/보존0.75–1.5h=잠정1.75–3.5집중시간으로 분해한다.
+- [x] **`supply-terminal-window-same-frame-display`** — [42집중/전체·새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표와 추가12상태](../research/supply-production-stored-screen-20261031.md). 단일 조회 객체로 원 index/at/phase의 실제 잎·줄기3D·과실 저장량/구간 유출·표/그래프를 결속했다. 첫/끝/부분/단일/5동시점·메뉴/reload/이력·오류/재시도·모바일/유휴/재생 끝/제어한 visibility·WebGL 대체·원 자료/GUI/고정 preview/WSL을 검증했다. 12ui 원 winner/a/b의 prototype과 unanchored target close 제한, source/모델/Farm 권리 경계·최종 R2·한 작기/실제 수확/경제/예측·추천 보류를 유지한다.
+
+
+- [ ] **`supply-season-state-history-forcing-contract`** — 위 같은 상태 화면 뒤, 기존 현재 RHS/Context/CP·전역 clock/장부와600초·Context2MiB·관리0/forcing 경계를 실제 코드로 대조한다. 기존 긴 crop-cycle의 stream/immutable page를 재사용할 수 있는 수치/계보 경계를 확인하고, 현재 상태와 append-only 이력 참조·정확 원점/forcing 페이지·관리/기후·실패 prefix를 잃지 않는 새 판본 계약 및 첫 구현의 수용 기준을 산출한다. 첫 검증 가능한 장기 수치 자식을 분리하되 옛 typed handle/166일 수용을 가장하거나 상한만 키우지 않는다. 코드 대조0.5–1h·계약/의존성0.5–1.5h·독립 수치/분할/cold/수지·실패/보존 수용 분해0.5–1h=잠정1.5–3.5집중시간이며 실제 증거로 갱신한다. 독립 국내 자료 확보는 병행하고 제품 농장/worker·실제 예측/추천 게시 조건은 유지한다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
