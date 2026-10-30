@@ -1,6 +1,8 @@
 # 구현 순서
 
-**현재 — 2026-10-30 KST:** [후속 family 원 격자 재개36검사/별도34경로·독립 산술](../research/crop-supply-morphology-successor-resume-20261029.md)을 수용했습니다. 분수 잔여→원8초 격자·진짜 evolved CP의 전체/분할/cold bytes 일치,170확정 구간/34다음 threshold 보류·명시 형상 원점/누적/전역 장부를 확인했습니다. 다음은 같은 family의 후속 후보·명시 조달·일정 단일 소비와 여러 사건의 반복, 이후 불변 저장/같은 상태 실제3D입니다. 배치24guard 실측96.71분은 검증 공수이며 제품 계산 속도/완료일이 아닙니다. 이전 반복65–115분 초안은 인터페이스·proof 규모 확인 뒤 재산정하며 저장3D180–300분도 낮은 신뢰의 이전 초안입니다. 실제 품종/국내 독립 측정0·자료 확보일 미정·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시/수급·자율 비교와 제품 통합은 미완료입니다. 기존 외형5175/봉인 저장·5180 원 만료를 보존했고 전체 goal active/incomplete입니다.
+**현재 — 2026-10-30 KST:** [공급 제한 형상 반복88검사·5출현/원512초](../research/crop-supply-morphology-repeat-20261030.md)을 수용했습니다. genuine 같은 family의 전체/분할/출현별 cold 최종 바이트·독립 산술·실패/현재 권리/원 자료·GUI/WSL 보존을 확인했습니다. 다음은 불변 결과/무계산 reader → export/strict SDK → 같은 저장 상태의 실제 잎·줄기3D입니다. 새 반복 결과는 아직 웹에 반영되지 않았습니다. 전체 작기·생산/자원·경제/거시/수급·자율 비교와 제품 통합은 미완료이며 실제 품종/국내 독립 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
+
+**범위와 일정:** 원 저장 시작305181/1024초→512초의 합성 소프트웨어 경로입니다. Context2,034,607bytes는 원2MiB 한도에 가까워 전체 작기 지원을 뜻하지 않습니다. 초기 생성179.007초/전체 계산490.337초·분할/cold321.780+305.462초는 검증 공수입니다. 저장 schema/packet·조회 경계 수용 뒤 후속 공수를 재산정하며 이전 저장3D180–300분은 미수용 초안입니다. 독립 자료 확보일과 전체 제품 완료일은 미정입니다.
 
 ## 현재 탄소 재고 다음의 순서 — 2026-10-26 KST
 
@@ -59,8 +61,11 @@
 | 3c3b4c-events-point | [32검사·별도40조건/독립 산술](../research/crop-supply-morphology-newborn-point-20261029.md): 실제 다음 ID/부모/후보·명시 C/X/k·원 비용/열 한번·원 상태/clock·형상 원점/통합 lifetime/점/global·현재/late/보존 | 읽기 전용 연구 point 수용(34계산/6부적합); 일정/새 Context·CP/UI0 |
 | 3c3b4c-events-context | [46검사·별도34개/독립 산술](../research/crop-supply-morphology-successor-context-20261029.md): 실제 point/current source/CP·상태/ID/k/birth/형상 원점/통합 lifetime/point/global→genuine Context/초기CP·일정 한 번·prefix/원 격자·cold 과거RHS/point/fund/init0·CP 현재1·canonical/변조/current/late/보존 | 연구 초기CP 수용; evolved CP/반복/UI는 별도 |
 | 3c3b4c-events-family-grid | [36검사·별도34경로/독립 산술](../research/crop-supply-morphology-successor-resume-20261029.md): 실제 family/원점 장부·분수 잔여/원8초 격자·evolved CP 전체/분할/cold 동일 bytes·170확정/34다음 threshold 미소비·current/late/실패/보존 | 합성 재개 수용. 검증24guard 실측96.71분; 여러 후속 사건/저장3D는 후속 |
-| 3c3b4c-events-family-repeat — 다음 한 단계 | genuine root/현재 parent·새 CP로 후보/명시 조달→가변 owner/일정 단일 소비. 최소2개 후속 사건을 실제 처리하고 원 horizon까지 전체/분할/cold 및 전역 장부/형상 원점·실패 prefix/독립/보존 검증. old typed handle 가장0·누적 proof는 원 cap 내·선언 없는 seed는 해당 경계 hold | 인터페이스/실제 proof 크기 확인 뒤 재산정. 이전65–115분은 미수용 초안이며 완료 날짜가 아님 |
-| 3c3b4c-stored-3d | 새 실제 A/L/C/clock/ID/phase·부족분의 불변 result/무계산 reader/strict SDK→실제 mesh/표/그래프·메뉴/reload/권리·실패·기존 GUI 보존. 제작 width/pose/fruit·최종 R2/제품 farm 통합 구분 | 잠정180–300집중분; events 수용 뒤 재산정 |
+| 3c3b4c-events-family-repeat — 수용 | genuine 같은 family의 후보/명시 조달·원 horizon까지 실제 반복·일정/형상 원점/전역 장부·전체/분할/cold/실패/독립/보존 | [88검사·5출현/27구간·원512초](../research/crop-supply-morphology-repeat-20261030.md). 전체6/분할12호출·출현별 cold5·최종 bytes 일치. Context2,034,607bytes이며 전체 작기 지원은 미수용 |
+| 3c3b4d-repeat-artifact-reader — 다음 한 단계 | 수용 반복의 불변 packet/원 prefix·각 확정/before/after·source/NOTICE·권리와 원점/장부 결속. root-last/재시도/실패·한도·별도 무계산 reader | 같은 A/L/C/clock/ID/분수 초/phase 대사·변조/현재 권리 거부·생장 import/RHS·CLI·DB/network/write0·원 자료/GUI/WSL. schema/실제 packet/조회 경계 수용 뒤 후속 공수 재산정 |
+| 3c3b4e-repeat-export-sdk | 선행 반복 artifact/reader. 동일 bytes/hash/권리·출현 전후·확정 구간의 bounded export/strict SDK | private:false/late·추가/누락/역순/용량 거부·현재 데이터와 기존 SDK/출력 보존 |
+| 3c3b4f-repeat-stored-3d | 선행 export/SDK. 같은 저장 상태의 실제 잎/줄기 mesh·표/그래프/재생 | 실제 브라우저의 원 A/L/C/clock/ID/UTC/phase 대사·조달 경계/부분 실패·메뉴/reload/현재 권리·GUI/WSL. 제작 pose/width·없는 과실/수확·제품 farm/worker·최종 R2 구분 |
+| 3c3b4c-stored-3d | 새 실제 A/L/C/clock/ID/phase·부족분의 불변 result/무계산 reader/strict SDK→실제 mesh/표/그래프·메뉴/reload/권리·실패·기존 GUI 보존. 제작 width/pose/fruit·최종 R2/제품 farm 통합 구분 | 위 repeat-artifact-reader → export-sdk → stored-3d로 분해. 반복은 수용했고 저장/조회 경계 뒤 공수 재산정; 이전180–300분은 미수용 초안 |
 | 3c3b5 | 공급 제한 길이/면적의 별도 합성 법칙·동역학 수지 개발과 실제 품종 allometry/초기 이력·권리/독립 자료 확보를 병행. 현재 paper의 독립 logistic을 탄소 feedback으로 승격하지 않음 | 개발 착수와 실제 주장/게시 조건 분리; 실제 자료 확보 날짜 미정 |
 | 4a | [불변 저장/무계산 reader59검사·fresh6결과/42시점](../research/crop-leaf-funded-birth-artifact-20261026.md): 원 bytes/point·context/CP·가변 상태/장부/시각·phase·private False132blob/모델 import·DB/CLI/network·쓰기0·1→2/512·WSL | 수용 완료(자체 합성) |
 | 4a-new1 | [전체 확정 prefix16검사·일반414/추가420시점](../research/crop-funded-complete-prefix-20261026.md). 시작/source CP→CP 없는 dense-before→실제 after/new-grid/end를 원 ID/시각/각 cursor로 결속. 원 CP380건의 bytes/상태·시계3,790/길이2,956 보존, 마지막12CP 동일·공통208frame 동일·2MiB/32768scalar | 수용 완료(합성512초 이력 결속); 불변 저장/사용자 화면은 별도 |
