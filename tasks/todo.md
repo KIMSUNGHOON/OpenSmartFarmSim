@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [새 저장 상태3D 미리보기](http://localhost:5181/supply-morphology-replay.html)를 열었습니다(오늘13:34 KST까지). [44집중·전체 타입/공개 빌드·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md)과 [실제 주소의 첫/끝·메뉴/reload·오류0](../research/supply-morphology-user-preview-20261031.md)을 수용했습니다. 같은 원 잎/줄기·표/그래프·정확 clock/부족분/장부를 확인합니다. 실제 품종 한 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합은 미완료이며 독립 국내 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
 
-**다음 구현:** [작기/생산 준비 검토](../research/season-production-readiness-20261031.md)를 완료했습니다. 기존 과실50구획과 terminal 누적이 현재 저장 결과에 있으며 다음은 이를 정확 C/N 원장에 직접 연결하는 조회기입니다(계획1.5–3.5집중시간). 원512초는 fixture 범위이고 기반 생성기의600초·Context2MiB/공개 최대2,034,765bytes·관리/기후 경계는 별도 장기 과제입니다. 독립 자료 확보는 병행하며 전체 제품 완료일은 미정입니다.
+**생산 원장 연결 — 수용:** [저장 과실/terminal 조회](../research/supply-terminal-window-implementation-20261031.md)를19집중검사·독립 산술4,030항목으로 수용했습니다. 원38시점/50구획·37구간/5동시점의 정확 수량을 재계산 없이 읽습니다. 화면은 기존 잎/줄기3D를 유지하며 새 수량 표시는 아직 적용하지 않았습니다. 다음은 source 결속 전달/strict 파서(잠정1–2.5집중시간) 뒤 같은 시점 표시입니다. [작기/생산 검토](../research/season-production-readiness-20261031.md)의 장기 계산·관리/기후·환산/구매/경제와 독립 국내 자료 확보는 병행하며 전체 완료일은 미정입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -248,7 +248,11 @@
 
 - [x] **`supply-morphology-season-production-readiness`** — 저장3D 연구 재생 수용 뒤 첫 수치 구현을 정한다. 기존 PROJECT_SPEC/IMPLEMENTATION_SLICE/모델·원문에서 원512초/Context2MiB 경계·한 작기·기관 관리·과실/수확·자원/경제의 실제 지원과 누락을 대사한다. 산출물은 근거/권리/단위 표, 계산 개발과 독립 농장 검증의 별도 의존성, 다음 작은 수치 계약/수용 기준이다. 전체 작기나 예측/추천을 이미 수용한 것으로 표시하지 않는다. 기존 자료/입력/GUI와 현재 유한 preview를 보존한다. [실제 원본/코드 대조](../research/season-production-readiness-20261031.md): 과실50구획 존재·현재 terminal 연결 누락,600초/Context 한도와 기존 작기 경로의 차이를 확인했다.
 
-- [ ] **`supply-terminal-window-reader`** — [다음 수치 조회 계약](../contracts/supply-terminal-window-v1.md). 기존 verified root/Context/CP·dense-before에서 원50 C/N·정확 terminal 누적과38시점을 연결한다.37차이/5동시점·기간 합의 독립 산술, 첫/끝/단일 창·현재/늦은 변경/입력 불변·생장 import/DB/network/쓰기0과 원 GUI/WSL 보존을 수용한다. 생과/수확·판매/예측/추천 관문은 열지 않는다.
+- [x] **`supply-terminal-window-reader`** — [다음 수치 조회 계약](../contracts/supply-terminal-window-v1.md). 기존 verified root/Context/CP·dense-before에서 원50 C/N·정확 terminal 누적과38시점을 연결한다.37차이/5동시점·기간 합의 독립 산술, 첫/끝/단일 창·현재/늦은 변경/입력 불변·생장 import/DB/network/쓰기0과 원 GUI/WSL 보존을 수용한다. 생과/수확·판매/예측/추천 관문은 열지 않는다. [19검사/독립4030항목·cold/보존](../research/supply-terminal-window-implementation-20261031.md)을 수용했다.
+
+
+- [ ] **`supply-terminal-window-source-bound-transfer-and-parser`** — 선행은 위 reader다. 기존 재배포 허용 자체 자료에서 새 불변 전달물과 strict 파서를 만들고 원 root/frame/code/at/phase·C/N 단위/정확 누적·권리/notice를 결속한다. 원38시점/37구간·부분 창을 독립 대사하고 현재/늦은 변경·취소/오래된 응답·상한/입력 불변·원 GUI/preview/WSL을 검사한다. 전달/수용 계약0.5–1h와 파서/실패·독립 검증0.5–1.5h로 잠정1–2.5집중시간이며 실제 증거로 갱신한다. 농장 custody/API·같은 시점 화면은 별도 자식이다.
+- [ ] **`supply-terminal-window-same-frame-display`** — 위 전달/파서 뒤 기존 실제 잎·줄기3D와 원 index/at/phase가 같은 구획 재고·terminal 구간/기간 합·명시 단위/hold를 표시한다. 실제 브라우저의 전체38시점·첫/끝/경계/단일 창, 메뉴/reload·현재 철회/실패/재시도·모바일/유휴와 원 GUI/WSL을 검증한다. 구획 C/N을 임의 개별 과실의 형상/숙기나 생과kg/판매로 변환하지 않는다. 최종 R2·제품 농장/worker·한 작기/예측·추천 관문은 별도다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.

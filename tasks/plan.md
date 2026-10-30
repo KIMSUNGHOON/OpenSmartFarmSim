@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [새 저장 상태3D 미리보기](http://localhost:5181/supply-morphology-replay.html)를 열었습니다(오늘13:34 KST까지). [44집중·전체 타입/공개 빌드·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md)과 [실제 주소의 첫/끝·메뉴/reload·오류0](../research/supply-morphology-user-preview-20261031.md)을 수용했습니다. 같은 원 잎/줄기·표/그래프·정확 clock/부족분/장부를 확인합니다. 실제 품종 한 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합은 미완료이며 독립 국내 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
 
-**다음 구현:** [작기/생산 준비 검토](../research/season-production-readiness-20261031.md)를 완료했습니다. 기존 과실50구획과 terminal 누적이 현재 저장 결과에 있으며 다음은 이를 정확 C/N 원장에 직접 연결하는 조회기입니다(계획1.5–3.5집중시간). 원512초는 fixture 범위이고 기반 생성기의600초·Context2MiB/공개 최대2,034,765bytes·관리/기후 경계는 별도 장기 과제입니다. 독립 자료 확보는 병행하며 전체 제품 완료일은 미정입니다.
+**생산 원장 연결 — 수용:** [저장 과실/terminal 조회](../research/supply-terminal-window-implementation-20261031.md)를19집중검사·독립 산술4,030항목으로 수용했습니다. 원38시점/50구획·37구간/5동시점의 정확 수량을 재계산 없이 읽습니다. 화면은 기존 잎/줄기3D를 유지하며 새 수량 표시는 아직 적용하지 않았습니다. 다음은 source 결속 전달/strict 파서(잠정1–2.5집중시간) 뒤 같은 시점 표시입니다. [작기/생산 검토](../research/season-production-readiness-20261031.md)의 장기 계산·관리/기후·환산/구매/경제와 독립 국내 자료 확보는 병행하며 전체 완료일은 미정입니다.
 
 ## 현재 탄소 재고 다음의 순서 — 2026-10-26 KST
 
@@ -75,7 +75,9 @@
 | 3c3b4f2 — 수용 | [44집중·전체 타입/공개233파일·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md). 같은 잎/줄기·표/그래프/정확 clock/deficit/원 장부, 메뉴/reload/로드·실패/비활성 정지·자원/보존 | 연구 화면 소프트웨어 수용; 최종 R2/제품 farm 별도 |
 | 3c3b4f3 — 수용 | [새5181/고정233파일·첫/끝·메뉴/reload/오류0](../research/supply-morphology-user-preview-20261031.md). 원 source/GUI·만료/WSL 보존 | 오늘13:34 KST까지 유한 연구 preview. 기존5180 만료 연장0 |
 | 작기/생산 준비 — 수용 | [실제38시점/62 CAS·모델 대조](../research/season-production-readiness-20261031.md). 과실50구획/terminal 누적은 존재. 현재 기반600초/2MiB·제거0/기후 경계와 기존166일 경로를 구분 | 독립 국내 자료0·실제 품종/한 작기 승인 아님 |
-| 다음 — terminal 직접 조회 | [원 C/N·누적/시간 계약](../contracts/supply-terminal-window-v1.md). 기존 reader 검증을 유지한 새 직접 projection → 독립/실패·보존 검사 | 원 수치0.5–1h + source/fence0.5–1h + 검증0.5–1.5h = 잠정1.5–3.5집중h |
+| terminal 직접 조회 — 수용 | [19집중·별도 Decimal4030항목/38시점·37구간](../research/supply-terminal-window-implementation-20261031.md). 원 C/N·exact at/phase/CP·receipt/lifetime·5동시점/기간 합·현재/늦은 거부·생장 import/DB/network/쓰기0·원 GUI/유한 preview 보존 | 연구 수치 조회 수용. 새 화면/API·실제 수확/환산/추천은 별도 |
+| 다음 — source 결속 전달/파서 | reader → 재배포 허용 자체 자료의 새 불변 전달물·원 root/frame/code/at/phase/권리 → strict 파서·독립 대사/실패/보존 | 전달/계약0.5–1h + 파서/독립·실패0.5–1.5h = 잠정1–2.5집중h |
+| 그다음 — 같은 시점 표시 | 위 파서 → 기존 실제 잎/줄기3D와 같은 수량/단위·구간/기간 합·hold → 전체38시점/메뉴/reload/모바일/실제 브라우저·보존 | 인터페이스 크기 확인 후 따로 산정. 과실 수 상당량을 임의 과실 mesh로 바꾸지 않음 |
 | 이후 — 기간 확대와 생산/자원·경제 | 같은 결과 표시·farm custody → forcing/관리·기후 결합 → 상태/계보 분리와 paging·장기/수렴·cold/수지 → 명시 환산·구매량/같은 달력 Decimal 경제 | [구현 순서/외부 의존성](../research/season-production-readiness-20261031.md). 독립 자료 확보 병행, 전체 완료일 미정 |
 | 3c3b4c-stored-3d | 새 실제 A/L/C/clock/ID/phase·부족분의 불변 result/무계산 reader/strict SDK→실제 mesh/표/그래프·메뉴/reload/권리·실패·기존 GUI 보존. 제작 width/pose/fruit·최종 R2/제품 farm 통합 구분 | 위 repeat-artifact-reader → export-sdk → stored-3d로 분해. 반복은 수용했고 저장/조회 경계 뒤 공수 재산정; 이전180–300분은 미수용 초안 |
 | 3c3b5 | 공급 제한 길이/면적의 별도 합성 법칙·동역학 수지 개발과 실제 품종 allometry/초기 이력·권리/독립 자료 확보를 병행. 현재 paper의 독립 logistic을 탄소 feedback으로 승격하지 않음 | 개발 착수와 실제 주장/게시 조건 분리; 실제 자료 확보 날짜 미정 |
