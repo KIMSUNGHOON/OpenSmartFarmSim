@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [같은 문턱 시각의 전체 상태·누적량 후보](../research/supply-forcing-threshold-state-20261031.md)를 신규16/기존103=119검사와 실제 두 source/fresh-process로 수용했습니다.176상태/185적분량·124수지/원 예산·같은 시각1/2/4 진단·34RHS/과거 확정 재적분/쓰기0을 검증했습니다. 다음은 명시 물질 조달·새 기관 point 산술(잠정4–8집중시간), 그 뒤 원자 채택/원 격자 재개·첫 확정 결과의 저장3D입니다. 첫3D 연결은 긴 작기 완료를 기다리지 않으며 현재 UI는 기존38시점입니다. 실제 품종/농장·생산/경제·G0–G4/R2는 미수용입니다.
+**다음 수치 단계:** [새 기관의 물질 전이 산술](../research/supply-material-point-20261031.md)을 신규27/직접 부모37=64검사와 실제 세 사례/fresh-process로 수용했습니다. 명시 조달·원 성장 비용·열/용량·point/global 수지와 원 좌표/기원 보존·늦은 변경/경계 보류를 검증했습니다. 다음은 원자 채택·원 격자 재개(잠정4.5–9집중시간), 그 뒤 첫 확정 새 기관의 저장3D입니다. 첫3D 연결은 긴 작기 완료를 기다리지 않으며 현재 UI는 기존38시점입니다. 일정/물질 소비·실제 품종/농장·생산/경제·G0–G4/R2는 미수용입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -267,9 +267,9 @@
 
 - [x] **`supply-season-material-threshold-state-candidate`** — [신규16/기존103=119검사·실제 두 source/fresh-process·보존](../research/supply-forcing-threshold-state-20261031.md). genuine source/root upper-bound와 전체176상태/185부분 적분량·124원 수지/예산·정확 prefix 합성·원 point/기원을 수용했다. 같은 시각1/2/4 trace·독립 상태/적분량·496부분 잔차/원 ULP 예산·185합성, 비선형 RK4 수렴·전체 성분 차이와 full/split/fresh hash·권리/취소/늦은 변조/수지 실패·원 자료/WSL을 검증했다.34RHS/과거 확정 전진/쓰기0이며 후보는 CP/물질 사건/일정 채택이나 실제 품종·UI/관문 승인과 다르다.
 
-- [ ] **`supply-season-material-point-arithmetic`** — [후속 물질 경계](../contracts/supply-forcing-threshold-state-v1.md). 실제 candidate hash/시간/문턱·사건 ID/parent·신규 ID, 명시 seed/곡선·최소 탄소/성장 비용·buffer/현열·열용량·단위/권리를 검증하고 같은 시각의 before/after 물질·열/형태·point 수지를 대사한다. 기존 기관 재초기화/부족 탄소 생성/숨은 계수를 금지하고 funding 부족·중복·입력/늦은 변경은 hold한다. 이전 Context/CP를 만들지 않으며 원자 일정/owner 채택은 다음 단계다. source/입력1–2h + 순수 point1–2h + 독립/거부1–2h + 실제 실행/기록1–2h = 잠정4–8집중시간.
+- [x] **`supply-season-material-point-arithmetic`** — [신규27/직접 부모37=64검사·실제 세 사례/fresh-process·보존](../research/supply-material-point-20261031.md). actual 최초 binding/timeline·미소비 event/parent·후보 hash/upper-bound 시각과 명시 seed/권리/provenance를 결속했다. 원 성장 비용·buffer/구조 C/호흡·유입 열/용량·11point/134또는129global·199또는192누적 channel/원 기원을 독립 대사했다. 부족 조달/잘못된 입력·거친 선택 시각의 forcing 경계·취소/늦은 변경을 보류하고 실제35/36RHS·과거/쓰기0·원 자료/WSL을 검증했다. 기존 Context/CP와 일정/물질 소비·내구 채택/UI/실제 품종 승인은 만들지 않았다.
 
-- [ ] **`supply-season-material-point-adoption`** — 위 point 산술 수용 뒤 새 family의 actual before/after·basis/layout/origin·원 점/연속 수지를 결속해 불변 current/page/cursor를 원자 채택한다. source 사건 ID/sequence는 한 번만 소비하고 원점/근 범위·원 격자 잔여/같은 forcing을 보존한다. full/split/fresh-cold 같은 상태/cursor, 중복/수지/도메인/권리·취소/게시 실패/늦은 거부·원 자료/WSL을 검증한다. 기존 v1/Context/한도·승인을 가장하지 않는다. 공수는 point 산술의 실제 shape/크기/검증 뒤 갱신한다.
+- [ ] **`supply-season-material-point-adoption`** — [산술 수용 뒤 다음 단계](../contracts/supply-material-point-v1.md). 새 family의 actual before/after·basis/layout/origin·원 점/연속 수지를 결속해 불변 current/page/cursor를 원자 채택한다. source 사건 ID/sequence는 한 번만 소비하고 원점/근 범위·원 격자 잔여/같은 forcing을 보존한다. full/split/fresh-cold 같은 상태/cursor, 중복/수지/도메인/권리·취소/게시 실패/늦은 거부·원 자료/WSL을 검증한다. 기존 v1/Context/한도·승인을 가장하지 않는다. 새 current/page/cursor·일정/basis2–4h + 격자 재개1–2h + 거부/fresh1–2h + 기록0.5–1h = 잠정4.5–9집중시간; 전체 완료일 아님.
 
 - [ ] **`supply-season-first-material-stored-3d`** — 첫 point 채택/원 격자 재개 수용 뒤 게시권리가 확인된 불변 새 기관/재개 결과를 무계산 reader·strict export/SDK·실제 잎/줄기 mesh·같은 UTC/phase의 표/그래프에 연결한다. 원 IDs/A/L·메뉴/reload/오류·현재 표시권·브라우저/기존 GUI·WSL을 검증한다. 임의 성장 애니메이션·private 결과 권리 승격·R2/실제 품종 주장은 제외한다. 긴 작기/주야·관리 확장 완료를 선행으로 묶지 않으며 공수는 새 결과 shape/권리 수용 뒤 산정한다.
 
