@@ -1,8 +1,8 @@
 # 구현 순서
 
-**현재 — 2026-10-31 KST:** [원 저장38시점의 실제3D 화면·브라우저 수용](../research/crop-supply-morphology-stored-web-20261031.md)을 완료했습니다. 집중44검사·전체 타입/공개 빌드와 같은 시점의 실제 잎/줄기·표/그래프·원 장부/부족분·메뉴/reload/오류 제거·모바일/유휴/비활성 정지를 확인했습니다. 다음은 새 유한 사용자 preview 적용입니다. 실제 품종 한 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합은 미완료이며 독립 국내 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
+**현재 — 2026-10-31 KST:** [새 저장 상태3D 미리보기](http://localhost:5181/supply-morphology-replay.html)를 열었습니다(오늘13:34 KST까지). [44집중·전체 타입/공개 빌드·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md)과 [실제 주소의 첫/끝·메뉴/reload·오류0](../research/supply-morphology-user-preview-20261031.md)을 수용했습니다. 같은 원 잎/줄기·표/그래프·정확 clock/부족분/장부를 확인합니다. 실제 품종 한 작기·생산/자원·경제/거시/수급·자율 비교/제품 통합은 미완료이며 독립 국내 자료0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete입니다.
 
-**범위와 일정:** 자체 합성305181/1024초→512초·공개101파일/38시점을 보존합니다. 화면/실제 browser는 수용했고 새 loopback preview의 빌드 보존·소유 기동·실제 주소 확인이 남아 있습니다. 적용 계획은0.5–1집중시간이며 기동/화면 결과로 갱신합니다. 전체 제품·독립 자료 확보일은 미정이며 과거10월22일09시 지시를 새 날짜로 바꾸지 않습니다.
+**범위와 다음 단계:** 자체 합성305181/1024초→512초·공개101파일/38시점의 연구 재생이며 새 backend 계산은 아닙니다. 다음은 현 Context2,034,607bytes/2MiB·512초 경계와 과실/수확·자원/경제의 누락을 기존 명세/모델/원문에 대사하는 작기/생산 준비 검토입니다. 기존 자료 접근 유지 조건의 분해 공수는2–4집중시간이며 전체 제품·독립 자료 확보일은 미정입니다. 과거10월22일09시 기한은 새 날짜로 바꾸지 않습니다.
 
 ## 현재 탄소 재고 다음의 순서 — 2026-10-26 KST
 
@@ -70,10 +70,11 @@
 | 3c3b4e-sdk-source-graph — 수용 | [93검사·타입/별도 build·독립101파일](../research/crop-supply-morphology-source-graph-20261030.md). 원 source/권리/초기 결속·6Context/33CP/5증거·38프레임/6208scalar byte/hash/prefix/일정·유효 hold·부정/용량·원 자료/GUI/WSL | 로컬 처리 약2.344초. 상세 수치/HTTP/전체 SDK/UI는 미완료 |
 | 3c3b4e-sdk-stored-quantities — 수용 | [64검사·전체 타입/별도 번들·독립38프레임](../research/crop-supply-morphology-stored-quantities-20261030.md). 원106+3n+m+2h·6208좌표/잎358행/절간356행·A/L/C/clock·원점/형상 수지·33CP 누적/장부·재해시 위조 거부·원 자료/GUI/WSL | 로컬 수치 decode 약2.532초. HTTP/전체 SDK/UI는 미완료 |
 | 3c3b4e-sdk-HTTP — 수용 | [9검사·전체 타입/번들·실제306자료 GET](../research/crop-supply-morphology-http-sdk-20261030.md). 두101파일·38프레임/6208좌표·원 권리/취소/latest/복사·cap/302/404/원 자료/GUI/WSL/종료 | 실제 로컬 HTTP+decode 약3.610초. 브라우저/새 UI는 다음 |
-| 3c3b4f-repeat-stored-3d | 선행 export/SDK. 같은 저장 상태의 실제 잎/줄기 mesh·표/그래프/재생 | 실제 브라우저의 원 A/L/C/clock/ID/UTC/phase 대사·조달 경계/부분 실패·메뉴/reload/현재 권리·GUI/WSL. 제작 pose/width·없는 과실/수확·제품 farm/worker·최종 R2 구분 |
+| 3c3b4f-repeat-stored-3d — 연구 수용 | 선행 export/SDK. 같은 저장 상태의 실제 잎/줄기 mesh·표/그래프/재생 | 실제 브라우저의 원 A/L/C/clock/ID/UTC/phase 대사·조달 경계/부분 실패·메뉴/reload/현재 권리·GUI/WSL. 제작 pose/width·없는 과실/수확·제품 farm/worker·최종 R2 구분 |
 | 3c3b4f1 — 수용 | [13검사·타입/독립38시점](../research/crop-supply-morphology-stored-geometry-20261030.md). 원 부모 forest·0길이4행/미부착114행·잎358면적/절간356끝점·SDK 원101파일·복사/정리/보존 | 기하 수용; 실제 WebGL/새 화면은 후속 |
 | 3c3b4f2 — 수용 | [44집중·전체 타입/공개233파일·실제38시점](../research/crop-supply-morphology-stored-web-20261031.md). 같은 잎/줄기·표/그래프/정확 clock/deficit/원 장부, 메뉴/reload/로드·실패/비활성 정지·자원/보존 | 연구 화면 소프트웨어 수용; 최종 R2/제품 farm 별도 |
-| 3c3b4f3 — 다음 | 위 실제 browser 수용 뒤 새 빌드/loopback의 유한 소유 preview·실제 주소와 원 화면/WSL 확인 | 적용0.5–1집중h. 기존5180 만료를 연장하지 않는다 |
+| 3c3b4f3 — 수용 | [새5181/고정233파일·첫/끝·메뉴/reload/오류0](../research/supply-morphology-user-preview-20261031.md). 원 source/GUI·만료/WSL 보존 | 오늘13:34 KST까지 유한 연구 preview. 기존5180 만료 연장0 |
+| 다음 — 작기/생산 준비 검토 | 현512초/Context2MiB 경계0.5–1h → 과실/수확·자원/경제와 자료 의존성0.5–1.5h → 다음 한 수치 계약/수용 기준0.5–1h | 기존 자료 접근 유지 조건으로 잠정2–4집중h. 독립 농장 검증은 병행하며 전체 제품 완료일 미정 |
 | 3c3b4c-stored-3d | 새 실제 A/L/C/clock/ID/phase·부족분의 불변 result/무계산 reader/strict SDK→실제 mesh/표/그래프·메뉴/reload/권리·실패·기존 GUI 보존. 제작 width/pose/fruit·최종 R2/제품 farm 통합 구분 | 위 repeat-artifact-reader → export-sdk → stored-3d로 분해. 반복은 수용했고 저장/조회 경계 뒤 공수 재산정; 이전180–300분은 미수용 초안 |
 | 3c3b5 | 공급 제한 길이/면적의 별도 합성 법칙·동역학 수지 개발과 실제 품종 allometry/초기 이력·권리/독립 자료 확보를 병행. 현재 paper의 독립 logistic을 탄소 feedback으로 승격하지 않음 | 개발 착수와 실제 주장/게시 조건 분리; 실제 자료 확보 날짜 미정 |
 | 4a | [불변 저장/무계산 reader59검사·fresh6결과/42시점](../research/crop-leaf-funded-birth-artifact-20261026.md): 원 bytes/point·context/CP·가변 상태/장부/시각·phase·private False132blob/모델 import·DB/CLI/network·쓰기0·1→2/512·WSL | 수용 완료(자체 합성) |
