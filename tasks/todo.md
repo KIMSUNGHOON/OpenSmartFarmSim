@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 한 단계:** 현재8개 열·수분 counter와 [경제 계약](../docs/ECONOMICS.md)의 구매량 경계를 대조해, 항목별 물리 의미·필요한 설비/계량/단가 자료·hold와 기존 Decimal 원장 입력 계약을 작성합니다(근거 대조/작은 계약1–2집중시간 초안). heat/vapor를 전력·연료 구매/관개로, 모형 C/과실 수량을 생과 수확/매출로 환산하지 않습니다. 명시 사용자 가정의 조건부 계산 개발과 실제 구매/예측 게시 조건을 구분합니다. 이후 Decimal 연결과 긴 작기/반복 출현·품종/독립 농장·경제/거시/수급/자율 비교·최종 제품 공수는 실제 범위/자료 확보 뒤 갱신하며 전체 완료일은 미정입니다.
+**자원·비용 경계 수용:** [1차 조사·입력 계약/28검사·실제 원 조회/보존](../research/supply-material-energy-purchase-boundary-20261031.md)을 완료했습니다.8개 열·수분 counter는 구매 전력/연료·관개가 아니며 기존 Decimal 원장의 사용자 가정 구매량·단가를 별도로 받습니다. 현재 UI의 새 비용 연결은 아직 미구현입니다. 다음은 수확 사건 없는 명시 재배 batch의 기간 생산비 계산(커널/새 계약·집중 검증3–5집중시간 초안)입니다. 가짜 수확0·매출·직접비의 period 재분류 없이 원 비용/현금·기존 판본을 보존해야 합니다. 그뒤 원 저장 창/소유 경제 입력 결속→SDK/같은 선택 UI이며, 긴 작기/독립 품종·농장/구매·경제/거시/수급/자율 비교·최종 제품은 병행/후속입니다. 전체 완료일은 실제 범위와 외부 자료 확보 전까지 미정입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -283,9 +283,11 @@
 
 - [x] **`supply-material-window-quantities-public-sdk-screen`** — [56집중·전체/설정 타입·실제 HTTP/Chrome·보존](../research/supply-material-quantity-screen-20261031.md). 고정107원 파일/새 strict SDK와 같은4state3D·원47잎/51절간·400과실 좌표/8자원·정확 시각/phase/구간을 결속했다. 취소/latest/복사·변조/권리/한도·메뉴/reload/모바일·오류 제거/복구/유휴와238고정 HTTP/원666pins/1output/private120/GUI·WSL을 대사했다.5184는17:03KST 첫 만료이며 실제 수확/자원 구매·비용/추천·G0–G4/R2는 미수용이다. 이전1.5–3h 초안은 실제 수용 기록으로 대체한다.
 
-- [ ] **`supply-material-energy-purchase-boundary`** — 위 화면 수용 → 기존8counter의 코드/원문 의미와 ECONOMICS의 열/구매량 구분을 대조한다. 항목별 단위·부호/기간·설비/계량·가격/권리·hold 표와 기존 Decimal 원장 입력 계약을 작성한다. 근거 없는 COP/효율·요금·freshkg 변환0, 사용자 가정의 조건부 구매량/단가와 모델 구매량 게시를 구분하는 것이 수용 기준이다. 1–2집중시간 초안; 실제 품종/독립 농장 자료와 긴 작기 개발은 병행 의존성이다.
+- [x] **`supply-material-energy-purchase-boundary`** — [8counter1차 조사/새 결속 계약·현재28검사·실제 조회/보존](../research/supply-material-energy-purchase-boundary-20261031.md). 내부 열/잠열 상쇄·기준온도 상대 부호/원 단위, 설비/계량/요금·권리/기간 hold를 대조했다. 실제 own4reference의 같은 온도율/반대 에너지 부호·원101CAS/40,481bytes/8자원·조회2.128117초/RHS·DB/network/CAS쓰기/CLI0과 원687pins/4output/private745/238HTTP·GUI/WSL을 보존했다. 기존 Decimal 사용자 가정 Cost를 재사용하며 새 비용 계산/UI/자료 채택/관문 승격은0이다. 무수확 batch의 기간 생산비 경계를 발견해 아래 계산 자식으로 분리했다. 이전1–2h 초안은 이 수용 기록으로 대체한다.
 
-- [ ] **`supply-material-conditional-resource-economics`** — 위 경계와 기존 Decimal 계약 수용 뒤 정해진 입력 범위만 연결한다. 원 자료/시각·통화/단위/기간·반올림·발생/지급일·중복 비용/미배분·hold·독립 산술 및 기존 원장 회귀를 통과한 범위만 표시한다. 실제 구매량/청구서·판매/수확 자료 없이 농장 비용·마진·추천을 게시하지 않는다. 공수는 경계 대조 후 산정한다.
+- [ ] **`economic-unharvested-production-batch-period-cost`** — 위 경계/기존 ECONOMICS → 평가기간에 수확0건인 명시 재배 batch의 직접비를 허위 수확/판매 없이 V에 한 번 포함하는 새 판본 커널. 원 batch/tenant/입력/Cost·decision/기간/목적, 미수확·후속 수확/미판매·기초 재고/과거 비용 재부과·월별 지급/미지급·누락/중복/불일치/늦은 변경과 독립 Decimal/기존 원장 회귀를 통과해야 한다. 기존 schema3·원 worker/HTTP/화면을 보존한다.3–5집중시간 초안은 커널/새 입력 계약·집중 검사만이며 제품 연결/실제 농장 비용 게시와 별도다. 실제 공통 period 비용의 조건부 개발은 병행 가능하다.
+
+- [ ] **`supply-material-conditional-resource-economics`** — 위 경계/기존 Decimal 계약, 미수확 직접비에는 명시 batch 커널 수용 뒤 정해진 입력 범위만 연결한다. 원 자료/시각·통화/단위/기간·반올림·발생/지급일·중복 비용/미배분·hold·독립 산술 및 기존 원장 회귀를 통과한 범위만 표시한다. 실제 구매량/청구서·판매/수확 자료 없이 농장 비용·마진·추천을 게시하지 않는다. 원 저장 창·독립 가정의 구매/청구 기간/Cost/input 판본을 별도 보존하며 제품 Farm 결속 없는 연구 root는 제품에 게시하지 않는다. 계산 자식의 실제 범위 뒤 공수를 갱신한다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
