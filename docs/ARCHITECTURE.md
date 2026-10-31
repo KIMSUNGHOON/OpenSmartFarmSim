@@ -279,3 +279,13 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 [좁은 읽기 프로토콜](../contracts/crop-solar-shared-market-reader-v1.md)은 동일한 typed facade/store·DSN/schema/policy/provider의 source-owned connection만 후보 scope에 제공한다. source/candidate ContextVar·현재 행/권한/역할·transaction/pointer를 보존하며 source만 close/commit한다. 다른 구성은 기존 별도 연결이다. [구현 증거](../research/crop-solar-shared-market-reader-implementation-20261017.md)는 scoped software 수용이며 SDK/worker/3D의 동시 용량과 사용자 배포는 후속이다.
 
 현재 후보 범위의 [보류/판단 맥락 reader](../contracts/crop-market-held-context-reader-v1.md)는 같은 신원 source-owned connection을 기존 private transaction reader에 빌려 현재 서명/행/범위를 검증한다. [고유141검사·로컬 실제 SDK 정상/hold](../research/crop-market-held-context-reader-implementation-20261017.md)를 수용했으며 새 저장 WebGL/실행 중3D·배포/운영 용량은 후속이다.
+
+
+## 소유 생산 batch 보호 HTTP — 2026-10-31
+
+[보호 HTTP 계약](../contracts/economic-batch-protected-http-v1.md)과
+[실제149검사](../research/economic-batch-protected-http-20261031.md)는 create_app의 명시 EconomicBatchAuthority 주입에만 새5경로를 설치한다.
+새8종/schema4는 기존7종/schema3 저장소/기본 OpenAPI와 별도이며 등록 거래 엔진을 공유한다.
+같은 provider/정책/JobStore/source/서명 hold/context 결속을 저장 거래 안에서도 확인한다.
+계산 접수는 참조 의도만 기록하고 결과 조회는 현재 근거를 확인한 원 bytes/최초 게시 이력을 반환한다.
+일반 runtime의 optional factory와 자동 consumer/version/outcome 연결·제품 SDK/UI는 후속 수용이다.

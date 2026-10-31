@@ -94,9 +94,9 @@ class MarketUserSourcePage(FrozenContract):
     next_cursor: MarketUserSourceCursor | None
 
 
-def _source_read_variants():
+def _source_read_variants(models=_KINDS, *, metadata=MarketUserSourceMetadata, prefix=''):
     variants = []
-    for kind, (model, _, _) in _KINDS.items():
+    for kind, (model, _, _) in models.items():
         fields = {}
         for name, info in model.model_fields.items():
             if name == 'tenant_id':
@@ -110,8 +110,8 @@ def _source_read_variants():
                 annotation = UnavailableMarketContext
                 attributes.pop('discriminator', None)
             fields[name] = (Annotated[annotation, *data['metadata'], Field(**attributes)], ...)
-        payload = create_model('UserSource'+model.__name__, __base__=FrozenContract, **fields)
-        variants.append(create_model(model.__name__+'SourceRead', __base__=MarketUserSourceMetadata,
+        payload = create_model('User'+prefix+'Source'+model.__name__, __base__=FrozenContract, **fields)
+        variants.append(create_model(prefix+model.__name__+'SourceRead', __base__=metadata,
             kind=(Literal[kind], ...), input=(payload, ...)))
     return tuple(variants)
 
@@ -149,10 +149,10 @@ def _inline_schema(model):
     return inline(schema)
 
 
-def market_user_source_schema():
+def market_user_source_schema(models=_KINDS, request_model=MarketUserSourceRequest):
     variants = []
-    key = MarketUserSourceRequest.model_json_schema()['properties']['idempotency_key']
-    for kind, (model, _, _) in _KINDS.items():
+    key = request_model.model_json_schema()['properties']['idempotency_key']
+    for kind, (model, _, _) in models.items():
         payload = _inline_schema(model)
         payload['properties'].pop('tenant_id')
         payload['required'].remove('tenant_id')
@@ -166,6 +166,16 @@ def market_user_source_schema():
 
 
 class MarketUserSourceService:
+    SOURCE_TYPE = MarketSourceStore
+    REQUEST = MarketUserSourceRequest
+    SUMMARY = MarketUserSourceSummary
+    PAGE = MarketUserSourcePage
+    READ_ADAPTER = _SOURCE_READ_ADAPTER
+    WRITE_SCOPES = SOURCE_SCOPES
+    READ_SCOPES = SOURCE_READ_SCOPES
+    POLICY_FLAG = 'market_source_storage'
+    INTENT_PREFIX = 'market-user-source-v1:'
+
     def __init__(self, jobs, sources):
         self.jobs, self.sources = jobs, sources
         try:
@@ -175,9 +185,9 @@ class MarketUserSourceService:
 
     def _binding(self):
         binding = getattr(self.jobs, 'runtime_identity', None)
-        if (type(self.jobs) is not JobStore or type(self.sources) is not MarketSourceStore or
+        if (type(self.jobs) is not JobStore or type(self.sources) is not self.SOURCE_TYPE or
                 type(binding) is not tuple or len(binding) != 2 or type(binding[0]) is not RuntimeLoginPolicy or
-                binding[1] != 'authority' or binding[0].market_source_storage is not True or
+                binding[1] != 'authority' or getattr(binding[0], self.POLICY_FLAG, None) is not True or
                 binding[0].schema != self.jobs.schema or type(self.jobs._dsn) is not str or not self.jobs._dsn or
                 self.sources.runtime_identity != binding or self.sources.schema != self.jobs.schema or
                 self.sources.dsn != self.jobs._dsn or self.jobs.audit_runtime_grants is not True or
@@ -186,11 +196,11 @@ class MarketUserSourceService:
             raise RuntimeError('market user source binding rejected')
 
     def _access(self, tenant):
-        if not all(self.jobs._has_scope(tenant, scope) for scope in SOURCE_SCOPES):
+        if not all(self.jobs._has_scope(tenant, scope) for scope in self.WRITE_SCOPES):
             raise PermissionError('market user source admission denied')
 
     def _read_guard(self, tenant, jobs, sources):
-        if not all(self.jobs._has_scope(tenant, scope) for scope in SOURCE_READ_SCOPES):
+        if not all(self.jobs._has_scope(tenant, scope) for scope in self.READ_SCOPES):
             raise PermissionError('market user source lookup denied')
         self._binding()
         if self.jobs is not jobs or self.sources is not sources:
@@ -201,7 +211,7 @@ class MarketUserSourceService:
         self._read_guard(tenant, jobs, sources)
         result = sources.get_user_source(tenant, kind, identity, revision)
         self._read_guard(tenant, jobs, sources)
-        return None if result is None else _SOURCE_READ_ADAPTER.validate_json(_source_response_bytes(result))
+        return None if result is None else self.READ_ADAPTER.validate_json(_source_response_bytes(result))
 
     def list(self, tenant, kind, *, limit=20, after_record_id=None, after_revision=None):
         jobs, sources = self.jobs, self.sources
@@ -209,12 +219,12 @@ class MarketUserSourceService:
         result = sources.list_user_sources(tenant, kind, limit=limit,
             after_record_id=after_record_id, after_revision=after_revision)
         self._read_guard(tenant, jobs, sources)
-        return MarketUserSourcePage.model_validate_json(_source_response_bytes(result))
+        return self.PAGE.model_validate_json(_source_response_bytes(result))
 
     def submit(self, tenant, body):
         self._access(tenant)
         self._binding()
-        body = MarketUserSourceRequest.model_validate(body.model_dump(mode='json'))
+        body = self.REQUEST.model_validate(body.model_dump(mode='json'))
         if 'tenant_id' in body.input:
             raise ValueError('market user source input rejected')
         data = body.input | {'tenant_id': tenant}
@@ -231,11 +241,11 @@ class MarketUserSourceService:
             _, record = sources._adopt_in_transaction(conn, tenant, body.kind, str(row['job_id']))
             admitted.append(record)
             guard()
-        intent = 'market-user-source-v1:'+sha256(canonical_input_bytes({
+        intent = self.INTENT_PREFIX+sha256(canonical_input_bytes({
             'kind': body.kind, 'idempotency_key': body.idempotency_key})).hexdigest()
         job = jobs.submit(tenant, 'collection', data, intent, admission_action=adopt, commit_guard=guard)
         record = admitted[0]
-        return MarketUserSourceSummary(kind=body.kind, record_id=record['record_id'],
+        return self.SUMMARY(kind=body.kind, record_id=record['record_id'],
             revision=record['revision'], payload_sha256=record['payload_sha256'],
             admission_kind=record['admission_kind'], recorded_at=record['recorded_at'],
             intent_job=public_job_status(job))

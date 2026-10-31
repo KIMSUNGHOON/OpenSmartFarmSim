@@ -41,6 +41,7 @@ from .api_crop_leaf_appearance_execution import install_leaf_appearance_executio
 from .api_crop_greenhouse_ventilation_execution import install_ventilation_execution_routes
 from .api_crop_greenhouse_solar_execution_http import install_solar_execution_routes
 from .api_crop_greenhouse_co2_execution_http import install_co2_execution_routes
+from .api_economic_batch import install_economic_batch_routes
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
@@ -135,7 +136,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                crop_greenhouse_co2_prefix_query=None,
                crop_morphology_execution_service=None, crop_morphology_execution_query=None,
                crop_leaf_population_execution_service=None, crop_leaf_population_execution_query=None,
-               crop_leaf_appearance_execution_service=None, crop_leaf_appearance_execution_query=None) -> FastAPI:
+               crop_leaf_appearance_execution_service=None, crop_leaf_appearance_execution_query=None,
+               economic_batch_authority=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -276,6 +278,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return None, _error(403, "forbidden", "Resource access denied")
         return principal["tenant_id"], None
 
+    if economic_batch_authority is not None:
+        install_economic_batch_routes(app,jobs=job_store,holds=market_hold_store,contexts=thermal_run_store,
+            authority=economic_batch_authority,principal_provider=principal_provider,
+            authorized_tenant=authorized_tenant,error=_error,access=_access)
     errors = {status: {"model": ErrorEnvelope} for status in (401, 403, 404, 422, 503)}
     install_verification_routes(app, jobs=job_store, store=break_even_store,
         admission=break_even_verification_service, results=break_even_verified_result_service,
