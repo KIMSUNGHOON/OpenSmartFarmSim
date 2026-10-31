@@ -1,8 +1,8 @@
 # 첫 구현 작업 목록
 
-**현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
+**현재 — 2026-10-31 KST:** [새 잎 전후·재개 저장3D](http://localhost:5183/supply-material-replay.html)를 열었습니다(오늘16:00 KST까지). [17집중·전체/설정 타입·실제 Chrome4시점/47잎·51절간](../research/supply-material-stored-screen-20261031.md)으로 같은 원 시각/phase·치수/부모·표/시계/수지·그래프와 메뉴/reload/모바일/오류 복구를 수용했습니다.106원 파일/237고정 파일·WSL/기존 GUI·만료를 보존했습니다. 자체 합성4시점/722좌표의 연구 창이며 실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [새 기관 전후·재개의 strict HTTP SDK](../research/supply-material-http-sdk-20261031.md)를 신규84/기존9=고유93검사·전체 타입·실제 HTTP로 수용했습니다.106파일/4시점·722좌표/11→12잎을 원 값·시계/수지/권리/계보와 대사했고, 실제321GET의 오류·취소/latest·보존/WSL도 통과했습니다. 현재 UI는 기존38시점입니다. 다음은 같은4시점의 실제 새 기관/재개3D이며 mesh0.5–1h+화면0.75–1.5h+브라우저/모바일/오류0.5–1h=잠정1.75–3.5집중시간입니다. 긴 작기 완료를 기다리지 않으며 실제 품종/농장·생산/자원/경제·G0–G4/R2와 전체 goal은 미완료입니다.
+**다음 수치 단계:** 같은4시점의 모형 과실 저장량·구간 유출·저장 heat/vapor 적분량을 새 source/cursor/phase와 결속합니다. 다음 수용은50구획/정확 Fraction·0시간 채택 전후·구간 망원합/원 단위·권리/변조/무계산·보존입니다. vapor/heat를 관개·전력 구매로, 모형 C/수량을 생과 수확/매출로 바꾸지 않습니다. 수치 조회1–2집중시간→공개 SDK/같은3D 패널1.5–3h의 잠정 추정이며 그 뒤 명시 근거의 Decimal 비용 연결입니다. 긴 작기/독립 품종·농장 자료/경제·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -271,13 +271,17 @@
 
 - [x] **`supply-season-material-point-adoption`** — [신규31/상위point27=58검사·실제 세 사례/fresh-process·보존](../research/supply-material-owner-20261031.md). genuine source의 전이를 재계산한 뒤 새 family의 before/after·basis/layout/기원·원 수지/예산과 새 branch0을 결속하고 사건/sequence를 한 번 소비했다. 원 격자 잔여·forcing zero jump·full/split/fresh 같은 cursor, 독립182상태/199적분량/134global·타입/재해시/권리·중복/취소/게시 실패/늦은 변경을 수용했다. cursor-last local 게시이며 Farm/DB 원자성·실제 품종/제품 관문과 다르다. 이전4.5–9h 초안은 실제 수용 기록으로 대체한다.
 
-- [ ] **`supply-season-first-material-stored-3d`** — [공개 데이터](../contracts/supply-material-public-replay-v1.md)와 [strict SDK](../research/supply-material-http-sdk-20261031.md)는 수용했다. 다음 실제 mesh/표/그래프·같은 시각/phase·ID/A/L·메뉴/reload/권리/오류·실제 브라우저/기존 GUI·WSL을 검증한다. 긴 작기 완료를 기다리지 않으며 private false 결과의 권리 승격이나 임의 성장 애니메이션을 사용하지 않는다. mesh0.5–1h+화면0.75–1.5h+브라우저/기록0.5–1h=남은1.75–3.5집중시간의 잠정 추정이다.
+- [x] **`supply-season-first-material-stored-3d`** — [실제4시점 새 기관/재개3D](../research/supply-material-stored-screen-20261031.md). 공개106파일/strict SDK93·새mesh/선택17·전체/설정 타입·원4phase/47잎·51절간의 실제 Chrome/표·그래프/clock/수지·메뉴/reload/모바일/오류/고정237GET/WSL을 수용했다. 실제 품종 한 작기·제품 농장·생산/자원·경제/추천·최종 R2는 후속이다. 이전2.5–5h/1.75–3.5h 초안은 실제 수용 기록으로 대체한다.
 
 - [x] **`supply-season-material-public-replay`** — [39검사·실제 새 public 계산/독립 조회/export·보존](../research/supply-material-public-replay-20261031.md). 원 public 권리·새 definition/provenance로138RHS를 실행하고 actual before/after/528/536의4시점/722좌표·11→12잎을 결속했다. 선택 witness만 복사한 불변 root·raw/코드/기원/수지/phase와 no-model reader·index-last export106파일/NOTICE를 대사했다. 세 재해시 반례 수정·private false 차단·경로/한도·게시 실패/늦은 변경·fresh14import/DB/network/CAS 쓰기0·원514pins/자료/GUI/WSL을 수용했다. 이전1–2h 초안은 실제 수용 기록으로 대체하며 SDK/UI·실제 품종/관문은 별도다.
 
 - [x] **`supply-season-material-strict-sdk`** — [신규84/기존9·전체 타입/번들·실제 HTTP](../research/supply-material-http-sdk-20261031.md). 고정 root/index/115code·권리/계보와 새 schema를 검증하고4frame/722좌표·106파일 원 수치/clock/기원·저장 RK4/수지를 대사했다. rehashed 변조/한도·HTTP321GET/abort/latest/복사·기존628pins/원 자료/GUI·WSL을 수용했다. 실제 mesh/브라우저·제품 농장/실제 품종과 관문은 별도다. 이전0.75–1.5h 초안은 실제 수용 기록으로 대체한다.
 
-- [ ] **`supply-season-material-stored-3d-screen`** — 위 SDK의 실제 저장 새 기관/재개를 기존 실제 잎/줄기 mesh·표/그래프에 연결한다. 같은 시각/phase·ID/A/L·0길이/면적·메뉴/reload/로딩/오류/권리·모바일/유휴와 실제 브라우저·원 GUI/WSL을 수용한다. 제작 pose/width·과실 외형과 계산 결과, 최종 R2/실제 품종 승인을 구분한다.
+- [x] **`supply-season-material-stored-3d-screen`** — [17집중·실제 Chrome/고정237파일](../research/supply-material-stored-screen-20261031.md). 원 phase의 새 version layout/mesh와 기존 질감/조명·표/그래프를 결속하고4시점/722원 좌표·11→12잎/12→13절간/초기면적·ID/부모/0·같은 exact at/clock/global/메뉴/reload/모바일/오류/유휴를 대사했다. 소유 browser 경로 실패/정리·최종 통과와 SDK643pins/원 자료/GUI·WSL을 보존했다.5183은16:00KST 만료이며 실제 품종/생산·경제·관문/R2는 별도다.
+
+- [ ] **`supply-material-window-terminal-resource-projection`** — 위4시점의 새 source/cursor/frame SHA/phase를 유지하는 읽기 전용 모형50과실 구획·정확 저장량/terminal delta와 허용한 heat/vapor 적분량을 투영한다. 실제 원 layout/단위/재배면적·같은 시각0시간 point/망원합·독립 Fraction/음수·타입/권리/변조·RHS/DB/CLI0/보존이 수용 조건이다. 이전 Context/CP 참조 생성이나 수확/관개·전력 구매 해석은 금지한다. 잠정1–2집중시간.
+
+- [ ] **`supply-material-window-quantities-public-sdk-screen`** — 위 수치 조회 수용 뒤 원4state/계보·권리/NOTICE·실제 수량/자원 DTO·고정 inventory/strict SDK를 독립 대사하고 같은3D 시각/phase에 패널을 연결한다. SDK/취소/latest/변조·실제 browser/원 mesh/메뉴/reload·현재 실패 제거/WSL을 검증한다. 잠정1.5–3집중시간. 미래 수익/작물 순위와 실제 구매량은 게시하지 않는다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
