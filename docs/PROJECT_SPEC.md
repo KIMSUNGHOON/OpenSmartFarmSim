@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**소유 batch 입력 저장·조회 수용:** [신규20/기존362=382검사·실제 SCRAM/보존](../research/economic-batch-source-store-20261031.md)으로 schema4·생산 batch와 비용 입력을 실제 불변 작업 원문에 결속했습니다. 별도 명시 프로필이며 기존 schema3/산술·운영 DB/화면은 유지합니다. 제품 접수/worker/비용 UI는 아직 미연결입니다. 다음은 source·서명 hold·결정 문맥의 실제 권한 결속과 계산 접수입니다. 같은 schema/로그인/tenant·등록 원문·중복/충돌·rollback·현재/늦은 권한을 수용 기준으로 하며2–4집중시간 초안입니다. 이후 worker/불변 결과→저장 창과 독립 가정 비용 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
+**생산 batch 계산 접수 수용:** [신규23/기존226=249검사·실제 SCRAM/보존](../research/economic-batch-calculation-admission-20261031.md)으로 실제 source·서명 hold/결정 문맥을 같은 서버 권한에 결속하고 원 입력/최초 작업 UUID·근거 SHA의 불변 계산 의도를 접수했습니다. 서버 라이브러리 수용이며 금액 계산·결과 게시/제품 HTTP·worker/비용 UI는 후속입니다. 다음은 실제 lease/취소·입력/근거·코드 검증의 worker와 불변 결과 저장→계산 없는 현재 조회입니다. worker1–2h+결과/조회1–2h+실제 검증1–2h=3–6집중시간 초안이며 전체/UI 완료일은 아닙니다. 이후 저장 창·독립 가정 비용의 기간 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 

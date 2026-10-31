@@ -2,12 +2,12 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**소유 batch 입력 저장·조회 수용:** [신규20/기존362=382검사·실제 SCRAM/보존](../research/economic-batch-source-store-20261031.md)으로 schema4·생산 batch와 비용 입력을 실제 불변 작업 원문에 결속했습니다. 별도 명시 프로필이며 기존 schema3/산술·운영 DB/화면은 유지합니다. 제품 접수/worker/비용 UI는 아직 미연결입니다. 다음은 source·서명 hold·결정 문맥의 실제 권한 결속과 계산 접수입니다. 같은 schema/로그인/tenant·등록 원문·중복/충돌·rollback·현재/늦은 권한을 수용 기준으로 하며2–4집중시간 초안입니다. 이후 worker/불변 결과→저장 창과 독립 가정 비용 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
+**생산 batch 계산 접수 수용:** [신규23/기존226=249검사·실제 SCRAM/보존](../research/economic-batch-calculation-admission-20261031.md)으로 실제 source·서명 hold/결정 문맥을 같은 서버 권한에 결속하고 원 입력/최초 작업 UUID·근거 SHA의 불변 계산 의도를 접수했습니다. 서버 라이브러리 수용이며 금액 계산·결과 게시/제품 HTTP·worker/비용 UI는 후속입니다. 다음은 실제 lease/취소·입력/근거·코드 검증의 worker와 불변 결과 저장→계산 없는 현재 조회입니다. worker1–2h+결과/조회1–2h+실제 검증1–2h=3–6집중시간 초안이며 전체/UI 완료일은 아닙니다. 이후 저장 창·독립 가정 비용의 기간 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
 
 ## 새 기관3D 다음의 생산·자원 연결 — 2026-10-31 KST
 
 [원4시점3D 수용](../research/supply-material-stored-screen-20261031.md)을 선행 증거로 고정한다.
-같은 저장 상태의 수량/자원 조회·화면과 구매량 경계/입력 계약을 수용했다. 미수확 batch의 직접비 커널과 실제 소유 입력 저장/조회도 수용했다. 다음은 서버 권한 결속과 계산 접수다.
+같은 저장 상태의 수량/자원 조회·화면과 구매량 경계/입력 계약을 수용했다. 미수확 batch의 직접비 커널·소유 입력 저장/조회와 서버 권한/계산 접수도 수용했다. 다음은 실제 worker·불변 결과/현재 조회다.
 
 | 순서 | 의존성과 사용자/검토자 산출물 | 수용 기준 | 집중 공수 초안 |
 |---|---|---|---|
@@ -16,9 +16,11 @@
 | 3a | [28기존검사·4reference/실제 조회/보존](../research/supply-material-energy-purchase-boundary-20261031.md):8counter 물리/구매량 경계·기존 Decimal 입력 결속 계약 | 열/수분과 설비/계량/청구·권리/기간 hold 분리. 사용자 가정과 모델 구매량 구분; 새 비용/UI/계수 채택0 | 조사/계약 수용 완료 |
 | 3b0 | [새37/기존169=206·별도4사례/보존 수용](../research/economic-production-batches-20261031.md): 명시 batch schema4/원장v10 커널 | 수확/판매 생성0·원 직접비 V/F/현금·기존schema3/원장/화면 보존·batch/입력 current/late·독립 Decimal | 계산 커널 수용 완료. 실제 저장/API/UI 미연결 |
 | 3b0a | [고유382검사·실제 SCRAM/보존](../research/economic-batch-source-store-20261031.md): 별도 소유 batch/schema4 입력 저장·조회 | 원 bytes/최초 기록·8종/UTF-8·동시 재시도/충돌/rollback·현재/late scope·조회 계산/쓰기0·원 표/권한/schema3 보존 | 저장 라이브러리/명시 프로필 수용 완료. 제품 factory/접수·worker/UI 미연결 |
-| 3b0b | `economic-batch-calculation-admission`: 실제 source/서명 hold/결정 문맥 권한 결속→등록 schema4 계산 접수 | 같은 schema/런타임 정책/로그인·principal·tenant/기간/참조·실제 원문 SHA. 중복/충돌/rollback·현재/late 권한·최초 bytes/시각·기존 schema3 보존. test facade를 제품 권한으로 사용0 | 2–4집중시간 초안; 실제 객체/job 입력 계약 확인 뒤 갱신 |
-| 3b0c | 계산 접수 수용→deterministic worker/불변 v10 결과 저장·현재 조회 | 원 입력/판본/서명/결정 문맥, 임대/취소·게시 원자성/재시도·별도 reader 원 bytes/시각·조회 계산/쓰기0 | 3b0b 구체 계약 뒤 재산정 |
-| 3b1 | 3b0c 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 3b0b/3b0c 실제 범위와 결속 경계 확인 뒤 재산정 |
+| 3b0b | [최종23/기존226=249·실제 SCRAM/보존](../research/economic-batch-calculation-admission-20261031.md): 실제 source/서명 hold/context 권한·schema4 계산 접수 | 원 source UUID/원문/근거 SHA·현재/late scope와 pointer·동시 재시도/충돌/rollback·한글·원 숫자/표/화면 보존. 참조 준비는 읽기 scope로 분리 | 서버 라이브러리 수용 완료. 제품 HTTP/worker/UI 미연결 |
+| 3b0c1 | `economic-batch-execution-worker`: 접수 수용→실제 lease/v10 계산·불변 결과/manifest·성공 게시 | 정확한 입력/근거·현재 코드/환경, 취소/만료·전후 현재 권한, 원자 거래/재시도·독립 숫자 대사·기존 worker/자료 보존 | 구현1–2h 초안; 기존 JobStore 재사용 |
+| 3b0c2 | `economic-batch-stored-result-query`: worker 수용→fresh 현재 결과 조회 | 실제 작업 입력/근거·원 결과 SHA/publication·최초 시각·현재/late 권한·금액 계산/SQL쓰기0 | 결과/조회1–2h+두 단계 실제 DB/취소·fresh 검증1–2h 초안. c1/c2 합계3–6h |
+| 3b0c3 | `economic-batch-runtime-api-consumer`: worker/query 수용→소유 source 등록/조회·계산 접수/결과의 보호 HTTP·명시 runtime·자동 소비 | 같은 실제 provider/정책/저장소와 닫힌 DTO/OpenAPI·scope, 실제 접수→자동 완료/취소→fresh 조회·원 bytes/현재 권한. 기존 DB/경로/worker/화면 보존 | c1/c2 뒤 실제 endpoint/조립 범위로 재산정. 라이브러리 수용만으로 이 단계를 완료하지 않음 |
+| 3b1 | 3b0c1/c2/c3 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | c1/c2/c3 실제 수용과 결속 경계 확인 뒤 재산정 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
 이 개발은 독립 농장 자료 확보와 병행한다. 실제 예측·추천 게시에는 기존 G0–G4 관문과 독립 증거가 필요하다.

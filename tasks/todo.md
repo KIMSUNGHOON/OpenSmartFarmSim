@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**소유 batch 입력 저장·조회 수용:** [신규20/기존362=382검사·실제 SCRAM/보존](../research/economic-batch-source-store-20261031.md)으로 schema4·생산 batch와 비용 입력을 실제 불변 작업 원문에 결속했습니다. 별도 명시 프로필이며 기존 schema3/산술·운영 DB/화면은 유지합니다. 제품 접수/worker/비용 UI는 아직 미연결입니다. 다음은 source·서명 hold·결정 문맥의 실제 권한 결속과 계산 접수입니다. 같은 schema/로그인/tenant·등록 원문·중복/충돌·rollback·현재/늦은 권한을 수용 기준으로 하며2–4집중시간 초안입니다. 이후 worker/불변 결과→저장 창과 독립 가정 비용 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
+**생산 batch 계산 접수 수용:** [신규23/기존226=249검사·실제 SCRAM/보존](../research/economic-batch-calculation-admission-20261031.md)으로 실제 source·서명 hold/결정 문맥을 같은 서버 권한에 결속하고 원 입력/최초 작업 UUID·근거 SHA의 불변 계산 의도를 접수했습니다. 서버 라이브러리 수용이며 금액 계산·결과 게시/제품 HTTP·worker/비용 UI는 후속입니다. 다음은 실제 lease/취소·입력/근거·코드 검증의 worker와 불변 결과 저장→계산 없는 현재 조회입니다. worker1–2h+결과/조회1–2h+실제 검증1–2h=3–6집중시간 초안이며 전체/UI 완료일은 아닙니다. 이후 저장 창·독립 가정 비용의 기간 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -289,9 +289,15 @@
 
 - [x] **`economic-production-batch-owned-source-store`** — [신규20/기존362=고유382·실제 SCRAM/보존](../research/economic-batch-source-store-20261031.md). 원 등록 엔진을 재사용한 별도8종 source/명시 프로필로 실제 작업 bytes/SHA·최초 참조/시각·한글 ID·동시/다른 작업 재시도·충돌/rollback·현재/late scope·조회 계산/쓰기0·운영 설정/역할 감사를 대사했다. 실제 서명 hold와 fresh 저장 입력의 v10 계산을 확인했고 기존schema3/원 표·권한/숫자/CAS/GUI·첫 만료를 보존했다. 제품 factory/접수·worker/SDK/UI와 실제 농장/관문은 미수용이다. 이전 공수 초안은 이 수용 기록으로 대체한다.
 
-- [ ] **`economic-batch-calculation-admission`** — 실제 EconomicBatchSourceStore·MarketHoldStore·결정 문맥 저장소의 같은 schema/정책/로그인·principal·tenant/기간/참조를 결속해 등록 schema4만 계산 접수한다. 실제 원문 SHA·중복/충돌/rollback·현재/late 권한·최초 bytes/시각과 기존schema3를 보존한다. test-only facade를 제품 권한으로 쓰지 않는다. 2–4집중시간 초안이며 실제 객체/job 입력 계약 뒤 갱신한다. 다음은 deterministic worker/불변 결과·계산 없는 현재 조회→독립 가정 비용의 저장 창 결속→strict SDK/같은 선택 UI다.
+- [x] **`economic-batch-calculation-admission`** — [최종23/기존226=고유249·실제 SCRAM/보존](../research/economic-batch-calculation-admission-20261031.md). 실제 source/서명 hold/context·JobStore의 같은 schema/로그인/provider·현재 객체를 결속하고 원 source UUID/시나리오/근거 SHA로 불변 의도를 접수했다. 동시/같은 재시도·충돌/rollback·5scope/late pointer·누락/기간/키·한글과 SQL 쓰기의 job/event INSERT 한정을 대사했다. 읽기 준비의 실행 scope RED를 교정하고 최종23을 통과했다. 기존 숫자/자료·238HTTP/GUI·첫 만료를 보존했다. 서버 라이브러리 수용이며 제품 HTTP/worker/결과/SDK/UI는 후속이다. 이전2–4h 초안은 이 수용 기록으로 대체한다.
 
-- [ ] **`supply-material-conditional-resource-economics`** — 위 경계/기존 Decimal 계약, 미수확 직접비의 명시 batch 커널은 수용했고 실제 소유 저장/현재 조회·제품 source 결속 수용 뒤 정해진 입력 범위만 연결한다. 원 자료/시각·통화/단위/기간·반올림·발생/지급일·중복 비용/미배분·hold·독립 산술 및 기존 원장 회귀를 통과한 범위만 표시한다. 실제 구매량/청구서·판매/수확 자료 없이 농장 비용·마진·추천을 게시하지 않는다. 원 저장 창·독립 가정의 구매/청구 기간/Cost/input 판본을 별도 보존하며 제품 Farm 결속 없는 연구 root는 제품에 게시하지 않는다. 계산 자식의 실제 범위 뒤 공수를 갱신한다.
+- [ ] **`economic-batch-execution-worker`** — 접수된 정확 input_version/실제 lease·현재 원 입력/근거/코드·환경을 확인하고 기존 Decimal v10을 계산해 불변 전체 결과/manifest·작업 성공을 원자 게시한다. 취소/만료·현재/late 권한/입력·근거 변경과 재시도, 독립 숫자 대사·원 자료/기존 worker 보존을 검증한다. 구현1–2h 초안이며 기존 JobStore 파일/publication/lease 재사용을 우선 확인한다.
+
+- [ ] **`economic-batch-stored-result-query`** — worker 수용→별도 fresh reader가 실제 작업 입력/근거·publication/원 결과 SHA·최초 시각과 현재/late 권한을 확인해 금액 계산/SQL쓰기 없이 반환한다. 결과/조회1–2h+worker/query 실제 DB/취소·fresh 검증1–2h, 두 단계 총3–6h 초안이다. 이후 명시 runtime/보호 HTTP·자동 소비를 수용한다.
+
+- [ ] **`economic-batch-runtime-api-consumer`** — worker/query 수용 뒤 실제 소유 source 등록/목록/조회·계산 접수/결과를 보호 HTTP와 명시 runtime에 연결한다. 같은 provider/정책/로그인/저장소의 닫힌 DTO/OpenAPI·scope, 자동 소비의 정확 input_version·다른 작업 배제·취소/lease와 실제 접수→자동 완료→fresh 원 bytes/현재 권한 조회를 수용한다. 기존 DB/설정/경로·worker/화면을 보존하며 라이브러리 수용만으로 완료하지 않는다. endpoint/조립 범위로 공수를 재산정한 뒤 독립 가정 비용의 저장 창 기간 결속→strict SDK/같은 선택 UI를 진행한다.
+
+- [ ] **`supply-material-conditional-resource-economics`** — 위 경계/기존 Decimal 계약·batch 커널/소유 입력 저장·서버 접수는 수용했다. worker/불변 결과·현재 조회 수용 뒤 정해진 입력 범위만 연결한다. 원 자료/시각·통화/단위/기간·반올림·발생/지급일·중복 비용/미배분·hold·독립 산술 및 기존 원장 회귀를 통과한 범위만 표시한다. 실제 구매량/청구서·판매/수확 자료 없이 농장 비용·마진·추천을 게시하지 않는다. 원 저장 창·독립 가정의 구매/청구 기간/Cost/input 판본을 별도 보존하며 제품 Farm 결속 없는 연구 root는 제품에 게시하지 않는다. 계산 자식의 실제 범위 뒤 공수를 갱신한다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
