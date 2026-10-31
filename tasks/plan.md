@@ -2,20 +2,21 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**자원·비용 경계 수용:** [1차 조사·입력 계약/28검사·실제 원 조회/보존](../research/supply-material-energy-purchase-boundary-20261031.md)을 완료했습니다.8개 열·수분 counter는 구매 전력/연료·관개가 아니며 기존 Decimal 원장의 사용자 가정 구매량·단가를 별도로 받습니다. 현재 UI의 새 비용 연결은 아직 미구현입니다. 다음은 수확 사건 없는 명시 재배 batch의 기간 생산비 계산(커널/새 계약·집중 검증3–5집중시간 초안)입니다. 가짜 수확0·매출·직접비의 period 재분류 없이 원 비용/현금·기존 판본을 보존해야 합니다. 그뒤 원 저장 창/소유 경제 입력 결속→SDK/같은 선택 UI이며, 긴 작기/독립 품종·농장/구매·경제/거시/수급/자율 비교·최종 제품은 병행/후속입니다. 전체 완료일은 실제 범위와 외부 자료 확보 전까지 미정입니다.
+**미수확 batch 비용 커널 수용:** [새37/기존169=206검사·별도4사례/300자리 Decimal·보존](../research/economic-production-batches-20261031.md)으로 수확/판매 사건 없이 생산 직접비와 지급/미지급·월별 현금을 처리하는 schema4/원장v10을 수용했습니다. 원 schema3/산술·화면은 유지하며 새 비용 API/UI는 아직 미연결입니다. 다음은 실제 소유 batch/schema4 입력의 불변 등록·현재 조회입니다(기존 typed kind/SQL CHECK에 미지원·실제 getter 없음). 저장/역할 경계1–2h+작은 등록/조회·실제 검증2–4h 초안이며 범위 확인 뒤 갱신합니다. 그뒤 원 저장 창/소유 경제 입력 결속→worker→SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
 
 ## 새 기관3D 다음의 생산·자원 연결 — 2026-10-31 KST
 
 [원4시점3D 수용](../research/supply-material-stored-screen-20261031.md)을 선행 증거로 고정한다.
-같은 저장 상태의 수량/자원 조회와 화면을 수용했다. 구매량 경계/입력 계약도 수용했다. 다음은 평가기간 안 수확이 없는 생산 batch의 직접비 계산이다.
+같은 저장 상태의 수량/자원 조회와 화면을 수용했다. 구매량 경계/입력 계약도 수용했다. 미수확 batch의 직접비 계산 커널도 수용했다. 다음은 새 소유 입력의 실제 등록/조회다.
 
 | 순서 | 의존성과 사용자/검토자 산출물 | 수용 기준 | 집중 공수 초안 |
 |---|---|---|---|
 | 1 | [41검사·실제2.1275초 조회 수용](../research/supply-material-quantities-20261031.md): 새 source/cursor/phase의50구획/terminal·선택 연속 heat/vapor | 독립400좌표/8합계/30차·0시간 point/망원합·권리/늦은 변조/2MiB·RHS/DB/network/CAS쓰기/CLI0·보존 | 수용 완료 |
 | 2 | [56검사·실제 HTTP/Chrome/보존 수용](../research/supply-material-quantity-screen-20261031.md): 독립 공개 수치·strict SDK·같은3D 수량/자원 패널 | 원4state/시각/phase·400좌표/8자원·취소/latest·메뉴/reload/실패 제거/모바일·238고정 HTTP/WSL | 수용 완료 |
 | 3a | [28기존검사·4reference/실제 조회/보존](../research/supply-material-energy-purchase-boundary-20261031.md):8counter 물리/구매량 경계·기존 Decimal 입력 결속 계약 | 열/수분과 설비/계량/청구·권리/기간 hold 분리. 사용자 가정과 모델 구매량 구분; 새 비용/UI/계수 채택0 | 조사/계약 수용 완료 |
-| 3b0 | `economic-unharvested-production-batch-period-cost`: 명시 batch/기간 직접비 새 판본 커널 | 기간 수확0건에도 원 직접비 V1회·원 지급/미지급/월별 현금, 후속 수확/미판매·기초 재고·입력/기간/중복/late·독립 Decimal/기존 회귀. 허위 수확/판매/직접비 재분류0·schema3/실행/화면 보존 | 커널/새 입력 계약·집중 검사3–5h 초안. API/worker/UI 별도 |
-| 3b1 | 원 저장 창·소유 경제 입력/Cost 결속 → strict SDK/같은 선택 UI. 미수확 직접비는3b0 의존; 실제 공통 period 비용은 병행 | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 3b0 실제 범위와 결속 경계 확인 뒤 재산정 |
+| 3b0 | [새37/기존169=206·별도4사례/보존 수용](../research/economic-production-batches-20261031.md): 명시 batch schema4/원장v10 커널 | 수확/판매 생성0·원 직접비 V/F/현금·기존schema3/원장/화면 보존·batch/입력 current/late·독립 Decimal | 계산 커널 수용 완료. 실제 저장/API/UI 미연결 |
+| 3b0a | `economic-production-batch-owned-source-store`: 실제 소유 불변 batch/schema4 등록·현재 조회 | 기존 typed kind/SQL CHECK/getter와 역할 경계 확인→원 bytes/최초 기록/재시도·충돌/rollback·tenant/판본/기간/권리/late·조회 계산/쓰기0·원 표/행/권한/schema3 보존 | 경계1–2h+등록/조회·실제검증2–4h 초안. 실제 범위 뒤 갱신; worker/UI 별도 |
+| 3b1 | 원 저장 창·소유 경제 입력/Cost 결속 → strict SDK/같은 선택 UI. 미수확 직접비는3b0수용+3b0a실제 소유 조회 의존; 실제 공통 period 비용은 병행 | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 3b0 실제 범위와 결속 경계 확인 뒤 재산정 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
 이 개발은 독립 농장 자료 확보와 병행한다. 실제 예측·추천 게시에는 기존 G0–G4 관문과 독립 증거가 필요하다.
