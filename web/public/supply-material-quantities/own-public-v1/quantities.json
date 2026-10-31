@@ -1,0 +1,1478 @@
+{
+  "schema_version": "supply-material-quantity-own-fixture-v1",
+  "scope": "software_research_only",
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "provenance": {
+    "source_url": "urn:opensmartfarmsim:own-public-material-quantity-fixture-v1",
+    "product_id": "own-public-material-quantities-v1",
+    "observed_at": null,
+    "published_at": "2026-10-31T01:21:56.852945+00:00",
+    "available_at": "2026-10-31T01:21:56.852945+00:00",
+    "retrieved_at": "2026-10-31T01:21:56.852945+00:00",
+    "vintage": "own",
+    "revision": "own-public-v1",
+    "units": {
+      "stock_carbohydrate": "mg_CH2O/m2_floor",
+      "stock_number": "fruits_equivalent/m2_floor",
+      "air_external": "J/m2_floor",
+      "canopy_external": "J/m2_floor",
+      "external_vapor": "kg_water/m2_floor",
+      "incoming_heat": "J/m2_floor",
+      "latent": "J/m2_floor",
+      "outgoing_heat": "J/m2_floor",
+      "sensible": "J/m2_floor",
+      "terminal_carbon": "mg_CH2O/m2_floor",
+      "terminal_number": "fruits_equivalent/m2_floor",
+      "vapor": "kg_water/m2_floor"
+    },
+    "qc": "software_contract_only_not_farm_measurements",
+    "raw_sha256": "ccc1d63a51279017b4b8400d8dfc5cbb59da8b23a7be899858ecb273f2010dbd",
+    "reviewer": "native-gpt-6.1-sol-xhigh",
+    "source_artifact_sha256": "b4640f0532420a0deaa0cf82f840a548517f075a46059687acbd5c88caf11cae"
+  },
+  "effective_rights": {
+    "display": true,
+    "redistribute": true,
+    "use": true
+  },
+  "notice": {
+    "repository_path": "web/public/supply-material-replay/own-public-v1/NOTICE.txt",
+    "sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+    "bytes": 1716
+  },
+  "projection_code_sha256": "bcece9513506fd8085d6a6f5e1a6fa9015b1e2ca47e372065c4e7a7058e17500",
+  "result_sha256": "ccc1d63a51279017b4b8400d8dfc5cbb59da8b23a7be899858ecb273f2010dbd",
+  "canonical_result_bytes": 40481,
+  "result": {
+    "G0_G4": "not_assessed",
+    "R2": "not_approved",
+    "claim_scope": "stored_synthetic_material_quantities_only",
+    "counter_units": {
+      "air_external": "J/m2_floor",
+      "canopy_external": "J/m2_floor",
+      "external_vapor": "kg_water/m2_floor",
+      "incoming_heat": "J/m2_floor",
+      "latent": "J/m2_floor",
+      "outgoing_heat": "J/m2_floor",
+      "sensible": "J/m2_floor",
+      "terminal_carbon": "mg_CH2O/m2_floor",
+      "terminal_number": "fruits_equivalent/m2_floor",
+      "vapor": "kg_water/m2_floor"
+    },
+    "frames": [
+      {
+        "at": {
+          "elapsed_seconds_exact": {
+            "denominator": "524288",
+            "numerator": "274914959",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "carbohydrate_stock_exact": {
+          "denominator": "36028797018963968",
+          "numerator": "21062479724442308831",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "cumulative_exact": {
+          "air_external": {
+            "denominator": "65536",
+            "numerator": "702830795",
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "denominator": "262144",
+            "numerator": "20680795515",
+            "unit": "J/m2_floor"
+          },
+          "external_vapor": {
+            "denominator": "4722366482869645213696",
+            "numerator": "-2532214805173207587",
+            "unit": "kg_water/m2_floor"
+          },
+          "incoming_heat": {
+            "denominator": "1208925819614629174706176",
+            "numerator": "14269834155289183259557553",
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "denominator": "70368744177664",
+            "numerator": "3619452717402942057",
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "sensible": {
+            "denominator": "140737488355328",
+            "numerator": "1062831578797071387",
+            "unit": "J/m2_floor"
+          },
+          "terminal_carbon": {
+            "denominator": "73786976294838206464",
+            "numerator": "1382390494184268367",
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_number": {
+            "denominator": "4722366482869645213696",
+            "numerator": "2755667264269254217",
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "vapor": {
+            "denominator": "36893488147419103232",
+            "numerator": "774545153592552545",
+            "unit": "kg_water/m2_floor"
+          }
+        },
+        "fruit_carbohydrate": {
+          "unit": "mg_CH2O/m2_floor",
+          "values": [
+            6.739138314019351,
+            2.96138030855817,
+            4.592918360919725,
+            6.392384342924472,
+            8.376612371436666,
+            10.582613798305044,
+            13.045389647489449,
+            0.07619900282931838,
+            4.171845704270322,
+            6.668833164631549,
+            9.438936763207387,
+            12.497457823345963,
+            15.838517499030464,
+            19.443353066544994,
+            3.0094746407462636,
+            6.0586140696865325,
+            9.441688882012643,
+            13.01214550943394,
+            16.7308630412264,
+            20.55775400399724,
+            24.45427025564044,
+            3.6704584524786896,
+            7.164042374406119,
+            10.847110388003243,
+            14.55053224584156,
+            18.249205370896085,
+            21.920897539544864,
+            0.12482964893626042,
+            3.6234692184376542,
+            7.23936221399837,
+            10.81811727170888,
+            14.351775937978282,
+            17.83828755977297,
+            21.277127326839604,
+            24.670386040508458,
+            3.6254632566691387,
+            6.948787279389919,
+            10.373098626327284,
+            13.764339460598258,
+            17.127982020089235,
+            20.471269401110412,
+            23.79878590807725,
+            3.5083735253344597,
+            6.749824850922831,
+            10.116634888390069,
+            13.481752966099073,
+            16.849766883919276,
+            20.228367237161674,
+            23.623078359665904,
+            3.4977318210471933
+          ]
+        },
+        "fruit_number": {
+          "unit": "fruits_equivalent/m2_floor",
+          "values": [
+            5.4465748524666875,
+            0.2144241499564784,
+            0.29945497424046735,
+            0.39942635725199394,
+            0.49942631620463734,
+            0.5994263161575372,
+            0.6994263161574922,
+            0.00400264750969691,
+            0.1988673890241568,
+            0.29942470193796666,
+            0.39942631306015897,
+            0.4994263161530413,
+            0.5994263161574872,
+            0.6994263161574921,
+            0.1034306060906714,
+            0.19943779115747093,
+            0.2994263380904048,
+            0.39942631618893987,
+            0.4994263161575285,
+            0.5994263161574922,
+            0.6994263161574922,
+            0.1034306060906714,
+            0.19943779115747093,
+            0.2994263380904048,
+            0.39942631618893987,
+            0.4994263161575285,
+            0.5994263161574922,
+            0.003430606090671339,
+            0.09943779115747105,
+            0.1994263380904048,
+            0.29942631618893983,
+            0.39942631615752855,
+            0.4994263161574924,
+            0.5994263161574922,
+            0.6994263161574922,
+            0.1034306060906714,
+            0.19943779115747093,
+            0.2994263380904048,
+            0.39942631618893987,
+            0.4994263161575285,
+            0.5994263161574922,
+            0.6994263161574922,
+            0.1034306060906714,
+            0.19943779115747093,
+            0.2994263380904048,
+            0.39942631618893987,
+            0.4994263161575285,
+            0.5994263161574922,
+            0.6994263161574922,
+            0.1034306060906714
+          ]
+        },
+        "number_stock_exact": {
+          "denominator": "2305843009213693952",
+          "numerator": "55943417436867240593",
+          "unit": "fruits_equivalent/m2_floor"
+        },
+        "phase": "material_before",
+        "reference": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "524288",
+              "numerator": "274914959",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 141596,
+          "event_sequence": 10,
+          "frame_sha256": "1fa18a8acb2ba2c91205cfbb3f923c68719ba7be967fa47f4147bd308cb1d2de",
+          "index": 0,
+          "phase": "material_before",
+          "source_cursor_sha256": null,
+          "source_sha256": "5a090fe549c82d5579c85f8a3f4bb88f28256d8da8e7f0e18d40bad44cdf3421",
+          "state_kind": "dense_before_from_adopted_point",
+          "state_scalars": 176,
+          "state_sha256": "fd0e8a5dfc34b49c3b230f34eba7e80a84f24dd55ca240aa97981cd993f948f3"
+        }
+      },
+      {
+        "at": {
+          "elapsed_seconds_exact": {
+            "denominator": "524288",
+            "numerator": "274914959",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "carbohydrate_stock_exact": {
+          "denominator": "36028797018963968",
+          "numerator": "21062479724442308831",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "cumulative_exact": {
+          "air_external": {
+            "denominator": "65536",
+            "numerator": "702830795",
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "denominator": "262144",
+            "numerator": "20680795515",
+            "unit": "J/m2_floor"
+          },
+          "external_vapor": {
+            "denominator": "4722366482869645213696",
+            "numerator": "-2532214805173207587",
+            "unit": "kg_water/m2_floor"
+          },
+          "incoming_heat": {
+            "denominator": "1208925819614629174706176",
+            "numerator": "14269834155289183259557553",
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "denominator": "70368744177664",
+            "numerator": "3619452717402942057",
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "sensible": {
+            "denominator": "140737488355328",
+            "numerator": "1062831578797071387",
+            "unit": "J/m2_floor"
+          },
+          "terminal_carbon": {
+            "denominator": "73786976294838206464",
+            "numerator": "1382390494184268367",
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_number": {
+            "denominator": "4722366482869645213696",
+            "numerator": "2755667264269254217",
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "vapor": {
+            "denominator": "36893488147419103232",
+            "numerator": "774545153592552545",
+            "unit": "kg_water/m2_floor"
+          }
+        },
+        "fruit_carbohydrate": {
+          "unit": "mg_CH2O/m2_floor",
+          "values": [
+            6.739138314019351,
+            2.96138030855817,
+            4.592918360919725,
+            6.392384342924472,
+            8.376612371436666,
+            10.582613798305044,
+            13.045389647489449,
+            0.07619900282931838,
+            4.171845704270322,
+            6.668833164631549,
+            9.438936763207387,
+            12.497457823345963,
+            15.838517499030464,
+            19.443353066544994,
+            3.0094746407462636,
+            6.0586140696865325,
+            9.441688882012643,
+            13.01214550943394,
+            16.7308630412264,
+            20.55775400399724,
+            24.45427025564044,
+            3.6704584524786896,
+            7.164042374406119,
+            10.847110388003243,
+            14.55053224584156,
+            18.249205370896085,
+            21.920897539544864,
+            0.12482964893626042,
+            3.6234692184376542,
+            7.23936221399837,
+            10.81811727170888,
+            14.351775937978282,
+            17.83828755977297,
+            21.277127326839604,
+            24.670386040508458,
+            3.6254632566691387,
+            6.948787279389919,
+            10.373098626327284,
+            13.764339460598258,
+            17.127982020089235,
+            20.471269401110412,
+            23.79878590807725,
+            3.5083735253344597,
+            6.749824850922831,
+            10.116634888390069,
+            13.481752966099073,
+            16.849766883919276,
+            20.228367237161674,
+            23.623078359665904,
+            3.4977318210471933
+          ]
+        },
+        "fruit_number": {
+          "unit": "fruits_equivalent/m2_floor",
+          "values": [
+            5.4465748524666875,
+            0.2144241499564784,
+            0.29945497424046735,
+            0.39942635725199394,
+            0.49942631620463734,
+            0.5994263161575372,
+            0.6994263161574922,
+            0.00400264750969691,
+            0.1988673890241568,
+            0.29942470193796666,
+            0.39942631306015897,
+            0.4994263161530413,
+            0.5994263161574872,
+            0.6994263161574921,
+            0.1034306060906714,
+            0.19943779115747093,
+            0.2994263380904048,
+            0.39942631618893987,
+            0.4994263161575285,
+            0.5994263161574922,
+            0.6994263161574922,
+            0.1034306060906714,
+            0.19943779115747093,
+            0.2994263380904048,
+            0.39942631618893987,
+            0.4994263161575285,
+            0.5994263161574922,
+            0.003430606090671339,
+            0.09943779115747105,
+            0.1994263380904048,
+            0.29942631618893983,
+            0.39942631615752855,
+            0.4994263161574924,
+            0.5994263161574922,
+            0.6994263161574922,
+            0.1034306060906714,
+            0.19943779115747093,
+            0.2994263380904048,
+            0.39942631618893987,
+            0.4994263161575285,
+            0.5994263161574922,
+            0.6994263161574922,
+            0.1034306060906714,
+            0.19943779115747093,
+            0.2994263380904048,
+            0.39942631618893987,
+            0.4994263161575285,
+            0.5994263161574922,
+            0.6994263161574922,
+            0.1034306060906714
+          ]
+        },
+        "number_stock_exact": {
+          "denominator": "2305843009213693952",
+          "numerator": "55943417436867240593",
+          "unit": "fruits_equivalent/m2_floor"
+        },
+        "phase": "material_after",
+        "reference": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "524288",
+              "numerator": "274914959",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 148848,
+          "event_sequence": 11,
+          "frame_sha256": "629f8a715c5ff69f97861bf226b8a511d2dde991aeb648548e864cde5d70a605",
+          "index": 1,
+          "phase": "material_after",
+          "source_cursor_sha256": "2c61be87937adf4b19619785ca1f8c4171546344b34964a289fb1b63585cb3d3",
+          "source_sha256": "52909bc7736cbcba71c5463dce7c66a14a7516fd5c190ffaa84b16ceb148591c",
+          "state_kind": "confirmed_material_current",
+          "state_scalars": 182,
+          "state_sha256": "ef8176a2132f90f5a04e37bb2992bd5a8f98c52ab56bcf2006ee1d7f3a9c73c3"
+        }
+      },
+      {
+        "at": {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "528",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "carbohydrate_stock_exact": {
+          "denominator": "18014398509481984",
+          "numerator": "10550732931962777077",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "cumulative_exact": {
+          "air_external": {
+            "denominator": "1",
+            "numerator": "10870",
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "denominator": "1",
+            "numerator": "79510",
+            "unit": "J/m2_floor"
+          },
+          "external_vapor": {
+            "denominator": "4722366482869645213696",
+            "numerator": "-2566606183439652187",
+            "unit": "kg_water/m2_floor"
+          },
+          "incoming_heat": {
+            "denominator": "1208925819614629174706176",
+            "numerator": "14398389881681067958435505",
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "denominator": "70368744177664",
+            "numerator": "3648407536946562529",
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "sensible": {
+            "denominator": "140737488355328",
+            "numerator": "1069193690855373517",
+            "unit": "J/m2_floor"
+          },
+          "terminal_carbon": {
+            "denominator": "73786976294838206464",
+            "numerator": "1392691883048571779",
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_number": {
+            "denominator": "4722366482869645213696",
+            "numerator": "2775156444665205081",
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "vapor": {
+            "denominator": "36893488147419103232",
+            "numerator": "780741343155363031",
+            "unit": "kg_water/m2_floor"
+          }
+        },
+        "fruit_carbohydrate": {
+          "unit": "mg_CH2O/m2_floor",
+          "values": [
+            6.811694574771125,
+            2.9621332703876986,
+            4.594161457008654,
+            6.394916226583215,
+            8.38119686023414,
+            10.590253522059763,
+            13.057312127939866,
+            0.07680587539035388,
+            4.177230135483591,
+            6.678952154768434,
+            9.45510721281431,
+            12.521110537394225,
+            15.871046890157348,
+            19.4860318798109,
+            3.0171271900643615,
+            6.073163850612842,
+            9.465167482368118,
+            13.04533604470143,
+            16.77429244275792,
+            20.611690269396306,
+            24.518734271220005,
+            3.6809819128125896,
+            7.182699408887992,
+            10.875127804232024,
+            14.587615018342964,
+            18.294893614651425,
+            21.97458395401435,
+            0.12600119052719821,
+            3.631746712472784,
+            7.2554909931262355,
+            10.841431645149443,
+            14.381552701635725,
+            17.87379217219175,
+            21.3176213260094,
+            24.71514441611753,
+            3.6325748624720906,
+            6.96004238403967,
+            10.389030343666677,
+            13.784307197628063,
+            17.151376860241918,
+            20.49753014631599,
+            23.82737819237218,
+            3.513140902550288,
+            6.7567931641654395,
+            10.126401147626286,
+            13.493879380329256,
+            16.863840490984206,
+            20.24402615708551,
+            23.639996009545126,
+            3.5008670016793024
+          ]
+        },
+        "fruit_number": {
+          "unit": "fruits_equivalent/m2_floor",
+          "values": [
+            5.519182680960116,
+            0.21463433873754134,
+            0.29945158605829636,
+            0.39942236875471476,
+            0.4994223265553538,
+            0.599422326506595,
+            0.6994223265065481,
+            0.004030391853616639,
+            0.19885961530968943,
+            0.299420689977137,
+            0.39942232334449346,
+            0.4994223265019725,
+            0.5994223265065429,
+            0.699422326506548,
+            0.10345438368523314,
+            0.1994339613566322,
+            0.29942234889957403,
+            0.3994223265388787,
+            0.4994223265065857,
+            0.5994223265065481,
+            0.6994223265065481,
+            0.10345438368523314,
+            0.1994339613566322,
+            0.29942234889957403,
+            0.3994223265388787,
+            0.4994223265065857,
+            0.5994223265065481,
+            0.0034543836852330883,
+            0.09943396135663232,
+            0.199422348899574,
+            0.2994223265388787,
+            0.3994223265065857,
+            0.4994223265065483,
+            0.5994223265065481,
+            0.6994223265065481,
+            0.10345438368523314,
+            0.1994339613566322,
+            0.29942234889957403,
+            0.3994223265388787,
+            0.4994223265065857,
+            0.5994223265065481,
+            0.6994223265065481,
+            0.10345438368523314,
+            0.1994339613566322,
+            0.29942234889957403,
+            0.3994223265388787,
+            0.4994223265065857,
+            0.5994223265065481,
+            0.6994223265065481,
+            0.10345438368523314
+          ]
+        },
+        "number_stock_exact": {
+          "denominator": "1152921504606846976",
+          "numerator": "28055667286178750815",
+          "unit": "fruits_equivalent/m2_floor"
+        },
+        "phase": "original_grid_endpoint",
+        "reference": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "528",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 152958,
+          "event_sequence": 11,
+          "frame_sha256": "fbb696e480194bccac8cfd592503b60985de03ce5ac47b6a2ced79099c6963d4",
+          "index": 2,
+          "phase": "original_grid_endpoint",
+          "source_cursor_sha256": "88bf19ce0922af4a4c238a77d469e108f25672836edde00a31ea684ca294f0b3",
+          "source_sha256": "7e865099f37d5d6590c293c7809a8b620d953dc19eef40ddc17aac107a7282eb",
+          "state_kind": "confirmed_material_current",
+          "state_scalars": 182,
+          "state_sha256": "4ea0e6c98181c8bd207a7344e5e5b6d9b03534938af34db37bc797224c83dff6"
+        }
+      },
+      {
+        "at": {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "536",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "carbohydrate_stock_exact": {
+          "denominator": "72057594037927936",
+          "numerator": "42373473407307312171",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "cumulative_exact": {
+          "air_external": {
+            "denominator": "1",
+            "numerator": "11190",
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "denominator": "1",
+            "numerator": "80870",
+            "unit": "J/m2_floor"
+          },
+          "external_vapor": {
+            "denominator": "4722366482869645213696",
+            "numerator": "-2642164047165566499",
+            "unit": "kg_water/m2_floor"
+          },
+          "incoming_heat": {
+            "denominator": "1208925819614629174706176",
+            "numerator": "14681594315817429611937457",
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "denominator": "70368744177664",
+            "numerator": "3713744904595005353",
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "sensible": {
+            "denominator": "140737488355328",
+            "numerator": "1084132337620262131",
+            "unit": "J/m2_floor"
+          },
+          "terminal_carbon": {
+            "denominator": "73786976294838206464",
+            "numerator": "1415357202897283967",
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_number": {
+            "denominator": "4722366482869645213696",
+            "numerator": "2817991438060608953",
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "vapor": {
+            "denominator": "36893488147419103232",
+            "numerator": "794723219812369881",
+            "unit": "kg_water/m2_floor"
+          }
+        },
+        "fruit_carbohydrate": {
+          "unit": "mg_CH2O/m2_floor",
+          "values": [
+            6.971090504323913,
+            2.963793485428447,
+            4.59687889393866,
+            6.400451547140173,
+            8.391220212766214,
+            10.606957199494293,
+            13.083380024953094,
+            0.07814202031018984,
+            4.189000493339119,
+            6.701075859874345,
+            9.490462366498113,
+            12.572825458566392,
+            15.942170464050792,
+            19.579346930543732,
+            3.033877162613031,
+            6.104974116356834,
+            9.516500139216102,
+            13.117903621763535,
+            16.86924707135244,
+            20.729617924182893,
+            24.659680762958146,
+            3.7040155585345516,
+            7.22348907854347,
+            10.936383537504149,
+            14.6686920511101,
+            18.394786524496098,
+            22.09196469914297,
+            0.12858656904591914,
+            3.649841714849575,
+            7.290752519874352,
+            10.892404527595385,
+            14.446655557923792,
+            17.951418984528566,
+            21.406157461005265,
+            24.813004647852715,
+            3.6481434419073513,
+            6.984648647989126,
+            10.423861792558565,
+            13.827963440469022,
+            17.202526505400083,
+            20.55494622495156,
+            23.889892145212023,
+            3.5235797384173684,
+            6.772027031386101,
+            10.147752520013954,
+            13.520391309432531,
+            16.894609934396847,
+            20.27826190765871,
+            23.676983996522914,
+            3.5077342986860023
+          ]
+        },
+        "fruit_number": {
+          "unit": "fruits_equivalent/m2_floor",
+          "values": [
+            5.6786919016668325,
+            0.21510628351107605,
+            0.2994441722453133,
+            0.39941360579806606,
+            0.49941356098262873,
+            0.5994135609300616,
+            0.6994135609300103,
+            0.004091343910265954,
+            0.19884254082482195,
+            0.299411874857124,
+            0.39941355762262176,
+            0.49941356092515155,
+            0.5994135609300046,
+            0.6994135609300102,
+            0.10350662103773406,
+            0.19942555085143576,
+            0.2994135843564131,
+            0.3994135609643459,
+            0.49941356093005074,
+            0.5994135609300103,
+            0.6994135609300103,
+            0.10350662103773406,
+            0.19942555085143576,
+            0.2994135843564131,
+            0.3994135609643459,
+            0.49941356093005074,
+            0.5994135609300103,
+            0.0035066210377340044,
+            0.0994255508514359,
+            0.19941358435641307,
+            0.29941356096434585,
+            0.39941356093005076,
+            0.4994135609300104,
+            0.5994135609300103,
+            0.6994135609300103,
+            0.10350662103773406,
+            0.19942555085143576,
+            0.2994135843564131,
+            0.3994135609643459,
+            0.49941356093005074,
+            0.5994135609300103,
+            0.6994135609300103,
+            0.10350662103773406,
+            0.19942555085143576,
+            0.2994135843564131,
+            0.3994135609643459,
+            0.49941356093005074,
+            0.5994135609300103,
+            0.6994135609300103,
+            0.10350662103773406
+          ]
+        },
+        "number_stock_exact": {
+          "denominator": "2305843009213693952",
+          "numerator": "56480248538307573991",
+          "unit": "fruits_equivalent/m2_floor"
+        },
+        "phase": "declared_end",
+        "reference": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "536",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 152862,
+          "event_sequence": 11,
+          "frame_sha256": "3d90a60d6e7cceb487aac7c1c2c1ecd899500a81bf98d5911af49132dca80512",
+          "index": 3,
+          "phase": "declared_end",
+          "source_cursor_sha256": "da37b56406854b9a82fae7cb4a44f3abfe4d7d1c2f63f074f07d35c78f9c5c50",
+          "source_sha256": "20bae19d9e0da5bc75fb56ec0a88686ac69c893bf20eca19e187eb76a0d123de",
+          "state_kind": "confirmed_material_current",
+          "state_scalars": 182,
+          "state_sha256": "c7eacf72f9e11cb18bae75fe2cd258cfa5b8fbcc6ad1f7efff28e48eb8f3b6a7"
+        }
+      }
+    ],
+    "intervals": [
+      {
+        "elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "0",
+          "unit": "s"
+        },
+        "end_at": {
+          "elapsed_seconds_exact": {
+            "denominator": "524288",
+            "numerator": "274914959",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "flows_exact": {
+          "air_external": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "external_vapor": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "kg_water/m2_floor"
+          },
+          "incoming_heat": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "sensible": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "terminal_carbon": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_number": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "vapor": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "kg_water/m2_floor"
+          }
+        },
+        "from_frame": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "524288",
+              "numerator": "274914959",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 141596,
+          "event_sequence": 10,
+          "frame_sha256": "1fa18a8acb2ba2c91205cfbb3f923c68719ba7be967fa47f4147bd308cb1d2de",
+          "index": 0,
+          "phase": "material_before",
+          "source_cursor_sha256": null,
+          "source_sha256": "5a090fe549c82d5579c85f8a3f4bb88f28256d8da8e7f0e18d40bad44cdf3421",
+          "state_kind": "dense_before_from_adopted_point",
+          "state_scalars": 176,
+          "state_sha256": "fd0e8a5dfc34b49c3b230f34eba7e80a84f24dd55ca240aa97981cd993f948f3"
+        },
+        "kind": "zero_duration_material_boundary",
+        "start_at": {
+          "elapsed_seconds_exact": {
+            "denominator": "524288",
+            "numerator": "274914959",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "to_frame": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "524288",
+              "numerator": "274914959",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 148848,
+          "event_sequence": 11,
+          "frame_sha256": "629f8a715c5ff69f97861bf226b8a511d2dde991aeb648548e864cde5d70a605",
+          "index": 1,
+          "phase": "material_after",
+          "source_cursor_sha256": "2c61be87937adf4b19619785ca1f8c4171546344b34964a289fb1b63585cb3d3",
+          "source_sha256": "52909bc7736cbcba71c5463dce7c66a14a7516fd5c190ffaa84b16ceb148591c",
+          "state_kind": "confirmed_material_current",
+          "state_scalars": 182,
+          "state_sha256": "ef8176a2132f90f5a04e37bb2992bd5a8f98c52ab56bcf2006ee1d7f3a9c73c3"
+        }
+      },
+      {
+        "elapsed_seconds_exact": {
+          "denominator": "524288",
+          "numerator": "1909105",
+          "unit": "s"
+        },
+        "end_at": {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "528",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "flows_exact": {
+          "air_external": {
+            "denominator": "65536",
+            "numerator": "9545525",
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "denominator": "262144",
+            "numerator": "162273925",
+            "unit": "J/m2_floor"
+          },
+          "external_vapor": {
+            "denominator": "590295810358705651712",
+            "numerator": "-4298922283305575",
+            "unit": "kg_water/m2_floor"
+          },
+          "incoming_heat": {
+            "denominator": "72057594037927936",
+            "numerator": "7662518405430597",
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "denominator": "8796093022208",
+            "numerator": "3619352442952559",
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "sensible": {
+            "denominator": "70368744177664",
+            "numerator": "3181056029151065",
+            "unit": "J/m2_floor"
+          },
+          "terminal_carbon": {
+            "denominator": "18446744073709551616",
+            "numerator": "2575347216075853",
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_number": {
+            "denominator": "295147905179352825856",
+            "numerator": "1218073774746929",
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "vapor": {
+            "denominator": "18446744073709551616",
+            "numerator": "3098094781405243",
+            "unit": "kg_water/m2_floor"
+          }
+        },
+        "from_frame": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "524288",
+              "numerator": "274914959",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 148848,
+          "event_sequence": 11,
+          "frame_sha256": "629f8a715c5ff69f97861bf226b8a511d2dde991aeb648548e864cde5d70a605",
+          "index": 1,
+          "phase": "material_after",
+          "source_cursor_sha256": "2c61be87937adf4b19619785ca1f8c4171546344b34964a289fb1b63585cb3d3",
+          "source_sha256": "52909bc7736cbcba71c5463dce7c66a14a7516fd5c190ffaa84b16ceb148591c",
+          "state_kind": "confirmed_material_current",
+          "state_scalars": 182,
+          "state_sha256": "ef8176a2132f90f5a04e37bb2992bd5a8f98c52ab56bcf2006ee1d7f3a9c73c3"
+        },
+        "kind": "stored_model_interval",
+        "start_at": {
+          "elapsed_seconds_exact": {
+            "denominator": "524288",
+            "numerator": "274914959",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "to_frame": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "528",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 152958,
+          "event_sequence": 11,
+          "frame_sha256": "fbb696e480194bccac8cfd592503b60985de03ce5ac47b6a2ced79099c6963d4",
+          "index": 2,
+          "phase": "original_grid_endpoint",
+          "source_cursor_sha256": "88bf19ce0922af4a4c238a77d469e108f25672836edde00a31ea684ca294f0b3",
+          "source_sha256": "7e865099f37d5d6590c293c7809a8b620d953dc19eef40ddc17aac107a7282eb",
+          "state_kind": "confirmed_material_current",
+          "state_scalars": 182,
+          "state_sha256": "4ea0e6c98181c8bd207a7344e5e5b6d9b03534938af34db37bc797224c83dff6"
+        }
+      },
+      {
+        "elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "8",
+          "unit": "s"
+        },
+        "end_at": {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "536",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "flows_exact": {
+          "air_external": {
+            "denominator": "1",
+            "numerator": "320",
+            "unit": "J/m2_floor"
+          },
+          "canopy_external": {
+            "denominator": "1",
+            "numerator": "1360",
+            "unit": "J/m2_floor"
+          },
+          "external_vapor": {
+            "denominator": "590295810358705651712",
+            "numerator": "-9444732965739289",
+            "unit": "kg_water/m2_floor"
+          },
+          "incoming_heat": {
+            "denominator": "72057594037927936",
+            "numerator": "16880299695513347",
+            "unit": "J/m2_floor"
+          },
+          "latent": {
+            "denominator": "8796093022208",
+            "numerator": "8167170956055353",
+            "unit": "J/m2_floor"
+          },
+          "outgoing_heat": {
+            "denominator": "1",
+            "numerator": "0",
+            "unit": "J/m2_floor"
+          },
+          "sensible": {
+            "denominator": "70368744177664",
+            "numerator": "7469323382444307",
+            "unit": "J/m2_floor"
+          },
+          "terminal_carbon": {
+            "denominator": "18446744073709551616",
+            "numerator": "5666329962178047",
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "terminal_number": {
+            "denominator": "147573952589676412928",
+            "numerator": "1338593543606371",
+            "unit": "fruits_equivalent/m2_floor"
+          },
+          "vapor": {
+            "denominator": "18446744073709551616",
+            "numerator": "6990938328503425",
+            "unit": "kg_water/m2_floor"
+          }
+        },
+        "from_frame": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "528",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 152958,
+          "event_sequence": 11,
+          "frame_sha256": "fbb696e480194bccac8cfd592503b60985de03ce5ac47b6a2ced79099c6963d4",
+          "index": 2,
+          "phase": "original_grid_endpoint",
+          "source_cursor_sha256": "88bf19ce0922af4a4c238a77d469e108f25672836edde00a31ea684ca294f0b3",
+          "source_sha256": "7e865099f37d5d6590c293c7809a8b620d953dc19eef40ddc17aac107a7282eb",
+          "state_kind": "confirmed_material_current",
+          "state_scalars": 182,
+          "state_sha256": "4ea0e6c98181c8bd207a7344e5e5b6d9b03534938af34db37bc797224c83dff6"
+        },
+        "kind": "stored_model_interval",
+        "start_at": {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "528",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "to_frame": {
+          "at": {
+            "elapsed_seconds_exact": {
+              "denominator": "1",
+              "numerator": "536",
+              "unit": "s"
+            },
+            "time_origin_utc": "2026-10-01T07:00:00Z"
+          },
+          "bytes": 152862,
+          "event_sequence": 11,
+          "frame_sha256": "3d90a60d6e7cceb487aac7c1c2c1ecd899500a81bf98d5911af49132dca80512",
+          "index": 3,
+          "phase": "declared_end",
+          "source_cursor_sha256": "da37b56406854b9a82fae7cb4a44f3abfe4d7d1c2f63f074f07d35c78f9c5c50",
+          "source_sha256": "20bae19d9e0da5bc75fb56ec0a88686ac69c893bf20eca19e187eb76a0d123de",
+          "state_kind": "confirmed_material_current",
+          "state_scalars": 182,
+          "state_sha256": "c7eacf72f9e11cb18bae75fe2cd258cfa5b8fbcc6ad1f7efff28e48eb8f3b6a7"
+        }
+      }
+    ],
+    "model_floor_area": {
+      "unit": "m2_floor",
+      "value": 1.0
+    },
+    "projection_code_sha256": "bcece9513506fd8085d6a6f5e1a6fa9015b1e2ca47e372065c4e7a7058e17500",
+    "schema_version": "supply-material-quantity-window-v1",
+    "scope": "software_research_only",
+    "source": {
+      "artifact_sha256": "b4640f0532420a0deaa0cf82f840a548517f075a46059687acbd5c88caf11cae",
+      "code_sha256": {
+        "backend/app/content_access.py": "fbc59919453a79dd84481d31a0728b7acef9ecfa55df0e3c477baa433473375e",
+        "backend/app/crop_area_canopy_energy.py": "8a6c7b8fb772d550bcda63d13185f180ad082c9f5e6e05937cce20bb3edebba8",
+        "backend/app/crop_canopy_energy_transport.py": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+        "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+        "backend/app/crop_explicit_lai_carbon_cohorts.py": "5c3e305f317205b36bac037aaf8a4a0c2342d5ed44a1169a0cffdd0905873541",
+        "backend/app/crop_explicit_lai_climate_rhs.py": "92298f609d5225955ed153e5c2c194a012697ed38ca4b6d032dc552475f713f0",
+        "backend/app/crop_explicit_lai_photosynthesis.py": "74c12d319768a877c12b3a55f4e60eaf04e08b9298aac81b785600c87d0ffbd8",
+        "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+        "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+        "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+        "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+        "backend/app/crop_funded_event_state.py": "c18ae07e1aea84766801c563d03fad4a622a21e9f48c6292bec1bcb098a300d9",
+        "backend/app/crop_funded_event_time.py": "30a0c08b548a3cad7990cb6a58617002392b6946c36979906aa1df41c763eba5",
+        "backend/app/crop_funded_shoot_clock.py": "a434bd92a65186a1e954fa573451cdcc9c71d8ac6c7ab21fc504ef7a5d4c0e63",
+        "backend/app/crop_growing_geometry_climate.py": "5cf58d1dea92e59e1059d5e5cd359a81b8dde950fed2ac575911a4be90788a0a",
+        "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+        "backend/app/crop_internode_elongation.py": "e8898824fe5ce931d60655d817f5d4464a6580c19e6f17455dab313eff5e2156",
+        "backend/app/crop_internode_length.py": "b3c024c0a307a1cd0ed0c8a5d015865c12cd82864b446c77d8a69beb5e0a1864",
+        "backend/app/crop_internode_length_change.py": "ff152173e3c9c1475a54100e7602a999d4424bb02d5f0bcacd2245ca16619050",
+        "backend/app/crop_leaf_area.py": "a8e1182a5630df592ae98cf0fe79c840207bd478a30391280f837f092232c5a6",
+        "backend/app/crop_leaf_area_change.py": "3f5b8f21df8911f3dfc70b63ff1d231d6a85e5f36f2a0fddc265ed3a01bfcfdd",
+        "backend/app/crop_leaf_carbon_partition.py": "6b80b6611ac1f972158fe00fea92c9b0b99af3d94f942ec2710b6fea26c81266",
+        "backend/app/crop_leaf_carbon_stock_artifact_producer.py": "98f5997eefd0857402a782cf39d0e1db729b38b4678f71d25115c4000cc8f679",
+        "backend/app/crop_leaf_carbon_stock_artifact_reader.py": "37d6cc94f20d85a1d5e37ae0ff3f4466c3ab3b563768543f2d40e204cb2f0225",
+        "backend/app/crop_leaf_carbon_stock_continuation.py": "62b7ba4c8dbcf56297fde3e2c8ef78e55efe283eab85b9f26640f917236e8f0d",
+        "backend/app/crop_leaf_carbon_stock_dynamics.py": "0e2a51a23b95b10cfc15d46f5668266f2b7981a769d966a167f9a4a9cafdf80d",
+        "backend/app/crop_leaf_carbon_stock_rhs.py": "1da1cfef06860893b9ef4f661b15e5d7b4bc099a8d6563c4a9c6bd23156ab4be",
+        "backend/app/crop_leaf_expansion.py": "7dfbc855b619d01139ae0dab84b7097cbc33a5b8d4e472ae143c442d124d53a6",
+        "backend/app/crop_leaf_funded_birth_continuation.py": "fd4346afc797b91459cd1f33273c0489545976333c42da68a1b0945ff37eaec2",
+        "backend/app/crop_leaf_funded_birth_point.py": "cec6bf7bbfc3dc5c569ab5cfa6e8d28d16acd31865419225baed074111a38005",
+        "backend/app/crop_leaf_partition_climate_rhs.py": "a708f13ed9290f4353e61310959aeab8f2f4bf0c3c4f02d5f9d0181fc3aebab3",
+        "backend/app/crop_morphology_artifact_io.py": "217c98d6d24596882d9cf36a4465b75edcfce31ff82bf5acb7a0b348df111c79",
+        "backend/app/crop_morphology_artifact_reader.py": "89e1a23526edc951aec39f1ac647cee407ee515590537902afa17d34b04ad2b2",
+        "backend/app/crop_morphology_thermal_clock.py": "3f72d0bb4699232d9c3a264e9e3e61a10eb84530bd50caa84905fdf5d0b55334",
+        "backend/app/crop_organ_current_shoot_clock.py": "c8a11cb7895f1a602d94dab475b58622e6276d5f3ca94058d35cc550493e0a1e",
+        "backend/app/crop_organ_fractional_candidate.py": "0de503507322d7b454e1c59aa1e9d479a7d7a8c65b38ee48fb8c53e3dc478717",
+        "backend/app/crop_organ_fractional_clocks.py": "8ed90251caf76dba4da10a169d18edec72882f26f0ceb81e7b2c9666b4988929",
+        "backend/app/crop_organ_fractional_context.py": "4fe0e28a8b0c0b0690302f94836f7ade2eade7744d3b6beab00b79136fa45e14",
+        "backend/app/crop_organ_fractional_continuation.py": "ddd02715a1315558fcd1da74a2022e81a99d33053b894ff9607bbdb4db295cc2",
+        "backend/app/crop_organ_fractional_point.py": "6e42b253bb225a39f6fecada0557088dec036ae657afcbd0e2d95a76d6f38cda",
+        "backend/app/crop_organ_funded_continuation.py": "de17434ff8bfd574e8da7ea2c43ac62b87f64e59b2599c284b5c6a49a4e87ff4",
+        "backend/app/crop_organ_next_threshold.py": "ecc5c490e97fea0bfc3cb216648ec95de679a3230ae8b3026f811c5ed4b302c7",
+        "backend/app/crop_organ_repeat.py": "9a9e6641a57b4801727a0cc84508597eb500a1aa857d44e9aa43517069370a7a",
+        "backend/app/crop_organ_repeat_events.py": "73b142a7640069c7d274ac0c662969e2190eb4e8a1ef8f3d391b1730bc3f5bc4",
+        "backend/app/crop_organ_repeat_proofs.py": "3c68354d5280c3ca17dcee172cdd4f5791715013fd7530ebf7a503580c4d7206",
+        "backend/app/crop_organ_successor_candidate.py": "53194fa3d98ca9894bba48fc9eb0a0262b9309507451e90764f6544a14d8bc78",
+        "backend/app/crop_organ_successor_point.py": "2fb5519f88a4a9d494a8360643da7cceb66d536c00438d61994bbf5527c87e2f",
+        "backend/app/crop_phytomer_emergence.py": "84d142bb362c1413ecc51a723a99fbbfafe78a519b7ea9031ab2d59cce2bce1c",
+        "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+        "backend/app/crop_rational_internode_length.py": "423e6737cc77773d3ffdb8ab45d4aa37d106947b4222f2a6ecede839caae8a9b",
+        "backend/app/crop_rational_morphology_artifact_producer.py": "92b367462510ee7a7868e8952647ed5008d4d8849c900357f09f27df17215f06",
+        "backend/app/crop_rational_morphology_artifact_reader.py": "3de1502abca94613d1c55cb37568236ce164665d577aa06090d36d5842d5e44b",
+        "backend/app/crop_rational_morphology_clock.py": "7926dc9a9a51e452e79ca74e31fd88d7d5b34120c5fc4b8a8107b1c4f0a85ea3",
+        "backend/app/crop_rational_new_internodes.py": "76a59f191ca7f03902ce0db9cbdf6da8cf0c2fd792532d6830a669a0899472f5",
+        "backend/app/crop_rational_shoot_inventory.py": "42f66f8e22723cbfa674e879f74255389db8d76e008ef30a9fb24a5a38057625",
+        "backend/app/crop_shoot_timeline.py": "922514520697424b795c63ecf2060e9db4baa5c4def21b21c3567b947174153d",
+        "backend/app/crop_stem_root_carbon_partition.py": "48f23b4cba32f0c266f75c7ad311dfedc3689d4e49ad3e122306103f29b062a1",
+        "backend/app/crop_stem_root_carbon_stock_rhs.py": "73e6ad99c19c8f5f417fa30302d0a093c8c8ce65e866297192dc4f551875cce6",
+        "backend/app/crop_stem_root_funded_internode_point.py": "01270fea2fd12ad3f836894aedd4fd403ad3e4631595ff897cb2679c7bc962e5",
+        "backend/app/crop_stem_root_funded_leaf_point.py": "8347de743998209efd096850f604f580ab9b59e1fba587fa4fd40fa515b4d50d",
+        "backend/app/crop_stem_root_initial_binding.py": "67b5dad239afa68bc5bee600250a586ffc3a4b3beab4e8bbae5c31549c0d55d8",
+        "backend/app/crop_stem_root_partition_climate_rhs.py": "f7bf643005ad913073c45cd9cfe18f3ce3c9107fb6f862f665ae1a8b193a2c6f",
+        "backend/app/crop_stem_root_stock_continuation.py": "f26a5dad4a80aa3c7b07a00daefd9402842754d7f3b5b1ea31e76d86538e0e66",
+        "backend/app/crop_stem_root_stock_dynamics.py": "c6423c83e64461bbde93c4b7a832f071b1eb23ae4053006dc93a9554d35dc8a5",
+        "backend/app/crop_supply_forcing_interval.py": "95d83122c59f472bfcb36cdca386e8a24821278f54274723ed3f47483ca426fa",
+        "backend/app/crop_supply_forcing_owner.py": "40faebbb8662a89fd92e7a91c3818e78927fbe4e9a534c68d4a30deb5552b65a",
+        "backend/app/crop_supply_forcing_threshold.py": "435f5edf3826566b889e27254a9fe78812d5a5f5d3ebddc2e09707143fa59dde",
+        "backend/app/crop_supply_forcing_threshold_state.py": "3f01f84a0001cccd8fc4e1a97ee319c9bed2c7e0d48311851a494af6d99dd00f",
+        "backend/app/crop_supply_material_artifact_producer.py": "49c733b38f68f4ef24eebd8ae3286df0147344eafc0d021269c1ac442309df30",
+        "backend/app/crop_supply_material_artifact_reader.py": "6719bc23bae818ab8069029cb8471d6fed4472a35ffc225da5c95e15fd3a76a5",
+        "backend/app/crop_supply_material_owner.py": "58eb153cca179e24f0acb0c4be7f5bdbe487976b6e06360d3c010259b94ca4db",
+        "backend/app/crop_supply_material_point.py": "959042e558353eb09f77d8756190162e4e22578a55bcae1513650cba06dc8e1d",
+        "backend/app/crop_supply_material_proof.py": "efdcdf033d972f88eab3ff5bb24e0f081e9e51a04fe1fb9da3b3c3cfd2ded09f",
+        "backend/app/crop_supply_morphology_artifact_producer.py": "c9f708e61f29f2090696372f71947207d35e3d86e48dbf6e555b9dbc77122d1b",
+        "backend/app/crop_supply_morphology_artifact_projection.py": "faae5a716bf668fb4b3170fc492dc54692bd691248d91355be410b7a09b61165",
+        "backend/app/crop_supply_morphology_artifact_reader.py": "51fea8d28768c11982b944d5eabfc10e604167aa8f45a0dea717e37a4a4bbddd",
+        "backend/app/crop_supply_morphology_birth_stage.py": "af7add2f1f5256c2d4965d1722529999e54f2b978949a11c81417559874244cd",
+        "backend/app/crop_supply_morphology_books.py": "69b15677e0bfd2a9db15afe3171a85459e3e7b53b7f37128722ecff4e98f3db8",
+        "backend/app/crop_supply_morphology_candidate.py": "e62030a1d8328b80f67f1f1e9af6162c5cf91aa0558a3fe2219e285b2cc8fdc8",
+        "backend/app/crop_supply_morphology_candidate_books.py": "d792e284a92df4549c16e36a14da5fdf346da9d0050912955209940d5b17d262",
+        "backend/app/crop_supply_morphology_context.py": "1158425b0123a553cead1e07d92f835a407a899490d560479f396d445f696f23",
+        "backend/app/crop_supply_morphology_context_proofs.py": "0c3998f61e7cd615ace680f167bfe751e36bf6a38c9ebd897463bd9e7714155e",
+        "backend/app/crop_supply_morphology_newborn_books.py": "0ada725c3e7f5d31e5759b8c09d1a55331ab1adcc8fc3dc9e730d5ee90056f69",
+        "backend/app/crop_supply_morphology_newborn_candidate.py": "dac7a79c7f9eaca950737fa2114d6ced5b3c1f95e612305bd39365b228e10e2e",
+        "backend/app/crop_supply_morphology_newborn_candidate_books.py": "44f24e7235af1bf1a47f2a69d9bf47eed6e5aaebdfafcbf4b94b2082b0ee3b3c",
+        "backend/app/crop_supply_morphology_newborn_point.py": "893e217879b848dc839908e06bcfc4a53a473d0d679d7ccd4958774eae38fa77",
+        "backend/app/crop_supply_morphology_newborn_point_books.py": "20945528e4cb8d31eb7eb7e966596990cd75e188068875ac4b2765d298bb72e6",
+        "backend/app/crop_supply_morphology_newborn_point_core.py": "d6f55b8e44da3d03ad8e09941cc7349abd9be87d02bed06cc1055481dd423eef",
+        "backend/app/crop_supply_morphology_newborn_resume.py": "e4d9d2007a117b766d7f97fdbdcbb6e1a0f8d7c92eccbf447b7385ae6c983f95",
+        "backend/app/crop_supply_morphology_point.py": "78f9584ee2dff6163ff2202060fd38c82944daf72b77ca46ae02ebb54e31e288",
+        "backend/app/crop_supply_morphology_point_books.py": "eab406597b8c907b1dbe0954ada0742c52393cb1f75da3fd980331df96cf10eb",
+        "backend/app/crop_supply_morphology_point_core.py": "92c0fefb7775bbd985f775a6cb5c94dd006317eb749bf394d9ae0bafd7f533ed",
+        "backend/app/crop_supply_morphology_repeat_books.py": "d924efb9f182742c2f54433244f4e600741a93ace1e9683be04038dfa88dd82c",
+        "backend/app/crop_supply_morphology_repeat_candidate.py": "0d627f014262b1df5b8c1096766b0bb894d097cad4255b142a1194d39ce585a5",
+        "backend/app/crop_supply_morphology_repeat_candidate_books.py": "203b04af12aa5d62a7c297a00d986c6652f118370835676711ab454ed67c58b4",
+        "backend/app/crop_supply_morphology_repeat_context.py": "fddb825890445c6c404d9e0134a7bcaceeb6423d2c8fc358943cb9db2a2ed1ec",
+        "backend/app/crop_supply_morphology_repeat_encoding.py": "1d8fdfde913ea460230af898cd556aeb9b45c9f2eee6bc1877444d8ee7709f65",
+        "backend/app/crop_supply_morphology_repeat_point.py": "d6a7b695ca45c825a7f48cbde323b2ac0e55bb4a5fbc8b9a5ab535724c8e1b63",
+        "backend/app/crop_supply_morphology_repeat_point_books.py": "9d315fa482b0633837d75c1678223a18bcac325b833a0b94eeb5b472d7bc2ec3",
+        "backend/app/crop_supply_morphology_repeat_point_core.py": "7806888f2a73626c595b53d77996e614d7d177ed07fda834e0fea3401f6554d2",
+        "backend/app/crop_supply_morphology_repeat_proofs.py": "1801eb97c8cf7e964e204625a94e9cd4af367acbbb57193871248bfeed780aab",
+        "backend/app/crop_supply_morphology_repeat_resume.py": "73057ba4a8998e99e05bcc2dd3bae08e5e2cf4848499b45c62448f15aec8ebc2",
+        "backend/app/crop_supply_morphology_resume.py": "c523f1a8305c23cabf5fc932055985f2656e0ed2ea7a2a22cffbac46c6ce8eaa",
+        "backend/app/crop_supply_morphology_rhs.py": "2bd86bd3c5f97fd05926c464c3bc772b634fc4f80e17e7c277cc739b19176403",
+        "backend/app/crop_supply_morphology_stage.py": "9c5f2efb604ecf60c5fdb02ba5cafea64e756f945dd62c02d934c646c13629d9",
+        "backend/app/crop_supply_morphology_successor_books.py": "d866db273d7cdab879ee67bdb3d7391b44d427d4ac12693aedccd9efc0e2bf93",
+        "backend/app/crop_supply_morphology_successor_context.py": "3bbe5881293c62e3636e4ccd4141bf3065a2ce3547bb452f6b184ea96fbf0759",
+        "backend/app/crop_supply_morphology_successor_context_proofs.py": "0701f71850d39305a61121a47d4197eea228426bfa703e3faef042454de9af22",
+        "backend/app/crop_supply_morphology_successor_resume.py": "50e843c578f6d2069a9d296e51df5adebd35711a683e11e1d06167c7f60dd55d",
+        "backend/app/crop_supply_season.py": "4e049669b745fde11a97247a30fd4f38d3054a828d58542378d034046a8f6aab",
+        "backend/app/crop_supply_threshold_state_books.py": "0bd75fc5db343716a7eaaaf2826163b6c2d684dcbcb15cf2d6959fc61bf35ac7",
+        "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+        "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+        "research/export-leaf-funded-birth-replay.py": "e01c9aa66a87116f521dac721e66d34716fc71cc00efc18aaa202ca0590130ec",
+        "research/export-material-replay.py": "b82b69ed159cea8318679a731f158e28c3e42d98213b1bc32b816c58954034a7"
+      },
+      "effective_rights": {
+        "display": true,
+        "redistribute": true,
+        "use": true
+      },
+      "source": {
+        "base": {
+          "cursor_sha256": "4083f02a3dde8b7e98b525d933205d34c9962d56212f46a54400777370fc8963",
+          "definition_sha256": "45e7b0bab5c7749945e4b4a3014eac5865c54f462d6434b874764ca8202b4695"
+        },
+        "forcing": {
+          "cursor_sha256": "3ef3a63486fe8fd03520ddc1a0394161a819442ae9cff06aa00d422fed39b538",
+          "definition_sha256": "9e3c6dd6049d904fc4ba009ca2f15fe11d5a2d0f823ab7e4bce4ba1f10230fc4"
+        },
+        "material": {
+          "cursor_sha256": "da37b56406854b9a82fae7cb4a44f3abfe4d7d1c2f63f074f07d35c78f9c5c50",
+          "definition_sha256": "cce84c00b6d612d3ab9a4ef0e0021a2dde32910734f993f811f25268603fffc2"
+        },
+        "original_root": {
+          "bytes": 45889,
+          "sha256": "84daf00c44a964f904aa0b78e2c64f44c2753ec97641f23566fdfcc349bf4476"
+        },
+        "source_frame_index": 36
+      },
+      "terminal": {
+        "hold": null,
+        "scope": "declared_synthetic_forcing_plan_only",
+        "status": "completed"
+      },
+      "window": {
+        "covers_whole_season": false,
+        "first_at": {
+          "elapsed_seconds_exact": {
+            "denominator": "524288",
+            "numerator": "274914959",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "last_at": {
+          "elapsed_seconds_exact": {
+            "denominator": "1",
+            "numerator": "536",
+            "unit": "s"
+          },
+          "time_origin_utc": "2026-10-01T07:00:00Z"
+        },
+        "selection": "one_adopted_material_and_confirmed_remainder",
+        "source_event_id": "shoot-event:36af780fb3d07aa6bb959bce66edb344a104ba592a306641ba8430ecab1cf7aa"
+      }
+    },
+    "time_kind": "synthetic_model_clock_not_observation",
+    "totals_exact": {
+      "air_external": {
+        "denominator": "65536",
+        "numerator": "30517045",
+        "unit": "J/m2_floor"
+      },
+      "canopy_external": {
+        "denominator": "262144",
+        "numerator": "518789765",
+        "unit": "J/m2_floor"
+      },
+      "external_vapor": {
+        "denominator": "4611686018427387904",
+        "numerator": "-107372306633163",
+        "unit": "kg_water/m2_floor"
+      },
+      "incoming_heat": {
+        "denominator": "9007199254740992",
+        "numerator": "3067852262617993",
+        "unit": "J/m2_floor"
+      },
+      "latent": {
+        "denominator": "1099511627776",
+        "numerator": "1473315424875989",
+        "unit": "J/m2_floor"
+      },
+      "outgoing_heat": {
+        "denominator": "1",
+        "numerator": "0",
+        "unit": "J/m2_floor"
+      },
+      "sensible": {
+        "denominator": "17592186044416",
+        "numerator": "2662594852898843",
+        "unit": "J/m2_floor"
+      },
+      "terminal_carbon": {
+        "denominator": "4611686018427387904",
+        "numerator": "2060419294563475",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "terminal_number": {
+        "denominator": "295147905179352825856",
+        "numerator": "3895260861959671",
+        "unit": "fruits_equivalent/m2_floor"
+      },
+      "vapor": {
+        "denominator": "4611686018427387904",
+        "numerator": "2522258277477167",
+        "unit": "kg_water/m2_floor"
+      }
+    },
+    "window": {
+      "end_at": {
+        "elapsed_seconds_exact": {
+          "denominator": "1",
+          "numerator": "536",
+          "unit": "s"
+        },
+        "time_origin_utc": "2026-10-01T07:00:00Z"
+      },
+      "first_frame": 0,
+      "last_frame": 3,
+      "start_at": {
+        "elapsed_seconds_exact": {
+          "denominator": "524288",
+          "numerator": "274914959",
+          "unit": "s"
+        },
+        "time_origin_utc": "2026-10-01T07:00:00Z"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@layer terminalApp {
+ .material-resource-card{margin-top:16px;padding:18px;border:1px solid #d9e4ce;border-radius:7px;background:rgba(250,252,245,.18)}
+ .material-resource-card table{min-width:700px}.material-resource-card td{font-variant-numeric:tabular-nums}
+ .material-resource-card .supply-table-scroll{max-height:none}
+ .material-resource-card code{white-space:nowrap;font-size:11px}.material-resource-card .supply-note{margin-bottom:10px}
+ @media(max-width:700px){.material-resource-card{padding:14px}}
+}

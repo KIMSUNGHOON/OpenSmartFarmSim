@@ -1,8 +1,8 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-10-31 KST:** [새 잎 전후·재개 저장3D](http://localhost:5183/supply-material-replay.html)를 열었습니다(오늘16:00 KST까지). [17집중·전체/설정 타입·실제 Chrome4시점/47잎·51절간](research/supply-material-stored-screen-20261031.md)으로 같은 원 시각/phase·치수/부모·표/시계/수지·그래프와 메뉴/reload/모바일/오류 복구를 수용했습니다.106원 파일/237고정 파일·WSL/기존 GUI·만료를 보존했습니다. 자체 합성4시점/722좌표의 연구 창이며 실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
+**현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [같은4시점의 과실·연속 자원 조회](research/supply-material-quantities-20261031.md)를41검사·별도 실제 조회2.1275초/독립400좌표·8합계·30delta·보존으로 수용했습니다. 원50구획/정확 Fraction·0시간 채택 전후/부호·구간 망원합/단위·권리/변조/2MiB와 조회RHS/DB/network/CAS쓰기/CLI0을 확인했습니다. 현재 UI는 기존3D이며 다음은 공개 DTO/strict SDK·같은3D 수량/자원 패널1.5–3집중시간입니다. vapor/heat를 관개·전력 구매로, 모형 C/수량을 생과 수확/매출로 바꾸지 않습니다. 명시 근거의 Decimal 비용·긴 작기/독립 품종·농장/경제·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도입니다.
+**다음 한 단계:** 현재8개 열·수분 counter와 [경제 계약](docs/ECONOMICS.md)의 구매량 경계를 대조해, 항목별 물리 의미·필요한 설비/계량/단가 자료·hold와 기존 Decimal 원장 입력 계약을 작성합니다(근거 대조/작은 계약1–2집중시간 초안). heat/vapor를 전력·연료 구매/관개로, 모형 C/과실 수량을 생과 수확/매출로 환산하지 않습니다. 명시 사용자 가정의 조건부 계산 개발과 실제 구매/예측 게시 조건을 구분합니다. 이후 Decimal 연결과 긴 작기/반복 출현·품종/독립 농장·경제/거시/수급/자율 비교·최종 제품 공수는 실제 범위/자료 확보 뒤 갱신하며 전체 완료일은 미정입니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 

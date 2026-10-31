@@ -1,8 +1,8 @@
 # 첫 구현 작업 목록
 
-**현재 — 2026-10-31 KST:** [새 잎 전후·재개 저장3D](http://localhost:5183/supply-material-replay.html)를 열었습니다(오늘16:00 KST까지). [17집중·전체/설정 타입·실제 Chrome4시점/47잎·51절간](../research/supply-material-stored-screen-20261031.md)으로 같은 원 시각/phase·치수/부모·표/시계/수지·그래프와 메뉴/reload/모바일/오류 복구를 수용했습니다.106원 파일/237고정 파일·WSL/기존 GUI·만료를 보존했습니다. 자체 합성4시점/722좌표의 연구 창이며 실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
+**현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [같은4시점의 과실·연속 자원 조회](../research/supply-material-quantities-20261031.md)를41검사·별도 실제 조회2.1275초/독립400좌표·8합계·30delta·보존으로 수용했습니다. 원50구획/정확 Fraction·0시간 채택 전후/부호·구간 망원합/단위·권리/변조/2MiB와 조회RHS/DB/network/CAS쓰기/CLI0을 확인했습니다. 현재 UI는 기존3D이며 다음은 공개 DTO/strict SDK·같은3D 수량/자원 패널1.5–3집중시간입니다. vapor/heat를 관개·전력 구매로, 모형 C/수량을 생과 수확/매출로 바꾸지 않습니다. 명시 근거의 Decimal 비용·긴 작기/독립 품종·농장/경제·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도입니다.
+**다음 한 단계:** 현재8개 열·수분 counter와 [경제 계약](../docs/ECONOMICS.md)의 구매량 경계를 대조해, 항목별 물리 의미·필요한 설비/계량/단가 자료·hold와 기존 Decimal 원장 입력 계약을 작성합니다(근거 대조/작은 계약1–2집중시간 초안). heat/vapor를 전력·연료 구매/관개로, 모형 C/과실 수량을 생과 수확/매출로 환산하지 않습니다. 명시 사용자 가정의 조건부 계산 개발과 실제 구매/예측 게시 조건을 구분합니다. 이후 Decimal 연결과 긴 작기/반복 출현·품종/독립 농장·경제/거시/수급/자율 비교·최종 제품 공수는 실제 범위/자료 확보 뒤 갱신하며 전체 완료일은 미정입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -281,7 +281,11 @@
 
 - [x] **`supply-material-window-terminal-resource-projection`** — [40+공개fixture1=41검사·실제 조회/보존](../research/supply-material-quantities-20261031.md). 원4frame의 새source/cursor/frame/state SHA/phase와50과실 구획·정확 저장량/terminal·8개 부호 있는 연속 heat/vapor counter를 결속했다. 독립400좌표/8합계/30차·0시간 point/망원합·권리/타입/변조/늦은 코드·원본/정확 응답한도·cold14import/DB/network/CAS쓰기/CLI0과 원657pins/4output/GUI·WSL을 대사했다. 실제 조회2.1275초·40,481bytes/공개합성fixture이며 수확/구매·비용과 UI는 후속이다. 이전1–2h 초안은 수용 기록으로 대체한다.
 
-- [ ] **`supply-material-window-quantities-public-sdk-screen`** — 위 수치 조회 수용 뒤 원4state/계보·권리/NOTICE·실제 수량/자원 DTO·고정 inventory/strict SDK를 독립 대사하고 같은3D 시각/phase에 패널을 연결한다. SDK/취소/latest/변조·실제 browser/원 mesh/메뉴/reload·현재 실패 제거/WSL을 검증한다. 잠정1.5–3집중시간. 미래 수익/작물 순위와 실제 구매량은 게시하지 않는다.
+- [x] **`supply-material-window-quantities-public-sdk-screen`** — [56집중·전체/설정 타입·실제 HTTP/Chrome·보존](../research/supply-material-quantity-screen-20261031.md). 고정107원 파일/새 strict SDK와 같은4state3D·원47잎/51절간·400과실 좌표/8자원·정확 시각/phase/구간을 결속했다. 취소/latest/복사·변조/권리/한도·메뉴/reload/모바일·오류 제거/복구/유휴와238고정 HTTP/원666pins/1output/private120/GUI·WSL을 대사했다.5184는17:03KST 첫 만료이며 실제 수확/자원 구매·비용/추천·G0–G4/R2는 미수용이다. 이전1.5–3h 초안은 실제 수용 기록으로 대체한다.
+
+- [ ] **`supply-material-energy-purchase-boundary`** — 위 화면 수용 → 기존8counter의 코드/원문 의미와 ECONOMICS의 열/구매량 구분을 대조한다. 항목별 단위·부호/기간·설비/계량·가격/권리·hold 표와 기존 Decimal 원장 입력 계약을 작성한다. 근거 없는 COP/효율·요금·freshkg 변환0, 사용자 가정의 조건부 구매량/단가와 모델 구매량 게시를 구분하는 것이 수용 기준이다. 1–2집중시간 초안; 실제 품종/독립 농장 자료와 긴 작기 개발은 병행 의존성이다.
+
+- [ ] **`supply-material-conditional-resource-economics`** — 위 경계와 기존 Decimal 계약 수용 뒤 정해진 입력 범위만 연결한다. 원 자료/시각·통화/단위/기간·반올림·발생/지급일·중복 비용/미배분·hold·독립 산술 및 기존 원장 회귀를 통과한 범위만 표시한다. 실제 구매량/청구서·판매/수확 자료 없이 농장 비용·마진·추천을 게시하지 않는다. 공수는 경계 대조 후 산정한다.
 
 - [x] **`realistic-tomato-appearance-r1`** — 사용자 정정 2026-10-21.
   [순서/의존성](plan.md#사실적인-작물-3d-우선-수정--2026-10-21)을 따른다.
