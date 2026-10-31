@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**생산 batch 보호 HTTP 수용:** [신규20/기존129=149검사·실제 SCRAM/HTTPS](../research/economic-batch-protected-http-20261031.md)로 새8종/schema4 입력 등록/목록/조회·계산 접수/원10,460bytes 결과와 최초 이력·현재 권한을 확인했습니다. 거래 중 authority 교체 RED를 수정해 작업/입력 rollback·조회 계산/SQL쓰기0·기존7종/default/runtime·원 자료/238HTTP/WSL을 보존했습니다. 다음은 명시 runtime 조립(1–2집중시간 초안)→정확 version 자동 소비/종단 간 검증(2–3시간)→원 저장 창/독립 가정 비용 기간 결속(1–2시간)→strict SDK/같은 선택 UI(2–4시간)입니다. 제한된 합성 비용 연결의 조건부6–11집중시간이며 사용자 배포/실제 예측·전체 완료일은 별도·미정입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
+**생산 batch 서버 조립 수용:** [신규12/기존149=161검사·실제 SCRAM/보호 TLS](../research/economic-batch-runtime-assembly-20261031.md)로 기존 서버에 새8종/schema4 factory를 명시 연결했습니다. 기존7종 등록과 새 batch 접수·같은 프로세스의 새 runtime 객체/서비스2개의 원10,460bytes·최초 게시/현재 근거/읽기 권한을 대사했습니다. 조회 계산/SQL쓰기0·잘못된/늦은 factory 거부·기존 경로/자료/238HTTP/WSL을 보존했습니다. 다음은 정확 version 자동 소비/종단 간 검증(2–3집중시간 초안)→원 저장 창/독립 가정 비용 기간 결속(1–2시간)→strict SDK/같은 선택 UI(2–4시간)입니다. 제한된 합성 비용 연결의 조건부5–9집중시간이며 자동 소비/비용 화면·사용자 배포/실제 예측과 전체 완료일은 별도·미정입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -297,11 +297,11 @@
 
 - [x] **`economic-batch-protected-http`** — [신규20/기존129=149·실제 SCRAM/HTTPS](../research/economic-batch-protected-http-20261031.md). 새8종/schema4 source 등록/목록/조회와 참조 계산202·원 bytes/최초 publication 조회를 수용했다. 닫힌 DTO/OpenAPI·scope/한도·Unicode·충돌/재시도·늦은 권한과 authority 교체 rollback RED 교정·읽기 계산/SQL쓰기0·기존7종/default/runtime·원 수치/자료/238HTTP/WSL을 확인했다. 명시 worker 시험이며 자동 소비/runtime factory·SDK/UI 배포를 수용하지 않았다.
 
-- [ ] **`economic-batch-runtime-assembly`** — 같은 실제 provider/정책/login/JobStore와 새 source/hold/context/authority를 기존 ApiRuntime의 명시 optional factory로 조립한다. 기존7종/schema3 factory·default 경로/설정은 유지한다. flag/factory 불일치·다른 source/profile/provider/root·늦은 교체를 거부하고 실제 보호 HTTPS의 접수→명시 worker→fresh 원문/현재 권한 및 기존 runtime 회귀를 수용한다. HTTP 수용과 실제 파일 분해 기준1–2집중시간 초안. 신규 사용자 DB/키 마이그레이션은 필요 근거가 생길 때 별도 작업이다.
+- [x] **`economic-batch-runtime-assembly`** — [신규12/기존149=161·실제 SCRAM/보호 TLS](../research/economic-batch-runtime-assembly-20261031.md). 기존 ApiRuntime에 같은 provider/DSN/schema/profile·JobStore/source/hold/context/authority의 optional factory를 연결했다. 기존7종/schema3와 새8종/schema4의 실제 등록·계산202→명시 worker→새 runtime 객체/실제 service2개의 원 bytes/최초 시각·현재 근거 hold/복원·읽기 계산/SQL쓰기0을 대사했다. factory/flag 불일치의 JobStore/factory0·잘못된/늦은 source 거부·기존 API/자료/238HTTP/WSL을 보존했다. 자동 소비/SDK/비용 UI·사용자 DB/키/설정 이전·배포는 미수용이다. 이전1–2h 초안은 수용 기록으로 대체한다.
 
 - [ ] **`economic-batch-automatic-consumer`** — 위 명시 조립과 기존 worker/query를 사용한다. 기존 discovery/loop의 닫힌 input_version·worker/outcome 목록에 새 입력만 추가하며 _access 기반 결속을 명시 검사한다. 실제 접수→자동 계산→불변 게시→fresh HTTP 원 bytes·현재 권한, 다른 작업 배제/취소/만료/reclaim·정리와 기존 소비자 회귀를 수용한다. discovery/loop/HTTPS 종단 간 분해 기준2–3집중시간 초안.
 
-- [ ] **`economic-batch-runtime-api-consumer`** — 하위 보호 HTTP는 수용했다. runtime-assembly와 automatic-consumer의 실제 종단 간 증거가 모두 있어야 이 상위 작업을 완료한다. 이어 저장 창/독립 가정 비용의 기간 결속1–2시간 초안→strict SDK/같은 선택 UI2–4시간 초안이다. 제한된 합성 연결의 남은6–11집중시간이며 전체 제품/실제 농장/관문·달력 완료일은 별도다.
+- [ ] **`economic-batch-runtime-api-consumer`** — 하위 보호 HTTP와 runtime-assembly는 수용했다. automatic-consumer의 실제 종단 간 증거까지 있어야 이 상위 작업을 완료한다. 이어 저장 창/독립 가정 비용의 기간 결속1–2시간 초안→strict SDK/같은 선택 UI2–4시간 초안이다. 제한된 합성 연결의 남은5–9집중시간이며 전체 제품/실제 농장/관문·달력 완료일은 별도다.
 
 - [ ] **`supply-material-conditional-resource-economics`** — 위 경계/기존 Decimal 계약·batch 커널/소유 입력 저장·서버 접수는 수용했다. worker/불변 결과·현재 조회 수용 뒤 정해진 입력 범위만 연결한다. 원 자료/시각·통화/단위/기간·반올림·발생/지급일·중복 비용/미배분·hold·독립 산술 및 기존 원장 회귀를 통과한 범위만 표시한다. 실제 구매량/청구서·판매/수확 자료 없이 농장 비용·마진·추천을 게시하지 않는다. 원 저장 창·독립 가정의 구매/청구 기간/Cost/input 판본을 별도 보존하며 제품 Farm 결속 없는 연구 root는 제품에 게시하지 않는다. 계산 자식의 실제 범위 뒤 공수를 갱신한다.
 

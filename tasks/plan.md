@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**생산 batch 보호 HTTP 수용:** [신규20/기존129=149검사·실제 SCRAM/HTTPS](../research/economic-batch-protected-http-20261031.md)로 새8종/schema4 입력 등록/목록/조회·계산 접수/원10,460bytes 결과와 최초 이력·현재 권한을 확인했습니다. 거래 중 authority 교체 RED를 수정해 작업/입력 rollback·조회 계산/SQL쓰기0·기존7종/default/runtime·원 자료/238HTTP/WSL을 보존했습니다. 다음은 명시 runtime 조립(1–2집중시간 초안)→정확 version 자동 소비/종단 간 검증(2–3시간)→원 저장 창/독립 가정 비용 기간 결속(1–2시간)→strict SDK/같은 선택 UI(2–4시간)입니다. 제한된 합성 비용 연결의 조건부6–11집중시간이며 사용자 배포/실제 예측·전체 완료일은 별도·미정입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
+**생산 batch 서버 조립 수용:** [신규12/기존149=161검사·실제 SCRAM/보호 TLS](../research/economic-batch-runtime-assembly-20261031.md)로 기존 서버에 새8종/schema4 factory를 명시 연결했습니다. 기존7종 등록과 새 batch 접수·같은 프로세스의 새 runtime 객체/서비스2개의 원10,460bytes·최초 게시/현재 근거/읽기 권한을 대사했습니다. 조회 계산/SQL쓰기0·잘못된/늦은 factory 거부·기존 경로/자료/238HTTP/WSL을 보존했습니다. 다음은 정확 version 자동 소비/종단 간 검증(2–3집중시간 초안)→원 저장 창/독립 가정 비용 기간 결속(1–2시간)→strict SDK/같은 선택 UI(2–4시간)입니다. 제한된 합성 비용 연결의 조건부5–9집중시간이며 자동 소비/비용 화면·사용자 배포/실제 예측과 전체 완료일은 별도·미정입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
 ## 새 기관3D 다음의 생산·자원 연결 — 2026-10-31 KST
 
@@ -20,9 +20,9 @@
 | 3b0c1 | [신규24/기존249=273·실제 게시/300자리 Decimal/보존](../research/economic-batch-execution-worker-20261031.md): 실제 lease/v10 1회·불변 전체 결과 | 정확한 입력/근거·코드/환경 전후/마지막 대사·동시/재호출·취소/만료/재임대·DB rollback·원10,460bytes/최초 시각·원 자료/worker/GUI 보존 | worker/게시 라이브러리 수용 완료. 현재 조회/제품 HTTP/runtime/자동 소비·UI는 후속 |
 | 3b0c2 | [신규29/기존273=302·실제/별도 프로세스/보존](../research/economic-batch-stored-result-query-20261031.md): fresh 현재 결과 조회 | 원10,460bytes/최초 이력·지원 모델·현재 원 입력/근거·읽기 권한/실행 scope 불요·SQL/계산0·null/hold·late metadata/파일/root·역사적 코드 이력 보존 | 서버 조회 수용 완료. 제품 HTTP/runtime/자동 소비·UI는 후속 |
 | 3b0c3a | [149집중·실제 SCRAM/HTTPS 수용](../research/economic-batch-protected-http-20261031.md):8종/schema4 보호 HTTP | 등록/목록/조회·계산 접수/원 bytes·DTO/scope/한도·늦은 교체 rollback·기존7종/default 보존 | HTTP 수용 완료. 명시 worker이며 runtime/자동 소비·UI 미배포 |
-| 3b0c3b | `economic-batch-runtime-assembly`: 같은 실제 저장소/로그인·optional factory | 정확 source/flag/provider/hold/context/authority·잘못된/늦은 결속 거부·실제 보호 HTTPS·기존 runtime 보존 | 1–2집중시간 초안. 다음 한 단계 |
+| 3b0c3b | [161집중·실제 SCRAM/보호 TLS 수용](../research/economic-batch-runtime-assembly-20261031.md): 기존 서버의 optional batch factory | 같은 원 provider/정책/login/source/hold/context/authority·잘못된/늦은 결속 거부·두 family 실제 등록·새 runtime/service2의 원 bytes/현재 근거/읽기 권한·기존 경로 보존 | 서버 조립 수용 완료. 자동 소비/SDK/UI·사용자 배포 미수용 |
 | 3b0c3c | c3b→`economic-batch-automatic-consumer`: 닫힌 discovery/loop 확장 | 정확 input_version/worker/outcome·_access 결속·다른 작업 배제·취소/lease/reclaim·실제 접수→자동 완료→fresh HTTP 원 bytes/현재 권한 | 2–3집중시간 초안. b/c 완료 전 상위 runtime-api-consumer 미완료 |
-| 3b1 | 3b0c1/c2/c3a/b/c 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 기간 결속1–2시간 초안→SDK/같은 선택 UI2–4시간 초안. 합성 연결 전체 남은6–11집중시간; 실제 품종/외부 자료/최종 제품 일정은 별도 |
+| 3b1 | 3b0c1/c2/c3a/b/c 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 기간 결속1–2시간 초안→SDK/같은 선택 UI2–4시간 초안. 합성 연결 전체 남은5–9집중시간; 실제 품종/외부 자료/최종 제품 일정은 별도 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
 이 개발은 독립 농장 자료 확보와 병행한다. 실제 예측·추천 게시에는 기존 G0–G4 관문과 독립 증거가 필요하다.

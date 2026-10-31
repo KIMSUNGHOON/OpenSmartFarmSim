@@ -22,6 +22,8 @@ from .farm_replay_scenario import FarmReplayScenarioService
 from .thermal_run_submission import ThermalRunSubmissionService
 from .api_market_source import MarketUserSourceService, _MarketSources, _SOURCE_METHODS
 from .market_source_store import MarketSourceStore
+from .economic_batch_source_store import EconomicBatchSourceStore
+from .economic_batch_calculation import EconomicBatchAuthority
 from .api_economic_scenario import EconomicScenarioService
 from .api_economic_calculation import EconomicCalculationService
 from .api_job_break_even_result import BreakEvenJobResultService
@@ -124,6 +126,7 @@ class ApiRuntimeDependencies:
     crop_greenhouse_solar_current_query_factory: object = field(default=None, repr=False)
     crop_greenhouse_co2_result_store_factory: object = field(default=None, repr=False)
     crop_greenhouse_co2_current_query_factory: object = field(default=None, repr=False)
+    economic_batch_source_factory: object = field(default=None, repr=False, kw_only=True)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
@@ -148,6 +151,7 @@ class ApiRuntimeDependencies:
                 (self.crop_greenhouse_solar_current_query_factory is not None and not callable(self.crop_greenhouse_solar_current_query_factory)) or
                 (self.crop_greenhouse_co2_result_store_factory is not None and not callable(self.crop_greenhouse_co2_result_store_factory)) or
                 (self.crop_greenhouse_co2_current_query_factory is not None and not callable(self.crop_greenhouse_co2_current_query_factory)) or
+                (self.economic_batch_source_factory is not None and not callable(self.economic_batch_source_factory)) or
                 (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
                 (self.owned_research_contexts is not None and
                     (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
@@ -169,6 +173,7 @@ class ApiRuntime:
     research: LocationResearchService | OwnedResearchService = field(repr=False)
     assessments: CalculationAssessmentService | None = field(repr=False)
     economic_calculations: EconomicCalculationService | None = field(repr=False)
+    economic_batch_authority: EconomicBatchAuthority | None = field(repr=False)
     farm_scenarios: FarmReplayScenarioService | None = field(repr=False)
     farm_authoring: FarmAuthoringService | None = field(repr=False)
     farm_reviews: FarmAuthoredReviewService | None = field(repr=False)
@@ -200,6 +205,9 @@ class ApiRuntime:
     def __init__(self, config, dependencies):
         try:
             if type(config) is not ApiRuntimeConfig or type(dependencies) is not ApiRuntimeDependencies:
+                raise ValueError()
+            if (config.policy.economic_batch_source_storage !=
+                    (dependencies.economic_batch_source_factory is not None)):
                 raise ValueError()
             if config.policy.crop_result_storage != (dependencies.crop_result_store_factory is not None):
                 raise ValueError()
@@ -271,6 +279,12 @@ class ApiRuntime:
                 principal_provider=current_principal, runtime_identity=binding)
             source = dependencies.market_source_factory(principal_provider=current_principal)
             source_admission = MarketUserSourceService(jobs, source) if type(source) is MarketSourceStore else None
+            batch_authority = None
+            if dependencies.economic_batch_source_factory is not None:
+                if type(source) is not MarketSourceStore:
+                    raise ValueError()
+                batch_source = dependencies.economic_batch_source_factory(principal_provider=current_principal)
+                batch_authority = EconomicBatchAuthority(jobs, batch_source, holds)
             candidates = MarketCandidateStore(config.dsn, config.policy.schema, _MarketSources(source, holds),
                 principal_provider=current_principal, runtime_identity=binding)
             economic_scenarios = EconomicScenarioService(jobs, candidates) if source_admission is not None else None
@@ -568,6 +582,7 @@ class ApiRuntime:
                 authored_run_store=authored_runs) if source_admission is not None else None)
             from .api import create_app
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
+                economic_batch_authority=batch_authority,
                 location_research_service=research,
                 break_even_store=break_even, thermal_scenario_store=scenarios,
                 thermal_run_submission_service=submission, market_user_source_service=source_admission,
@@ -612,6 +627,7 @@ class ApiRuntime:
                 ('collections', collections), ('collection_reviews', collection_reviews), ('research', research),
                 ('assessments', assessments), ('farm_scenarios', farm_scenarios),
                 ('economic_calculations', economic_calculations),
+                ('economic_batch_authority', batch_authority),
                 ('farm_authoring', farm_authoring), ('farm_reviews', farm_reviews),
                 ('authored_runs', authored_runs), ('authored_simulation', authored_simulation),
                 ('crop_results', crop_results), ('coupled_crop_results', coupled_crop_results),

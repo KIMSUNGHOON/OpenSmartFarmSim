@@ -288,4 +288,5 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 새8종/schema4는 기존7종/schema3 저장소/기본 OpenAPI와 별도이며 등록 거래 엔진을 공유한다.
 같은 provider/정책/JobStore/source/서명 hold/context 결속을 저장 거래 안에서도 확인한다.
 계산 접수는 참조 의도만 기록하고 결과 조회는 현재 근거를 확인한 원 bytes/최초 게시 이력을 반환한다.
-일반 runtime의 optional factory와 자동 consumer/version/outcome 연결·제품 SDK/UI는 후속 수용이다.
+[명시 runtime 조립](../contracts/economic-batch-runtime-assembly-v1.md)은 같은 provider/정책/로그인/저장소의 optional factory와 기존7종 공존을 수용했다([161검사·실제 서비스 TLS](../research/economic-batch-runtime-assembly-20261031.md)).
+기본 None/flag 결속·기동 전 오류를 검사하며 자동 consumer/version/outcome 연결과 제품 SDK/UI·사용자 배포는 후속 수용이다.
