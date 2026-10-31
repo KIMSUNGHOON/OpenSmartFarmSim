@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [새 기관 전후·재개 결과의 공개 저장 데이터](../research/supply-material-public-replay-20261031.md)를39검사·실제 새 계산/fresh export로 수용했습니다.4시점/722좌표·11→12잎·106파일/13,985,230bytes를 원본/권리·저장 RK4/시각/수지·독립 조회/내보내기와 대사했습니다. private 결과 승격0·조회 모델/RHS/DB/network/CAS 쓰기0이며 현재 UI는 기존38시점입니다. 다음은 strict SDK(잠정0.75–1.5집중시간) → 같은 저장 상태 실제3D/브라우저이며 첫 새3D까지 남은2.5–5집중시간 초안입니다. 긴 작기 완료를 기다리지 않고 실제 품종/농장·생산/경제·G0–G4/R2는 미수용입니다.
+**다음 수치 단계:** [새 기관 전후·재개의 strict HTTP SDK](../research/supply-material-http-sdk-20261031.md)를 신규84/기존9=고유93검사·전체 타입·실제 HTTP로 수용했습니다.106파일/4시점·722좌표/11→12잎을 원 값·시계/수지/권리/계보와 대사했고, 실제321GET의 오류·취소/latest·보존/WSL도 통과했습니다. 현재 UI는 기존38시점입니다. 다음은 같은4시점의 실제 새 기관/재개3D이며 mesh0.5–1h+화면0.75–1.5h+브라우저/모바일/오류0.5–1h=잠정1.75–3.5집중시간입니다. 긴 작기 완료를 기다리지 않으며 실제 품종/농장·생산/자원/경제·G0–G4/R2와 전체 goal은 미완료입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -271,11 +271,11 @@
 
 - [x] **`supply-season-material-point-adoption`** — [신규31/상위point27=58검사·실제 세 사례/fresh-process·보존](../research/supply-material-owner-20261031.md). genuine source의 전이를 재계산한 뒤 새 family의 before/after·basis/layout/기원·원 수지/예산과 새 branch0을 결속하고 사건/sequence를 한 번 소비했다. 원 격자 잔여·forcing zero jump·full/split/fresh 같은 cursor, 독립182상태/199적분량/134global·타입/재해시/권리·중복/취소/게시 실패/늦은 변경을 수용했다. cursor-last local 게시이며 Farm/DB 원자성·실제 품종/제품 관문과 다르다. 이전4.5–9h 초안은 실제 수용 기록으로 대체한다.
 
-- [ ] **`supply-season-first-material-stored-3d`** — [공개 데이터 수용 뒤 SDK/화면](../contracts/supply-material-public-replay-v1.md). public 계산/reader/export는 수용했다. strict SDK → 실제 mesh/표/그래프·같은 시각/phase·ID/A/L·메뉴/reload/권리/오류·실제 브라우저/기존 GUI·WSL을 검증한다. 긴 작기 완료를 기다리지 않으며 private false 결과의 권리 승격이나 임의 성장 애니메이션을 사용하지 않는다. SDK0.75–1.5h + scene1–2h + 실제 브라우저/기록0.75–1.5h = 남은2.5–5집중시간의 낮은 신뢰 추정.
+- [ ] **`supply-season-first-material-stored-3d`** — [공개 데이터](../contracts/supply-material-public-replay-v1.md)와 [strict SDK](../research/supply-material-http-sdk-20261031.md)는 수용했다. 다음 실제 mesh/표/그래프·같은 시각/phase·ID/A/L·메뉴/reload/권리/오류·실제 브라우저/기존 GUI·WSL을 검증한다. 긴 작기 완료를 기다리지 않으며 private false 결과의 권리 승격이나 임의 성장 애니메이션을 사용하지 않는다. mesh0.5–1h+화면0.75–1.5h+브라우저/기록0.5–1h=남은1.75–3.5집중시간의 잠정 추정이다.
 
 - [x] **`supply-season-material-public-replay`** — [39검사·실제 새 public 계산/독립 조회/export·보존](../research/supply-material-public-replay-20261031.md). 원 public 권리·새 definition/provenance로138RHS를 실행하고 actual before/after/528/536의4시점/722좌표·11→12잎을 결속했다. 선택 witness만 복사한 불변 root·raw/코드/기원/수지/phase와 no-model reader·index-last export106파일/NOTICE를 대사했다. 세 재해시 반례 수정·private false 차단·경로/한도·게시 실패/늦은 변경·fresh14import/DB/network/CAS 쓰기0·원514pins/자료/GUI/WSL을 수용했다. 이전1–2h 초안은 실제 수용 기록으로 대체하며 SDK/UI·실제 품종/관문은 별도다.
 
-- [ ] **`supply-season-material-strict-sdk`** — [새 공개 namespace](../contracts/supply-material-public-replay-v1.md)의 source graph/권리·고정 code/원 JSON bytes·상태/기관/시각/phase·원 수치/clock/기원을 검증한다.4frame/722좌표와106파일 inventory/root를 독립 대사하고 HTTP/취소/latest/변조·한도/전체 타입·기존 SDK/GUI·WSL을 수용한다. wire/graph/수치0.5–1h + HTTP/회귀/기록0.25–0.5h = 잠정0.75–1.5집중시간. 실제 mesh 연결은 다음 단계다.
+- [x] **`supply-season-material-strict-sdk`** — [신규84/기존9·전체 타입/번들·실제 HTTP](../research/supply-material-http-sdk-20261031.md). 고정 root/index/115code·권리/계보와 새 schema를 검증하고4frame/722좌표·106파일 원 수치/clock/기원·저장 RK4/수지를 대사했다. rehashed 변조/한도·HTTP321GET/abort/latest/복사·기존628pins/원 자료/GUI·WSL을 수용했다. 실제 mesh/브라우저·제품 농장/실제 품종과 관문은 별도다. 이전0.75–1.5h 초안은 실제 수용 기록으로 대체한다.
 
 - [ ] **`supply-season-material-stored-3d-screen`** — 위 SDK의 실제 저장 새 기관/재개를 기존 실제 잎/줄기 mesh·표/그래프에 연결한다. 같은 시각/phase·ID/A/L·0길이/면적·메뉴/reload/로딩/오류/권리·모바일/유휴와 실제 브라우저·원 GUI/WSL을 수용한다. 제작 pose/width·과실 외형과 계산 결과, 최종 R2/실제 품종 승인을 구분한다.
 
