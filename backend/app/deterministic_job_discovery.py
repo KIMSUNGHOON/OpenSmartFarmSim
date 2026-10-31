@@ -13,6 +13,7 @@ from .runtime_roles import RuntimeLoginPolicy, audit_runtime_roles
 
 
 INPUT_VERSIONS = frozenset({
+    'economic-batch-calculation-input-v1',
     'economic-calculation-input-v1', 'economic-calculation-input-v2',
     'economic-calculation-input-v3', 'break-even-calculation-input-v1',
     'break-even-verification-input-v1',

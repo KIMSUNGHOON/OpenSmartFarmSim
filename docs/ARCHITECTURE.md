@@ -289,4 +289,5 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 같은 provider/정책/JobStore/source/서명 hold/context 결속을 저장 거래 안에서도 확인한다.
 계산 접수는 참조 의도만 기록하고 결과 조회는 현재 근거를 확인한 원 bytes/최초 게시 이력을 반환한다.
 [명시 runtime 조립](../contracts/economic-batch-runtime-assembly-v1.md)은 같은 provider/정책/로그인/저장소의 optional factory와 기존7종 공존을 수용했다([161검사·실제 서비스 TLS](../research/economic-batch-runtime-assembly-20261031.md)).
-기본 None/flag 결속·기동 전 오류를 검사하며 자동 consumer/version/outcome 연결과 제품 SDK/UI·사용자 배포는 후속 수용이다.
+기본 None/flag 결속·기동 전 오류를 검사한다. [자동 소비 계약](../contracts/economic-batch-automatic-consumer-v1.md)과 [367검사·별도 작업자/TLS](../research/economic-batch-automatic-consumer-20261031.md)는 기존 discovery/loop의 정확 판본/worker/outcome과 _access 결속·실제 접수/자동 완료/fresh 원문을 수용했다.
+현재 총액/batch 결과에 Cost.id별 금액이 없어 항목 기여값/원 총액 대사를 먼저 보완한다. 그 저장/실행 경계→원 창/독립 가정 비용 기간 결속→제품 SDK/UI·사용자 배포는 후속이다.

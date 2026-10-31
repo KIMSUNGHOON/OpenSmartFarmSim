@@ -1,0 +1,47 @@
+{
+  "schema_version": "1",
+  "scope": "owned_synthetic_QA_only",
+  "actual_automatic_case": {
+    "artifact_sha256": "be17f1db4287e1beb0febe9c177742294fff7bce1c0f92349d9a3b9d506b3a3e",
+    "artifact_bytes": 10460,
+    "publication_id": "ab30cb47-e711-481e-b337-debe34ae756f",
+    "published_at": "2026-10-31T15:17:55.532617+09:00",
+    "verified_TLS_listeners": 2,
+    "actual_separate_consumer_process": true,
+    "consumer_exit": 0,
+    "actual_v10_calls": 1,
+    "unrelated_queued_jobs_preserved": 10,
+    "selected_job_count": 1,
+    "post_completion_full_scan_selected": 0,
+    "discovery_page_count": 11,
+    "page_size": 2,
+    "events": [
+      {
+        "event": "started",
+        "version": 1
+      },
+      {
+        "attempt": 1,
+        "event": "attempt",
+        "job_id": "5aa97c9a-0484-44ed-9354-a472e7113bc2",
+        "reason_code": "completed",
+        "state": "succeeded",
+        "version": 1
+      },
+      {
+        "event": "stopped",
+        "version": 1
+      }
+    ],
+    "fresh_result_amount_calls": 0,
+    "fresh_result_SQL_writes": 0,
+    "read_execution_scope": false,
+    "current_evidence_hold_and_restore": true,
+    "private_config_removed": true,
+    "recursive_Codex_CLI": false,
+    "G0_G4": "not_assessed",
+    "R2": "not_approved"
+  },
+  "preexisting_signed_context_and_source_fixture": true,
+  "new_user_service_or_UI_deployed": false
+}
