@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [새 잎 전후·재개 저장3D](http://localhost:5183/supply-material-replay.html)를 열었습니다(오늘16:00 KST까지). [17집중·전체/설정 타입·실제 Chrome4시점/47잎·51절간](../research/supply-material-stored-screen-20261031.md)으로 같은 원 시각/phase·치수/부모·표/시계/수지·그래프와 메뉴/reload/모바일/오류 복구를 수용했습니다.106원 파일/237고정 파일·WSL/기존 GUI·만료를 보존했습니다. 자체 합성4시점/722좌표의 연구 창이며 실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** 같은4시점의 모형 과실 저장량·구간 유출·저장 heat/vapor 적분량을 새 source/cursor/phase와 결속합니다. 다음 수용은50구획/정확 Fraction·0시간 채택 전후·구간 망원합/원 단위·권리/변조/무계산·보존입니다. vapor/heat를 관개·전력 구매로, 모형 C/수량을 생과 수확/매출로 바꾸지 않습니다. 수치 조회1–2집중시간→공개 SDK/같은3D 패널1.5–3h의 잠정 추정이며 그 뒤 명시 근거의 Decimal 비용 연결입니다. 긴 작기/독립 품종·농장 자료/경제·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도입니다.
+**다음 수치 단계:** [같은4시점의 과실·연속 자원 조회](../research/supply-material-quantities-20261031.md)를41검사·별도 실제 조회2.1275초/독립400좌표·8합계·30delta·보존으로 수용했습니다. 원50구획/정확 Fraction·0시간 채택 전후/부호·구간 망원합/단위·권리/변조/2MiB와 조회RHS/DB/network/CAS쓰기/CLI0을 확인했습니다. 현재 UI는 기존3D이며 다음은 공개 DTO/strict SDK·같은3D 수량/자원 패널1.5–3집중시간입니다. vapor/heat를 관개·전력 구매로, 모형 C/수량을 생과 수확/매출로 바꾸지 않습니다. 명시 근거의 Decimal 비용·긴 작기/독립 품종·농장/경제·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도입니다.
 
 ## 새 기관3D 다음의 생산·자원 연결 — 2026-10-31 KST
 
@@ -11,7 +11,7 @@
 
 | 순서 | 의존성과 사용자/검토자 산출물 | 수용 기준 | 집중 공수 초안 |
 |---|---|---|---|
-| 1 | 수용된4frame reader → 새 source/cursor/phase를 보존한50구획 저장량·terminal/heat/vapor 조회 | 원 layout/단위·정확 Fraction·0시간 point/구간 망원합/권리·타입/변조·RHS/DB/CLI0·보존 | 1–2h |
+| 1 | [41검사·실제2.1275초 조회 수용](../research/supply-material-quantities-20261031.md): 새 source/cursor/phase의50구획/terminal·선택 연속 heat/vapor | 독립400좌표/8합계/30차·0시간 point/망원합·권리/늦은 변조/2MiB·RHS/DB/network/CAS쓰기/CLI0·보존 | 수용 완료 |
 | 2 | 위 수치 수용 → 독립 공개 DTO/NOTICE/inventory·strict SDK → 같은3D 수량/자원 패널 | 원4state/시각/phase·값/범위/취소/latest·실제 browser/메뉴/reload/현재 hold/WSL | 1.5–3h |
 | 3 | 게시된 명시 단위/자료 근거 → 기존 Decimal 비용 계약의 해당 quantity 연결 | 조달 품목·단가·통화/기간·손실·생과 변환 등 필요한 근거를 별도 확인; 없는 구매/판매/수익은 hold | 자료/범위 확인 뒤 재산정 |
 
