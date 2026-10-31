@@ -2,12 +2,12 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**생산 batch worker·불변 결과 수용:** [신규24/기존249=273검사·실제 SCRAM/게시](../research/economic-batch-execution-worker-20261031.md)로 실제 lease의 v10 계산1회와 전체10,460bytes/원 publication·최초 시각을 대사했습니다. 동시/재호출·취소/만료·late scope/객체/환경·DB rollback과 원 숫자/자료·3D/만료를 보존했습니다. 서버 worker 수용이며 현재 결과 조회·제품 HTTP/runtime/자동 소비·비용 UI는 후속입니다. 다음은 금액 계산/SQL쓰기 없는 fresh 현재 조회입니다. 조회1–2h+실제 검증1–2h=2–4집중시간 초안이며 전체/UI 완료일은 아닙니다. 이후 보호 HTTP/명시 runtime·자동 소비→저장 창·독립 가정 비용의 기간 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
+**생산 batch 현재 결과 조회 수용:** [신규29/기존273=302검사·실제 SCRAM/별도 프로세스](../research/economic-batch-stored-result-query-20261031.md)로 원10,460bytes·최초 게시 이력/현재 근거와 읽기 권한을 대사했습니다. 실행 scope 없이 계산/SQL쓰기0·null/hold·late scope/root/파일/metadata·원 모델/자료와5184 실제238HTTP를 확인했습니다. 만료된5181은 종료/233고정 파일·과거 증거로 검증했습니다. 현재 서버 조회 수용이며 보호 HTTP/runtime/자동 소비·비용 UI는 후속입니다. 다음은 새8종/schema4 HTTP·DTO/scope와 명시 조립 계약→실제 자동 소비/종단 간 검증입니다. 경계/계약1–2집중시간 초안이며 세부 구현 공수는 작업 분해 뒤 갱신합니다. 이후 저장 창·독립 가정 비용의 기간 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
 
 ## 새 기관3D 다음의 생산·자원 연결 — 2026-10-31 KST
 
 [원4시점3D 수용](../research/supply-material-stored-screen-20261031.md)을 선행 증거로 고정한다.
-같은 저장 상태의 수량/자원 조회·화면과 구매량 경계/입력 계약을 수용했다. 미수확 batch의 직접비 커널·소유 입력/접수와 실제 worker/불변 결과도 수용했다. 다음은 계산 없는 fresh 현재 조회다.
+같은 저장 상태의 수량/자원 조회·화면과 구매량 경계/입력 계약을 수용했다. 미수확 batch의 직접비 커널·소유 입력/접수·worker/불변 결과와 계산 없는 fresh 현재 조회도 수용했다. 다음은 보호 HTTP/명시 runtime·자동 소비다.
 
 | 순서 | 의존성과 사용자/검토자 산출물 | 수용 기준 | 집중 공수 초안 |
 |---|---|---|---|
@@ -18,8 +18,8 @@
 | 3b0a | [고유382검사·실제 SCRAM/보존](../research/economic-batch-source-store-20261031.md): 별도 소유 batch/schema4 입력 저장·조회 | 원 bytes/최초 기록·8종/UTF-8·동시 재시도/충돌/rollback·현재/late scope·조회 계산/쓰기0·원 표/권한/schema3 보존 | 저장 라이브러리/명시 프로필 수용 완료. 제품 factory/접수·worker/UI 미연결 |
 | 3b0b | [최종23/기존226=249·실제 SCRAM/보존](../research/economic-batch-calculation-admission-20261031.md): 실제 source/서명 hold/context 권한·schema4 계산 접수 | 원 source UUID/원문/근거 SHA·현재/late scope와 pointer·동시 재시도/충돌/rollback·한글·원 숫자/표/화면 보존. 참조 준비는 읽기 scope로 분리 | 서버 라이브러리 수용 완료. 제품 HTTP/worker/UI 미연결 |
 | 3b0c1 | [신규24/기존249=273·실제 게시/300자리 Decimal/보존](../research/economic-batch-execution-worker-20261031.md): 실제 lease/v10 1회·불변 전체 결과 | 정확한 입력/근거·코드/환경 전후/마지막 대사·동시/재호출·취소/만료/재임대·DB rollback·원10,460bytes/최초 시각·원 자료/worker/GUI 보존 | worker/게시 라이브러리 수용 완료. 현재 조회/제품 HTTP/runtime/자동 소비·UI는 후속 |
-| 3b0c2 | `economic-batch-stored-result-query`: worker 수용→fresh 현재 결과 조회 | 실제 작업 입력/근거·원 결과 SHA/판본/publication·최초 시각·현재/late 읽기 권한·금액 계산/SQL쓰기0 | 조회1–2h+실제 DB/fresh·변조/권한 검증1–2h=2–4h 초안. c1 수용 뒤 갱신 |
-| 3b0c3 | `economic-batch-runtime-api-consumer`: worker/query 수용→소유 source 등록/조회·계산 접수/결과의 보호 HTTP·명시 runtime·자동 소비 | 같은 실제 provider/정책/저장소와 닫힌 DTO/OpenAPI·scope, 실제 접수→자동 완료/취소→fresh 조회·원 bytes/현재 권한. 기존 DB/경로/worker/화면 보존 | c1/c2 뒤 실제 endpoint/조립 범위로 재산정. 라이브러리 수용만으로 이 단계를 완료하지 않음 |
+| 3b0c2 | [신규29/기존273=302·실제/별도 프로세스/보존](../research/economic-batch-stored-result-query-20261031.md): fresh 현재 결과 조회 | 원10,460bytes/최초 이력·지원 모델·현재 원 입력/근거·읽기 권한/실행 scope 불요·SQL/계산0·null/hold·late metadata/파일/root·역사적 코드 이력 보존 | 서버 조회 수용 완료. 제품 HTTP/runtime/자동 소비·UI는 후속 |
+| 3b0c3 | `economic-batch-runtime-api-consumer`: worker/query 수용→소유 source 등록/조회·계산 접수/결과의 보호 HTTP·명시 runtime·자동 소비 | 새8종/schema4의 닫힌 DTO/OpenAPI·scope→같은 실제 provider/정책/저장소의 명시 조립→정확 version 자동 소비/취소/lease→실제 접수/자동 완료/fresh 원문·현재 권한. 기존7종/schema3·DB/경로/worker/화면 보존 | 경계/계약1–2h 초안. 세부 endpoint/조립 작업 분해 뒤 구현 공수 재산정. 라이브러리 수용으로 완료하지 않음 |
 | 3b1 | 3b0c1/c2/c3 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | c1/c2/c3 실제 수용과 결속 경계 확인 뒤 재산정 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
