@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**미수확 batch 비용 커널 수용:** [새37/기존169=206검사·별도4사례/300자리 Decimal·보존](../research/economic-production-batches-20261031.md)으로 수확/판매 사건 없이 생산 직접비와 지급/미지급·월별 현금을 처리하는 schema4/원장v10을 수용했습니다. 원 schema3/산술·화면은 유지하며 새 비용 API/UI는 아직 미연결입니다. 다음은 실제 소유 batch/schema4 입력의 불변 등록·현재 조회입니다(기존 typed kind/SQL CHECK에 미지원·실제 getter 없음). 저장/역할 경계1–2h+작은 등록/조회·실제 검증2–4h 초안이며 범위 확인 뒤 갱신합니다. 그뒤 원 저장 창/소유 경제 입력 결속→worker→SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
+**소유 batch 입력 저장·조회 수용:** [신규20/기존362=382검사·실제 SCRAM/보존](../research/economic-batch-source-store-20261031.md)으로 schema4·생산 batch와 비용 입력을 실제 불변 작업 원문에 결속했습니다. 별도 명시 프로필이며 기존 schema3/산술·운영 DB/화면은 유지합니다. 제품 접수/worker/비용 UI는 아직 미연결입니다. 다음은 source·서명 hold·결정 문맥의 실제 권한 결속과 계산 접수입니다. 같은 schema/로그인/tenant·등록 원문·중복/충돌·rollback·현재/늦은 권한을 수용 기준으로 하며2–4집중시간 초안입니다. 이후 worker/불변 결과→저장 창과 독립 가정 비용 결속→strict SDK/같은 선택 UI입니다. 실제 품종/긴 작기·농장/구매·거시/수급/자율 비교·최종 제품과 전체 완료일은 별도·미정입니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -287,7 +287,9 @@
 
 - [x] **`economic-unharvested-production-batch-period-cost`** — [새37/기존169=206·별도4사례/300자리 Decimal·보존](../research/economic-production-batches-20261031.md). 새schema4/원장v10이 소유 불변 batch/판본·tenant/기간/시작·원 입력을 전후 검증하고 원v9 Decimal 산술로 수확/판매 생성 없이 직접비 V/F1회·월별 지급/미확인/기간후 지급·기말미지급·기존재고/과거비 재부과를 대사했다. bool1 경계 RED·교정,512/513·입력/record/응답 독립2MiB·late/copy/원701pins/2output/private23·238HTTP/GUI·WSL 보존을 확인했다. 실제 DB/API/worker/UI 연결과 지급일미정 미지급확정 상태·다회수확/실제농장/관문은 미수용이다. 이전3–5h 초안은 커널 수용 기록으로 대체한다.
 
-- [ ] **`economic-production-batch-owned-source-store`** — 새커널 → 실제 소유 batch/schema4의 불변 등록·현재 조회. 기존 MarketSourceStore typed kind/SQL CHECK와 세 repository의 getter 미지원·원 역할 감사 범위를 확인하고, 기존 stack의 명시 새판본으로 원 bytes/최초 기록·idempotency/conflict/rollback·tenant/판본/기간/권리·현재/late·조회 계산/쓰기0을 실제 검증한다. 기존schema3/원 표·행/권한/worker/화면과 WSL/CAS를 보존해야 한다. 경계1–2h+등록/조회·실제검증2–4h 초안; worker/SDK/UI는 후속이다.
+- [x] **`economic-production-batch-owned-source-store`** — [신규20/기존362=고유382·실제 SCRAM/보존](../research/economic-batch-source-store-20261031.md). 원 등록 엔진을 재사용한 별도8종 source/명시 프로필로 실제 작업 bytes/SHA·최초 참조/시각·한글 ID·동시/다른 작업 재시도·충돌/rollback·현재/late scope·조회 계산/쓰기0·운영 설정/역할 감사를 대사했다. 실제 서명 hold와 fresh 저장 입력의 v10 계산을 확인했고 기존schema3/원 표·권한/숫자/CAS/GUI·첫 만료를 보존했다. 제품 factory/접수·worker/SDK/UI와 실제 농장/관문은 미수용이다. 이전 공수 초안은 이 수용 기록으로 대체한다.
+
+- [ ] **`economic-batch-calculation-admission`** — 실제 EconomicBatchSourceStore·MarketHoldStore·결정 문맥 저장소의 같은 schema/정책/로그인·principal·tenant/기간/참조를 결속해 등록 schema4만 계산 접수한다. 실제 원문 SHA·중복/충돌/rollback·현재/late 권한·최초 bytes/시각과 기존schema3를 보존한다. test-only facade를 제품 권한으로 쓰지 않는다. 2–4집중시간 초안이며 실제 객체/job 입력 계약 뒤 갱신한다. 다음은 deterministic worker/불변 결과·계산 없는 현재 조회→독립 가정 비용의 저장 창 결속→strict SDK/같은 선택 UI다.
 
 - [ ] **`supply-material-conditional-resource-economics`** — 위 경계/기존 Decimal 계약, 미수확 직접비의 명시 batch 커널은 수용했고 실제 소유 저장/현재 조회·제품 source 결속 수용 뒤 정해진 입력 범위만 연결한다. 원 자료/시각·통화/단위/기간·반올림·발생/지급일·중복 비용/미배분·hold·독립 산술 및 기존 원장 회귀를 통과한 범위만 표시한다. 실제 구매량/청구서·판매/수확 자료 없이 농장 비용·마진·추천을 게시하지 않는다. 원 저장 창·독립 가정의 구매/청구 기간/Cost/input 판본을 별도 보존하며 제품 Farm 결속 없는 연구 root는 제품에 게시하지 않는다. 계산 자식의 실제 범위 뒤 공수를 갱신한다.
 

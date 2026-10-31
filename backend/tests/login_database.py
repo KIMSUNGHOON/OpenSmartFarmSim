@@ -96,6 +96,9 @@ def login_scope(login_database, tmp_path, request):
                                 market_source_storage=(
                                     type(getattr(request, "param", None)) is dict and
                                     request.param.get("market_source_storage") is True),
+                                economic_batch_source_storage=(
+                                    type(getattr(request, "param", None)) is dict and
+                                    request.param.get("economic_batch_source_storage") is True),
                                 thermal_scenario_storage=(
                                     type(getattr(request, "param", None)) is dict and
                                     request.param.get("thermal_scenario_storage") is True),

@@ -38,19 +38,22 @@ _KINDS = {
 
 
 def install_market_source_schema(conn, schema):
+    _install_source_schema(conn, schema, table='market_source_records', version=VERSION,
+        kinds=tuple(_KINDS), function='reject_market_source_change', trigger='market_source_immutable')
+
+
+def _install_source_schema(conn, schema, *, table, version, kinds, function, trigger):
     namespace = sql.Identifier(schema)
     conn.execute(sql.SQL("""
-        CREATE TABLE {}.market_source_records (
+        CREATE TABLE {}.{} (
             tenant_id text NOT NULL CHECK (length(tenant_id) BETWEEN 1 AND 200),
-            kind text NOT NULL CHECK (kind IN ('economic_scenario','economic_input',
-                'joint_shock','input_rights','settlement_applicability',
-                'settlement_evidence','prior_batch_cost')),
+            kind text NOT NULL CHECK (kind IN ({})),
             record_id text NOT NULL CHECK (length(record_id) BETWEEN 1 AND 200),
             revision text NOT NULL CHECK (length(revision) BETWEEN 1 AND 200),
             job_id uuid NOT NULL,
             payload_raw bytea NOT NULL CHECK (octet_length(payload_raw) BETWEEN 1 AND 65536),
             payload_sha256 char(64) NOT NULL CHECK (payload_sha256 ~ '^[0-9a-f]{{64}}$'),
-            store_version text NOT NULL CHECK (store_version='market-user-source-v1'),
+            store_version text NOT NULL CHECK (store_version={}),
             admission_kind text NOT NULL CHECK (admission_kind='contract_valid_user_assumption'),
             admitted_by text NOT NULL CHECK (length(admitted_by) BETWEEN 1 AND 63),
             recorded_at timestamptz NOT NULL DEFAULT clock_timestamp(),
@@ -58,16 +61,17 @@ def install_market_source_schema(conn, schema):
             FOREIGN KEY (tenant_id, job_id) REFERENCES {}.jobs (tenant_id, job_id),
             CHECK (payload_sha256=encode(sha256(payload_raw),'hex'))
         )
-    """).format(namespace, namespace))
+    """).format(namespace, sql.Identifier(table), sql.SQL(',').join(map(sql.Literal, kinds)),
+                  sql.Literal(version), namespace))
     conn.execute(sql.SQL("""
-        CREATE FUNCTION {}.reject_market_source_change() RETURNS trigger LANGUAGE plpgsql AS $$
+        CREATE FUNCTION {}.{}() RETURNS trigger LANGUAGE plpgsql AS $$
         BEGIN RAISE EXCEPTION 'market user source is immutable'; END
         $$
-    """).format(namespace))
+    """).format(namespace, sql.Identifier(function)))
     conn.execute(sql.SQL("""
-        CREATE TRIGGER market_source_immutable BEFORE UPDATE OR DELETE ON {}.market_source_records
-        FOR EACH ROW EXECUTE FUNCTION {}.reject_market_source_change()
-    """).format(namespace, namespace))
+        CREATE TRIGGER {} BEFORE UPDATE OR DELETE ON {}.{}
+        FOR EACH ROW EXECUTE FUNCTION {}.{}()
+    """).format(sql.Identifier(trigger), namespace, sql.Identifier(table), namespace, sql.Identifier(function)))
 
 
 def _name(value):
@@ -76,6 +80,10 @@ def _name(value):
 
 
 class MarketSourceStore:
+    MODELS = _KINDS
+    VERSION = VERSION
+    TABLE_NAME = 'market_source_records'
+
     def __init__(self, dsn, schema, *, principal_provider, runtime_identity):
         try:
             validate_market_identity(schema, runtime_identity, calculation=True, source_storage=True)
@@ -122,6 +130,8 @@ class MarketSourceStore:
             yield conn
 
     def _table(self, name):
+        if name == 'market_source_records':
+            name = self.TABLE_NAME
         return sql.SQL('{}.{}').format(sql.Identifier(self.schema), sql.Identifier(name))
 
     def _tenant(self, scope):
@@ -139,12 +149,12 @@ class MarketSourceStore:
     def tenant_is_authenticated(self, tenant):
         return _name(tenant) and self._tenant('market_source_read') == tenant
 
-    @staticmethod
-    def _model(kind, tenant, raw):
+    @classmethod
+    def _model(cls, kind, tenant, raw):
         try:
-            if type(kind) is not str or kind not in _KINDS or type(raw) is not bytes or not 1 <= len(raw) <= MAX_INPUT_BYTES:
+            if type(kind) is not str or kind not in cls.MODELS or type(raw) is not bytes or not 1 <= len(raw) <= MAX_INPUT_BYTES:
                 raise ValueError()
-            model_type, identity_field, revision_field = _KINDS[kind]
+            model_type, identity_field, revision_field = cls.MODELS[kind]
             model = model_type.model_validate_json(raw)
             identity = getattr(model, identity_field)
             revision = getattr(model, revision_field) if revision_field else 'single'
@@ -172,7 +182,7 @@ class MarketSourceStore:
 
     def _verified(self, conn, row, *, job_row=None):
         model, identity, revision = self._model(row['kind'], row['tenant_id'], row['payload_raw'])
-        if (row['store_version'] != VERSION or row['admission_kind'] != 'contract_valid_user_assumption' or
+        if (row['store_version'] != self.VERSION or row['admission_kind'] != 'contract_valid_user_assumption' or
                 row['admitted_by'] != self.runtime_identity[0].roles['authority'] or
                 (identity, revision) != (row['record_id'], row['revision']) or
                 sha256(row['payload_raw']).hexdigest() != row['payload_sha256'] or
@@ -204,7 +214,7 @@ class MarketSourceStore:
                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,'contract_valid_user_assumption',current_user)
                 ON CONFLICT (tenant_id,kind,record_id,revision) DO NOTHING
             """).format(self._table('market_source_records')),
-                (tenant, kind, identity, revision, job_id, raw, sha256(raw).hexdigest(), VERSION))
+                (tenant, kind, identity, revision, job_id, raw, sha256(raw).hexdigest(), self.VERSION))
         row = self._select(conn, tenant, kind, identity, revision)
         if row is None or row['payload_raw'] != raw:
             raise MarketSourceConflict('market source version conflict')
@@ -244,7 +254,7 @@ class MarketSourceStore:
 
     def get_user_source(self, tenant, kind, identity, revision):
         self._source_read_access(tenant)
-        if type(kind) is not str or kind not in _KINDS or not _name(identity) or not _name(revision):
+        if type(kind) is not str or kind not in self.MODELS or not _name(identity) or not _name(revision):
             raise ValueError('market source lookup rejected')
         with self.connect() as conn:
             row = self._select(conn, tenant, kind, identity, revision)
@@ -260,7 +270,7 @@ class MarketSourceStore:
 
     def list_user_sources(self, tenant, kind, *, limit=20, after_record_id=None, after_revision=None):
         self._source_read_access(tenant)
-        if (type(kind) is not str or kind not in _KINDS or type(limit) is not int or not 1 <= limit <= 50 or
+        if (type(kind) is not str or kind not in self.MODELS or type(limit) is not int or not 1 <= limit <= 50 or
                 (after_record_id is None) != (after_revision is None) or
                 (after_record_id is not None and
                  (not _name(after_record_id) or not _name(after_revision)))):
@@ -290,7 +300,7 @@ class MarketSourceStore:
             return self._read_in_transaction(conn, tenant, kind, identity, revision, pin=pin)
 
     def _read_in_transaction(self, conn, tenant, kind, identity, revision, *, pin=False):
-        if (self._tenant('market_source_read') != tenant or kind not in _KINDS or
+        if (self._tenant('market_source_read') != tenant or kind not in self.MODELS or
                 not _name(identity) or not _name(revision)):
             return None
         row = self._select_with_job(conn, tenant, kind, identity, revision)

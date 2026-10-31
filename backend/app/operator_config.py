@@ -24,7 +24,8 @@ VENTILATION_RESULT_FLAG = 'crop_greenhouse_ventilation_result_storage'
 SOLAR_RESULT_FLAG = 'crop_greenhouse_solar_result_storage'
 CO2_RESULT_FLAG = 'crop_greenhouse_co2_result_storage'
 OPTIONAL_POLICY_FIELDS = frozenset({'crop_result_storage', 'crop_coupled_result_storage',
-                                    'crop_startup_result_storage', 'crop_cycle_result_storage', JOINT_RESULT_FLAG, VENTILATION_RESULT_FLAG, SOLAR_RESULT_FLAG, CO2_RESULT_FLAG})
+                                    'crop_startup_result_storage', 'crop_cycle_result_storage',
+                                    'economic_batch_source_storage', JOINT_RESULT_FLAG, VENTILATION_RESULT_FLAG, SOLAR_RESULT_FLAG, CO2_RESULT_FLAG})
 
 
 class OperatorConfigHold(ValueError):
