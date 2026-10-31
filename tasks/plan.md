@@ -2,7 +2,7 @@
 
 **현재 — 2026-10-31 KST:** [3D·과실 수량 화면](http://localhost:5182/supply-production-replay.html)을 열었습니다(오늘15:19 KST까지). [42집중·전체/새 설정 타입·공개233파일·실제 Chrome38시점/3800좌표](../research/supply-production-stored-screen-20261031.md)로 같은 원 잎/줄기3D와 과실 저장량·구간 유출/50구획·그래프/메뉴/reload/모바일·오류 복구를 수용했습니다. 자체 합성305181/1024초→512초의 연구 재생이며 최종 제품/실제 품종 한 작기·생산/자원·경제/거시·수급·자율 비교는 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
-**다음 수치 단계:** [새 기관 전이의 불변 저장·원 격자 재개](../research/supply-material-owner-20261031.md)를 신규31/직접 상위27=58검사와 실제 세 사례/fresh-process로 수용했습니다. 사건1회 소비·원 기원/수지 예산·정확 잔여/입력 경계·full/split/fresh 같은 cursor와 실패/늦은 변경을 검증했습니다. 다음은 공개 권리가 확인된 원본의 새 계산·reader/export → strict SDK → 첫 확정 새 기관의 실제3D(잠정3.5–7집중시간)입니다. 긴 작기 완료를 기다리지 않으며 현재 UI는 기존38시점입니다. 실제 품종/농장·생산/경제·G0–G4/R2는 미수용입니다.
+**다음 수치 단계:** [새 기관 전후·재개 결과의 공개 저장 데이터](../research/supply-material-public-replay-20261031.md)를39검사·실제 새 계산/fresh export로 수용했습니다.4시점/722좌표·11→12잎·106파일/13,985,230bytes를 원본/권리·저장 RK4/시각/수지·독립 조회/내보내기와 대사했습니다. private 결과 승격0·조회 모델/RHS/DB/network/CAS 쓰기0이며 현재 UI는 기존38시점입니다. 다음은 strict SDK(잠정0.75–1.5집중시간) → 같은 저장 상태 실제3D/브라우저이며 첫 새3D까지 남은2.5–5집중시간 초안입니다. 긴 작기 완료를 기다리지 않고 실제 품종/농장·생산/경제·G0–G4/R2는 미수용입니다.
 
 ## 현재 탄소 재고 다음의 순서 — 2026-10-26 KST
 
@@ -86,7 +86,8 @@
 | 같은 문턱 시각의 전체 상태/적분량 후보 — 수용 | [신규16/기존103=119검사·실제 두 source/fresh-process](../research/supply-forcing-threshold-state-20261031.md).176상태/185부분량·124수지/원 예산/정확 prefix·동일 시각1/2/4·34RHS/과거0·실패/보존 | 이전3.5–7h 추정은 실제 수용으로 대체. CP/point·일정/새 기관 채택 아님 |
 | 새 기관 물질 전이 산술 — 수용 | [신규27/직접 부모37=64검사·실제 세 사례/fresh-process](../research/supply-material-point-20261031.md). actual binding/후보/IDs·명시 seed/권리·조달/성장 비용·열/용량·point/global 수지·원 기원·거부/보존 | 35/36RHS·과거/쓰기0. 이전4–8h 초안은 실제 수용으로 대체; 일정/저장/UI 채택 아님 |
 | 새 기관 저장·격자 재개 — 수용 | [신규31/상위point27=58검사·실제 세 사례/fresh-process](../research/supply-material-owner-20261031.md). 새 basis/origin/current/page/cursor·사건1회·원 branch/global 예산·정확 잔여/forcing·full/split/fresh·독립/거부/보존 | 이전4.5–9h 초안은 실제 수용으로 대체. local cursor-last 게시; 실제 Farm/제품 관문 별도 |
-| 다음 — `supply-season-first-material-stored-3d` | 원 public fixture 권리 확인·새 계산/무계산 reader/export → strict SDK → 첫 확정 새 기관/재개의 같은 시각·phase 실제 mesh/표/그래프·실제 브라우저/보존 | public/reader/export1–2h + SDK0.75–1.5h + scene1–2h + 브라우저/기록0.75–1.5h = 잠정3.5–7집중h. 첫 자식 `supply-season-material-public-replay`; 긴 작기 완료를 기다리지 않음 |
+| 새 기관 public reader/export — 수용 | [39검사·실제 public 새 계산/fresh export](../research/supply-material-public-replay-20261031.md).4시점/722좌표·11→12잎·106파일/13,985,230bytes·원 source 권리/새 계보·선택 witness·저장 대수/수지·변조/권리/독립/보존 | private 출력 승격0·조회 모델/RHS/DB/network/CAS 쓰기0. 이전1–2h 추정은 실제 수용으로 대체; UI는 기존38시점 |
+| 다음 — `supply-season-material-strict-sdk` → `supply-season-material-stored-3d-screen` | 새 root/index/source graph의 strict wire/권리/수치·HTTP/취소/latest/타입 → 같은 실제 기관/시각/phase의 기존 잎/줄기 mesh·표/그래프 → 실제 브라우저/보존 | SDK0.75–1.5h + scene1–2h + 브라우저/기록0.75–1.5h = 남은2.5–5집중h 초안. 긴 작기 완료를 기다리지 않음 |
 | 이후 — 기간 확대와 생산/자원·경제 | 수치 개발은 합성 입력으로 forcing/관리·기후 결합 → 상태/계보 분리와 paging·장기/수렴·cold/수지 → 명시 환산·구매량/같은 달력 Decimal 경제. Farm/현재 권리 custody는 제품 게시 경로에서 병행하며 수치 개발의 선행으로 두지 않음 | [구현 순서/외부 의존성](../research/season-production-readiness-20261031.md). 독립 국내 자료 확보 병행, 실제 주장/게시 관문 유지·전체 완료일 미정 |
 | 3c3b4c-stored-3d | 새 실제 A/L/C/clock/ID/phase·부족분의 불변 result/무계산 reader/strict SDK→실제 mesh/표/그래프·메뉴/reload/권리·실패·기존 GUI 보존. 제작 width/pose/fruit·최종 R2/제품 farm 통합 구분 | 위 repeat-artifact-reader → export-sdk → stored-3d로 분해. 반복은 수용했고 저장/조회 경계 뒤 공수 재산정; 이전180–300분은 미수용 초안 |
 | 3c3b5 | 공급 제한 길이/면적의 별도 합성 법칙·동역학 수지 개발과 실제 품종 allometry/초기 이력·권리/독립 자료 확보를 병행. 현재 paper의 독립 logistic을 탄소 feedback으로 승격하지 않음 | 개발 착수와 실제 주장/게시 조건 분리; 실제 자료 확보 날짜 미정 |
