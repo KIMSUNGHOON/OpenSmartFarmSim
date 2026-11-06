@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-11-06 KST:** [원 material 창/독립 비용 기간의 연구 kernel](research/supply-material-resource-cost-scope-binding-20261106.md)을 현재145개 집중 검사로 수용했습니다. 실제 Farm/current custody와 schema4 비용의 같은 Farm association→불변 접수/현재 조회→HTTP/strict SDK/같은 선택 UI는 미완료입니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
+**현재 — 2026-11-06 KST:** [같은 Farm 소유 입력/원 초기 seed의 첫 선행](research/farm-owned-input-and-seed-20261106.md)을 현재163개 집중 검사(새53/직접 legacy110)로 수용했습니다. 전체 material custody/완전 결과 게시·현재 조회·같은 Farm schema4 비용/HTTP/SDK/같은 선택3D는 미완료입니다. 다음은 실제 material.Handle의 반복 사건을 소비하는 수치 successor와 실제 성장 증명이며 정적 plan/owned seed compiler 검토는 병행합니다. 원 수치/옛 자료·만료238/233파일/원5175를 보존했고 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·완료일 미정을 유지합니다.
 
 **material 창/독립 자원 비용 기간의 연구 kernel 수용 — 2026-11-06:** [현재145=순수47/소유 PG 통합·회귀98](research/supply-material-resource-cost-scope-binding-20261106.md)로 Allen13/point5·정확 UTC/Fraction/원 창·명시 kind/독립 기간/provenance·원 Cost 금액/null/첫 publication·현재/late fence와 금액/SQL·CAS쓰기0을 수용했습니다. PG 읽기는 허용하며 새 제품 Farm custody·원자 snapshot·HTTP/SDK/UI 수용으로 확대하지 않습니다. 다음은 정확 같은 Farm 등록 판본에 실제 material lineage/result와 schema4 비용 선언을 각각 연결하는 server authority 계약입니다. 이후 불변 접수/현재 조회→보호 HTTP/runtime→strict SDK/같은 선택3D·실제 브라우저까지 전체 자원-비용 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 

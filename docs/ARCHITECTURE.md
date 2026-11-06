@@ -1,5 +1,7 @@
 # 시스템 아키텍처와 실행 계약
 
+**현재 — 2026-11-06 KST:** [같은 Farm 소유 입력/원 초기 seed의 첫 선행](../research/farm-owned-input-and-seed-20261106.md)을 현재163개 집중 검사(새53/직접 legacy110)로 수용했습니다. 전체 material custody/완전 결과 게시·현재 조회·같은 Farm schema4 비용/HTTP/SDK/같은 선택3D는 미완료입니다. 다음은 실제 material.Handle의 반복 사건을 소비하는 수치 successor와 실제 성장 증명이며 정적 plan/owned seed compiler 검토는 병행합니다. 원 수치/옛 자료·만료238/233파일/원5175를 보존했고 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·완료일 미정을 유지합니다.
+
 **Worker checkpoint 전진 — 2026-10-20 KST:** [내부 ack 계약](../contracts/solar-worker-checkpoint-advance-v1.md)을 [같은 source82검사/제품 비용](../research/solar-worker-checkpoint-advance-implementation-20261020.md)으로 로컬 수용했다. worker만 guarded write 뒤 `None`을 받고 기존 독립 `_confirm`의 현재/서명/lease/cancel 검증 결과를 소비한다. 공개 progress 전후 guard·수치/파일 게시·결과 원자성은 유지한다. 원 독립64/새 배포/과학 관문은 별도다.
 
 **기존 일사 이력 재개 — 2026-10-20 KST:** [비생성 진입 계약](../contracts/solar-existing-intent-resume-v1.md)을 [최종 같은 source72검사/실제 비용](../research/solar-existing-intent-resume-implementation-20261020.md)으로 로컬 수용했다. `advance`의 완전한 기존 이력만 생성 없는 진입과 첫 full current guard/선택 HEAD 확인을 연결한다. default/new/adoption과 나머지 현재/게시 검증을 유지하며 공개 API/수치 프로필·권한 cache 변경은 없다. 원 독립64/배포·과학 관문은 별도다.

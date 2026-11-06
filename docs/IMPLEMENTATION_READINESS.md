@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**현재 — 2026-11-06 KST:** [같은 Farm 소유 입력/원 초기 seed의 첫 선행](../research/farm-owned-input-and-seed-20261106.md)을 현재163개 집중 검사(새53/직접 legacy110)로 수용했습니다. 전체 material custody/완전 결과 게시·현재 조회·같은 Farm schema4 비용/HTTP/SDK/같은 선택3D는 미완료입니다. 다음은 실제 material.Handle의 반복 사건을 소비하는 수치 successor와 실제 성장 증명이며 정적 plan/owned seed compiler 검토는 병행합니다. 원 수치/옛 자료·만료238/233파일/원5175를 보존했고 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·완료일 미정을 유지합니다.
+
 **material 창/독립 자원 비용 기간의 연구 kernel 수용 — 2026-11-06:** [현재145=순수47/소유 PG 통합·회귀98](../research/supply-material-resource-cost-scope-binding-20261106.md)로 Allen13/point5·정확 UTC/Fraction/원 창·명시 kind/독립 기간/provenance·원 Cost 금액/null/첫 publication·현재/late fence와 금액/SQL·CAS쓰기0을 수용했습니다. PG 읽기는 허용하며 새 제품 Farm custody·원자 snapshot·HTTP/SDK/UI 수용으로 확대하지 않습니다. 다음은 정확 같은 Farm 등록 판본에 실제 material lineage/result와 schema4 비용 선언을 각각 연결하는 server authority 계약입니다. 이후 불변 접수/현재 조회→보호 HTTP/runtime→strict SDK/같은 선택3D·실제 브라우저까지 전체 자원-비용 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
 **현재 — 2026-10-28 KST:** [공급 제한 공동 RHS52검사·별도4결과/독립 산술](../research/crop-supply-morphology-rhs-20261028.md)을 수용했습니다. 진짜 저장 CP의 C/A/clock/ID·원 형상을 보존하며 실제 구조 유입→잎 면적/절간 길이 속도→같은 열용량/기후 수지를 연결했습니다. 한 시점의 계산이며 시간 전진·새 CP·새 UI는 아직 없습니다. 다음은 공동 적분/재개(잠정210–360집중분)→새 법칙의 반복 조달→불변 저장/같은 상태 실제3D입니다. 실제 품종/국내 독립 측정0·G0–G4 미평가/R2 미승인, 전체 작기·생산/자원·경제/거시·수급·자율 비교/제품 통합과 전체 완료일은 미완료·미정입니다. 5180은 원 만료/저장 보존·외형5175 유지, whole goal은 active/incomplete입니다.

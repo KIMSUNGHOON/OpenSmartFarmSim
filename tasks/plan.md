@@ -1,6 +1,6 @@
 # 구현 순서
 
-**현재 — 2026-11-06 KST:** [원 material 창/독립 비용 기간의 연구 kernel](../research/supply-material-resource-cost-scope-binding-20261106.md)을 현재145개 집중 검사로 수용했습니다. 실제 Farm/current custody와 schema4 비용의 같은 Farm association→불변 접수/현재 조회→HTTP/strict SDK/같은 선택 UI는 미완료입니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
+**현재 — 2026-11-06 KST:** [같은 Farm 소유 입력/원 초기 seed의 첫 선행](../research/farm-owned-input-and-seed-20261106.md)을 현재163개 집중 검사(새53/직접 legacy110)로 수용했습니다. 전체 material custody/완전 결과 게시·현재 조회·같은 Farm schema4 비용/HTTP/SDK/같은 선택3D는 미완료입니다. 다음은 실제 material.Handle의 반복 사건을 소비하는 수치 successor와 실제 성장 증명이며 정적 plan/owned seed compiler 검토는 병행합니다. 원 수치/옛 자료·만료238/233파일/원5175를 보존했고 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·완료일 미정을 유지합니다.
 
 **material 창/독립 자원 비용 기간의 연구 kernel 수용 — 2026-11-06:** [현재145=순수47/소유 PG 통합·회귀98](../research/supply-material-resource-cost-scope-binding-20261106.md)로 Allen13/point5·정확 UTC/Fraction/원 창·명시 kind/독립 기간/provenance·원 Cost 금액/null/첫 publication·현재/late fence와 금액/SQL·CAS쓰기0을 수용했습니다. PG 읽기는 허용하며 새 제품 Farm custody·원자 snapshot·HTTP/SDK/UI 수용으로 확대하지 않습니다. 다음은 정확 같은 Farm 등록 판본에 실제 material lineage/result와 schema4 비용 선언을 각각 연결하는 server authority 계약입니다. 이후 불변 접수/현재 조회→보호 HTTP/runtime→strict SDK/같은 선택3D·실제 브라우저까지 전체 자원-비용 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
@@ -32,6 +32,8 @@
 | 3b0d2 | [stored-execution 단계별 수용](../research/economic-cost-automatic-consumer-20261106.md) | 원 입력/전체 trace·현재 무계산 조회·취소/lease/원자 게시·보호 HTTP/runtime/실제 별도 자동 소비·원 default/숫자/자료 이력 | 저장 실행 상위 수용 완료. 실제 Farm 자원-비용 결속/SDK/UI는 계속 미완료 |
 | 3b0d3a | [현재145·순수47/소유 PG 통합·회귀98 수용](../research/supply-material-resource-cost-scope-binding-20261106.md): 원 창/명시 독립 비용 기간 연구 kernel | Allen13/point5·정확UTC/Fraction·원 Cost/null·현재/late·금액/SQL·CAS쓰기0·parent36/additive38 | 연구 kernel 수용 완료. 실제 Farm custody/제품 접수·조회/HTTP/SDK/UI 미완료 |
 | 3b0d3b | `supply-material-resource-cost-same-farm-custody`: 같은 정확 Farm 등록의 두 server-resolved 연결 | 실제 material 입력/lineage/result와 schema4 cost/declaration association·현재 권리/등록/source·원 bytes; 이후 불변 접수/현재 조회→HTTP/runtime→SDK/같은 선택UI | 다음 계약/권한 경계 검토. 공수/완료일 미정 |
+| 3b0d3b1 | [같은 Farm 소유 입력/초기 seed 현재163 수용](../research/farm-owned-input-and-seed-20261106.md) | 원81 current/Git62·additive3/84·정확 Farm/첫 입력/원 초기 Context·binder | 좁은 선행 완료, 전체 material/cost/UI 미완료 |
+| 3b0d3b2 | 실제 material.Handle 반복 사건/성장 수치 successor | 실제2–3사건/forcing순서·원grid잔여·full/split/cold/모든장부; 정적plan/compiler 병행 | 다음 수치 능력 공백. 별도 전체작기/게시/query/SDK/현실적3D 필요, 공수 미정 |
 | 3b1 | 3b0c1/c2/c3a/b/c·항목 trace/게시 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 항목 trace 저장/실행·결속 경계 뒤 재산정. 기존3–6h 단순 합산은 누락 의존성 때문에 사용하지 않음; 실제 품종/외부 자료/최종 제품 일정은 별도 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
@@ -4022,4 +4024,4 @@ page/source·표시/상태0.5–1h + geometry 타입/새 entry0.5–1h + 빌드/
 기존 props/geometry·소유 미리보기/실제 browser 접근이 전제이며 이전1–2.5h UI 초안을 이 실제 분해로 갱신한다.
 현재 UI/runtime·DB/키는 유지했다. farm/current 권리·서명/worker와 실제 품종/독립 작기0·생산/자원/Decimal 경제·거시/수급/자율 비교·G0–G4/전체 완료일 미정은 유지한다.
 
-**다음 자원-비용 의존성:** 첫 연구 kernel은 수용했으며 제품 custody를 증명하지 않는다. 기존 FarmAuthoringService의 정확 현재 registration/version/crop과 실제 server-owned material 입력/lineage/result를 연결하는 닫힌 resolver·권리/기간/floor/current fence를 먼저 계약으로 고정한다. 같은 정확 Farm 등록 판본에 원 schema4 cost job/source/trace/첫 publication과 독립 resource-cost 선언을 명시 연결한다. legacy EconomicScenario/candidate·tenant/batch 이름으로 관계를 추론하지 않는다. 실제 소유 등록/저장 결과로 다른 tenant/Farm/revision/crop/context·미소유 연구 root·현재/늦은 권리/source/code/provider/registration 변경 거부를 검증한다. 별도 metadata association으로 원 숫자/Cost/schema4/v10 bytes를 보존한다. 이후 불변 접수/게시·현재 무계산 query→보호 HTTP/runtime→strict SDK/같은 선택3D·표·그래프/실제 인증 브라우저를 별도 수용한다. 현재 연구 kernel을 제품 custody나 전체 자원-비용 완료로 대체하지 않는다. 기존2–4h는 첫 kernel의 과거 초안이고 다음 custody/전체 제품의 검토된 공수·완료일은 미정이다.
+**다음 자원-비용 의존성:** 소유 입력/원 초기 seed 선행만 수용했다. 실제 material.Handle 다음 pending을 소비하는 수치 successor/반복 사건/성장 증명이 다음이며 새 admission/worker/query를 먼저 쌓지 않는다. 정적 material parameter/event-parent plan과 owned seed compiler는 병행 검토한다. 제한2–3사건 뒤 긴 horizon/capacity/restart와 완전 입력을 별도 증명하며, 완전 lineage/lease-CAS terminal publication/current query·같은 Farm schema4 비용 association·HTTP/strict SDK/같은 선택 현실적3D/실제 브라우저와 데이터 관문은 계속 필수다. 검토된 다음 공수/전체 완료일은 미정이다.
