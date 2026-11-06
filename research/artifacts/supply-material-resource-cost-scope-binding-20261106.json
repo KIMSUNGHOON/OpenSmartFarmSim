@@ -1,0 +1,2150 @@
+{
+  "schema_version": "supply-material-resource-cost-scope-evidence-v1",
+  "observed_at_UTC": "2026-11-06T07:01:14.529263+00:00",
+  "parent_commit": "2707998f4e4e625ea785779bfdbf9fc0575dd241",
+  "source_pins": {
+    "research/artifacts/economic-cost-automatic-consumer-20261106.json": "b11581a91952dab04da68029895b1e6a645ffb3d69591c4012bfff876d8d9694",
+    "contracts/supply-material-resource-cost-scope-binding-v1.md": "be95e2ec9ee456c3f0c4f972a2c842cb02f9395efa579026120185be80805c47"
+  },
+  "output_pins": {
+    "research/supply-material-resource-cost-scope-binding-20261106.md": "4220a061aefbd530d3e473267754328d608727046ddca421196e99b396a5b698"
+  },
+  "parent_manifest_inheritance": "SHA-bound accepted consumer36/current/Git270 plus unchanged accepted ancestry/private/external/final supplemental/UI/expired preview evidence; historical test counts not recounted",
+  "source_snapshot_exceptions": {
+    "backend/app/economic_batch_worker.py": {
+      "commit": "8f7606c3f99696d139961226829f21571348833e",
+      "sha256": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198",
+      "bytes": 10000,
+      "inherited_from_parent": true
+    },
+    "backend/app/economic_batch_query.py": {
+      "commit": "4edef92da8ebb7849ccde96a9d8f97e9c385b856",
+      "sha256": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd",
+      "bytes": 11139,
+      "inherited_from_parent": false
+    }
+  },
+  "current_strict_inherited_sources": 748,
+  "source_snapshot_exceptions_added": 0,
+  "integration_source_sha256_at_tested_commit": {
+    "backend/app/market_hold_store.py": "dcd6b6ab6123e11b49720456a2d2dc5c836337f4a416c9dd6486e76171cb6125",
+    "backend/app/market_source_store.py": "a463f7641a917ffa86f0ffd965212632ff56f11243fbbf7a77d5130f754d5a79",
+    "backend/app/operator_config.py": "b348cb7955e122466bdacd58dd057c90dba6d75c786307db0bdd68435fb9aa3c",
+    "backend/app/runtime_roles.py": "4c5fef33de51c51b0e3e573ca3b06ae8d36b41200327dd80c457162260bf3b78",
+    "backend/tests/login_database.py": "7a1da0a4ad3b492f158010a8c12b4ea6a152d5fc505f37792af64e94d6cf6ee1",
+    "backend/tests/test_runtime_roles.py": "a218f8d65fddfd631f39b0a3c56fb9971af1073f80e5e52e77844aefc4a7c29f",
+    "backend/app/api.py": "4c7395328f2f738e39544b1e4176e18b670a747c1feb6fda117fe2e104fe3507",
+    "backend/app/api_market_source.py": "7cdc2e67ea9e3f85018721dc18e4234ffa6b3fcc56405c6c5daa9b298996d5da",
+    "backend/app/api_economic_batch.py": "080934b74a975019a983cc4ca3b59c1b52bd49ec6cb05cc8f0a14a225c9b0c3d",
+    "backend/app/economic_batch_wire.py": "4254c59e0c7d96a17cfdb18e378551fa3836c614aa28b4f1d6466d07aab7712a",
+    "backend/tests/test_api_economic_batch.py": "398d31377189368f0332864942fd366058f0b97167b86b2b425cdaa495f65007",
+    "backend/app/api_runtime.py": "494fbac16722c5b235b84317309fd75be66bf9699ee81e36710722dab216db06",
+    "backend/tests/test_economic_batch_runtime.py": "c0b707ff0680ee89d393944893964b92e46235d700089479c100cd7ffda5b481",
+    "backend/app/deterministic_work.py": "e14beebdb3e19ef223bd9ab151a487df8f79f5aec822ca167d3c5b1bf11de307",
+    "backend/app/deterministic_job_discovery.py": "98721ae87422f43788e981becec9a4560c425c9a08a309f1bc766a6800e2dc68",
+    "backend/tests/test_economic_batch_consumer.py": "5c7335feb1ce8f5b00d2d3c7ac6b2ed559bd2ea2b853fb1ab3e159bb1872f5a3",
+    "backend/tests/test_economic_batch_consumer_http.py": "75b7369b241d8c525dac6b33e62a9f0e4744b1035ab56e016b668fed547fdc93",
+    "backend/tests/economic_batch_consumer_factory.py": "435cdc3841c7bd032b6116680fa807982bd0c5d884d9ebc01a82dff2ff2924c3",
+    "backend/tests/test_economic_cost_trace.py": "a4cac0e00fed99385346c6251f5b084a13f6d44ecf949f490bb40de25da50e21",
+    "backend/tests/economic_cost_trace_cold.py": "69f5cc7673c96f79fdf379f0732244c6194eb6fe480290f6d44110ae3fe24d23",
+    "backend/app/economic_cost_calculation.py": "ac2419f9717b4736cace7a52f8c2856693590b1c54761a324a0339ac1ea0a134",
+    "backend/tests/test_economic_cost_calculation.py": "7f5db78e06284be53ddde131a3c9ae6a4a18cfaf0ab7207db417c4bc77e653c9",
+    "backend/app/economic_batch_worker.py": "234975b76726503631087e0ec7818489e054a27caefe79ff54a59be0071127e5",
+    "backend/app/economic_cost_worker.py": "968daef4978cbe1667a3fe2e4f72371926b67996b668a31ac952bf7465072625",
+    "backend/tests/test_economic_cost_worker.py": "e4ba10da3d37083c85c278080eca5272527691799c56eda43b8f9dfcba764929",
+    "backend/app/economic_batch_query.py": "19c82768757b9633558085d590924b3686fc4c149e7e5b92b267a978840a37de",
+    "backend/app/economic_cost_query.py": "fdfcae7fa3269616c711f82bc4bbfae9b3242271065f62ef14f50257f0f2df5d",
+    "backend/tests/test_economic_cost_query.py": "8cc60973091d201e086770dcb72422bd314a85da1414d52bc7684a3847c7a11c",
+    "backend/tests/economic_cost_query_reader.py": "3e5563044654a8bd680e0992f3fec91ed1337984c1b5592d0346b536cac65b65",
+    "backend/app/economic_cost_wire.py": "59385b33551a256376865a047c5ed134765cc78173bf898a303af7d438ef9d5e",
+    "backend/tests/test_api_economic_cost.py": "c168d39f0b2286508369dfa7697d3e1dc4731cca6fa8162db2a0869e77e4d635",
+    "backend/app/api_economic_cost.py": "ae318a44ed7418ccda03ed07acbaf4ad76a9f9dcba7a6a3ea5661b651227f070",
+    "backend/tests/test_economic_cost_runtime.py": "1726c202a1b169b446680fefddb936a791f8c22e75260827dc05f693e06e90ee",
+    "backend/tests/test_economic_cost_consumer_http.py": "c869e5a3730c596f357bf158ed1e2af55cbb512daaeffec8ec03ef1bcf598371",
+    "backend/tests/test_economic_cost_consumer.py": "a704ac07612eb3e4be49acd0cf6410830382c6f09fce8d9e608941444bd47cb5",
+    "backend/tests/economic_cost_consumer_factory.py": "b34ddedcf25ac9b5458a18070e70125dbe6d9c947a16fba33b1d4956a1301c22",
+    "backend/tests/test_supply_material_cost_scope_binding.py": "07cdd67312b0673f5f270659ade1477f139030153960724861c5936f008bdefe",
+    "backend/app/crop_supply_material_cost_scope_binding.py": "2e81c6c51b4d3c10f14eff2ca2dab5ae122a115f2a1c0b9b369bac7ed03fe223"
+  },
+  "integration_pin_policy": "Accepted consumer36 unchanged/current/Git270; only new material-cost module and test add38; no existing integration updates",
+  "private_artifact_directory": "20261106-material-cost-scope-binding",
+  "private_artifact_sha256": {
+    "pure-v1-controller.private.json": "d4659925353ccf361b4326fba068369782fcf0a04238105c1c78de554df5f5f0",
+    "integration-1-v1-controller.private.json": "a1a9a5fc74c4fb5ccfcb1cc478debaba771d1a6a1cba8a9defa1978e8a81a087",
+    "integration-2-v1-controller.private.json": "e9645c2368ccc3108adec021a207adce198c3194a79dfcd870d5484bb55bdddc",
+    "integration-3-v1-controller.private.json": "58147a560869847ae88921a1bf0417ef4e7d514a6876f5ba5a4fe567837c85bd",
+    "integration-4-v1-controller.private.json": "bd0eba3a52f187bd537705627bce429b9f4a4aaad1ecd81acbe0ee8bcd2f2e34",
+    "legacy-material-v1-controller.private.json": "48eedd7ddd35a0cbe88e9b3945613291857fe13025292e9ca6bc2c3449c9c8d5",
+    "legacy-cost-query-v1-controller.private.json": "e17025b8027215d3f12d569d42763c2f4422e69b288d50d09ffc23c2cceb79b8",
+    "integration-1-v1/test_current_published_cost_an0/material-cost-binding-receipt-v1.private.json": "008b1cf921ca2ef000106e62795ebcac3f37f98ad6bb376dc2af6c9166e37004",
+    "integration-1-v1/test_current_published_cost_an0/material-cost-binding-v1.json": "6e098c3687755b1d1b67d0e5e2dac0320f1270261ba0373b3499e22987057207",
+    "integration-1-v1/test_current_published_cost_an0/material-cost-original-cost-v1.json": "a946e68eea11d5f22c69e1db286623a7869aa827f146faa52fc8184f77aedeb1",
+    "contract-pending-v1.private.md": "f23327441223fc15649795f29879bea139137e00965106aa30fe6dfecf3d9dd7",
+    "test-source-snapshot-v4.private.json": "9e10649873072dd7965884e6919c01a453b3360d1edf11b656130307cb5e06ae",
+    "test-source-snapshot-v1.private.json": "8a7db4799b7e412eac88d4afc0a6a9f4cb4cbf90d41682e8430b9dc7c6bfb976",
+    "target-selection-v2.private.json": "fe27d48db772a901ee1897a41ff112fefd30b44709f5bb7ea2d4e5d3f3ae5a04",
+    "native-children-v1.private.json": "6ef196ea7725f657092b9c2d49a4ab61fe4a13df1319eebe08354cf3424bc5b5",
+    "independent-review-v1.private.json": "2f119f6713fc0da1f295260e7f6a0a42fd1f67fd361c7f6077a7236a7c023009",
+    "owner-acceptance-v1.private.json": "ff41454ca19a3c8499f5e40a682d091188c2aba1b943ca9d2172f7c69033fbf1",
+    "material-cost-scope-preservation-v2.private.json": "30f2e3eb5979ba81bf0ebf478b0af6daec796b352cd02930dcdf3dc8036ad887",
+    "test-source-snapshot-v3.private.json": "9cfcdef0fd77d4c6bfed2ca96bc9fc029809ba4ad0e4602c9ce2e941cfa5ef5c",
+    "implementation-before-pointer-fix-v1.private.py": "a8dbec59547e26f1caee8bfadf8523d399f12374ab69bbd63564c74cb9cbd496",
+    "pointer-fix-v1.private.json": "071c277ac80afdc48bc92c74ebdf1efd609d2efef92b087da85b56c2e1fac679",
+    "legacy-targetselection-v1.private.json": "90b5d839812262f17663f0dbcb28edf88d4a63c07920080bd3456c6698e55dd6",
+    "red-v1-controller.private.json": "d9fda0ee25464c832683bf61c77bbaee8455107f05f563b539d621f6412fc730",
+    "r1-pointer-red-v1-controller.private.json": "ffcf60b27965466b99710fe7309f5d2b2b71d8395740e386e93a60ce9f059e45",
+    "acceptance-helper-correction-v2.private.json": "dd3cd023915584de36cac09aa2697717c66792b69d5310eaa4f45b6d79c05d06",
+    "acceptance-matrix-v1.private.md": "ccf300756c019b3ef556c6f68d2c259964e1003e2da2344617eba39e6137deee",
+    "acceptance-scaffold-v1.private.json": "8ce7ee78717aab84155cd1b4a37165172a89f033d70e5dc8bbb2a4854725f500",
+    "acceptance-scaffold-v1.private.py": "175f460e16a1130662ce2cf09cb9c24777b2255e8893f888c8e225bd22b8f627",
+    "bootstrap-v1.private.json": "8ac1a5a68ca9f75330c04d6825eb5fafb33e9ad40079d9127511b2816ca704f0",
+    "collection-v1-controller.private.json": "1001926ddbfb133aa29797045bcc893a4d2641eb6e2f724abcefa3a66afafd1b",
+    "contract-interface-clarification-v1.private.json": "62be4a64b5a93e907caac4af991cc2790e9819037024f4ee1a31ba5b573a5d4a",
+    "design-v1.private.json": "9994ac80f2c4f9fae8536c50b20dd754ffb3c0fddabef6c607e009ecc272eab2",
+    "execution-plan-v1.private.json": "b24fb7e3e2f08e2547e0927218e0eb1564442da1aa5d74969916e8f0fcb40da7",
+    "final-review-v1.private.py": "ede74cc0cb12249e4c7b989dd6551ddb4823e1bc0633b38c49c0e99c78f07288",
+    "final-review-v2.private.py": "6a424e35046c503d7eb2a9e24cb5f8223d1bc608b8fc7b1980eec880de321386",
+    "global-handoff-before-acceptance-v1.private.json": "39424e246a311f16ed74b7bc069bec2551803fd0b1781ccaec258a6f4e3f4ac2",
+    "implementation-import-readiness-v1.private.json": "dd0aada1a20fca219f2e5770378c213614ca01544f829a9538485032a5742571",
+    "implementation-v1.private.json": "ef7a7c798b1172ca91d9be06cde4fb83c02469571778cd9ead123f2ad4d27c72",
+    "import-readiness-v1.private.json": "4d5e13bf8cc93f00c76e6c4f9607cb06e39ba5a9d89b8f6fe473ddcc5ed07edb",
+    "independent-contract-challenge-v1.private.json": "5ad56ca2d9cb7608d12e9f41436e4b08309250ffca1cb0b3e308fc4bba9e1c00",
+    "independent-initial-production-review-v1.private.json": "12172818842c240737bbac69220846b6b8faa7bbd34d8bd2863f10e36e3fdc9e",
+    "independent-pointer-fix-audit-v1.private.json": "265f4c31e6d1beb6b7a02b9aae8460f55304d3694c86a1dfaf288fb8c95a416a",
+    "independent-r1-resolution-v1.private.json": "c1bddbb0502ae48c8425e69b6a712f48fc5311c6cef4d2a742c51e553632f851",
+    "initial-reviewed-draft-v1.private.json": "48a94abe4b6443e50f3f548c5b7dca30759f1e9baf4c6fdb9634d3e5c933bf2b",
+    "initial-reviewed-draft-v1.private.py": "a8dbec59547e26f1caee8bfadf8523d399f12374ab69bbd63564c74cb9cbd496",
+    "initial-test-review-v1.private.json": "06f5d28fadc9ce06984302d2e70263b0da5af078823ef1794b2068029972d26f",
+    "input-generator-failure-v1.private.json": "ff6a19ad81ffb3bec392af0530949679fdeeb0178394590c077ca2e8ec547e50",
+    "make-build-inputs-v1.private.py": "32e763139bde45fe480f79479a3bd6f3de7c97ca3b194180ab7916cff9f53746",
+    "make-build-inputs-v2.private.py": "ed1e7eeefe0bbafa9ee8b85e4620cd0a852bc6813b2ef6718dc4caf0eca1c0d4",
+    "material-cost-scope-collection-v1-owner.private.json": "860bf252bb33e02404ab816fac7dc3ecb1dad0f888610dccf5e53f9a14708c71",
+    "material-cost-scope-collection-v1-supervisor.private.log": "4768e0efd2b902b16b08b19ebb29f9924d7425c6fdd03e5b7177c22247732a9d",
+    "material-cost-scope-collection-v1-task.private.json": "272370c0b4ecc64eb4b57b510b2481dd6d9812ef6d65d4278b3a80e209454a76",
+    "material-cost-scope-integration-1-v1-owner.private.json": "ce076a1eb6cd46f4d429039f3dd76801a156d2ddf66ae2a5906475e2b079321f",
+    "material-cost-scope-integration-1-v1-supervisor.private.log": "6a8b78dc5409b4314d3cac1683bbc0a7007e5e77c5c074e81768b716a53ba0b9",
+    "material-cost-scope-integration-1-v1-task.private.json": "1bc8561ef71e46c7c4330a2025aae82cb553d9e64488fbb53ab3ea475ff20532",
+    "material-cost-scope-integration-2-v1-owner.private.json": "73bb5dcc71900252fd43a1ee8d87765f0aa29d8a4ff229a91e6d7da0e444b591",
+    "material-cost-scope-integration-2-v1-supervisor.private.log": "7d0b6df42a0b467e748bdd89a92a31a58b8c86d511b01ed2b528addfd7229ca0",
+    "material-cost-scope-integration-2-v1-task.private.json": "797c40af70ec7bd857a7105a18fe452e7a4a66060a33ee4beb5e696cb2dddf9c",
+    "material-cost-scope-integration-3-v1-owner.private.json": "86ca61adfe9609a345f3a347feb795bb616e0cb141df85d36adcc8366e3819b0",
+    "material-cost-scope-integration-3-v1-supervisor.private.log": "281d3cc4f00f2676465282685c048f5cf4c9fb334877ec124f67ab3c216c25a9",
+    "material-cost-scope-integration-3-v1-task.private.json": "468a1cdb2e1a35dffffb7dbaf4c715f7c5327cd339c327ca80ea874bc0a17355",
+    "material-cost-scope-integration-4-v1-owner.private.json": "fcdf15237d8f05881910b5115a99d7d454c0cd6b50b0bbd2fd55a460a752ff00",
+    "material-cost-scope-integration-4-v1-supervisor.private.log": "875a3089a95ac8637ba0016c675ccdca15db90df5c43dccdba8a3197ad379645",
+    "material-cost-scope-integration-4-v1-task.private.json": "d7123f74e4230611858e115cc41182a5738d4a25e9965666fbd063bdc757a8d8",
+    "material-cost-scope-legacy-cost-query-v1-owner.private.json": "51417ffd86d2580f5d1a9f44171f46b1424c463cccc2c5551927beacb9611e4a",
+    "material-cost-scope-legacy-cost-query-v1-supervisor.private.log": "1f482ccef1f2c5af58651a3ffa152c323f7543f78bea1a39d49c2ad5dfa36dc9",
+    "material-cost-scope-legacy-cost-query-v1-task.private.json": "791b31bd9ea87fd17bb6fe52c68bba7423b3d165299434ccb1ec58817ec3ecc7",
+    "material-cost-scope-legacy-material-v1-owner.private.json": "3ec6504f4661e4093e374f48a5feded3b0fb93a3d3c501ed3b2fffc788dc1120",
+    "material-cost-scope-legacy-material-v1-supervisor.private.log": "23cc30fb8b6f44ea08a9ebee1d0decf330b8dd9576c713a4c4e1f3881e6bf969",
+    "material-cost-scope-legacy-material-v1-task.private.json": "cfb9b4e896585f5a0d5164c6eb401bcd422044b51400dbbecce549bf585282fb",
+    "material-cost-scope-preservation-v1.private.json": "76384f839f03ac97da8920d6b7c3248fb8f3ac0144db8047fe5c4a0e08c90fe4",
+    "material-cost-scope-pure-v1-owner.private.json": "1cf116ddcd3b66a22553ba7c00b42225d1d77c642be4339ff738bc4281b7f2a8",
+    "material-cost-scope-pure-v1-supervisor.private.log": "8439f03f883fae98acfdecbb31fec056a4dc2bd9cdb3b6db5689121e1a3594c2",
+    "material-cost-scope-pure-v1-task.private.json": "fca57591fde0acba5aff19b661caff65c11aa96ac6201436884edc275085425f",
+    "material-cost-scope-r1-pointer-red-v1-owner.private.json": "471761b4fd4b5bd4a834ec9a9d4da07c4f6b6d1cb6f75a9bcfec1bac0056d0b8",
+    "material-cost-scope-r1-pointer-red-v1-supervisor.private.log": "38368feedd445b1776a7697a22b000cd6601517041404e36c65106505a66e658",
+    "material-cost-scope-r1-pointer-red-v1-task.private.json": "d7dfb8a3b2d7ee5d3a8b22d308dc4a74e26aa77aa112bb044e83121ab1f16878",
+    "material-cost-scope-red-v1-owner.private.json": "f91cc395de1f7883d039ad3c620010a8d24e5c1b3084b16ef8ad9c263a79d9bc",
+    "material-cost-scope-red-v1-supervisor.private.log": "8c453dde84769dc25a16da316ce55c3ab6fb561920257e4d68b6eef1103be6f4",
+    "material-cost-scope-red-v1-task.private.json": "98daca6e04db7a4e538d9c296ba831c2d593cbc86256755f8f312b85cc8069ed",
+    "new-green-v1.private.json": "2f3c564caa560906081bc223313ebe7ea6e0bc569e043094dc7b5565f35abb5b",
+    "next-farm-custody-choice-v1.private.json": "25452a4719d4d24c22a13c0c77adc1b7088794f14a9d1b87a0e52b6bc62568d5",
+    "owner-verification-v1.private.json": "cde4539c9525cbe459c624001df5db8e4a38de18e6983988b2fbbcdecf124680",
+    "pointer-dispatch-analysis-v1.private.json": "8d0e7ea0ce018cad4e9e31f36f52a6a5a7d5fcb385ec6cedd7cd281189f4a798",
+    "pointer-fix-v1.private.diff": "28fa6a1483ef69a652cc593071406299ef0d1e5900e43641216825d2c57dd3af",
+    "pointer-regression-application-v1.private.json": "4bbe394e72bf708b9d64a359ac9332edab3234efcaaef8657a34ac4e1fea5bc9",
+    "pointer-regression-import-readiness-v1.private.json": "a9166867f292b6ff234e8779c5d57c9c3873cfaae4d8d8fdd09394d6c3e9210e",
+    "prepare-acceptance-v1.private.py": "d9962a3f380723292117567f4e92a8e88d310496717af1f239cccc3db49a2a73",
+    "prepare-acceptance-v2.private.py": "ad835aaa8a89e3190efe800f89498fb8a98b76563cb731b22a19789ae1203b1c",
+    "preservation-v1.private.py": "ddc1becddc0cd3606c4dadad54a42049e753cc90243a8c89113c38c07d2dda75",
+    "preservation-v2.private.py": "63fc85d584890579b7509c8d6ee3aa02f73134c36f7eece98eab04af35d49620",
+    "product-dependency-map-v1.private.json": "1963aed2acf4c9e6a14d10986f693a534395b1c115b3ba03324ee1c3f883c12b",
+    "product-dependency-map-v1.private.md": "2ec1ae6b6718b7f8ebeb6eef39d15fbdc482f52d97401b9a909ac7752aaeabca",
+    "regression-execution-v1.private.json": "6ea2e6975d5c4a8324e327e93eb022ffc642f0da92e6e9482a6d097de628a7b5",
+    "run-owned-tests-v1.private.py": "04dbfb8110e3aae7f6b5f08bc1d012e569254b109afee0cb611d1b3e3b95e37f",
+    "run-pure-tests-v1.private.py": "b47e4fe40ecdd1fe38b01b3d9bd969765629781b8ec495c8626f734b0360dd54",
+    "target-selection-v1.private.json": "0e18a17b280e633ed79f0ba1571e38cd2e731960c7dcf857503cebf0698c1060",
+    "test-application-v1.private.json": "d9989e4c7e592888654c8b16d6f59ef9b550219cd7c4424503778d66f577ecc2",
+    "test-before-pointer-regression-v1.private.py": "1e7ae07f7a80b08cc0368672c068d9a580751f9be4ba6d67dc5c452e24764a46",
+    "test-source-snapshot-v2.private.json": "d0e3f95894bc283bafea1230314c36d0c1eef6bfd8344e7de7ae535394b91584",
+    "build-inputs-v2.private.json": "00ad3ee2c8640d71620ec05f8ada937ee1cf5f89a9fef278646384a00cc4c0c2"
+  },
+  "external_phase_evidence_sha256": {
+    "20261023-leaf-query-scope/material-cost-scope-pure-v1/terminal.private.json": "a6414bd1596be0960a46908d51208a038e211a6706d4ecbacbe7dc373a61e6dc",
+    "20261023-leaf-query-scope/material-cost-scope-pure-v1/child.private.log": "e43c7403e735656e08cc5f42baf1ecc694813525fb64fde316ac50e894dec043",
+    "20261023-leaf-query-scope/material-cost-scope-integration-1-v1/terminal.private.json": "3dae47f608deb6857f7d62733be5b31ff3703061bbaf2e2b3288e2e9dc10cb68",
+    "20261023-leaf-query-scope/material-cost-scope-integration-1-v1/child.private.log": "bc098ef234f13bea98fd2358a62c1ba3ab6cb53cb3a93166197f378ad49ef99c",
+    "20261023-leaf-query-scope/material-cost-scope-integration-2-v1/terminal.private.json": "a70edb2672ba59ddb976e62a51768ab33d5efd03be84c52fef3842eeb508b71f",
+    "20261023-leaf-query-scope/material-cost-scope-integration-2-v1/child.private.log": "31e0d5f587ae91bd1265d9a4ef9be7ffa95931eb0dc6d484096215d907d9b200",
+    "20261023-leaf-query-scope/material-cost-scope-integration-3-v1/terminal.private.json": "078e8e8f8511b8885003bced5eaef8f3aa70891568f0b6a442eda6881daf8166",
+    "20261023-leaf-query-scope/material-cost-scope-integration-3-v1/child.private.log": "2a403632c12a1c0d1ac81745fc608069e67ec2a6e182ac5bd6fd384729fcf239",
+    "20261023-leaf-query-scope/material-cost-scope-integration-4-v1/terminal.private.json": "fe460cff094198fb268143d58600c1ff4a5a2120f4d4ab8b08ad2567a411d792",
+    "20261023-leaf-query-scope/material-cost-scope-integration-4-v1/child.private.log": "1f170a29d9aaed37feb0b78b52b431e0ae0597354f2debfa0c9ced2d8582ca10",
+    "20261023-leaf-query-scope/material-cost-scope-legacy-material-v1/terminal.private.json": "49171131498c9e64d837393f5d7289c157e5bfcaccb5963c0a8021b49407d831",
+    "20261023-leaf-query-scope/material-cost-scope-legacy-material-v1/child.private.log": "22a034312bbaf6046e47b6c92244149325d5a67caddae8e8c48f405264c4c88e",
+    "20261023-leaf-query-scope/material-cost-scope-legacy-cost-query-v1/terminal.private.json": "39a29f8b760f7c76f3631a0d120f11fa8f81df1f685ae40c05c0cf5806b88686",
+    "20261023-leaf-query-scope/material-cost-scope-legacy-cost-query-v1/child.private.log": "37534c3a5b9aabd2fdcb47732ecd3e458e6ffdc687f11f8b319e9f4f72d1fdae",
+    "20261023-leaf-query-scope/material-cost-scope-red-v1/terminal.private.json": "662cd36d2b92a7fad50fc332aaf78e225d6cf841e24c84110737dee8bfff6ad3",
+    "20261023-leaf-query-scope/material-cost-scope-red-v1/child.private.log": "636cb1e7e66258652d8e771be7122bfca42a2b2343426430d057d777f368306d",
+    "20261023-leaf-query-scope/material-cost-scope-r1-pointer-red-v1/terminal.private.json": "d103ea92bea3f041d32e2a0b1ddc4248b7cdcd6b26b972021f5cbc75e2fb5859",
+    "20261023-leaf-query-scope/material-cost-scope-r1-pointer-red-v1/child.private.log": "25ec7e027b82da148cf8c552a5c2ab942f35f962b345272d2aea33186b16ef07",
+    "20261023-leaf-query-scope/guard.private.py": "e370516b4d564958e26832edfbdc8fc69168984bfd1d638cfd6eb9715e4f5bb3",
+    "20261023-leaf-query-scope/material-cost-scope-collection-v1/terminal.private.json": "d898f9982a54905a9fbb3da08384140c558959834878c16729f3f780c0656f7b",
+    "20261023-leaf-query-scope/material-cost-scope-collection-v1/child.private.log": "6821987610a8e2db06c0b32160b1b601583e3a7ed63f840dc6905839b3d2d23e"
+  },
+  "focused_checks": {
+    "module_counts": {
+      "backend/tests/test_supply_material_cost_scope_binding.py": 67,
+      "backend/tests/test_supply_material_quantities.py": 41,
+      "backend/tests/test_economic_cost_query.py": 37
+    },
+    "mode_counts": {
+      "pure": 47,
+      "owned_PG": 98
+    },
+    "unique_total": 145
+  },
+  "regression_groups": [
+    {
+      "name": "pure-v1",
+      "mode": "pure",
+      "targets": [
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_parses_without_an_economic_or_material_publisher",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_rejects_missing_meaning_or_ambiguous_types",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_bounds_costs_labels_and_names",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_exact_positive_window_relation_and_coverage",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_zero_duration_material_selection_uses_point_semantics",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_submicrosecond_sides_of_start_and_end_are_not_rounded_to_boundaries",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_relation_rejects_reversed_empty_declared_or_inexact_inputs",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_keeps_original_microseconds_across_KST_midnight",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_handles_pre_epoch_microsecond_without_float_truncation",
+        "-x"
+      ],
+      "tests_unique": 47,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T06:14:42.230400Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 2.3594433169346303,
+        "PID_peak_RSS_bytes": 120020992,
+        "combined_peak_RSS_bytes": 154980352,
+        "samples": 6,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11146,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "e43c7403e735656e08cc5f42baf1ecc694813525fb64fde316ac50e894dec043",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T06:14:40.935236+00:00",
+        "exit": 0,
+        "pytest_exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_parses_without_an_economic_or_material_publisher",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_rejects_missing_meaning_or_ambiguous_types",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_bounds_costs_labels_and_names",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_exact_positive_window_relation_and_coverage",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_zero_duration_material_selection_uses_point_semantics",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_submicrosecond_sides_of_start_and_end_are_not_rounded_to_boundaries",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_relation_rejects_reversed_empty_declared_or_inexact_inputs",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_keeps_original_microseconds_across_KST_midnight",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_handles_pre_epoch_microsecond_without_float_truncation",
+          "-x"
+        ],
+        "pytest_argv": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_parses_without_an_economic_or_material_publisher",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_rejects_missing_meaning_or_ambiguous_types",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_bounds_costs_labels_and_names",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_exact_positive_window_relation_and_coverage",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_zero_duration_material_selection_uses_point_semantics",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_submicrosecond_sides_of_start_and_end_are_not_rounded_to_boundaries",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_relation_rejects_reversed_empty_declared_or_inexact_inputs",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_keeps_original_microseconds_across_KST_midnight",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_handles_pre_epoch_microsecond_without_float_truncation",
+          "-x",
+          "-q",
+          "-rf",
+          "--basetemp",
+          "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/pure-v1"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 47
+        },
+        "seconds": 0.8775820650625974,
+        "pure_mode": true,
+        "db_used": false,
+        "no_PG_started": true,
+        "runner_reads_DSN_environment": false,
+        "instrumentation_scope": "pytest.main including collection; after library imports",
+        "instrumented_psycopg_connection_attempts": 0,
+        "instrumented_outbound_attempts": 0,
+        "instrumented_process_attempts": 0,
+        "instrumented_psycopg_entries": [
+          "psycopg.connect",
+          "Connection.connect",
+          "AsyncConnection.connect"
+        ],
+        "instrumented_outbound_events": [
+          "socket.connect",
+          "socket.getaddrinfo",
+          "socket.gethostbyaddr",
+          "socket.gethostbyname",
+          "socket.sendmsg",
+          "socket.sendto"
+        ],
+        "instrumented_process_events": [
+          "os.exec",
+          "os.fork",
+          "os.forkpty",
+          "os.posix_spawn",
+          "os.system",
+          "subprocess.Popen"
+        ],
+        "all_instrumented_attempts_blocked": true,
+        "unhandled_exception_type": null,
+        "G0_G4": "not_assessed",
+        "R2": "not_approved"
+      },
+      "collected_node_ids_sha256": "921fba2c138ebb85979536e529003e058ad97911100e0b801b692f12b0bfd2c6"
+    },
+    {
+      "name": "integration-1-v1",
+      "mode": "owned_PG",
+      "targets": [
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_current_published_cost_and_trusted_material_bind_without_allocating_window_cost",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_valid_independent_partial_and_disjoint_periods_return_original_costs",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_actual_equal_time_material_boundary_is_point_and_not_empty_billing",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_original_money_NULL_zero_and_scientific_text_survive_ambient_context",
+        "-x"
+      ],
+      "tests_unique": 6,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T06:18:56.631478Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 140.07621421990916,
+        "PID_peak_RSS_bytes": 202637312,
+        "combined_peak_RSS_bytes": 325824512,
+        "samples": 545,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11146,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "bc098ef234f13bea98fd2358a62c1ba3ab6cb53cb3a93166197f378ad49ef99c",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T06:18:55.268424+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_published_cost_and_trusted_material_bind_without_allocating_window_cost",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_valid_independent_partial_and_disjoint_periods_return_original_costs",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_actual_equal_time_material_boundary_is_point_and_not_empty_billing",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_original_money_NULL_zero_and_scientific_text_survive_ambient_context",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 6
+        },
+        "seconds": 138.5414835009724,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "b157f3ae3110448a9cbe30d32505710fa274da6a334d5412001a2cb7367f67eb"
+    },
+    {
+      "name": "integration-2-v1",
+      "mode": "owned_PG",
+      "targets": [
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_resource_kind_is_explicit_and_L_or_cost_id_never_infers_it",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_every_original_identity_pin_and_declaration_decision_must_match_current_sources",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_current_read_scopes_invalidate_previous_binding_and_restore_same_bytes",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_material_source_change_during_genuine_cost_read_suppresses_binding",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_late_cost_permission_loss_inside_real_read_never_releases_a_buffer",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_current_embedded_material_use_and_display_are_required",
+        "-x"
+      ],
+      "tests_unique": 6,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T06:23:07.641057Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 190.6348491550889,
+        "PID_peak_RSS_bytes": 214818816,
+        "combined_peak_RSS_bytes": 335368192,
+        "samples": 742,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11146,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "31e0d5f587ae91bd1265d9a4ef9be7ffa95931eb0dc6d484096215d907d9b200",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T06:23:06.079799+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_resource_kind_is_explicit_and_L_or_cost_id_never_infers_it",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_every_original_identity_pin_and_declaration_decision_must_match_current_sources",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_read_scopes_invalidate_previous_binding_and_restore_same_bytes",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_material_source_change_during_genuine_cost_read_suppresses_binding",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_cost_permission_loss_inside_real_read_never_releases_a_buffer",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_embedded_material_use_and_display_are_required",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 6
+        },
+        "seconds": 188.89362254086882,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "893bf7d0b5fa9944958187430d76b7be5cdfc5313166ffd93d861d24f069d563"
+    },
+    {
+      "name": "integration-3-v1",
+      "mode": "owned_PG",
+      "targets": [
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_late_relation_function_replacement_is_held_without_calling_forgery",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_canonical_request_size_duplicate_keys_and_mutable_binding_inputs_are_closed",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_separate_declared_provenance_times_are_preserved_without_ex_ante_claim",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_late_publication_metadata_change_during_real_query_is_held",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_pending_wrong_family_and_foreign_cost_jobs_do_not_become_binding_sources",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_constructor_requires_exact_query_access_and_revalidated_closed_provenance",
+        "-x"
+      ],
+      "tests_unique": 6,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T06:26:31.473307Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 129.6821671561338,
+        "PID_peak_RSS_bytes": 203354112,
+        "combined_peak_RSS_bytes": 310595584,
+        "samples": 504,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11146,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "2a403632c12a1c0d1ac81745fc608069e67ec2a6e182ac5bd6fd384729fcf239",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T06:26:30.011666+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_relation_function_replacement_is_held_without_calling_forgery",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_canonical_request_size_duplicate_keys_and_mutable_binding_inputs_are_closed",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_separate_declared_provenance_times_are_preserved_without_ex_ante_claim",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_publication_metadata_change_during_real_query_is_held",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_pending_wrong_family_and_foreign_cost_jobs_do_not_become_binding_sources",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_constructor_requires_exact_query_access_and_revalidated_closed_provenance",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 6
+        },
+        "seconds": 128.04359240597114,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "2fa727ef14a61ee9d217c944ad85c639aaf0b16e75a7f521239cc68587414316"
+    },
+    {
+      "name": "integration-4-v1",
+      "mode": "owned_PG",
+      "targets": [
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_current_cost_root_or_provider_replacement_holds_and_restoration_preserves_selection",
+        "backend/tests/test_supply_material_cost_scope_binding.py::test_late_pointer_lambda_and_provenance_replacement_cannot_bypass_final_binding",
+        "-x"
+      ],
+      "tests_unique": 2,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T06:28:12.222591Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 55.679875107016414,
+        "PID_peak_RSS_bytes": 187375616,
+        "combined_peak_RSS_bytes": 303755264,
+        "samples": 216,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11146,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "1f170a29d9aaed37feb0b78b52b431e0ae0597354f2debfa0c9ced2d8582ca10",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T06:28:10.942083+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_cost_root_or_provider_replacement_holds_and_restoration_preserves_selection",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_pointer_lambda_and_provenance_replacement_cannot_bypass_final_binding",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 2
+        },
+        "seconds": 54.18564101192169,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "9586d8a4dcb585d98012533e0459a56b0eefae25bcb0700c4537e5bcd1cd7b37"
+    },
+    {
+      "name": "legacy-material-v1",
+      "mode": "owned_PG",
+      "targets": [
+        "backend/tests/test_supply_material_quantities.py",
+        "-x"
+      ],
+      "tests_unique": 41,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T06:31:15.341270Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 46.907554999925196,
+        "PID_peak_RSS_bytes": 184193024,
+        "combined_peak_RSS_bytes": 349249536,
+        "samples": 182,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11146,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "22a034312bbaf6046e47b6c92244149325d5a67caddae8e8c48f405264c4c88e",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T06:31:13.885551+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_supply_material_quantities.py",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_supply_material_quantities.py": 41
+        },
+        "seconds": 45.188122471794486,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "888f668056893cb2daa197d4247e14a1b793802d2fa4ebd161e6c37bc029efbf"
+    },
+    {
+      "name": "legacy-cost-query-v1",
+      "mode": "owned_PG",
+      "targets": [
+        "backend/tests/test_economic_cost_query.py",
+        "-x"
+      ],
+      "tests_unique": 37,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T06:36:20.657683Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 256.63621651008725,
+        "PID_peak_RSS_bytes": 124780544,
+        "combined_peak_RSS_bytes": 298549248,
+        "samples": 986,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11146,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "37534c3a5b9aabd2fdcb47732ecd3e458e6ffdc687f11f8b319e9f4f72d1fdae",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T06:36:19.344085+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_economic_cost_query.py",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_economic_cost_query.py": 37
+        },
+        "seconds": 255.13775101793,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "ee812d7764a338a1e3009e31220ce804bb1ffd30f696dc86132962f7319be6a4"
+    }
+  ],
+  "independent_relation_tables": {
+    "test_exact_positive_window_relation_and_coverage": {
+      "rows": [
+        [
+          0,
+          1,
+          2,
+          3,
+          "before",
+          "no_overlap"
+        ],
+        [
+          0,
+          1,
+          1,
+          2,
+          "meets",
+          "no_overlap"
+        ],
+        [
+          0,
+          2,
+          1,
+          3,
+          "overlaps",
+          "partial_window"
+        ],
+        [
+          0,
+          1,
+          0,
+          2,
+          "starts",
+          "whole_window"
+        ],
+        [
+          1,
+          2,
+          0,
+          3,
+          "during",
+          "whole_window"
+        ],
+        [
+          1,
+          2,
+          0,
+          2,
+          "finishes",
+          "whole_window"
+        ],
+        [
+          0,
+          2,
+          0,
+          2,
+          "equal",
+          "whole_window"
+        ],
+        [
+          0,
+          2,
+          1,
+          2,
+          "finished_by",
+          "partial_window"
+        ],
+        [
+          0,
+          3,
+          1,
+          2,
+          "contains",
+          "partial_window"
+        ],
+        [
+          0,
+          2,
+          0,
+          1,
+          "started_by",
+          "partial_window"
+        ],
+        [
+          1,
+          3,
+          0,
+          2,
+          "overlapped_by",
+          "partial_window"
+        ],
+        [
+          1,
+          2,
+          0,
+          1,
+          "met_by",
+          "no_overlap"
+        ],
+        [
+          2,
+          3,
+          0,
+          1,
+          "after",
+          "no_overlap"
+        ]
+      ],
+      "actual_passed_nodes": 13,
+      "table_sha256": "58e52e551c012ac26e5c8972885bab2d58f0cefbfa8e656738cf17cf15cc4fe1"
+    },
+    "test_zero_duration_material_selection_uses_point_semantics": {
+      "rows": [
+        [
+          0,
+          "point_before",
+          "point_not_covered"
+        ],
+        [
+          1,
+          "point_at_start",
+          "point_covered"
+        ],
+        [
+          2,
+          "point_inside",
+          "point_covered"
+        ],
+        [
+          3,
+          "point_at_end",
+          "point_not_covered"
+        ],
+        [
+          4,
+          "point_after",
+          "point_not_covered"
+        ]
+      ],
+      "actual_passed_nodes": 5,
+      "table_sha256": "12bc5681e887a0e5ddd301cbedd2edd511f88e44b97eb02867207b05ee36e19d"
+    }
+  },
+  "actual_functional_RED": {
+    "terminal_sha256": "662cd36d2b92a7fad50fc332aaf78e225d6cf841e24c84110737dee8bfff6ad3",
+    "controller_sha256": "d9fda0ee25464c832683bf61c77bbaee8455107f05f563b539d621f6412fc730",
+    "log_sha256": "636cb1e7e66258652d8e771be7122bfca42a2b2343426430d057d777f368306d",
+    "preimplementation_snapshot_sha256": "8a7db4799b7e412eac88d4afc0a6a9f4cb4cbf90d41682e8430b9dc7c6bfb976",
+    "actual_functional_RED": true,
+    "reason": "missing new module after genuine stored-material/published-cost fixtures",
+    "not_accepted_passes": true
+  },
+  "actual_pointer_dispatch_RED_and_fix": {
+    "actual_RED_terminal_sha256": "d103ea92bea3f041d32e2a0b1ddc4248b7cdcd6b26b972021f5cbc75e2fb5859",
+    "actual_RED_log_sha256": "25ec7e027b82da148cf8c552a5c2ab942f35f962b345272d2aea33186b16ef07",
+    "actual_RED_controller_sha256": "ffcf60b27965466b99710fe7309f5d2b2b71d8395740e386e93a60ce9f059e45",
+    "pre_fix_snapshot_sha256": "9cfcdef0fd77d4c6bfed2ca96bc9fc029809ba4ad0e4602c9ce2e941cfa5ef5c",
+    "preserved_before_module_sha256": "a8dbec59547e26f1caee8bfadf8523d399f12374ab69bbd63564c74cb9cbd496",
+    "fixed_current_module_sha256": "2e81c6c51b4d3c10f14eff2ca2dab5ae122a115f2a1c0b9b369bac7ed03fe223",
+    "only_changed_source_from_pointer_RED_snapshot": "backend/app/crop_supply_material_cost_scope_binding.py",
+    "author_fix_receipt_sha256": "071c277ac80afdc48bc92c74ebdf1efd609d2efef92b087da85b56c2e1fac679",
+    "author_native_session_id": "01a1ae8e-67fd-7f61-a0ce-4522a709de93",
+    "changed_methods": [
+      "__init__",
+      "_capture_program",
+      "_guard",
+      "_pointers"
+    ],
+    "added_program_fields": [
+      "capture",
+      "directory",
+      "pointers"
+    ],
+    "actual_passed_regression_selectors": [
+      "backend/tests/test_supply_material_cost_scope_binding.py::test_late_pointer_lambda_and_provenance_replacement_cannot_bypass_final_binding"
+    ],
+    "failed_RED_not_counted_as_pass": true
+  },
+  "binding_proofs": [
+    {
+      "proof_path": "20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-binding-receipt-v1.private.json",
+      "proof_sha256": "008b1cf921ca2ef000106e62795ebcac3f37f98ad6bb376dc2af6c9166e37004",
+      "binding_path": "20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-binding-v1.json",
+      "binding_sha256": "6e098c3687755b1d1b67d0e5e2dac0320f1270261ba0373b3499e22987057207",
+      "binding_bytes": 35982,
+      "binding_id": "0b36d057b1dee7e763cf8a94b7f8e4a757c1d45e8f16da24b2a69107770c6bf1",
+      "original_cost_path": "20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-original-cost-v1.json",
+      "original_cost_sha256": "a946e68eea11d5f22c69e1db286623a7869aa827f146faa52fc8184f77aedeb1",
+      "cost_result_sha256": "7c48e5abd65ef0efb49724801d790a96667adb41bfc6521faf2919e15d4deab9",
+      "base_result_sha256": "2518c11fa103f821ed304bc267efbfc0ad3e2ef392770f5849bb0ab722dfe168",
+      "quantity_sha256": "578444ba5271bae4e2bbcb2596fe6bcd21ad6c8e38335af8e860dfa0ce1a8891",
+      "publication_id": "d6b84f2a-c6c3-4199-bf29-36eb38cbc748",
+      "published_at": "2026-11-06T15:16:52.358664+09:00",
+      "permitted_PG_reads": true,
+      "product_holds": [
+        "farm_current_custody_unverified",
+        "resource_cost_declaration_unregistered",
+        "window_cost_allocation_not_established"
+      ]
+    }
+  ],
+  "provenance": {
+    "parent_consumer_commit": "2707998f4e4e625ea785779bfdbf9fc0575dd241",
+    "parent_consumer_manifest_sha256": "b11581a91952dab04da68029895b1e6a645ffb3d69591c4012bfff876d8d9694",
+    "parent_consumer_accepted_receipt_sha256": "6bc680cdc7575a917dae044ecc4e929f8839f045550947008eb361853e146259",
+    "parent_consumer_checks": {
+      "source_links": 2,
+      "outputs": 1,
+      "private": 50,
+      "external": 9,
+      "supplemental_final_review_sha256": 6,
+      "external_final_review_sha256": 2
+    },
+    "parent_consumer_integrations_current_and_Git": 36,
+    "parent_ancestry": {
+      "parent_runtime_commit": "801396642b306d56e8a2e4dd9a2f8e5a734d49a9",
+      "parent_runtime_manifest_sha256": "e2ddf47afaa59e33479cc817b08086de5e7febdd56aafc9276451584898decff",
+      "accepted_ancestor_checks": {
+        "economic-cost-runtime-assembly-20261106": {
+          "manifest_sha256": "e2ddf47afaa59e33479cc817b08086de5e7febdd56aafc9276451584898decff",
+          "accepted_commit": "801396642b306d56e8a2e4dd9a2f8e5a734d49a9",
+          "accepted_receipt_sha256": "e9a187e7d74996f9b7c5fef95e9fbee180ebf61321f789784bb71cf2f2016284",
+          "historical_tests_not_recounted": 13,
+          "outputs": 1,
+          "private": 31,
+          "external": 3,
+          "source_links": 2,
+          "supplemental_final_review_sha256": 6,
+          "external_final_review_sha256": 2,
+          "accepted_integration_Git_snapshots": 33,
+          "inherited_HTTP_integration_history": []
+        },
+        "economic-cost-protected-http-20261106": {
+          "manifest_sha256": "4d0892f3e7cb58586da73ac14b978f005338634fcdbebcfc4b0c7b4bb50eefe4",
+          "accepted_commit": "514b9bc0023a0991c7ba4a072321239047142156",
+          "accepted_receipt_sha256": "9dd05cb98a2fe9801732ac8782bee23c43f90aeb03b4f8b5657fdf9bcbe83e7b",
+          "historical_tests_not_recounted": 308,
+          "outputs": 1,
+          "private": 78,
+          "external": 21,
+          "source_links": 2,
+          "supplemental_final_review_sha256": 6,
+          "external_final_review_sha256": 2,
+          "accepted_integration_Git_snapshots": 32,
+          "inherited_HTTP_integration_history": []
+        },
+        "economic-cost-stored-result-query-20261106": {
+          "manifest_sha256": "677ace4e215d6ae23ce9e10246fc03fae344e3014c3776f2d7e84ac37bc9c334",
+          "accepted_commit": "bd5283d3d05111fc851170976a705a6448da9f4a",
+          "accepted_receipt_sha256": "316fbfb753fc17775445527a883108a8c9c56ac5c72f285e3d9b9516933deda1",
+          "historical_tests_not_recounted": 114,
+          "outputs": 1,
+          "private": 52,
+          "external": 13,
+          "source_links": 2,
+          "supplemental_final_review_sha256": 5,
+          "external_final_review_sha256": 2,
+          "accepted_integration_Git_snapshots": 29,
+          "inherited_HTTP_integration_history": [
+            "backend/app/api.py",
+            "backend/app/api_economic_batch.py"
+          ]
+        },
+        "economic-cost-execution-worker-20261106": {
+          "manifest_sha256": "b29e4be6ddb8afc8a9f720e56f0b948b1373dccaabde32b9c3270c45a74e686c",
+          "accepted_commit": "4edef92da8ebb7849ccde96a9d8f97e9c385b856",
+          "accepted_receipt_sha256": "295adc8974a01bbcbc28e62520497c019d92816bf10e259c8bb34a6e968ab082",
+          "historical_tests_not_recounted": 425,
+          "outputs": 1,
+          "private": 37,
+          "external": 14,
+          "source_links": 2,
+          "supplemental_final_review_sha256": 5,
+          "external_final_review_sha256": 2,
+          "accepted_integration_Git_snapshots": 25,
+          "inherited_HTTP_integration_history": [
+            "backend/app/api.py",
+            "backend/app/api_economic_batch.py"
+          ]
+        },
+        "economic-cost-calculation-admission-20261106": {
+          "manifest_sha256": "aa8ef76c57f253825b941cf81696f8f0adb81a66cba2df60770856b1f25ed3d3",
+          "accepted_commit": "8f7606c3f99696d139961226829f21571348833e",
+          "accepted_receipt_sha256": "d00797e35e54ba31409ea91617563049eda877b30be0e38c4c302d94562f73fc",
+          "historical_tests_not_recounted": 299,
+          "outputs": 1,
+          "private": 8,
+          "external": 6,
+          "source_links": 2,
+          "supplemental_final_review_sha256": 3,
+          "external_final_review_sha256": 2,
+          "accepted_integration_Git_snapshots": 22,
+          "inherited_HTTP_integration_history": [
+            "backend/app/api.py",
+            "backend/app/api_economic_batch.py"
+          ]
+        },
+        "economic-cost-line-trace-20261031": {
+          "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+          "accepted_commit": "d97dc9c96916d9567543adc568dfbbb19218f9b7",
+          "accepted_receipt_sha256": "eeb3a7edeca6136af7b51e218c61302cd557a0c941c9cfb4070612abe13799ab",
+          "historical_tests_not_recounted": 233,
+          "outputs": 2,
+          "private": 22,
+          "external": 20,
+          "supplemental_final_review_sha256": 3,
+          "external_final_review_sha256": 2,
+          "accepted_integration_Git_snapshots": 20,
+          "inherited_HTTP_integration_history": [
+            "backend/app/api.py",
+            "backend/app/api_economic_batch.py"
+          ],
+          "resume_private": 5,
+          "resume_external": 2
+        }
+      },
+      "current_parent_integrations_unchanged": 31,
+      "mutable_integration_updates": {
+        "backend/app/deterministic_job_discovery.py": {
+          "accepted_runtime_sha256": "f65c0bff52612dbc18044114c2e4fa536b9d1eda4ceb27927361452a73e4a29f",
+          "current_sha256": "98721ae87422f43788e981becec9a4560c425c9a08a309f1bc766a6800e2dc68"
+        },
+        "backend/app/deterministic_work.py": {
+          "accepted_runtime_sha256": "2a7f5c6f12f51fc4cd9113b612d3837ae86f90296000a79ad75d4e6f74daa1cd",
+          "current_sha256": "e14beebdb3e19ef223bd9ab151a487df8f79f5aec822ca167d3c5b1bf11de307"
+        }
+      },
+      "source_snapshot_exceptions": {
+        "backend/app/economic_batch_worker.py": {
+          "commit": "8f7606c3f99696d139961226829f21571348833e",
+          "sha256": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198",
+          "bytes": 10000,
+          "inherited_from_parent": true
+        },
+        "backend/app/economic_batch_query.py": {
+          "commit": "4edef92da8ebb7849ccde96a9d8f97e9c385b856",
+          "sha256": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd",
+          "bytes": 11139,
+          "inherited_from_parent": false
+        }
+      },
+      "current_strict_inherited_sources": 748,
+      "historical_worker_source_pins": {
+        "research/artifacts/economic-batch-execution-worker-20261031.json": {
+          "manifest_sha256": "77f3660af15cb9a8789fa5002e3cf72e41fec93f2eed8d4bfe058c6a3b38ffd8",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-batch-stored-result-query-20261031.json": {
+          "manifest_sha256": "e50b4c026c81b9fa6abcc778ae86b92752b7ed75ff26252484b2d71f9a33804a",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-batch-protected-http-20261031.json": {
+          "manifest_sha256": "4fc70788442d38c9434e4c4d63ad5a341b2e5277ff64e86b2f3fd61dd667c009",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-batch-runtime-assembly-20261031.json": {
+          "manifest_sha256": "2097a4c380571da47c128af71e21260b6507bf8cf22a1ce2b8cd946a11599765",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-batch-automatic-consumer-20261031.json": {
+          "manifest_sha256": "5bcab22bb8ef867c4fabdfb759b869d658e995ecf0cb4d5c69d23dcfc8755f6b",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-cost-line-trace-20261031.json": {
+          "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        }
+      },
+      "historical_query_source_pins": {
+        "research/artifacts/economic-batch-stored-result-query-20261031.json": {
+          "manifest_sha256": "e50b4c026c81b9fa6abcc778ae86b92752b7ed75ff26252484b2d71f9a33804a",
+          "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+        },
+        "research/artifacts/economic-batch-protected-http-20261031.json": {
+          "manifest_sha256": "4fc70788442d38c9434e4c4d63ad5a341b2e5277ff64e86b2f3fd61dd667c009",
+          "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+        },
+        "research/artifacts/economic-batch-runtime-assembly-20261031.json": {
+          "manifest_sha256": "2097a4c380571da47c128af71e21260b6507bf8cf22a1ce2b8cd946a11599765",
+          "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+        },
+        "research/artifacts/economic-batch-automatic-consumer-20261031.json": {
+          "manifest_sha256": "5bcab22bb8ef867c4fabdfb759b869d658e995ecf0cb4d5c69d23dcfc8755f6b",
+          "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+        },
+        "research/artifacts/economic-cost-line-trace-20261031.json": {
+          "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+          "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+        }
+      },
+      "pin_readiness_sha256": "ca977fecfc13c10e1c949b74a2a7992115f2fae2521c6d4f54522c4d1eb0b6a3",
+      "archived_full_current_integration_validators_invoked_or_modified": false,
+      "UI_source_pins": 687,
+      "UI_output_pins": 4,
+      "UI_private_pins": 745,
+      "UI_external_pins": 46,
+      "expired5184_static_and_terminal": {
+        "files": 238,
+        "bytes": 21012689,
+        "actual_HTTP_files": 0,
+        "expired": true,
+        "original_identity_live": false,
+        "first_expiry_UTC": "2026-10-31T08:03:53.647997+00:00",
+        "owner_policy_inventory_sha256": {
+          "preview-owner-v1.private.json": "c53ee15d408071fb9c15aa6790bdf5aaff976803d7884897fb16771c0962934e",
+          "preview-policy-v1.private.json": "ae035fc89dc9f6301eb98a5c6ea2ee3df78a1fb2b3fa05524d8d8d88d518e4ab",
+          "preview-files-v1.private.json": "0b6b38b06b0dae05cf2d9062cb675b5b3ea378ad67c2baf782ec3fbb624eda92"
+        }
+      },
+      "expired5181_static_and_terminal": {
+        "files": 233,
+        "bytes": 21131597,
+        "actual_HTTP_files": 0,
+        "expired": true,
+        "original_identity_live": false,
+        "first_expiry_UTC": "2026-10-31T04:34:17.822115+00:00",
+        "owner_policy_inventory_sha256": {
+          "preview-owner-v1.private.json": "0d140ef7fb298fc8865bbbcb7c0268940e8a9af1022a1a5b793513ad9b114040",
+          "preview-policy-v1.private.json": "6049767289666c62b9cf62f82403ef08fc62364c3f3d757210bd54fd833e0bcc",
+          "preview-files-v1.private.json": "dd311b0a49f31b2544bb1a0780aea60c0e636eff6bf5c0fe7f6e413a8f5f313e"
+        }
+      }
+    },
+    "historical_counts_not_recounted": {
+      "consumer": 235,
+      "runtime": 13,
+      "HTTP": 308,
+      "query": 114,
+      "worker": 425,
+      "admission": 299,
+      "kernel": 233
+    },
+    "reused_readonly_consumer_validator_sha256": "a02a7b3d3e59d6ad73dc4a3f33877137bed653cd8f161ee9e3312b7001f9040e",
+    "archived_validate_inputs_or_final_review_called": false,
+    "source_snapshot_exceptions_added": 0
+  },
+  "native_turn_evidence": {
+    "observed_at_UTC": "2026-11-06T06:41:02.598399+00:00",
+    "qualified_native_Codex_internal_agents": [
+      {
+        "agent_path": "/root/cost_worker_tests_20261106",
+        "native_session_id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T06:39:47.857Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "2574ec34f45e8b75537a300dbc3868be0341e37ee662bd66a386a36c76a4ad96",
+        "metadata_path": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-52-00-01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c.jsonl",
+        "hash_semantics": "exact JSONL turn_context bytes including LF"
+      },
+      {
+        "agent_path": "/root/cost_worker_contract_review_20261106",
+        "native_session_id": "01a1ae8e-67fd-7f61-a0ce-4522a709de93",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T06:39:59.042Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "0815e78a29f57cefa5e9a84a817e77737f6183667a517a2bddaef902f8fe5d2e",
+        "metadata_path": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-52-10-01a1ae8e-67fd-7f61-a0ce-4522a709de93.jsonl",
+        "hash_semantics": "exact JSONL turn_context bytes including LF"
+      },
+      {
+        "agent_path": "/root/cost_worker_acceptance_docs_20261106",
+        "native_session_id": "01a1ae93-8595-7e63-8027-2590fb682ea2",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T05:53:54.134Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "b05250490c6ffa27b9a05c6f073f880fdbeeea637890410e53c470fe468bb555",
+        "metadata_path": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-57-46-01a1ae93-8595-7e63-8027-2590fb682ea2.jsonl",
+        "hash_semantics": "exact JSONL turn_context bytes including LF"
+      }
+    ],
+    "actual_child_metadata_independently_verified": true,
+    "parent_actual_model": "gpt-6.1-sol",
+    "parent_actual_effort": "ultra",
+    "parent_is_not_exact_judgment_session": true,
+    "substantive_decisions_and_implementation_by": "verified xhigh native Codex internal agents; root orchestrates validation and recording",
+    "recursive_Codex_CLI": false,
+    "new_external_CLI_launched": false,
+    "data_or_gate_adoption": false,
+    "previous_goal_turn": "progress: exact costautomaticconsumer235accepted2707998f; currentread-onlymaterial-costscope actual145=67new+78legacy, explicitfullproductholds",
+    "parent_actual_turn_timestamp": "2026-11-06T05:17:09.988Z",
+    "parent_actual_turn_metadata_sha256": "00e56a936420a1ec617233f983be925483167d82969f0c2ae373bdb50cb1e081",
+    "preserved_prior_snapshot_sha256": "f49298eab21849c0bd9e4a547a7972a1b13337ea1543ce3dd6699ea96e84a14f",
+    "current_actual_tests_passed": 145,
+    "preserved_HTTP_native_snapshot_sha256": "0fdc52eae43f80bbe5772c395cef1a378b63e1acfb074e47614c2713c3e51626",
+    "preserved_runtime_native_snapshot_sha256": "2a94d9f2777ba6ada7e6a962f157987f946ad63407d0205be04eace9430d3257",
+    "preserved_consumer_native_snapshot_sha256": "d664b96a1637a79c8424b26e902a06ceadb23829648b25ef0b82bd6449c2e742"
+  },
+  "review": {
+    "review_version": "material-cost-scope-independent-review-v1",
+    "observed_at_UTC": "2026-11-06T06:48:22.645356+00:00",
+    "reviewer_agent": "/root/cost_worker_tests_20261106",
+    "independent_native_review": true,
+    "reviewer_was_implementation_author": false,
+    "reviewer_was_test_author": true,
+    "native_session_id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+    "actual_native_Codex_CLI": {
+      "metadata_location": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-52-00-01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c.jsonl",
+      "session": {
+        "id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "source": {
+          "subagent": {
+            "thread_spawn": {
+              "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+              "depth": 1,
+              "agent_path": "/root/cost_worker_tests_20261106",
+              "agent_nickname": "Dalton",
+              "agent_role": null
+            }
+          }
+        },
+        "raw_line_sha256_with_LF": "a9d11897e08b3439c0845ed73c15b63390fb8b5e051e0379cea9909b4385672b"
+      },
+      "latest_turn_context": {
+        "timestamp": "2026-11-06T06:39:47.857Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "2574ec34f45e8b75537a300dbc3868be0341e37ee662bd66a386a36c76a4ad96"
+      },
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "xhigh",
+      "recursive_launch": false
+    },
+    "axes": [
+      "correctness",
+      "readability",
+      "architecture",
+      "security",
+      "performance"
+    ],
+    "axis_assessment": {
+      "correctness": {
+        "verdict": "pass for scoped research kernel",
+        "reason": "Closed schema/units, exact UTC/Fraction and complete13interval+5point classifications passed actual pure checks. Real trusted material and actually published current CostQuery compose successfully for equal, partial/contained/disjoint and point selections. Original money/null/scientific text, occurrence/payment/purpose and first publication are preserved; allocated_window_cost remains null. Actual145 union covers requested targets; both genuine REDs are excluded. R1 was confirmed and resolved by the same actual regression."
+      },
+      "readability": {
+        "verdict": "pass",
+        "reason": "One closed request, explicit provenance and typed coverage fields keep original selections distinct from independent assumptions. Pure time helpers and a fixed captured program make guards understandable. TheR1 correction captures original pointer/capture/directory methods instead of adding live callback indirection. No old numeric/API path was refactored."
+      },
+      "architecture": {
+        "verdict": "pass for necessary intermediate",
+        "reason": "New module reuses accepted material/currentCost readers without new arithmetic, DB/schema/roles, queue/runtime/HTTP, publication or custody authority. Parent36 remains unchanged at accepted2707998f. Research output is useful for valid independent periods rather than an always-hold substitute; actual same-Farm custody/cost association, immutable product admission/query, HTTP/runtime/SDK/same-selectionUI remain required."
+      },
+      "security": {
+        "verdict": "pass for tested software boundary",
+        "reason": "Exact constructor types and revalidated provenance, canonical bounded bytes, no request filesystem/provider/Farm authority, current tenant/scopes/source/embeddeduse+display and late source/function/publication/provider/root checks are verified. R1 actual late pointer/provenance callback now holds without invoking forgery. Actual PG reads are permitted; SQL/CAS writes, model/worker/amount execution and extra nonDB network/process paths are blocked in validation. No actual publication/availability/custody/G0 is inferred from model time or file access."
+      },
+      "performance": {
+        "verdict": "pass for bounded focused scope; no production benchmark",
+        "reason": "Request131072bytes/result2097152bytes/128costs/32labels and existing material bounds remain. Actual47pure tests have0DB/outbound/process attempts; real20 binding and legacy78 checks complete in finite sequential guarded groups below resource limits with no hold, FD4to4/owned0, PG stopped and source/protected entries preserved. New perCost loop adds no amount arithmetic or perCost SQL."
+      }
+    },
+    "reviewed_source_sha256": {
+      "backend/app/market_hold_store.py": "dcd6b6ab6123e11b49720456a2d2dc5c836337f4a416c9dd6486e76171cb6125",
+      "backend/app/market_source_store.py": "a463f7641a917ffa86f0ffd965212632ff56f11243fbbf7a77d5130f754d5a79",
+      "backend/app/operator_config.py": "b348cb7955e122466bdacd58dd057c90dba6d75c786307db0bdd68435fb9aa3c",
+      "backend/app/runtime_roles.py": "4c5fef33de51c51b0e3e573ca3b06ae8d36b41200327dd80c457162260bf3b78",
+      "backend/tests/login_database.py": "7a1da0a4ad3b492f158010a8c12b4ea6a152d5fc505f37792af64e94d6cf6ee1",
+      "backend/tests/test_runtime_roles.py": "a218f8d65fddfd631f39b0a3c56fb9971af1073f80e5e52e77844aefc4a7c29f",
+      "backend/app/api.py": "4c7395328f2f738e39544b1e4176e18b670a747c1feb6fda117fe2e104fe3507",
+      "backend/app/api_market_source.py": "7cdc2e67ea9e3f85018721dc18e4234ffa6b3fcc56405c6c5daa9b298996d5da",
+      "backend/app/api_economic_batch.py": "080934b74a975019a983cc4ca3b59c1b52bd49ec6cb05cc8f0a14a225c9b0c3d",
+      "backend/app/economic_batch_wire.py": "4254c59e0c7d96a17cfdb18e378551fa3836c614aa28b4f1d6466d07aab7712a",
+      "backend/tests/test_api_economic_batch.py": "398d31377189368f0332864942fd366058f0b97167b86b2b425cdaa495f65007",
+      "backend/app/api_runtime.py": "494fbac16722c5b235b84317309fd75be66bf9699ee81e36710722dab216db06",
+      "backend/tests/test_economic_batch_runtime.py": "c0b707ff0680ee89d393944893964b92e46235d700089479c100cd7ffda5b481",
+      "backend/app/deterministic_work.py": "e14beebdb3e19ef223bd9ab151a487df8f79f5aec822ca167d3c5b1bf11de307",
+      "backend/app/deterministic_job_discovery.py": "98721ae87422f43788e981becec9a4560c425c9a08a309f1bc766a6800e2dc68",
+      "backend/tests/test_economic_batch_consumer.py": "5c7335feb1ce8f5b00d2d3c7ac6b2ed559bd2ea2b853fb1ab3e159bb1872f5a3",
+      "backend/tests/test_economic_batch_consumer_http.py": "75b7369b241d8c525dac6b33e62a9f0e4744b1035ab56e016b668fed547fdc93",
+      "backend/tests/economic_batch_consumer_factory.py": "435cdc3841c7bd032b6116680fa807982bd0c5d884d9ebc01a82dff2ff2924c3",
+      "backend/tests/test_economic_cost_trace.py": "a4cac0e00fed99385346c6251f5b084a13f6d44ecf949f490bb40de25da50e21",
+      "backend/tests/economic_cost_trace_cold.py": "69f5cc7673c96f79fdf379f0732244c6194eb6fe480290f6d44110ae3fe24d23",
+      "backend/app/economic_cost_calculation.py": "ac2419f9717b4736cace7a52f8c2856693590b1c54761a324a0339ac1ea0a134",
+      "backend/tests/test_economic_cost_calculation.py": "7f5db78e06284be53ddde131a3c9ae6a4a18cfaf0ab7207db417c4bc77e653c9",
+      "backend/app/economic_batch_worker.py": "234975b76726503631087e0ec7818489e054a27caefe79ff54a59be0071127e5",
+      "backend/app/economic_cost_worker.py": "968daef4978cbe1667a3fe2e4f72371926b67996b668a31ac952bf7465072625",
+      "backend/tests/test_economic_cost_worker.py": "e4ba10da3d37083c85c278080eca5272527691799c56eda43b8f9dfcba764929",
+      "backend/app/economic_batch_query.py": "19c82768757b9633558085d590924b3686fc4c149e7e5b92b267a978840a37de",
+      "backend/app/economic_cost_query.py": "fdfcae7fa3269616c711f82bc4bbfae9b3242271065f62ef14f50257f0f2df5d",
+      "backend/tests/test_economic_cost_query.py": "8cc60973091d201e086770dcb72422bd314a85da1414d52bc7684a3847c7a11c",
+      "backend/tests/economic_cost_query_reader.py": "3e5563044654a8bd680e0992f3fec91ed1337984c1b5592d0346b536cac65b65",
+      "backend/app/economic_cost_wire.py": "59385b33551a256376865a047c5ed134765cc78173bf898a303af7d438ef9d5e",
+      "backend/tests/test_api_economic_cost.py": "c168d39f0b2286508369dfa7697d3e1dc4731cca6fa8162db2a0869e77e4d635",
+      "backend/app/api_economic_cost.py": "ae318a44ed7418ccda03ed07acbaf4ad76a9f9dcba7a6a3ea5661b651227f070",
+      "backend/tests/test_economic_cost_runtime.py": "1726c202a1b169b446680fefddb936a791f8c22e75260827dc05f693e06e90ee",
+      "backend/tests/test_economic_cost_consumer_http.py": "c869e5a3730c596f357bf158ed1e2af55cbb512daaeffec8ec03ef1bcf598371",
+      "backend/tests/test_economic_cost_consumer.py": "a704ac07612eb3e4be49acd0cf6410830382c6f09fce8d9e608941444bd47cb5",
+      "backend/tests/economic_cost_consumer_factory.py": "b34ddedcf25ac9b5458a18070e70125dbe6d9c947a16fba33b1d4956a1301c22",
+      "backend/tests/test_supply_material_cost_scope_binding.py": "07cdd67312b0673f5f270659ade1477f139030153960724861c5936f008bdefe",
+      "backend/app/crop_supply_material_cost_scope_binding.py": "2e81c6c51b4d3c10f14eff2ca2dab5ae122a115f2a1c0b9b369bac7ed03fe223"
+    },
+    "source_snapshot": {
+      "path": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/test-source-snapshot-v4.private.json",
+      "sha256": "9e10649873072dd7965884e6919c01a453b3360d1edf11b656130307cb5e06ae",
+      "source_count": 38,
+      "all_current_match": true
+    },
+    "parent_preservation": {
+      "accepted_commit": "2707998f4e4e625ea785779bfdbf9fc0575dd241",
+      "accepted_receipt_path": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-consumer/accepted-v1.private.json",
+      "accepted_receipt_sha256": "6bc680cdc7575a917dae044ecc4e929f8839f045550947008eb361853e146259",
+      "parent36_current_hashes_unchanged": true,
+      "accepted_Git_binding_verified_in_bootstrap": true,
+      "new_production_modules": 1,
+      "existing_production_paths_modified": 0,
+      "new_tests": 1,
+      "referenced_old_material_economic_source_hashes_current": true,
+      "old_full_binding_contract_preserved": true,
+      "prior235_13_308_114_425_counts_not_recounted": true
+    },
+    "reviewed_contract": {
+      "path": "contracts/supply-material-resource-cost-scope-binding-v1.md",
+      "sha256": "f23327441223fc15649795f29879bea139137e00965106aa30fe6dfecf3d9dd7",
+      "status_at_review": "pending implementation/acceptance; independently reviewed without awaiting owner acceptance"
+    },
+    "actual_counts": {
+      "new": 67,
+      "pure": 47,
+      "real_current_bound": 20,
+      "legacy": 78,
+      "total_unique": 145,
+      "phase_counts": [
+        47,
+        6,
+        6,
+        6,
+        2,
+        41,
+        37
+      ],
+      "by_module": {
+        "backend/tests/test_supply_material_cost_scope_binding.py": 67,
+        "backend/tests/test_supply_material_quantities.py": 41,
+        "backend/tests/test_economic_cost_query.py": 37
+      },
+      "all_nodes_globally_disjoint": true,
+      "new67_exactly_matches_full_module_collection": true,
+      "all_requested_selectors_covered": true,
+      "raw_controller_argv_and_nodeIDs_preserved": true,
+      "comparison_normalization": "remove only repository/backend prefix for matching; effective probe entry+args/cwd verified against guard source",
+      "normalized_node_ids_sha256": "0a8f58fb47d1e3ad4907b9afab43c5e4248480975ce9f94a1ad107e8e41859be",
+      "actual_Allen_interval_cases": 13,
+      "actual_point_cases": 5
+    },
+    "actual_phase_evidence": [
+      {
+        "phase": "pure-v1",
+        "mode": "pure",
+        "passed": 47,
+        "module_counts": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 47
+        },
+        "actual_pytest_seconds": 0.73,
+        "guard_wall_seconds": 2.3594433169346303,
+        "actual_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_parses_without_an_economic_or_material_publisher",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_rejects_missing_meaning_or_ambiguous_types",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_bounds_costs_labels_and_names",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_exact_positive_window_relation_and_coverage",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_zero_duration_material_selection_uses_point_semantics",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_submicrosecond_sides_of_start_and_end_are_not_rounded_to_boundaries",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_relation_rejects_reversed_empty_declared_or_inexact_inputs",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_keeps_original_microseconds_across_KST_midnight",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_handles_pre_epoch_microsecond_without_float_truncation"
+        ],
+        "effective_entry": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-pure-tests-v1.private.py",
+        "effective_args": [
+          "pure-v1",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_parses_without_an_economic_or_material_publisher",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_rejects_missing_meaning_or_ambiguous_types",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_closed_declaration_bounds_costs_labels_and_names",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_exact_positive_window_relation_and_coverage",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_zero_duration_material_selection_uses_point_semantics",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_submicrosecond_sides_of_start_and_end_are_not_rounded_to_boundaries",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_relation_rejects_reversed_empty_declared_or_inexact_inputs",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_keeps_original_microseconds_across_KST_midnight",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_UTC_fraction_handles_pre_epoch_microsecond_without_float_truncation",
+          "-x"
+        ],
+        "effective_cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim",
+        "source38_bound_and_preserved": true,
+        "exit": 0,
+        "hold_reason": null,
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "owned_remaining": 0,
+        "PG_stopped_if_started": true,
+        "supervisor_PID": 797429,
+        "supervisor_PID_absent": true,
+        "peak_PID_RSS_bytes": 120020992,
+        "peak_combined_RSS_bytes": 154980352
+      },
+      {
+        "phase": "integration-1-v1",
+        "mode": "owned_PG",
+        "passed": 6,
+        "module_counts": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 6
+        },
+        "actual_pytest_seconds": 136.64,
+        "guard_wall_seconds": 140.07621421990916,
+        "actual_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_published_cost_and_trusted_material_bind_without_allocating_window_cost",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_valid_independent_partial_and_disjoint_periods_return_original_costs",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_actual_equal_time_material_boundary_is_point_and_not_empty_billing",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_original_money_NULL_zero_and_scientific_text_survive_ambient_context"
+        ],
+        "effective_entry": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-owned-tests-v1.private.py",
+        "effective_args": [
+          "integration-1-v1",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_published_cost_and_trusted_material_bind_without_allocating_window_cost",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_valid_independent_partial_and_disjoint_periods_return_original_costs",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_actual_equal_time_material_boundary_is_point_and_not_empty_billing",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_original_money_NULL_zero_and_scientific_text_survive_ambient_context",
+          "-x"
+        ],
+        "effective_cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim",
+        "source38_bound_and_preserved": true,
+        "exit": 0,
+        "hold_reason": null,
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "owned_remaining": 0,
+        "PG_stopped_if_started": true,
+        "supervisor_PID": 798920,
+        "supervisor_PID_absent": true,
+        "peak_PID_RSS_bytes": 202637312,
+        "peak_combined_RSS_bytes": 325824512
+      },
+      {
+        "phase": "integration-2-v1",
+        "mode": "owned_PG",
+        "passed": 6,
+        "module_counts": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 6
+        },
+        "actual_pytest_seconds": 187.06,
+        "guard_wall_seconds": 190.6348491550889,
+        "actual_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_resource_kind_is_explicit_and_L_or_cost_id_never_infers_it",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_every_original_identity_pin_and_declaration_decision_must_match_current_sources",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_read_scopes_invalidate_previous_binding_and_restore_same_bytes",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_material_source_change_during_genuine_cost_read_suppresses_binding",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_cost_permission_loss_inside_real_read_never_releases_a_buffer",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_embedded_material_use_and_display_are_required"
+        ],
+        "effective_entry": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-owned-tests-v1.private.py",
+        "effective_args": [
+          "integration-2-v1",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_resource_kind_is_explicit_and_L_or_cost_id_never_infers_it",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_every_original_identity_pin_and_declaration_decision_must_match_current_sources",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_read_scopes_invalidate_previous_binding_and_restore_same_bytes",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_material_source_change_during_genuine_cost_read_suppresses_binding",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_cost_permission_loss_inside_real_read_never_releases_a_buffer",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_embedded_material_use_and_display_are_required",
+          "-x"
+        ],
+        "effective_cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim",
+        "source38_bound_and_preserved": true,
+        "exit": 0,
+        "hold_reason": null,
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "owned_remaining": 0,
+        "PG_stopped_if_started": true,
+        "supervisor_PID": 805011,
+        "supervisor_PID_absent": true,
+        "peak_PID_RSS_bytes": 214818816,
+        "peak_combined_RSS_bytes": 335368192
+      },
+      {
+        "phase": "integration-3-v1",
+        "mode": "owned_PG",
+        "passed": 6,
+        "module_counts": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 6
+        },
+        "actual_pytest_seconds": 126.26,
+        "guard_wall_seconds": 129.6821671561338,
+        "actual_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_relation_function_replacement_is_held_without_calling_forgery",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_canonical_request_size_duplicate_keys_and_mutable_binding_inputs_are_closed",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_separate_declared_provenance_times_are_preserved_without_ex_ante_claim",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_publication_metadata_change_during_real_query_is_held",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_pending_wrong_family_and_foreign_cost_jobs_do_not_become_binding_sources",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_constructor_requires_exact_query_access_and_revalidated_closed_provenance"
+        ],
+        "effective_entry": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-owned-tests-v1.private.py",
+        "effective_args": [
+          "integration-3-v1",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_relation_function_replacement_is_held_without_calling_forgery",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_canonical_request_size_duplicate_keys_and_mutable_binding_inputs_are_closed",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_separate_declared_provenance_times_are_preserved_without_ex_ante_claim",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_publication_metadata_change_during_real_query_is_held",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_pending_wrong_family_and_foreign_cost_jobs_do_not_become_binding_sources",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_constructor_requires_exact_query_access_and_revalidated_closed_provenance",
+          "-x"
+        ],
+        "effective_cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim",
+        "source38_bound_and_preserved": true,
+        "exit": 0,
+        "hold_reason": null,
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "owned_remaining": 0,
+        "PG_stopped_if_started": true,
+        "supervisor_PID": 811210,
+        "supervisor_PID_absent": true,
+        "peak_PID_RSS_bytes": 203354112,
+        "peak_combined_RSS_bytes": 310595584
+      },
+      {
+        "phase": "integration-4-v1",
+        "mode": "owned_PG",
+        "passed": 2,
+        "module_counts": {
+          "backend/tests/test_supply_material_cost_scope_binding.py": 2
+        },
+        "actual_pytest_seconds": 52.52,
+        "guard_wall_seconds": 55.679875107016414,
+        "actual_targets": [
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_cost_root_or_provider_replacement_holds_and_restoration_preserves_selection",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_pointer_lambda_and_provenance_replacement_cannot_bypass_final_binding"
+        ],
+        "effective_entry": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-owned-tests-v1.private.py",
+        "effective_args": [
+          "integration-4-v1",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_current_cost_root_or_provider_replacement_holds_and_restoration_preserves_selection",
+          "backend/tests/test_supply_material_cost_scope_binding.py::test_late_pointer_lambda_and_provenance_replacement_cannot_bypass_final_binding",
+          "-x"
+        ],
+        "effective_cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim",
+        "source38_bound_and_preserved": true,
+        "exit": 0,
+        "hold_reason": null,
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "owned_remaining": 0,
+        "PG_stopped_if_started": true,
+        "supervisor_PID": 816062,
+        "supervisor_PID_absent": true,
+        "peak_PID_RSS_bytes": 187375616,
+        "peak_combined_RSS_bytes": 303755264
+      },
+      {
+        "phase": "legacy-material-v1",
+        "mode": "owned_PG",
+        "passed": 41,
+        "module_counts": {
+          "backend/tests/test_supply_material_quantities.py": 41
+        },
+        "actual_pytest_seconds": 43.71,
+        "guard_wall_seconds": 46.907554999925196,
+        "actual_targets": [
+          "backend/tests/test_supply_material_quantities.py"
+        ],
+        "effective_entry": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-owned-tests-v1.private.py",
+        "effective_args": [
+          "legacy-material-v1",
+          "backend/tests/test_supply_material_quantities.py",
+          "-x"
+        ],
+        "effective_cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim",
+        "source38_bound_and_preserved": true,
+        "exit": 0,
+        "hold_reason": null,
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "owned_remaining": 0,
+        "PG_stopped_if_started": true,
+        "supervisor_PID": 818123,
+        "supervisor_PID_absent": true,
+        "peak_PID_RSS_bytes": 184193024,
+        "peak_combined_RSS_bytes": 349249536
+      },
+      {
+        "phase": "legacy-cost-query-v1",
+        "mode": "owned_PG",
+        "passed": 37,
+        "module_counts": {
+          "backend/tests/test_economic_cost_query.py": 37
+        },
+        "actual_pytest_seconds": 252.22,
+        "guard_wall_seconds": 256.63621651008725,
+        "actual_targets": [
+          "backend/tests/test_economic_cost_query.py"
+        ],
+        "effective_entry": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-owned-tests-v1.private.py",
+        "effective_args": [
+          "legacy-cost-query-v1",
+          "backend/tests/test_economic_cost_query.py",
+          "-x"
+        ],
+        "effective_cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim",
+        "source38_bound_and_preserved": true,
+        "exit": 0,
+        "hold_reason": null,
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "owned_remaining": 0,
+        "PG_stopped_if_started": true,
+        "supervisor_PID": 818961,
+        "supervisor_PID_absent": true,
+        "peak_PID_RSS_bytes": 124780544,
+        "peak_combined_RSS_bytes": 298549248
+      }
+    ],
+    "actual_RED_evidence": [
+      {
+        "phase": "material-cost-scope-red-v1",
+        "failed_cases": 1,
+        "pytest_seconds": 16.57,
+        "error_marker": "ModuleNotFoundError",
+        "included_as_pass": false,
+        "cleanup_and_source_preserved": true
+      },
+      {
+        "phase": "material-cost-scope-r1-pointer-red-v1",
+        "failed_cases": 1,
+        "pytest_seconds": 29.27,
+        "error_marker": "DID NOT RAISE",
+        "included_as_pass": false,
+        "cleanup_and_source_preserved": true
+      }
+    ],
+    "actual_binding_proof": {
+      "proof_path": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-binding-receipt-v1.private.json",
+      "proof_sha256": "008b1cf921ca2ef000106e62795ebcac3f37f98ad6bb376dc2af6c9166e37004",
+      "binding_path": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-binding-v1.json",
+      "binding_sha256": "6e098c3687755b1d1b67d0e5e2dac0320f1270261ba0373b3499e22987057207",
+      "binding_bytes": 35982,
+      "binding_id": "0b36d057b1dee7e763cf8a94b7f8e4a757c1d45e8f16da24b2a69107770c6bf1",
+      "original_cost_path": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-original-cost-v1.json",
+      "original_cost_sha256": "a946e68eea11d5f22c69e1db286623a7869aa827f146faa52fc8184f77aedeb1",
+      "original_cost_bytes": 20108,
+      "canonical_binding_identity_and_reconstructed_request_sha_verified": true,
+      "cost_input_result_trace_hashes_verified": true,
+      "material_quantity_original_serializer_sha_verified": true,
+      "actual_source_frames2to3_exactly_equal_trusted_fixture": true,
+      "original_frame_state_source_cursor_phase_basis_preserved": true,
+      "exact_absolute_Fraction_support_verified": true,
+      "original_selected_lines_and_unselected_refs_verified": true,
+      "NULL_versus_declared_zero_preserved": true,
+      "scientific_original_text_case_passed": true,
+      "original_whole_cost_line_scope": true,
+      "allocated_window_cost": null,
+      "publication_id": "d6b84f2a-c6c3-4199-bf29-36eb38cbc748",
+      "published_at": "2026-11-06T15:16:52.358664+09:00",
+      "unchanged_first_publication_after_repeated_preparation": true,
+      "execution_scope_present": false,
+      "permitted_PG_reads": true,
+      "forbidden_side_effect_counts": {
+        "SQL_writes": 0,
+        "CAS_writes": 0,
+        "process": 0,
+        "extra_nonDB_network": 0,
+        "model_import": 0,
+        "model_advance": 0
+      },
+      "source_files_unchanged": true,
+      "no_amount_worker_runtime_digest_replay_enforced_by_passing_guards": true,
+      "as_of_decision": {
+        "ex_ante_eligibility": "not_established",
+        "material_available_relation": "unknown",
+        "material_published_relation": "unknown"
+      },
+      "product_holds": [
+        "farm_current_custody_unverified",
+        "resource_cost_declaration_unregistered",
+        "window_cost_allocation_not_established"
+      ]
+    },
+    "required_findings_remaining": 0,
+    "required_findings": [],
+    "resolved_findings": [
+      {
+        "id": "R1",
+        "classification": "implementation correctness/security defect",
+        "resolution_path": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/independent-r1-resolution-v1.private.json",
+        "resolution_sha256": "c1bddbb0502ae48c8425e69b6a712f48fc5311c6cef4d2a742c51e553632f851",
+        "disposition": "Actual sourceRED29.27s on priora8dbec +fixed captured dispatch2e81c6 +same07cdd regression actualGREEN; validbaseline and realpublication-read mutation trigger asserted; forged callback calls0. Initial review/before-fix source/RED receipts remain immutable."
+      }
+    ],
+    "evidence_sha256": {
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/regression-execution-v1.private.json": "6ea2e6975d5c4a8324e327e93eb022ffc642f0da92e6e9482a6d097de628a7b5",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/test-source-snapshot-v4.private.json": "9e10649873072dd7965884e6919c01a453b3360d1edf11b656130307cb5e06ae",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/bootstrap-v1.private.json": "8ac1a5a68ca9f75330c04d6825eb5fafb33e9ad40079d9127511b2816ca704f0",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-consumer/accepted-v1.private.json": "6bc680cdc7575a917dae044ecc4e929f8839f045550947008eb361853e146259",
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/contracts/supply-material-resource-cost-scope-binding-v1.md": "f23327441223fc15649795f29879bea139137e00965106aa30fe6dfecf3d9dd7",
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/contracts/supply-material-resource-economics-binding-v1.md": "520d331e9655be57b1799d5c2673032c80833c1b6859a79ffbfb3b3f1d8814fa",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-consumer/material-binding-readiness-v1.private.json": "c899ef26b14304f0f39d9d9494802113a49e5fc2ed2be7f956ab6d100447e2a7",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/target-selection-v2.private.json": "fe27d48db772a901ee1897a41ff112fefd30b44709f5bb7ea2d4e5d3f3ae5a04",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/collection-v1-controller.private.json": "1001926ddbfb133aa29797045bcc893a4d2641eb6e2f724abcefa3a66afafd1b",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-owned-tests-v1.private.py": "04dbfb8110e3aae7f6b5f08bc1d012e569254b109afee0cb611d1b3e3b95e37f",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/run-pure-tests-v1.private.py": "b47e4fe40ecdd1fe38b01b3d9bd969765629781b8ec495c8626f734b0360dd54",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/guard.private.py": "e370516b4d564958e26832edfbdc8fc69168984bfd1d638cfd6eb9715e4f5bb3",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-pure-v1/terminal.private.json": "a6414bd1596be0960a46908d51208a038e211a6706d4ecbacbe7dc373a61e6dc",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/pure-v1-controller.private.json": "d4659925353ccf361b4326fba068369782fcf0a04238105c1c78de554df5f5f0",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-pure-v1/child.private.log": "e43c7403e735656e08cc5f42baf1ecc694813525fb64fde316ac50e894dec043",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-pure-v1-owner.private.json": "1cf116ddcd3b66a22553ba7c00b42225d1d77c642be4339ff738bc4281b7f2a8",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-pure-v1-task.private.json": "fca57591fde0acba5aff19b661caff65c11aa96ac6201436884edc275085425f",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-pure-v1-supervisor.private.log": "8439f03f883fae98acfdecbb31fec056a4dc2bd9cdb3b6db5689121e1a3594c2",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-integration-1-v1/terminal.private.json": "3dae47f608deb6857f7d62733be5b31ff3703061bbaf2e2b3288e2e9dc10cb68",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-1-v1-controller.private.json": "a1a9a5fc74c4fb5ccfcb1cc478debaba771d1a6a1cba8a9defa1978e8a81a087",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-integration-1-v1/child.private.log": "bc098ef234f13bea98fd2358a62c1ba3ab6cb53cb3a93166197f378ad49ef99c",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-1-v1-owner.private.json": "ce076a1eb6cd46f4d429039f3dd76801a156d2ddf66ae2a5906475e2b079321f",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-1-v1-task.private.json": "1bc8561ef71e46c7c4330a2025aae82cb553d9e64488fbb53ab3ea475ff20532",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-1-v1-supervisor.private.log": "6a8b78dc5409b4314d3cac1683bbc0a7007e5e77c5c074e81768b716a53ba0b9",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-integration-2-v1/terminal.private.json": "a70edb2672ba59ddb976e62a51768ab33d5efd03be84c52fef3842eeb508b71f",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-2-v1-controller.private.json": "e9645c2368ccc3108adec021a207adce198c3194a79dfcd870d5484bb55bdddc",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-integration-2-v1/child.private.log": "31e0d5f587ae91bd1265d9a4ef9be7ffa95931eb0dc6d484096215d907d9b200",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-2-v1-owner.private.json": "73bb5dcc71900252fd43a1ee8d87765f0aa29d8a4ff229a91e6d7da0e444b591",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-2-v1-task.private.json": "797c40af70ec7bd857a7105a18fe452e7a4a66060a33ee4beb5e696cb2dddf9c",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-2-v1-supervisor.private.log": "7d0b6df42a0b467e748bdd89a92a31a58b8c86d511b01ed2b528addfd7229ca0",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-integration-3-v1/terminal.private.json": "078e8e8f8511b8885003bced5eaef8f3aa70891568f0b6a442eda6881daf8166",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-3-v1-controller.private.json": "58147a560869847ae88921a1bf0417ef4e7d514a6876f5ba5a4fe567837c85bd",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-integration-3-v1/child.private.log": "2a403632c12a1c0d1ac81745fc608069e67ec2a6e182ac5bd6fd384729fcf239",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-3-v1-owner.private.json": "86ca61adfe9609a345f3a347feb795bb616e0cb141df85d36adcc8366e3819b0",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-3-v1-task.private.json": "468a1cdb2e1a35dffffb7dbaf4c715f7c5327cd339c327ca80ea874bc0a17355",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-3-v1-supervisor.private.log": "281d3cc4f00f2676465282685c048f5cf4c9fb334877ec124f67ab3c216c25a9",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-integration-4-v1/terminal.private.json": "fe460cff094198fb268143d58600c1ff4a5a2120f4d4ab8b08ad2567a411d792",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-4-v1-controller.private.json": "bd0eba3a52f187bd537705627bce429b9f4a4aaad1ecd81acbe0ee8bcd2f2e34",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-integration-4-v1/child.private.log": "1f170a29d9aaed37feb0b78b52b431e0ae0597354f2debfa0c9ced2d8582ca10",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-4-v1-owner.private.json": "fcdf15237d8f05881910b5115a99d7d454c0cd6b50b0bbd2fd55a460a752ff00",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-4-v1-task.private.json": "d7123f74e4230611858e115cc41182a5738d4a25e9965666fbd063bdc757a8d8",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-integration-4-v1-supervisor.private.log": "875a3089a95ac8637ba0016c675ccdca15db90df5c43dccdba8a3197ad379645",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-legacy-material-v1/terminal.private.json": "49171131498c9e64d837393f5d7289c157e5bfcaccb5963c0a8021b49407d831",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/legacy-material-v1-controller.private.json": "48eedd7ddd35a0cbe88e9b3945613291857fe13025292e9ca6bc2c3449c9c8d5",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-legacy-material-v1/child.private.log": "22a034312bbaf6046e47b6c92244149325d5a67caddae8e8c48f405264c4c88e",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-legacy-material-v1-owner.private.json": "3ec6504f4661e4093e374f48a5feded3b0fb93a3d3c501ed3b2fffc788dc1120",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-legacy-material-v1-task.private.json": "cfb9b4e896585f5a0d5164c6eb401bcd422044b51400dbbecce549bf585282fb",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-legacy-material-v1-supervisor.private.log": "23cc30fb8b6f44ea08a9ebee1d0decf330b8dd9576c713a4c4e1f3881e6bf969",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-legacy-cost-query-v1/terminal.private.json": "39a29f8b760f7c76f3631a0d120f11fa8f81df1f685ae40c05c0cf5806b88686",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/legacy-cost-query-v1-controller.private.json": "e17025b8027215d3f12d569d42763c2f4422e69b288d50d09ffc23c2cceb79b8",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-legacy-cost-query-v1/child.private.log": "37534c3a5b9aabd2fdcb47732ecd3e458e6ffdc687f11f8b319e9f4f72d1fdae",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-legacy-cost-query-v1-owner.private.json": "51417ffd86d2580f5d1a9f44171f46b1424c463cccc2c5551927beacb9611e4a",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-legacy-cost-query-v1-task.private.json": "791b31bd9ea87fd17bb6fe52c68bba7423b3d165299434ccb1ec58817ec3ecc7",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/material-cost-scope-legacy-cost-query-v1-supervisor.private.log": "1f482ccef1f2c5af58651a3ffa152c323f7543f78bea1a39d49c2ad5dfa36dc9",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-binding-receipt-v1.private.json": "008b1cf921ca2ef000106e62795ebcac3f37f98ad6bb376dc2af6c9166e37004",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-binding-v1.json": "6e098c3687755b1d1b67d0e5e2dac0320f1270261ba0373b3499e22987057207",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/integration-1-v1/test_current_published_cost_an0/material-cost-original-cost-v1.json": "a946e68eea11d5f22c69e1db286623a7869aa827f146faa52fc8184f77aedeb1",
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/research/fixtures/supply-material-quantity-own-20261031.json": "21010f126c84ee9964643374c0565ecf0c4f017905276483a26dc562ca27a260",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/independent-r1-resolution-v1.private.json": "c1bddbb0502ae48c8425e69b6a712f48fc5311c6cef4d2a742c51e553632f851",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/independent-pointer-fix-audit-v1.private.json": "265f4c31e6d1beb6b7a02b9aae8460f55304d3694c86a1dfaf288fb8c95a416a",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/independent-initial-production-review-v1.private.json": "12172818842c240737bbac69220846b6b8faa7bbd34d8bd2863f10e36e3fdc9e",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/pointer-fix-v1.private.json": "071c277ac80afdc48bc92c74ebdf1efd609d2efef92b087da85b56c2e1fac679",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-red-v1/terminal.private.json": "662cd36d2b92a7fad50fc332aaf78e225d6cf841e24c84110737dee8bfff6ad3",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-red-v1/child.private.log": "636cb1e7e66258652d8e771be7122bfca42a2b2343426430d057d777f368306d",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-r1-pointer-red-v1/terminal.private.json": "d103ea92bea3f041d32e2a0b1ddc4248b7cdcd6b26b972021f5cbc75e2fb5859",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/material-cost-scope-r1-pointer-red-v1/child.private.log": "25ec7e027b82da148cf8c552a5c2ab942f35f962b345272d2aea33186b16ef07",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/native-children-v1.private.json": "6ef196ea7725f657092b9c2d49a4ab61fe4a13df1319eebe08354cf3424bc5b5",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-material-cost-scope-binding/owner-verification-v1.private.json": "cde4539c9525cbe459c624001df5db8e4a38de18e6983988b2fbbcdecf124680"
+    },
+    "verification_limits": {
+      "reviewer_repository_edits": false,
+      "reviewer_test_collection_or_execution": false,
+      "reviewer_PG_services_CLI_or_guards_started": false,
+      "recursive_Codex_CLI": false,
+      "commits": false,
+      "extra_agents": false,
+      "full_suite": false
+    },
+    "verdict": "Approve the scoped synthetic material/resource-cost period binding kernel and its145focused acceptance checks. Public acceptance/commit is parent-owned. Actual Farm/current custody/product transport/SDK/UI and data/gates are not approved by this review.",
+    "synthetic_only": true,
+    "actual_farm_Runs": 0,
+    "independent_domestic_raw": 0,
+    "G0_G4": "not_assessed",
+    "R2": "not_approved",
+    "Farm_product_custody_admission_query_HTTP_runtime_SDK_UI_complete": false,
+    "whole_goal_complete": false
+  },
+  "preservation": {
+    "schema_version": "material-cost-scope-preservation-v2",
+    "observed_at_UTC": "2026-11-06T07:01:13.196092+00:00",
+    "verifier_sha256": "63fc85d584890579b7509c8d6ee3aa02f73134c36f7eece98eab04af35d49620",
+    "shared_validator_sha256": "6a424e35046c503d7eb2a9e24cb5f8223d1bc608b8fc7b1980eec880de321386",
+    "provenance": {
+      "parent_consumer_commit": "2707998f4e4e625ea785779bfdbf9fc0575dd241",
+      "parent_consumer_manifest_sha256": "b11581a91952dab04da68029895b1e6a645ffb3d69591c4012bfff876d8d9694",
+      "parent_consumer_accepted_receipt_sha256": "6bc680cdc7575a917dae044ecc4e929f8839f045550947008eb361853e146259",
+      "parent_consumer_checks": {
+        "source_links": 2,
+        "outputs": 1,
+        "private": 50,
+        "external": 9,
+        "supplemental_final_review_sha256": 6,
+        "external_final_review_sha256": 2
+      },
+      "parent_consumer_integrations_current_and_Git": 36,
+      "parent_ancestry": {
+        "parent_runtime_commit": "801396642b306d56e8a2e4dd9a2f8e5a734d49a9",
+        "parent_runtime_manifest_sha256": "e2ddf47afaa59e33479cc817b08086de5e7febdd56aafc9276451584898decff",
+        "accepted_ancestor_checks": {
+          "economic-cost-runtime-assembly-20261106": {
+            "manifest_sha256": "e2ddf47afaa59e33479cc817b08086de5e7febdd56aafc9276451584898decff",
+            "accepted_commit": "801396642b306d56e8a2e4dd9a2f8e5a734d49a9",
+            "accepted_receipt_sha256": "e9a187e7d74996f9b7c5fef95e9fbee180ebf61321f789784bb71cf2f2016284",
+            "historical_tests_not_recounted": 13,
+            "outputs": 1,
+            "private": 31,
+            "external": 3,
+            "source_links": 2,
+            "supplemental_final_review_sha256": 6,
+            "external_final_review_sha256": 2,
+            "accepted_integration_Git_snapshots": 33,
+            "inherited_HTTP_integration_history": []
+          },
+          "economic-cost-protected-http-20261106": {
+            "manifest_sha256": "4d0892f3e7cb58586da73ac14b978f005338634fcdbebcfc4b0c7b4bb50eefe4",
+            "accepted_commit": "514b9bc0023a0991c7ba4a072321239047142156",
+            "accepted_receipt_sha256": "9dd05cb98a2fe9801732ac8782bee23c43f90aeb03b4f8b5657fdf9bcbe83e7b",
+            "historical_tests_not_recounted": 308,
+            "outputs": 1,
+            "private": 78,
+            "external": 21,
+            "source_links": 2,
+            "supplemental_final_review_sha256": 6,
+            "external_final_review_sha256": 2,
+            "accepted_integration_Git_snapshots": 32,
+            "inherited_HTTP_integration_history": []
+          },
+          "economic-cost-stored-result-query-20261106": {
+            "manifest_sha256": "677ace4e215d6ae23ce9e10246fc03fae344e3014c3776f2d7e84ac37bc9c334",
+            "accepted_commit": "bd5283d3d05111fc851170976a705a6448da9f4a",
+            "accepted_receipt_sha256": "316fbfb753fc17775445527a883108a8c9c56ac5c72f285e3d9b9516933deda1",
+            "historical_tests_not_recounted": 114,
+            "outputs": 1,
+            "private": 52,
+            "external": 13,
+            "source_links": 2,
+            "supplemental_final_review_sha256": 5,
+            "external_final_review_sha256": 2,
+            "accepted_integration_Git_snapshots": 29,
+            "inherited_HTTP_integration_history": [
+              "backend/app/api.py",
+              "backend/app/api_economic_batch.py"
+            ]
+          },
+          "economic-cost-execution-worker-20261106": {
+            "manifest_sha256": "b29e4be6ddb8afc8a9f720e56f0b948b1373dccaabde32b9c3270c45a74e686c",
+            "accepted_commit": "4edef92da8ebb7849ccde96a9d8f97e9c385b856",
+            "accepted_receipt_sha256": "295adc8974a01bbcbc28e62520497c019d92816bf10e259c8bb34a6e968ab082",
+            "historical_tests_not_recounted": 425,
+            "outputs": 1,
+            "private": 37,
+            "external": 14,
+            "source_links": 2,
+            "supplemental_final_review_sha256": 5,
+            "external_final_review_sha256": 2,
+            "accepted_integration_Git_snapshots": 25,
+            "inherited_HTTP_integration_history": [
+              "backend/app/api.py",
+              "backend/app/api_economic_batch.py"
+            ]
+          },
+          "economic-cost-calculation-admission-20261106": {
+            "manifest_sha256": "aa8ef76c57f253825b941cf81696f8f0adb81a66cba2df60770856b1f25ed3d3",
+            "accepted_commit": "8f7606c3f99696d139961226829f21571348833e",
+            "accepted_receipt_sha256": "d00797e35e54ba31409ea91617563049eda877b30be0e38c4c302d94562f73fc",
+            "historical_tests_not_recounted": 299,
+            "outputs": 1,
+            "private": 8,
+            "external": 6,
+            "source_links": 2,
+            "supplemental_final_review_sha256": 3,
+            "external_final_review_sha256": 2,
+            "accepted_integration_Git_snapshots": 22,
+            "inherited_HTTP_integration_history": [
+              "backend/app/api.py",
+              "backend/app/api_economic_batch.py"
+            ]
+          },
+          "economic-cost-line-trace-20261031": {
+            "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+            "accepted_commit": "d97dc9c96916d9567543adc568dfbbb19218f9b7",
+            "accepted_receipt_sha256": "eeb3a7edeca6136af7b51e218c61302cd557a0c941c9cfb4070612abe13799ab",
+            "historical_tests_not_recounted": 233,
+            "outputs": 2,
+            "private": 22,
+            "external": 20,
+            "supplemental_final_review_sha256": 3,
+            "external_final_review_sha256": 2,
+            "accepted_integration_Git_snapshots": 20,
+            "inherited_HTTP_integration_history": [
+              "backend/app/api.py",
+              "backend/app/api_economic_batch.py"
+            ],
+            "resume_private": 5,
+            "resume_external": 2
+          }
+        },
+        "current_parent_integrations_unchanged": 31,
+        "mutable_integration_updates": {
+          "backend/app/deterministic_job_discovery.py": {
+            "accepted_runtime_sha256": "f65c0bff52612dbc18044114c2e4fa536b9d1eda4ceb27927361452a73e4a29f",
+            "current_sha256": "98721ae87422f43788e981becec9a4560c425c9a08a309f1bc766a6800e2dc68"
+          },
+          "backend/app/deterministic_work.py": {
+            "accepted_runtime_sha256": "2a7f5c6f12f51fc4cd9113b612d3837ae86f90296000a79ad75d4e6f74daa1cd",
+            "current_sha256": "e14beebdb3e19ef223bd9ab151a487df8f79f5aec822ca167d3c5b1bf11de307"
+          }
+        },
+        "source_snapshot_exceptions": {
+          "backend/app/economic_batch_worker.py": {
+            "commit": "8f7606c3f99696d139961226829f21571348833e",
+            "sha256": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198",
+            "bytes": 10000,
+            "inherited_from_parent": true
+          },
+          "backend/app/economic_batch_query.py": {
+            "commit": "4edef92da8ebb7849ccde96a9d8f97e9c385b856",
+            "sha256": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd",
+            "bytes": 11139,
+            "inherited_from_parent": false
+          }
+        },
+        "current_strict_inherited_sources": 748,
+        "historical_worker_source_pins": {
+          "research/artifacts/economic-batch-execution-worker-20261031.json": {
+            "manifest_sha256": "77f3660af15cb9a8789fa5002e3cf72e41fec93f2eed8d4bfe058c6a3b38ffd8",
+            "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+          },
+          "research/artifacts/economic-batch-stored-result-query-20261031.json": {
+            "manifest_sha256": "e50b4c026c81b9fa6abcc778ae86b92752b7ed75ff26252484b2d71f9a33804a",
+            "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+          },
+          "research/artifacts/economic-batch-protected-http-20261031.json": {
+            "manifest_sha256": "4fc70788442d38c9434e4c4d63ad5a341b2e5277ff64e86b2f3fd61dd667c009",
+            "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+          },
+          "research/artifacts/economic-batch-runtime-assembly-20261031.json": {
+            "manifest_sha256": "2097a4c380571da47c128af71e21260b6507bf8cf22a1ce2b8cd946a11599765",
+            "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+          },
+          "research/artifacts/economic-batch-automatic-consumer-20261031.json": {
+            "manifest_sha256": "5bcab22bb8ef867c4fabdfb759b869d658e995ecf0cb4d5c69d23dcfc8755f6b",
+            "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+          },
+          "research/artifacts/economic-cost-line-trace-20261031.json": {
+            "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+            "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+          }
+        },
+        "historical_query_source_pins": {
+          "research/artifacts/economic-batch-stored-result-query-20261031.json": {
+            "manifest_sha256": "e50b4c026c81b9fa6abcc778ae86b92752b7ed75ff26252484b2d71f9a33804a",
+            "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+          },
+          "research/artifacts/economic-batch-protected-http-20261031.json": {
+            "manifest_sha256": "4fc70788442d38c9434e4c4d63ad5a341b2e5277ff64e86b2f3fd61dd667c009",
+            "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+          },
+          "research/artifacts/economic-batch-runtime-assembly-20261031.json": {
+            "manifest_sha256": "2097a4c380571da47c128af71e21260b6507bf8cf22a1ce2b8cd946a11599765",
+            "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+          },
+          "research/artifacts/economic-batch-automatic-consumer-20261031.json": {
+            "manifest_sha256": "5bcab22bb8ef867c4fabdfb759b869d658e995ecf0cb4d5c69d23dcfc8755f6b",
+            "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+          },
+          "research/artifacts/economic-cost-line-trace-20261031.json": {
+            "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+            "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+          }
+        },
+        "pin_readiness_sha256": "ca977fecfc13c10e1c949b74a2a7992115f2fae2521c6d4f54522c4d1eb0b6a3",
+        "archived_full_current_integration_validators_invoked_or_modified": false,
+        "UI_source_pins": 687,
+        "UI_output_pins": 4,
+        "UI_private_pins": 745,
+        "UI_external_pins": 46,
+        "expired5184_static_and_terminal": {
+          "files": 238,
+          "bytes": 21012689,
+          "actual_HTTP_files": 0,
+          "expired": true,
+          "original_identity_live": false,
+          "first_expiry_UTC": "2026-10-31T08:03:53.647997+00:00",
+          "owner_policy_inventory_sha256": {
+            "preview-owner-v1.private.json": "c53ee15d408071fb9c15aa6790bdf5aaff976803d7884897fb16771c0962934e",
+            "preview-policy-v1.private.json": "ae035fc89dc9f6301eb98a5c6ea2ee3df78a1fb2b3fa05524d8d8d88d518e4ab",
+            "preview-files-v1.private.json": "0b6b38b06b0dae05cf2d9062cb675b5b3ea378ad67c2baf782ec3fbb624eda92"
+          }
+        },
+        "expired5181_static_and_terminal": {
+          "files": 233,
+          "bytes": 21131597,
+          "actual_HTTP_files": 0,
+          "expired": true,
+          "original_identity_live": false,
+          "first_expiry_UTC": "2026-10-31T04:34:17.822115+00:00",
+          "owner_policy_inventory_sha256": {
+            "preview-owner-v1.private.json": "0d140ef7fb298fc8865bbbcb7c0268940e8a9af1022a1a5b793513ad9b114040",
+            "preview-policy-v1.private.json": "6049767289666c62b9cf62f82403ef08fc62364c3f3d757210bd54fd833e0bcc",
+            "preview-files-v1.private.json": "dd311b0a49f31b2544bb1a0780aea60c0e636eff6bf5c0fe7f6e413a8f5f313e"
+          }
+        }
+      },
+      "historical_counts_not_recounted": {
+        "consumer": 235,
+        "runtime": 13,
+        "HTTP": 308,
+        "query": 114,
+        "worker": 425,
+        "admission": 299,
+        "kernel": 233
+      },
+      "reused_readonly_consumer_validator_sha256": "a02a7b3d3e59d6ad73dc4a3f33877137bed653cd8f161ee9e3312b7001f9040e",
+      "archived_validate_inputs_or_final_review_called": false,
+      "source_snapshot_exceptions_added": 0
+    },
+    "integration_source_sha256": {
+      "backend/app/market_hold_store.py": "dcd6b6ab6123e11b49720456a2d2dc5c836337f4a416c9dd6486e76171cb6125",
+      "backend/app/market_source_store.py": "a463f7641a917ffa86f0ffd965212632ff56f11243fbbf7a77d5130f754d5a79",
+      "backend/app/operator_config.py": "b348cb7955e122466bdacd58dd057c90dba6d75c786307db0bdd68435fb9aa3c",
+      "backend/app/runtime_roles.py": "4c5fef33de51c51b0e3e573ca3b06ae8d36b41200327dd80c457162260bf3b78",
+      "backend/tests/login_database.py": "7a1da0a4ad3b492f158010a8c12b4ea6a152d5fc505f37792af64e94d6cf6ee1",
+      "backend/tests/test_runtime_roles.py": "a218f8d65fddfd631f39b0a3c56fb9971af1073f80e5e52e77844aefc4a7c29f",
+      "backend/app/api.py": "4c7395328f2f738e39544b1e4176e18b670a747c1feb6fda117fe2e104fe3507",
+      "backend/app/api_market_source.py": "7cdc2e67ea9e3f85018721dc18e4234ffa6b3fcc56405c6c5daa9b298996d5da",
+      "backend/app/api_economic_batch.py": "080934b74a975019a983cc4ca3b59c1b52bd49ec6cb05cc8f0a14a225c9b0c3d",
+      "backend/app/economic_batch_wire.py": "4254c59e0c7d96a17cfdb18e378551fa3836c614aa28b4f1d6466d07aab7712a",
+      "backend/tests/test_api_economic_batch.py": "398d31377189368f0332864942fd366058f0b97167b86b2b425cdaa495f65007",
+      "backend/app/api_runtime.py": "494fbac16722c5b235b84317309fd75be66bf9699ee81e36710722dab216db06",
+      "backend/tests/test_economic_batch_runtime.py": "c0b707ff0680ee89d393944893964b92e46235d700089479c100cd7ffda5b481",
+      "backend/app/deterministic_work.py": "e14beebdb3e19ef223bd9ab151a487df8f79f5aec822ca167d3c5b1bf11de307",
+      "backend/app/deterministic_job_discovery.py": "98721ae87422f43788e981becec9a4560c425c9a08a309f1bc766a6800e2dc68",
+      "backend/tests/test_economic_batch_consumer.py": "5c7335feb1ce8f5b00d2d3c7ac6b2ed559bd2ea2b853fb1ab3e159bb1872f5a3",
+      "backend/tests/test_economic_batch_consumer_http.py": "75b7369b241d8c525dac6b33e62a9f0e4744b1035ab56e016b668fed547fdc93",
+      "backend/tests/economic_batch_consumer_factory.py": "435cdc3841c7bd032b6116680fa807982bd0c5d884d9ebc01a82dff2ff2924c3",
+      "backend/tests/test_economic_cost_trace.py": "a4cac0e00fed99385346c6251f5b084a13f6d44ecf949f490bb40de25da50e21",
+      "backend/tests/economic_cost_trace_cold.py": "69f5cc7673c96f79fdf379f0732244c6194eb6fe480290f6d44110ae3fe24d23",
+      "backend/app/economic_cost_calculation.py": "ac2419f9717b4736cace7a52f8c2856693590b1c54761a324a0339ac1ea0a134",
+      "backend/tests/test_economic_cost_calculation.py": "7f5db78e06284be53ddde131a3c9ae6a4a18cfaf0ab7207db417c4bc77e653c9",
+      "backend/app/economic_batch_worker.py": "234975b76726503631087e0ec7818489e054a27caefe79ff54a59be0071127e5",
+      "backend/app/economic_cost_worker.py": "968daef4978cbe1667a3fe2e4f72371926b67996b668a31ac952bf7465072625",
+      "backend/tests/test_economic_cost_worker.py": "e4ba10da3d37083c85c278080eca5272527691799c56eda43b8f9dfcba764929",
+      "backend/app/economic_batch_query.py": "19c82768757b9633558085d590924b3686fc4c149e7e5b92b267a978840a37de",
+      "backend/app/economic_cost_query.py": "fdfcae7fa3269616c711f82bc4bbfae9b3242271065f62ef14f50257f0f2df5d",
+      "backend/tests/test_economic_cost_query.py": "8cc60973091d201e086770dcb72422bd314a85da1414d52bc7684a3847c7a11c",
+      "backend/tests/economic_cost_query_reader.py": "3e5563044654a8bd680e0992f3fec91ed1337984c1b5592d0346b536cac65b65",
+      "backend/app/economic_cost_wire.py": "59385b33551a256376865a047c5ed134765cc78173bf898a303af7d438ef9d5e",
+      "backend/tests/test_api_economic_cost.py": "c168d39f0b2286508369dfa7697d3e1dc4731cca6fa8162db2a0869e77e4d635",
+      "backend/app/api_economic_cost.py": "ae318a44ed7418ccda03ed07acbaf4ad76a9f9dcba7a6a3ea5661b651227f070",
+      "backend/tests/test_economic_cost_runtime.py": "1726c202a1b169b446680fefddb936a791f8c22e75260827dc05f693e06e90ee",
+      "backend/tests/test_economic_cost_consumer_http.py": "c869e5a3730c596f357bf158ed1e2af55cbb512daaeffec8ec03ef1bcf598371",
+      "backend/tests/test_economic_cost_consumer.py": "a704ac07612eb3e4be49acd0cf6410830382c6f09fce8d9e608941444bd47cb5",
+      "backend/tests/economic_cost_consumer_factory.py": "b34ddedcf25ac9b5458a18070e70125dbe6d9c947a16fba33b1d4956a1301c22",
+      "backend/app/crop_supply_material_cost_scope_binding.py": "2e81c6c51b4d3c10f14eff2ca2dab5ae122a115f2a1c0b9b369bac7ed03fe223",
+      "backend/tests/test_supply_material_cost_scope_binding.py": "07cdd67312b0673f5f270659ade1477f139030153960724861c5936f008bdefe"
+    },
+    "parent_consumer_integrations_current_and_Git": 36,
+    "new_paths": [
+      "backend/app/crop_supply_material_cost_scope_binding.py",
+      "backend/tests/test_supply_material_cost_scope_binding.py"
+    ],
+    "new_production_paths": [
+      "backend/app/crop_supply_material_cost_scope_binding.py"
+    ],
+    "strict_source_exceptions_added": 0,
+    "old_manifests_receipts_scripts_numeric_inputs_outputs_overwritten": false,
+    "old_whole_binding_contract_sha256": "520d331e9655be57b1799d5c2673032c80833c1b6859a79ffbfb3b3f1d8814fa",
+    "product_dependency_map_sha256": {
+      "product-dependency-map-v1.private.md": "2ec1ae6b6718b7f8ebeb6eef39d15fbdc482f52d97401b9a909ac7752aaeabca",
+      "product-dependency-map-v1.private.json": "1963aed2acf4c9e6a14d10986f693a534395b1c115b3ba03324ee1c3f883c12b"
+    },
+    "parent_historical_counts_not_recounted": true,
+    "expired_preview_HTTP_faked_or_restarted": false,
+    "new_Farm_custody_admission_query_HTTP_SDK_UI": false,
+    "G0_G4": "not_assessed",
+    "R2": "not_approved"
+  },
+  "owner_acceptance_sha256": "ff41454ca19a3c8499f5e40a682d091188c2aba1b943ca9d2172f7c69033fbf1",
+  "new_research_kernel_accepted": true,
+  "new_production_paths": [
+    "backend/app/crop_supply_material_cost_scope_binding.py"
+  ],
+  "new_Farm_custody_admission_query_HTTP_SDK_UI": false,
+  "cross_store_atomicity_accepted": false,
+  "new_DB_schema_roles_dependencies": false,
+  "original_numeric_model_inputs_outputs_changed": false,
+  "allocated_window_cost": null,
+  "permitted_PG_read_transport": true,
+  "extra_nonDB_outbound_process_SQL_CAS_writes": 0,
+  "independent_domestic_raw": 0,
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "whole_goal_active": true,
+  "goal_complete": false,
+  "conditional_resource_economics_complete": false,
+  "recursive_CLI": false,
+  "next_task": "supply-material-resource-cost-same-farm-custody",
+  "next_acceptance": [
+    "기존 FarmAuthoringService의 정확 현재 registration/version/crop과 실제 server-owned material 입력/lineage/result를 연결하는 닫힌 resolver·권리/기간/floor/current fence를 먼저 계약으로 고정한다.",
+    "같은 정확 Farm 등록 판본에 원 schema4 cost job/source/trace/첫 publication과 독립 resource-cost 선언을 명시 연결한다. legacy EconomicScenario/candidate·tenant/batch 이름으로 관계를 추론하지 않는다.",
+    "실제 소유 등록/저장 결과로 다른 tenant/Farm/revision/crop/context·미소유 연구 root·현재/늦은 권리/source/code/provider/registration 변경 거부를 검증한다. 별도 metadata association으로 원 숫자/Cost/schema4/v10 bytes를 보존한다.",
+    "이후 불변 접수/게시·현재 무계산 query→보호 HTTP/runtime→strict SDK/같은 선택3D·표·그래프/실제 인증 브라우저를 별도 수용한다. 현재 연구 kernel을 제품 custody나 전체 자원-비용 완료로 대체하지 않는다."
+  ],
+  "next_focused_hours_draft": null,
+  "next_estimate_basis": "Current38-source private dependency inspection identifies missing same-Farm material/schema4 association. No reviewed aggregate custody/admission/query/HTTP/SDK/UI estimate; old2-4h was kernel only.",
+  "product_dependency_map_sha256": {
+    "product-dependency-map-v1.private.md": "2ec1ae6b6718b7f8ebeb6eef39d15fbdc482f52d97401b9a909ac7752aaeabca",
+    "product-dependency-map-v1.private.json": "1963aed2acf4c9e6a14d10986f693a534395b1c115b3ba03324ee1c3f883c12b"
+  },
+  "whole_product_completion_date": "unknown; actual Farm/current custody, protected product interfaces, external rights/validation/deployment remain open"
+}
