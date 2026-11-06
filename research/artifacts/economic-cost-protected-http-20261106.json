@@ -1,0 +1,1110 @@
+{
+  "schema_version": "economic-cost-protected-http-evidence-v1",
+  "observed_at_UTC": "2026-11-06T04:16:23.057166+00:00",
+  "parent_commit": "bd5283d3d05111fc851170976a705a6448da9f4a",
+  "source_pins": {
+    "research/artifacts/economic-cost-stored-result-query-20261106.json": "677ace4e215d6ae23ce9e10246fc03fae344e3014c3776f2d7e84ac37bc9c334",
+    "contracts/economic-cost-protected-http-v1.md": "c6425ab31e38abed72599791cf53b853d4095098960bb89565e88e198d1f0624"
+  },
+  "parent_manifest_inheritance": "SHA-bound query/worker/admission/kernel manifests and actual114/425 proofs remain preserved; exact two strict-source Git exceptions retained; authorized mutable API integration history uses accepted Git snapshots and new current regressions",
+  "source_snapshot_exceptions": {
+    "backend/app/economic_batch_worker.py": {
+      "commit": "8f7606c3f99696d139961226829f21571348833e",
+      "sha256": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198",
+      "bytes": 10000,
+      "inherited_from_parent": true
+    },
+    "backend/app/economic_batch_query.py": {
+      "commit": "4edef92da8ebb7849ccde96a9d8f97e9c385b856",
+      "sha256": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd",
+      "bytes": 11139,
+      "inherited_from_parent": false
+    }
+  },
+  "current_strict_inherited_sources": 748,
+  "output_pins": {
+    "research/economic-cost-protected-http-20261106.md": "13e5e25b5c16d334fc05de487701a96dac8ebb945a72af31129aa1452c0c0557"
+  },
+  "integration_source_sha256_at_tested_commit": {
+    "backend/app/market_hold_store.py": "dcd6b6ab6123e11b49720456a2d2dc5c836337f4a416c9dd6486e76171cb6125",
+    "backend/app/market_source_store.py": "a463f7641a917ffa86f0ffd965212632ff56f11243fbbf7a77d5130f754d5a79",
+    "backend/app/operator_config.py": "b348cb7955e122466bdacd58dd057c90dba6d75c786307db0bdd68435fb9aa3c",
+    "backend/app/runtime_roles.py": "4c5fef33de51c51b0e3e573ca3b06ae8d36b41200327dd80c457162260bf3b78",
+    "backend/tests/login_database.py": "7a1da0a4ad3b492f158010a8c12b4ea6a152d5fc505f37792af64e94d6cf6ee1",
+    "backend/tests/test_runtime_roles.py": "a218f8d65fddfd631f39b0a3c56fb9971af1073f80e5e52e77844aefc4a7c29f",
+    "backend/app/api.py": "4c7395328f2f738e39544b1e4176e18b670a747c1feb6fda117fe2e104fe3507",
+    "backend/app/api_market_source.py": "7cdc2e67ea9e3f85018721dc18e4234ffa6b3fcc56405c6c5daa9b298996d5da",
+    "backend/app/api_economic_batch.py": "080934b74a975019a983cc4ca3b59c1b52bd49ec6cb05cc8f0a14a225c9b0c3d",
+    "backend/app/economic_batch_wire.py": "4254c59e0c7d96a17cfdb18e378551fa3836c614aa28b4f1d6466d07aab7712a",
+    "backend/tests/test_api_economic_batch.py": "398d31377189368f0332864942fd366058f0b97167b86b2b425cdaa495f65007",
+    "backend/app/api_runtime.py": "494fbac16722c5b235b84317309fd75be66bf9699ee81e36710722dab216db06",
+    "backend/tests/test_economic_batch_runtime.py": "c0b707ff0680ee89d393944893964b92e46235d700089479c100cd7ffda5b481",
+    "backend/app/deterministic_work.py": "2a7f5c6f12f51fc4cd9113b612d3837ae86f90296000a79ad75d4e6f74daa1cd",
+    "backend/app/deterministic_job_discovery.py": "f65c0bff52612dbc18044114c2e4fa536b9d1eda4ceb27927361452a73e4a29f",
+    "backend/tests/test_economic_batch_consumer.py": "5c7335feb1ce8f5b00d2d3c7ac6b2ed559bd2ea2b853fb1ab3e159bb1872f5a3",
+    "backend/tests/test_economic_batch_consumer_http.py": "75b7369b241d8c525dac6b33e62a9f0e4744b1035ab56e016b668fed547fdc93",
+    "backend/tests/economic_batch_consumer_factory.py": "435cdc3841c7bd032b6116680fa807982bd0c5d884d9ebc01a82dff2ff2924c3",
+    "backend/tests/test_economic_cost_trace.py": "a4cac0e00fed99385346c6251f5b084a13f6d44ecf949f490bb40de25da50e21",
+    "backend/tests/economic_cost_trace_cold.py": "69f5cc7673c96f79fdf379f0732244c6194eb6fe480290f6d44110ae3fe24d23",
+    "backend/app/economic_cost_calculation.py": "ac2419f9717b4736cace7a52f8c2856693590b1c54761a324a0339ac1ea0a134",
+    "backend/tests/test_economic_cost_calculation.py": "7f5db78e06284be53ddde131a3c9ae6a4a18cfaf0ab7207db417c4bc77e653c9",
+    "backend/app/economic_batch_worker.py": "234975b76726503631087e0ec7818489e054a27caefe79ff54a59be0071127e5",
+    "backend/app/economic_cost_worker.py": "968daef4978cbe1667a3fe2e4f72371926b67996b668a31ac952bf7465072625",
+    "backend/tests/test_economic_cost_worker.py": "e4ba10da3d37083c85c278080eca5272527691799c56eda43b8f9dfcba764929",
+    "backend/app/economic_batch_query.py": "19c82768757b9633558085d590924b3686fc4c149e7e5b92b267a978840a37de",
+    "backend/app/economic_cost_query.py": "fdfcae7fa3269616c711f82bc4bbfae9b3242271065f62ef14f50257f0f2df5d",
+    "backend/tests/test_economic_cost_query.py": "8cc60973091d201e086770dcb72422bd314a85da1414d52bc7684a3847c7a11c",
+    "backend/tests/economic_cost_query_reader.py": "3e5563044654a8bd680e0992f3fec91ed1337984c1b5592d0346b536cac65b65",
+    "backend/app/economic_cost_wire.py": "59385b33551a256376865a047c5ed134765cc78173bf898a303af7d438ef9d5e",
+    "backend/tests/test_api_economic_cost.py": "c168d39f0b2286508369dfa7697d3e1dc4731cca6fa8162db2a0869e77e4d635",
+    "backend/app/api_economic_cost.py": "ae318a44ed7418ccda03ed07acbaf4ad76a9f9dcba7a6a3ea5661b651227f070"
+  },
+  "integration_updates": [
+    "backend/app/api.py",
+    "backend/app/api_economic_batch.py"
+  ],
+  "integration_pin_policy": "accepted Git snapshots preserve previous mutable API integration code; current changed integration paths have fresh focused regression; numeric/source/output pins remain strict except the two inherited paths",
+  "private_artifact_directory": "20261106-economic-cost-http",
+  "private_artifact_sha256": {
+    "native-children-v2.private.json": "0fdc52eae43f80bbe5772c395cef1a378b63e1acfb074e47614c2713c3e51626",
+    "independent-review-v2.private.json": "ea69a8d432d911dc1fc986a2d1f7987bb2aece4494670bbfe5443baadeff4bc5",
+    "http-preservation-v1.private.json": "4852045e286687162abaae076838b38b7692c5211bf4c65d55d7b8cb22f55db4",
+    "owner-acceptance-v1.private.json": "6b8292e6b99009d1cd0455b15afa8ce21563fb6295d44f0f1a65f266a52aa0e2",
+    "test-source-snapshot-v3.private.json": "63afe35c0230c6717a2996077830a770f0a03fa2b8a56fca73448ebaf9e20066",
+    "final-core-v2-controller.private.json": "7fe69fcff39b1fcb020ca6666f10b36e31b68aa1a0a87ac33d1d80b43a8cc361",
+    "regression-batch-gateway-v1-controller.private.json": "f1c60cc3a03781d7b4e730210ad8c8884fabd09095d7356c42a47c4a413e0d81",
+    "regression-default-contracts-v1-controller.private.json": "0d5e26cd6e46a4f47b94c8ca8a1dbd5487c4e6001419f705042c4c9a6cdade90",
+    "regression-source-runtime-v1-controller.private.json": "ef4a6583c4b18e7a3235383a8edd5eae2cafb652f500ed311a2458cf9528c9b4",
+    "regression-source-read-v1-controller.private.json": "08297149fbefdd2996e9c0ed49d47f807d5813b97a06e466834d575b7435141d",
+    "final-core-v2/test_cost_HTTP_admits_referenc0/cost-http-receipt-v1.private.json": "fe1ac7a7fe4ae5e4d4ff20951c583ecbb345d7b958db4c376df400e62e05ef48",
+    "final-core-v2/test_cost_HTTP_admits_referenc0/cost-http-result-v1.json": "6a1842bf0304edf0d4bdb6652c93f65312f057522351042af7e16e34408c1a92",
+    "final-core-v2/test_actual_verified_TLS_cost_0/cost-https-receipt-v1.private.json": "d9966a055b623f95e67dec122beb8e557ba6b021f98e44fc7bb7e6504afa021a",
+    "final-core-v2/test_actual_verified_TLS_cost_0/cost-https-result-v1.json": "0a5b4cc886fb1a148c795aeac9c2624ea22a737abdab4f66bb937ea02e0fedfe",
+    "api-cost-before-callback-fix-v1.private.py": "117aac826e3e335cdae98bcc342048be051aee1c16231d1a977417cb7342ae58",
+    "callback-analysis-v1.private.json": "c2e30ebe2764cb669c6cc5568620012ccf78b9480290c5f60d3f5e70bcf9963a",
+    "callback-fix-v1.private.json": "d800502e20279dba99f480ce6f5b70038207262a7cd071bffdec7c0c68658eba",
+    "callback-red-v1-controller.private.json": "936b531a506a47ec9118c9723ffe959e61aff49dcf733550a8537f3239900042",
+    "collection-v1-controller.private.json": "1181355efb9b7c225a3c02681da5baaad69b5be55cf8529e66acf79dd020151f",
+    "collection-v1-source-confirmed.private.json": "fcea84be27c5fa3efcd341a817061733119e2bc99c7abc84bb0b1622cd6230b9",
+    "contract-before-owner-acceptance-v1.private.md": "09464293608030332a21bd108d53c3c68a81b1391fda152ea0a22b4cb7155bd0",
+    "core-v1-controller.private.json": "ec1f646a478c751970453dec40a35efac7df4f18d11619528d237f065956f4fc",
+    "cost-http-before-callback-fix-v1.private.py": "117aac826e3e335cdae98bcc342048be051aee1c16231d1a977417cb7342ae58",
+    "design-v1.private.json": "62716bc17658023c2219eeb3265a3b8b49cefb8289d2d0e7b8b2201946618f0e",
+    "economic-cost-http-callback-red-v1-owner.private.json": "b5f1c2e00f9f0db493e13f781b12b29508ac02dc27d3b4dca3ddcad21dd81377",
+    "economic-cost-http-callback-red-v1-supervisor.private.log": "95e0599ee10c2d858e52224a5ff892e5660e80861ffb237d18757deffe8e48ce",
+    "economic-cost-http-collection-v1-owner.private.json": "91b8c6c358930e1dc99834bb08a392db0d3466fe8d6035de37b3c953a3720a01",
+    "economic-cost-http-collection-v1-supervisor.private.log": "06d9f9c328b891b7161e9246e5181663a11aca6308ddffee4d00a6fa1fd0503b",
+    "economic-cost-http-collection-v1-task.private.json": "4261b02b9d303ba32af4eaf5078ca6a9b8b48079681f260b7a8241436b081d04",
+    "economic-cost-http-core-v1-owner.private.json": "8f520be86d3b0981e5f32adb1e6839db86795f6993ccf484d8ae0a8b1f671142",
+    "economic-cost-http-core-v1-supervisor.private.log": "def574a67fef32398276a049daf03972b99af4bbe69bffc60354cbb2fd9d6fbe",
+    "economic-cost-http-final-core-v1-owner.private.json": "2a3804e4519c9bcf5e99a38fa4ca5316c9329a09fab609552f0833994c5441a2",
+    "economic-cost-http-final-core-v1-supervisor.private.log": "a77702d2d9426922f26c6c74985de4ba4d6bec752a8964ef690fb167436f2ba9",
+    "economic-cost-http-final-core-v2-owner.private.json": "aeccad9ae22e6bea85091ae00608079301bebc2926269b547d86f7449e2c04f4",
+    "economic-cost-http-final-core-v2-supervisor.private.log": "cde1ed93c8b32a921ce40cafdd2653786954a1e6fe3b0ecb2666c89ed746080d",
+    "economic-cost-http-red-v1-owner.private.json": "b74a5b46e967e7294a6372bf00d5aa1d19beadc7014890f33bb665e16f85616b",
+    "economic-cost-http-red-v1-supervisor.private.log": "1063547806241d8ae76d60e99d2a71e6184db336d491b5cef8493f2f16d99844",
+    "economic-cost-http-regression-batch-gateway-v1-owner.private.json": "bb2e08b4c3a41b3b9d72f53960d03250fd3a02b80a78aca6f6888f6447cfcac5",
+    "economic-cost-http-regression-batch-gateway-v1-supervisor.private.log": "156371879926017b41140b18ec9aa45eb5c5094fe73cfd72d948fefdbdf25f0e",
+    "economic-cost-http-regression-batch-gateway-v1-task.private.json": "67eeba486a56d321d053bd36d4878b6e944de5acbae237cae0dc1c4f6074e98c",
+    "economic-cost-http-regression-default-contracts-v1-owner.private.json": "2f774cfcdc18240bfaa4f6a447d5a5a05a149729251bdefeea1bf8ad9436d6c9",
+    "economic-cost-http-regression-default-contracts-v1-supervisor.private.log": "2955371f37f29355bc92742f37e77c569d7dfb22569cbeec2bd358eecd593c7e",
+    "economic-cost-http-regression-default-contracts-v1-task.private.json": "ab8c7edff7f59ce6cc8c94fd569a97b6fa08bcb00cb70fe26be5256055edf695",
+    "economic-cost-http-regression-source-read-v1-owner.private.json": "263e0ebdaa65ed1a952ed53a0509737bb8d3d437fd9c373c37fd56fc06639937",
+    "economic-cost-http-regression-source-read-v1-supervisor.private.log": "34164119df6b3e9906c72b60bbf5926400299f6ceb474984a4e3092fb5d31430",
+    "economic-cost-http-regression-source-read-v1-task.private.json": "0169d60c904837a3ad879c792a7e707e40ef277ab20e46f49f8e00dba5c738ac",
+    "economic-cost-http-regression-source-runtime-v1-owner.private.json": "9d51cf1f67189d236a61c56cfaaabf525a4d57137916b0f1843512c1ea3f187c",
+    "economic-cost-http-regression-source-runtime-v1-supervisor.private.log": "f0e3fa5d040f653932bcc0cf9efb347fdc0ff3693547bd4250c1ebc4e4953931",
+    "economic-cost-http-regression-source-runtime-v1-task.private.json": "4f16261b30e33fcb06bf2b989f2d2e03df79dc9796feb97ba996128cb0bdef78",
+    "final-core-v1-controller.private.json": "65350f72452aa739f19f40b386951d5cbb77851bd1a43ca1064015aa64f93c29",
+    "final-core-v2-source-confirmed.private.json": "f74257c6930e42e2f5525185fd77d01fa1f1d684acee58cb1a689c1ce75bafca",
+    "final-review-v1.private.py": "a5bb0ca7f9abd26c1626a3c6797a63d5de0235c9c831bcfac1f193b45d2a9ab2",
+    "goal-control-observation-v1.private.json": "ef3e584e4cf0cbae6f328d60ae4bc6fd2680e9bdc1d9985b0000ac0bb8095aed",
+    "guard-task-before-regressions-v1.private.json": "a6482516267e0332fa057428024eeb106852bc0be1e50791ba3b318a42af00e7",
+    "implementation-v1.private.json": "82340ce1b7454adc562ed9523423d53d4899b473caf38439891e86440c8e9b3b",
+    "independent-review-v1.private.json": "4a5ee246a6c795f2a739b93b192de7d9d394c30f15c4be95ddfdce3617499cda",
+    "launch-owned-regression-v1.private.py": "f64093a7a7b7aeee35ee3502dfa01cef38759e131bcf8b70bc007ef9fa167e54",
+    "make-build-inputs-v1.private.py": "08a8797cad6aeac5c65d5d8c5423c0f7820bba474779c00968349abb6d99b23b",
+    "native-children-v1.private.json": "f49298eab21849c0bd9e4a547a7972a1b13337ea1543ce3dd6699ea96e84a14f",
+    "prepare-acceptance-v1.private.py": "a91d2bdbae6274b84e37b89d406a72602d14e58b2578ec2d1ca3c18842b51cda",
+    "preservation-v1.private.py": "8b60be724d0c806aa691d1b5678e55d4097df455f158a4e6fc64d15deb957d3f",
+    "red-v1-controller.private.json": "b87838d70da5759af2ccb4c31f1ec162f2f64d692b452a9faec7bf2ddf5cc064",
+    "regression-batch-gateway-v1-source-confirmed.private.json": "6ce0170247cad4e30eb8815d6a49525a568eccf4d21edd3df28ee73c0f607486",
+    "regression-default-contracts-v1-source-confirmed.private.json": "e723af8207b51dc6b3ad54b173312e2447c4580c3c3866aace4717346fbba6a5",
+    "regression-execution-v1.private.json": "4b356d8d12de1eec4685e3417c8574ead3af6dad02a7111e82d087c6683b2916",
+    "regression-plan-v1.private.json": "c50edc44345d763a6135c83c68dcfc1a4d59813529bf3bf85e445df8356b52c8",
+    "regression-source-read-v1-source-confirmed.private.json": "0c18453ae8ebe5d7980571e6e1169881d87cb17bc83f3e94ed38c45e265911fa",
+    "regression-source-runtime-v1-source-confirmed.private.json": "6364c80871eb079d2763840656a36c2e825504dc48f78733995baf38ef131805",
+    "run-owned-tests-v1.private.py": "9a9383e29cd8a99c4b5e54ca20a1e6831b1404dd8a1f36cb062aad481b7f0b5e",
+    "run-owned-tests-v2.private.py": "04dbfb8110e3aae7f6b5f08bc1d012e569254b109afee0cb611d1b3e3b95e37f",
+    "runtime-readiness-v1.private.json": "4b68c6b526677911fbf8e526afc4adc12f2a0ac855345d3213b7b80c7fcdcfae",
+    "test-source-snapshot-v1.private.json": "9026727833ade93dc31124d590e7773f8d90f63b97f3dbe46d027c7d3fc1d4ab",
+    "test-source-snapshot-v2.private.json": "e6b643d3cb536ea27a8a0cf58a4f0087668024bdfd5d0780571bdbd978f05df1",
+    "test_api_economic_cost-before-json-validation-fix-v2.private.py": "db96847233c28208c82cf0a50574caff620e844161e653c1b421a5661046c634",
+    "test_api_economic_cost-before-review-v1.private.py": "7763179f704d3b4a9ff05eb0d43d3877d338cef7636ed567f0831c85b40ec5d5",
+    "verify-regression-phase-v1.private.py": "a879369d12a9415760f03524df490599cffc7448be042fd40f462baf116d7b6b",
+    "wire-transport-context-analysis-v1.private.json": "eef4fd05a04d9393a2d2ff56d0c8f31eadec694a9d445db8cd60176eeb1050b7",
+    "build-inputs-v1.private.json": "65c9f0263bd5d89b74136f9d2257e2e4a0d4683c0eaf440b6a620d8a583ef8db"
+  },
+  "external_phase_evidence_sha256": {
+    "20261023-leaf-query-scope/economic-cost-http-final-core-v2/terminal.private.json": "55624dd67a137bf164dba3a39bcc6cc1d2c277e59aa9112a6feec1b05eff3688",
+    "20261023-leaf-query-scope/economic-cost-http-final-core-v2/child.private.log": "6135dcb9dcfa466bec067897a6dc2a42e4427e35d95827d4fc3998e8391a475b",
+    "20261023-leaf-query-scope/economic-cost-http-regression-batch-gateway-v1/terminal.private.json": "393df5e55a8c10f5f969b22277317760f21622c362f194eae3770384de89f676",
+    "20261023-leaf-query-scope/economic-cost-http-regression-batch-gateway-v1/child.private.log": "fa24cf367f7f26f9911631f58feb2798025d77ea174988cb6b6c3246b2bed39f",
+    "20261023-leaf-query-scope/economic-cost-http-regression-default-contracts-v1/terminal.private.json": "ef209bcee4057de02edf6ad1d7e001a88e878de7c510a0dd8dc7bf5bf96f0948",
+    "20261023-leaf-query-scope/economic-cost-http-regression-default-contracts-v1/child.private.log": "b189f1c4545f0cffa939ec197860e08a1d3fae1156a168c73b2b6f2b66421263",
+    "20261023-leaf-query-scope/economic-cost-http-regression-source-runtime-v1/terminal.private.json": "bb29fda5eaccef2342f94ba2d90b9f4bbb4fc9a2a5233d5954cdbecedcd4a8b4",
+    "20261023-leaf-query-scope/economic-cost-http-regression-source-runtime-v1/child.private.log": "a4fc24f568abfb04af052297d416d612a7ba0d0d624ab00a355ac69ad459933e",
+    "20261023-leaf-query-scope/economic-cost-http-regression-source-read-v1/terminal.private.json": "2f13aaca5da095d766adfcc3c346e0a7593db70ff8f3da37a7f2cd1d0eb2022f",
+    "20261023-leaf-query-scope/economic-cost-http-regression-source-read-v1/child.private.log": "846ba9b78fe52a7aaf6c58b300aa7f9be9712c0d4fcd633a0fe8e8ec0644b3be",
+    "20261023-leaf-query-scope/guard.private.py": "e370516b4d564958e26832edfbdc8fc69168984bfd1d638cfd6eb9715e4f5bb3",
+    "20261023-leaf-query-scope/economic-cost-http-callback-red-v1/terminal.private.json": "9131edfe087966c8edff9f9ca7d6a9930871ecbc33cf7d016ef996abe4516d5a",
+    "20261023-leaf-query-scope/economic-cost-http-callback-red-v1/child.private.log": "d85d329f11d881a28f067ec3a50f1c83afbde9321260b1ded841378180137cfa",
+    "20261023-leaf-query-scope/economic-cost-http-collection-v1/terminal.private.json": "60376a0d027eeae6173c3abe8e73479853d6db48faf0c9bad62af774516f9bda",
+    "20261023-leaf-query-scope/economic-cost-http-collection-v1/child.private.log": "c72e5babc2ee8bb92e20124ea093b6cc89064955235c5ffba9556cce35f00b56",
+    "20261023-leaf-query-scope/economic-cost-http-core-v1/terminal.private.json": "c9e5994d1591095c41aac497660827b38980743fc5203d549a82227be7271f58",
+    "20261023-leaf-query-scope/economic-cost-http-core-v1/child.private.log": "ac5d37f496afbf70ba73d437e778bdb6a3d5bdc64ba40c06df7127c1b2d5f413",
+    "20261023-leaf-query-scope/economic-cost-http-final-core-v1/terminal.private.json": "813bbab5552bab5385c75b1eb3888fe9e9dd65267f18cdf2cbd7c3015ba9c0cd",
+    "20261023-leaf-query-scope/economic-cost-http-final-core-v1/child.private.log": "305dcfbe3088a935deff00236fa51218e979cf23234d8054fa3eecfd67162891",
+    "20261023-leaf-query-scope/economic-cost-http-red-v1/terminal.private.json": "f59301f42bb57073ad01380da6232b96980f44c65dbdfd9284f53e6d010792fe",
+    "20261023-leaf-query-scope/economic-cost-http-red-v1/child.private.log": "67d2b51874eda68dfe4e10c0fe45efbc1b2be64c71b22286171cca1559aaeaea"
+  },
+  "focused_checks": {
+    "disjoint_counts": {
+      "new_cost_HTTP": 30,
+      "original_batch_HTTP": 20,
+      "economic_runtime": 12,
+      "consumer": 16,
+      "default_openapi": 101,
+      "http_identity": 33,
+      "market_source_write": 21,
+      "default_api_runtime": 40,
+      "market_source_read": 35
+    },
+    "unique_total": 308,
+    "historical114_and425_not_recounted": true
+  },
+  "regression_groups": [
+    {
+      "name": "final-core-v2",
+      "targets": [
+        "backend/tests/test_api_economic_cost.py",
+        "-x"
+      ],
+      "test_categories": [
+        "new_cost_HTTP"
+      ],
+      "tests_unique": 30,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T03:51:15.714885Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 238.40727647882886,
+        "PID_peak_RSS_bytes": 228122624,
+        "combined_peak_RSS_bytes": 364138496,
+        "samples": 919,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11131,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "6135dcb9dcfa466bec067897a6dc2a42e4427e35d95827d4fc3998e8391a475b",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T03:51:14.115459+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_api_economic_cost.py",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_api_economic_cost.py": 30
+        },
+        "seconds": 236.616341101937,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "014cc5424e9d9cfc34580295fe554757cfd000a70a667e4208a317d596754f44"
+    },
+    {
+      "name": "regression-batch-gateway-v1",
+      "targets": [
+        "backend/tests/test_api_economic_batch.py",
+        "backend/tests/test_economic_batch_runtime.py",
+        "backend/tests/test_economic_batch_consumer.py",
+        "backend/tests/test_economic_batch_consumer_http.py",
+        "-x"
+      ],
+      "test_categories": [
+        "original_batch_HTTP",
+        "economic_runtime",
+        "consumer"
+      ],
+      "tests_unique": 48,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T04:00:37.335135Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 183.50136493099853,
+        "PID_peak_RSS_bytes": 224079872,
+        "combined_peak_RSS_bytes": 408526848,
+        "samples": 710,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11131,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "fa24cf367f7f26f9911631f58feb2798025d77ea174988cb6b6c3246b2bed39f",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T04:00:35.689744+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_api_economic_batch.py",
+          "backend/tests/test_economic_batch_runtime.py",
+          "backend/tests/test_economic_batch_consumer.py",
+          "backend/tests/test_economic_batch_consumer_http.py",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_api_economic_batch.py": 20,
+          "backend/tests/test_economic_batch_runtime.py": 12,
+          "backend/tests/test_economic_batch_consumer.py": 15,
+          "backend/tests/test_economic_batch_consumer_http.py": 1
+        },
+        "seconds": 181.66182617819868,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "d7aa39b3127737986fb1cb88003b4c8c0ca9db8e4ee9b9e474696a062db5f01c"
+    },
+    {
+      "name": "regression-default-contracts-v1",
+      "targets": [
+        "backend/tests/test_api_openapi.py",
+        "backend/tests/test_http_identity.py",
+        "-x"
+      ],
+      "test_categories": [
+        "default_openapi",
+        "http_identity"
+      ],
+      "tests_unique": 134,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T04:05:29.982910Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 250.70708433212712,
+        "PID_peak_RSS_bytes": 193257472,
+        "combined_peak_RSS_bytes": 383823872,
+        "samples": 988,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11131,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "b189f1c4545f0cffa939ec197860e08a1d3fae1156a168c73b2b6f2b66421263",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T04:05:28.207887+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_api_openapi.py",
+          "backend/tests/test_http_identity.py",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_api_openapi.py": 101,
+          "backend/tests/test_http_identity.py": 33
+        },
+        "seconds": 248.74334362498485,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "417e6ee4e9604d59fe54a7a8d030ca74717ed1fced1d204903f83b1c1b7a5853"
+    },
+    {
+      "name": "regression-source-runtime-v1",
+      "targets": [
+        "backend/tests/test_api_market_user_source.py",
+        "backend/tests/test_api_runtime.py",
+        "-x"
+      ],
+      "test_categories": [
+        "market_source_write",
+        "default_api_runtime"
+      ],
+      "tests_unique": 61,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T04:07:39.146760Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 67.24744715890847,
+        "PID_peak_RSS_bytes": 177201152,
+        "combined_peak_RSS_bytes": 437796864,
+        "samples": 261,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11131,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "a4fc24f568abfb04af052297d416d612a7ba0d0d624ab00a355ac69ad459933e",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T04:07:37.637031+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_api_market_user_source.py",
+          "backend/tests/test_api_runtime.py",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_api_market_user_source.py": 21,
+          "backend/tests/test_api_runtime.py": 40
+        },
+        "seconds": 65.55503712990321,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "d8c66693c868668cb38fcdebecad8041fac02b42b0fb42bfdc9fca93b984c215"
+    },
+    {
+      "name": "regression-source-read-v1",
+      "targets": [
+        "backend/tests/test_api_market_user_source_read.py",
+        "-x"
+      ],
+      "test_categories": [
+        "market_source_read"
+      ],
+      "tests_unique": 35,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T04:08:59.777705Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 49.61260640388355,
+        "PID_peak_RSS_bytes": 183250944,
+        "combined_peak_RSS_bytes": 293818368,
+        "samples": 192,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11131,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "846ba9b78fe52a7aaf6c58b300aa7f9be9712c0d4fcd633a0fe8e8ec0644b3be",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T04:08:58.107175+00:00",
+        "exit": 0,
+        "pytest_targets": [
+          "backend/tests/test_api_market_user_source_read.py",
+          "-x"
+        ],
+        "collected_test_counts_by_module": {
+          "backend/tests/test_api_market_user_source_read.py": 35
+        },
+        "seconds": 47.75868149893358,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      },
+      "collected_node_ids_sha256": "f051310cde09e3dd31e6fdbc8df9a257c41f093b3f52ad7e3de0991f3c39e33b"
+    }
+  ],
+  "HTTP_proofs": [
+    {
+      "kind": "HTTP",
+      "proof_path": "20261106-economic-cost-http/final-core-v2/test_cost_HTTP_admits_referenc0/cost-http-receipt-v1.private.json",
+      "proof_sha256": "fe1ac7a7fe4ae5e4d4ff20951c583ecbb345d7b958db4c376df400e62e05ef48",
+      "raw_path": "20261106-economic-cost-http/final-core-v2/test_cost_HTTP_admits_referenc0/cost-http-result-v1.json",
+      "raw_sha256": "6a1842bf0304edf0d4bdb6652c93f65312f057522351042af7e16e34408c1a92",
+      "result_sha256": "0a6036be767520f3c09371b0f9b9e839e7f26a517f037c43e62daa311c52d1a6",
+      "base_result_sha256": "691e42f6a203555edb051dbefa3a7a1756ebd41aa708c801bb9c80d61190d402",
+      "publication_id": "ff7e47fe-8033-4e53-9b59-0529b4b2f395",
+      "published_at": "2026-11-06T12:47:31.525633+09:00"
+    },
+    {
+      "kind": "HTTPS",
+      "proof_path": "20261106-economic-cost-http/final-core-v2/test_actual_verified_TLS_cost_0/cost-https-receipt-v1.private.json",
+      "proof_sha256": "d9966a055b623f95e67dec122beb8e557ba6b021f98e44fc7bb7e6504afa021a",
+      "raw_path": "20261106-economic-cost-http/final-core-v2/test_actual_verified_TLS_cost_0/cost-https-result-v1.json",
+      "raw_sha256": "0a5b4cc886fb1a148c795aeac9c2624ea22a737abdab4f66bb937ea02e0fedfe",
+      "result_sha256": "827d5db026d3ef2ad86fcb03fd1f09b2abb3decf9e15ed9f3694aa2a490af8f0",
+      "base_result_sha256": "e8dee166fe41d66128fc6a5f417cb2c87e48c3e9a46a83ff2f61a757b27cf5bd",
+      "publication_id": "38bc7841-9d26-4196-a1f8-8ed659f9f3b4",
+      "published_at": "2026-11-06T12:50:59.206314+09:00"
+    }
+  ],
+  "native_turn_evidence": {
+    "observed_at_UTC": "2026-11-06T04:12:56.575421+00:00",
+    "qualified_native_Codex_internal_agents": [
+      {
+        "agent_path": "/root/cost_worker_tests_20261106",
+        "native_session_id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T03:59:01.373Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "15ccedce61f01a8d6aae9527a8d048744eec301b2dafaa64036ae507aedcb1ee",
+        "metadata_path": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-52-00-01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c.jsonl",
+        "hash_semantics": "exact JSONL turn_context bytes including LF"
+      },
+      {
+        "agent_path": "/root/cost_worker_contract_review_20261106",
+        "native_session_id": "01a1ae8e-67fd-7f61-a0ce-4522a709de93",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T04:10:55.624Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "a851763bc02aae0cb5460846e17c70d9adadfc194e7da68dafc3ef8c756c9e10",
+        "metadata_path": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-52-10-01a1ae8e-67fd-7f61-a0ce-4522a709de93.jsonl",
+        "hash_semantics": "exact JSONL turn_context bytes including LF"
+      },
+      {
+        "agent_path": "/root/cost_worker_acceptance_docs_20261106",
+        "native_session_id": "01a1ae93-8595-7e63-8027-2590fb682ea2",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T03:52:30.157Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "335053867d0763c9bd1b92378b0fed8f4e59dc508835a31c4637c5a0d3f8ce1d",
+        "metadata_path": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-57-46-01a1ae93-8595-7e63-8027-2590fb682ea2.jsonl",
+        "hash_semantics": "exact JSONL turn_context bytes including LF"
+      }
+    ],
+    "actual_child_metadata_independently_verified": true,
+    "parent_actual_model": "gpt-6.1-sol",
+    "parent_actual_effort": "ultra",
+    "parent_is_not_exact_judgment_session": true,
+    "substantive_decisions_and_implementation_by": "verified xhigh native Codex internal agents; root orchestrates validation and recording",
+    "recursive_Codex_CLI": false,
+    "new_external_CLI_launched": false,
+    "data_or_gate_adoption": false,
+    "previous_goal_turn": "progress:114 focused checks, query accepted and bd5283d3 exactremote verified",
+    "parent_actual_turn_timestamp": "2026-11-06T03:58:07.553Z",
+    "parent_actual_turn_metadata_sha256": "f1615bc35429c53002bc23a86c9b8062c782f6056678bfe9e865144d127bbee9",
+    "preserved_prior_snapshot_sha256": "f49298eab21849c0bd9e4a547a7972a1b13337ea1543ce3dd6699ea96e84a14f",
+    "current_actual_tests_passed": 308
+  },
+  "review": {
+    "review_version": "economic-cost-http-independent-review-v2",
+    "observed_at_UTC": "2026-11-06T03:55:08.982718+00:00",
+    "independent_native_review": true,
+    "reviewer_agent": "/root/cost_worker_tests_20261106",
+    "reviewer_was_implementation_author": false,
+    "reviewer_was_test_author": true,
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning_effort": "xhigh",
+    "actual_model": "gpt-6.1-sol",
+    "actual_reasoning_effort": "xhigh",
+    "native_session_id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+    "actual_native_session": {
+      "id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+      "originator": "codex-tui",
+      "cli_version": "0.166.0"
+    },
+    "actual_native_metadata_location": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-52-00-01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c.jsonl",
+    "actual_native_metadata_independently_read": true,
+    "actual_native_turn_contexts": [
+      {
+        "timestamp": "2026-11-06T01:52:01.708Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "ff50dbb6ec2f8c985a7c37416af8334045a6efbcee3e953e5d39ba7321b6446c"
+      },
+      {
+        "timestamp": "2026-11-06T01:59:11.846Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "1d453a51d9460af0fa7c4365446a7bceda6bcfb706ffe916b7bdd1955dd04478"
+      },
+      {
+        "timestamp": "2026-11-06T02:03:09.130Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "181ffad7cf5adf644b3c27421f6e16aa47b24abf37e37b15841c47287bfb57d3"
+      },
+      {
+        "timestamp": "2026-11-06T02:11:44.652Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "03672dca61ffc80e8b2722f11daec750bcaa7ab489be9d86b255f5d461a35168"
+      },
+      {
+        "timestamp": "2026-11-06T02:19:42.424Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "ef61c0d1259eec6a50a9942b9e5576973bc6321eee87d5dbc3da0ea426ea209f"
+      },
+      {
+        "timestamp": "2026-11-06T02:40:33.870Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "117ddc9927eae7e9c9288929379b7a1320e5c9f5c1edc234d02ee0afd1637cf5"
+      },
+      {
+        "timestamp": "2026-11-06T02:49:56.816Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "05ea63c435224a7e121c1a1902154b6142cbfb4b4fd8e6bc36aa6d4db3e107c4"
+      },
+      {
+        "timestamp": "2026-11-06T02:54:22.407Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "681f23dbe0f68344fa67e5ad40ac9e8362225424719ccd6578610261a277947f"
+      },
+      {
+        "timestamp": "2026-11-06T03:06:16.846Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "13e64aaa8488123457b267e01c0df8e030132f3f5c818f2bd5edc9b940522bbe"
+      },
+      {
+        "timestamp": "2026-11-06T03:23:50.486Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "f01ed44e750def30e1fc2967116000d462fb5027cbe2e24e59d4b657a48692af"
+      },
+      {
+        "timestamp": "2026-11-06T03:37:19.018Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "875e412487d4a7218cd1400de2221a13edfa73a2481b6a16e466814e5c462a71"
+      },
+      {
+        "timestamp": "2026-11-06T03:46:13.055Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "07aa9f7d55a2c9e4fbca1902b65e5a392ae8f9064df6a773815992e3d58f9341"
+      },
+      {
+        "timestamp": "2026-11-06T03:52:58.604Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256_with_LF": "a29701ec73e56309c707ebd801c41c43ad54112ad8e5dbea02153668b48c9aba"
+      }
+    ],
+    "supersedes_review": {
+      "path": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/independent-review-v1.private.json",
+      "sha256": "4a5ee246a6c795f2a739b93b192de7d9d394c30f15c4be95ddfdce3617499cda",
+      "preserved_unchanged": true
+    },
+    "reviewed_source_sha256": {
+      "backend/app/api.py": "4c7395328f2f738e39544b1e4176e18b670a747c1feb6fda117fe2e104fe3507",
+      "backend/app/api_economic_batch.py": "080934b74a975019a983cc4ca3b59c1b52bd49ec6cb05cc8f0a14a225c9b0c3d",
+      "backend/app/api_economic_cost.py": "ae318a44ed7418ccda03ed07acbaf4ad76a9f9dcba7a6a3ea5661b651227f070",
+      "backend/app/economic_cost_wire.py": "59385b33551a256376865a047c5ed134765cc78173bf898a303af7d438ef9d5e",
+      "backend/tests/test_api_economic_cost.py": "c168d39f0b2286508369dfa7697d3e1dc4731cca6fa8162db2a0869e77e4d635"
+    },
+    "reviewed_contract_sha256": "09464293608030332a21bd108d53c3c68a81b1391fda152ea0a22b4cb7155bd0",
+    "axes": [
+      "correctness",
+      "readability",
+      "architecture",
+      "security",
+      "performance"
+    ],
+    "axis_details": {
+      "correctness": {
+        "verdict": "approve scoped final source; all review findings resolved",
+        "reasoning": "All30 new cases passed on the exact32-pin final source. Actual callback RED first proved an HTTP503 could follow an unintended committed job/event. The fixed callback capture/live identity checks now run through the accepted admission commit_guard, and the final pre-commit root/callback regression proves actual job/event rollback. The separate post-commit regression proves503 suppresses only the response while preserving the committed UUID/input bytes/created timestamp/event count for restored idempotent retry. Both transport test mistakes are corrected without production relaxation: oversized full scenario413 versus bounded malformed reference422, and strict JSON wire validation uses model_validate_json rather than strict Python object validation."
+      },
+      "readability": {
+        "verdict": "approve current shape",
+        "reasoning": "A small fixed cost wrapper owns HTTP-specific binding. Shared handlers remove only duplicated calculation/result bodies; source functions remain byte-for-byte identical. Capturing the callback makes validation dispatch and identity verification distinct and visible. Independent AST comparison shows the callback repair changes only the private service class and retained-callback pointer field."
+      },
+      "architecture": {
+        "verdict": "approve current shape subject to pass",
+        "reasoning": "The existing opt-in actual authority controls both new routes. No DB/schema/role/flag/factory/worker/consumer is added. Existing admission/query authorities own immutable state; the wrapper adds checks inside commit_guard and after return. The raw result remains the original artifact, and post-commit recovery uses the original idempotent intent. The final code keeps original service/query/worker/numeric/wire-helper modules unchanged, independently rehashed against the fix receipt."
+      },
+      "security": {
+        "verdict": "approve scoped final source",
+        "reasoning": "The actual pre-commit callback defect is resolved by fixed dispatch plus live identity validation. Current and late auth/scope/source/code/root/authority faults are covered, with fixed private errors and no raw payload on hold. Real certificate-verified TLS/SCRAM succeeds, source hold422 restores identical bytes, foreign/expiry/query faults are denied, first publication headers are preserved, read amount/SQL writes remain0 and TLS key/certificate files are absent after completion."
+      },
+      "performance": {
+        "verdict": "bounded; no benchmark claim",
+        "reasoning": "POST caps4096bytes and GET uses the accepted2MiB reader. Pointer/program checks are bounded; no amount calculation or automatic worker is added. Scaled64-byte publication-cap fault is explicitly labeled as such. The fixed callback adds only identity checks and local dispatch. Actual new-suite elapsed time is recorded solely as verification runtime, not application throughput."
+      }
+    },
+    "required_findings_remaining": 0,
+    "implementation_required_findings_remaining": 0,
+    "required_findings": [],
+    "resolved_findings": [
+      {
+        "id": "R1",
+        "status": "resolved",
+        "implementation_defect": true,
+        "actual_RED": "503 but real jobs/events(28,28) rather than prior(27,27);1failed29deselected6.96s",
+        "fix": "Only new cost API retains original callback, locally captures it for _prepare dispatch, rejects live identity drift and includes retained callback in pointers.",
+        "minimal_fix_AST_independently_verified": true,
+        "actual_GREEN": "Final30 includes pre-commit root and callback replacement; both actual jobs/events remain unchanged."
+      },
+      {
+        "id": "R2",
+        "status": "resolved",
+        "implementation_defect": false,
+        "initial_failure": "Test expected422 for a full scenario over4096bytes; actual413 was correct.",
+        "resolution": "Bounded nonreference422 and separately asserted oversized fullscenario413 both pass. No body-limit/schema/type change."
+      },
+      {
+        "id": "R3",
+        "status": "resolved",
+        "implementation_defect": false,
+        "coverage": "Actual pre-commit rollback and post-commit response suppression/immutable-intent recovery regressions pass.",
+        "additional_test_context_correction": "A strict Python model_validate call rejected normal JSON lists/date/UUID strings. Three test-only calls now use model_validate_json(json.dumps(candidate)), including invalid cases and unknown-payment response. Draft202012 still validates dicts; strict DTO/schema unchanged.",
+        "JSON_context_correction_AST_independently_verified": true
+      }
+    ],
+    "schema_review": {
+      "verdict": "approved for actual JSON wire",
+      "reasoning": "Pydantic JSON-mode and Draft202012 checks both passed for complete nested raw, nullable fields, tuple-inventory JSON rows and scientific Decimal strings. Numeric/nonfinite amounts, extra fields, promoted gate, bad ID/version/component and invalid nested numeric inventory are rejected in both validators. Existing signed uppercaseE MoneyText and strict FrozenContract are unchanged."
+    },
+    "compatibility": {
+      "static_review": {
+        "verdict": "static approved, legacy actual tests pending",
+        "reasoning": "Original batch paths,operation IDs,route names,statuses,scopes and POST query behavior are preserved; cost alone closes POST query parameters. Source8 functions and original wire helper are unchanged. Default authority-free apps install no cost routes and retain the old source schema. No numerical or accepted query/worker module changes were made."
+      },
+      "legacy_actual_pass_claimed": false,
+      "status": "Only new30 and specific callback RED/GREEN are approved here. Remaining nine legacy modules require separate terminal receipts; previous114/425 are immutable parent evidence and are not added to this count."
+    },
+    "verdict": "approve scoped final cost HTTP source and close R1/R2/R3; broader software acceptance still requires outstanding legacy validations",
+    "source_snapshot_verification": {
+      "all_32_pins_independently_rehashed": true,
+      "snapshot_sha256": "63afe35c0230c6717a2996077830a770f0a03fa2b8a56fca73448ebaf9e20066",
+      "guard_source_preserved": true
+    },
+    "actual_final_validation": {
+      "actual_module_counts": {
+        "backend/tests/test_api_economic_cost.py": 30
+      },
+      "actual_passed": 30,
+      "pytest_seconds": 233.28,
+      "guard_wall_seconds": 238.40727647882886,
+      "child_exit": 0,
+      "controller_exit": 0,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "server_stopped": true,
+      "host_auth_methods": [
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256"
+      ],
+      "HTTP_proof": {
+        "observed_at_UTC": "2026-11-06T03:47:33.187829+00:00",
+        "job_id": "f4bc8946-2d1b-4a76-b6af-500564c2e4ec",
+        "artifact_sha256": "6a1842bf0304edf0d4bdb6652c93f65312f057522351042af7e16e34408c1a92",
+        "artifact_bytes": 13725,
+        "publication_id": "ff7e47fe-8033-4e53-9b59-0529b4b2f395",
+        "published_at": "2026-11-06T12:47:31.525633+09:00",
+        "trace_id": "62d026f20b45f4549bc2532aec6ad6858faed2caf658f377945ce358e13fb2b0",
+        "actual_trace_calls": 1,
+        "actual_v10_calls": 1,
+        "admission_amount_calls": 0,
+        "result_amount_calls": 0,
+        "result_SQL_writes": 0,
+        "result_execution_scope": false,
+        "same_first_publication": true,
+        "synthetic_QA_only": true,
+        "G0_G4": "not_assessed",
+        "R2": "not_approved"
+      },
+      "HTTPS_proof": {
+        "observed_at_UTC": "2026-11-06T03:51:00.926307+00:00",
+        "artifact_sha256": "0a5b4cc886fb1a148c795aeac9c2624ea22a737abdab4f66bb937ea02e0fedfe",
+        "artifact_bytes": 13725,
+        "publication_id": "38bc7841-9d26-4196-a1f8-8ed659f9f3b4",
+        "published_at": "2026-11-06T12:50:59.206314+09:00",
+        "real_verified_TLS": true,
+        "owned_host_SCRAM": true,
+        "hold_status": 422,
+        "restored_same_raw": true,
+        "result_SQL_writes": 0,
+        "result_amount_calls": 0,
+        "result_execution_scope": false,
+        "automatic_consumer": false,
+        "G0_G4": "not_assessed",
+        "R2": "not_approved"
+      },
+      "TLS_private_material_removed": true
+    },
+    "actual_run_history": {
+      "core-v1": {
+        "actual_summary": "1 failed, 2 passed in 25.92s",
+        "not_counted_as_final_acceptance": true
+      },
+      "callback-red-v1": {
+        "actual_summary": "1 failed, 29 deselected in 6.96s",
+        "not_counted_as_final_acceptance": true
+      },
+      "final-core-v1": {
+        "actual_summary": "1 failed, 6 passed in 46.92s",
+        "not_counted_as_final_acceptance": true
+      }
+    },
+    "actual_evidence_sha256": {
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-http-final-core-v2/terminal.private.json": "55624dd67a137bf164dba3a39bcc6cc1d2c277e59aa9112a6feec1b05eff3688",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-http-final-core-v2/child.private.log": "6135dcb9dcfa466bec067897a6dc2a42e4427e35d95827d4fc3998e8391a475b",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/final-core-v2-controller.private.json": "7fe69fcff39b1fcb020ca6666f10b36e31b68aa1a0a87ac33d1d80b43a8cc361",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/final-core-v2-source-confirmed.private.json": "f74257c6930e42e2f5525185fd77d01fa1f1d684acee58cb1a689c1ce75bafca",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/test-source-snapshot-v3.private.json": "63afe35c0230c6717a2996077830a770f0a03fa2b8a56fca73448ebaf9e20066",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/callback-fix-v1.private.json": "d800502e20279dba99f480ce6f5b70038207262a7cd071bffdec7c0c68658eba",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/api-cost-before-callback-fix-v1.private.py": "117aac826e3e335cdae98bcc342048be051aee1c16231d1a977417cb7342ae58",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/test_api_economic_cost-before-json-validation-fix-v2.private.py": "db96847233c28208c82cf0a50574caff620e844161e653c1b421a5661046c634",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/test_api_economic_cost-before-review-v1.private.py": "7763179f704d3b4a9ff05eb0d43d3877d338cef7636ed567f0831c85b40ec5d5",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/final-core-v2/test_cost_HTTP_admits_referenc0/cost-http-receipt-v1.private.json": "fe1ac7a7fe4ae5e4d4ff20951c583ecbb345d7b958db4c376df400e62e05ef48",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/final-core-v2/test_cost_HTTP_admits_referenc0/cost-http-result-v1.json": "6a1842bf0304edf0d4bdb6652c93f65312f057522351042af7e16e34408c1a92",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/final-core-v2/test_actual_verified_TLS_cost_0/cost-https-receipt-v1.private.json": "d9966a055b623f95e67dec122beb8e557ba6b021f98e44fc7bb7e6504afa021a",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/final-core-v2/test_actual_verified_TLS_cost_0/cost-https-result-v1.json": "0a5b4cc886fb1a148c795aeac9c2624ea22a737abdab4f66bb937ea02e0fedfe",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-http-core-v1/terminal.private.json": "c9e5994d1591095c41aac497660827b38980743fc5203d549a82227be7271f58",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-http-core-v1/child.private.log": "ac5d37f496afbf70ba73d437e778bdb6a3d5bdc64ba40c06df7127c1b2d5f413",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/core-v1-controller.private.json": "ec1f646a478c751970453dec40a35efac7df4f18d11619528d237f065956f4fc",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-http-callback-red-v1/terminal.private.json": "9131edfe087966c8edff9f9ca7d6a9930871ecbc33cf7d016ef996abe4516d5a",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-http-callback-red-v1/child.private.log": "d85d329f11d881a28f067ec3a50f1c83afbde9321260b1ded841378180137cfa",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/callback-red-v1-controller.private.json": "936b531a506a47ec9118c9723ffe959e61aff49dcf733550a8537f3239900042",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-http-final-core-v1/terminal.private.json": "813bbab5552bab5385c75b1eb3888fe9e9dd65267f18cdf2cbd7c3015ba9c0cd",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-http-final-core-v1/child.private.log": "305dcfbe3088a935deff00236fa51218e979cf23234d8054fa3eecfd67162891",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-http/final-core-v1-controller.private.json": "65350f72452aa739f19f40b386951d5cbb77851bd1a43ca1064015aa64f93c29"
+    },
+    "verification_limits": {
+      "tests_run_by_reviewer": false,
+      "full_suite_run": false,
+      "PG_services_CLI_agents_commits_by_reviewer": false,
+      "repository_edits_during_guards": false,
+      "production_edits_by_reviewer": false,
+      "legacy_pass_claimed": false
+    },
+    "scope": "owned_self_authored_synthetic_software_QA_only",
+    "G0_G4": "not_assessed",
+    "R2": "not_approved",
+    "independent_domestic_raw": 0,
+    "overall_product_complete": false,
+    "data_or_rights_or_gate_adoption": false
+  },
+  "preservation": {
+    "schema_version": "economic-cost-http-preservation-v1",
+    "observed_at_UTC": "2026-11-06T04:16:17.165996+00:00",
+    "verifier_sha256": "8b60be724d0c806aa691d1b5678e55d4097df455f158a4e6fc64d15deb957d3f",
+    "shared_validator_sha256": "a5bb0ca7f9abd26c1626a3c6797a63d5de0235c9c831bcfac1f193b45d2a9ab2",
+    "parent_query_commit": "bd5283d3d05111fc851170976a705a6448da9f4a",
+    "parent_query_manifest": "research/artifacts/economic-cost-stored-result-query-20261106.json",
+    "parent_query_manifest_sha256": "677ace4e215d6ae23ce9e10246fc03fae344e3014c3776f2d7e84ac37bc9c334",
+    "parent_source_pins": 750,
+    "parent_query_integration_Git_pins": 29,
+    "source_snapshot_exceptions": {
+      "backend/app/economic_batch_worker.py": {
+        "commit": "8f7606c3f99696d139961226829f21571348833e",
+        "sha256": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198",
+        "bytes": 10000,
+        "inherited_from_parent": true
+      },
+      "backend/app/economic_batch_query.py": {
+        "commit": "4edef92da8ebb7849ccde96a9d8f97e9c385b856",
+        "sha256": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd",
+        "bytes": 11139,
+        "inherited_from_parent": false
+      }
+    },
+    "current_strict_inherited_sources": 748,
+    "parent_chain_checks": {
+      "query": {
+        "private": 52,
+        "external": 13,
+        "supplemental_final_review_sha256": 5,
+        "external_final_review_sha256": 2,
+        "accepted_integration_Git_snapshots": 29
+      },
+      "worker": {
+        "private": 37,
+        "external": 14,
+        "supplemental_final_review_sha256": 5,
+        "external_final_review_sha256": 2,
+        "accepted_integration_Git_snapshots": 25
+      },
+      "admission": {
+        "private": 8,
+        "external": 6,
+        "supplemental_final_review_sha256": 3,
+        "external_final_review_sha256": 2,
+        "accepted_integration_Git_snapshots": 22
+      },
+      "kernel": {
+        "private": 22,
+        "external": 20,
+        "supplemental_final_review_sha256": 3,
+        "external_final_review_sha256": 2,
+        "accepted_integration_Git_snapshots": 20,
+        "resume_private": 5,
+        "resume_external": 2
+      }
+    },
+    "historical_worker_source_pins": {
+      "research/artifacts/economic-batch-execution-worker-20261031.json": {
+        "manifest_sha256": "77f3660af15cb9a8789fa5002e3cf72e41fec93f2eed8d4bfe058c6a3b38ffd8",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-batch-stored-result-query-20261031.json": {
+        "manifest_sha256": "e50b4c026c81b9fa6abcc778ae86b92752b7ed75ff26252484b2d71f9a33804a",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-batch-protected-http-20261031.json": {
+        "manifest_sha256": "4fc70788442d38c9434e4c4d63ad5a341b2e5277ff64e86b2f3fd61dd667c009",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-batch-runtime-assembly-20261031.json": {
+        "manifest_sha256": "2097a4c380571da47c128af71e21260b6507bf8cf22a1ce2b8cd946a11599765",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-batch-automatic-consumer-20261031.json": {
+        "manifest_sha256": "5bcab22bb8ef867c4fabdfb759b869d658e995ecf0cb4d5c69d23dcfc8755f6b",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-cost-line-trace-20261031.json": {
+        "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      }
+    },
+    "historical_query_source_pins": {
+      "research/artifacts/economic-batch-stored-result-query-20261031.json": {
+        "manifest_sha256": "e50b4c026c81b9fa6abcc778ae86b92752b7ed75ff26252484b2d71f9a33804a",
+        "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+      },
+      "research/artifacts/economic-batch-protected-http-20261031.json": {
+        "manifest_sha256": "4fc70788442d38c9434e4c4d63ad5a341b2e5277ff64e86b2f3fd61dd667c009",
+        "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+      },
+      "research/artifacts/economic-batch-runtime-assembly-20261031.json": {
+        "manifest_sha256": "2097a4c380571da47c128af71e21260b6507bf8cf22a1ce2b8cd946a11599765",
+        "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+      },
+      "research/artifacts/economic-batch-automatic-consumer-20261031.json": {
+        "manifest_sha256": "5bcab22bb8ef867c4fabdfb759b869d658e995ecf0cb4d5c69d23dcfc8755f6b",
+        "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+      },
+      "research/artifacts/economic-cost-line-trace-20261031.json": {
+        "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+        "original_query_pin": "5b4338fbb90da993ae6b2eb61a4a56d07685d4cdf60138e80c5bc55b683afddd"
+      }
+    },
+    "current_integration_update_sha256": {
+      "backend/app/api.py": "4c7395328f2f738e39544b1e4176e18b670a747c1feb6fda117fe2e104fe3507",
+      "backend/app/api_economic_batch.py": "080934b74a975019a983cc4ca3b59c1b52bd49ec6cb05cc8f0a14a225c9b0c3d"
+    },
+    "HTTP_integration_source_sha256": {
+      "backend/app/market_hold_store.py": "dcd6b6ab6123e11b49720456a2d2dc5c836337f4a416c9dd6486e76171cb6125",
+      "backend/app/market_source_store.py": "a463f7641a917ffa86f0ffd965212632ff56f11243fbbf7a77d5130f754d5a79",
+      "backend/app/operator_config.py": "b348cb7955e122466bdacd58dd057c90dba6d75c786307db0bdd68435fb9aa3c",
+      "backend/app/runtime_roles.py": "4c5fef33de51c51b0e3e573ca3b06ae8d36b41200327dd80c457162260bf3b78",
+      "backend/tests/login_database.py": "7a1da0a4ad3b492f158010a8c12b4ea6a152d5fc505f37792af64e94d6cf6ee1",
+      "backend/tests/test_runtime_roles.py": "a218f8d65fddfd631f39b0a3c56fb9971af1073f80e5e52e77844aefc4a7c29f",
+      "backend/app/api.py": "4c7395328f2f738e39544b1e4176e18b670a747c1feb6fda117fe2e104fe3507",
+      "backend/app/api_market_source.py": "7cdc2e67ea9e3f85018721dc18e4234ffa6b3fcc56405c6c5daa9b298996d5da",
+      "backend/app/api_economic_batch.py": "080934b74a975019a983cc4ca3b59c1b52bd49ec6cb05cc8f0a14a225c9b0c3d",
+      "backend/app/economic_batch_wire.py": "4254c59e0c7d96a17cfdb18e378551fa3836c614aa28b4f1d6466d07aab7712a",
+      "backend/tests/test_api_economic_batch.py": "398d31377189368f0332864942fd366058f0b97167b86b2b425cdaa495f65007",
+      "backend/app/api_runtime.py": "494fbac16722c5b235b84317309fd75be66bf9699ee81e36710722dab216db06",
+      "backend/tests/test_economic_batch_runtime.py": "c0b707ff0680ee89d393944893964b92e46235d700089479c100cd7ffda5b481",
+      "backend/app/deterministic_work.py": "2a7f5c6f12f51fc4cd9113b612d3837ae86f90296000a79ad75d4e6f74daa1cd",
+      "backend/app/deterministic_job_discovery.py": "f65c0bff52612dbc18044114c2e4fa536b9d1eda4ceb27927361452a73e4a29f",
+      "backend/tests/test_economic_batch_consumer.py": "5c7335feb1ce8f5b00d2d3c7ac6b2ed559bd2ea2b853fb1ab3e159bb1872f5a3",
+      "backend/tests/test_economic_batch_consumer_http.py": "75b7369b241d8c525dac6b33e62a9f0e4744b1035ab56e016b668fed547fdc93",
+      "backend/tests/economic_batch_consumer_factory.py": "435cdc3841c7bd032b6116680fa807982bd0c5d884d9ebc01a82dff2ff2924c3",
+      "backend/tests/test_economic_cost_trace.py": "a4cac0e00fed99385346c6251f5b084a13f6d44ecf949f490bb40de25da50e21",
+      "backend/tests/economic_cost_trace_cold.py": "69f5cc7673c96f79fdf379f0732244c6194eb6fe480290f6d44110ae3fe24d23",
+      "backend/app/economic_cost_calculation.py": "ac2419f9717b4736cace7a52f8c2856693590b1c54761a324a0339ac1ea0a134",
+      "backend/tests/test_economic_cost_calculation.py": "7f5db78e06284be53ddde131a3c9ae6a4a18cfaf0ab7207db417c4bc77e653c9",
+      "backend/app/economic_batch_worker.py": "234975b76726503631087e0ec7818489e054a27caefe79ff54a59be0071127e5",
+      "backend/app/economic_cost_worker.py": "968daef4978cbe1667a3fe2e4f72371926b67996b668a31ac952bf7465072625",
+      "backend/tests/test_economic_cost_worker.py": "e4ba10da3d37083c85c278080eca5272527691799c56eda43b8f9dfcba764929",
+      "backend/app/economic_batch_query.py": "19c82768757b9633558085d590924b3686fc4c149e7e5b92b267a978840a37de",
+      "backend/app/economic_cost_query.py": "fdfcae7fa3269616c711f82bc4bbfae9b3242271065f62ef14f50257f0f2df5d",
+      "backend/tests/test_economic_cost_query.py": "8cc60973091d201e086770dcb72422bd314a85da1414d52bc7684a3847c7a11c",
+      "backend/tests/economic_cost_query_reader.py": "3e5563044654a8bd680e0992f3fec91ed1337984c1b5592d0346b536cac65b65",
+      "backend/app/api_economic_cost.py": "ae318a44ed7418ccda03ed07acbaf4ad76a9f9dcba7a6a3ea5661b651227f070",
+      "backend/tests/test_api_economic_cost.py": "c168d39f0b2286508369dfa7697d3e1dc4731cca6fa8162db2a0869e77e4d635",
+      "backend/app/economic_cost_wire.py": "59385b33551a256376865a047c5ed134765cc78173bf898a303af7d438ef9d5e"
+    },
+    "callback_fix_receipt_sha256": "d800502e20279dba99f480ce6f5b70038207262a7cd071bffdec7c0c68658eba",
+    "runtime_readiness_receipt_sha256": "4b68c6b526677911fbf8e526afc4adc12f2a0ac855345d3213b7b80c7fcdcfae",
+    "old_manifests_receipts_scripts_and_numeric_outputs_overwritten": false,
+    "legacy_actual_proof_hashes_preserved": true,
+    "legacy_all_archive_raw_reexecution": false,
+    "historical114_and425_recounted": false,
+    "UI_source_pins": 687,
+    "UI_output_pins": 4,
+    "UI_private_pins": 745,
+    "UI_external_pins": 46,
+    "expired5181_static_and_terminal": {
+      "files": 233,
+      "bytes": 21131597,
+      "actual_HTTP_files": 0,
+      "expired": true,
+      "original_identity_live": false,
+      "first_expiry_UTC": "2026-10-31T04:34:17.822115+00:00",
+      "owner_policy_inventory_sha256": {
+        "preview-owner-v1.private.json": "0d140ef7fb298fc8865bbbcb7c0268940e8a9af1022a1a5b793513ad9b114040",
+        "preview-policy-v1.private.json": "6049767289666c62b9cf62f82403ef08fc62364c3f3d757210bd54fd833e0bcc",
+        "preview-files-v1.private.json": "dd311b0a49f31b2544bb1a0780aea60c0e636eff6bf5c0fe7f6e413a8f5f313e"
+      }
+    },
+    "expired5184_static_and_terminal": {
+      "files": 238,
+      "bytes": 21012689,
+      "actual_HTTP_files": 0,
+      "expired": true,
+      "original_identity_live": false,
+      "first_expiry_UTC": "2026-10-31T08:03:53.647997+00:00",
+      "owner_policy_inventory_sha256": {
+        "preview-owner-v1.private.json": "c53ee15d408071fb9c15aa6790bdf5aaff976803d7884897fb16771c0962934e",
+        "preview-policy-v1.private.json": "ae035fc89dc9f6301eb98a5c6ea2ee3df78a1fb2b3fa05524d8d8d88d518e4ab",
+        "preview-files-v1.private.json": "0b6b38b06b0dae05cf2d9062cb675b5b3ea378ad67c2baf782ec3fbb624eda92"
+      }
+    },
+    "expired_preview_HTTP_faked_or_restarted": false,
+    "new_model_RHS_DB_or_CLI_calls": 0,
+    "G0_G4": "not_assessed",
+    "R2": "not_approved"
+  },
+  "owner_acceptance_sha256": "6b8292e6b99009d1cd0455b15afa8ce21563fb6295d44f0f1a65f266a52aa0e2",
+  "callback_fix_receipt_sha256": "d800502e20279dba99f480ce6f5b70038207262a7cd071bffdec7c0c68658eba",
+  "runtime_readiness_receipt_sha256": "4b68c6b526677911fbf8e526afc4adc12f2a0ac855345d3213b7b80c7fcdcfae",
+  "new_HTTP_accepted": true,
+  "new_runtime_consumer_SDK_UI": false,
+  "new_DB_schema_roles_dependencies": false,
+  "original_numeric_model_inputs_outputs_changed": false,
+  "independent_domestic_raw": 0,
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "whole_goal_active": true,
+  "goal_complete": false,
+  "recursive_CLI": false,
+  "next_task": "economic-cost-line-runtime-assembly",
+  "next_acceptance": [
+    "production 변경0의 기존 ApiRuntime/authority 조립을 재사용하는 집중 통합1사례에서 실제 HTTPS 비용 접수·명시 worker·새 runtime/service 재조립의 원 bytes/첫 publication·읽기 권한/현재 hold·복원·금액/SQL쓰기0·소유 정리를 검증"
+  ],
+  "next_focused_hours_draft": [
+    0.5,
+    1
+  ],
+  "next_estimate_basis": "qualified readiness: production changes0; one new actual runtime/HTTPS/rebuild/current-evidence case reuses655-line ApiRuntime and186-line batch runtime fixture/test module with existing12-case evidence; automatic consumer separate",
+  "whole_product_completion_date": "unknown; external farm/rights/validation/deployment dates unavailable"
+}

@@ -42,6 +42,7 @@ from .api_crop_greenhouse_ventilation_execution import install_ventilation_execu
 from .api_crop_greenhouse_solar_execution_http import install_solar_execution_routes
 from .api_crop_greenhouse_co2_execution_http import install_co2_execution_routes
 from .api_economic_batch import install_economic_batch_routes
+from .api_economic_cost import install_economic_cost_routes
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
@@ -280,6 +281,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
 
     if economic_batch_authority is not None:
         install_economic_batch_routes(app,jobs=job_store,holds=market_hold_store,contexts=thermal_run_store,
+            authority=economic_batch_authority,principal_provider=principal_provider,
+            authorized_tenant=authorized_tenant,error=_error,access=_access)
+        install_economic_cost_routes(app,jobs=job_store,holds=market_hold_store,contexts=thermal_run_store,
             authority=economic_batch_authority,principal_provider=principal_provider,
             authorized_tenant=authorized_tenant,error=_error,access=_access)
     errors = {status: {"model": ErrorEnvelope} for status in (401, 403, 404, 422, 503)}

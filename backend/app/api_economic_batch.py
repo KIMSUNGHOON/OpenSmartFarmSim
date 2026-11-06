@@ -66,6 +66,45 @@ class BatchSourceService(MarketUserSourceService):
             raise RuntimeError('economic batch source authority changed')
 
 
+def _install_calculation_routes(app,*,calculations,reader,artifact_type,family,operation_prefix,
+        authorized_tenant,error,access,guard,failure,reject_submission_query=False,
+        route_names=('calculate','get_result')):
+    errors={s:{'model':ErrorEnvelope}for s in(401,403,404,409,413,415,422,503)}
+    def query_valid(request):
+        return not request.query_params.multi_items()
+
+    @app.post('/v1/'+family+'-calculations',status_code=202,response_model=JobStatus,
+        operation_id='submit'+operation_prefix+'Calculation',name=route_names[0],responses=errors,
+        openapi_extra={**access(CALCULATE_SCOPES),'x-ossf-max-body-bytes':4096,
+            'requestBody':{'required':True,'content':{'application/json':{'schema':_inline_schema(EconomicBatchCalculationRequest)}}}})
+    async def calculate(request:Request):
+        tenant,denied=authorized_tenant(*CALCULATE_SCOPES)
+        if denied is not None:return denied
+        if reject_submission_query and not query_valid(request):return error(422,'invalid_request','Invalid request')
+        try:
+            body=EconomicBatchCalculationRequest.model_validate(await read_json_request(request,max_bytes=4096))
+            result=await run_in_threadpool(calculations.submit,tenant,body)
+            return guard(tenant,CALCULATE_SCOPES)or public_job_status(result)
+        except JsonRequestRejected as exc:return error(exc.status,exc.code,exc.message)
+        except Exception as exc:return failure(exc)
+
+    @app.get('/v1/jobs/{job_id}/'+family+'-result',response_model=artifact_type,
+        operation_id='get'+operation_prefix+'Result',name=route_names[1],responses=errors,
+        openapi_extra={**access(RESULT_SCOPES),'x-ossf-max-response-bytes':2097152})
+    async def get_result(request:Request,job_id:Annotated[str,Path(pattern=UUID_PATTERN)]):
+        tenant,denied=authorized_tenant(*RESULT_SCOPES)
+        if denied is not None:return denied
+        if not query_valid(request):return error(422,'invalid_request','Invalid request')
+        try:
+            found=await run_in_threadpool(reader.read,tenant,job_id)
+            denied=guard(tenant,RESULT_SCOPES)
+            if denied is not None:return denied
+            if found is None:return error(404,'not_found','Resource unavailable')
+            return Response(found.raw,media_type='application/json',headers={'Cache-Control':'no-store',
+                'X-OSSF-Publication-ID':str(found.publication_id),'X-OSSF-Published-At':found.published_at.isoformat()})
+        except Exception as exc:return failure(exc)
+
+
 def install_economic_batch_routes(app,*,jobs,holds,contexts,authority,principal_provider,
         authorized_tenant,error,access):
     if(type(authority)is not EconomicBatchAuthority or authority.jobs is not jobs or
@@ -139,32 +178,6 @@ def install_economic_batch_routes(app,*,jobs,holds,contexts,authority,principal_
             return denied or(result if result is not None else error(404,'not_found','Resource unavailable'))
         except Exception as exc:return failure(exc)
 
-    @app.post('/v1/economic-batch-calculations',status_code=202,response_model=JobStatus,
-        operation_id='submitEconomicBatchCalculation',responses=errors,
-        openapi_extra={**access(CALCULATE_SCOPES),'x-ossf-max-body-bytes':4096,
-            'requestBody':{'required':True,'content':{'application/json':{'schema':_inline_schema(EconomicBatchCalculationRequest)}}}})
-    async def calculate(request:Request):
-        tenant,denied=authorized_tenant(*CALCULATE_SCOPES)
-        if denied is not None:return denied
-        try:
-            body=await payload(request,EconomicBatchCalculationRequest,4096)
-            result=await run_in_threadpool(calculations.submit,tenant,body)
-            return guard(tenant,CALCULATE_SCOPES)or public_job_status(result)
-        except JsonRequestRejected as exc:return error(exc.status,exc.code,exc.message)
-        except Exception as exc:return failure(exc)
-
-    @app.get('/v1/jobs/{job_id}/economic-batch-result',response_model=BatchArtifactRead,
-        operation_id='getEconomicBatchResult',responses=errors,
-        openapi_extra={**access(RESULT_SCOPES),'x-ossf-max-response-bytes':2097152})
-    async def get_result(request:Request,job_id:Annotated[str,Path(pattern=UUID_PATTERN)]):
-        tenant,denied=authorized_tenant(*RESULT_SCOPES)
-        if denied is not None:return denied
-        if not query_valid(request,set()):return error(422,'invalid_request','Invalid request')
-        try:
-            found=await run_in_threadpool(reader.read,tenant,job_id)
-            denied=guard(tenant,RESULT_SCOPES)
-            if denied is not None:return denied
-            if found is None:return error(404,'not_found','Resource unavailable')
-            return Response(found.raw,media_type='application/json',headers={'Cache-Control':'no-store',
-                'X-OSSF-Publication-ID':str(found.publication_id),'X-OSSF-Published-At':found.published_at.isoformat()})
-        except Exception as exc:return failure(exc)
+    _install_calculation_routes(app,calculations=calculations,reader=reader,artifact_type=BatchArtifactRead,
+        family='economic-batch',operation_prefix='EconomicBatch',authorized_tenant=authorized_tenant,
+        error=error,access=access,guard=guard,failure=failure)

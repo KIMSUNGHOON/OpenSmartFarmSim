@@ -1,8 +1,8 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-11-06 KST:** [항목별 비용 현재 무계산 조회](research/economic-cost-stored-result-query-20261106.md)의 114개 집중 검사를 통과했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 보호 비용 HTTP→runtime/자동 소비→원 창/비용 기간→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
+**현재 — 2026-11-06 KST:** [항목별 비용 보호 HTTP](research/economic-cost-protected-http-20261106.md)의 308개 집중 검사를 통과했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 명시 비용 runtime→별도 자동 소비→원 창/비용 기간→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
 
-**항목별 비용 현재 조회 수용 — 2026-11-06:** [신규37/기존77=현재 고유114검사·실제 SCRAM/새 프로세스](research/economic-cost-stored-result-query-20261106.md)로 전체 trace/base_result·항목/그룹/월별·재고/null과 원 bytes/최초 publication을 보존하고 현재/늦은 권한·원 근거/코드·변조 경계와 조회 금액/SQL쓰기0을 확인했습니다. 부모 worker425 증거를 보존하되 현재 검사에 더하지 않았습니다. 다음은 보호 비용 HTTP(1–2집중시간 초안)→명시 runtime/자동 소비→원 창/독립 비용 기간→strict SDK/같은 선택 UI입니다. 제품 연결·실제 예측/전체 목표는 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
+**항목별 비용 보호 HTTP 수용 — 2026-11-06:** [신규30/기존278=현재 고유308검사·실제 SCRAM/인증 HTTPS](research/economic-cost-protected-http-20261106.md)로 source8→불변 비용 접수/최초 재시도→명시 worker→현재 원 bytes/닫힌 DTO·첫 publication/no-store, 현재/늦은 권한·근거/코드·접수 계산0/GET 금액·SQL쓰기0과 기존 batch/default 경로를 확인했습니다. 부모114/425는 보존 증거이며 현재 합계에 더하지 않았습니다. 다음은 production 변경0의 비용 runtime 증명(0.5–1집중시간 초안)→별도 자동 소비→원 창/독립 비용 기간→strict SDK/같은 선택 UI입니다. 제품 연결·실제 예측/전체 목표는 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
