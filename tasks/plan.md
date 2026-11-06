@@ -1,8 +1,8 @@
 # 구현 순서
 
-**현재 — 2026-10-31 KST:** [같은 저장3D·과실·자원 화면](http://localhost:5184/supply-material-quantities-replay.html)을 열었습니다(오늘17:03 KST까지). [56집중·전체/설정 타입·실제 HTTP/Chrome](../research/supply-material-quantity-screen-20261031.md)으로 같은4상태의 원 mesh/시각/phase·400과실 좌표·열/수분8항목·구간/메뉴/reload/모바일·실패 제거/복구를 수용했습니다.107원 파일/238고정 파일·기존 자료/GUI/WSL·만료를 보존했습니다. 자체 합성 연구 재생이며 실제 품종 한 작기·수확/구매·경제/거시/수급·자율 비교·최종 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
+**현재 — 2026-11-06 KST:** [항목별 비용 커널](../research/economic-cost-line-trace-20261031.md)의 233개 검사를 재통과했습니다. 같은 저장3D·과실·자원 화면은 10월31일 검증을 마친 자체 합성 연구 재생입니다. 5184 미리보기는 당시 17:03 KST 기한에 종료됐으며 현재 실행 중인 화면으로 안내하지 않습니다. 저장된 238파일·원 소유/만료 정책과 과거 HTTP 검증 기록은 보존했습니다. 다음은 불변 비용 계산 접수→저장/실행·무계산 조회→API/자동 소비→자원 창·비용 기간 결속→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
 
-**생산 batch 자동 처리 수용:** [신규16/기존351=367검사·실제 SCRAM/별도 작업자/보호 TLS](../research/economic-batch-automatic-consumer-20261031.md)로 HTTP 접수→기존 큐 발견/1계산/원자 게시→새 runtime의 원10,460bytes·최초 이력/현재 근거를 대사했습니다. 다른 대기10개·완료 재선택0·취소/실제 lease 재임대·6scope/늦은 결속·조회 계산/SQL쓰기0과 기존 API/소비자·원 자료/238HTTP/WSL을 확인했습니다. 자동 처리 gateway는 수용했으나 사용자 배포/비용 UI는 미완료입니다. 현재 원 결과에 Cost.id별 금액이 없음을 확인해 다음은 항목별 기여값/총액 대사(커널1–3집중시간 초안)→저장/실행 경계 분해→원 창/독립 가정 비용 기간 결속→strict SDK/같은 선택 UI입니다. 누락 의존성을 반영해 남은 총 공수는 재산정하며 전체 완료일은 미정입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
+**Cost.id별 비용 커널 수용:** [신규27/기존206=233검사·독립 Decimal300/별도6사례](../research/economic-cost-line-trace-20261031.md)로 원 입력/항목 금액·총액/batch/월별 비용 component·부분/미정/기간후 지급/상계를 대사했습니다. 호출자 Decimal 설정에 따른 해시 RED와 0선언 없는 빈 group의 unknown 누락을 재현·수정했고 독립 검토 필수 지적0·원 v10 bytes/코드/자료·10월31일 238HTTP 기록/WSL을 보존했습니다. 새 커널은 아직 저장/실행/HTTP/비용 UI에 연결하지 않았습니다. 다음은 소유 참조·trace version/코드의 불변 계산 접수(1–2집중시간 초안)→공유 lease/게시·무계산 조회→보호 HTTP/runtime/자동 소비→원 창/독립 가정 비용 기간 결속→strict SDK/같은 선택 UI입니다. 후속 저장/실행 공수와 전체 완료일은 미정입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
 ## 새 기관3D 다음의 생산·자원 연결 — 2026-10-31 KST
 
@@ -22,7 +22,9 @@
 | 3b0c3a | [149집중·실제 SCRAM/HTTPS 수용](../research/economic-batch-protected-http-20261031.md):8종/schema4 보호 HTTP | 등록/목록/조회·계산 접수/원 bytes·DTO/scope/한도·늦은 교체 rollback·기존7종/default 보존 | HTTP 수용 완료. runtime/자동 소비는 아래 수용; SDK/UI·사용자 배포 미수용 |
 | 3b0c3b | [161집중·실제 SCRAM/보호 TLS 수용](../research/economic-batch-runtime-assembly-20261031.md): 기존 서버의 optional batch factory | 같은 원 provider/정책/login/source/hold/context/authority·잘못된/늦은 결속 거부·두 family 실제 등록·새 runtime/service2의 원 bytes/현재 근거/읽기 권한·기존 경로 보존 | 서버 조립 수용 완료. 자동 소비는 아래 수용; SDK/UI·사용자 배포 미수용 |
 | 3b0c3c | [367집중·실제 SCRAM/별도 작업자/TLS 수용](../research/economic-batch-automatic-consumer-20261031.md): 기존 자동 소비 | 정확 판본/worker/outcome·_access·실제 HTTP→자동 완료→fresh 원 bytes/현재 권한·다른10개/전체 재탐색 선택0·취소/lease 재임대·기존 소비자/자료/WSL | gateway 상위 작업까지 수용 완료. SDK/UI·사용자 배포 미수용 |
-| 3b0d | `economic-cost-line-trace`: 기존 결과의 Cost.id별 금액 근거 누락 보완 | 기존 Decimal 수식·원 입력/품목/등급/발생·지급·항목 금액과 총액/batch/월별 같은 범위 대사·혼합/부분/중복/미확인·late·기존v10 보존 | 다음 한 단계. 첫 커널/독립 산술1–3h 초안; 저장/실행/조회 경계 뒤 후속 분해 |
+| 3b0d | [233집중·독립6사례/Decimal300·검토 수용](../research/economic-cost-line-trace-20261031.md): Cost.id별 기여값 | 원 항목/총액/batch/월별 같은 범위·부분/미정/미래 지급/상계·두 RED 교정·late/코드/2MiB·원v10/자료/화면 보존 | 커널 수용 완료. 실제 저장/실행/HTTP/SDK/UI 미연결 |
+| 3b0d1 | `economic-cost-line-calculation-admission`: 소유 참조·프로그램 지문의 새 불변 입력 | 같은 actual authority/source UUID/근거·현재/commit scopes/코드·동시/충돌/rollback·원 bytes/최초 시각·접수 계산/다른 작업 소비0 | 다음 한 단계.1–2집중시간 초안 |
+| 3b0d2 | d1→`economic-cost-line-stored-execution`: 기존 lease/게시·원 trace/현재 무계산 조회·HTTP/자동 소비 | 정확 새 version·현재 근거·취소/lease/rollback·동일 원문/최초 이력·기존v10/default와 코드 Git 이력·숫자 모델/원 산출물 보존 | worker/query/HTTP 자식과 공수는 입력 수용 뒤 분해 |
 | 3b1 | 3b0c1/c2/c3a/b/c·항목 trace/게시 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 항목 trace 저장/실행·결속 경계 뒤 재산정. 기존3–6h 단순 합산은 누락 의존성 때문에 사용하지 않음; 실제 품종/외부 자료/최종 제품 일정은 별도 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
