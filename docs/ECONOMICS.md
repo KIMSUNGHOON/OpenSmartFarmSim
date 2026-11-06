@@ -106,4 +106,4 @@ Scenario·Economic scenario·Economic result·Assessment의 `market_context`는 
 월별 양수 비용 outflow component와 수금/투자·대출 등을 포함한 원 monthly net은 각각 유지한다.
 이 커널의 불변 저장/실행/조회·창/SDK/3D 연결과 실제 구매/청구·농장/예측 승인은 후속이다.
 
-[불변 비용 접수](../research/economic-cost-calculation-admission-20261106.md)는 원 source UUID/근거와 고정 trace 프로그램을 기록하며 금액을 계산하지 않는다. [항목별 worker/불변 게시](../research/economic-cost-execution-worker-20261106.md)는 한 번 trace/원 v10과 전체 base_result·Cost.id/그룹/월별 원 결과를 보존하고 독립 Decimal300 대사를 수용했다. 새 금액 공식/계수/요금 채택은 없다. 현재 무계산 결과 조회·원 창/독립 구매·청구 기간/SDK/UI와 실제 예측 관문은 후속이다.
+[불변 비용 접수](../research/economic-cost-calculation-admission-20261106.md)는 원 source UUID/근거와 고정 trace 프로그램을 기록하며 금액을 계산하지 않는다. [항목별 worker/불변 게시](../research/economic-cost-execution-worker-20261106.md)는 한 번 trace/원 v10과 전체 base_result·Cost.id/그룹/월별 원 결과를 보존하고 독립 Decimal300 대사를 수용했다. 새 금액 공식/계수/요금 채택은 없다. [현재 비용 조회](../research/economic-cost-stored-result-query-20261106.md)는 전체 trace/base_result·재고/unknown null·첫 게시 원문을 금액 재계산 없이 반환한다. 현재 권한/근거·지원 model/code와 원 지문을 확인했으며 새 금액 공식/자료/관문 채택은 없다. 보호 HTTP/runtime/자동 소비·원 창/독립 구매·청구 기간/SDK/UI와 실제 예측 관문은 후속이다.

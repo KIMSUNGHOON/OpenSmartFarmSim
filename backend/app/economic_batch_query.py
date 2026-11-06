@@ -5,6 +5,7 @@ from decimal import Decimal
 from hashlib import sha256
 import json
 import os
+from typing import Callable,NamedTuple
 from uuid import UUID
 
 from pydantic import Field,TypeAdapter
@@ -94,29 +95,69 @@ class StoredBatchResult:
     result: ProductionBatchResult
 
 
+class _QueryProgram(NamedTuple):
+    input_version: str
+    input_type: type
+    envelope_type: type
+    service_type: type
+    artifact_version: str
+    stored_type: type
+    hold_type: type
+    reference: Callable
+    decode: Callable
+    fence: Callable
+    binding: Callable
+
+
 class EconomicBatchResultQuery:
+    _input_version='economic-batch-calculation-input-v1'
+    _input_type=EconomicBatchCalculationInput
+    _envelope_type=_Envelope
+    _service_type=EconomicBatchCalculationService
+    _artifact_version=ARTIFACT_VERSION
+    _stored_type=StoredBatchResult
+    _hold_type=BatchResultHold
+
     def __init__(self,authority):
         if type(authority)is not EconomicBatchAuthority or authority._binding()!=authority._bound:
             raise ValueError('economic batch server authority required')
         self.authority,self.jobs=authority,authority.jobs
+        self._program=self._capture_program()
         self._bound=self._pointers()
 
+    def _capture_program(self):
+        hooks=(self._reference,self._decode,self._fence,self._binding)
+        return _QueryProgram(self._input_version,self._input_type,self._envelope_type,self._service_type,
+            self._artifact_version,self._stored_type,self._hold_type,
+            *(getattr(hook,'__func__',hook)for hook in hooks))
+
     def _pointers(self):
-        return(self.authority,self.jobs,self.authority.jobs,self.jobs.artifact_root,self.jobs.content_access)
+        return(self.authority,self.jobs,self.authority.jobs,self.jobs.artifact_root,self.jobs.content_access,
+            self._program,self._capture_program())
+
+    def _reference(self,value):
+        return value
+
+    def _decode(self,raw):
+        return decode_stored_batch_result(raw)
+
+    def _fence(self):
+        _code_fence()
 
     def _access(self,tenant):
         if self._pointers()!=self._bound:raise RuntimeError('economic batch query binding changed')
         self.authority.require(tenant)
         if not self.jobs._has_scope(tenant,'artifact'):raise PermissionError('economic batch query denied')
-        _code_fence()
+        self._program.fence(self)
+        if self._pointers()!=self._bound:raise RuntimeError('economic batch query binding changed')
 
     def _metadata(self,conn,tenant,job_id):
         job=conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(
             self.jobs._table('jobs')),(tenant,job_id)).fetchone()
         if job is None or job['stage']!='simulation'or job['state']!='succeeded':return None
         raw=self.jobs._verified_input(job);data=json.loads(raw)
-        if type(data)is not dict or data.get('input_version')!='economic-batch-calculation-input-v1':return None
-        value=EconomicBatchCalculationInput.model_validate_json(raw)
+        if type(data)is not dict or data.get('input_version')!=self._program.input_version:return None
+        value=self._program.input_type.model_validate_json(raw)
         if canonical_input_bytes(value.model_dump(mode='json'))!=raw:raise BatchResultHold('batch input differs')
         publication=conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(
             self.jobs._table('job_publications')),(tenant,job_id)).fetchone()
@@ -140,10 +181,11 @@ class EconomicBatchResultQuery:
         except (OSError,ValueError):raise BatchResultHold('stored batch artifact unavailable')from None
 
     def _current(self,tenant,value):
-        request=EconomicBatchCalculationRequest(scenario_id=value.scenario_id,
-            scenario_revision=value.scenario_revision,scenario_sha256=value.scenario_sha256,
+        reference=self._program.reference(self,value)
+        request=EconomicBatchCalculationRequest(scenario_id=reference.scenario_id,
+            scenario_revision=reference.scenario_revision,scenario_sha256=reference.scenario_sha256,
             idempotency_key='stored-result-verification')
-        if EconomicBatchCalculationService(self.authority)._prepare(tenant,request)!=value:
+        if self._program.service_type(self.authority)._prepare(tenant,request)!=value:
             raise BatchResultHold('current batch evidence differs')
         self._access(tenant)
 
@@ -179,9 +221,9 @@ class EconomicBatchResultQuery:
                 if before is None:return None
                 job,raw_input,value,publication=before
                 with self.authority._source.read_scope(tenant):
-                    raw=self._read_raw(publication);envelope=_Envelope.model_validate_json(raw)
+                    raw=self._read_raw(publication);envelope=self._program.envelope_type.model_validate_json(raw)
                     if(_raw(envelope.model_dump(mode='json'))!=raw or
-                            envelope.artifact_version!=ARTIFACT_VERSION or envelope.status!='completed'or
+                            envelope.artifact_version!=self._program.artifact_version or envelope.status!='completed'or
                             envelope.claim_scope!='conditional_user_assumptions_only'or
                             (envelope.tenant_id,str(envelope.job_id),envelope.attempt,envelope.input_sha256)!=
                             (tenant,job_id,job['attempt_count'],job['input_sha256'])or envelope.input!=value or
@@ -189,13 +231,13 @@ class EconomicBatchResultQuery:
                         raise BatchResultHold('batch envelope differs')
                     result_raw=_raw(envelope.result)
                     if sha256(result_raw).hexdigest()!=envelope.result_sha256:raise BatchResultHold('batch result hash differs')
-                    result=decode_stored_batch_result(result_raw)
-                    self._current(tenant,value);self._binding(tenant,value,result);self._current(tenant,value)
+                    result=self._program.decode(self,result_raw)
+                    self._current(tenant,value);self._program.binding(self,tenant,value,result);self._current(tenant,value)
                     if self._metadata(conn,tenant,job_id)!=before or self._read_raw(publication)!=raw:
                         raise BatchResultHold('stored batch changed during query')
                     self._access(tenant)
-                    return StoredBatchResult(raw,publication['publication_id'],publication['published_at'],result)
+                    return self._program.stored_type(raw,publication['publication_id'],publication['published_at'],result)
         except PermissionError:raise
         except (ValueError,TypeError,KeyError,AttributeError,OSError,ArithmeticError,RecursionError):
-            raise BatchResultHold('economic batch result unavailable')from None
+            raise self._program.hold_type('economic batch result unavailable')from None
         finally:self._access(tenant)
