@@ -1,8 +1,8 @@
 # 구현 순서
 
-**현재 — 2026-11-06 KST:** [생산 변경0의 명시 비용 runtime](../research/economic-cost-runtime-assembly-20261106.md)을13개 집중 검사로 수용했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 별도 자동 비용 소비→원 창/비용 기간→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
+**현재 — 2026-11-06 KST:** [항목별 비용의 별도 자동 소비](../research/economic-cost-automatic-consumer-20261106.md)를 현재235개 집중 검사로 수용했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 원 창/명시 독립 비용 기간의 연구용 중간 단계 뒤 실제 Farm/current custody→SDK/같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
 
-**항목별 비용 runtime 증명 수용 — 2026-11-06:** [신규1/기존12=현재 고유13검사·실제 SCRAM/검증 TLS](../research/economic-cost-runtime-assembly-20261106.md)로 생산 변경0의 기존 조립·참조 접수/원 queued 입력·명시 trace/v10 각1회·같은 프로세스 새 객체2개/listener2개의 원 bytes/최초 게시·현재 hold/복원·조회 금액/digest/SQL쓰기0·정리를 확인했습니다. 부모308/114/425는 현재 합계에 더하지 않았습니다. 다음은 exact cost worker/outcome/version의 별도 자동 소비(검토된1–2집중시간 초안)→원 창/독립 비용 기간→strict SDK/같은 선택 UI입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
+**항목별 비용 자동 소비 수용 — 2026-11-06:** [신규21/기존214=현재 고유235·실제 SCRAM/별도 프로세스 HTTPS](../research/economic-cost-automatic-consumer-20261106.md)로 exact 등록2경로·자동 발견/한 trace/v10·원 입력/최초 publication·현재 hold/복원·fresh 조회 금액/digest/SQL쓰기0·원 event/정리를 확인했습니다. 접수/worker/query/HTTP/runtime/자동 소비의 stored-execution 상위 작업을 수용했으며 부모13/308/114/425는 현재 합계에 더하지 않았습니다. 다음은 원 창/명시 독립 resource-cost 기간의 첫 연구용 계약/읽기 전용 validator(검토된2–4집중시간 초안)입니다. 실제 Farm/current custody→불변 접수/현재 조회→HTTP/strict SDK/같은 선택 UI·전체 자원-비용 제품은 계속 필수/미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
 ## 새 기관3D 다음의 생산·자원 연결 — 2026-10-31 KST
 
@@ -28,8 +28,8 @@
 | 3b0d2b | [현재 고유114·실제 SCRAM/새 프로세스 수용](../research/economic-cost-stored-result-query-20261106.md): typed 비용 현재 조회 | 전체 trace/base_result·재고/null·원 bytes/첫 publication·현재/late source/auth/code/변조·금액/SQL쓰기0·legacy77 | 조회 라이브러리 수용 완료. 새 비용 gateway/SDK/UI 미연결 |
 | 3b0d2c | [현재 고유308·실제 SCRAM/인증 HTTPS 수용](../research/economic-cost-protected-http-20261106.md): 두 비용 보호 경로·닫힌 DTO | source8/접수→명시 worker→현재 원 bytes·첫 publication/no-store·late/commit/currentAuth·GET 금액/SQL0·기존/default 경로 | HTTP 수용 완료. 명시 runtime/자동 소비·SDK/UI 미연결 |
 | 3b0d2d | [현재13·실제 SCRAM/검증 TLS 수용](../research/economic-cost-runtime-assembly-20261106.md): 생산 변경0의 기존 runtime | 새 통합1+원12·명시 worker·같은 프로세스 두 객체/listener·원 입력/첫 게시/현재 hold·조회 금액/digest/SQL0·정리 | runtime 증명 수용 완료. 자동 소비·SDK/UI 미연결 |
-| 3b0d2e | d2d→`economic-cost-line-automatic-consumer`: exact registry/version/_access | deterministic_job_discovery의 정확 cost input version과 deterministic_work의 exact CostWorker/CostCalculationOutcome·_access 분기만 연결하고, 현재 권한/결속·한 번 trace/v10·lease/취소/재임대·기존 family와 원 event를 보존하며 별도 소유 프로세스의 실제 HTTPS 접수→자동 완료→fresh 원문/첫 publication·hold 복원·종료/정리를 검증 | 다음 한 단계. 검토된 두 모듈의 작은 등록/guard 변경과 기존15 core/1 별도 프로세스 HTTPS·45줄 factory 재사용에 근거한1–2집중시간 초안(guard/CI·최종 문서·외부 자료 작업 별도) |
-| 3b0d2 | d1→`economic-cost-line-stored-execution`: 기존 lease/게시·원 trace/현재 무계산 조회·HTTP/자동 소비 | 정확 새 version·현재 근거·취소/lease/rollback·동일 원문/최초 이력·기존v10/default와 코드 Git 이력·숫자 모델/원 산출물 보존 | worker/현재 query/보호 HTTP/runtime 수용; exact 자동 소비를 다음 한 단계로 분리(검토된1–2집중시간 초안). 상위 작업 미완료 |
+| 3b0d2e | [현재235·실제 SCRAM/별도 프로세스 HTTPS 수용](../research/economic-cost-automatic-consumer-20261106.md): exact 등록2경로·자동 비용 소비 | 한 trace/v10/첫 publication·현재 권한/근거·lease/취소/다른 family/event·fresh 원 bytes/hold·금액/digest/SQL0·정리 | 자동 소비 수용 완료. 실제 Farm 자원-비용/SDK/UI 후속 |
+| 3b0d2 | [stored-execution 단계별 수용](../research/economic-cost-automatic-consumer-20261106.md) | 원 입력/전체 trace·현재 무계산 조회·취소/lease/원자 게시·보호 HTTP/runtime/실제 별도 자동 소비·원 default/숫자/자료 이력 | 저장 실행 상위 수용 완료. 실제 Farm 자원-비용 결속/SDK/UI는 계속 미완료 |
 | 3b1 | 3b0c1/c2/c3a/b/c·항목 trace/게시 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 항목 trace 저장/실행·결속 경계 뒤 재산정. 기존3–6h 단순 합산은 누락 의존성 때문에 사용하지 않음; 실제 품종/외부 자료/최종 제품 일정은 별도 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
@@ -4019,3 +4019,5 @@ source20/old17/original43metadata·원3root/WSL/소유 잔여0을 대사했다. 
 page/source·표시/상태0.5–1h + geometry 타입/새 entry0.5–1h + 빌드/집중 회귀·실제 browser0.5–1.5h = **1.5–3.5집중시간**의 낮은 신뢰 작업량이다.
 기존 props/geometry·소유 미리보기/실제 browser 접근이 전제이며 이전1–2.5h UI 초안을 이 실제 분해로 갱신한다.
 현재 UI/runtime·DB/키는 유지했다. farm/current 권리·서명/worker와 실제 품종/독립 작기0·생산/자원/Decimal 경제·거시/수급/자율 비교·G0–G4/전체 완료일 미정은 유지한다.
+
+**다음 자원-비용 의존성:** `supply-material-resource-cost-scope-binding`은 schema4/v10의 원 Cost/trace를 보존한 별도 명시 resource kind·독립 구매/청구/사용 기간·근거 선언과 trusted exact material window/current CostQuery의 읽기 전용 결속 계약/validator를 먼저 고정하는 첫 연구용 중간 단계다. 검토된2–4집중시간 초안은 첫 metadata 계약/읽기 전용 validator/시험만의 범위이며, 실제 Farm/current custody·불변 접수/현재 조회·HTTP/SDK/같은 선택 UI와 전체 제품 공수/완료일은 미정. 이 단계 뒤 실제 material/Farm/current custody와 같은 Farm의 schema4 비용 선언→불변 접수/현재 조회→HTTP/strict SDK/같은 선택3D·표·그래프/실제 브라우저를 수용해야 전체 자원-비용 연결이 완성된다.

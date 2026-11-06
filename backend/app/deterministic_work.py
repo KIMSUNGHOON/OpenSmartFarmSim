@@ -21,12 +21,14 @@ from .crop_leaf_appearance_execution_worker import LeafAppearanceExecutionWorker
 from .deterministic_job_discovery import DeterministicJobDiscovery
 from .economic_calculation_worker import EconomicCalculationWorker, EconomicCalculationOutcome
 from .economic_batch_worker import EconomicBatchWorker, BatchCalculationOutcome
+from .economic_cost_worker import EconomicCostWorker, CostCalculationOutcome
 from .jobs import require_reason_code, require_seconds
 from .process_stop import SignalStop as _SignalStop
 
 
 WORKERS = {
     EconomicBatchWorker: (frozenset({'economic-batch-calculation-input-v1'}), BatchCalculationOutcome),
+    EconomicCostWorker: (frozenset({'economic-cost-line-calculation-input-v1'}), CostCalculationOutcome),
     EconomicCalculationWorker: (frozenset({'economic-calculation-input-v1',
         'economic-calculation-input-v2', 'economic-calculation-input-v3'}), EconomicCalculationOutcome),
     BreakEvenCalculationWorker: (frozenset({'break-even-calculation-input-v1'}), BreakEvenCalculationOutcome),
@@ -77,7 +79,7 @@ class DeterministicWorkerLoop:
                         ('economic-calculation-input-v3' in discovery.input_versions and
                          (worker.farm_scenario_service is None or worker.authored_run_store is None))):
                     raise ValueError
-            if type(worker) is EconomicBatchWorker:
+            if type(worker) in (EconomicBatchWorker, EconomicCostWorker):
                 worker._access()
             elif type(worker) is BreakEvenVerificationWorker:
                 worker._guard(worker.service.authority.plans._pointers(), worker.service._digests())

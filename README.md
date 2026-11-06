@@ -1,8 +1,8 @@
 # OpenSmartFarmSim
 
-**현재 — 2026-11-06 KST:** [생산 변경0의 명시 비용 runtime](research/economic-cost-runtime-assembly-20261106.md)을13개 집중 검사로 수용했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 별도 자동 비용 소비→원 창/비용 기간→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
+**현재 — 2026-11-06 KST:** [항목별 비용의 별도 자동 소비](research/economic-cost-automatic-consumer-20261106.md)를 현재235개 집중 검사로 수용했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 원 창/명시 독립 비용 기간의 연구용 중간 단계 뒤 실제 Farm/current custody→SDK/같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
 
-**항목별 비용 runtime 증명 수용 — 2026-11-06:** [신규1/기존12=현재 고유13검사·실제 SCRAM/검증 TLS](research/economic-cost-runtime-assembly-20261106.md)로 생산 변경0의 기존 조립·참조 접수/원 queued 입력·명시 trace/v10 각1회·같은 프로세스 새 객체2개/listener2개의 원 bytes/최초 게시·현재 hold/복원·조회 금액/digest/SQL쓰기0·정리를 확인했습니다. 부모308/114/425는 현재 합계에 더하지 않았습니다. 다음은 exact cost worker/outcome/version의 별도 자동 소비(검토된1–2집중시간 초안)→원 창/독립 비용 기간→strict SDK/같은 선택 UI입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
+**항목별 비용 자동 소비 수용 — 2026-11-06:** [신규21/기존214=현재 고유235·실제 SCRAM/별도 프로세스 HTTPS](research/economic-cost-automatic-consumer-20261106.md)로 exact 등록2경로·자동 발견/한 trace/v10·원 입력/최초 publication·현재 hold/복원·fresh 조회 금액/digest/SQL쓰기0·원 event/정리를 확인했습니다. 접수/worker/query/HTTP/runtime/자동 소비의 stored-execution 상위 작업을 수용했으며 부모13/308/114/425는 현재 합계에 더하지 않았습니다. 다음은 원 창/명시 독립 resource-cost 기간의 첫 연구용 계약/읽기 전용 validator(검토된2–4집중시간 초안)입니다. 실제 Farm/current custody→불변 접수/현재 조회→HTTP/strict SDK/같은 선택 UI·전체 자원-비용 제품은 계속 필수/미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
 **저장 연구 재생 — 2026-10-23 KST:** [새 잎 3D](http://localhost:5176/leaf-population-replay.html)에서 자체 합성12시점의 명시3→6잎과 같은 UTC의 면적·줄기/표/그래프를 확인합니다. strict SDK/집중 CI85단위·Chromium20·실제 Chrome12시점/52면적을 대사했습니다. 새 프로필의 첫 렌더링에는 셰이더 경고1이 남아 있습니다. [실제 화면·검증·남은 범위](research/leaf-population-stored-replay-20261023.md).
 
