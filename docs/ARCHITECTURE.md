@@ -292,3 +292,5 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 기본 None/flag 결속·기동 전 오류를 검사한다. [자동 소비 계약](../contracts/economic-batch-automatic-consumer-v1.md)과 [367검사·별도 작업자/TLS](../research/economic-batch-automatic-consumer-20261031.md)는 기존 discovery/loop의 정확 판본/worker/outcome과 _access 결속·실제 접수/자동 완료/fresh 원문을 수용했다.
 [항목별 비용 커널](../contracts/economic-cost-line-trace-v1.md)은 원 v10 결과와 같은 Decimal 공식에 Cost.id별 입력/금액·지급/상계·동일 범위 합계·월별 비용 component를 결속했다([233검사·독립 oracle/검토](../research/economic-cost-line-trace-20261031.md)).
 새 모델 지문의 참조 접수→기존 lease/게시를 공유한 version별 프로그램→전체 trace 불변 저장/현재 무계산 조회→HTTP/runtime/소비자를 연결한다. 원 v10/default 동작·코드 Git 이력과 숫자 모델/산출물을 보존한다. 원 창/독립 가정 비용 기간 결속→제품 SDK/UI·사용자 배포는 후속이다.
+
+[비용 참조 접수](../contracts/economic-cost-calculation-admission-v1.md)는 원 실제 authority/읽기 준비와 JobStore 원자 접수를 재사용한다([299검사](../research/economic-cost-calculation-admission-20261106.md)). 새 입력은 원 base_input과 고정 trace/코드·성분 지문을 결속하며 새 intent namespace로 v10과 공존한다. 접수 금액 계산과 새 DB/API/runtime 설치는0이며 worker/원자 결과→현재 무계산 조회는 후속이다.

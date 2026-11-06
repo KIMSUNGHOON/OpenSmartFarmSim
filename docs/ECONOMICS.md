@@ -105,3 +105,5 @@ Scenario·Economic scenario·Economic result·Assessment의 `market_context`는 
 항목 합계는 원 총액/생산 batch/동일 범위 미지급·미래 지급/상계와 대사한다.
 월별 양수 비용 outflow component와 수금/투자·대출 등을 포함한 원 monthly net은 각각 유지한다.
 이 커널의 불변 저장/실행/조회·창/SDK/3D 연결과 실제 구매/청구·농장/예측 승인은 후속이다.
+
+[불변 비용 접수](../research/economic-cost-calculation-admission-20261106.md)는 원 source UUID/근거와 고정 trace 프로그램을 기록하며 금액을 계산하지 않는다. worker/저장 결과·창/구매/청구 기간 및 UI·실제 예측 관문은 후속이다.

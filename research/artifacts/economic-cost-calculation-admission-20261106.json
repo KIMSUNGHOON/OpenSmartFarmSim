@@ -1,0 +1,208 @@
+{
+  "schema_version": "economic-cost-calculation-admission-evidence-v1",
+  "observed_at_UTC": "2026-11-06T01:46:36.765304+00:00",
+  "parent_commit": "d97dc9c96916d9567543adc568dfbbb19218f9b7",
+  "source_pins": {
+    "research/artifacts/economic-cost-line-trace-20261031.json": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+    "contracts/economic-cost-calculation-admission-v1.md": "56ad6d4ae17e3362f120032109e19c28146b80a49380c548629ec38b5d2ac0e1"
+  },
+  "parent_manifest_inheritance": "SHA-bound parent manifest retains its 750 source/2 output and private/external/resume pins; preservation verifies the full parent, including accepted Git snapshots, not only this link",
+  "output_pins": {
+    "research/economic-cost-calculation-admission-20261106.md": "d2d97524f04a202617806a94d27d2e94272be5d3cb26a1d978324f49995a5f84"
+  },
+  "integration_source_sha256_at_tested_commit": {
+    "backend/app/market_hold_store.py": "dcd6b6ab6123e11b49720456a2d2dc5c836337f4a416c9dd6486e76171cb6125",
+    "backend/app/market_source_store.py": "a463f7641a917ffa86f0ffd965212632ff56f11243fbbf7a77d5130f754d5a79",
+    "backend/app/operator_config.py": "b348cb7955e122466bdacd58dd057c90dba6d75c786307db0bdd68435fb9aa3c",
+    "backend/app/runtime_roles.py": "4c5fef33de51c51b0e3e573ca3b06ae8d36b41200327dd80c457162260bf3b78",
+    "backend/tests/login_database.py": "7a1da0a4ad3b492f158010a8c12b4ea6a152d5fc505f37792af64e94d6cf6ee1",
+    "backend/tests/test_runtime_roles.py": "a218f8d65fddfd631f39b0a3c56fb9971af1073f80e5e52e77844aefc4a7c29f",
+    "backend/app/api.py": "4623e5b21ce72751fd9894ee4951b9f74a862f643c81a6ee4091780fb8792e77",
+    "backend/app/api_market_source.py": "7cdc2e67ea9e3f85018721dc18e4234ffa6b3fcc56405c6c5daa9b298996d5da",
+    "backend/app/api_economic_batch.py": "ebf0f62b00a132c4199bf862d3b11b437dfec57628c4c8c07b1236222703834b",
+    "backend/app/economic_batch_wire.py": "4254c59e0c7d96a17cfdb18e378551fa3836c614aa28b4f1d6466d07aab7712a",
+    "backend/tests/test_api_economic_batch.py": "398d31377189368f0332864942fd366058f0b97167b86b2b425cdaa495f65007",
+    "backend/app/api_runtime.py": "494fbac16722c5b235b84317309fd75be66bf9699ee81e36710722dab216db06",
+    "backend/tests/test_economic_batch_runtime.py": "c0b707ff0680ee89d393944893964b92e46235d700089479c100cd7ffda5b481",
+    "backend/app/deterministic_work.py": "2a7f5c6f12f51fc4cd9113b612d3837ae86f90296000a79ad75d4e6f74daa1cd",
+    "backend/app/deterministic_job_discovery.py": "f65c0bff52612dbc18044114c2e4fa536b9d1eda4ceb27927361452a73e4a29f",
+    "backend/tests/test_economic_batch_consumer.py": "5c7335feb1ce8f5b00d2d3c7ac6b2ed559bd2ea2b853fb1ab3e159bb1872f5a3",
+    "backend/tests/test_economic_batch_consumer_http.py": "75b7369b241d8c525dac6b33e62a9f0e4744b1035ab56e016b668fed547fdc93",
+    "backend/tests/economic_batch_consumer_factory.py": "435cdc3841c7bd032b6116680fa807982bd0c5d884d9ebc01a82dff2ff2924c3",
+    "backend/tests/test_economic_cost_trace.py": "a4cac0e00fed99385346c6251f5b084a13f6d44ecf949f490bb40de25da50e21",
+    "backend/tests/economic_cost_trace_cold.py": "69f5cc7673c96f79fdf379f0732244c6194eb6fe480290f6d44110ae3fe24d23",
+    "backend/app/economic_cost_calculation.py": "ac2419f9717b4736cace7a52f8c2856693590b1c54761a324a0339ac1ea0a134",
+    "backend/tests/test_economic_cost_calculation.py": "7f5db78e06284be53ddde131a3c9ae6a4a18cfaf0ab7207db417c4bc77e653c9"
+  },
+  "integration_pin_policy": "accepted Git snapshot; later explicit integration changes require relevant regression; numeric models unchanged",
+  "private_artifact_directory": "20261106-economic-cost-admission",
+  "private_artifact_sha256": {
+    "native-session-v1.private.json": "555254df7b741b5a4d908ce7ce4c9a94bbb5693cdc36989bdefb4c07904a269e",
+    "run-owned-tests-v1.private.py": "cf3d7fe7612b5ef870bd42a0081f8bcf6ad80040f977a7989206c839bcb0a883",
+    "red-v1-controller.private.json": "3530bd9018c55398404033879a7e6b16398014cb950901044aaeb87328312c3c",
+    "core-v1-controller.private.json": "eba72ffd48469b318c5863ed37b6438dc8ba7174c23512335f78df48ce335dfd",
+    "regression-v1-controller.private.json": "4d01a4abf6cbd6ce151e9c833e6ff6f98d7115b2f534b96bd1e6fe04358b27fc",
+    "preservation-v1.private.py": "081bca9e8a06cf1870a6528f7f643b13b6e7c6b95cb8ee9e4ae7e4cf1c1607e9",
+    "admission-preservation-v1.private.json": "8d9757ab6ea619d28142f803930b95f02f03edec3c73f2974b28d2c195d90394",
+    "prepare-acceptance-v1.private.py": "d9e366c4929e71e5f226b557b4b7336425162836404257cc1d285739a6b33e21"
+  },
+  "external_phase_evidence_sha256": {
+    "20261023-leaf-query-scope/economic-cost-admission-red-v1/terminal.private.json": "67e7093f3da602bae1cc954878aa9ac12f3d60303e6b02e4e6ae6d23c99c4365",
+    "20261023-leaf-query-scope/economic-cost-admission-red-v1/child.private.log": "484f0fc729e7c0b4810796de0ac81f4015df462d7457ac6f1de640af94ca27f3",
+    "20261023-leaf-query-scope/economic-cost-admission-core-v1/terminal.private.json": "c6cada34120d5218b388e876ab3e26fa18ef9fd5d44ec5b9aa7236762e500585",
+    "20261023-leaf-query-scope/economic-cost-admission-core-v1/child.private.log": "bf6b6f6afd01cb420381a149e7c4515621e81944256a2ed76082cf6088ea8ae4",
+    "20261023-leaf-query-scope/economic-cost-admission-regression-v1/terminal.private.json": "3c05dd70ce9031c049b027cef21d250bfb558583e587db35e031affbb0103876",
+    "20261023-leaf-query-scope/economic-cost-admission-regression-v1/child.private.log": "99a6f48719bb1b30b22ece808ffc0e7a4f3cddb94f3f8edcb7ff36171c6f1edf"
+  },
+  "focused_checks": {
+    "new": 23,
+    "legacy": 276,
+    "unique_total": 299,
+    "original_batch_admission": 23,
+    "original_source": 20,
+    "original_cost_trace_batch_economics": 233,
+    "repeated_core_not_added": true
+  },
+  "native_turn_evidence": {
+    "observed_at_UTC": "2026-11-06T01:41:43.348761+00:00",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "cli_version": "0.157.1",
+    "native_turn_timestamp": "2026-11-06T01:33:31.046Z",
+    "native_turn_metadata_sha256": "b80af0b91f699dd6427bbaacfb057ae763755acca33b4383f577d6453e924e5a",
+    "actual_existing_CLI_session": true,
+    "recursive_Codex_CLI": false,
+    "judgment": "reuse actual batch authority/read-only reference preparation and original JobStore atomic admission; distinct trace input/intent namespace; no monetary calculation or new DB/API/runtime at intake",
+    "output_files": [
+      "backend/app/economic_cost_calculation.py",
+      "backend/tests/test_economic_cost_calculation.py",
+      "contracts/economic-cost-calculation-admission-v1.md"
+    ],
+    "data_or_gate_adoption": false
+  },
+  "regression_terminal": {
+    "observed_at_UTC": "2026-11-06T01:45:22.721876Z",
+    "child_exit": 0,
+    "hold_reason": null,
+    "wall_seconds": 178.73261386994272,
+    "PID_peak_RSS_bytes": 146964480,
+    "combined_peak_RSS_bytes": 302149632,
+    "samples": 691,
+    "sample_interval_seconds": 0.25,
+    "optional_resource_root_count": 0,
+    "live_protected_roots": 1,
+    "protected_live": true,
+    "historical_six_terminated_before_phase": true,
+    "current_2148_originals_and_artifacts_static_entries_preserved": true,
+    "watched_entries": 4500,
+    "source_preserved": true,
+    "source_count": 11114,
+    "owned_remaining": 0,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "log_sha256": "99a6f48719bb1b30b22ece808ffc0e7a4f3cddb94f3f8edcb7ff36171c6f1edf",
+    "actual_farm_Runs": 0,
+    "G0_G4": "not_assessed",
+    "full_suite": false
+  },
+  "fixture_controller": {
+    "observed_at_UTC": "2026-11-06T01:45:21.338010+00:00",
+    "exit": 0,
+    "seconds": 177.1506846731063,
+    "dedicated_fixture_cluster": true,
+    "shared_buffers_MiB": 16,
+    "host_auth_methods": [
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256"
+    ],
+    "server_stopped": true,
+    "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+    "original_user_service_DSN_or_password_read": false,
+    "G0_G4": "not_assessed"
+  },
+  "preservation": {
+    "observed_at_UTC": "2026-11-06T01:46:36.672167+00:00",
+    "parent_commit": "d97dc9c96916d9567543adc568dfbbb19218f9b7",
+    "parent_source_pins": 750,
+    "parent_output_pins": 2,
+    "parent_private_files": 22,
+    "parent_external_files": 20,
+    "parent_supplemental_review_files": 3,
+    "parent_integration_current_and_Git_pins": 20,
+    "UI_source_pins": 687,
+    "UI_output_pins": 4,
+    "UI_private_pins": 745,
+    "UI_external_pins": 46,
+    "expired5181_static_and_terminal": {
+      "files": 233,
+      "bytes": 21131597,
+      "actual_HTTP_files": 0,
+      "expired": true,
+      "original_identity_live": false,
+      "first_expiry_UTC": "2026-10-31T04:34:17.822115+00:00",
+      "owner_policy_inventory_sha256": {
+        "preview-owner-v1.private.json": "0d140ef7fb298fc8865bbbcb7c0268940e8a9af1022a1a5b793513ad9b114040",
+        "preview-policy-v1.private.json": "6049767289666c62b9cf62f82403ef08fc62364c3f3d757210bd54fd833e0bcc",
+        "preview-files-v1.private.json": "dd311b0a49f31b2544bb1a0780aea60c0e636eff6bf5c0fe7f6e413a8f5f313e"
+      }
+    },
+    "expired5184_static_and_terminal": {
+      "files": 238,
+      "bytes": 21012689,
+      "actual_HTTP_files": 0,
+      "expired": true,
+      "original_identity_live": false,
+      "first_expiry_UTC": "2026-10-31T08:03:53.647997+00:00",
+      "owner_policy_inventory_sha256": {
+        "preview-owner-v1.private.json": "c53ee15d408071fb9c15aa6790bdf5aaff976803d7884897fb16771c0962934e",
+        "preview-policy-v1.private.json": "ae035fc89dc9f6301eb98a5c6ea2ee3df78a1fb2b3fa05524d8d8d88d518e4ab",
+        "preview-files-v1.private.json": "0b6b38b06b0dae05cf2d9062cb675b5b3ea378ad67c2baf782ec3fbb624eda92"
+      }
+    },
+    "legacy_all_archive_raw_reexecution": false,
+    "legacy_actual_proof_hashes_preserved": true,
+    "expired_preview_HTTP_faked_or_restarted": false,
+    "new_model_RHS_DB_or_CLI_calls": 0,
+    "G0_G4": "not_assessed",
+    "R2": "not_approved"
+  },
+  "review": {
+    "axes": [
+      "correctness",
+      "readability",
+      "architecture",
+      "security",
+      "performance"
+    ],
+    "parent_native_review": true,
+    "new_review_agents": 0,
+    "required_findings_remaining": 0
+  },
+  "input_version": "economic-cost-line-calculation-input-v1",
+  "trace_version": "economic-cost-line-trace-v1",
+  "new_DB_schema_roles_dependencies": false,
+  "new_worker_HTTP_runtime_SDK_UI": false,
+  "original_numeric_or_worker_code_modified": false,
+  "independent_domestic_raw": 0,
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "whole_goal_active": true,
+  "goal_complete": false,
+  "recursive_CLI": false,
+  "next_task": "economic-cost-line-execution-worker",
+  "next_acceptance": [
+    "shared original lease/CAS/atomic publication; exact cost input only and one trace calculation with full immutable 2MiB result",
+    "current/late evidence/scopes/code, cancel/lease expiry/reclaim/rollback, original v10/default worker regression",
+    "preserve accepted worker Git snapshot, numeric model versions/original outputs/data/UI/WSL"
+  ],
+  "next_focused_hours_draft": [
+    1,
+    2
+  ],
+  "next_estimate_basis": "existing 180-line worker/24 tests and accepted new reference input; query/gateway/UI estimates follow actual worker acceptance",
+  "whole_product_completion_date": "unknown; independent farm/rights/validation/deployment dates unavailable"
+}

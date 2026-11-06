@@ -1,13 +1,13 @@
 # 구현 순서
 
-**현재 — 2026-11-06 KST:** [항목별 비용 커널](../research/economic-cost-line-trace-20261031.md)의 233개 검사를 재통과했습니다. 같은 저장3D·과실·자원 화면은 10월31일 검증을 마친 자체 합성 연구 재생입니다. 5184 미리보기는 당시 17:03 KST 기한에 종료됐으며 현재 실행 중인 화면으로 안내하지 않습니다. 저장된 238파일·원 소유/만료 정책과 과거 HTTP 검증 기록은 보존했습니다. 다음은 불변 비용 계산 접수→저장/실행·무계산 조회→API/자동 소비→자원 창·비용 기간 결속→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
+**현재 — 2026-11-06 KST:** [불변 비용 계산 접수](../research/economic-cost-calculation-admission-20261106.md)의 299개 집중 검사를 통과했습니다. 같은 저장3D·과실·자원 화면은 10월31일 검증을 마친 자체 합성 연구 재생입니다. 5184 미리보기는 당시 17:03 KST 기한에 종료됐으며 현재 실행 중인 화면으로 안내하지 않습니다. 저장된 238파일·원 소유/만료 정책과 과거 HTTP 검증 기록은 보존했습니다. 다음은 비용 worker/원자 저장→현재 무계산 조회→API/자동 소비→자원 창·비용 기간 결속→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
 
-**Cost.id별 비용 커널 수용:** [신규27/기존206=233검사·독립 Decimal300/별도6사례](../research/economic-cost-line-trace-20261031.md)로 원 입력/항목 금액·총액/batch/월별 비용 component·부분/미정/기간후 지급/상계를 대사했습니다. 호출자 Decimal 설정에 따른 해시 RED와 0선언 없는 빈 group의 unknown 누락을 재현·수정했고 독립 검토 필수 지적0·원 v10 bytes/코드/자료·10월31일 238HTTP 기록/WSL을 보존했습니다. 새 커널은 아직 저장/실행/HTTP/비용 UI에 연결하지 않았습니다. 다음은 소유 참조·trace version/코드의 불변 계산 접수(1–2집중시간 초안)→공유 lease/게시·무계산 조회→보호 HTTP/runtime/자동 소비→원 창/독립 가정 비용 기간 결속→strict SDK/같은 선택 UI입니다. 후속 저장/실행 공수와 전체 완료일은 미정입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
+**항목별 비용 계산 접수 수용 — 2026-11-06:** [신규23/기존276=299검사·실제 SCRAM](../research/economic-cost-calculation-admission-20261106.md)로 원 source UUID/근거와 trace version/코드의 불변 입력, 순차/동시 재시도·최초 원문/시각·충돌·현재/commit 권한·늦은 교체/코드 변경/롤백을 확인했습니다. 접수 금액 계산0·기존 v10 작업/숫자/자료/화면을 보존했습니다. 새 trace의 실행/결과 저장·조회·HTTP/SDK/비용 UI는 미연결입니다. 다음은 공유 lease/원자 게시의 비용 worker(1–2집중시간 초안)→현재 무계산 조회→API/자동 소비→원 창/독립 비용 기간 결속→같은 선택 UI입니다. 후속 연결과 전체 완료일은 미정이며 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete를 유지합니다.
 
 ## 새 기관3D 다음의 생산·자원 연결 — 2026-10-31 KST
 
 [원4시점3D 수용](../research/supply-material-stored-screen-20261031.md)을 선행 증거로 고정한다.
-같은 저장 상태의 수량/자원 조회·화면과 구매량 경계/입력 계약을 수용했다. 미수확 batch의 직접비 커널·소유 입력/접수·worker/불변 결과와 계산 없는 fresh 현재 조회도 수용했다. 다음은 보호 HTTP/명시 runtime·자동 소비다.
+같은 저장 상태의 수량/자원 조회·화면과 구매량 경계/입력 계약을 수용했다. 미수확 batch의 직접비 커널·소유 입력/접수·worker/불변 결과와 계산 없는 fresh 현재 조회도 수용했다. 다음은 항목 trace worker/원자 저장→현재 무계산 조회→보호 HTTP/runtime/자동 소비다.
 
 | 순서 | 의존성과 사용자/검토자 산출물 | 수용 기준 | 집중 공수 초안 |
 |---|---|---|---|
@@ -23,8 +23,9 @@
 | 3b0c3b | [161집중·실제 SCRAM/보호 TLS 수용](../research/economic-batch-runtime-assembly-20261031.md): 기존 서버의 optional batch factory | 같은 원 provider/정책/login/source/hold/context/authority·잘못된/늦은 결속 거부·두 family 실제 등록·새 runtime/service2의 원 bytes/현재 근거/읽기 권한·기존 경로 보존 | 서버 조립 수용 완료. 자동 소비는 아래 수용; SDK/UI·사용자 배포 미수용 |
 | 3b0c3c | [367집중·실제 SCRAM/별도 작업자/TLS 수용](../research/economic-batch-automatic-consumer-20261031.md): 기존 자동 소비 | 정확 판본/worker/outcome·_access·실제 HTTP→자동 완료→fresh 원 bytes/현재 권한·다른10개/전체 재탐색 선택0·취소/lease 재임대·기존 소비자/자료/WSL | gateway 상위 작업까지 수용 완료. SDK/UI·사용자 배포 미수용 |
 | 3b0d | [233집중·독립6사례/Decimal300·검토 수용](../research/economic-cost-line-trace-20261031.md): Cost.id별 기여값 | 원 항목/총액/batch/월별 같은 범위·부분/미정/미래 지급/상계·두 RED 교정·late/코드/2MiB·원v10/자료/화면 보존 | 커널 수용 완료. 실제 저장/실행/HTTP/SDK/UI 미연결 |
-| 3b0d1 | `economic-cost-line-calculation-admission`: 소유 참조·프로그램 지문의 새 불변 입력 | 같은 actual authority/source UUID/근거·현재/commit scopes/코드·동시/충돌/rollback·원 bytes/최초 시각·접수 계산/다른 작업 소비0 | 다음 한 단계.1–2집중시간 초안 |
-| 3b0d2 | d1→`economic-cost-line-stored-execution`: 기존 lease/게시·원 trace/현재 무계산 조회·HTTP/자동 소비 | 정확 새 version·현재 근거·취소/lease/rollback·동일 원문/최초 이력·기존v10/default와 코드 Git 이력·숫자 모델/원 산출물 보존 | worker/query/HTTP 자식과 공수는 입력 수용 뒤 분해 |
+| 3b0d1 | [299집중·실제 SCRAM 수용](../research/economic-cost-calculation-admission-20261106.md): 원 참조·trace 지문의 불변 입력 | 현재/commit scopes/근거/코드·순차/동시 재시도·충돌/rollback·원 bytes/최초 시각·접수 계산0·v10 queued 보존 | 접수 라이브러리 수용 완료. worker/저장/조회·HTTP/UI 미연결 |
+| 3b0d2a | d1→`economic-cost-line-execution-worker`: 기존 lease/CAS/원자 게시 공유 | 정확 새 input version·한 번 trace 계산/전체2MiB·현재/late/code/취소/lease/reclaim/rollback·원 v10/default 회귀/Git snapshot·숫자/산출물 보존 | 다음 한 단계. 기존180줄/24검사와 새 입력 기준1–2집중시간 초안 |
+| 3b0d2 | d1→`economic-cost-line-stored-execution`: 기존 lease/게시·원 trace/현재 무계산 조회·HTTP/자동 소비 | 정확 새 version·현재 근거·취소/lease/rollback·동일 원문/최초 이력·기존v10/default와 코드 Git 이력·숫자 모델/원 산출물 보존 | worker 자식 분리 완료; query/게이트웨이 공수는 worker 수용 뒤 갱신 |
 | 3b1 | 3b0c1/c2/c3a/b/c·항목 trace/게시 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 항목 trace 저장/실행·결속 경계 뒤 재산정. 기존3–6h 단순 합산은 누락 의존성 때문에 사용하지 않음; 실제 품종/외부 자료/최종 제품 일정은 별도 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
