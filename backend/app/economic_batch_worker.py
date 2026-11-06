@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from hashlib import sha256
 import json
 from pathlib import Path
+from typing import Callable,NamedTuple
 from uuid import UUID
 
 from psycopg import sql
@@ -30,11 +31,34 @@ class BatchCalculationOutcome:
     economic_result_id: str|None=None
 
 
+class _Program(NamedTuple):
+    input_version: str
+    input_type: type
+    service_type: type
+    ledger_type: type
+    artifact_version: str
+    outcome_type: type
+    reason_prefix: str
+    code_files: tuple[str,...]
+    reference: Callable
+    encode: Callable
+    result_id: Callable
+
+
 class _LeaseLost(ValueError):
     pass
 
 
 class EconomicBatchWorker:
+    _input_version='economic-batch-calculation-input-v1'
+    _input_type=EconomicBatchCalculationInput
+    _service_type=EconomicBatchCalculationService
+    _ledger_type=ProductionBatchLedger
+    _artifact_version=ARTIFACT_VERSION
+    _outcome_type=BatchCalculationOutcome
+    _reason_prefix='economic_batch'
+    _code_files=_BATCH_CODE_FILES
+
     def __init__(self,authority,*,tenant_id,lease_seconds=300):
         if type(authority)is not EconomicBatchAuthority:
             raise ValueError('economic batch server authority required')
@@ -43,10 +67,27 @@ class EconomicBatchWorker:
             raise ValueError('economic batch binding rejected')
         self.authority,self.jobs=authority,authority.jobs
         self.tenant_id,self.lease_seconds=tenant_id,lease_seconds
+        self._program=self._capture_program()
         self._bound=self._pointers()
 
+    def _capture_program(self):
+        hooks=(self._reference,self._encode,self._result_id)
+        return _Program(self._input_version,self._input_type,self._service_type,self._ledger_type,
+            self._artifact_version,self._outcome_type,self._reason_prefix,self._code_files,
+            *(getattr(hook,'__func__',hook)for hook in hooks))
+
     def _pointers(self):
-        return (self.authority,self.jobs,self.authority.jobs,self.jobs.artifact_root,self.jobs.content_access)
+        return (self.authority,self.jobs,self.authority.jobs,self.jobs.artifact_root,self.jobs.content_access,
+            self._program,self._capture_program())
+
+    def _reference(self,value):
+        return value
+
+    def _encode(self,result):
+        return result_bytes(result)
+
+    def _result_id(self,result):
+        return result.ledger.result_id
 
     def _access(self):
         if self._pointers()!=self._bound:
@@ -55,18 +96,18 @@ class EconomicBatchWorker:
         if not self.jobs._has_scope(self.tenant_id,'artifact'):
             raise PermissionError('economic batch worker denied')
 
-    @staticmethod
-    def _digests():
+    def _digests(self):
         root=Path(__file__).resolve().parents[2]
         base,environment=runtime_digests(root)
-        files={n:sha256((root/'backend/app'/n).read_bytes()).hexdigest()for n in _BATCH_CODE_FILES}
+        files={n:sha256((root/'backend/app'/n).read_bytes()).hexdigest()for n in self._program.code_files}
         return sha256(_raw({'base':base,'batch':files})).hexdigest(),environment
 
     def _verify(self,value):
-        body=EconomicBatchCalculationRequest(scenario_id=value.scenario_id,
-            scenario_revision=value.scenario_revision,scenario_sha256=value.scenario_sha256,
+        reference=self._program.reference(self,value)
+        body=EconomicBatchCalculationRequest(scenario_id=reference.scenario_id,
+            scenario_revision=reference.scenario_revision,scenario_sha256=reference.scenario_sha256,
             idempotency_key='worker-verification')
-        current=EconomicBatchCalculationService(self.authority)._prepare(self.tenant_id,body)
+        current=self._program.service_type(self.authority)._prepare(self.tenant_id,body)
         if current!=value:
             raise BatchCalculationHold('economic batch evidence differs')
 
@@ -86,15 +127,16 @@ class EconomicBatchWorker:
             job=self.jobs.get_job(self.tenant_id,lease['job_id'])if closed else None
             state=job['state']if job else'unclosed'
         except Exception:state='unclosed'
-        return BatchCalculationOutcome(lease['job_id'],lease['attempt'],state,reason)
+        return self._program.outcome_type(lease['job_id'],lease['attempt'],state,reason)
 
     def _lost(self,lease):
         try:
             canceled=self.jobs.ack_cancel(self.tenant_id,lease['job_id'],lease['attempt'],lease['lease_token'],
                 termination_reason='canceled_by_request')
         except Exception:canceled=False
-        return BatchCalculationOutcome(lease['job_id'],lease['attempt'],
-            'canceled'if canceled else'unclosed','canceled_by_request'if canceled else'economic_batch_lease_lost')
+        return self._program.outcome_type(lease['job_id'],lease['attempt'],
+            'canceled'if canceled else'unclosed',
+            'canceled_by_request'if canceled else self._program.reason_prefix+'_lease_lost')
 
     def run_once(self,job_id):
         self._access()
@@ -105,7 +147,7 @@ class EconomicBatchWorker:
             if job is None or job['stage']!='simulation'or job['state']not in('queued','simulating'):
                 return None
             candidate=json.loads(self.jobs._verified_input(job))
-            if type(candidate)is not dict or candidate.get('input_version')!='economic-batch-calculation-input-v1':
+            if type(candidate)is not dict or candidate.get('input_version')!=self._program.input_version:
                 return None
         lease=self.jobs.claim(self.lease_seconds,allowed_stages=('simulation',),
             tenant_id=self.tenant_id,job_id=job_id)
@@ -114,24 +156,26 @@ class EconomicBatchWorker:
             self._access();digests=self._digests()
             raw=self.jobs.read_input(self.tenant_id,lease['job_id'],lease['attempt'],lease['lease_token'])
             if raw is None:raise _LeaseLost()
-            value=EconomicBatchCalculationInput.model_validate_json(raw)
+            value=self._program.input_type.model_validate_json(raw)
             if canonical_input_bytes(value.model_dump(mode='json'))!=raw:
                 raise BatchCalculationHold('economic batch input differs')
             self._guard(value,digests)
+            reference=self._program.reference(self,value)
             scenario=BatchEconomicScenario.model_validate(untrusted_data(self.authority.get_economic_scenario(
-                value.scenario_id,value.scenario_revision)))
-            result=ProductionBatchLedger(self.authority).calculate(scenario)
+                reference.scenario_id,reference.scenario_revision)))
+            result=self._program.ledger_type(self.authority).calculate(scenario)
             self._finish(lease,raw,value,result,digests)
-            return BatchCalculationOutcome(lease['job_id'],lease['attempt'],'succeeded','completed',result.ledger.result_id)
+            return self._program.outcome_type(lease['job_id'],lease['attempt'],'succeeded','completed',
+                self._program.result_id(self,result))
         except _LeaseLost:return self._lost(lease)
         except (ValueError,RuntimeError,PermissionError):
-            return self._close(lease,'hold','economic_batch_input_hold')
-        except Exception:return self._close(lease,'transient','economic_batch_runtime_failure')
+            return self._close(lease,'hold',self._program.reason_prefix+'_input_hold')
+        except Exception:return self._close(lease,'transient',self._program.reason_prefix+'_runtime_failure')
 
     def _finish(self,lease,raw,value,result,digests):
         self._guard(value,digests)
-        encoded=result_bytes(result)
-        artifact=_raw({'artifact_version':ARTIFACT_VERSION,'status':'completed',
+        encoded=self._program.encode(self,result)
+        artifact=_raw({'artifact_version':self._program.artifact_version,'status':'completed',
             'claim_scope':'conditional_user_assumptions_only','tenant_id':self.tenant_id,
             'job_id':str(lease['job_id']),'attempt':lease['attempt'],'input_sha256':sha256(raw).hexdigest(),
             'input':value.model_dump(mode='json'),'code_sha256':digests[0],'environment_sha256':digests[1],

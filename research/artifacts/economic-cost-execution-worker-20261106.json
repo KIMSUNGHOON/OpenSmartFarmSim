@@ -1,0 +1,677 @@
+{
+  "schema_version": "economic-cost-execution-worker-evidence-v1",
+  "observed_at_UTC": "2026-11-06T02:36:10.823670+00:00",
+  "parent_commit": "8f7606c3f99696d139961226829f21571348833e",
+  "source_pins": {
+    "research/artifacts/economic-cost-calculation-admission-20261106.json": "aa8ef76c57f253825b941cf81696f8f0adb81a66cba2df60770856b1f25ed3d3",
+    "contracts/economic-cost-execution-worker-v1.md": "deb5fada49f3ff2d10182138c908521648c6bada3c3a88954c3d9714665fcb3e"
+  },
+  "parent_manifest_inheritance": "SHA-bound admission manifest inherits cost-trace source750 and historical receipts; only economic_batch_worker.py migrates to accepted Git snapshot in this new evidence, other749 remain current; no historical rewriting",
+  "accepted_parent_source_snapshot_exception": {
+    "path": "backend/app/economic_batch_worker.py",
+    "previous_sha256": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198",
+    "previous_bytes": 10000,
+    "git_snapshot_commit": "8f7606c3f99696d139961226829f21571348833e",
+    "first_accepted_commit": "e18c012770f38fce01923d511941e30b9213690b",
+    "historical_ancestor_pin_count": 6,
+    "historical_manifest_pins": {
+      "research/artifacts/economic-batch-execution-worker-20261031.json": {
+        "manifest_sha256": "77f3660af15cb9a8789fa5002e3cf72e41fec93f2eed8d4bfe058c6a3b38ffd8",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-batch-stored-result-query-20261031.json": {
+        "manifest_sha256": "e50b4c026c81b9fa6abcc778ae86b92752b7ed75ff26252484b2d71f9a33804a",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-batch-protected-http-20261031.json": {
+        "manifest_sha256": "4fc70788442d38c9434e4c4d63ad5a341b2e5277ff64e86b2f3fd61dd667c009",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-batch-runtime-assembly-20261031.json": {
+        "manifest_sha256": "2097a4c380571da47c128af71e21260b6507bf8cf22a1ce2b8cd946a11599765",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-batch-automatic-consumer-20261031.json": {
+        "manifest_sha256": "5bcab22bb8ef867c4fabdfb759b869d658e995ecf0cb4d5c69d23dcfc8755f6b",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      },
+      "research/artifacts/economic-cost-line-trace-20261031.json": {
+        "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+        "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+      }
+    },
+    "only_migrated_source_path": true,
+    "old_manifests_receipts_scripts_and_numeric_outputs_overwritten": false
+  },
+  "output_pins": {
+    "research/economic-cost-execution-worker-20261106.md": "aae7aaa8977e72954974139a30efaa8c408b93ef243ee694876c9f66d03c1586"
+  },
+  "integration_source_sha256_at_tested_commit": {
+    "backend/app/market_hold_store.py": "dcd6b6ab6123e11b49720456a2d2dc5c836337f4a416c9dd6486e76171cb6125",
+    "backend/app/market_source_store.py": "a463f7641a917ffa86f0ffd965212632ff56f11243fbbf7a77d5130f754d5a79",
+    "backend/app/operator_config.py": "b348cb7955e122466bdacd58dd057c90dba6d75c786307db0bdd68435fb9aa3c",
+    "backend/app/runtime_roles.py": "4c5fef33de51c51b0e3e573ca3b06ae8d36b41200327dd80c457162260bf3b78",
+    "backend/tests/login_database.py": "7a1da0a4ad3b492f158010a8c12b4ea6a152d5fc505f37792af64e94d6cf6ee1",
+    "backend/tests/test_runtime_roles.py": "a218f8d65fddfd631f39b0a3c56fb9971af1073f80e5e52e77844aefc4a7c29f",
+    "backend/app/api.py": "4623e5b21ce72751fd9894ee4951b9f74a862f643c81a6ee4091780fb8792e77",
+    "backend/app/api_market_source.py": "7cdc2e67ea9e3f85018721dc18e4234ffa6b3fcc56405c6c5daa9b298996d5da",
+    "backend/app/api_economic_batch.py": "ebf0f62b00a132c4199bf862d3b11b437dfec57628c4c8c07b1236222703834b",
+    "backend/app/economic_batch_wire.py": "4254c59e0c7d96a17cfdb18e378551fa3836c614aa28b4f1d6466d07aab7712a",
+    "backend/tests/test_api_economic_batch.py": "398d31377189368f0332864942fd366058f0b97167b86b2b425cdaa495f65007",
+    "backend/app/api_runtime.py": "494fbac16722c5b235b84317309fd75be66bf9699ee81e36710722dab216db06",
+    "backend/tests/test_economic_batch_runtime.py": "c0b707ff0680ee89d393944893964b92e46235d700089479c100cd7ffda5b481",
+    "backend/app/deterministic_work.py": "2a7f5c6f12f51fc4cd9113b612d3837ae86f90296000a79ad75d4e6f74daa1cd",
+    "backend/app/deterministic_job_discovery.py": "f65c0bff52612dbc18044114c2e4fa536b9d1eda4ceb27927361452a73e4a29f",
+    "backend/tests/test_economic_batch_consumer.py": "5c7335feb1ce8f5b00d2d3c7ac6b2ed559bd2ea2b853fb1ab3e159bb1872f5a3",
+    "backend/tests/test_economic_batch_consumer_http.py": "75b7369b241d8c525dac6b33e62a9f0e4744b1035ab56e016b668fed547fdc93",
+    "backend/tests/economic_batch_consumer_factory.py": "435cdc3841c7bd032b6116680fa807982bd0c5d884d9ebc01a82dff2ff2924c3",
+    "backend/tests/test_economic_cost_trace.py": "a4cac0e00fed99385346c6251f5b084a13f6d44ecf949f490bb40de25da50e21",
+    "backend/tests/economic_cost_trace_cold.py": "69f5cc7673c96f79fdf379f0732244c6194eb6fe480290f6d44110ae3fe24d23",
+    "backend/app/economic_cost_calculation.py": "ac2419f9717b4736cace7a52f8c2856693590b1c54761a324a0339ac1ea0a134",
+    "backend/tests/test_economic_cost_calculation.py": "7f5db78e06284be53ddde131a3c9ae6a4a18cfaf0ab7207db417c4bc77e653c9",
+    "backend/app/economic_batch_worker.py": "234975b76726503631087e0ec7818489e054a27caefe79ff54a59be0071127e5",
+    "backend/app/economic_cost_worker.py": "968daef4978cbe1667a3fe2e4f72371926b67996b668a31ac952bf7465072625",
+    "backend/tests/test_economic_cost_worker.py": "e4ba10da3d37083c85c278080eca5272527691799c56eda43b8f9dfcba764929"
+  },
+  "integration_pin_policy": "accepted Git snapshot; later explicit integration changes require relevant regression; numeric model/source/output pins remain strict",
+  "private_artifact_directory": "20261106-economic-cost-worker",
+  "private_artifact_sha256": {
+    "native-children-v1.private.json": "b654aba493979fb3d3e4174461e83da344a182850d170ee6f1bdd5cd4b47e4f0",
+    "independent-review-v2.private.json": "be95adf8ee50a42b607c98ba9fb3268c07f01a455685b4e10d10d3562106d2ef",
+    "worker-preservation-v1.private.json": "10a64b868615005c3dea873f3511a26c6553f8af20fe7f3691f116eaa52859c0",
+    "regression-worker-v1-controller.private.json": "158c42a250e9add0d32400042a81f10cd1310dc0dd9f3e21c7be2d7094ef83a1",
+    "regression-query-http-v2-controller.private.json": "b03fb33b079f223083fe44660a9fefaa9c5ead275b87b98ad00e4f6849f7d797",
+    "regression-runtime-consumer-v1-controller.private.json": "0b2a53ec94480f9a1ac5d828bfbec3c8410c4b21768bccba4d32ebe8799534d7",
+    "regression-core-v1-controller.private.json": "243c702d242f8776a3a05728872893c503a47b9a1cf009c6b413487910db4205",
+    "worker-at-admission-commit.private.py": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198",
+    "run-owned-tests-v1.private.py": "0d71ddd24d04a9069943df90807c19d105e708c031f2ba2d7d14b6d69fc4793c",
+    "native-session-v1.private.json": "d5b0ef881f33c65c89ba667322e4a1ca2cae95a61aabceff588a75b5d9da8e9f",
+    "preservation-v1.private.py": "831205eca100465982c3c684c0a16836cba26e4fd3cc1cbdc088cba021f86ce8",
+    "independent-review-v1.private.json": "2bfbc2fa6157176d460a76d4efa0bb72f798ae5e5b6dc81f856c0115ed9fda35",
+    "owner-acceptance-v1.private.json": "0a9cc62d7b7d361468f45047c28f0ce60311a71b323eaf8f661a0655e2d92996",
+    "all-regression-groups-v1.private.json": "1c4c1bd3db8a94af1185eb77db70c4ef9d413b44ba0e0f2981697ff9e85db68d",
+    "test-source-snapshot-v1.private.json": "1c918be6d0a8e956021dbb99c2e0ba873a53ff8cb69cd114b2e3923252a0a0d8",
+    "final-review-v1.private.py": "8184c83e0349c5b71bf4ade069e73538e1122c866396d2f85f70c208a30a2964",
+    "regression-worker-v1-source-confirmed.private.json": "75366e2bc1ad1e034b294a0400e9f0ca209ad2dd4f832b8d62801060c26feeb1",
+    "regression-query-http-v2-source-confirmed.private.json": "3a1dff475caa6d03240db62f77809d89550e4119475c43dc775ba3c541a8f8ab",
+    "regression-runtime-consumer-v1-source-confirmed.private.json": "b0ae7b6c6a2ad5631437fcdc008d17849b10650f2a13b411ea251b892aaed528",
+    "regression-core-v1-source-confirmed.private.json": "191d53c0469bf0343d655d7f7185e525fa2e7ea7f1646d5fcc478bc14adb9bfd",
+    "red-v1-controller.private.json": "b5fb1b51d4ac49590f06fab24ee8f7606beb99d4b3b04e1d82af703db61e6503",
+    "core-v1-controller.private.json": "1a35a1731f2f2b4cfc7d0b3036ca72b4b5b89763ac881f479f6b798b83cd935f",
+    "regression-query-http-v1-controller.private.json": "c7864c3f886c1a799e28736bdade6d467d62030081408abe9e54081dda39cdd6",
+    "lost-guard-recovery-v1.private.json": "f24dcf7acabf56dcf0eae9467be131e3d710cae29b12ad25261ea98ad2aa1330",
+    "recover-lost-guard-v1.private.py": "655e9947a2d615b5fe3de058f6a2c9255cfe78f374a5bb6ea4067e814d6a6f01",
+    "lost-guard-recovery-owner-v1.private.json": "23a853a95ad1e2b18af587af09fe9bf22092f423c6ac735f6753a0e996d48c1b",
+    "lost-guard-recovery-controller.private.log": "9d66b9f3df02418ae6f2c5e1cf27b9677ced32f70db33046f90e7e877cda670d",
+    "economic-cost-worker-regression-query-http-v2-owner.private.json": "1c58702f818fcfbe03460289b43427394575414b41a6a0872cef454efbab87df",
+    "economic-cost-worker-regression-query-http-v2-supervisor.private.log": "2d0de61e9be533ff30bc675a349f71d26d0cde7a14739e953a30e634f50c3c5b",
+    "economic-cost-worker-regression-runtime-consumer-v1-owner.private.json": "e65575c2ddedd88f79833f8dc7e0c83dce584fe3185cf6c81658a604207432d8",
+    "economic-cost-worker-regression-runtime-consumer-v1-supervisor.private.log": "24720d4a2d9348afe6e8b8b2240100ced75fc34d12cfe066457f1b9178f9038b",
+    "economic-cost-worker-regression-core-v1-owner.private.json": "ad4dd3dd13b1b4e5b15874ad5ea2e4014b761a43150a9a8a180dc0022292425b",
+    "economic-cost-worker-regression-core-v1-supervisor.private.log": "adad940f55963d515af438d131bee448ff0d992c001465cf23638aaee35f8865",
+    "regression-worker-v1/test_actual_cost_lease_publish0/cost-published-proof-v1.json": "975e4bd5334589e8837734f85b8b8a0c110c29d8d3d2b6a83afe61a53daa036a",
+    "regression-worker-v1/test_actual_cost_lease_publish0/cost-published-result-v1.json": "4882db2064f9a35de795530b7281737bedb1665cdacd5bd7cb81c0cc3cefb5e6",
+    "prepare-acceptance-v1.private.py": "cfda4eedff2e36481d4e44689d4eb2fca0467106aed168e96c18b54bb9df82d0",
+    "build-inputs-v1.private.json": "4c68762daafedfe32eec25d065baf2d54e809e99cd69276e0a02f79f3bf45511"
+  },
+  "external_phase_evidence_sha256": {
+    "20261023-leaf-query-scope/economic-cost-worker-regression-worker-v1/terminal.private.json": "0bbc77ae31976fc79bfdd34fceea9a4ea8c34e2fa299b221726235633a08a4a6",
+    "20261023-leaf-query-scope/economic-cost-worker-regression-worker-v1/child.private.log": "4bb09b1dee07db99740bb20d39ca1f267ae7933ef36adc04e3cd25364bdeac6c",
+    "20261023-leaf-query-scope/economic-cost-worker-regression-query-http-v2/terminal.private.json": "ea371ebed55c2a7cafa93d5904dfc880e58ca6088396b70acf2e254a5a7d9007",
+    "20261023-leaf-query-scope/economic-cost-worker-regression-query-http-v2/child.private.log": "91ea4cd5f67fda10ae5292b9103b588187b20bfd7cd266c34e603a2ae20b879f",
+    "20261023-leaf-query-scope/economic-cost-worker-regression-runtime-consumer-v1/terminal.private.json": "7d157ac2d812394ae27ecc89ecc811b6ed6b10766873132332365d97be3b46d7",
+    "20261023-leaf-query-scope/economic-cost-worker-regression-runtime-consumer-v1/child.private.log": "d2682b89766851017d0c3a4918e27b08ec705603bf82e1ea6470c24449d35937",
+    "20261023-leaf-query-scope/economic-cost-worker-regression-core-v1/terminal.private.json": "d7776386dcda78d45a2478c00fed8833f1cb78f418bf5bb3dc50421fb2ca0326",
+    "20261023-leaf-query-scope/economic-cost-worker-regression-core-v1/child.private.log": "c20b054191ee361cdb659a4fcb649b3909cafefa7cbd50f2b309e631855c041e",
+    "20261023-leaf-query-scope/guard.private.py": "e370516b4d564958e26832edfbdc8fc69168984bfd1d638cfd6eb9715e4f5bb3",
+    "20261023-leaf-query-scope/economic-cost-worker-red-v1/terminal.private.json": "56aeaffa45ba76655daef58c3d2b74730662bd4e6846353f687939fed686bc89",
+    "20261023-leaf-query-scope/economic-cost-worker-red-v1/child.private.log": "3b58fda6b623b91a79a5d2a29f824ac134fa411a00492d82a1bec6710eb16477",
+    "20261023-leaf-query-scope/economic-cost-worker-core-v1/terminal.private.json": "1445c51d62af3890e986f8edffe0d3e5c11864e63ed4cf14cc45b74df6cc0505",
+    "20261023-leaf-query-scope/economic-cost-worker-core-v1/child.private.log": "671d1d446d013f7728cb40fb9a88a53005d6aee07f7a48d0bba2c74a02161701",
+    "20261023-leaf-query-scope/economic-cost-worker-regression-query-http-v1/child.private.log": "15638fa77ab87c4b3a8a37caf00fe0e568e3cb27b6119da81e60551cdbe9f8cf"
+  },
+  "focused_checks": {
+    "disjoint_counts": {
+      "new_cost_worker": 25,
+      "prior_admission_and_economics": 299,
+      "original_worker": 24,
+      "original_query": 29,
+      "protected_HTTP": 20,
+      "runtime": 12,
+      "consumer": 16
+    },
+    "unique_total": 425,
+    "repeated_RED_core_not_added": true
+  },
+  "native_turn_evidence": {
+    "observed_at_UTC": "2026-11-06T02:32:38.153719+00:00",
+    "qualified_native_Codex_internal_agents": [
+      {
+        "agent_path": "/root/cost_worker_tests_20261106",
+        "native_session_id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T02:19:42.424Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "bed8d0deed8707c66888ebec971332fb650697e3a28f8d04ecb8fe48c94e4f4f"
+      },
+      {
+        "agent_path": "/root/cost_worker_contract_review_20261106",
+        "native_session_id": "01a1ae8e-67fd-7f61-a0ce-4522a709de93",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T02:29:37.601Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "f709e3a38abab74a987f57ead5794dd879e621b4e3faa39eeead3e5e846e5d3e"
+      },
+      {
+        "agent_path": "/root/cost_worker_acceptance_docs_20261106",
+        "native_session_id": "01a1ae93-8595-7e63-8027-2590fb682ea2",
+        "originator": "codex-tui",
+        "cli_version": "0.166.0",
+        "actual_model": "gpt-6.1-sol",
+        "actual_effort": "xhigh",
+        "actual_turn_timestamp": "2026-11-06T02:09:59.570Z",
+        "parent_thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+        "actual_turn_metadata_sha256": "5eb7cf0e2d80d1e7d46ca7806c8c048e450454a0ca5eba8a2858a00c5b4d07aa"
+      }
+    ],
+    "actual_child_metadata_independently_verified": true,
+    "parent_actual_model": "gpt-6.1-sol",
+    "parent_actual_effort": "ultra",
+    "parent_is_not_exact_judgment_session": true,
+    "substantive_decisions_and_implementation_by": "independently verified exact xhigh native Codex internal agents; root only orchestrates validation and recording",
+    "recursive_Codex_CLI": false,
+    "new_external_CLI_launched": false,
+    "data_or_gate_adoption": false
+  },
+  "regression_groups": [
+    {
+      "name": "regression-worker-v1",
+      "tests_unique": 49,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T02:10:51.969210Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 397.03001420618966,
+        "PID_peak_RSS_bytes": 146608128,
+        "combined_peak_RSS_bytes": 245514240,
+        "samples": 1507,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11119,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "4bb09b1dee07db99740bb20d39ca1f267ae7933ef36adc04e3cd25364bdeac6c",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T02:10:50.223862+00:00",
+        "exit": 0,
+        "seconds": 395.0414520779159,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      }
+    },
+    {
+      "name": "regression-query-http-v2",
+      "tests_unique": 49,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T02:21:32.538275Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 237.74112883000635,
+        "PID_peak_RSS_bytes": 180174848,
+        "combined_peak_RSS_bytes": 338571264,
+        "samples": 914,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11119,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "91ea4cd5f67fda10ae5292b9103b588187b20bfd7cd266c34e603a2ae20b879f",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T02:21:30.824560+00:00",
+        "exit": 0,
+        "seconds": 235.83328474406153,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      }
+    },
+    {
+      "name": "regression-runtime-consumer-v1",
+      "tests_unique": 28,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T02:24:21.748869Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 132.82483219495043,
+        "PID_peak_RSS_bytes": 171634688,
+        "combined_peak_RSS_bytes": 389070848,
+        "samples": 515,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11119,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "d2682b89766851017d0c3a4918e27b08ec705603bf82e1ea6470c24449d35937",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T02:24:20.235938+00:00",
+        "exit": 0,
+        "seconds": 131.05620054714382,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      }
+    },
+    {
+      "name": "regression-core-v1",
+      "tests_unique": 299,
+      "terminal": {
+        "observed_at_UTC": "2026-11-06T02:28:27.955694Z",
+        "child_exit": 0,
+        "hold_reason": null,
+        "wall_seconds": 181.34754345193505,
+        "PID_peak_RSS_bytes": 146313216,
+        "combined_peak_RSS_bytes": 299708416,
+        "samples": 700,
+        "sample_interval_seconds": 0.25,
+        "optional_resource_root_count": 0,
+        "live_protected_roots": 1,
+        "protected_live": true,
+        "historical_six_terminated_before_phase": true,
+        "current_2148_originals_and_artifacts_static_entries_preserved": true,
+        "watched_entries": 4500,
+        "source_preserved": true,
+        "source_count": 11119,
+        "owned_remaining": 0,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "c20b054191ee361cdb659a4fcb649b3909cafefa7cbd50f2b309e631855c041e",
+        "actual_farm_Runs": 0,
+        "G0_G4": "not_assessed",
+        "full_suite": false
+      },
+      "fixture_controller": {
+        "observed_at_UTC": "2026-11-06T02:28:26.167006+00:00",
+        "exit": 0,
+        "seconds": 179.38105910317972,
+        "dedicated_fixture_cluster": true,
+        "shared_buffers_MiB": 16,
+        "host_auth_methods": [
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256",
+          "scram-sha-256"
+        ],
+        "server_stopped": true,
+        "fixtures_use_same_real_private_cluster_not_fake_DB": true,
+        "original_user_service_DSN_or_password_read": false,
+        "G0_G4": "not_assessed"
+      }
+    }
+  ],
+  "publication_proofs": [
+    {
+      "proof_path": "20261106-economic-cost-worker/regression-worker-v1/test_actual_cost_lease_publish0/cost-published-proof-v1.json",
+      "proof_sha256": "975e4bd5334589e8837734f85b8b8a0c110c29d8d3d2b6a83afe61a53daa036a",
+      "raw_path": "20261106-economic-cost-worker/regression-worker-v1/test_actual_cost_lease_publish0/cost-published-result-v1.json",
+      "raw_sha256": "4882db2064f9a35de795530b7281737bedb1665cdacd5bd7cb81c0cc3cefb5e6",
+      "artifact_size": 13725,
+      "result_sha256": "fcb33d4a75cf07ef5d212aa2452502f788efdd38bc743c9e0deeb9858708d488",
+      "original_v10_bytes_sha256": "e6e5338b1071bc596c7a5ec25016963c78a1686a91514e12c6bf0866143e3d39",
+      "input_sha256": "770a269be19c79a755175c277a2a6bac327963d5e41f9d80506d8d106350c546",
+      "trace_id": "82f3dd949a6c01e0e5d939eef2486550e03b6405779a422a478459ed5accd1c9",
+      "job_id": "ead93ab2-d96c-4a55-9d6a-11976637e87b",
+      "published_at": "2026-11-06T11:04:26.241934+09:00"
+    }
+  ],
+  "preservation": {
+    "observed_at_UTC": "2026-11-06T02:03:26.034308+00:00",
+    "parent_commit": "d97dc9c96916d9567543adc568dfbbb19218f9b7",
+    "parent_source_pins": 750,
+    "parent_output_pins": 2,
+    "parent_private_files": 22,
+    "parent_external_files": 20,
+    "parent_supplemental_review_files": 3,
+    "parent_integration_current_and_Git_pins": 20,
+    "UI_source_pins": 687,
+    "UI_output_pins": 4,
+    "UI_private_pins": 745,
+    "UI_external_pins": 46,
+    "expired5181_static_and_terminal": {
+      "files": 233,
+      "bytes": 21131597,
+      "actual_HTTP_files": 0,
+      "expired": true,
+      "original_identity_live": false,
+      "first_expiry_UTC": "2026-10-31T04:34:17.822115+00:00",
+      "owner_policy_inventory_sha256": {
+        "preview-owner-v1.private.json": "0d140ef7fb298fc8865bbbcb7c0268940e8a9af1022a1a5b793513ad9b114040",
+        "preview-policy-v1.private.json": "6049767289666c62b9cf62f82403ef08fc62364c3f3d757210bd54fd833e0bcc",
+        "preview-files-v1.private.json": "dd311b0a49f31b2544bb1a0780aea60c0e636eff6bf5c0fe7f6e413a8f5f313e"
+      }
+    },
+    "expired5184_static_and_terminal": {
+      "files": 238,
+      "bytes": 21012689,
+      "actual_HTTP_files": 0,
+      "expired": true,
+      "original_identity_live": false,
+      "first_expiry_UTC": "2026-10-31T08:03:53.647997+00:00",
+      "owner_policy_inventory_sha256": {
+        "preview-owner-v1.private.json": "c53ee15d408071fb9c15aa6790bdf5aaff976803d7884897fb16771c0962934e",
+        "preview-policy-v1.private.json": "ae035fc89dc9f6301eb98a5c6ea2ee3df78a1fb2b3fa05524d8d8d88d518e4ab",
+        "preview-files-v1.private.json": "0b6b38b06b0dae05cf2d9062cb675b5b3ea378ad67c2baf782ec3fbb624eda92"
+      }
+    },
+    "legacy_all_archive_raw_reexecution": false,
+    "legacy_actual_proof_hashes_preserved": true,
+    "expired_preview_HTTP_faked_or_restarted": false,
+    "new_model_RHS_DB_or_CLI_calls": 0,
+    "G0_G4": "not_assessed",
+    "R2": "not_approved",
+    "parent_admission_commit": "8f7606c3f99696d139961226829f21571348833e",
+    "parent_admission_source_links": 2,
+    "parent_admission_output_pins": 1,
+    "parent_admission_private_pins": 8,
+    "parent_admission_external_pins": 6,
+    "parent_admission_integration_current_and_Git_pins": 22,
+    "inherited_current_source_pins": 749,
+    "historical_worker_source_git_migration": {
+      "path": "backend/app/economic_batch_worker.py",
+      "previous_sha256": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198",
+      "previous_bytes": 10000,
+      "git_snapshot_commit": "8f7606c3f99696d139961226829f21571348833e",
+      "first_accepted_commit": "e18c012770f38fce01923d511941e30b9213690b",
+      "historical_ancestor_pin_count": 6,
+      "historical_manifest_pins": {
+        "research/artifacts/economic-batch-execution-worker-20261031.json": {
+          "manifest_sha256": "77f3660af15cb9a8789fa5002e3cf72e41fec93f2eed8d4bfe058c6a3b38ffd8",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-batch-stored-result-query-20261031.json": {
+          "manifest_sha256": "e50b4c026c81b9fa6abcc778ae86b92752b7ed75ff26252484b2d71f9a33804a",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-batch-protected-http-20261031.json": {
+          "manifest_sha256": "4fc70788442d38c9434e4c4d63ad5a341b2e5277ff64e86b2f3fd61dd667c009",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-batch-runtime-assembly-20261031.json": {
+          "manifest_sha256": "2097a4c380571da47c128af71e21260b6507bf8cf22a1ce2b8cd946a11599765",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-batch-automatic-consumer-20261031.json": {
+          "manifest_sha256": "5bcab22bb8ef867c4fabdfb759b869d658e995ecf0cb4d5c69d23dcfc8755f6b",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        },
+        "research/artifacts/economic-cost-line-trace-20261031.json": {
+          "manifest_sha256": "bf8b3459ef80108375552dba5a593a284901bf708435ccaff1b6c037def392fd",
+          "original_worker_pin": "289723fab85c6fe06e7c915dd0959c546787819f45669c498a309c16053e7198"
+        }
+      },
+      "only_migrated_source_path": true,
+      "old_manifests_receipts_scripts_and_numeric_outputs_overwritten": false
+    }
+  },
+  "review": {
+    "review_version": "economic-cost-worker-independent-review-v2",
+    "observed_at_UTC": "2026-11-06T02:13:11.157267+00:00",
+    "independent_native_review": true,
+    "reviewer_agent": "/root/cost_worker_tests_20261106",
+    "reviewer_was_implementation_author": false,
+    "reviewer_was_test_author": true,
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning_effort": "xhigh",
+    "native_session_id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+    "actual_native_metadata_location": "/home/sunghoonk/.codex/sessions/2026/11/06/rollout-2026-11-06T10-52-00-01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c.jsonl",
+    "actual_native_metadata_independently_read": true,
+    "actual_native_session": {
+      "id": "01a1ae8e-3ff8-77f3-aaad-e9caedad5e6c",
+      "originator": "codex-tui",
+      "cli_version": "0.166.0"
+    },
+    "actual_native_turn_contexts": [
+      {
+        "timestamp": "2026-11-06T01:52:01.708Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256": "ff50dbb6ec2f8c985a7c37416af8334045a6efbcee3e953e5d39ba7321b6446c"
+      },
+      {
+        "timestamp": "2026-11-06T01:59:11.846Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256": "1d453a51d9460af0fa7c4365446a7bceda6bcfb706ffe916b7bdd1955dd04478"
+      },
+      {
+        "timestamp": "2026-11-06T02:03:09.130Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256": "181ffad7cf5adf644b3c27421f6e16aa47b24abf37e37b15841c47287bfb57d3"
+      },
+      {
+        "timestamp": "2026-11-06T02:11:44.652Z",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "raw_line_sha256": "03672dca61ffc80e8b2722f11daec750bcaa7ab489be9d86b255f5d461a35168"
+      }
+    ],
+    "parent_native_metadata_record": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-worker/native-session-v1.private.json",
+    "supersedes_review": {
+      "path": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-worker/independent-review-v1.private.json",
+      "sha256": "2bfbc2fa6157176d460a76d4efa0bb72f798ae5e5b6dc81f856c0115ed9fda35",
+      "preserved_unchanged": true
+    },
+    "reviewed_source_sha256": {
+      "backend/app/economic_batch_worker.py": "234975b76726503631087e0ec7818489e054a27caefe79ff54a59be0071127e5",
+      "backend/app/economic_cost_worker.py": "968daef4978cbe1667a3fe2e4f72371926b67996b668a31ac952bf7465072625",
+      "backend/tests/test_economic_cost_worker.py": "e4ba10da3d37083c85c278080eca5272527691799c56eda43b8f9dfcba764929"
+    },
+    "reviewed_contract_sha256": "424237d418dd43cb2e10bcecbadb35953119d6d28c398fc0981b02b1823324e3",
+    "implementation_unchanged_from_v1": true,
+    "axes": [
+      "correctness",
+      "readability",
+      "architecture",
+      "security",
+      "performance"
+    ],
+    "axis_details": {
+      "correctness": {
+        "verdict": "no implementation defect found",
+        "reasoning": "Exact cost input family is selected before claim and validated canonically after claim. EconomicCostCalculationService preparation compares the entire nested base_input and trace program fields. One captured CostLineLedger performs one original v10 calculation. Full trace and nested original result bytes are serialized with separate trace/result/artifact identities. Existing lease, cancel, stale token, terminal metadata and transaction rollback checks remain intact. Fresh hook normalization safely compares both bound methods and instance callables; captured selectors stabilize error outcomes."
+      },
+      "readability": {
+        "verdict": "approve",
+        "reasoning": "The subclass is small and explicit, and the named immutable program makes captured fields inspectable. The shared engine stays compact and follows existing repository formatting. No near-duplicate transaction or speculative public extension interface is introduced."
+      },
+      "architecture": {
+        "verdict": "approve",
+        "reasoning": "A private immutable program capture and small concrete subclass reuse the single existing lease/publication engine. No public program argument, new schema, role, package, HTTP, automatic consumer or UI is introduced. The private hook mechanism is bounded to reference projection, serialization and result identity, and cost policy remains in its concrete module. The contract explicitly preserves the accepted old orchestration file through the stated Git snapshot while numeric modules remain unchanged."
+      },
+      "security": {
+        "verdict": "no new issue found",
+        "reasoning": "Only exact actual EconomicBatchAuthority is accepted; current read, execute and artifact scopes plus original authority/root/content binding are rechecked before arithmetic and inside publication. Canonical input/model equality prevents client-selected program values. SQL remains parameterized. Immutable CAS bytes precede atomic publication and are not success evidence alone. No credential or raw private farm-data exposure is added."
+      },
+      "performance": {
+        "verdict": "no new unbounded work identified",
+        "reasoning": "Pointer capture compares a bounded tuple of selectors and three hook identities. The cost worker adds three fixed source-file hashes and the intended existing cost-trace pass; the original lease/guard/DB ordering is unchanged. No throughput claim is made and no benchmark is needed for this bounded compatibility slice."
+      }
+    },
+    "compatibility": {
+      "worker_regression": "25 new cost + 24 original batch worker cases passed on the pinned changed source",
+      "query_HTTP_runtime_consumer_and_prior_regressions": "not accepted by this review; remaining phases require their own terminal validation"
+    },
+    "verdict": "approve scoped cost-worker implementation and resolve R1; no remaining required findings in this review",
+    "required_findings_remaining": 0,
+    "required_findings": [],
+    "implementation_required_findings_remaining": 0,
+    "R1_disposition": {
+      "status": "resolved",
+      "implementation_defect": false,
+      "test": "test_late_instance_encoder_and_live_failure_selectors_use_captured_hold",
+      "test_file": "backend/tests/test_economic_cost_worker.py",
+      "reviewed_behavior": "After one real trace calculation, an instance encoder lambda without __func__ plus live outcome/reason selector replacement produces exact captured CostCalculationOutcome with economic_cost_input_hold, null trace_id, no forged encoder call, no artifact and no publication.",
+      "proof": "The added assertions match R1. The source-pinned worker run has exactly 25 new and 24 original cases, all 49 pass without skips or failures, and the R1 fixture directory exists. Its new source SHA matches the independently rehashed captured source snapshot."
+    },
+    "actual_evidence_sha256": {
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-worker/regression-worker-v1-controller.private.json": "158c42a250e9add0d32400042a81f10cd1310dc0dd9f3e21c7be2d7094ef83a1",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-worker/regression-worker-v1-source-confirmed.private.json": "75366e2bc1ad1e034b294a0400e9f0ca209ad2dd4f832b8d62801060c26feeb1",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-worker/test-source-snapshot-v1.private.json": "1c918be6d0a8e956021dbb99c2e0ba873a53ff8cb69cd114b2e3923252a0a0d8",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-worker-regression-worker-v1/terminal.private.json": "0bbc77ae31976fc79bfdd34fceea9a4ea8c34e2fa299b221726235633a08a4a6",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261023-leaf-query-scope/economic-cost-worker-regression-worker-v1/child.private.log": "4bb09b1dee07db99740bb20d39ca1f267ae7933ef36adc04e3cd25364bdeac6c",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261106-economic-cost-worker/run-owned-tests-v1.private.py": "0d71ddd24d04a9069943df90807c19d105e708c031f2ba2d7d14b6d69fc4793c"
+    },
+    "source_snapshot_verification": {
+      "all_25_source_pins_independently_rehashed": true,
+      "source_snapshot_sha256": "1c918be6d0a8e956021dbb99c2e0ba873a53ff8cb69cd114b2e3923252a0a0d8",
+      "source_preserved": true
+    },
+    "worker_validation": {
+      "actual_passed": 49,
+      "new_cost_cases": 25,
+      "original_worker_cases": 24,
+      "pytest_seconds": 390.57,
+      "guard_wall_seconds": 397.03001420618966,
+      "guard_child_exit": 0,
+      "controller_exit": 0,
+      "owned_remaining": 0,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "host_auth_methods": [
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256"
+      ],
+      "server_stopped": true,
+      "same_real_private_cluster": true
+    },
+    "scope_note": "Self-authored synthetic software contract/worker evidence only. R1 was a missing regression, not an implementation defect. This review does not claim all425 passed, final product completion, farm measurements, economic forecasts, or gate approval.",
+    "verification_limits": {
+      "tests_run_by_reviewer": false,
+      "full_suite_run": false,
+      "services_run_by_reviewer": false,
+      "postgres_started_by_reviewer": false,
+      "recursive_Codex_CLI": false,
+      "spawned_agents": false,
+      "repository_edits_during_guard": false,
+      "remaining_phases_claimed_passed": false
+    },
+    "scope": "self_authored_synthetic_software_contracts_only",
+    "G0_G4": "not_assessed",
+    "R2": "not_approved",
+    "data_adoption": false,
+    "gate_approval": false
+  },
+  "owner_acceptance_sha256": "0a9cc62d7b7d361468f45047c28f0ce60311a71b323eaf8f661a0655e2d92996",
+  "excluded_incomplete_supervisor_phase": {
+    "phase": "economic-cost-worker-regression-query-http-v1",
+    "recovery_receipt_sha256": "f24dcf7acabf56dcf0eae9467be131e3d710cae29b12ad25261ea98ad2aa1330",
+    "original_log_sha256": "15638fa77ab87c4b3a8a37caf00fe0e568e3cb27b6119da81e60551cdbe9f8cf",
+    "original_pytest_passed_not_added": 49,
+    "original_supervisor_terminal_available": false,
+    "recovery_observed_owned_remaining": 0,
+    "recovery_observed_source_snapshot_preserved": true
+  },
+  "input_version": "economic-cost-line-calculation-input-v1",
+  "artifact_version": "economic-cost-line-calculation-result-v1",
+  "outcome_success_id": "trace_id",
+  "new_DB_schema_roles_dependencies": false,
+  "new_HTTP_runtime_consumer_SDK_UI": false,
+  "shared_worker_orchestration_changed": true,
+  "original_numeric_model_inputs_outputs_changed": false,
+  "new_result_query_accepted": false,
+  "independent_domestic_raw": 0,
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "whole_goal_active": true,
+  "goal_complete": false,
+  "recursive_CLI": false,
+  "next_task": "economic-cost-line-stored-result-query",
+  "next_acceptance": [
+    "전체 trace/base_result·line/groups/months의 엄격 decoder와 현재 원 참조/권한/지원 코드, 원 canonical bytes/첫 게시 시각·다른 family/변조/늦은 변경·새 프로세스 읽기, 금액 호출·SQL 쓰기0"
+  ],
+  "next_focused_hours_draft": [
+    1,
+    2
+  ],
+  "next_estimate_basis": "existing201-line batch query/29 tests; new full nested trace decoder/current-reference binding; no amount calls/SQL writes; owned SCRAM/fresh reader acceptance",
+  "whole_product_completion_date": "unknown; external farm/rights/validation/deployment dates unavailable"
+}
