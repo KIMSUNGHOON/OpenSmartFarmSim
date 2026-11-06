@@ -1,8 +1,8 @@
 # 첫 구현 작업 목록
 
-**현재 — 2026-11-06 KST:** [항목별 비용 보호 HTTP](../research/economic-cost-protected-http-20261106.md)의 308개 집중 검사를 통과했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 명시 비용 runtime→별도 자동 소비→원 창/비용 기간→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
+**현재 — 2026-11-06 KST:** [생산 변경0의 명시 비용 runtime](../research/economic-cost-runtime-assembly-20261106.md)을13개 집중 검사로 수용했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 별도 자동 비용 소비→원 창/비용 기간→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
 
-**항목별 비용 보호 HTTP 수용 — 2026-11-06:** [신규30/기존278=현재 고유308검사·실제 SCRAM/인증 HTTPS](../research/economic-cost-protected-http-20261106.md)로 source8→불변 비용 접수/최초 재시도→명시 worker→현재 원 bytes/닫힌 DTO·첫 publication/no-store, 현재/늦은 권한·근거/코드·접수 계산0/GET 금액·SQL쓰기0과 기존 batch/default 경로를 확인했습니다. 부모114/425는 보존 증거이며 현재 합계에 더하지 않았습니다. 다음은 production 변경0의 비용 runtime 증명(0.5–1집중시간 초안)→별도 자동 소비→원 창/독립 비용 기간→strict SDK/같은 선택 UI입니다. 제품 연결·실제 예측/전체 목표는 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
+**항목별 비용 runtime 증명 수용 — 2026-11-06:** [신규1/기존12=현재 고유13검사·실제 SCRAM/검증 TLS](../research/economic-cost-runtime-assembly-20261106.md)로 생산 변경0의 기존 조립·참조 접수/원 queued 입력·명시 trace/v10 각1회·같은 프로세스 새 객체2개/listener2개의 원 bytes/최초 게시·현재 hold/복원·조회 금액/digest/SQL쓰기0·정리를 확인했습니다. 부모308/114/425는 현재 합계에 더하지 않았습니다. 다음은 exact cost worker/outcome/version의 별도 자동 소비(검토된1–2집중시간 초안)→원 창/독립 비용 기간→strict SDK/같은 선택 UI입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
 - [x] **`morphology-input-provenance-current-review`** — [제품 연결의 첫 입력 계약](../contracts/crop-morphology-input-evidence-v1.md).
   수용된 v2 원 프로그램과 SourceRecord의 단위/시각·raw/source SHA·권리/현재 검토를 새 domain에 결속한다.
@@ -313,11 +313,11 @@
 
 - [x] **`economic-cost-line-protected-http`** — [신규30/기존278=현재 고유308·실제 SCRAM/인증 HTTPS](../research/economic-cost-protected-http-20261106.md). 기존 실제 authority/source8와 비용 접수/현재 조회·닫힌 DTO를 두 보호 경로에 결속했다. 원 bytes/최초 publication/no-store·권한/늦은 결속·입력/결과 한도·고정 오류·접수 금액0/GET 금액·SQL쓰기0과 batch/default/source 경로를 수용했다. 명시 worker 증거이며 새 runtime/자동 소비·SDK/UI는 후속이다. 부모114/425는 이번 현재 합계에 더하지 않았다.
 
-- [ ] **`economic-cost-line-runtime-assembly`** — 다음 한 단계. production 변경0의 기존 ApiRuntime/authority 조립을 재사용하는 집중 통합1사례에서 실제 HTTPS 비용 접수·명시 worker·새 runtime/service 재조립의 원 bytes/첫 publication·읽기 권한/현재 hold·복원·금액/SQL쓰기0·소유 정리를 검증한다. 기존655줄 ApiRuntime과186줄 runtime 검사모듈의 fixture/TLS·재조립 사례 및12개 회귀 증거를 재사용하고 production 변경0·새 통합1사례로 한정한0.5–1집중시간 초안(재작업/CI 대기 별도). 자동 소비/SDK/UI·원 창/독립 비용 기간·실제 예측은 후속이다.
+- [x] **`economic-cost-line-runtime-assembly`** — [신규1/기존12=현재13·실제 SCRAM/검증 TLS](../research/economic-cost-runtime-assembly-20261106.md). 생산 변경0의 기존 authority 조립·원 입력/최초 시각·명시 worker/trace/v10 각1회와 같은 프로세스의 두 객체/listener·새 현재 원 bytes/첫 게시/권한/hold 복원·금액/digest/SQL쓰기0·정리를 수용했다. cold 프로세스/PG 재기동·자동 소비/SDK/UI는 후속이다.
 
-- [ ] **`economic-cost-line-automatic-consumer`** — 명시 runtime 뒤 같은 실제 authority에 정확 cost input/worker/CostCalculationOutcome을 연결하고 기존 discovery/loop·다른 family를 보존한다. 실제 HTTP 접수→자동 단일 완료→새 현재 원문, 취소/lease/재임대·현재/늦은 권한·정리와 기존 소비자를 수용한다. 공수는 runtime 수용 뒤 실제 차이로 산정하며 SDK/UI·실제 예측은 후속이다.
+- [ ] **`economic-cost-line-automatic-consumer`** — 다음 한 단계. deterministic_job_discovery의 정확 cost input version과 deterministic_work의 exact CostWorker/CostCalculationOutcome·_access 분기만 연결하고, 현재 권한/결속·한 번 trace/v10·lease/취소/재임대·기존 family와 원 event를 보존하며 별도 소유 프로세스의 실제 HTTPS 접수→자동 완료→fresh 원문/첫 publication·hold 복원·종료/정리를 검증한다. 검토된 두 모듈의 작은 등록/guard 변경과 기존15 core/1 별도 프로세스 HTTPS·45줄 factory 재사용에 근거한1–2집중시간 초안(guard/CI·최종 문서·외부 자료 작업 별도). runtime/DB/정책/금액/원 event schema를 새로 만들지 않으며 실제 수용 전에는 미지원이다. SDK/UI·원 창/독립 비용 기간/실제 예측은 후속이다.
 
-- [ ] **`economic-cost-line-stored-execution`** — 위 참조 입력 뒤 기존 JobStore/lease/원자 게시 엔진을 공유하고 정확한 새 프로그램 판본만 선택한다. 원 v10/default worker/API 동작·코드 이력의 Git snapshot을 보존하며 숫자 모델/원 산출물은 덮어쓰지 않는다. 전체 trace2MiB 불변 저장·현재 입력/source/권한/지원 코드/최초 이력의 무계산 조회·취소/lease/rollback→보호 HTTP/runtime/자동 소비의 실제 종단 간 수용을 단계로 나눈다. worker/현재 query/보호 HTTP 자식은 수용했다. 명시 비용 runtime을 다음 자식으로 분리하고 자동 소비는 그다음 별도 수용한다.
+- [ ] **`economic-cost-line-stored-execution`** — 위 참조 입력 뒤 기존 JobStore/lease/원자 게시 엔진을 공유하고 정확한 새 프로그램 판본만 선택한다. 원 v10/default worker/API 동작·코드 이력의 Git snapshot을 보존하며 숫자 모델/원 산출물은 덮어쓰지 않는다. 전체 trace2MiB 불변 저장·현재 입력/source/권한/지원 코드/최초 이력의 무계산 조회·취소/lease/rollback→보호 HTTP/runtime/자동 소비의 실제 종단 간 수용을 단계로 나눈다. worker/현재 query/보호 HTTP와 생산 변경0의 명시 runtime 자식은 수용했다. exact 자동 비용 소비를 다음 자식으로 분리했으며 이 상위 작업은 미완료다.
 
 - [ ] **`supply-material-conditional-resource-economics`** — 생산 batch 커널/소유 입력/접수·worker/현재 조회와 HTTP/runtime/자동 소비는 수용했다. 위 Cost.id별 기여값/게시 근거 뒤 원 root/projection/result SHA·exact window와 별도 사용자 가정의 Cost/input 판본·구매/청구 기간을 결속한다. 원 자료/시각·통화/단위·반올림·발생/지급·포함/누락/중복·미배분/기간 불일치 hold와 독립 산술·현재 권한/늦은 변경을 검증한다. 열/수분 counter에서 구매량/요금을 만들지 않고 제품 Farm 결속 없는 연구 root는 제품에 게시하지 않는다. backend→strict SDK→같은 선택 UI/실제 브라우저 순서다. 항목별 금액 근거와 실행 경계가 빠졌던 총 공수는 재산정하며 실제 농장 비용/마진/추천·전체 완료일은 별도다.
 

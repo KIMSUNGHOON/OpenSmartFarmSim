@@ -1,8 +1,8 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 — 2026-11-06 KST:** [항목별 비용 보호 HTTP](../research/economic-cost-protected-http-20261106.md)의 308개 집중 검사를 통과했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 명시 비용 runtime→별도 자동 소비→원 창/비용 기간→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
+**현재 — 2026-11-06 KST:** [생산 변경0의 명시 비용 runtime](../research/economic-cost-runtime-assembly-20261106.md)을13개 집중 검사로 수용했습니다. 같은 저장3D·과실·자원 화면은10월31일 검증을 마친 자체 합성 연구 재생이며5184는 당시17:03 KST에 만료됐습니다. 저장238파일·원 소유/만료 정책·과거 HTTP 증거를 보존했습니다. 다음은 별도 자동 비용 소비→원 창/비용 기간→같은 선택 UI입니다. 실제 품종 한 작기·생산/구매·경제/거시/수급·자율 비교와 최종 제품은 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인을 유지합니다.
 
-**항목별 비용 보호 HTTP 수용 — 2026-11-06:** [신규30/기존278=현재 고유308검사·실제 SCRAM/인증 HTTPS](../research/economic-cost-protected-http-20261106.md)로 source8→불변 비용 접수/최초 재시도→명시 worker→현재 원 bytes/닫힌 DTO·첫 publication/no-store, 현재/늦은 권한·근거/코드·접수 계산0/GET 금액·SQL쓰기0과 기존 batch/default 경로를 확인했습니다. 부모114/425는 보존 증거이며 현재 합계에 더하지 않았습니다. 다음은 production 변경0의 비용 runtime 증명(0.5–1집중시간 초안)→별도 자동 소비→원 창/독립 비용 기간→strict SDK/같은 선택 UI입니다. 제품 연결·실제 예측/전체 목표는 미완료이며 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
+**항목별 비용 runtime 증명 수용 — 2026-11-06:** [신규1/기존12=현재 고유13검사·실제 SCRAM/검증 TLS](../research/economic-cost-runtime-assembly-20261106.md)로 생산 변경0의 기존 조립·참조 접수/원 queued 입력·명시 trace/v10 각1회·같은 프로세스 새 객체2개/listener2개의 원 bytes/최초 게시·현재 hold/복원·조회 금액/digest/SQL쓰기0·정리를 확인했습니다. 부모308/114/425는 현재 합계에 더하지 않았습니다. 다음은 exact cost worker/outcome/version의 별도 자동 소비(검토된1–2집중시간 초안)→원 창/독립 비용 기간→strict SDK/같은 선택 UI입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
 **확정 구간 공개 core7 수용 — 2026-10-21 KST:** [CO₂ 공개 응답](../research/api-crop-greenhouse-co2-prefix-20261021.md)의 실제 SCRAM7·11개 원 산출물/343지문을 수용했습니다. 원 수치/단위/UTC·현재3view/읽기 scopes·ready/normal/hold/64+1·선택 program/basis/원 page 후검사·31계측0/정리를 확인했습니다. 늦은 변경10·독립/회귀93과 공개 응답 부모는 남습니다. 이후 보호 실행 API/runtime→같은 UTC3D이며 새 CO₂/WSL 적용·전체 작기/자원/경제·최종 UI·실제 자료/관문은 미완료입니다.
 
