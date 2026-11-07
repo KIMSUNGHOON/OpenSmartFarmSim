@@ -370,3 +370,687 @@ def test_request_syntax_rejects_before_read_and_unavailable_admitted_frame_holds
         assert current_principal() is None
         assert len(os.listdir('/proc/self/fd')) == fd_before
         assert artifact_cases._inventory(directories) == before
+
+
+import json as _tls_json
+import ssl as _tls_ssl
+import threading as _tls_threading
+import time as _tls_time
+from contextlib import contextmanager as _tls_contextmanager
+
+import pytest as _tls_pytest
+from test_api_serve import tls_files as _tls_files
+
+
+def _tls_context(cert=None):
+    context = _tls_ssl.SSLContext(_tls_ssl.PROTOCOL_TLS_CLIENT)
+    context.minimum_version = _tls_ssl.TLSVersion.TLSv1_2
+    context.verify_mode = _tls_ssl.CERT_REQUIRED
+    context.check_hostname = True
+    if cert is not None:
+        context.load_verify_locations(cafile=str(cert))
+    assert context.verify_mode == _tls_ssl.CERT_REQUIRED and context.check_hostname
+    assert context.keylog_filename is None
+    return context
+
+
+async def _tls_get(port, context, path, token=None, *, incomplete_body=False):
+    loop = asyncio.get_running_loop()
+    writer = None
+    socket = None
+    started = loop.time()
+    deadline = started + 30.0
+    phase = 'connecting'
+
+    def current():
+        if loop.time() >= deadline:
+            raise TimeoutError('absolute TLS client deadline reached')
+
+    try:
+        try:
+            async with asyncio.timeout_at(deadline):
+                stream, writer = await asyncio.open_connection(
+                    '127.0.0.1', port, ssl=context, server_hostname='127.0.0.1', limit=8192)
+                socket = writer.get_extra_info('socket')
+                current()
+                negotiated = writer.get_extra_info('ssl_object')
+                assert negotiated is not None and negotiated.version() in {'TLSv1.2', 'TLSv1.3'}
+                headers = [b'GET ' + path.encode('ascii') + b' HTTP/1.1',
+                           b'Host: 127.0.0.1', b'Connection: close']
+                if token is not None:
+                    headers.append(b'Authorization: Bearer ' + token)
+                if incomplete_body:
+                    headers.append(b'Content-Length: 1')
+                writer.write(b'\r\n'.join(headers) + b'\r\n\r\n')
+                await writer.drain()
+                current()
+                phase = 'await_headers'
+                head = await stream.readuntil(b'\r\n\r\n')
+                current()
+                phase = 'response_body'
+                assert len(head) <= 8192
+                lines = head[:-4].split(b'\r\n')
+                status = lines[0].split(b' ', 2)
+                assert len(status) == 3 and status[0] == b'HTTP/1.1'
+                assert len(status[1]) == 3 and status[1].isdigit()
+                fields = {}
+                for line in lines[1:]:
+                    key, separator, value = line.partition(b':')
+                    assert separator and key and not key[:1].isspace()
+                    name = key.decode('ascii').lower()
+                    assert name not in fields
+                    fields[name] = value.strip().decode('ascii')
+                assert not {'transfer-encoding', 'content-encoding', 'content-disposition', 'location'} & fields.keys()
+                declared = fields['content-length']
+                assert declared.isascii() and declared.isdecimal() and str(int(declared)) == declared
+                length = int(declared)
+                assert 1 <= length <= 2097152
+                raw = await stream.readexactly(length)
+                current()
+                phase = 'await_eof'
+                extra = await stream.read(1)
+                current()
+                assert extra == b''
+                elapsed = loop.time() - started
+                assert elapsed < 30.0
+                return SimpleNamespace(status_code=int(status[1]), headers=fields,
+                                       content=raw, seconds=elapsed)
+        except TimeoutError as error:
+            elapsed = loop.time() - started
+            assert elapsed >= 30.0, 'not the complete-operation client deadline'
+            error._ossf_tls_client_deadline = True
+            error._ossf_tls_client_phase = phase
+            error._ossf_tls_client_seconds = elapsed
+            raise
+    finally:
+        if writer is not None:
+            writer.close()
+            try:
+                await asyncio.wait_for(writer.wait_closed(), timeout=15.0)
+            except TimeoutError:
+                writer.transport.abort()
+                await asyncio.sleep(0)
+                raise AssertionError('TLS client cleanup did not finish') from None
+            except (ConnectionResetError, BrokenPipeError):
+                pass
+            assert socket is not None and socket.fileno() == -1, 'TLS client socket remains open'
+
+
+@_tls_contextmanager
+def _tls_served(server):
+    failures = []
+
+    def run():
+        try:
+            server.run()
+        except BaseException as error:
+            failures.append(type(error).__name__)
+
+    thread = _tls_threading.Thread(target=run, name='own-repeat-tls', daemon=False)
+    thread.start()
+    try:
+        ready_by = _tls_time.monotonic() + 10.0
+        while not server.started:
+            assert thread.is_alive() and _tls_time.monotonic() < ready_by, 'owned TLS service did not start'
+            _tls_time.sleep(0.01)
+        assert not failures and len(server.servers) == 1
+        sockets = server.servers[0].sockets
+        assert len(sockets) == 1 and sockets[0].getsockname()[0] == '127.0.0.1'
+        port = sockets[0].getsockname()[1]
+        assert 0 < port < 65536
+        yield port
+    finally:
+        server.should_exit = True
+        # An unsuccessful client may leave the unchanged reader60 draining.
+        thread.join(60.0 + 15.0)
+        assert not thread.is_alive(), 'owned TLS service or reader did not drain'
+        assert not failures, 'owned TLS service failed'
+        assert all(not listener.sockets for listener in getattr(server, 'servers', ()))
+
+
+def _tls_forbidden_entries():
+    from app.job_store import JobStore
+    from app.crop_morphology_artifact_io import MorphologyBlobStore
+    from app import crop_supply_material_repeat_owner as owner
+    from app import crop_supply_material_repeat_point as point
+    from app import crop_leaf_area as leaf_curve
+    from app import crop_internode_length as length_curve
+    qa = artifact_cases.qa
+    return [
+        (qa.base.stage.evaluate, (None,) * 5, {}),
+        (qa.point.apply_material_point, (None,) * 3, {'inputs': None}),
+        (qa.candidate.calculate_threshold_state, (None,) * 3, {}),
+        (point.calculate_successor_candidate, (None,) * 3, {}),
+        (point.apply_successor_material_point, (None,) * 3, {'inputs': None}),
+        (owner.adopt_successor, (None,) * 3,
+         {'inputs': None, 'expected_point_sha256': None, 'workspace': None}),
+        (MorphologyBlobStore.put, (None, b''), {'maximum': 1}),
+        (JobStore.connect, (None,), {}),
+        (JobStore._durable_content, (None, b'', '0' * 64), {}),
+        (leaf_curve._area_at, (None, None), {}),
+        (leaf_curve.calculate_leaf_area_point, (), {'inputs': None}),
+        (length_curve._length_at_thermal_age, (None, None), {}),
+        (length_curve.calculate_internode_length_point, (), {'inputs': None}),
+    ]
+
+
+class _TlsEntrySeen(BaseException):
+    pass
+
+
+def test_verified_tls_manifest_and_frame_obey_absolute_client30_and_timeout_drains(first_artifact, _tls_files, request):
+    packet = first_artifact
+    certificate, key, _ = _tls_files
+    assert certificate.parent.stat().st_mode & 0o777 == 0o700
+    assert key.stat().st_mode & 0o777 == 0o600
+    assert packet['manifest']['effective_rights'] == {'use': True, 'display': True, 'redistribute': False}
+    descriptor = packet['manifest']['frames'][0]
+    expected_frame = (packet['directory'] / descriptor['frame']['sha256']).read_bytes()
+    assert len(expected_frame) == descriptor['frame']['bytes']
+    assert sha256(expected_frame).hexdigest() == descriptor['frame']['sha256']
+    assert descriptor['index'] == 0 and descriptor['phase'] == 'material_before'
+    token = secrets.token_urlsafe(32).encode('ascii')
+    now = datetime.now(timezone.utc)
+    grant = BearerGrant(token_digest(token), 'own-repeat-http-test', frozenset({'metadata', 'artifact'}),
+                        now - timedelta(seconds=1), now + timedelta(minutes=5))
+    app = _fixed_delivery(packet, BearerRegistry((grant,)))
+    trust, untrusted = _tls_context(certificate), _tls_context()
+    assert untrusted.get_ca_certs() == []
+    _, reader = artifact_cases._api()
+    reads = {reader.read_repeat_material_manifest.__code__: 'manifest',
+             reader.read_repeat_material_frame.__code__: 'frame'}
+    entries = _tls_forbidden_entries()
+    forbidden_codes = {function.__code__ for function, _, _ in entries}
+    assert len(forbidden_codes) == 13 and not forbidden_codes & reads.keys()
+    phase, expected_code = 'control', None
+    controls, forbidden, calls, returned = [], [], [], []
+
+    def observe(frame, event, value):
+        if frame.f_code in forbidden_codes:
+            if event != 'call':
+                return
+            if phase == 'control':
+                assert frame.f_code is expected_code
+                controls.append(frame.f_code)
+                raise _TlsEntrySeen()
+            forbidden.append(frame.f_code.co_name)
+            raise AssertionError('TLS stored read entered a forbidden generation/storage boundary')
+        name = reads[frame.f_code]
+        if event == 'call':
+            calls.append((name, frame.f_locals.get('index')))
+        elif event == 'return':
+            assert type(value) is bytes
+            returned.append((name, len(value), sha256(value).hexdigest()))
+
+    def positive_controls():
+        nonlocal expected_code
+        for function, args, kwargs in entries:
+            expected_code = function.__code__
+            before = len(controls)
+            with _tls_pytest.raises(_TlsEntrySeen):
+                function(*args, **kwargs)
+            assert len(controls) == before + 1
+
+    def headers(response):
+        assert response.headers['content-type'].split(';')[0].strip() == 'application/json'
+        assert response.headers['cache-control'] == 'no-store'
+        assert response.headers['x-content-type-options'] == 'nosniff'
+        assert response.headers['x-frame-options'] == 'DENY'
+        assert response.headers['strict-transport-security'] == 'max-age=31536000'
+
+    directories = [packet['directory'], *artifact_cases._directories(packet['parent'])]
+    before = artifact_cases._inventory(directories)
+    source_pins = {relative: sha256((artifact_cases.ROOT / relative).read_bytes()).hexdigest()
+                   for relative in [*PINNED_SOURCES, 'backend/app/api_supply_material_repeat.py',
+                                    'backend/app/http_identity.py', 'backend/app/https_service.py',
+                                    'backend/app/content_access.py',
+                                    'contracts/supply-material-repeat-protected-delivery-v1.md']}
+    from app.https_service import HttpsApiService
+    import stat as _tls_stat
+    _logging_plugin = request.config.pluginmanager.get_plugin('logging-plugin')
+    _logging_handler = getattr(_logging_plugin, 'log_file_handler', None)
+    _logging_stream = getattr(_logging_handler, 'stream', None)
+    _logging_owner = {'state': 'unavailable'}
+    if _logging_stream is not None:
+        try:
+            _logging_fd = _logging_stream.fileno()
+            _logging_info = os.fstat(_logging_fd)
+        except (OSError, ValueError, AttributeError):
+            pass
+        else:
+            _logging_owner = {'state': 'observed', 'fd': _logging_fd,
+                'handler_class': type(_logging_handler).__name__,
+                'dev': _logging_info.st_dev, 'ino': _logging_info.st_ino,
+                'type': _tls_stat.S_IFMT(_logging_info.st_mode)}
+    server = HttpsApiService(app, certificate, key, port=0).server()
+    if _logging_owner['state'] == 'observed':
+        _logging_owner['same_stream_closed_after_configuration'] = _logging_stream.closed
+        _logging_owner['handler_stream_cleared_after_configuration'] = _logging_handler.stream is None
+        try:
+            _logging_after = os.fstat(_logging_fd)
+        except OSError as error:
+            _logging_owner['descriptor_errno_after_configuration'] = error.errno
+        else:
+            _logging_owner['descriptor_after_configuration'] = {
+                'dev': _logging_after.st_dev, 'ino': _logging_after.st_ino,
+                'type': _tls_stat.S_IFMT(_logging_after.st_mode)}
+    print(_tls_json.dumps({'repeat_tls_bootstrap_logging': _logging_owner,
+        'measured_FD_scope': 'after_configuration_before_thread_through_join',
+        'constructor_global_handler_preservation_claimed': False}, sort_keys=True))
+    fd_before = len(os.listdir('/proc/self/fd'))
+    manifest_seconds = frame_seconds = timeout_seconds = None
+    try:
+        with artifact_cases.qa._watch(observe, forbidden_codes | reads.keys()):
+            positive_controls()
+            phase = 'tls'
+            with _tls_served(server) as port:
+                with _tls_pytest.raises(_tls_ssl.SSLCertVerificationError):
+                    asyncio.run(_tls_get(port, untrusted, '/v1/research/material-repeat/manifest'))
+                assert calls == [] and returned == [] and forbidden == []
+                denied = asyncio.run(_tls_get(port, trust, '/v1/research/material-repeat/manifest'))
+                assert denied.status_code == 401
+                assert _tls_json.loads(denied.content) == {'error': {
+                    'code': 'unauthenticated', 'message': 'Authentication required'}}
+                assert denied.headers['www-authenticate'] == 'Bearer'
+                headers(denied)
+                assert calls == [] and returned == [] and forbidden == []
+                manifest = asyncio.run(_tls_get(port, trust, '/v1/research/material-repeat/manifest', token))
+                exact_manifest = manifest.content == packet['raw'] and sha256(manifest.content).hexdigest() == packet['root']
+                assert manifest.status_code == 200 and exact_manifest
+                headers(manifest)
+                manifest_seconds = manifest.seconds
+                assert calls == [('manifest', None)]
+                assert returned == [('manifest', len(packet['raw']), packet['root'])]
+                frame = asyncio.run(_tls_get(port, trust, '/v1/research/material-repeat/frames/0', token))
+                exact_frame = frame.content == expected_frame and sha256(frame.content).hexdigest() == descriptor['frame']['sha256']
+                assert frame.status_code == 200 and exact_frame
+                headers(frame)
+                frame_seconds = frame.seconds
+                expected_calls = [('manifest', None), ('frame', 0)]
+                expected_returns = [('manifest', len(packet['raw']), packet['root']),
+                                    ('frame', len(expected_frame), descriptor['frame']['sha256'])]
+                assert calls == expected_calls and returned == expected_returns and forbidden == []
+                with _tls_pytest.raises(TimeoutError) as caught:
+                    asyncio.run(_tls_get(port, trust, '/v1/research/material-repeat/manifest', token,
+                                         incomplete_body=True))
+                assert getattr(caught.value, '_ossf_tls_client_deadline', False) is True
+                assert caught.value._ossf_tls_client_phase == 'await_headers'
+                timeout_seconds = caught.value._ossf_tls_client_seconds
+                assert timeout_seconds >= 30.0
+                assert calls == expected_calls and returned == expected_returns and forbidden == []
+            phase = 'control'
+            positive_controls()
+            assert len(controls) == 26 and forbidden == []
+    finally:
+        assert current_principal() is None
+        assert len(os.listdir('/proc/self/fd')) == fd_before
+        assert artifact_cases._inventory(directories) == before
+        for relative, expected in source_pins.items():
+            assert sha256((artifact_cases.ROOT / relative).read_bytes()).hexdigest() == expected
+    print(_tls_json.dumps({'repeat_tls_client30': {
+        'manifest_seconds': manifest_seconds, 'frame0_seconds': frame_seconds,
+        'incomplete_body_timeout_seconds': timeout_seconds, 'verified_TLS': True,
+        'client_attempts': 5, 'real_reader_calls': len(calls), 'reader_normal_returns': len(returned),
+        'before_body_controls': len(controls), 'forbidden_entries': len(forbidden),
+        'FD_scope': 'after_configuration_before_thread_through_join',
+        'FD_before_after': [fd_before, len(os.listdir('/proc/self/fd'))],
+        'service_joined': True, 'inventories_and_source_pins_unchanged': True,
+        'protected_delivery_accepted': False}}, sort_keys=True))
+
+
+
+def test_late_bearer_expiry_during_real_load_and_before_success_start_suppresses_bytes(first_artifact):
+    import errno
+    import json
+    from app import api_supply_material_repeat as public
+
+    packet = first_artifact
+    _, reader = artifact_cases._api()
+    token = secrets.token_urlsafe(32).encode('ascii')
+    valid_at = datetime.now(timezone.utc)
+    grant = BearerGrant(token_digest(token), 'own-repeat-http-test', frozenset({'metadata', 'artifact'}),
+                        valid_at - timedelta(seconds=1), valid_at + timedelta(minutes=5))
+    clock_value = [valid_at]
+
+    def registry_clock():
+        return clock_value[0]
+
+    registry = BearerRegistry((grant,), clock=registry_clock)
+    app = _fixed_delivery(packet, registry)
+    registry_state = public._registry(registry)
+    expected_principal = {'authenticated': True, 'tenant_id': grant.tenant_id, 'scopes': grant.scopes}
+    records = []
+    active = [None]
+
+    def expire(record, boundary):
+        assert record['expired_at'] is None
+        assert current_principal() == expected_principal
+        assert public._registry(registry) == registry_state
+        assert public._CLOCK() < record['deadline']
+        clock_value[0] = grant.expires_at
+        assert current_principal() is None
+        assert public._registry(registry) == registry_state
+        record['expired_at'] = boundary
+
+    def observe(frame, event, value):
+        record = active[0]
+        assert record is not None
+        if frame.f_code is reader._load.__code__:
+            if event == 'call':
+                assert record['load_entries'] == 0 and record['public_entries'] == 1
+                assert current_principal() == expected_principal
+                store = frame.f_locals['store']
+                fd = store.__dict__['_fd']
+                assert type(fd) is int and os.fstat(fd).st_ino == packet['directory'].stat().st_ino
+                caller = frame.f_back
+                while caller is not None and not (caller.f_code.co_filename == public.__file__
+                        and caller.f_code.co_name == 'checked_read'):
+                    caller = caller.f_back
+                assert caller is not None
+                entered, finished, stopped = (caller.f_locals[key] for key in ('entered', 'finished', 'stopped'))
+                assert entered.is_set() and not finished.is_set() and not stopped.is_set()
+                record.update(store=store, fd=fd, entered=entered, finished=finished, stopped=stopped,
+                              deadline=caller.f_locals['deadline'])
+                assert public._CLOCK() < record['deadline']
+                record['load_entries'] += 1
+                if record['mode'] == 'load_expiry':
+                    expire(record, 'real_load_entry')
+            elif event == 'return':
+                assert type(value) is tuple and len(value) == 4 and value[0] == packet['raw']
+                assert record['store'].__dict__['_fd'] == record['fd']
+                record['load_returns'] += 1
+        elif frame.f_code is reader.read_repeat_material_manifest.__code__:
+            if event == 'call':
+                assert record['public_entries'] == 0 and current_principal() == expected_principal
+                record['public_entries'] += 1
+            elif event == 'return':
+                assert type(value) is bytes and value == packet['raw']
+                assert record['load_returns'] == 1 and record['store'].__dict__['_fd'] is None
+                try:
+                    os.fstat(record['fd'])
+                except OSError as error:
+                    assert error.errno == errno.EBADF
+                else:
+                    raise AssertionError('real reader descriptor is still open')
+                assert public._CLOCK() < record['deadline']
+                record['raw_returns'] += 1
+        elif frame.f_code is public._authorized.__code__ and event == 'return':
+            if value is None:
+                assert current_principal() == expected_principal
+                record['auth_valid'] += 1
+            else:
+                assert record['expired_at'] is not None and current_principal() is None
+                assert value.status_code == 401
+                record['auth_expired'] += 1
+        elif frame.f_code is public._Release.__call__.__code__ and event == 'call':
+            assert record['raw_returns'] == 1 and record['store'].__dict__['_fd'] is None
+            assert record['entered'].is_set() and record['finished'].is_set() and not record['stopped'].is_set()
+            assert current_principal() == expected_principal
+            assert frame.f_locals['self'].request.scope['state'][public._DEADLINE] == record['deadline']
+            record['release_entries'] += 1
+            if record['mode'] == 'release_expiry':
+                expire(record, 'real_release_entry')
+
+    directories = [packet['directory'], *artifact_cases._directories(packet['parent'])]
+    before = artifact_cases._inventory(directories)
+    fd_before = len(os.listdir('/proc/self/fd'))
+    try:
+        with artifact_cases.qa._watch(observe, {reader.read_repeat_material_manifest.__code__,
+                reader._load.__code__, public._authorized.__code__, public._Release.__call__.__code__}):
+            for mode in ('baseline', 'load_expiry', 'release_expiry', 'recovery'):
+                clock_value[0] = valid_at
+                record = {'mode': mode, 'expired_at': None, 'public_entries': 0, 'load_entries': 0,
+                          'load_returns': 0, 'raw_returns': 0, 'release_entries': 0,
+                          'auth_valid': 0, 'auth_expired': 0}
+                records.append(record)
+                active[0] = record
+                response = asyncio.run(_asgi_manifest_get(app, token))
+                assert record['public_entries'] == record['load_entries'] == record['load_returns'] == record['raw_returns'] == 1
+                assert record['entered'].is_set() and record['finished'].is_set() and not record['stopped'].is_set()
+                assert record['store'].__dict__['_fd'] is None
+                assert response.headers['cache-control'] == 'no-store'
+                assert current_principal() is None and public._registry(registry) == registry_state
+                if mode in ('baseline', 'recovery'):
+                    assert response.status_code == 200 and response.content == packet['raw']
+                    assert record['expired_at'] is None and record['auth_expired'] == 0
+                    assert record['release_entries'] == 1 and record['auth_valid'] > 0
+                else:
+                    assert response.status_code == 401 and response.headers['www-authenticate'] == 'Bearer'
+                    assert json.loads(response.content) == {'error': {'code': 'unauthenticated',
+                                                                       'message': 'Authentication required'}}
+                    assert response.content != packet['raw'] and record['auth_expired'] == 1
+                    assert record['auth_valid'] > 0
+                    assert record['expired_at'] == ('real_load_entry' if mode == 'load_expiry' else 'real_release_entry')
+                    assert record['release_entries'] == (0 if mode == 'load_expiry' else 1)
+        assert [record['mode'] for record in records] == ['baseline', 'load_expiry', 'release_expiry', 'recovery']
+    finally:
+        clock_value[0] = valid_at
+        assert current_principal() is None and public._registry(registry) == registry_state
+        assert len(os.listdir('/proc/self/fd')) == fd_before
+        assert artifact_cases._inventory(directories) == before
+
+
+
+async def _ownership_no_response_request(app, token, disconnected, observation):
+    path = '/v1/research/material-repeat/manifest'
+    received = False
+    size = 0
+
+    async def receive():
+        nonlocal received
+        if not received:
+            received = True
+            observation['body_received'] = True
+            return {'type': 'http.request', 'body': b'', 'more_body': False}
+        await disconnected.wait()
+        observation['disconnects_received'] += 1
+        return {'type': 'http.disconnect'}
+
+    async def send(message):
+        nonlocal size
+        if message['type'] == 'http.response.start':
+            observation['sent'].append(('start', message['status']))
+        else:
+            assert message['type'] == 'http.response.body'
+            body = message.get('body', b'')
+            assert type(body) is bytes
+            size += len(body)
+            assert size <= 2097152
+            observation['sent'].append(('body', len(body)))
+
+    try:
+        await app({'type': 'http', 'asgi': {'version': '3.0'}, 'method': 'GET',
+                   'path': path, 'raw_path': path.encode('ascii'), 'root_path': '',
+                   'query_string': b'', 'headers': [(b'host', b'repeat.test'),
+                       (b'authorization', b'Bearer ' + token)], 'scheme': 'https',
+                   'http_version': '1.1', 'server': ('repeat.test', 443),
+                   'client': ('test-client', 1234), 'state': {}}, receive, send)
+    finally:
+        observation['app_exited'] = True
+        observation['order'].append('app_exited')
+
+
+def test_cancel_and_disconnect_own_real_reader_until_cleanup_before_suppression(first_artifact):
+    import errno
+    import threading
+    from app import api_supply_material_repeat as public
+
+    packet = first_artifact
+    _, reader = artifact_cases._api()
+    token = secrets.token_urlsafe(32).encode('ascii')
+    now = datetime.now(timezone.utc)
+    grant = BearerGrant(token_digest(token), 'own-repeat-http-test', frozenset({'metadata', 'artifact'}),
+                        now - timedelta(seconds=1), now + timedelta(minutes=5))
+    registry = BearerRegistry((grant,))
+    app = _fixed_delivery(packet, registry)
+    registry_state = public._registry(registry)
+    expected_principal = {'authenticated': True, 'tenant_id': grant.tenant_id, 'scopes': grant.scopes}
+    records = []
+    active = [None]
+
+    def closed(record):
+        assert record['store'].__dict__['_fd'] is None
+        try:
+            os.fstat(record['fd'])
+        except OSError as error:
+            assert error.errno == errno.EBADF
+        else:
+            raise AssertionError('original reader descriptor is still open')
+
+    def within_original_deadlines(record):
+        assert public._CLOCK() < record['deadline']
+        assert public._CLOCK() < record['meter'].deadline
+
+    def observe(frame, event, value):
+        record = active[0]
+        assert record is not None
+        if frame.f_code is reader.read_repeat_material_manifest.__code__:
+            if event == 'call':
+                assert record['public_entries'] == 0 and current_principal() == expected_principal
+                record['public_entries'] += 1
+            elif event == 'return':
+                assert type(value) is bytes and value == packet['raw']
+                assert record['load_returns'] == 1 and current_principal() == expected_principal
+                closed(record)
+                within_original_deadlines(record)
+                record['raw_returns'] += 1
+                record['order'].append('real_raw_return_after_FD_close')
+        elif frame.f_code is reader._load.__code__:
+            if event == 'call':
+                assert record['load_entries'] == 0 and record['public_entries'] == 1
+                assert current_principal() == expected_principal
+                store = frame.f_locals['store']
+                assert type(store) is reader.MorphologyBlobStore and store._access is packet['access']
+                assert store._write is False
+                fd = store.__dict__['_fd']
+                assert type(fd) is int
+                held, named = os.fstat(fd), packet['directory'].stat()
+                assert (held.st_dev, held.st_ino) == (named.st_dev, named.st_ino)
+                caller = frame.f_back
+                while caller is not None and not (caller.f_code.co_filename == public.__file__
+                        and caller.f_code.co_name == 'checked_read'):
+                    caller = caller.f_back
+                assert caller is not None
+                entered, finished, stopped = (caller.f_locals[key] for key in ('entered', 'finished', 'stopped'))
+                assert entered.is_set() and not finished.is_set() and not stopped.is_set()
+                record.update(store=store, fd=fd, meter=frame.f_locals['meter'], entered=entered,
+                              finished=finished, stopped=stopped, deadline=caller.f_locals['deadline'])
+                within_original_deadlines(record)
+                record['load_entries'] += 1
+                if record['mode'] in ('cancel', 'disconnect'):
+                    record['order'].append('real_worker_held_with_FD')
+                    record['held'].set()
+                    remaining = min(record['deadline'], record['meter'].deadline) - public._CLOCK()
+                    assert remaining > 0 and record['release'].wait(timeout=min(5.0, remaining))
+                    within_original_deadlines(record)
+                    assert not finished.is_set() and store.__dict__['_fd'] == fd
+                    assert os.fstat(fd).st_ino == named.st_ino
+                    record['order'].append('real_worker_released_with_FD')
+            elif event == 'return':
+                assert type(value) is tuple and len(value) == 4 and value[0] == packet['raw']
+                assert record['store'].__dict__['_fd'] == record['fd']
+                record['load_returns'] += 1
+        elif frame.f_code is public._Release.__call__.__code__ and event == 'call':
+            assert record['mode'] in ('baseline', 'recovery')
+            assert record['raw_returns'] == 1 and record['finished'].is_set()
+            record['release_entries'] += 1
+        elif frame.f_code is public._Suppressed.__call__.__code__:
+            assert record['mode'] == 'disconnect'
+            assert record['raw_returns'] == 1 and record['finished'].is_set()
+            closed(record)
+            within_original_deadlines(record)
+            if event == 'call':
+                record['suppressed_entries'] += 1
+            elif event == 'return':
+                record['suppressed_returns'] += 1
+                record['order'].append('real_suppressed_return')
+
+    async def wait_for_state(record, predicate):
+        stop = min(record['deadline'], record['meter'].deadline, public._CLOCK() + 5.0) if 'deadline' in record else public._CLOCK() + 5.0
+        while not predicate():
+            assert public._CLOCK() < stop, 'owned observation did not reach its causal boundary'
+            await asyncio.sleep(0)
+
+    async def interrupt(record):
+        disconnected = asyncio.Event()
+        task = asyncio.create_task(_ownership_no_response_request(app, token, disconnected, record))
+        try:
+            await wait_for_state(record, record['held'].is_set)
+            assert record['body_received'] and record['disconnects_received'] == 0
+            assert record['entered'].is_set() and not record['finished'].is_set()
+            assert record['raw_returns'] == 0 and record['sent'] == []
+            assert record['store'].__dict__['_fd'] == record['fd']
+            assert os.fstat(record['fd']).st_ino == packet['directory'].stat().st_ino
+            within_original_deadlines(record)
+            if record['mode'] == 'cancel':
+                assert task.cancel()
+                await wait_for_state(record, record['stopped'].is_set)
+                assert task.cancelling() and not task.done()
+                assert record['entered'].is_set() and not record['finished'].is_set()
+                assert record['store'].__dict__['_fd'] == record['fd']
+                assert os.fstat(record['fd']).st_ino == packet['directory'].stat().st_ino
+                assert record['sent'] == [] and not record['app_exited']
+                record['order'].append('cancel_stopped_but_request_not_done')
+            else:
+                assert not task.done() and not record['stopped'].is_set()
+                disconnected.set()
+                record['order'].append('client_disconnect_available')
+            within_original_deadlines(record)
+            record['release'].set()
+            if record['mode'] == 'cancel':
+                try:
+                    await task
+                except asyncio.CancelledError:
+                    record['order'].append('cancel_propagated')
+                else:
+                    raise AssertionError('actual request cancellation did not propagate')
+                assert task.cancelled() and record['stopped'].is_set()
+                assert record['disconnects_received'] == 0
+                assert record['suppressed_entries'] == record['suppressed_returns'] == 0
+                assert record['order'].index('real_raw_return_after_FD_close') < record['order'].index('app_exited') < record['order'].index('cancel_propagated')
+            else:
+                await task
+                assert not task.cancelled() and not record['stopped'].is_set()
+                assert record['disconnects_received'] == 1
+                assert record['suppressed_entries'] == record['suppressed_returns'] == 1
+                assert record['order'].index('real_raw_return_after_FD_close') < record['order'].index('real_suppressed_return') < record['order'].index('app_exited')
+            assert record['app_exited'] and record['sent'] == [] and record['release_entries'] == 0
+            assert record['entered'].is_set() and record['finished'].is_set()
+            closed(record)
+            within_original_deadlines(record)
+        finally:
+            record['release'].set()
+            await asyncio.gather(task, return_exceptions=True)
+
+    directories = [packet['directory'], *artifact_cases._directories(packet['parent'])]
+    before = artifact_cases._inventory(directories)
+    fd_before = len(os.listdir('/proc/self/fd'))
+    try:
+        with artifact_cases.qa._watch(observe, {reader.read_repeat_material_manifest.__code__, reader._load.__code__,
+                public._Release.__call__.__code__, public._Suppressed.__call__.__code__}):
+            for mode in ('baseline', 'cancel', 'disconnect', 'recovery'):
+                record = {'mode': mode, 'public_entries': 0, 'load_entries': 0, 'load_returns': 0,
+                          'raw_returns': 0, 'release_entries': 0, 'suppressed_entries': 0,
+                          'suppressed_returns': 0, 'held': threading.Event(), 'release': threading.Event(),
+                          'body_received': False, 'disconnects_received': 0, 'app_exited': False,
+                          'sent': [], 'order': []}
+                records.append(record)
+                active[0] = record
+                if mode in ('baseline', 'recovery'):
+                    response = asyncio.run(_asgi_manifest_get(app, token))
+                    assert response.status_code == 200 and response.content == packet['raw']
+                    assert record['release_entries'] == 1 and not record['stopped'].is_set()
+                    assert record['suppressed_entries'] == record['suppressed_returns'] == 0
+                else:
+                    asyncio.run(interrupt(record))
+                assert record['public_entries'] == record['load_entries'] == record['load_returns'] == record['raw_returns'] == 1
+                assert record['entered'].is_set() and record['finished'].is_set()
+                closed(record)
+                assert current_principal() is None and public._registry(registry) == registry_state
+        assert [record['mode'] for record in records] == ['baseline', 'cancel', 'disconnect', 'recovery']
+    finally:
+        for record in records:
+            record['release'].set()
+        assert current_principal() is None and public._registry(registry) == registry_state
+        assert len(os.listdir('/proc/self/fd')) == fd_before
+        assert artifact_cases._inventory(directories) == before
