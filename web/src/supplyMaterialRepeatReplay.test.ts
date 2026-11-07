@@ -702,3 +702,65 @@ it('clears a latest corrupt-manifest failure before any Frame read and validates
   ]);
  }finally{request.cancel();}
 });
+
+
+import {ApiError as _httpRequestApiError} from './api-validation';
+
+it('composes strict same-selection replay with the raw HTTP adapter and clears a denied manifest before fresh recovery (own mock transport)',async()=>{
+ const {pair,Request,expected}=await repeatRequestAdversePair();
+ const modulePath='./supplyMaterialRepeatHttp';
+ const transport:{createSupplyMaterialRepeatRead:(token:string,fetcher?:typeof fetch)=>RepeatRequestRead}=
+  await import(/* @vite-ignore */ modulePath);
+ const token='i'.repeat(32),callerPins=structuredClone(pair.expected);
+ const originalHashes={manifest:hash(pair.raw),frames:pair.rows.map(row=>hash(row.raw))};
+ const calls:string[]=[],bodies:ReadableStream<Uint8Array>[]=[];
+ let deny=false,errorPulls=0,errorCancels=0;
+ function reply(raw:Uint8Array){
+  const parts=[raw.slice(0,73),raw.slice(73)];let index=0;
+  const body=new ReadableStream<Uint8Array>({pull(controller){
+   const part=parts[index++];if(part===undefined)controller.close();else controller.enqueue(part);
+  }},{highWaterMark:0});bodies.push(body);
+  return new Response(body,{headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
+ }
+ const fetcher:typeof fetch=async(input,init)=>{
+  const path=String(input);calls.push(path);
+  expect(init?.method).toBe('GET');expect(init?.credentials).toBe('omit');
+  expect(init?.redirect).toBe('error');expect(init?.cache).toBe('no-store');
+  expect(new Headers(init?.headers).get('authorization')).toBe('Bearer '+token);
+  expect(init?.signal).toBeInstanceOf(AbortSignal);expect(init?.signal?.aborted).toBe(false);
+  expect(path).not.toContain(token);
+  if(path==='/v1/research/material-repeat/manifest'){
+   if(!deny)return reply(pair.raw);
+   const body=new ReadableStream<Uint8Array>({
+    pull(controller){errorPulls++;controller.enqueue(utf8.encode('own inaccessible response body'));},
+    cancel(){errorCancels++;}
+   },{highWaterMark:0});bodies.push(body);
+   return new Response(body,{status:401,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
+  }
+  if(path==='/v1/research/material-repeat/frames/0')return reply(pair.rows[0]!.raw);
+  if(path==='/v1/research/material-repeat/frames/1')return reply(pair.rows[1]!.raw);
+  throw new Error('unexpected own fixture route');
+ };
+ const read=transport.createSupplyMaterialRepeatRead(token,fetcher),request=new Request(read,callerPins);
+ try{
+  const first=await request.select(0);expect(first).toEqual(expected(0));expect(request.current()).toEqual(expected(0));
+  first.frame.snapshot.state[0]=999;expect(request.current()).toEqual(expected(0));
+  deny=true;const pending=request.select(1);expect(request.current()).toBeNull();let error:unknown;
+  try{await pending;}catch(value){error=value;}
+  expect(error).toBeInstanceOf(_httpRequestApiError);
+  if(!(error instanceof _httpRequestApiError))throw new Error('expected fixed HTTP authorization rejection');
+  expect({code:error.code,status:error.status,message:error.message,cause:error.cause})
+   .toEqual({code:'auth_required',status:401,message:'auth_required',cause:undefined});
+  expect(request.current()).toBeNull();expect(errorPulls).toBe(0);expect(errorCancels).toBe(1);
+  expect(calls).toEqual(['/v1/research/material-repeat/manifest','/v1/research/material-repeat/frames/0',
+   '/v1/research/material-repeat/manifest']);
+  deny=false;const recovered=await request.select(1);expect(recovered).toEqual(expected(1));
+  const current=request.current();expect(current).toEqual(expected(1));expect(Object.is(recovered,current)).toBe(false);
+  recovered.frame.snapshot.state[0]=888;expect(request.current()).toEqual(expected(1));
+  expect(calls).toEqual(['/v1/research/material-repeat/manifest','/v1/research/material-repeat/frames/0',
+   '/v1/research/material-repeat/manifest','/v1/research/material-repeat/manifest','/v1/research/material-repeat/frames/1']);
+  expect(bodies).toHaveLength(5);for(const body of bodies)expect(body.locked).toBe(false);
+  expect({manifest:hash(pair.raw),frames:pair.rows.map(row=>hash(row.raw))}).toEqual(originalHashes);
+  expect(callerPins).toEqual(pair.expected);
+ }finally{request.cancel();}
+});
