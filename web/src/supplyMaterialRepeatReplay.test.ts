@@ -418,6 +418,8 @@ const repeatFrameFaults:RepeatFrameFault[]=[
   }},
  {name:'an integer-spelled Quantity with the same positive floor value',index:0,paths:[['model_floor_area','value']],reason:'binary64 number required',
   change:raw=>repeatAdverseEdit(raw,['model_floor_area','value'],token=>{expect(token).toBe('1.0');return '1';})},
+ {name:'an overflowing binary64 Quantity token',index:0,paths:[['model_floor_area','value']],reason:'finite binary64 required',
+  change:raw=>repeatAdverseEdit(raw,['model_floor_area','value'],token=>{expect(token).toBe('1.0');return '1e309';})},
 ];
 function repeatAdverseRepin(pair:RepeatOwnPair,index:0|1,raw:Uint8Array){
  const root=structuredClone(pair.root),previous=root.frames[index]!.frame;
