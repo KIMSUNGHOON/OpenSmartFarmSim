@@ -1,6 +1,6 @@
 # 구현 순서
 
-**현재 — 2026-11-06 KST:** [같은 Farm 소유 입력/원 초기 seed의 첫 선행](../research/farm-owned-input-and-seed-20261106.md)을 현재163개 집중 검사(새53/직접 legacy110)로 수용했습니다. 전체 material custody/완전 결과 게시·현재 조회·같은 Farm schema4 비용/HTTP/SDK/같은 선택3D는 미완료입니다. 다음은 실제 material.Handle의 반복 사건을 소비하는 수치 successor와 실제 성장 증명이며 정적 plan/owned seed compiler 검토는 병행합니다. 원 수치/옛 자료·만료238/233파일/원5175를 보존했고 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·완료일 미정을 유지합니다.
+**현재 — 2026-11-07 KST:** [반복 material 수치 선행](../research/supply-material-repeat-numerical-20261107.md)을 현재77개 집중 pytest/별도 프로세스6선택으로 로컬 소프트웨어 범위에서 수용했습니다. 명시 합성13·14사건/상태 변화·원 수지/격자 잔여/forcing과 full/split·저장 재구성을 확인했으며 원 monolithic·전체 작기/G1 제품·hosted CI 수용으로 확대하지 않습니다. 다음은 검토된 저장 artifact2모듈/1시험의 실제 첫RED→producer/reader→strict client/같은 선택 사실적3D입니다. 원 모델/같은 Farm 원 seed·기존 자료를 보존했고 Farm/material/cost/HTTP/runtime 제품·독립 자료/G0–G4/R2·전체 goal은 미완료입니다.
 
 **material 창/독립 자원 비용 기간의 연구 kernel 수용 — 2026-11-06:** [현재145=순수47/소유 PG 통합·회귀98](../research/supply-material-resource-cost-scope-binding-20261106.md)로 Allen13/point5·정확 UTC/Fraction/원 창·명시 kind/독립 기간/provenance·원 Cost 금액/null/첫 publication·현재/late fence와 금액/SQL·CAS쓰기0을 수용했습니다. PG 읽기는 허용하며 새 제품 Farm custody·원자 snapshot·HTTP/SDK/UI 수용으로 확대하지 않습니다. 다음은 정확 같은 Farm 등록 판본에 실제 material lineage/result와 schema4 비용 선언을 각각 연결하는 server authority 계약입니다. 이후 불변 접수/현재 조회→보호 HTTP/runtime→strict SDK/같은 선택3D·실제 브라우저까지 전체 자원-비용 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
@@ -33,7 +33,8 @@
 | 3b0d3a | [현재145·순수47/소유 PG 통합·회귀98 수용](../research/supply-material-resource-cost-scope-binding-20261106.md): 원 창/명시 독립 비용 기간 연구 kernel | Allen13/point5·정확UTC/Fraction·원 Cost/null·현재/late·금액/SQL·CAS쓰기0·parent36/additive38 | 연구 kernel 수용 완료. 실제 Farm custody/제품 접수·조회/HTTP/SDK/UI 미완료 |
 | 3b0d3b | `supply-material-resource-cost-same-farm-custody`: 같은 정확 Farm 등록의 두 server-resolved 연결 | 실제 material 입력/lineage/result와 schema4 cost/declaration association·현재 권리/등록/source·원 bytes; 이후 불변 접수/현재 조회→HTTP/runtime→SDK/같은 선택UI | 다음 계약/권한 경계 검토. 공수/완료일 미정 |
 | 3b0d3b1 | [같은 Farm 소유 입력/초기 seed 현재163 수용](../research/farm-owned-input-and-seed-20261106.md) | 원81 current/Git62·additive3/84·정확 Farm/첫 입력/원 초기 Context·binder | 좁은 선행 완료, 전체 material/cost/UI 미완료 |
-| 3b0d3b2 | 실제 material.Handle 반복 사건/성장 수치 successor | 실제2–3사건/forcing순서·원grid잔여·full/split/cold/모든장부; 정적plan/compiler 병행 | 다음 수치 능력 공백. 별도 전체작기/게시/query/SDK/현실적3D 필요, 공수 미정 |
+| 3b0d3b2 | [반복 material 수치 선행 수용](../research/supply-material-repeat-numerical-20261107.md) | 현재77집중/4단계 full-split·별도 cold6/증거재구성12회·실제13/14·원 장부/상태 변화/격자·forcing·취소/권리/코드/물리 한도·원 자료 보존 | 로컬 수치 소프트웨어 수용. 원 monolithic/hosted CI/전체 작기·제품 관문은 별도 |
+| 3b0d3b3 | 위 수용→검토된 저장 artifact2모듈/1시험→strict client/같은 선택 사실적3D | 실제 첫13-prefix 뒤 API부재RED; 원 bytes/변하는 basis·dense null/같은 시각 forcing·원 단위·현재 권리/무계산 저장 read/정리 | 다음 작은 구현. 새 worker/admission/query DB를 추가하지 않음; SDK/UI 수용은 후속 |
 | 3b1 | 3b0c1/c2/c3a/b/c·항목 trace/게시 수용→원 저장 창·독립 소유 경제 입력/Cost 결속→strict SDK/같은 선택 UI | 서로 다른 source exact window/가정 구매·청구 기간, 기존 Decimal 결과/등급·포함/누락·권리/period·원장 중복/hold. 제품 Farm 결속 없는 연구 root를 제품에 게시0 | 항목 trace 저장/실행·결속 경계 뒤 재산정. 기존3–6h 단순 합산은 누락 의존성 때문에 사용하지 않음; 실제 품종/외부 자료/최종 제품 일정은 별도 |
 
 vapor/heat 적분량은 관개·판매 전력 구매량과 같지 않고 모형 C/과실 수량도 생과 수확/매출과 같지 않다.
