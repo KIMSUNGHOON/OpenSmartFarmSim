@@ -1,6 +1,6 @@
 # 첫 구현 작업 목록
 
-**현재 — 2026-11-07 KST:** [반복 material 수치 선행](../research/supply-material-repeat-numerical-20261107.md)을 현재77개 집중 pytest/별도 프로세스6선택으로 로컬 소프트웨어 범위에서 수용했습니다. 명시 합성13·14사건/상태 변화·원 수지/격자 잔여/forcing과 full/split·저장 재구성을 확인했으며 원 monolithic·전체 작기/G1 제품·hosted CI 수용으로 확대하지 않습니다. 다음은 검토된 저장 artifact2모듈/1시험의 실제 첫RED→producer/reader→strict client/같은 선택 사실적3D입니다. 원 모델/같은 Farm 원 seed·기존 자료를 보존했고 Farm/material/cost/HTTP/runtime 제품·독립 자료/G0–G4/R2·전체 goal은 미완료입니다.
+**현재 — 2026-11-07 KST:** [반복 material 수치 선행](../research/supply-material-repeat-numerical-20261107.md)을 현재77개 집중 pytest/별도 프로세스6선택으로 로컬 소프트웨어 범위에서 수용했습니다. 명시 합성13·14사건/상태 변화·원 수지/격자 잔여/forcing과 full/split·저장 재구성을 확인했으며 원 monolithic·전체 작기/G1 제품·hosted CI 수용으로 확대하지 않습니다. [반복 material 저장 artifact](../research/supply-material-repeat-artifact-20261107.md)를 원40+전송6+의미4의 분할 실제 검증과 합친 public50 수집으로 좁게 수용했습니다. 원 monolithic·전체 hosted CI RED·작기/제품 관문과 구분하며, 다음은 strict client→현재 권리의 보호 전달→같은 선택 사실적3D입니다. 원 모델/같은 Farm 원 seed·기존 자료를 보존했고 Farm/material/cost/HTTP/runtime 제품·독립 자료/G0–G4/R2·전체 goal은 미완료입니다.
 
 **material 창/독립 자원 비용 기간의 연구 kernel 수용 — 2026-11-06:** [현재145=순수47/소유 PG 통합·회귀98](../research/supply-material-resource-cost-scope-binding-20261106.md)로 Allen13/point5·정확 UTC/Fraction/원 창·명시 kind/독립 기간/provenance·원 Cost 금액/null/첫 publication·현재/late fence와 금액/SQL·CAS쓰기0을 수용했습니다. PG 읽기는 허용하며 새 제품 Farm custody·원자 snapshot·HTTP/SDK/UI 수용으로 확대하지 않습니다. 다음은 정확 같은 Farm 등록 판본에 실제 material lineage/result와 schema4 비용 선언을 각각 연결하는 server authority 계약입니다. 이후 불변 접수/현재 조회→보호 HTTP/runtime→strict SDK/같은 선택3D·실제 브라우저까지 전체 자원-비용 제품은 미완료입니다. 독립 국내 raw0·G0–G4 미평가/R2 미승인·전체 goal active/incomplete·전체 완료일 미정을 유지합니다.
 
@@ -325,7 +325,9 @@
 
 - [x] **`supply-material-repeat-numerical`** — [로컬 수용77/별도 cold6](../research/supply-material-repeat-numerical-20261107.md). 명시 합성의 추가13/14와 상태 변화·원 장부/격자/forcing, full/split 원문/41CAS·새 프로세스 재구성, 현재 권리/코드·취소/확정 prefix/FD·한도를 확인했다. 원 단일 monolithic/hosted CI·전체 작기/G1 제품/Farm/비용/SDK/3D 수용과 구분하며 과거 실패와 원 모델/입력을 보존한다.
 
-- [ ] **`supply-material-repeat-artifact`** — 위 수용 다음의 검토된2producer/reader모듈·1focused시험. Pending 계약과 원 public 첫 시험의 실제13-prefix→lazy API부재RED 뒤 원 bytes·변하는 basis/기관 좌표·dense null/같은 시각 forcing·원 단위/권리·무계산 저장 읽기/변조/한도/정리를 수용한다. 그 뒤 strict client/같은 선택 사실적3D로 연결한다. 새 worker/DB 접수 스택이나 SDK/UI 재설계를 이 단계에 추가하지 않는다.
+- [x] **`supply-material-repeat-artifact`** — [좁은 로컬 저장 소프트웨어 수용](../research/supply-material-repeat-artifact-20261107.md). 원40/8group+현재 전송6/4group+의미4의 실제 source 대응과 합친 public50 수집을 기록한다. 실제 full/split158CAS·원20reads/COLD5·변화basis/dense null/원 장부·권리/한도/FD·과거 실패를 보존했다. 기본 monolithic/전체 hosted CI green·Farm/HTTP/SDK/3D/G1/R2 수용과 구분한다.
+
+- [ ] **`supply-material-repeat-strict-client`** — 선행: 위 좁은 artifact 수용. 두 additive TS decoder/request모듈과 focused test로 원 raw/hash/닫힌 schema·active basis/단위/정확At·큰 정수/null·latest/copy를 보존한다. 서버가 확인한 source proof를 받지 않은 browser 독립 수치 검증으로 바꾸지 않는다. 현재 false redistribution은 유지하며 보호 전달/기존 같은선택 metric renderer·표·그래프/실제 브라우저는 차례로 따로 검증한다. 새 worker/DB나 UI 재설계는 추가하지 않는다.
 
 - [ ] **`supply-material-resource-cost-same-farm-custody`** — 입력/초기 seed 선행만 수용했다. 실제 반복 material 사건/성장 수치 successor를 먼저 증명하며 정적 plan/owned seed compiler를 병행 검토한다. 그 뒤 완전 lineage/lease-CAS terminal publication/current no-replay query와 같은 정확 Farm의 schema4 비용/독립 기간 association을 각각 연결한다. legacy EconomicScenario/candidate·tenant/batch 이름으로 관계를 추론하지 않는다. HTTP/runtime→strict SDK/같은 선택 현실적3D·표·그래프/실제 브라우저와 전체 작기/자료 관문은 필수 후속이며 공수/완료일은 미정이다.
 

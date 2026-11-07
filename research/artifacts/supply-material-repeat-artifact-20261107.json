@@ -1,0 +1,237 @@
+{
+  "G0_G4": "not_assessed",
+  "R2": "not_approved",
+  "SDK_UI_HTTP_Farm_or_production_accepted": false,
+  "actual_case_oracles": {
+    "actual_groups": 13,
+    "current_transfer": 6,
+    "distinct_total": 50,
+    "original": 40,
+    "original_fixture_scope": "1 direct fresh original case + 39 whole original cases using declared phased setup",
+    "semantic": 4,
+    "supplemental_fixture_scope": "directpublic75065 exact bodies/globals/original fresh numerical fixtures; futurecab alternate fixture extra10 unrun"
+  },
+  "deterministic_owner_conditions": [
+    {
+      "condition_id": "original40",
+      "evidence": {
+        "bytes": 14099,
+        "operator_held_basename": "repeat-artifact-current-original40-independent-actual-qualification-v1.private.json",
+        "sha256": "93a3fa2832990f9fd6803d0408ea80dab48d8fc619ed03b1a836bc95dcde75a7"
+      },
+      "satisfied": true
+    },
+    {
+      "condition_id": "current_transfer6",
+      "evidence": {
+        "bytes": 15410,
+        "operator_held_basename": "repeat-artifact-current-six-transfer-boundaries-independent-actual-qualification-v1.private.json",
+        "sha256": "bb717af15e7047a8bd667ae0c79d2847fddec20e75becf732bced43c9e4010a7"
+      },
+      "satisfied": true
+    },
+    {
+      "condition_id": "current_transfer6_union",
+      "evidence": {
+        "bytes": 5726,
+        "operator_held_basename": "repeat-artifact-current-six-transfer-boundaries-union-actual-v1.private.json",
+        "sha256": "12e504224517fdee235f0e16eedda7bbdf45eea19443a0d292bb2f3ae5ad2e90"
+      },
+      "satisfied": true
+    },
+    {
+      "condition_id": "semantic4",
+      "evidence": {
+        "bytes": 4645,
+        "operator_held_basename": "repeat-artifact-stored-proof-semantic-negative-four-GREEN-actual-v1.private.json",
+        "sha256": "6912874432f0cdc37cc5be13c5fc3370165c4d52ee5915eaba0e50824f229498"
+      },
+      "satisfied": true
+    },
+    {
+      "condition_id": "live_publicQA_install",
+      "evidence": {
+        "bytes": 1784,
+        "operator_held_basename": "repeat-artifact-combined-public50-actual-install-v1.private.json",
+        "sha256": "07661b317ee039fc3b524c188beeeeeb29afe2e4710f1fa935be267ef2f8c4b1"
+      },
+      "satisfied": true
+    },
+    {
+      "condition_id": "direct_public50_collection_and_source_map",
+      "evidence": {
+        "bytes": 8531,
+        "operator_held_basename": "repeat-artifact-direct-public50-collection-and-actual-source-map-v1.private.json",
+        "sha256": "12fee0423ab997f61cddd326309779edb315decbd98c48f8a54ac8428db17902"
+      },
+      "satisfied": true
+    },
+    {
+      "condition_id": "final_source_mapping_K120_and_preservation",
+      "evidence": {
+        "bytes": 8991,
+        "operator_held_basename": "repeat-artifact-direct-live50-final-source-map-preservation-independent-review-v1.private.json",
+        "sha256": "a38fb9c46380fd447d7faebc9f4d94331b7cacd3a8a70f8b7f56144984088d32"
+      },
+      "satisfied": true
+    },
+    {
+      "condition_id": "combined_publicQA_exact_source",
+      "evidence": {
+        "bytes": 7416,
+        "operator_held_basename": "artifact-combined-public50-independent-source-review-v1.private.json",
+        "sha256": "e1c6488d6a35d551b4118518d9a5c9f26866038e6cb459e0a5740edc12c9a6a6"
+      },
+      "satisfied": true
+    }
+  ],
+  "documentation_publication": {
+    "authorization_receipt": {
+      "bytes": 2562,
+      "operator_held_basename": "repeat-artifact-report-status-document-publication-authorization-v1.private.json",
+      "sha256": "950783cc8a96ae429f00432acf78d1edeb3d4f4fd6570562849e8d58d3d1706b"
+    },
+    "owner_decision_initial_documentation_publication_authorized": false,
+    "publication_allowed": true,
+    "scope": "Acceptance report, status contract and progress documentation only; never artifact raw redistribution, new data adoption or product/gate claims.",
+    "source_review": {
+      "bytes": 7206,
+      "operator_held_basename": "repeat-artifact-status-docs-final-report-text-independent-source-review-v1.private.json",
+      "sha256": "251249eae247757ff2086dcce7943d876ba41ae5dda731ab81ffff2891b1db5a"
+    }
+  },
+  "evidence_reference_policy": "Private evidence is identified by operator-held basename, SHA-256 and byte count; exact local paths and actual native session records remain private. Repository paths are relative.",
+  "execution_fixture_mapping": {
+    "extra10": {
+      "actual_four_source": "exactfa5ff691 test body parameters plus original91b fresh numerical first_parent fixture",
+      "actual_six_source": "exact20f574 test bodies plus original91b fresh numerical first_parent fixture",
+      "direct_public75065_correspondence": "exactraw append and unchanged globals/fixtures per independent e1c6488d source review; actual direct50collection separate",
+      "future_cab_alternate_fixture_runtime": "UNEXECUTED; ac22/2fdd first_parent is genuine but alternate. Old/currentextra passes must NOT be transferred to cabextra10."
+    },
+    "original40": {
+      "direct_original_R91b_fresh_case": 1,
+      "original_function_objects_with_explicit_private_2fdd_fixture_cases": 39,
+      "unrun_monolithic_R91b_or_live75065_command_claimed": false
+    }
+  },
+  "generation": {
+    "contract_sha256": "ff6061dccd80129ffe22fab8b39e336adbe0b43985af400b2e53cd67557c6ef7",
+    "numerical_accepted_commit": "0e5927819d3a343da2449cd4bfa7ec0c28a5dc96",
+    "producer_sha256": "10aa0ae2dac7a7b996229a59edeb62d2a5f7dff3418b7ee41079cb6faf9101b8",
+    "public_test_sha256": "91b157a31596a14055676838408a1f540cdd1fed19cdd3bb7f95900750bb799d",
+    "reader_sha256": "f21370bf89967679b7b4da68934c353d5056ed68bc1ccac5ad1c581242b4d881"
+  },
+  "hosted_CI": {
+    "last_full_backend_CI_red_is_preserved": true,
+    "local_record_implies_hosted_success": false,
+    "new_artifact_commit_CI_checkpoint": "separate post-install action"
+  },
+  "limits_preserved": {
+    "all_bounds_measured_at_equality_claimed": false,
+    "artifact_entry_through_cleanup_and_return_seconds": 600,
+    "frames": 512,
+    "genuine_parent_validation_and_all_normal_exits_seconds": 60,
+    "new_document_bytes": 2097152,
+    "outer_guard_seconds": 600,
+    "physical_bytes": 67108864,
+    "physical_files": 4096,
+    "reader_single_call_seconds": 60,
+    "sampled_scalars": 32768
+  },
+  "live_public_test": {
+    "bytes": 71214,
+    "path": "backend/tests/test_crop_supply_material_repeat_artifact.py",
+    "sha256": "75065a0c9b83a712d2033cb8b141fb4e0388829b39ce30adb449eccc6116fae0"
+  },
+  "native_development_judgment": {
+    "actual_native_evidence_retained_locally": true,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh"
+  },
+  "next_scope": {
+    "independent_source_design_review": {
+      "bytes": 10211,
+      "operator_held_basename": "repeat-artifact-next-client-contract-v2-independent-source-review-v1.private.json",
+      "sha256": "d48f019a15c2614ed952c9c5e56a0525b65c1f54850359bd4c8d79349cd33d82"
+    },
+    "order": [
+      "strict raw decoder focused TDD",
+      "lawful protected delivery within its explicit transport budget",
+      "same-selected existing metric renderer/table/graph and actual browser acceptance"
+    ],
+    "strict_client_contract": {
+      "bytes": 7309,
+      "operator_held_basename": "repeat-artifact-strict-client-lawful-delivery-next-contract-v2.private.md",
+      "sha256": "0795e686bb5a3cf441a7729220ab602b70f183c8e8cdfb589715726102b4114f"
+    }
+  },
+  "owner_decision": {
+    "bytes": 4418,
+    "operator_held_basename": "repeat-artifact-local-software-owner-actual-decision-v1.private.json",
+    "sha256": "6830ac5087e45812889bf1d012ee5df88ec6e761fe58edb2d3237b76160a9e7e"
+  },
+  "owner_decision_id": "bounded-repeat-artifact-software-009ef40dbb1412bd",
+  "post_install_commit_checkpoint": null,
+  "preserved_failure_history": true,
+  "proof_scope": "Full saved arithmetic/source/point identities are checked. Confirmed canonical diagnostic two fields and new-leaf canonical initialization area remain selected source observations; no independent curve(age), curve(0), or normalizer-derived-rate representability proof is claimed.",
+  "public_collection": {
+    "actual_count": 50,
+    "exact_set_equals_40_plus_6_plus_4": true,
+    "original_repository_monolithic_fixture_command_run": false,
+    "runtime_passes_added_by_collection": 0,
+    "single_command50_passed": false
+  },
+  "returned_full_split": {
+    "frames": 10,
+    "full_publisher_and_manifest_actual": {
+      "bytes": 4607,
+      "operator_held_basename": "repeat-artifact-stored-proof-v3-single-FULL14-publication-GREEN-actual-v1.private.json",
+      "sha256": "69d7079c2acaa4d192b91bcf981d26f5b37261618275ae6d53d28e03efd10937"
+    },
+    "physical_bytes_each": 22755139,
+    "physical_files_each": 158,
+    "root_sha256": "7f00054a0e5e369e3ad03830dfc4315d0559de090de45fb5effaecb1141854fd",
+    "split_publisher_and_manifest_actual": {
+      "bytes": 4885,
+      "operator_held_basename": "repeat-artifact-stored-proof-v3-single-SPLIT14-publication-GREEN-actual-v1.private.json",
+      "sha256": "603879e15f3ca9b8abf5df9a6b421a89e6d1b31e3c60b536685e2fc02c42c50a"
+    },
+    "transitions": 8,
+    "whole_raw_payloads_equal": true
+  },
+  "schema_version": "repeat-artifact-bounded-local-software-acceptance-record-v1",
+  "scope": "Two additive artifact producer/reader modules; actual selected source-bound synthetic software cases only.",
+  "source_preservation": {
+    "K120_current_hashes_match": true,
+    "K_composition": {
+      "app": 118,
+      "existing_research_exporters": 2
+    },
+    "QA_append_and_contract_status_only_do_not_regenerate_or_relabel_artifacts": true,
+    "contracts_tests_docs_in_K": false,
+    "full_split158_payload_and_metadata_maps_verified": true,
+    "generation_QA91b_and_contractff606_handoffs_preserved": true,
+    "numerical_core105_unchanged": true,
+    "selected_source189_files_and_directory_metadata_unchanged": true,
+    "separate_legacy102_unchanged": true,
+    "technical_review": {
+      "bytes": 8991,
+      "operator_held_basename": "repeat-artifact-direct-live50-final-source-map-preservation-independent-review-v1.private.json",
+      "sha256": "a38fb9c46380fd447d7faebc9f4d94331b7cacd3a8a70f8b7f56144984088d32"
+    },
+    "unrelated_research2_preserved": true
+  },
+  "source_rights": {
+    "display": true,
+    "raw_public_export_authorized": false,
+    "redistribute": false,
+    "use": true
+  },
+  "status": "ACCEPTED_LOCAL_SYNTHETIC_STORED_ARTIFACT_SOFTWARE_ONLY",
+  "status_document_candidate": {
+    "normative_Section1_to_EOF_identical_to_generation_contract": true,
+    "path": "contracts/supply-material-repeat-artifact-v1.md",
+    "sha256": "1c92bdc8a21ac170e61c69a4a1067128caf901eec297102e2155c9a6b10f6d2c"
+  },
+  "whole_goal_complete": false
+}
