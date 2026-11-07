@@ -1542,3 +1542,253 @@ def test_final_source_fences_reject_only_owned_copy_mutations(first_artifact, tm
         assert len(os.listdir('/proc/self/fd')) == fd_before
         assert artifact_cases._inventory(original_directories) == originals_before
         assert {path: sha256((artifact_cases.ROOT / path).read_bytes()).hexdigest() for path in source_paths} == sources_before
+
+
+
+def test_real_default_utc_expiry_at_load_suppresses_tls_bytes_after_reader_cleanup(first_artifact, _tls_files):
+    import errno
+    from app import api_supply_material_repeat as public
+    from app.https_service import HttpsApiService
+
+    packet = first_artifact
+    certificate, key, _ = _tls_files
+    assert certificate.parent.stat().st_mode & 0o777 == 0o700
+    assert key.stat().st_mode & 0o777 == 0o600
+    assert packet['manifest']['effective_rights'] == {'use': True, 'display': True, 'redistribute': False}
+    assert type(packet['raw']) is bytes and sha256(packet['raw']).hexdigest() == packet['root']
+    assert (packet['directory'] / packet['root']).read_bytes() == packet['raw']
+    _, reader = artifact_cases._api()
+    trust = _tls_context(certificate)
+    entries = _tls_forbidden_entries()
+    forbidden_codes = {function.__code__ for function, _, _ in entries}
+    observed_codes = {reader.read_repeat_material_manifest.__code__, reader._load.__code__,
+                      public._authorized.__code__, public._Release.__call__.__code__}
+    assert len(forbidden_codes) == 13 and not forbidden_codes & observed_codes
+    phase, expected_code = 'control', None
+    controls, forbidden, records = [], [], []
+    active = [None]
+
+    def closed(record):
+        assert record['store'].__dict__['_fd'] is None
+        try:
+            os.fstat(record['fd'])
+        except OSError as error:
+            assert error.errno == errno.EBADF
+        else:
+            raise AssertionError('real UTC expiry reader descriptor remains open')
+
+    def deadlines(record):
+        meter = record['meter']
+        assert (meter.started, meter.deadline) == record['reader_times']
+        assert meter.deadline == meter.started + 60
+        assert public._CLOCK() < record['adapter_deadline']
+        assert public._CLOCK() < meter.deadline
+
+    def observe(frame, event, value):
+        if frame.f_code in forbidden_codes:
+            if event != 'call':
+                return
+            if phase == 'control':
+                assert frame.f_code is expected_code
+                controls.append(frame.f_code)
+                raise _TlsEntrySeen()
+            forbidden.append(frame.f_code.co_name)
+            raise AssertionError('real UTC expiry entered forbidden generation/storage')
+        record = active[0]
+        assert record is not None
+        principal = {'authenticated': True, 'tenant_id': record['grant'].tenant_id,
+                     'scopes': record['grant'].scopes}
+        if frame.f_code is reader.read_repeat_material_manifest.__code__:
+            if event == 'call':
+                assert record['public_entries'] == 0 and current_principal() == principal
+                record['public_entries'] += 1
+            elif event == 'return':
+                assert type(value) is bytes and value == packet['raw']
+                assert record['load_returns'] == 1
+                closed(record)
+                deadlines(record)
+                assert current_principal() == (None if record['mode'] == 'expiry' else principal)
+                record['raw_returns'] += 1
+                record['order'].append('normal_raw_return_after_FD_close')
+        elif frame.f_code is reader._load.__code__:
+            if event == 'call':
+                assert record['load_entries'] == 0 and record['public_entries'] == 1
+                assert current_principal() == principal
+                assert public._registry(registry) == registry_state
+                store, meter = frame.f_locals['store'], frame.f_locals['meter']
+                assert type(store) is reader.MorphologyBlobStore
+                assert store._access is packet['access'] and store._write is False
+                fd = store.__dict__['_fd']
+                assert type(fd) is int
+                held, named = os.fstat(fd), packet['directory'].stat()
+                assert (held.st_dev, held.st_ino) == (named.st_dev, named.st_ino)
+                caller = frame.f_back
+                while caller is not None and not (caller.f_code.co_filename == public.__file__
+                        and caller.f_code.co_name == 'checked_read'):
+                    caller = caller.f_back
+                assert caller is not None
+                entered, finished, stopped = (caller.f_locals[k] for k in ('entered', 'finished', 'stopped'))
+                assert entered.is_set() and not finished.is_set() and not stopped.is_set()
+                record.update(store=store, fd=fd, meter=meter, entered=entered, finished=finished,
+                              stopped=stopped, adapter_deadline=caller.f_locals['deadline'],
+                              reader_times=(meter.started, meter.deadline))
+                deadlines(record)
+                assert 0 < record['adapter_deadline'] - public._CLOCK() <= 30.0
+                record['load_entries'] += 1
+                if record['mode'] == 'expiry':
+                    utc_before = datetime.now(timezone.utc)
+                    remaining = (short_grant.expires_at - utc_before).total_seconds()
+                    assert 0 < remaining <= 5.0, 'short grant must still be valid at real load entry'
+                    wait = remaining + 0.05
+                    assert min(record['adapter_deadline'], meter.deadline) - public._CLOCK() > wait
+                    assert registry.valid(short_grant) and current_principal() == principal
+                    started_wait = _tls_time.monotonic()
+                    _tls_time.sleep(wait)
+                    elapsed_wait = _tls_time.monotonic() - started_wait
+                    utc_after = datetime.now(timezone.utc)
+                    assert elapsed_wait >= wait and utc_after >= short_grant.expires_at
+                    deadlines(record)
+                    assert not registry.valid(short_grant) and current_principal() is None
+                    assert public._registry(registry) == registry_state
+                    assert entered.is_set() and not finished.is_set() and not stopped.is_set()
+                    assert store.__dict__['_fd'] == fd
+                    assert (os.fstat(fd).st_dev, os.fstat(fd).st_ino) == (named.st_dev, named.st_ino)
+                    record.update(expired=True, remaining_utc_at_load=remaining,
+                                  actual_wait_seconds=elapsed_wait)
+                    record['order'].append('real_UTC_expired_while_original_load_entered')
+            elif event == 'return':
+                assert type(value) is tuple and len(value) == 4 and value[0] == packet['raw']
+                assert record['store'].__dict__['_fd'] == record['fd']
+                deadlines(record)
+                record['load_returns'] += 1
+                record['order'].append('normal_original_load_return')
+        elif frame.f_code is public._authorized.__code__ and event == 'return':
+            if value is None:
+                assert current_principal() == principal
+                record['valid_authorizations'] += 1
+            else:
+                assert record['mode'] == 'expiry' and record['expired']
+                assert current_principal() is None and not registry.valid(short_grant)
+                assert value.status_code == 401
+                assert _tls_json.loads(value.body) == {'error': {
+                    'code': 'unauthenticated', 'message': 'Authentication required'}}
+                assert record['raw_returns'] == 1 and record['load_returns'] == 1
+                assert record['entered'].is_set() and record['finished'].is_set()
+                assert not record['stopped'].is_set()
+                closed(record)
+                deadlines(record)
+                gate = frame.f_back
+                assert gate.f_code.co_filename == public.__file__ and gate.f_code.co_name == 'gate'
+                assert gate.f_locals['deadline'] == record['adapter_deadline']
+                handle = gate.f_back
+                assert handle.f_code.co_filename == public.__file__ and handle.f_code.co_name == 'handle'
+                assert handle.f_locals['raw'] == packet['raw'] and handle.f_locals['failure'] is None
+                assert handle.f_locals['worker'].done()
+                record['expired_authorizations'] += 1
+                record['order'].append('actual_postread_authorized_401')
+        elif frame.f_code is public._Release.__call__.__code__ and event == 'call':
+            assert record['mode'] == 'recovery' and record['raw_returns'] == 1
+            assert record['entered'].is_set() and record['finished'].is_set()
+            assert not record['stopped'].is_set() and current_principal() == principal
+            assert frame.f_locals['self'].request.scope['state'][public._DEADLINE] == record['adapter_deadline']
+            closed(record)
+            deadlines(record)
+            record['release_entries'] += 1
+
+    def positive_controls():
+        nonlocal expected_code
+        for function, args, kwargs in entries:
+            expected_code = function.__code__
+            before_control = len(controls)
+            with _tls_pytest.raises(_TlsEntrySeen):
+                function(*args, **kwargs)
+            assert len(controls) == before_control + 1
+
+    directories = [packet['directory'], *artifact_cases._directories(packet['parent'])]
+    before = artifact_cases._inventory(directories)
+    source_pins = {relative: sha256((artifact_cases.ROOT / relative).read_bytes()).hexdigest()
+                   for relative in [*PINNED_SOURCES, 'backend/app/api_supply_material_repeat.py',
+                                    'backend/app/http_identity.py', 'backend/app/https_service.py',
+                                    'backend/app/content_access.py',
+                                    'contracts/supply-material-repeat-protected-delivery-v1.md']}
+    short_token, long_token = (secrets.token_urlsafe(32).encode('ascii') for _ in range(2))
+    assert short_token != long_token
+    now = datetime.now(timezone.utc)
+    short_grant = BearerGrant(token_digest(short_token), 'own-repeat-http-test',
+        frozenset({'metadata', 'artifact'}), now - timedelta(seconds=1), now + timedelta(seconds=5))
+    long_grant = BearerGrant(token_digest(long_token), 'own-repeat-http-test',
+        frozenset({'metadata', 'artifact'}), now - timedelta(seconds=1), now + timedelta(minutes=15))
+    registry = BearerRegistry((short_grant, long_grant))
+    assert any(registry._clock.__code__ is constant for constant in BearerRegistry.__init__.__code__.co_consts)
+    app = _fixed_delivery(packet, registry)
+    registry_state = public._registry(registry)
+    assert registry._grants == (short_grant, long_grant)
+    server = HttpsApiService(app, certificate, key, port=0).server()
+    fd_before = len(os.listdir('/proc/self/fd'))
+    try:
+        with artifact_cases.qa._watch(observe, forbidden_codes | observed_codes):
+            positive_controls()
+            phase = 'tls'
+            with _tls_served(server) as port:
+                for mode, token, grant in [('expiry', short_token, short_grant),
+                                            ('recovery', long_token, long_grant)]:
+                    record = {'mode': mode, 'grant': grant, 'expired': False, 'public_entries': 0,
+                              'load_entries': 0, 'load_returns': 0, 'raw_returns': 0,
+                              'valid_authorizations': 0, 'expired_authorizations': 0,
+                              'release_entries': 0, 'order': []}
+                    records.append(record)
+                    active[0] = record
+                    response = asyncio.run(_tls_get(port, trust, '/v1/research/material-repeat/manifest', token))
+                    assert 0 < response.seconds < 30.0
+                    record['TLS_seconds'] = response.seconds
+                    assert record['public_entries'] == record['load_entries'] == record['load_returns'] == record['raw_returns'] == 1
+                    assert record['entered'].is_set() and record['finished'].is_set() and not record['stopped'].is_set()
+                    closed(record)
+                    deadlines(record)
+                    assert record['valid_authorizations'] > 0 and public._registry(registry) == registry_state
+                    assert response.headers['content-type'].split(';')[0].strip() == 'application/json'
+                    assert response.headers['cache-control'] == 'no-store'
+                    assert response.headers['x-content-type-options'] == 'nosniff'
+                    assert response.headers['x-frame-options'] == 'DENY'
+                    assert response.headers['strict-transport-security'] == 'max-age=31536000'
+                    if mode == 'expiry':
+                        assert response.status_code == 401 and response.headers['www-authenticate'] == 'Bearer'
+                        assert _tls_json.loads(response.content) == {'error': {
+                            'code': 'unauthenticated', 'message': 'Authentication required'}}
+                        assert response.content != packet['raw']
+                        assert record['expired'] and record['expired_authorizations'] == 1
+                        assert record['release_entries'] == 0
+                        assert record['order'] == ['real_UTC_expired_while_original_load_entered',
+                            'normal_original_load_return', 'normal_raw_return_after_FD_close',
+                            'actual_postread_authorized_401']
+                    else:
+                        assert response.status_code == 200 and response.content == packet['raw']
+                        assert len(response.content) == len(packet['raw']) and sha256(response.content).hexdigest() == packet['root']
+                        assert record['expired_authorizations'] == 0 and record['release_entries'] == 1
+                        assert not record['expired'] and registry.valid(long_grant)
+                    assert datetime.now(timezone.utc) >= short_grant.expires_at
+                    assert not registry.valid(short_grant)
+            phase = 'control'
+            positive_controls()
+            assert len(controls) == 26 and forbidden == []
+        assert [record['mode'] for record in records] == ['expiry', 'recovery']
+    finally:
+        assert current_principal() is None
+        assert public._registry(registry) == registry_state and registry._grants == (short_grant, long_grant)
+        assert not registry.valid(short_grant) and registry.valid(long_grant)
+        assert len(os.listdir('/proc/self/fd')) == fd_before
+        assert artifact_cases._inventory(directories) == before
+        for relative, expected in source_pins.items():
+            assert sha256((artifact_cases.ROOT / relative).read_bytes()).hexdigest() == expected
+    print(_tls_json.dumps({'repeat_real_default_UTC_load_expiry': {
+        'one_pytest_case': True, 'real_reader_normal_returns': sum(r['raw_returns'] for r in records),
+        'short_UTC_remaining_at_load': records[0]['remaining_utc_at_load'],
+        'actual_expiry_wait_seconds': records[0]['actual_wait_seconds'],
+        'fault_TLS_seconds': records[0]['TLS_seconds'], 'recovery_TLS_seconds': records[1]['TLS_seconds'],
+        'postread_401_before_Release': records[0]['expired_authorizations'] == 1 and records[0]['release_entries'] == 0,
+        'long_token_recovery_200': records[1]['release_entries'] == 1,
+        'before_body_controls': len(controls), 'forbidden_entries': len(forbidden),
+        'FD_scope': 'after_configuration_before_thread_through_join',
+        'FD_before_after': [fd_before, len(os.listdir('/proc/self/fd'))],
+        'registry_sources_inventory_unchanged': True, 'service_joined': True,
+        'protected_delivery_accepted': False}}, sort_keys=True))
