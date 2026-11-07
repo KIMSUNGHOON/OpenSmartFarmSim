@@ -462,3 +462,241 @@ it.each(repeatFrameFaults)('rejects $name after fresh raw and manifest repinning
  expect(hash(pair.raw)).toBe(pair.expected.rootSha256);
  expect(pair.expected.codeSha256).toEqual(pair.root.code_sha256);
 });
+
+
+type RepeatRequestRead=(selection:{kind:'manifest'}|{kind:'frame';index:number},signal:AbortSignal)=>Promise<Uint8Array>;
+type RepeatRequestSelectionView={rootSha256:string;index:number;manifest:OwnManifestRoot;
+ frame:RepeatFrameView&{at:OwnManifestRoot['frames'][number]['at']}};
+type RepeatRequestView={select(index:number):Promise<RepeatRequestSelectionView>;
+ current():RepeatRequestSelectionView|null;cancel():void};
+type RepeatRequestAPI={SupplyMaterialRepeatRequest:new(read:RepeatRequestRead,
+ expected:{rootSha256:string;codeSha256:Record<string,string>})=>RepeatRequestView};
+
+it('keeps only the latest same-time repeat selection and clears rejected or cancelled state without sharing copies',async()=>{
+ const pair=ownRepeatFramePair();
+ expect(pair.rows.map(row=>[hash(row.raw),row.raw.byteLength])).toEqual([
+  ['99456f234912c2b5230f806d0e59f5e39b3ccba2031797a877935e5f8aaf64b1',168588],
+  ['49e491d9c36cf9872c4129112c20e28c04a15b929995f0b80f8c8b1508819c73',180344],
+ ]);
+ expect(pair.rows.map(row=>row.stateCount)).toEqual([176,182]);
+ expect(hash(pair.raw)).toBe(pair.expected.rootSha256);
+ expect(pair.root.frames[0]!.at).toEqual(pair.root.frames[1]!.at);
+ expect(pair.root.frames[0]!.active_basis_sha256).not.toBe(pair.root.frames[1]!.active_basis_sha256);
+ const wirePath='./supplyMaterialRepeatWire';
+ const wire:RepeatFrameWireAPI=await import(/* @vite-ignore */ wirePath);
+ const issued=await wire.decodeRepeatManifest(pair.raw,pair.expected);
+ expect(issued).toEqual(pair.root);
+ for(const row of pair.rows)expect(await wire.decodeRepeatFrame(row.raw,issued,row.index)).toEqual(row.expected);
+ expect((pair.rows[0]!.expected.accounts as {event_sequence:bigint}).event_sequence).toBe(10n**309n);
+ expect((pair.rows[1]!.expected.accounts as {event_sequence:bigint}).event_sequence).toBe(10n**309n+1n);
+ // The missing Replay module/API is reached only after both complete Wire positives.
+ const replayPath='./supplyMaterialRepeatReplay';
+ const replay:RepeatRequestAPI=await import(/* @vite-ignore */ replayPath);
+ expect(typeof replay.SupplyMaterialRepeatRequest).toBe('function');
+ const calls:{selection:{kind:'manifest'}|{kind:'frame';index:number};signal:AbortSignal}[]=[];
+ let holdFrame=false,corruptFrame=false,heldSignal:AbortSignal|undefined;
+ let releaseOld:((raw:Uint8Array)=>void)|undefined,markHeld!:()=>void;
+ const held=new Promise<void>(resolve=>{markHeld=resolve;});
+ const read:RepeatRequestRead=async(selection,signal)=>{
+  expect(signal).toBeInstanceOf(AbortSignal);expect(signal.aborted).toBe(false);
+  calls.push({selection:structuredClone(selection),signal});
+  if(selection.kind==='manifest'){
+   expect(selection).toEqual({kind:'manifest'});return pair.raw.slice();
+  }
+  expect(selection).toEqual({kind:'frame',index:selection.index});
+  expect(selection.index===0||selection.index===1).toBe(true);
+  if(holdFrame&&selection.index===0){
+   holdFrame=false;heldSignal=signal;
+   return new Promise<Uint8Array>(resolve=>{releaseOld=resolve;markHeld();});
+  }
+  const raw=pair.rows[selection.index]!.raw.slice();
+  if(corruptFrame&&selection.index===0){corruptFrame=false;raw[0]=0xff;}
+  return raw;
+ };
+ const callerPins=structuredClone(pair.expected),request=new replay.SupplyMaterialRepeatRequest(read,callerPins);
+ callerPins.rootSha256='0'.repeat(64);
+ callerPins.codeSha256[Object.keys(callerPins.codeSha256)[0]!]='f'.repeat(64);
+ const expected=(index:0|1)=>({rootSha256:pair.expected.rootSha256,index,manifest:pair.root,frame:pair.rows[index]!.expected});
+ expect(request.current()).toBeNull();
+ try{
+  const first=request.select(0);expect(request.current()).toBeNull();
+  const before=await first;expect(before).toEqual(expected(0));expect(request.current()).toEqual(expected(0));
+  expect(before.frame.accounts.event_sequence).toBe(10n**309n);
+  holdFrame=true;
+  const old=request.select(0).then(value=>({kind:'fulfilled' as const,value}),error=>({kind:'rejected' as const,error}));
+  expect(request.current()).toBeNull();await held;
+  expect(heldSignal).toBeInstanceOf(AbortSignal);expect(heldSignal!.aborted).toBe(false);
+  const pendingLatest=request.select(1);expect(request.current()).toBeNull();
+  expect(heldSignal!.aborted).toBe(true);
+  const latest=await pendingLatest;expect(latest).toEqual(expected(1));expect(request.current()).toEqual(expected(1));
+  expect(latest.frame.at).toEqual(before.frame.at);
+  expect(latest.frame.binding.active_basis_sha256).not.toBe(before.frame.binding.active_basis_sha256);
+  expect(latest.frame.accounts.event_sequence).toBe(10n**309n+1n);
+  const view=request.current();expect(view).not.toBeNull();if(view===null)throw Error('Latest selection required');
+  expect(view).not.toBe(latest);expect(view.frame).not.toBe(latest.frame);expect(view.manifest).not.toBe(latest.manifest);
+  latest.frame.snapshot.state[0]=999;latest.frame.leaves[0]!.geometry.value=999;
+  latest.frame.accounts.event_sequence=0n;latest.manifest.frames[1]!.active_basis_sha256='0'.repeat(64);
+  view.frame.snapshot.state[0]=777;view.frame.binding.source.receipt!.bytes=1;
+  view.frame.accounts.event_sequence=1n;view.manifest.effective_rights.display=false;
+  expect(request.current()).toEqual(expected(1));
+  expect(releaseOld).toBeTypeOf('function');releaseOld!(pair.rows[0]!.raw.slice());
+  expect((await old).kind).toBe('rejected');expect(request.current()).toEqual(expected(1));
+  corruptFrame=true;
+  const failed=request.select(0);expect(request.current()).toBeNull();
+  await expect(failed).rejects.toThrow('Stored repeat artifact: selected frame SHA differs');
+  expect(corruptFrame).toBe(false);expect(request.current()).toBeNull();
+  const recovered=await request.select(1);expect(recovered).toEqual(expected(1));expect(request.current()).toEqual(expected(1));
+  expect(calls.map(call=>call.selection)).toEqual([
+   {kind:'manifest'},{kind:'frame',index:0},{kind:'manifest'},{kind:'frame',index:0},
+   {kind:'manifest'},{kind:'frame',index:1},{kind:'manifest'},{kind:'frame',index:0},
+   {kind:'manifest'},{kind:'frame',index:1},
+  ]);
+  expect(new Set(calls.filter(call=>call.selection.kind==='manifest').map(call=>call.signal)).size).toBe(5);
+  for(let i=0;i<calls.length;i+=2)expect(calls[i]!.signal).toBe(calls[i+1]!.signal);
+  expect(calls[8]!.signal.aborted).toBe(false);request.cancel();
+  expect(request.current()).toBeNull();
+  expect(recovered).toEqual(expected(1));
+  expect(pair.rows.map(row=>hash(row.raw))).toEqual([
+   '99456f234912c2b5230f806d0e59f5e39b3ccba2031797a877935e5f8aaf64b1',
+   '49e491d9c36cf9872c4129112c20e28c04a15b929995f0b80f8c8b1508819c73',
+  ]);
+  expect(hash(pair.raw)).toBe(pair.expected.rootSha256);expect(pair.expected.codeSha256).toEqual(pair.root.code_sha256);
+ }finally{request.cancel();releaseOld?.(pair.rows[0]!.raw.slice());}
+});
+
+
+type RepeatRequestCall={selection:Parameters<RepeatRequestRead>[0];signal:AbortSignal};
+async function repeatRequestAdversePair(){
+ const pair=ownRepeatFramePair();
+ expect(pair.rows.map(row=>[hash(row.raw),row.raw.byteLength])).toEqual([
+  ['99456f234912c2b5230f806d0e59f5e39b3ccba2031797a877935e5f8aaf64b1',168588],
+  ['49e491d9c36cf9872c4129112c20e28c04a15b929995f0b80f8c8b1508819c73',180344],
+ ]);
+ expect(pair.root.frames[0]!.at).toEqual(pair.root.frames[1]!.at);
+ expect(pair.root.frames[0]!.active_basis_sha256).not.toBe(pair.root.frames[1]!.active_basis_sha256);
+ const wirePath='./supplyMaterialRepeatWire';
+ const wire:RepeatFrameWireAPI=await import(/* @vite-ignore */ wirePath);
+ const issued=await wire.decodeRepeatManifest(pair.raw,pair.expected);expect(issued).toEqual(pair.root);
+ for(const row of pair.rows)expect(await wire.decodeRepeatFrame(row.raw,issued,row.index)).toEqual(row.expected);
+ const replayPath='./supplyMaterialRepeatReplay';
+ const replay:RepeatRequestAPI=await import(/* @vite-ignore */ replayPath);
+ expect(typeof replay.SupplyMaterialRepeatRequest).toBe('function');
+ return {pair,Request:replay.SupplyMaterialRepeatRequest,
+  expected:(index:0|1)=>({rootSha256:pair.expected.rootSha256,index,manifest:pair.root,frame:pair.rows[index]!.expected})};
+}
+
+it.each(['manifest','frame'] as const)('rejects an explicitly cancelled pending %s read even when transport ignores abort, then retries fresh',async stage=>{
+ const {pair,Request,expected}=await repeatRequestAdversePair(),calls:RepeatRequestCall[]=[];
+ let hold=false,heldSignal:AbortSignal|undefined,release:((raw:Uint8Array)=>void)|undefined,markHeld!:()=>void;
+ const held=new Promise<void>(resolve=>{markHeld=resolve;});
+ const read:RepeatRequestRead=async(selection,signal)=>{
+  expect(signal).toBeInstanceOf(AbortSignal);expect(signal.aborted).toBe(false);
+  calls.push({selection:structuredClone(selection),signal});
+  if(selection.kind==='manifest')expect(selection).toEqual({kind:'manifest'});
+  else{expect(selection).toEqual({kind:'frame',index:selection.index});expect(selection.index===0||selection.index===1).toBe(true);}
+  const raw=selection.kind==='manifest'?pair.raw.slice():pair.rows[selection.index]!.raw.slice();
+  if(hold&&selection.kind===stage){
+   hold=false;heldSignal=signal;
+   return new Promise<Uint8Array>(resolve=>{release=resolve;markHeld();});
+  }
+  return raw;
+ };
+ const request=new Request(read,pair.expected);
+ const releaseBytes=()=>stage==='manifest'?pair.raw.slice():pair.rows[1]!.raw.slice();
+ try{
+  expect(await request.select(0)).toEqual(expected(0));expect(request.current()).toEqual(expected(0));
+  hold=true;
+  const pending=request.select(1).then(value=>({kind:'fulfilled' as const,value}),error=>({kind:'rejected' as const,error}));
+  expect(request.current()).toBeNull();await held;
+  expect(heldSignal).toBeInstanceOf(AbortSignal);expect(heldSignal!.aborted).toBe(false);
+  expect(calls[2]!.selection).toEqual({kind:'manifest'});expect(calls[2]!.signal).toBe(heldSignal);
+  if(stage==='frame'){expect(calls[3]!.selection).toEqual({kind:'frame',index:1});expect(calls[3]!.signal).toBe(heldSignal);}
+  request.cancel();expect(heldSignal!.aborted).toBe(true);expect(request.current()).toBeNull();
+  expect(release).toBeTypeOf('function');release!(releaseBytes());
+  expect((await pending).kind).toBe('rejected');expect(request.current()).toBeNull();
+  expect(calls).toHaveLength(stage==='manifest'?3:4);
+  const recovered=await request.select(1);expect(recovered).toEqual(expected(1));expect(request.current()).toEqual(expected(1));
+  expect(recovered.frame.accounts.event_sequence).toBe(10n**309n+1n);
+  expect(calls.map(call=>call.selection)).toEqual(stage==='manifest'?[
+   {kind:'manifest'},{kind:'frame',index:0},{kind:'manifest'},{kind:'manifest'},{kind:'frame',index:1},
+  ]:[
+   {kind:'manifest'},{kind:'frame',index:0},{kind:'manifest'},{kind:'frame',index:1},{kind:'manifest'},{kind:'frame',index:1},
+  ]);
+  expect(calls[0]!.signal).toBe(calls[1]!.signal);
+  expect(calls.at(-2)!.signal).toBe(calls.at(-1)!.signal);
+  expect(new Set(calls.filter(call=>call.selection.kind==='manifest').map(call=>call.signal)).size).toBe(3);
+  expect(hash(pair.raw)).toBe(pair.expected.rootSha256);expect(pair.expected.codeSha256).toEqual(pair.root.code_sha256);
+  expect(pair.rows.map(row=>hash(row.raw))).toEqual([
+   '99456f234912c2b5230f806d0e59f5e39b3ccba2031797a877935e5f8aaf64b1',
+   '49e491d9c36cf9872c4129112c20e28c04a15b929995f0b80f8c8b1508819c73',
+  ]);
+ }finally{request.cancel();release?.(releaseBytes());}
+});
+
+it('rejects invalid indices before transport and an admitted unavailable index before a Frame read, then recovers',async()=>{
+ const {pair,Request,expected}=await repeatRequestAdversePair(),calls:RepeatRequestCall[]=[];
+ const read:RepeatRequestRead=async(selection,signal)=>{
+  expect(signal).toBeInstanceOf(AbortSignal);expect(signal.aborted).toBe(false);
+  calls.push({selection:structuredClone(selection),signal});
+  if(selection.kind==='manifest'){expect(selection).toEqual({kind:'manifest'});return pair.raw.slice();}
+  expect(selection).toEqual({kind:'frame',index:selection.index});expect(selection.index===0||selection.index===1).toBe(true);
+  return pair.rows[selection.index]!.raw.slice();
+ };
+ const request=new Request(read,pair.expected);
+ try{
+  expect(await request.select(0)).toEqual(expected(0));expect(request.current()).toEqual(expected(0));
+  for(const index of [-1,512,0.5,NaN,true,'0']){
+   const pending:Promise<unknown>=Reflect.apply(request.select,request,[index]);
+   expect(request.current()).toBeNull();await expect(pending).rejects.toThrow();expect(calls).toHaveLength(2);
+  }
+  const unavailable=request.select(2);expect(request.current()).toBeNull();
+  await expect(unavailable).rejects.toThrow();expect(request.current()).toBeNull();
+  expect(calls.map(call=>call.selection)).toEqual([{kind:'manifest'},{kind:'frame',index:0},{kind:'manifest'}]);
+  expect(await request.select(1)).toEqual(expected(1));expect(request.current()).toEqual(expected(1));
+  expect(calls.map(call=>call.selection)).toEqual([
+   {kind:'manifest'},{kind:'frame',index:0},{kind:'manifest'},{kind:'manifest'},{kind:'frame',index:1},
+  ]);
+  expect(calls[0]!.signal).toBe(calls[1]!.signal);expect(calls[3]!.signal).toBe(calls[4]!.signal);
+  expect(new Set(calls.filter(call=>call.selection.kind==='manifest').map(call=>call.signal)).size).toBe(3);
+  expect(hash(pair.raw)).toBe(pair.expected.rootSha256);expect(pair.expected.codeSha256).toEqual(pair.root.code_sha256);
+  expect(pair.rows.map(row=>hash(row.raw))).toEqual([
+   '99456f234912c2b5230f806d0e59f5e39b3ccba2031797a877935e5f8aaf64b1',
+   '49e491d9c36cf9872c4129112c20e28c04a15b929995f0b80f8c8b1508819c73',
+  ]);
+ }finally{request.cancel();}
+});
+
+it('clears a latest corrupt-manifest failure before any Frame read and validates a fresh retry',async()=>{
+ const {pair,Request,expected}=await repeatRequestAdversePair(),calls:RepeatRequestCall[]=[];
+ let corrupt=false,changedHash:string|undefined;
+ const read:RepeatRequestRead=async(selection,signal)=>{
+  expect(signal).toBeInstanceOf(AbortSignal);expect(signal.aborted).toBe(false);
+  calls.push({selection:structuredClone(selection),signal});
+  if(selection.kind==='manifest'){
+   expect(selection).toEqual({kind:'manifest'});const raw=pair.raw.slice();
+   if(corrupt){corrupt=false;raw[0]=0xff;changedHash=hash(raw);expect(raw.byteLength).toBe(pair.raw.byteLength);expect(changedHash).not.toBe(pair.expected.rootSha256);}
+   return raw;
+  }
+  expect(selection).toEqual({kind:'frame',index:selection.index});expect(selection.index===0||selection.index===1).toBe(true);
+  return pair.rows[selection.index]!.raw.slice();
+ };
+ const request=new Request(read,pair.expected);
+ try{
+  expect(await request.select(0)).toEqual(expected(0));expect(request.current()).toEqual(expected(0));
+  corrupt=true;const pending=request.select(1);expect(request.current()).toBeNull();
+  await expect(pending).rejects.toThrow();expect(request.current()).toBeNull();
+  expect(corrupt).toBe(false);expect(changedHash).toMatch(/^[a-f0-9]{64}$/);expect(changedHash).not.toBe(pair.expected.rootSha256);
+  expect(calls.map(call=>call.selection)).toEqual([{kind:'manifest'},{kind:'frame',index:0},{kind:'manifest'}]);
+  expect(await request.select(1)).toEqual(expected(1));expect(request.current()).toEqual(expected(1));
+  expect(calls.map(call=>call.selection)).toEqual([
+   {kind:'manifest'},{kind:'frame',index:0},{kind:'manifest'},{kind:'manifest'},{kind:'frame',index:1},
+  ]);
+  expect(calls[0]!.signal).toBe(calls[1]!.signal);expect(calls[3]!.signal).toBe(calls[4]!.signal);
+  expect(new Set(calls.filter(call=>call.selection.kind==='manifest').map(call=>call.signal)).size).toBe(3);
+  expect(hash(pair.raw)).toBe(pair.expected.rootSha256);expect(pair.expected.codeSha256).toEqual(pair.root.code_sha256);
+  expect(pair.rows.map(row=>hash(row.raw))).toEqual([
+   '99456f234912c2b5230f806d0e59f5e39b3ccba2031797a877935e5f8aaf64b1',
+   '49e491d9c36cf9872c4129112c20e28c04a15b929995f0b80f8c8b1508819c73',
+  ]);
+ }finally{request.cancel();}
+});
