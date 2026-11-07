@@ -1,5 +1,6 @@
 import {sha256} from './morphologyReplay';
-import {compare,fraction} from './supplyMorphologyGraphValues';
+import {binary64,compare,fraction,sub} from './supplyMorphologyGraphValues';
+import {exactClock} from './supplyMorphologyQuantityCore';
 import {utc} from './storedLeafReplayIO';
 
 const MAX_DOCUMENT=2097152,MAX_PHYSICAL_BYTES=67108864,MAX_FILES=4096;
@@ -366,5 +367,229 @@ export async function decodeRepeatManifest(raw:Uint8Array,expected:RepeatManifes
  const snapshot=new Uint8Array(raw),pins=codePins(expected);
  check(await sha256(snapshot)===pins.root,'caller root SHA differs');
  let text:string;try{text=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(snapshot);}catch{throw Error('Stored repeat artifact: valid UTF-8 required');}
- return validate(parseCanonical(text),pins,snapshot.byteLength);
+ const root=validate(parseCanonical(text),pins,snapshot.byteLength);
+ issuedManifests.set(root,{root:structuredClone(root),rootSha256:pins.root});return root;
+}
+
+export type RepeatQuantity={value:number;unit:string};
+export type RepeatSourceValue=null|boolean|string|number|bigint|RepeatSourceValue[]|RepeatSourceObject;
+export type RepeatSourceObject={[key:string]:RepeatSourceValue};
+export type RepeatLedger=Record<string,{residual_exact:RepeatExact;budget_exact:RepeatExact}>;
+export type RepeatGeometryDiagnostics={kind:'dense_stored_transfers'|'stored_confirmed';canonical_status:'not_stored_at_dense_boundary'|'stored';
+ potential_exact:RepeatExact;realized_exact:RepeatExact;deficit_exact:RepeatExact;lifetime_potential_exact:RepeatExact;
+ lifetime_realized_exact:RepeatExact;lifetime_deficit_exact:RepeatExact;canonical_gap_exact:RepeatExact|null;canonical_potential_difference_exact:RepeatExact|null};
+export type RepeatOrgan={id:string;parent_internode_id:string|null;source_index:number;geometry:RepeatQuantity;carbon:RepeatQuantity;
+ represented_age:RepeatQuantity;clock_exact:RepeatExact;birth:RepeatSourceObject;geometry_origin:RepeatSourceObject;
+ metadata:RepeatSourceObject;geometry_diagnostics:RepeatGeometryDiagnostics};
+type BindingCommon={transition_index:number;history_page_sha256:string;transition_cursor_sha256:string;active_basis_sha256:string;context_cursor_sha256:string};
+export type RepeatBinding=(BindingCommon&{kind:'dense_material_before';checkpoint_cursor_sha256:null;source:{receipt:RepeatRef;witness:RepeatRef;material_frame:RepeatRef}})|
+ (BindingCommon&{kind:'adopted_material_after';checkpoint_cursor_sha256:string;source:{current:RepeatRef;receipt:RepeatRef;witness:RepeatRef;material_frame:RepeatRef}})|
+ (BindingCommon&{kind:'confirmed_current';checkpoint_cursor_sha256:string;source:{current:RepeatRef}});
+export type RepeatFrame={schema_version:'supply-material-repeat-replay-frame-v1'}&typeof FLAGS&{
+ index:number;phase:RepeatPhase;at:RepeatAt;binding:RepeatBinding;snapshot:{at:RepeatAt;state:number[];derived:Record<string,RepeatQuantity>};
+ model_floor_area:RepeatQuantity;state_layout:RepeatSourceObject;leaves:RepeatOrgan[];internodes:RepeatOrgan[];
+ accounts:{event_sequence:bigint;schedule:RepeatSourceObject;global_ledgers:RepeatLedger;local_ledgers:RepeatLedger;
+ point_totals_exact:Record<string,RepeatExact>;lifetime_transfers_exact:Record<string,RepeatExact>;transfer_origins:{physical:string;geometry:string}};
+};
+const issuedManifests=new WeakMap<RepeatManifest,{root:RepeatManifest;rootSha256:string}>();
+const MASS='mg_CH2O/m2_floor';
+function objectFields(node:JsonNode|undefined):Record<string,JsonNode> {check(node?.kind==='object','source object required');return node.fields;}
+function identifier(node:JsonNode|undefined):string {const value=string(node);check(/^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/.test(value),'bounded original identifier required');return value;}
+function unsigned(node:JsonNode|undefined):bigint {
+ check(node?.kind==='number'&&/^(?:0|[1-9]\d*)$/.test(node.lexeme),'canonical nonnegative integer required');return BigInt(node.lexeme);
+}
+function finiteNumber(node:JsonNode|undefined,floatOnly=false):number {
+ check(node?.kind==='number'&&(!floatOnly||/[.eE]/.test(node.lexeme)),'binary64 number required');
+ const value=Number(node.lexeme);check(Number.isFinite(value),'finite binary64 required');return value;
+}
+function quantity(node:JsonNode|undefined,unit:string,nonnegative=false):RepeatQuantity {
+ const row=fields(node,['value','unit']),value=finiteNumber(row.value,true);literal(row.unit,unit);
+ check(!nonnegative||value>=0,'negative organ quantity');return {value,unit};
+}
+function sourceValue(node:JsonNode):RepeatSourceValue {
+ switch(node.kind){
+  case 'null':return null;
+  case 'boolean':case 'string':return node.value;
+  case 'number':{
+   if(/^-?(?:0|[1-9]\d*)$/.test(node.lexeme)){
+    check(node.lexeme!=='-0','canonical source integer required');const value=BigInt(node.lexeme);
+    return value>=BigInt(Number.MIN_SAFE_INTEGER)&&value<=BigInt(Number.MAX_SAFE_INTEGER)?Number(value):value;
+   }
+   return finiteNumber(node);
+  }
+  case 'array':return node.items.map(sourceValue);
+  case 'object':return Object.fromEntries(Object.entries(node.fields).map(([key,value])=>[key,sourceValue(value)]));
+ }
+}
+function sourceObject(node:JsonNode|undefined):RepeatSourceObject {objectFields(node);return sourceValue(node!) as RepeatSourceObject;}
+function sameNode(a:JsonNode|undefined,b:JsonNode|undefined):boolean {
+ if(!a||!b||a.kind!==b.kind)return false;
+ switch(a.kind){
+  case 'null':return true;
+  case 'number':return b.kind==='number'&&a.lexeme===b.lexeme;
+  case 'string':case 'boolean':return b.kind===a.kind&&a.value===b.value;
+  case 'array':return b.kind==='array'&&a.items.length===b.items.length&&a.items.every((v,i)=>sameNode(v,b.items[i]));
+  case 'object':return b.kind==='object'&&Object.keys(a.fields).length===Object.keys(b.fields).length&&Object.entries(a.fields).every(([k,v])=>sameNode(v,b.fields[k]));
+ }
+}
+function exactAny(node:JsonNode|undefined):RepeatExact {
+ const row=objectFields(node),unit=string(row.unit);check(unit.length>0&&unit.length<=64,'bounded exact unit required');return exact(node,unit);
+}
+function exactMap(node:JsonNode|undefined):Record<string,RepeatExact> {
+ return Object.fromEntries(Object.entries(objectFields(node)).map(([key,value])=>[key,exactAny(value)]));
+}
+function ledger(node:JsonNode|undefined):RepeatLedger {
+ return Object.fromEntries(Object.entries(objectFields(node)).map(([key,value])=>{
+  const row=fields(value,['residual_exact','budget_exact']),residual=exactAny(row.residual_exact),budget=exact(row.budget_exact,residual.unit);
+  const r=fraction(residual,residual.unit),b=fraction(budget,budget.unit);
+  check(b.n>=0n&&compare({n:r.n<0n?-r.n:r.n,d:r.d},b)<=0,'ledger residual exceeds budget');
+  return [key,{residual_exact:residual,budget_exact:budget}];
+ }));
+}
+function sameExact(a:RepeatExact,b:RepeatExact):boolean {return a.unit===b.unit&&compare(fraction(a,a.unit),fraction(b,b.unit))===0;}
+function sameAt(a:RepeatAt,b:RepeatAt):boolean {return a.time_origin_utc===b.time_origin_utc&&sameExact(a.elapsed_seconds_exact,b.elapsed_seconds_exact);}
+function binding(node:JsonNode|undefined,root:RepeatManifest,descriptor:RepeatFrameDescriptor):RepeatBinding {
+ const row=fields(node,['kind','transition_index','history_page_sha256','transition_cursor_sha256','active_basis_sha256','context_cursor_sha256','checkpoint_cursor_sha256','source']);
+ const t=root.transitions[descriptor.transition_index]!;
+ const common={transition_index:integer(row.transition_index,0,255),history_page_sha256:digest(string(row.history_page_sha256)),
+  transition_cursor_sha256:digest(string(row.transition_cursor_sha256)),active_basis_sha256:digest(string(row.active_basis_sha256)),context_cursor_sha256:digest(string(row.context_cursor_sha256))};
+ check(common.transition_index===t.index&&common.history_page_sha256===t.history_page.sha256&&common.transition_cursor_sha256===t.cursor.sha256&&
+  common.context_cursor_sha256===t.previous_cursor_sha256&&common.active_basis_sha256===descriptor.active_basis_sha256,'selected frame binding differs');
+ const refs=(keys:readonly string[])=>{const source=fields(row.source,keys);return Object.fromEntries(keys.map(key=>[key,ref(source[key])])) as Record<string,RepeatRef>;};
+ if(descriptor.phase==='material_before'||descriptor.phase==='material_after'){
+  check(t.kind==='material_adoption','material transition required');const before=descriptor.phase==='material_before';
+  literal(row.kind,before?'dense_material_before':'adopted_material_after');
+  const source=refs(before?['receipt','witness','material_frame']:['current','receipt','witness','material_frame']);
+  check(equalRef(source.receipt!,t.point.receipt)&&equalRef(source.witness!,t.point.witness)&&equalRef(source.material_frame!,before?t.point.before_frame:t.point.after_frame),'material source binding differs');
+  if(before){check(row.checkpoint_cursor_sha256?.kind==='null','dense boundary is not a checkpoint');
+   return {...common,kind:'dense_material_before',checkpoint_cursor_sha256:null,source:{receipt:source.receipt!,witness:source.witness!,material_frame:source.material_frame!}};}
+  check(digest(string(row.checkpoint_cursor_sha256))===t.cursor.sha256&&equalRef(source.current!,t.after_current),'material checkpoint differs');
+  return {...common,kind:'adopted_material_after',checkpoint_cursor_sha256:t.cursor.sha256,source:{current:source.current!,receipt:source.receipt!,witness:source.witness!,material_frame:source.material_frame!}};
+ }
+ literal(row.kind,'confirmed_current');const source=refs(['current']);
+ check(digest(string(row.checkpoint_cursor_sha256))===t.cursor.sha256&&equalRef(source.current!,t.after_current),'confirmed checkpoint differs');
+ return {...common,kind:'confirmed_current',checkpoint_cursor_sha256:t.cursor.sha256,source:{current:source.current!}};
+}
+function strings(node:JsonNode|undefined,values:readonly string[]):void {
+ const rows=list(node,values.length,values.length);check(rows.every((item,i)=>string(item)===values[i]),'layout block order differs');
+}
+function units(node:JsonNode|undefined,values:Record<string,string>):void {
+ const rows=fields(node,Object.keys(values));for(const [key,value]of Object.entries(values))literal(rows[key],value);
+}
+function layout(node:JsonNode|undefined,scalars:number){
+ const row=fields(node,['appended_blocks','appended_units','internode_ids','original','original_prefix_length']);
+ strings(row.appended_blocks,['thermal_age','length']);units(row.appended_units,{length:'m',thermal_age:'degC_day'});
+ const old=fields(row.original,['plant','cohort_arrays','climate','leaf_ids','leaf_blocks','stem_root_compartments','stem_root_blocks','units']);
+ strings(old.plant,['buffer','temperature_filtered_24h','temperature_sum']);strings(old.cohort_arrays,['fruit_carbohydrate','fruit_number']);
+ strings(old.climate,['canopy_sensible_energy','air_temperature','air_vapor_mass']);strings(old.leaf_blocks,['thermal_age','area','carbon']);strings(old.stem_root_blocks,['carbon']);
+ const ids=(value:JsonNode|undefined)=>{const result=list(value,1,512).map(identifier);check(new Set(result).size===result.length,'duplicate layout identifier');return result;};
+ const leaves=ids(old.leaf_ids),nodes=ids(row.internode_ids);
+ const compartments=list(old.stem_root_compartments,1,512).map(value=>{const q=fields(value,['compartment_id','kind']);return {id:identifier(q.compartment_id),kind:oneOf(q.kind,['internode','root_system'])};});
+ check(new Set(compartments.map(v=>v.id)).size===compartments.length,'duplicate compartment identifier');
+ const actualNodes=compartments.filter(v=>v.kind==='internode').map(v=>v.id);
+ check(actualNodes.length===nodes.length&&actualNodes.every((v,i)=>v===nodes[i])&&compartments.filter(v=>v.kind==='root_system').length===1,'internode compartment order differs');
+ const u=fields(old.units,['plant','cohort_arrays','climate','leaf_blocks','stem_root_blocks']);
+ units(u.plant,{buffer:MASS,temperature_filtered_24h:'degC',temperature_sum:'degC_day'});
+ units(u.cohort_arrays,{fruit_carbohydrate:MASS,fruit_number:'fruits_equivalent/m2_floor'});
+ units(u.climate,{canopy_sensible_energy:'J/m2_floor',air_temperature:'degC',air_vapor_mass:'kg_water/m2_floor'});
+ units(u.leaf_blocks,{area:'m2',carbon:MASS,thermal_age:'degC_day'});units(u.stem_root_blocks,{carbon:MASS});
+ const n=leaves.length,h=nodes.length,m=compartments.length,z=106+3*n+m;
+ check(integer(row.original_prefix_length,1,32768)===z&&z+2*h===scalars,'matching-basis state dimensions differ');
+ return {value:sourceObject(node),leaves,nodes,compartments,n,h,z};
+}
+function diagnostic(node:JsonNode|undefined,unit:string,dense:boolean,lifetime:Record<string,RepeatExact>,key:string):RepeatGeometryDiagnostics {
+ const names=['potential_exact','realized_exact','deficit_exact','lifetime_potential_exact','lifetime_realized_exact','lifetime_deficit_exact'] as const;
+ const row=fields(node,['kind','canonical_status',...names,'canonical_gap_exact','canonical_potential_difference_exact']);
+ literal(row.kind,dense?'dense_stored_transfers':'stored_confirmed');literal(row.canonical_status,dense?'not_stored_at_dense_boundary':'stored');
+ const q=Object.fromEntries(names.map(name=>[name,exact(row[name],unit)])) as Record<typeof names[number],RepeatExact>;
+ for(const prefix of ['','lifetime_']){
+  const potential=fraction(q[(prefix+'potential_exact') as keyof typeof q],unit),realized=fraction(q[(prefix+'realized_exact') as keyof typeof q],unit),deficit=fraction(q[(prefix+'deficit_exact') as keyof typeof q],unit);
+  check(realized.n>=0n&&compare(potential,realized)>=0&&compare(sub(potential,realized),deficit)===0,'geometry deficit differs');
+ }
+ for(const name of ['potential','realized'] as const){const observed=lifetime[key+'_'+name];check(observed!==undefined&&sameExact(observed,q[('lifetime_'+name+'_exact') as keyof typeof q]),'available lifetime transfer differs');}
+ let canonical_gap_exact:RepeatExact|null=null,canonical_potential_difference_exact:RepeatExact|null=null;
+ if(dense)check(row.canonical_gap_exact?.kind==='null'&&row.canonical_potential_difference_exact?.kind==='null','dense canonical diagnostics are not stored');
+ else{canonical_gap_exact=exact(row.canonical_gap_exact,unit);canonical_potential_difference_exact=exact(row.canonical_potential_difference_exact,unit);}
+ return {kind:dense?'dense_stored_transfers':'stored_confirmed',canonical_status:dense?'not_stored_at_dense_boundary':'stored',...q,canonical_gap_exact,canonical_potential_difference_exact};
+}
+function birth(node:JsonNode|undefined,kind:'leaf'|'internode',id:string,frameAt:RepeatAt):RepeatSourceObject {
+ const q=objectFields(node);check(identifier(q[kind==='leaf'?'leaf_id':'compartment_id'])===id,'birth identity differs');
+ if(kind==='internode')literal(q.kind,'internode');
+ const start=exact(q.at_elapsed_seconds_exact,'s'),age=exact(q.thermal_age_exact,'degC_day');
+ check(fraction(start,'s').n>=0n&&compare(fraction(start,'s'),fraction(frameAt.elapsed_seconds_exact,'s'))<=0&&fraction(age,'degC_day').n>=0n,'birth clock outside frame');
+ exact(q.air_temperature_integral_exact,'degC_s');quantity(q.base_temperature,'degC');quantity(q.carbon,MASS,true);
+ if(q.basis_kind!==undefined)check(string(q.basis_kind).length>0,'birth basis kind required');return sourceObject(node);
+}
+function geometryOrigin(node:JsonNode|undefined,kind:'leaf'|'internode',id:string,frameAt:RepeatAt):RepeatSourceObject {
+ const idKey=kind==='leaf'?'leaf_id':'compartment_id';
+ const q=fields(node,[idKey,'origin','origin_elapsed_seconds_exact','origin_geometry','origin_lifetime_inflow_exact']);
+ check(identifier(q[idKey])===id&&string(q.origin).length>0,'geometry origin identity differs');
+ const elapsed=exact(q.origin_elapsed_seconds_exact,'s');check(fraction(elapsed,'s').n>=0n&&compare(fraction(elapsed,'s'),fraction(frameAt.elapsed_seconds_exact,'s'))<=0,'geometry origin after frame');
+ quantity(q.origin_geometry,kind==='leaf'?'m2':'m',true);exact(q.origin_lifetime_inflow_exact,MASS);return sourceObject(node);
+}
+function schedule(node:JsonNode|undefined):RepeatSourceObject {
+ const q=fields(node,['age_basis','age_exact','consumed_event_id','consumed_sequence','consumed_threshold_exact','next_sequence','next_threshold_exact','policy','source_schedule_id']);
+ check(string(q.age_basis).length>0&&string(q.policy).length>0,'schedule policy required');identifier(q.source_schedule_id);
+ const age=exact(q.age_exact,'degC_day');check(fraction(age,'degC_day').n>=0n,'negative schedule age');
+ const consumed=unsigned(q.consumed_sequence);check(unsigned(q.next_sequence)===consumed+1n,'schedule sequence differs');
+ if(q.consumed_event_id?.kind!=='null')identifier(q.consumed_event_id);
+ if(q.consumed_threshold_exact?.kind!=='null')check(fraction(exact(q.consumed_threshold_exact,'degC_day'),'degC_day').n>=0n,'negative consumed threshold');
+ check(fraction(exact(q.next_threshold_exact,'degC_day'),'degC_day').n>=0n,'negative next threshold');return sourceObject(node);
+}
+function organRows(node:JsonNode|undefined,kind:'leaf'|'internode',basis:ReturnType<typeof layout>,state:number[],frameAt:RepeatAt,dense:boolean,lifetime:Record<string,RepeatExact>):RepeatOrgan[] {
+ const ids=kind==='leaf'?basis.leaves:basis.nodes,unit=kind==='leaf'?'m2':'m';
+ return list(node,ids.length,ids.length).map((value,i)=>{
+  const q=fields(value,['id','parent_internode_id','source_index','geometry','carbon','represented_age','clock_exact','birth','geometry_origin','metadata','geometry_diagnostics']);
+  const id=identifier(q.id),parent=q.parent_internode_id?.kind==='null'?null:identifier(q.parent_internode_id);
+  check(id===ids[i]&&integer(q.source_index,0,511)===i&&(parent===null||basis.nodes.includes(parent)),'organ identity/order/parent differs');
+  const geometry=quantity(q.geometry,unit,true),carbon=quantity(q.carbon,MASS,true),represented_age=quantity(q.represented_age,'degC_day',true);
+  const ageIndex=kind==='leaf'?106+i:basis.z+i,geometryIndex=kind==='leaf'?106+basis.n+i:basis.z+basis.h+i;
+  const carbonIndex=kind==='leaf'?106+2*basis.n+i:106+3*basis.n+basis.compartments.findIndex(row=>row.id===id);
+  check(Object.is(state[ageIndex],represented_age.value)&&Object.is(state[geometryIndex],geometry.value)&&Object.is(state[carbonIndex],carbon.value),'organ metric does not match active state coordinate');
+  const baseline=birth(q.birth,kind,id,frameAt),clock=exact(q.clock_exact,'degC_day'),air=lifetime.indoor_air_temperature_time;
+  check(air!==undefined&&sameExact(clock,exactClock(baseline,frameAt.elapsed_seconds_exact,air)),'birth-relative exact clock differs');
+  const metadata=objectFields(q.metadata),idKey=kind==='leaf'?'leaf_id':'compartment_id';
+  check(identifier(metadata[idKey])===id&&sameNode(metadata.baseline,q.birth),'organ metadata baseline differs');
+  check(metadata.parent_internode_id?.kind==='null'?parent===null:identifier(metadata.parent_internode_id)===parent,'metadata parent differs');
+  // These copied fields can describe basis time rather than this frame's current clock.
+  const metaAge=exact(metadata.age_exact,'degC_day'),metaBudget=exact(metadata.age_roundoff_budget_exact,'degC_day'),metaResidual=exact(metadata.represented_minus_clock_exact,'degC_day');
+  const metaRepresented=quantity(metadata.represented_age,'degC_day',true),residual=fraction(metaResidual,'degC_day'),budget=fraction(metaBudget,'degC_day');
+  check(fraction(metaAge,'degC_day').n>=0n&&budget.n>=0n&&compare({n:residual.n<0n?-residual.n:residual.n,d:residual.d},budget)<=0&&
+   compare(sub(binary64(metaRepresented.value),fraction(metaAge,'degC_day')),residual)===0,'basis-time age residual differs');
+  return {id,parent_internode_id:parent,source_index:i,geometry,carbon,represented_age,clock_exact:clock,birth:baseline,
+   geometry_origin:geometryOrigin(q.geometry_origin,kind,id,frameAt),metadata:sourceObject(q.metadata),
+   geometry_diagnostics:diagnostic(q.geometry_diagnostics,unit,dense,lifetime,kind+'_'+i)};
+ });
+}
+function validateFrame(node:JsonNode,root:RepeatManifest,descriptor:RepeatFrameDescriptor):RepeatFrame {
+ const q=fields(node,['schema_version',...Object.keys(FLAGS),'index','phase','at','binding','snapshot','model_floor_area','state_layout','leaves','internodes','accounts']);
+ literal(q.schema_version,'supply-material-repeat-replay-frame-v1');for(const [key,value]of Object.entries(FLAGS))literal(q[key],value);
+ const index=integer(q.index,0,511),phase=oneOf(q.phase,['material_before','material_after','original_grid_endpoint','forcing_before','forcing_after','declared_end']),frameAt=at(q.at);
+ check(index===descriptor.index&&phase===descriptor.phase&&sameAt(frameAt,descriptor.at),'selected frame descriptor differs');
+ const frameBinding=binding(q.binding,root,descriptor),snap=fields(q.snapshot,['at','state','derived']),snapshotAt=at(snap.at);
+ check(sameAt(snapshotAt,frameAt),'snapshot At differs');const state=list(snap.state,descriptor.state_scalars,descriptor.state_scalars).map(value=>finiteNumber(value,true));
+ const derivedUnits={air_capacity:'J/m2_floor/K',air_vapor_pressure:'Pa',canopy_capacity:'J/m2_floor/K',canopy_temperature:'degC',canopy_temperature_rate:'K/s',
+  leaf_area_index:'m2_leaf/m2_floor',leaf_area_index_rate:'m2_leaf/m2_floor/s',leaf_carbohydrate:MASS,stem_root_carbohydrate:MASS};
+ const d=fields(snap.derived,Object.keys(derivedUnits)),derived=Object.fromEntries(Object.entries(derivedUnits).map(([key,unit])=>[key,quantity(d[key],unit)]));
+ const floor=quantity(q.model_floor_area,'m2_floor');check(floor.value>0,'positive model floor required');const basis=layout(q.state_layout,state.length);
+ const a=fields(q.accounts,['event_sequence','schedule','global_ledgers','local_ledgers','point_totals_exact','lifetime_transfers_exact','transfer_origins']);
+ const lifetime=exactMap(a.lifetime_transfers_exact),origins=fields(a.transfer_origins,['physical','geometry']);
+ const originMembership=new Set((['original','base','forcing','material','repeat'] as const).flatMap(group=>root.blob_groups[group].map(record=>record.sha256)));
+ const transfer_origins={physical:digest(string(origins.physical)),geometry:digest(string(origins.geometry))};
+ check(Object.values(transfer_origins).every(value=>originMembership.has(value)),'selected origin descriptor missing');
+ const accounts={event_sequence:unsigned(a.event_sequence),schedule:schedule(a.schedule),global_ledgers:ledger(a.global_ledgers),local_ledgers:ledger(a.local_ledgers),
+  point_totals_exact:exactMap(a.point_totals_exact),lifetime_transfers_exact:lifetime,transfer_origins};
+ const dense=phase==='material_before',leaves=organRows(q.leaves,'leaf',basis,state,frameAt,dense,lifetime),internodes=organRows(q.internodes,'internode',basis,state,frameAt,dense,lifetime);
+ return {schema_version:'supply-material-repeat-replay-frame-v1',...FLAGS,index,phase,at:frameAt,binding:frameBinding,snapshot:{at:snapshotAt,state,derived},
+  model_floor_area:floor,state_layout:basis.value,leaves,internodes,accounts};
+}
+export async function decodeRepeatFrame(raw:Uint8Array,issuedManifest:RepeatManifest,index:number):Promise<RepeatFrame> {
+ const issued=issuedManifests.get(issuedManifest);check(issued!==undefined,'manifest must be issued by this decoder');
+ check(typeof index==='number'&&Number.isSafeInteger(index)&&index>=0&&index<issued.root.frames.length,'selected frame index outside manifest');
+ check(raw instanceof Uint8Array&&raw.byteLength>0&&raw.byteLength<=MAX_DOCUMENT,'bounded frame bytes required');
+ const descriptor=issued.root.frames[index]!,snapshot=new Uint8Array(raw);
+ check(snapshot.byteLength===descriptor.frame.bytes,'selected frame byte length differs');
+ check(await sha256(snapshot)===descriptor.frame.sha256,'selected frame SHA differs');
+ let text:string;try{text=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(snapshot);}catch{throw Error('Stored repeat artifact: valid UTF-8 required');}
+ return validateFrame(parseCanonical(text),issued.root,descriptor);
 }
