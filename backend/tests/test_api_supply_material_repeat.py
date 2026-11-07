@@ -1054,3 +1054,491 @@ def test_cancel_and_disconnect_own_real_reader_until_cleanup_before_suppression(
         assert current_principal() is None and public._registry(registry) == registry_state
         assert len(os.listdir('/proc/self/fd')) == fd_before
         assert artifact_cases._inventory(directories) == before
+
+
+
+@_tls_pytest.mark.parametrize('fault', ['code', 'policy'], ids=['loaded_code_final_fence', 'app_policy_release'])
+def test_final_code_and_app_policy_drift_suppress_valid_reader_bytes(first_artifact, fault):
+    import errno
+    import json
+    from app import api_supply_material_repeat as public
+
+    packet = first_artifact
+    _, reader = artifact_cases._api()
+    access = ContentAccess(packet['access'].owner_uid, packet['access'].reader_gid)
+    original_access = dict(vars(access))
+    fixture_access = (id(packet['access']), dict(vars(packet['access'])))
+    token = secrets.token_urlsafe(32).encode('ascii')
+    now = datetime.now(timezone.utc)
+    grant = BearerGrant(token_digest(token), 'own-repeat-http-test', frozenset({'metadata', 'artifact'}),
+                        now - timedelta(seconds=1), now + timedelta(minutes=15))
+    registry = BearerRegistry((grant,))
+    app = _fixed_delivery({**packet, 'access': access}, registry)
+    registry_state = public._registry(registry)
+    expected_principal = {'authenticated': True, 'tenant_id': grant.tenant_id, 'scopes': grant.scopes}
+    policy_snapshot = public._policy(access)
+    original_function, original_code = public._authorized, public._authorized.__code__
+    expected_dispatch = public._DISPATCH
+
+    def rejected_authorization(tenant):
+        raise AssertionError('rejected authorization code body executed')
+
+    replacement_code = rejected_authorization.__code__
+    assert original_function.__closure__ is None and original_code.co_freevars == replacement_code.co_freevars == ()
+    assert original_code.co_argcount == replacement_code.co_argcount == 1
+
+    class RejectedCodeEntry(BaseException):
+        pass
+
+    control_phase = [False]
+    controls, rejected_entries, records = [], [], []
+    active = [None]
+
+    def closed(record):
+        assert record['store'].__dict__['_fd'] is None
+        try:
+            os.fstat(record['fd'])
+        except OSError as error:
+            assert error.errno == errno.EBADF
+        else:
+            raise AssertionError('real reader descriptor is still open')
+
+    def current(record):
+        assert current_principal() == expected_principal
+        assert public._CLOCK() < record['deadline'] and public._CLOCK() < record['meter'].deadline
+
+    def observe(frame, event, value):
+        if frame.f_code is replacement_code:
+            if event == 'call':
+                if control_phase[0]:
+                    controls.append(frame.f_code)
+                else:
+                    rejected_entries.append(frame.f_code)
+                raise RejectedCodeEntry()
+            return
+        record = active[0]
+        assert record is not None
+        if frame.f_code is reader.read_repeat_material_manifest.__code__:
+            if event == 'call':
+                assert record['public_entries'] == 0 and current_principal() == expected_principal
+                record['public_entries'] += 1
+            elif event == 'return':
+                assert type(value) is bytes and value == packet['raw'] and record['load_returns'] == 1
+                closed(record)
+                current(record)
+                record['raw_returns'] += 1
+        elif frame.f_code is reader._load.__code__:
+            if event == 'call':
+                assert record['load_entries'] == 0 and record['public_entries'] == 1
+                store = frame.f_locals['store']
+                assert type(store) is reader.MorphologyBlobStore and store._access is access and store._write is False
+                fd = store.__dict__['_fd']
+                assert type(fd) is int and os.fstat(fd).st_ino == packet['directory'].stat().st_ino
+                caller = frame.f_back
+                while caller is not None and not (caller.f_code.co_filename == public.__file__
+                        and caller.f_code.co_name == 'checked_read'):
+                    caller = caller.f_back
+                assert caller is not None
+                record.update(store=store, fd=fd, meter=frame.f_locals['meter'], deadline=caller.f_locals['deadline'],
+                    entered=caller.f_locals['entered'], finished=caller.f_locals['finished'], stopped=caller.f_locals['stopped'])
+                assert record['entered'].is_set() and not record['finished'].is_set() and not record['stopped'].is_set()
+                current(record)
+                record['load_entries'] += 1
+            elif event == 'return':
+                assert type(value) is tuple and len(value) == 4 and value[0] == packet['raw']
+                record['load_returns'] += 1
+        elif frame.f_code is reader._fence.__code__ and event == 'call':
+            if (frame.f_locals['complete'] is True and frame.f_back.f_code is reader._read.__code__):
+                assert record['load_returns'] == 1 and frame.f_locals['store'] is record['store']
+                assert frame.f_locals['witnessed'][packet['root']][0] == packet['raw']
+                record['final_fences'] += 1
+                if record['mode'] == 'fault' and fault == 'code' and not record['injected']:
+                    current(record)
+                    assert record['store'].__dict__['_fd'] == record['fd'] and not record['finished'].is_set()
+                    assert original_function.__code__ is original_code and dict(vars(access)) == original_access
+                    original_function.__code__ = replacement_code
+                    record['injected'] = True
+        elif frame.f_code is public._Release.__call__.__code__ and event == 'call':
+            assert record['raw_returns'] == 1 and record['finished'].is_set()
+            closed(record)
+            current(record)
+            record['releases'] += 1
+            if record['mode'] == 'fault':
+                assert fault == 'policy' and not record['injected']
+                assert original_function.__code__ is original_code and dict(vars(access)) == original_access
+                changed_uid = (access.owner_uid + 1) % (2**32 - 1)
+                assert changed_uid != access.owner_uid and 0 <= changed_uid < 2**32 - 1
+                object.__setattr__(access, 'owner_uid', changed_uid)
+                record['injected'] = True
+        elif frame.f_code is public._dispatch.__code__ and event == 'return':
+            if record['injected'] and fault == 'code':
+                assert record['raw_returns'] == 1 and value != expected_dispatch
+                selected = [row for row in value if row[0] == '_authorized']
+                assert len(selected) == 1 and selected[0][1] is original_function and selected[0][2] is replacement_code
+                record['changed_dispatch'] += 1
+            else:
+                assert value == expected_dispatch
+        elif frame.f_code is public._policy.__code__ and event == 'return':
+            assert frame.f_locals['access'] is access
+            if record['injected'] and fault == 'policy':
+                assert value != policy_snapshot and value[0] == id(access)
+                assert record['raw_returns'] == 1 and record['finished'].is_set()
+                record['changed_policy'] += 1
+            else:
+                assert value == policy_snapshot
+        elif frame.f_code is public._directory.__code__ and event == 'call' and record['injected']:
+            record['directory_after_fault'] += 1
+
+    def restore(record):
+        production_closed = False
+        if record['injected']:
+            try:
+                closed(record)
+                production_closed = record['entered'].is_set() and record['finished'].is_set()
+            except (AssertionError, OSError, KeyError):
+                pass
+        original_function.__code__ = original_code
+        state = object.__getattribute__(access, '__dict__')
+        state.clear()
+        state.update(original_access)
+        if record['injected']:
+            assert production_closed, 'production cleanup did not precede fault restoration'
+        assert original_function.__code__ is original_code and dict(vars(access)) == original_access
+
+    directories = [packet['directory'], *artifact_cases._directories(packet['parent'])]
+    before = artifact_cases._inventory(directories)
+    source_paths = set(packet['manifest']['code_sha256']) | set(PINNED_SOURCES) | {
+        'backend/app/api_supply_material_repeat.py', 'backend/app/http_identity.py',
+        'backend/app/content_access.py', 'contracts/supply-material-repeat-protected-delivery-v1.md'}
+    sources_before = {path: sha256((artifact_cases.ROOT / path).read_bytes()).hexdigest() for path in source_paths}
+    fd_before = len(os.listdir('/proc/self/fd'))
+    try:
+        with artifact_cases.qa._watch(observe, {reader.read_repeat_material_manifest.__code__, reader._load.__code__,
+                reader._fence.__code__, public._Release.__call__.__code__, public._dispatch.__code__,
+                public._policy.__code__, public._directory.__code__, replacement_code}):
+            if fault == 'code':
+                control_phase[0] = True
+                with _tls_pytest.raises(RejectedCodeEntry):
+                    rejected_authorization(None)
+                control_phase[0] = False
+                assert controls == [replacement_code]
+            for mode in ('baseline', 'fault', 'recovery'):
+                record = {'mode': mode, 'public_entries': 0, 'load_entries': 0, 'load_returns': 0,
+                          'raw_returns': 0, 'final_fences': 0, 'releases': 0, 'injected': False,
+                          'changed_dispatch': 0, 'changed_policy': 0, 'directory_after_fault': 0}
+                records.append(record)
+                active[0] = record
+                try:
+                    response = asyncio.run(_asgi_manifest_get(app, token))
+                    assert record['public_entries'] == record['load_entries'] == record['load_returns'] == record['raw_returns'] == 1
+                    assert record['final_fences'] == 1 and record['entered'].is_set() and record['finished'].is_set()
+                    assert not record['stopped'].is_set()
+                    closed(record)
+                    assert response.headers['cache-control'] == 'no-store'
+                    assert record['directory_after_fault'] == 0 and rejected_entries == []
+                    if mode == 'fault':
+                        assert record['injected'] and response.status_code == 503
+                        assert json.loads(response.content) == {'error': {'code': 'repeat_material_unavailable',
+                                                                           'message': 'Repeat material unavailable'}}
+                        assert response.content != packet['raw']
+                        if fault == 'code':
+                            assert record['changed_dispatch'] > 0 and record['changed_policy'] == record['releases'] == 0
+                        else:
+                            assert record['changed_policy'] > 0 and record['changed_dispatch'] == 0 and record['releases'] == 1
+                    else:
+                        assert not record['injected'] and response.status_code == 200 and response.content == packet['raw']
+                        assert record['changed_dispatch'] == record['changed_policy'] == 0 and record['releases'] == 1
+                finally:
+                    restore(record)
+                assert current_principal() is None and public._registry(registry) == registry_state
+            if fault == 'code':
+                control_phase[0] = True
+                with _tls_pytest.raises(RejectedCodeEntry):
+                    rejected_authorization(None)
+                control_phase[0] = False
+                assert controls == [replacement_code, replacement_code] and rejected_entries == []
+        assert [record['mode'] for record in records] == ['baseline', 'fault', 'recovery']
+    finally:
+        original_function.__code__ = original_code
+        state = object.__getattribute__(access, '__dict__')
+        state.clear()
+        state.update(original_access)
+        assert (id(packet['access']), dict(vars(packet['access']))) == fixture_access
+        assert current_principal() is None and public._registry(registry) == registry_state
+        assert len(os.listdir('/proc/self/fd')) == fd_before
+        assert artifact_cases._inventory(directories) == before
+        assert {path: sha256((artifact_cases.ROOT / path).read_bytes()).hexdigest() for path in source_paths} == sources_before
+
+
+
+@_tls_pytest.mark.parametrize('fault', ['bytes', 'mode', 'directory'],
+    ids=['selected_source_bytes', 'selected_source_mode', 'owned_directory_identity'])
+def test_final_source_fences_reject_only_owned_copy_mutations(first_artifact, tmp_path, fault):
+    import errno
+    import json
+    import shutil
+    import stat
+    from app import api_supply_material_repeat as public
+    from app import crop_morphology_artifact_io as storage
+
+    packet = first_artifact
+    _, reader = artifact_cases._api()
+    original_directories = [packet['directory'], *artifact_cases._directories(packet['parent'])]
+    originals_before = artifact_cases._inventory(original_directories)
+    fixture_access = (id(packet['access']), dict(vars(packet['access'])))
+    directory = shutil.copytree(packet['directory'], tmp_path / 'owned-copy')
+    assert directory != packet['directory'] and directory.parent == tmp_path
+    access = ContentAccess(packet['access'].owner_uid, packet['access'].reader_gid)
+    access.require_writer()
+    spare, parked = tmp_path / 'owned-empty-replacement', tmp_path / 'owned-parked-copy'
+    spare.mkdir(mode=0o750)
+    spare.chmod(0o750)
+    for path in (directory, spare):
+        fd = os.open(path, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+        try:
+            access.validate(fd, directory=True)
+        finally:
+            os.close(fd)
+    descriptor = packet['manifest']['blob_groups']['base'][0]
+    target_hash = descriptor['sha256']
+    target = directory / target_hash
+    original_blob = target.read_bytes()
+    assert len(original_blob) == descriptor['bytes'] and sha256(original_blob).hexdigest() == target_hash
+
+    def stamp(info):
+        return (info.st_dev, info.st_ino, stat.S_IMODE(info.st_mode), info.st_uid, info.st_gid,
+                info.st_nlink, info.st_size, info.st_mtime_ns, info.st_ctime_ns)
+
+    def copy_state():
+        info = directory.stat(follow_symlinks=False)
+        assert stat.S_ISDIR(info.st_mode) and stat.S_IMODE(info.st_mode) == 0o750
+        assert (info.st_uid, info.st_gid) == (access.owner_uid, access.reader_gid)
+        files = {}
+        for path in directory.iterdir():
+            before = path.stat(follow_symlinks=False)
+            assert stat.S_ISREG(before.st_mode) and before.st_nlink == 1
+            assert stat.S_IMODE(before.st_mode) == 0o640
+            assert (before.st_uid, before.st_gid) == (access.owner_uid, access.reader_gid)
+            raw = path.read_bytes()
+            assert sha256(raw).hexdigest() == path.name
+            assert stamp(path.stat(follow_symlinks=False)) == stamp(before)
+            files[path.name] = (stamp(before), sha256(raw).hexdigest())
+        return stamp(info), files
+
+    initial_copy = copy_state()
+    token = secrets.token_urlsafe(32).encode('ascii')
+    now = datetime.now(timezone.utc)
+    grant = BearerGrant(token_digest(token), 'own-repeat-http-test', frozenset({'metadata', 'artifact'}),
+                        now - timedelta(seconds=1), now + timedelta(minutes=15))
+    registry = BearerRegistry((grant,))
+    app = _fixed_delivery({**packet, 'directory': directory, 'access': access}, registry)
+    registry_state = public._registry(registry)
+    expected_principal = {'authenticated': True, 'tenant_id': grant.tenant_id, 'scopes': grant.scopes}
+    expected_directory = public._directory(directory, access)
+    records = []
+    active = [None]
+
+    def current(record):
+        assert current_principal() == expected_principal
+        assert public._CLOCK() < record['deadline'] and public._CLOCK() < record['meter'].deadline
+
+    def closed(record):
+        assert record['store'].__dict__['_fd'] is None
+        for fd in [record['fd'], *record['directory_check_fds']]:
+            try:
+                os.fstat(fd)
+            except OSError as error:
+                assert error.errno == errno.EBADF
+            else:
+                raise AssertionError('actual source validation descriptor remains open')
+
+    def observe(frame, event, value):
+        record = active[0]
+        assert record is not None
+        if frame.f_code is reader.read_repeat_material_manifest.__code__:
+            if event == 'call':
+                assert record['public_entries'] == 0 and current_principal() == expected_principal
+                record['public_entries'] += 1
+            elif event == 'return':
+                assert type(value) is bytes and value == packet['raw'] and record['load_returns'] == 1
+                closed(record)
+                current(record)
+                record['raw_returns'] += 1
+        elif frame.f_code is reader._load.__code__:
+            if event == 'call':
+                store = frame.f_locals['store']
+                assert type(store) is storage.MorphologyBlobStore and store._access is access and store._write is False
+                fd = store.__dict__['_fd']
+                assert type(fd) is int
+                assert (os.fstat(fd).st_dev, os.fstat(fd).st_ino) == initial_copy[0][:2]
+                caller = frame.f_back
+                while caller is not None and not (caller.f_code.co_filename == public.__file__
+                        and caller.f_code.co_name == 'checked_read'):
+                    caller = caller.f_back
+                assert caller is not None
+                record.update(store=store, fd=fd, meter=frame.f_locals['meter'], deadline=caller.f_locals['deadline'],
+                    entered=caller.f_locals['entered'], finished=caller.f_locals['finished'], stopped=caller.f_locals['stopped'])
+                assert record['entered'].is_set() and not record['finished'].is_set() and not record['stopped'].is_set()
+                current(record)
+                record['load_entries'] += 1
+            elif event == 'return':
+                assert type(value) is tuple and len(value) == 4 and value[0] == packet['raw']
+                record['load_returns'] += 1
+        elif frame.f_code is reader._fence.__code__ and event == 'call':
+            if frame.f_locals['complete'] is True and frame.f_back.f_code is reader._read.__code__:
+                assert record['load_returns'] == 1 and frame.f_locals['store'] is record['store']
+                witness = frame.f_locals['witnessed'][target_hash]
+                assert witness[0] == original_blob
+                record['witness_meta'] = witness[1]
+                record['final_fences'] += 1
+                if record['mode'] == 'fault' and fault == 'directory':
+                    current(record)
+                    assert not record['mutation_started'] and not record['finished'].is_set()
+                    assert target.read_bytes() == original_blob and not parked.exists()
+                    record['mutation_started'] = True
+                    directory.rename(parked)
+                    spare.rename(directory)
+                    named = directory.stat(follow_symlinks=False)
+                    assert (named.st_dev, named.st_ino) != initial_copy[0][:2]
+                    assert stat.S_IMODE(named.st_mode) == 0o750
+                    assert (named.st_uid, named.st_gid) == (access.owner_uid, access.reader_gid)
+                    record['injected'] = True
+        elif frame.f_code is storage.MorphologyBlobStore._usage.__code__ and event == 'return':
+            caller = frame.f_back
+            if (caller.f_code is reader._fence.__code__ and caller.f_locals['complete'] is True
+                    and caller.f_back.f_code is reader._read.__code__):
+                assert record['final_fences'] == 1 and record['load_returns'] == 1
+                assert frame.f_locals['self'] is record['store']
+                assert type(value) is tuple and len(value) == 2 and value[1] == len(initial_copy[1])
+                record['final_usage_returns'] += 1
+                if record['mode'] == 'fault' and fault in ('bytes', 'mode'):
+                    current(record)
+                    assert not record['mutation_started'] and not record['finished'].is_set()
+                    assert reader.base._metadata(target.stat(follow_symlinks=False)) == record['witness_meta']
+                    assert target.read_bytes() == original_blob and stat.S_IMODE(target.stat().st_mode) == 0o640
+                    record['mutation_started'] = True
+                    if fault == 'bytes':
+                        fd = os.open(target, os.O_WRONLY | os.O_NOFOLLOW)
+                        try:
+                            assert os.write(fd, bytes([original_blob[0] ^ 1])) == 1
+                        finally:
+                            os.close(fd)
+                        assert target.stat().st_size == len(original_blob)
+                        assert sha256(target.read_bytes()).hexdigest() != target_hash
+                    else:
+                        target.chmod(0o600)
+                        assert stat.S_IMODE(target.stat().st_mode) == 0o600
+                    assert reader.base._metadata(target.stat(follow_symlinks=False)) != record['witness_meta']
+                    record['injected'] = True
+        elif frame.f_code is reader.need.__code__ and event == 'call' and not frame.f_locals['condition']:
+            caller = frame.f_back
+            if (frame.f_locals['message'] == 'STORAGE_HOLD: selected artifact metadata changed'
+                    and caller.f_code is reader._fence.__code__ and caller.f_locals['h'] == target_hash):
+                assert record['mode'] == 'fault' and fault in ('bytes', 'mode') and record['injected']
+                assert caller.f_locals['meta'] == record['witness_meta'] and caller.f_locals['before'] != record['witness_meta']
+                current(record)
+                record['metadata_rejections'] += 1
+            else:
+                record['other_false_predicates'].append(('reader', frame.f_locals['message']))
+        elif frame.f_code is storage._need.__code__ and event == 'call' and not frame.f_locals['condition']:
+            caller = frame.f_back
+            if (frame.f_locals['reason'] == 'STORAGE_HOLD: artifact directory replaced'
+                    and caller.f_code is storage.MorphologyBlobStore._guard.__code__):
+                assert record['mode'] == 'fault' and fault == 'directory' and record['injected']
+                assert caller.f_locals['self'] is record['store']
+                held, opened = caller.f_locals['held'], caller.f_locals['opened']
+                assert (held.st_dev, held.st_ino) == initial_copy[0][:2]
+                assert (held.st_dev, held.st_ino) != (opened.st_dev, opened.st_ino)
+                record['directory_check_fds'].append(caller.f_locals['current'])
+                current(record)
+                record['directory_rejections'] += 1
+            else:
+                record['other_false_predicates'].append(('store', frame.f_locals['reason']))
+        elif frame.f_code is public._directory.__code__ and event == 'return':
+            assert frame.f_locals['directory'] == directory and frame.f_locals['access'] is access
+            if record['injected'] and fault == 'directory':
+                assert value != expected_directory
+                record['changed_directory'] += 1
+            else:
+                assert value == expected_directory
+        elif frame.f_code is public._Release.__call__.__code__ and event == 'call':
+            assert record['mode'] != 'fault' and record['raw_returns'] == 1 and record['finished'].is_set()
+            closed(record)
+            record['releases'] += 1
+
+    def repair(record):
+        if not record['mutation_started']:
+            return
+        assert record['entered'].is_set() and record['finished'].is_set()
+        closed(record)
+        if fault == 'directory':
+            if parked.exists():
+                if directory.exists():
+                    assert not list(directory.iterdir()) and not spare.exists()
+                    directory.rename(spare)
+                parked.rename(directory)
+        else:
+            target.write_bytes(original_blob)
+            target.chmod(0o640)
+        after = copy_state()
+        assert after[0][:7] == initial_copy[0][:7] and set(after[1]) == set(initial_copy[1])
+        for name, (metadata, digest) in after[1].items():
+            original_metadata, original_digest = initial_copy[1][name]
+            assert digest == original_digest and metadata[:7] == original_metadata[:7]
+            if fault == 'directory' or name != target_hash:
+                assert metadata == original_metadata
+        record['repaired'] = True
+
+    source_paths = set(packet['manifest']['code_sha256']) | set(PINNED_SOURCES) | {
+        'backend/app/api_supply_material_repeat.py', 'contracts/supply-material-repeat-protected-delivery-v1.md'}
+    sources_before = {path: sha256((artifact_cases.ROOT / path).read_bytes()).hexdigest() for path in source_paths}
+    fd_before = len(os.listdir('/proc/self/fd'))
+    try:
+        with artifact_cases.qa._watch(observe, {reader.read_repeat_material_manifest.__code__, reader._load.__code__,
+                reader._fence.__code__, storage.MorphologyBlobStore._usage.__code__, reader.need.__code__,
+                storage._need.__code__, public._directory.__code__, public._Release.__call__.__code__}):
+            for mode in ('baseline', 'fault', 'recovery'):
+                record = {'mode': mode, 'public_entries': 0, 'load_entries': 0, 'load_returns': 0,
+                          'raw_returns': 0, 'final_fences': 0, 'final_usage_returns': 0, 'releases': 0,
+                          'mutation_started': False, 'injected': False, 'repaired': False,
+                          'metadata_rejections': 0, 'directory_rejections': 0, 'changed_directory': 0,
+                          'directory_check_fds': [], 'other_false_predicates': []}
+                records.append(record)
+                active[0] = record
+                try:
+                    response = asyncio.run(_asgi_manifest_get(app, token))
+                    assert record['public_entries'] == record['load_entries'] == record['load_returns'] == record['final_fences'] == 1
+                    assert record['entered'].is_set() and record['finished'].is_set() and not record['stopped'].is_set()
+                    closed(record)
+                    assert record['other_false_predicates'] == [] and response.headers['cache-control'] == 'no-store'
+                    if mode == 'fault':
+                        assert record['injected'] and record['raw_returns'] == record['releases'] == 0
+                        assert response.content != packet['raw']
+                        if fault == 'directory':
+                            assert record['directory_rejections'] == 1 and record['changed_directory'] > 0
+                            assert record['metadata_rejections'] == record['final_usage_returns'] == 0
+                            assert response.status_code == 503
+                            expected_error = {'error': {'code': 'repeat_material_unavailable', 'message': 'Repeat material unavailable'}}
+                        else:
+                            assert record['metadata_rejections'] == record['final_usage_returns'] == 1
+                            assert record['directory_rejections'] == record['changed_directory'] == 0
+                            assert response.status_code == 422
+                            expected_error = {'error': {'code': 'repeat_material_hold', 'message': 'Repeat material evidence unavailable'}}
+                        assert json.loads(response.content) == expected_error
+                    else:
+                        assert response.status_code == 200 and response.content == packet['raw']
+                        assert record['raw_returns'] == record['final_usage_returns'] == record['releases'] == 1
+                        assert record['metadata_rejections'] == record['directory_rejections'] == record['changed_directory'] == 0
+                finally:
+                    repair(record)
+                assert current_principal() is None and public._registry(registry) == registry_state
+            assert records[1]['repaired'] and [record['mode'] for record in records] == ['baseline', 'fault', 'recovery']
+    finally:
+        for record in records:
+            if record['mutation_started'] and not record['repaired']:
+                repair(record)
+        assert (id(packet['access']), dict(vars(packet['access']))) == fixture_access
+        assert current_principal() is None and public._registry(registry) == registry_state
+        assert len(os.listdir('/proc/self/fd')) == fd_before
+        assert artifact_cases._inventory(original_directories) == originals_before
+        assert {path: sha256((artifact_cases.ROOT / path).read_bytes()).hexdigest() for path in source_paths} == sources_before
