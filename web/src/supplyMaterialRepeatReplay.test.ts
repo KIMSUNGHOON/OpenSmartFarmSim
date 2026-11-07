@@ -764,3 +764,94 @@ it('composes strict same-selection replay with the raw HTTP adapter and clears a
   expect(callerPins).toEqual(pair.expected);
  }finally{request.cancel();}
 });
+
+
+import type {RepeatSelection as _MetricSelection} from './supplyMaterialRepeatReplay';
+import type {RepeatBinding as _MetricBinding,RepeatPhase as _MetricPhase} from './supplyMaterialRepeatWire';
+import {ApiError as _MetricApiError} from './api-validation';
+type _MetricQ<U extends string>={value:number;unit:U};
+type _MetricX<U extends string>={numerator:string;denominator:string;unit:U};
+type _MetricRow<U extends 'm2'|'m'>={id:string;parent_internode_id:string|null;geometry:_MetricQ<U>;
+ carbon:_MetricQ<'mg_CH2O/m2_floor'>;clock_exact:_MetricX<'degC_day'>;geometry_diagnostics:{deficit_exact:_MetricX<U>}};
+type _MetricView={metric:{index:number;phase:_MetricPhase;
+ at:{time_origin_utc:string;elapsed_seconds_exact:_MetricX<'s'>};G0_G4:'not_assessed';R2:'not_approved';
+ leaves:_MetricRow<'m2'>[];internodes:_MetricRow<'m'>[]};
+ identity:{rootSha256:string;index:number;binding:_MetricBinding};dimensions:{n:number;m:number;h:number};evidence:_MetricSelection};
+
+it('projects only copied bound metric rows from successful repeat selections without moving their evidence into scene metadata',async()=>{
+ const {pair,expected}=await repeatRequestAdversePair();
+ const replayPath='./supplyMaterialRepeatReplay';
+ const replay:typeof import('./supplyMaterialRepeatReplay')=await import(/* @vite-ignore */ replayPath);
+ const calls:string[]=[];
+ const read:RepeatRequestRead=async(selection,signal)=>{
+  signal.throwIfAborted();calls.push(selection.kind==='manifest'?'manifest':'frame'+selection.index);
+  if(selection.kind==='manifest')return pair.raw.slice();
+  if(selection.index===0||selection.index===1)return pair.rows[selection.index]!.raw.slice();
+  throw new Error('unexpected own metric selection');
+ };
+ const request=new replay.SupplyMaterialRepeatRequest(read,pair.expected);
+ try{
+  const selected=[await request.select(0),await request.select(1)];
+  expect(selected[0]).toEqual(expected(0));expect(selected[1]).toEqual(expected(1));
+  expect(selected.map(value=>[value.frame.leaves.length,value.frame.internodes.length,value.frame.snapshot.state.length]))
+   .toEqual([[11,12,176],[12,13,182]]);
+  expect(selected[0]!.frame.at).toEqual(selected[1]!.frame.at);
+  expect(selected.map(value=>value.frame.binding.kind)).toEqual(['dense_material_before','adopted_material_after']);
+  expect(selected[0]!.frame.binding.active_basis_sha256).not.toBe(selected[1]!.frame.binding.active_basis_sha256);
+  expect(selected[0]!.frame.accounts.event_sequence).toBe(10n**309n);
+  expect(selected[1]!.frame.accounts.event_sequence).toBe(10n**309n+1n);
+  expect(calls).toEqual(['manifest','frame0','manifest','frame1']);
+  const original=structuredClone(selected);
+  const metricPath='./supplyMaterialRepeatMetric';
+  const api:{repeatMetricView:(selection:Readonly<_MetricSelection>)=>_MetricView}=
+   await import(/* @vite-ignore */ metricPath);
+  expect(typeof api.repeatMetricView).toBe('function');
+  const views=selected.map(value=>api.repeatMetricView(value));
+  expect(views.map(value=>value.dimensions)).toEqual([{n:11,m:13,h:12},{n:12,m:14,h:13}]);
+  for(const [i,view]of views.entries()){
+   const input=selected[i]!;
+   expect(view.identity).toEqual({rootSha256:input.rootSha256,index:input.index,binding:input.frame.binding});
+   expect(view.evidence).toEqual(input);expect(Object.is(view.evidence,input)).toBe(false);
+   expect(Object.is(view.identity.binding,view.evidence.frame.binding)).toBe(false);
+   expect(view.metric.index).toBe(input.index);expect(view.metric.phase).toBe(input.frame.phase);
+   expect(view.metric.at).toEqual(input.frame.at);expect(view.metric.G0_G4).toBe('not_assessed');expect(view.metric.R2).toBe('not_approved');
+   const groups:Array<[Array<_MetricRow<'m2'>|_MetricRow<'m'>>,_MetricSelection['frame']['leaves'],'m2'|'m']>=[
+    [view.metric.leaves,input.frame.leaves,'m2'],[view.metric.internodes,input.frame.internodes,'m']];
+   for(const [rows,source,unit]of groups){
+    expect(rows.map(row=>[row.id,row.parent_internode_id])).toEqual(source.map(row=>[row.id,row.parent_internode_id]));
+    for(const [j,row]of rows.entries()){
+     const stored=source[j]!;
+     expect(Object.keys(row).sort()).toEqual(['id','parent_internode_id','geometry','carbon','clock_exact','geometry_diagnostics'].sort());
+     expect(row.geometry).toEqual({value:stored.geometry.value,unit});
+     expect(row.carbon).toEqual({value:stored.carbon.value,unit:'mg_CH2O/m2_floor'});
+     expect(row.clock_exact).toEqual(stored.clock_exact);
+     expect(row.geometry_diagnostics).toEqual({deficit_exact:stored.geometry_diagnostics.deficit_exact});
+     expect(Object.is(row.geometry,stored.geometry)).toBe(false);
+    }
+   }
+   expect(()=>JSON.stringify({metric:view.metric,identity:view.identity,dimensions:view.dimensions})).not.toThrow();
+   expect(view.evidence.frame.accounts.event_sequence).toBe(input.frame.accounts.event_sequence);
+   expect(view.evidence.frame.leaves.map(row=>[row.source_index,row.birth,row.geometry_origin,row.metadata,row.geometry_diagnostics]))
+    .toEqual(input.frame.leaves.map(row=>[row.source_index,row.birth,row.geometry_origin,row.metadata,row.geometry_diagnostics]));
+  }
+  expect(views[0]!.evidence.frame.leaves[0]!.geometry_diagnostics.canonical_gap_exact).toBeNull();
+  expect(views[1]!.evidence.frame.leaves[0]!.geometry_diagnostics.canonical_gap_exact).not.toBeNull();
+  expect(views[1]!.metric.internodes.some(row=>Object.is(row.geometry.value,0))).toBe(true);
+  const area=original[0]!.frame.leaves[0]!.geometry.value;
+  views[0]!.metric.leaves[0]!.geometry.value=area+1;
+  expect(views[0]!.evidence).toEqual(original[0]);expect(selected).toEqual(original);
+  views[0]!.evidence.frame.leaves[0]!.birth.own_copy_control='changed view evidence';
+  expect(selected).toEqual(original);expect(views[0]!.metric.leaves[0]!.geometry.value).toBe(area+1);
+  if(views[0]!.identity.binding.kind!=='dense_material_before')throw new Error('expected own dense binding');
+  views[0]!.identity.binding.source.receipt.bytes++;
+  expect(views[0]!.evidence.frame.binding).toEqual(original[0]!.frame.binding);
+  const independent=api.repeatMetricView(selected[0]!);selected[0]!.frame.leaves[0]!.geometry.value=area+2;
+  expect(independent.evidence).toEqual(original[0]);expect(independent.metric.leaves[0]!.geometry.value).toBe(area);
+  const wrongUnit=structuredClone(original[0]!);wrongUnit.frame.leaves[0]!.geometry.unit='m';
+  expect(()=>api.repeatMetricView(wrongUnit)).toThrow(_MetricApiError);
+  const wrongBasis=structuredClone(original[0]!);wrongBasis.frame.binding.active_basis_sha256='0'.repeat(64);
+  expect(()=>api.repeatMetricView(wrongBasis)).toThrow(_MetricApiError);
+  expect(api.repeatMetricView(original[0]!).evidence).toEqual(original[0]);
+  expect(calls).toEqual(['manifest','frame0','manifest','frame1']);
+ }finally{request.cancel();}
+});
